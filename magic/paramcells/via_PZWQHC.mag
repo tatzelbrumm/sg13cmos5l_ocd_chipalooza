@@ -1,0 +1,15 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1774723533
+<< via4 >>
+rect -619 -619 619 619
+<< metal5 >>
+rect -651 619 651 651
+rect -651 -619 -619 619
+rect 619 -619 651 619
+rect -651 -651 651 -619
+<< properties >>
+string gencell via
+string library sg13cmos5l
+string parameters metalbot metal4 metaltop metal5 nxcuts 15 nycuts 15 orient default pattern none
+<< end >>

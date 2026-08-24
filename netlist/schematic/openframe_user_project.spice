@@ -1,0 +1,1483 @@
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/xschem/openframe_user_project.sch
+.subckt openframe_user_project vddio vssio vccd vssd gpio0_zero gpio0_ena gpio0_out gpio1_zero gpio1_ena gpio1_out UART_Rx_zero
++ UART_Rx_ena vbg ref_in UART_Rx_out UART_Tx_ena UART_Tx_zero UART_Tx_out spi_SDI_zero spi_SDI_ena spi_SDI_out test_source_ibias spi_CSB_ena
++ spi_CSB_zero idac1_source spi_CSB_out voltgen_vout1 idac1_sink spi_SCK_zero spi_SCK_ena idac2_source voltgen_vout2 idac2_sink spi_SCK_out
++ test_source flash_csb_zero flash_csb_ena flash_csb_out flash_clk_zero flash_clk_ena flash_clk_out flash_io0_zero flash_io0_ena flash_io0_out
++ resetb_in spi_SCK_in spi_SDO_out spi_SDI_in flash_io1_zero flash_io1_ena spi_CSB_in spi_SDO_ena flash_io1_out mask_rev[31] mask_rev[30]
++ mask_rev[29] mask_rev[28] mask_rev[27] mask_rev[26] mask_rev[25] mask_rev[24] mask_rev[23] mask_rev[22] mask_rev[21] mask_rev[20] mask_rev[19]
++ mask_rev[18] mask_rev[17] mask_rev[16] mask_rev[15] mask_rev[14] mask_rev[13] mask_rev[12] mask_rev[11] mask_rev[10] mask_rev[9] mask_rev[8]
++ mask_rev[7] mask_rev[6] mask_rev[5] mask_rev[4] mask_rev[3] mask_rev[2] mask_rev[1] mask_rev[0] flash_io2_zero flash_io2_ena flash_io2_out
++ flash_io3_zero flash_io3_ena flash_io3_out spi_SDO_one spi_SDO_zero flash_io3_one
+*.PININFO vddio:B vssio:B vccd:B vssd:B resetb_in:I mask_rev[31:0]:I spi_SDO_out:O spi_SDO_ena:O spi_SDI_ena:O spi_SDI_out:O
+*+ spi_SDI_zero:I spi_SDI_in:I spi_CSB_ena:O spi_CSB_out:O spi_CSB_zero:I spi_CSB_in:I spi_SCK_ena:O spi_SCK_out:O spi_SCK_zero:I spi_SCK_in:I
+*+ vbg:O ref_in:I idac1_sink:I idac2_sink:I idac1_source:O idac2_source:O test_source_ibias:O voltgen_vout1:O voltgen_vout2:O
+*+ spi_SDO_one:I spi_SDO_zero:I flash_io3_one:I gpio1_ena:O gpio1_out:O gpio1_zero:I UART_Rx_ena:O UART_Rx_out:O UART_Rx_zero:I UART_Tx_ena:O
+*+ UART_Tx_out:O UART_Tx_zero:I flash_csb_ena:O flash_csb_out:O flash_csb_zero:I flash_clk_ena:O flash_clk_out:O flash_clk_zero:I flash_io0_ena:O
+*+ flash_io0_out:O flash_io0_zero:I flash_io1_ena:O flash_io1_out:O flash_io1_zero:I flash_io2_ena:O flash_io2_out:O flash_io2_zero:I
+*+ flash_io3_ena:O flash_io3_out:O flash_io3_zero:I gpio0_ena:O gpio0_out:O gpio0_zero:I test_source:O
+x1 control[80] vddio vssio vssd vccd vdda7 power_stage
+x2 control[79] vddio vssio vssd vccd vdda6 power_stage
+x3 control[78] vddio vssio vssd vccd vdda5 power_stage
+x4 control[77] vddio vssio vssd vccd vdda4 power_stage
+x5 control[76] vddio vssio vssd vccd vdda3 power_stage
+x6 control[75] vddio vssio vssd vccd vdda2 power_stage
+x7 control[74] vddio vssio vssd vccd vdda1 power_stage
+x8 control[21] vddio vssio vssd vccd vdda10 power_stage
+x9 control[22] vddio vssio vssd vccd vdda11 power_stage
+x10 control[23] vddio vssio vssd vccd vdda12 power_stage
+x11 control[24] vddio vssio vssd vccd vdda13 power_stage
+x12 control[25] vddio vssio vssd vccd vdda14 power_stage
+x13 control[26] vddio vssio vssd vccd vdda15 power_stage
+x14 control[27] vddio vssio vssd vccd vdda16 power_stage
+x15 vdda12 vbg vssio net1 control[29] control[30] control[31] control[32] control[33] control[34] control[35] control[36]
++ control[37] control[38] control[39] control[40] control[41] control[42] control[43] control[44] vssd vccd control[28] idac1_sink
++ sg13cmos5l_ocd_ip__bandgap
+x16 control[88] vddio vssio ref_in vccd vbg control[87] vssd test_source control[71] control[72] control[73] control[82]
++ control[83] control[107] control[106] control[105] control[104] control[103] control[58] control[59] control[60] control[61] control[62] net1
++ control[45] control[46] control[47] control[48] control[49] control[121] control[120] control[119] control[118] control[117] net4 control[94]
++ control[93] control[92] control[91] control[90] test_source_ibias control[63] control[64] control[65] control[66] control[67] control[68]
++ control[69] control[70] net2 net3 idac1_source idac2_source control[102] control[101] control[100] control[99] control[98] control[97]
++ control[96] control[95] control[50] control[51] control[52] control[53] control[54] control[55] control[56] control[57] control[115]
++ control[114] control[113] control[112] control[111] control[110] control[109] control[108] idac1_sink idac2_sink control[86] control[85]
++ sg13cmos5l_ocd_ip__biasgen1
+x17 vccd vssd vdda5 control[116] control[122] control[123] vbg vssio net4 voltgen_vout2 net2 control[124] voltgen_vout1
++ control[126] control[125] net3 control[127] sg13cmos5l_ocd_ip__voltgen
+x18 spi_SDI_in mask_rev[31] mask_rev[30] mask_rev[29] mask_rev[28] mask_rev[27] mask_rev[26] mask_rev[25] mask_rev[24]
++ mask_rev[23] mask_rev[22] mask_rev[21] mask_rev[20] mask_rev[19] mask_rev[18] mask_rev[17] mask_rev[16] mask_rev[15] mask_rev[14] mask_rev[13]
++ mask_rev[12] mask_rev[11] mask_rev[10] mask_rev[9] mask_rev[8] mask_rev[7] mask_rev[6] mask_rev[5] mask_rev[4] mask_rev[3] mask_rev[2]
++ mask_rev[1] mask_rev[0] spi_CSB_in flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero
++ flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero
++ flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero
++ flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_zero flash_io3_one flash_io3_one
++ flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one
++ flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one
++ flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one flash_io3_one
++ spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero
++ spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero
++ spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_zero spi_SDO_one
++ spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one
++ spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one
++ spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_one spi_SDO_out spi_SDO_ena vccd vssd
++ resetb_in net5 spi_SCK_in control[127] control[126] control[125] control[124] control[123] control[122] control[121] control[120]
++ control[119] control[118] control[117] control[116] control[115] control[114] control[113] control[112] control[111] control[110] control[109]
++ control[108] control[107] control[106] control[105] control[104] control[103] control[102] control[101] control[100] control[99] control[98]
++ control[97] control[96] control[95] control[94] control[93] control[92] control[91] control[90] control[89] control[88] control[87]
++ control[86] control[85] control[84] control[83] control[82] control[81] control[80] control[79] control[78] control[77] control[76]
++ control[75] control[74] control[73] control[72] control[71] control[70] control[69] control[68] control[67] control[66] control[65]
++ control[64] control[63] control[62] control[61] control[60] control[59] control[58] control[57] control[56] control[55] control[54]
++ control[53] control[52] control[51] control[50] control[49] control[48] control[47] control[46] control[45] control[44] control[43]
++ control[42] control[41] control[40] control[39] control[38] control[37] control[36] control[35] control[34] control[33] control[32]
++ control[31] control[30] control[29] control[28] control[27] control[26] control[25] control[24] control[23] control[22] control[21]
++ control[20] control[19] control[18] control[17] control[16] control[15] control[14] control[13] control[12] control[11] control[10]
++ control[9] control[8] control[7] control[6] control[5] control[4] control[3] control[2] control[1] control[0] housekeeping_top
+* noconn #net5
+* noconn control[19:0]
+* noconn control[89]
+* noconn control[84]
+R1 gpio1_ena gpio1_zero 0.0293 m=1
+R2 gpio1_out gpio1_zero 0.0293 m=1
+R3 UART_Rx_ena UART_Rx_zero 0.0293 m=1
+R4 UART_Rx_out UART_Rx_zero 0.0293 m=1
+R5 UART_Tx_ena UART_Tx_zero 0.0293 m=1
+R6 UART_Tx_out UART_Tx_zero 0.0293 m=1
+R7 spi_SDI_ena spi_SDI_zero 0.0293 m=1
+R8 spi_SDI_out spi_SDI_zero 0.0293 m=1
+R9 spi_CSB_ena spi_CSB_zero 0.0293 m=1
+R10 spi_CSB_out spi_CSB_zero 0.0293 m=1
+R11 spi_SCK_ena spi_SCK_zero 0.0293 m=1
+R12 spi_SCK_out spi_SCK_zero 0.0293 m=1
+x19 control[81] vddio vssio vssd vccd vdda8 power_stage
+x20 control[20] vddio vssio vssd vccd vdda9 power_stage
+R13 gpio0_ena gpio0_zero 0.018 m=1
+R14 gpio0_out gpio0_zero 0.018 m=1
+R15 flash_csb_ena flash_csb_zero 0.018 m=1
+R16 flash_csb_out flash_csb_zero 0.018 m=1
+R17 flash_clk_ena flash_clk_zero 0.018 m=1
+R18 flash_clk_out flash_clk_zero 0.018 m=1
+R19 flash_io0_ena flash_io0_zero 0.018 m=1
+R20 flash_io0_out flash_io0_zero 0.018 m=1
+R21 flash_io1_ena flash_io1_zero 0.018 m=1
+R22 flash_io1_out flash_io1_zero 0.018 m=1
+R23 flash_io2_ena flash_io2_zero 0.0293 m=1
+R24 flash_io2_out flash_io2_zero 0.0293 m=1
+R25 flash_io3_ena flash_io3_zero 0.0293 m=1
+R26 flash_io3_out flash_io3_zero 0.0293 m=1
+.ends
+
+* expanding   symbol:  power_stage.sym # of pins=6
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/power_stage.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/power_stage.sch
+.subckt power_stage enable IOVDD_IN IOVSS DVSS DVDD IOVDD_OUT
+*.PININFO enable:I IOVDD_IN:I DVSS:I DVDD:I IOVSS:I IOVDD_OUT:O
+XM14 IOVDD_OUT P_DRIVE IOVDD_IN IOVDD_IN sg13_hv_pmos w=4.36u l=0.4u ng=1 m=760
+x2 net1 net2 P_DRIVE IOVDD_IN IOVSS gate_drive
+x1 net1 enable DVDD DVSS sg13cmos5l_inv_4
+x3 net2 net1 DVDD DVSS sg13cmos5l_inv_4
+x4[1] DVDD DVSS sg13cmos5l_decap_4
+x4[0] DVDD DVSS sg13cmos5l_decap_4
+x9 enable DVDD DVSS sg13cmos5l_antennanp
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_ocd_ip__bandgap.sym # of pins=9
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__bandgap.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__bandgap.sch
+.subckt sg13cmos5l_ocd_ip__bandgap vdd vbg vss ibias1_250n trim[15] trim[14] trim[13] trim[12] trim[11] trim[10] trim[9] trim[8]
++ trim[7] trim[6] trim[5] trim[4] trim[3] trim[2] trim[1] trim[0] dvss dvdd ena ibias2_1u
+*.PININFO trim[15:0]:I ena:I vbg:O ibias2_1u:B ibias1_250n:B vdd:B dvdd:B dvss:B vss:B
+x1 vdd vbg_unbuf vss ibias1_250n trim[15] trim[14] trim[13] trim[12] trim[11] trim[10] trim[9] trim[8] trim[7] trim[6] trim[5]
++ trim[4] trim[3] trim[2] trim[1] trim[0] dvss dvdd ena ena_b_h bandgap_unbuffered
+x2 vdd vbg vbg_unbuf vbg vss ibias2_1u ena_b_h se_folded_cascode_np_ab
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_ocd_ip__biasgen1.sym # of pins=30
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__biasgen1.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__biasgen1.sch
+.subckt sg13cmos5l_ocd_ip__biasgen1 ena avdd avss ref_in dvdd vbg ref_sel_vbg dvss bandgap_source_ibias bandgap_source[4]
++ bandgap_source[3] bandgap_source[2] bandgap_source[1] bandgap_source[0] bandgap_sink[4] bandgap_sink[3] bandgap_sink[2] bandgap_sink[1]
++ bandgap_sink[0] voltgen_source1[4] voltgen_source1[3] voltgen_source1[2] voltgen_source1[1] voltgen_source1[0] bandgap_sink_ibias
++ voltgen_source2[4] voltgen_source2[3] voltgen_source2[2] voltgen_source2[1] voltgen_source2[0] voltgen_sink[4] voltgen_sink[3] voltgen_sink[2]
++ voltgen_sink[1] voltgen_sink[0] voltgen_source1_ibias test_sink[4] test_sink[3] test_sink[2] test_sink[1] test_sink[0] voltgen_source2_ibias
++ idac1_source[7] idac1_source[6] idac1_source[5] idac1_source[4] idac1_source[3] idac1_source[2] idac1_source[1] idac1_source[0]
++ voltgen_sink_ibias test_sink_ibias idac1_source idac2_source idac1_sink[7] idac1_sink[6] idac1_sink[5] idac1_sink[4] idac1_sink[3] idac1_sink[2]
++ idac1_sink[1] idac1_sink[0] idac2_source[7] idac2_source[6] idac2_source[5] idac2_source[4] idac2_source[3] idac2_source[2] idac2_source[1]
++ idac2_source[0] idac2_sink[7] idac2_sink[6] idac2_sink[5] idac2_sink[4] idac2_sink[3] idac2_sink[2] idac2_sink[1] idac2_sink[0] idac1_sink
++ idac2_sink ref_sel_coarse ref_sel_fine
+*.PININFO avdd:B avss:B dvdd:B dvss:B ena:I ref_in:I vbg:I ref_sel_vbg:I bandgap_sink[4:0]:I voltgen_sink[4:0]:I test_sink[4:0]:I
+*+ idac1_sink[7:0]:I idac2_sink[7:0]:I bandgap_sink_ibias:B voltgen_sink_ibias:B test_sink_ibias:B idac1_sink:B idac2_sink:B ref_sel_fine:I
+*+ ref_sel_coarse:I bandgap_source_ibias:B voltgen_source1_ibias:B voltgen_source2_ibias:B idac1_source:B idac2_source:B bandgap_source[4:0]:I
+*+ voltgen_source1[4:0]:I voltgen_source2[4:0]:I idac1_source[7:0]:I idac2_source[7:0]:I
+x1 avdd ena vbg net1 avss dvdd dvss ref_sel_vbg ref_in dvss nbias pcasc pbias net2 dvss ncasc ref_sel_fine ref_sel_coarse avdd
++ bias_generator_fe
+* noconn #net1
+* noconn #net2
+x12 dvdd dvss avdd nbias avss bandgap_sink[4] bandgap_sink[3] bandgap_sink[2] bandgap_sink[1] bandgap_sink[0] bandgap_sink_ibias
++ ncasc avss avss bias_generator_be0n
+x13 dvdd dvss avdd pcasc pbias bandgap_source[4] bandgap_source[3] bandgap_source[2] bandgap_source[1] bandgap_source[0]
++ bandgap_source_ibias avss avdd avdd avdd bias_generator_be0p
+x14 dvdd dvss avdd nbias avss idac1_sink[7] idac1_sink[6] idac1_sink[5] idac1_sink[4] idac1_sink[3] idac1_sink[2] idac1_sink[1]
++ idac1_sink[0] idac1_sink ncasc avss avss bias_generator_be1n
+x15 dvdd dvss avdd pcasc pbias idac2_source[7] idac2_source[6] idac2_source[5] idac2_source[4] idac2_source[3] idac2_source[2]
++ idac2_source[1] idac2_source[0] idac2_source avss avdd avdd avdd bias_generator_be1p
+x2 dvdd dvss avdd nbias avss voltgen_sink[4] voltgen_sink[3] voltgen_sink[2] voltgen_sink[1] voltgen_sink[0] voltgen_sink_ibias
++ ncasc avss avss bias_generator_be0n
+x4 dvdd dvss avdd nbias avss test_sink[4] test_sink[3] test_sink[2] test_sink[1] test_sink[0] test_sink_ibias ncasc avss avss
++ bias_generator_be0n
+x3 dvdd dvss avdd nbias avss idac2_sink[7] idac2_sink[6] idac2_sink[5] idac2_sink[4] idac2_sink[3] idac2_sink[2] idac2_sink[1]
++ idac2_sink[0] idac2_sink ncasc avss avss bias_generator_be1n
+x5 dvdd dvss avdd pcasc pbias voltgen_source1[4] voltgen_source1[3] voltgen_source1[2] voltgen_source1[1] voltgen_source1[0]
++ voltgen_source1_ibias avss avdd avdd avdd bias_generator_be0p
+x6 dvdd dvss avdd pcasc pbias voltgen_source2[4] voltgen_source2[3] voltgen_source2[2] voltgen_source2[1] voltgen_source2[0]
++ voltgen_source2_ibias avss avdd avdd avdd bias_generator_be0p
+x7 dvdd dvss avdd pcasc pbias idac1_source[7] idac1_source[6] idac1_source[5] idac1_source[4] idac1_source[3] idac1_source[2]
++ idac1_source[1] idac1_source[0] idac1_source avss avdd avdd avdd bias_generator_be1p
+x8[11] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[10] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[9] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[8] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[7] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[6] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[5] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[4] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[3] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[2] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[1] net4 avss ncasc nbias avss avss avss bias_nstack
+x8[0] net4 avss ncasc nbias avss avss avss bias_nstack
+x9[11] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[10] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[9] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[8] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[7] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[6] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[5] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[4] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[3] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[2] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[1] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+x9[0] avdd pbias pcasc avdd net3 avdd avdd bias_pstack
+* noconn #net4
+* noconn #net3
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_ocd_ip__voltgen.sym # of pins=15
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__voltgen.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/sg13cmos5l_ocd_ip__voltgen.sch
+.subckt sg13cmos5l_ocd_ip__voltgen dvdd dvss vdd s[2] s[1] s[0] vbg vss ibias1u_1 vout2 ibias1u_2 ena vout1 ena1 ena2 ibias1u_3
++ high
+*.PININFO vdd:B vss:B vbg:I vout1:O ibias1u_1:B s[2:0]:I ibias1u_2:B dvdd:B dvss:B ena:I vout2:O ibias1u_3:B ena1:I ena2:I high:I
+C1 vdd net1 1.64p m=1
+XM1 vref7 net1 vdd vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=1
+XR1 vref7 vref6 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR2 vref6 vref5 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR3 vref5 vref4 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR4 vref4 vref3 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR5 vref3 vref2 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR6 vref2 vref1 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR7 vref1 vref0 vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR8 vref0 vss vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+x2 v7b vdd vref7 vpre vss v7 xgate
+x3 vdd v0 v0b vss hv_inv_1
+x4 v6b vdd vref6 vpre vss v6 xgate
+x5 v5b vdd vref5 vpre vss v5 xgate
+x6 v4b vdd vref4 vpre vss v4 xgate
+x7 v3b vdd vref3 vpre vss v3 xgate
+x8 v2b vdd vref2 vpre vss v2 xgate
+x9 v1b vdd vref1 vpre vss v1 xgate
+x10 v0b vdd vref0 vpre vss v0 xgate
+x11 net3 net2 v0 vdd vss level_shift
+x12 net2 net3 dvdd dvss sg13cmos5l_inv_2
+x13 net3 s2b s1b s0b dvdd dvss sg13cmos5l_nand3_1
+x14 s0b s[0] dvdd dvss sg13cmos5l_inv_2
+x15 s1b s[1] dvdd dvss sg13cmos5l_inv_2
+x16 s2b s[2] dvdd dvss sg13cmos5l_inv_2
+x17 s0 s0b dvdd dvss sg13cmos5l_inv_2
+x18 s1 s1b dvdd dvss sg13cmos5l_inv_2
+x19 s2 s2b dvdd dvss sg13cmos5l_inv_2
+x20 vdd v1 v1b vss hv_inv_1
+x21 net5 net4 v1 vdd vss level_shift
+x22 net4 net5 dvdd dvss sg13cmos5l_inv_2
+x23 net5 s2b s1b s0 dvdd dvss sg13cmos5l_nand3_1
+x24 vdd v2 v2b vss hv_inv_1
+x25 net7 net6 v2 vdd vss level_shift
+x26 net6 net7 dvdd dvss sg13cmos5l_inv_2
+x27 net7 s2b s1 s0b dvdd dvss sg13cmos5l_nand3_1
+x28 vdd v3 v3b vss hv_inv_1
+x29 net9 net8 v3 vdd vss level_shift
+x30 net8 net9 dvdd dvss sg13cmos5l_inv_2
+x31 net9 s2b s1 s0 dvdd dvss sg13cmos5l_nand3_1
+x32 vdd v4 v4b vss hv_inv_1
+x33 net11 net10 v4 vdd vss level_shift
+x34 net10 net11 dvdd dvss sg13cmos5l_inv_2
+x35 net11 s2 s1b s0b dvdd dvss sg13cmos5l_nand3_1
+x36 vdd v5 v5b vss hv_inv_1
+x37 net13 net12 v5 vdd vss level_shift
+x38 net12 net13 dvdd dvss sg13cmos5l_inv_2
+x39 net13 s2 s1b s0 dvdd dvss sg13cmos5l_nand3_1
+x40 vdd v6 v6b vss hv_inv_1
+x41 net15 net14 v6 vdd vss level_shift
+x42 net14 net15 dvdd dvss sg13cmos5l_inv_2
+x43 net15 s2 s1 s0b dvdd dvss sg13cmos5l_nand3_1
+x44 vdd v7 v7b vss hv_inv_1
+x45 net17 net16 v7 vdd vss level_shift
+x46 net16 net17 dvdd dvss sg13cmos5l_inv_2
+x47 net17 s2 s1 s0 dvdd dvss sg13cmos5l_nand3_1
+x50 vdd vout1 vout1 vpre ibias1u_2 vss vgen_ena1_b_h p_amp_large
+x1 net19 ena vgen_ena_h vdd vss level_shift
+x51 net19 ena dvdd dvss sg13cmos5l_inv_2
+x48 vdd net1 vbg net18 ibias1u_1 vss vgen_ena_h n_amp_large
+x52 vdd vout2 vpre vout2 vss ibias1u_3 vgen_ena2_b_h se_folded_cascode_p
+x49 ena1 net20 vgen_ena1_b_h vdd vss level_shift
+x53 net20 ena1 dvdd dvss sg13cmos5l_inv_2
+x54 ena2 net21 vgen_ena2_b_h vdd vss level_shift
+x55 net21 ena2 dvdd dvss sg13cmos5l_inv_2
+x56 high_h vdd net18 vref3 vss low_h xgate
+x57 low_h vdd net18 vref2 vss high_h xgate
+x58 net22 high high_h vdd vss level_shift
+x59 net22 high dvdd dvss sg13cmos5l_inv_2
+x60 vdd high_h low_h vss hv_inv_1
+XR9 vss vss vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+XR10 vss vss vss rhigh w=0.5e-6 l=2.5e-6 m=1 b=0
+x67 s[0] dvdd dvss sg13cmos5l_antennanp
+x68 dvdd dvss sg13cmos5l_decap_4
+x61 s[1] dvdd dvss sg13cmos5l_antennanp
+x62 s[2] dvdd dvss sg13cmos5l_antennanp
+x63 high dvdd dvss sg13cmos5l_antennanp
+x64 ena dvdd dvss sg13cmos5l_antennanp
+x65 ena1 dvdd dvss sg13cmos5l_antennanp
+x66 ena2 dvdd dvss sg13cmos5l_antennanp
+.ends
+
+
+* expanding   symbol:  gate_drive.sym # of pins=5
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/gate_drive.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/gate_drive.sch
+.subckt gate_drive in_n in_p out vdd vss
+*.PININFO in_n:I in_p:I vdd:I vss:I out:O
+XM1 net1 in_p vss vss sg13_hv_nmos w=2u l=0.5u ng=1 m=2
+XM2 net1 S1_N vdd vdd sg13_hv_pmos w=4u l=0.5u ng=1 m=2
+XM3 S1_N in_n vss vss sg13_hv_nmos w=2u l=0.5u ng=1 m=2
+XM4 S1_N net1 vdd vdd sg13_hv_pmos w=4u l=0.5u ng=1 m=2
+XM5 S2_N S1_N vdd vdd sg13_hv_pmos w=10u l=0.5u ng=1 m=2
+XM6 S2_N S1_N vss vss sg13_hv_nmos w=5u l=0.5u ng=1 m=2
+XM7 S3_N S2_N vdd vdd sg13_hv_pmos w=10u l=0.5u ng=1 m=6
+XM8 S3_N S2_N vss vss sg13_hv_nmos w=5u l=0.5u ng=1 m=6
+XM9 S4_N S3_N vdd vdd sg13_hv_pmos w=10u l=0.5u ng=1 m=20
+XM10 S4_N S3_N vss vss sg13_hv_nmos w=5u l=0.5u ng=1 m=20
+XM11 out S4_N vdd vdd sg13_hv_pmos w=10u l=0.5u ng=1 m=60
+XM12 out S4_N vss vss sg13_hv_nmos w=5u l=0.5u ng=1 m=60
+.ends
+
+
+* expanding   symbol:  bandgap_unbuffered.sym # of pins=9
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bandgap_unbuffered.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bandgap_unbuffered.sch
+.subckt bandgap_unbuffered vdd vbg vss bias trim[15] trim[14] trim[13] trim[12] trim[11] trim[10] trim[9] trim[8] trim[7] trim[6]
++ trim[5] trim[4] trim[3] trim[2] trim[1] trim[0] dvss dvdd ena ena_b_h
+*.PININFO vdd:B vss:B vbg:O bias:B trim[15:0]:I dvss:B dvdd:B ena:I ena_b_h:O
+XQ2 vss vss net2 pnpMPA a=1.4e-12 p=5.4e-06 m=8
+XQ1 vss vss vn pnpMPA a=1.4e-12 p=5.4e-06 m=1
+C1 gate vss 1.69p m=1
+xres vbg comp vp vn vss net1 vss vss vp vss vss bg_res
+XM1 comp gate vdd vdd sg13_hv_pmos w=4u l=1u ng=1 m=2
+XM2 vbg gate vdd vdd sg13_hv_pmos w=4u l=1u ng=1 m=2
+xtr net1 net2 net4[15] net4[14] net4[13] net4[12] net4[11] net4[10] net4[9] net4[8] net4[7] net4[6] net4[5] net4[4] net4[3]
++ net4[2] net4[1] net4[0] vss bg_trim
+xamp vdd gate vp vn vss bias ena_b_h se_folded_cascode_p
+XM3 vs1 vbg vss vss sg13_hv_nmos w=1u l=1u ng=1 m=1
+XM4 gate vs1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=1
+XM5 vs1 vs2 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=1
+C2 vs2 vss 440.32f m=1
+XM6 vs2 vs2 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=1
+XM7 vss vdd vs2 vs2 sg13_hv_pmos w=1u l=1u ng=1 m=1
+x1[15] net3[15] trim[15] net4[15] vdd vss level_shift
+x1[14] net3[14] trim[14] net4[14] vdd vss level_shift
+x1[13] net3[13] trim[13] net4[13] vdd vss level_shift
+x1[12] net3[12] trim[12] net4[12] vdd vss level_shift
+x1[11] net3[11] trim[11] net4[11] vdd vss level_shift
+x1[10] net3[10] trim[10] net4[10] vdd vss level_shift
+x1[9] net3[9] trim[9] net4[9] vdd vss level_shift
+x1[8] net3[8] trim[8] net4[8] vdd vss level_shift
+x1[7] net3[7] trim[7] net4[7] vdd vss level_shift
+x1[6] net3[6] trim[6] net4[6] vdd vss level_shift
+x1[5] net3[5] trim[5] net4[5] vdd vss level_shift
+x1[4] net3[4] trim[4] net4[4] vdd vss level_shift
+x1[3] net3[3] trim[3] net4[3] vdd vss level_shift
+x1[2] net3[2] trim[2] net4[2] vdd vss level_shift
+x1[1] net3[1] trim[1] net4[1] vdd vss level_shift
+x1[0] net3[0] trim[0] net4[0] vdd vss level_shift
+x2[15] net3[15] trim[15] dvdd dvss sg13cmos5l_inv_2
+x2[14] net3[14] trim[14] dvdd dvss sg13cmos5l_inv_2
+x2[13] net3[13] trim[13] dvdd dvss sg13cmos5l_inv_2
+x2[12] net3[12] trim[12] dvdd dvss sg13cmos5l_inv_2
+x2[11] net3[11] trim[11] dvdd dvss sg13cmos5l_inv_2
+x2[10] net3[10] trim[10] dvdd dvss sg13cmos5l_inv_2
+x2[9] net3[9] trim[9] dvdd dvss sg13cmos5l_inv_2
+x2[8] net3[8] trim[8] dvdd dvss sg13cmos5l_inv_2
+x2[7] net3[7] trim[7] dvdd dvss sg13cmos5l_inv_2
+x2[6] net3[6] trim[6] dvdd dvss sg13cmos5l_inv_2
+x2[5] net3[5] trim[5] dvdd dvss sg13cmos5l_inv_2
+x2[4] net3[4] trim[4] dvdd dvss sg13cmos5l_inv_2
+x2[3] net3[3] trim[3] dvdd dvss sg13cmos5l_inv_2
+x2[2] net3[2] trim[2] dvdd dvss sg13cmos5l_inv_2
+x2[1] net3[1] trim[1] dvdd dvss sg13cmos5l_inv_2
+x2[0] net3[0] trim[0] dvdd dvss sg13cmos5l_inv_2
+x3 ena net5 ena_b_h vdd vss level_shift
+x4 net5 ena dvdd dvss sg13cmos5l_inv_2
+x3[4] dvdd dvss sg13cmos5l_decap_4
+x3[3] dvdd dvss sg13cmos5l_decap_4
+x3[2] dvdd dvss sg13cmos5l_decap_4
+x3[1] dvdd dvss sg13cmos5l_decap_4
+x3[0] dvdd dvss sg13cmos5l_decap_4
+x1 ena dvdd dvss sg13cmos5l_antennanp
+x4[15] trim[15] dvdd dvss sg13cmos5l_antennanp
+x4[14] trim[14] dvdd dvss sg13cmos5l_antennanp
+x4[13] trim[13] dvdd dvss sg13cmos5l_antennanp
+x4[12] trim[12] dvdd dvss sg13cmos5l_antennanp
+x4[11] trim[11] dvdd dvss sg13cmos5l_antennanp
+x4[10] trim[10] dvdd dvss sg13cmos5l_antennanp
+x4[9] trim[9] dvdd dvss sg13cmos5l_antennanp
+x4[8] trim[8] dvdd dvss sg13cmos5l_antennanp
+x4[7] trim[7] dvdd dvss sg13cmos5l_antennanp
+x4[6] trim[6] dvdd dvss sg13cmos5l_antennanp
+x4[5] trim[5] dvdd dvss sg13cmos5l_antennanp
+x4[4] trim[4] dvdd dvss sg13cmos5l_antennanp
+x4[3] trim[3] dvdd dvss sg13cmos5l_antennanp
+x4[2] trim[2] dvdd dvss sg13cmos5l_antennanp
+x4[1] trim[1] dvdd dvss sg13cmos5l_antennanp
+x4[0] trim[0] dvdd dvss sg13cmos5l_antennanp
+C3 vs2 vss 203.19f m=1
+.ends
+
+
+* expanding   symbol:  se_folded_cascode_np_ab.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/se_folded_cascode_np_ab.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/se_folded_cascode_np_ab.sch
+.subckt se_folded_cascode_np_ab vdd out inp inn vss bias ena_b
+*.PININFO vdd:B bias:B inp:I inn:I vss:B out:O ena_b:I
+XM4 outa1n outa1n vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=12
+XM5 outa1p outa1n vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=12
+XMIN1 diffa vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=8
+XMB2 vbn1 vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=4
+XMB1 vbn2 vbn2 vbn1 vss sg13_hv_nmos w=2u l=4u ng=1 m=4
+XMIN2 outa1n inn diffa vss sg13_hv_nmos w=2u l=1u ng=1 m=8
+XMIN3 outa1p inp diffa vss sg13_hv_nmos w=2u l=1u ng=1 m=8
+XMB5 vbp1 vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=4
+XM7 outs1 mirr outa1p vdd sg13_hv_pmos w=1u l=4u ng=1 m=16
+XM6 mirr mirr outa1n vdd sg13_hv_pmos w=1u l=4u ng=1 m=16
+XM8 mirr vbn2 outb1n vss sg13_hv_nmos w=2u l=4u ng=1 m=16
+XM9 outs1 vbn2 outb1p vss sg13_hv_nmos w=2u l=4u ng=1 m=16
+XM10 outb1n vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=24
+XM11 outb1p vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=24
+XMB4 net1 net1 vbp1 vdd sg13_hv_pmos w=1u l=4u ng=1 m=4
+XMIP2 outb1n inn diffb vdd sg13_hv_pmos w=4u l=1u ng=1 m=8
+XMIP3 outb1p inp diffb vdd sg13_hv_pmos w=4u l=1u ng=1 m=8
+XMIP1 diffb vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=16
+XMON out outs1 vss vss sg13_hv_nmos w=4u l=4u ng=1 m=4
+XMOP out outs1 vdd vdd sg13_hv_pmos w=4u l=4u ng=1 m=4
+C1[1] out outs1 1.30p m=1
+C1[0] out outs1 1.30p m=1
+XMB6 vbn2 vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=4
+XMB3 bias ena_b net1 vdd sg13_hv_pmos w=1u l=4u ng=1 m=4
+XMDUM vss vss vss vss sg13_hv_nmos w=1u l=1u ng=1 m=12
+XMB7 vss vbn2 vss vss sg13_hv_nmos w=2u l=4u ng=1 m=4
+.ends
+
+
+* expanding   symbol:  bias_generator_fe.sym # of pins=19
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_fe.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_fe.sch
+.subckt bias_generator_fe avdd ena vbg src_test0 avss dvdd ena_src_test0 ref_sel_vbg ref_in dvss nbias pcasc pbias snk_test0
++ ena_snk_test0 ncasc ref_sel_fine ref_sel_coarse shld2
+*.PININFO ref_in:I avss:B ref_sel_vbg:I avdd:B ena_src_test0:I ena_snk_test0:I src_test0:B snk_test0:B vbg:I ena:I dvdd:B dvss:B
+*+ pcasc:O pbias:O nbias:O ncasc:O ref_sel_fine:I ref_sel_coarse:I shld2:B
+XR4 ref_in net7 avss rhigh w=0.5u l=138.57u m=1 b=0
+x4 net1 ena_3v3 ncasc nbias avss avss avss bias_nstack
+x13[1] avdd pbias pcasc enb_test0_3v3 src_test0 shld2 avdd bias_pstack
+x13[0] avdd pbias pcasc enb_test0_3v3 src_test0 shld2 avdd bias_pstack
+x17[1] snk_test0 ena_test0_3v3 ncasc nbias avss avss avss bias_nstack
+x17[0] snk_test0 ena_test0_3v3 ncasc nbias avss avss avss bias_nstack
+x1 ref_sel_vbg net2 enb_vbg_3v3 avdd avss level_shift
+x11 net5 ena_snk_test0 ena_test0_3v3 avdd avss level_shift
+x23 ena_src_test0 net4 enb_test0_3v3 avdd avss level_shift
+x24 net3 ena dvdd dvss sg13cmos5l_inv_2
+x35 net2 ref_sel_vbg dvdd dvss sg13cmos5l_inv_2
+XR1 net10 avss avss rhigh w=0.5u l=337.14u m=1 b=0
+x36 net3 ena ena_3v3 avdd avss level_shift
+Vmeas vfb net10 0
+.save i(vmeas)
+x19[2] avdd pbias pcasc enb_std_3v3 vfb shld2 avdd bias_pstack
+x19[1] avdd pbias pcasc enb_std_3v3 vfb shld2 avdd bias_pstack
+x19[0] avdd pbias pcasc enb_std_3v3 vfb shld2 avdd bias_pstack
+x5[6] dvdd dvss sg13cmos5l_decap_4
+x5[5] dvdd dvss sg13cmos5l_decap_4
+x5[4] dvdd dvss sg13cmos5l_decap_4
+x5[3] dvdd dvss sg13cmos5l_decap_4
+x5[2] dvdd dvss sg13cmos5l_decap_4
+x5[1] dvdd dvss sg13cmos5l_decap_4
+x5[0] dvdd dvss sg13cmos5l_decap_4
+x5 ref_sel_vbg dvdd dvss sg13cmos5l_antennanp
+x6 ena dvdd dvss sg13cmos5l_antennanp
+x7 ena_src_test0 dvdd dvss sg13cmos5l_antennanp
+x8 ena_snk_test0 dvdd dvss sg13cmos5l_antennanp
+C2 pbias vfb 225f m=1
+x9 net4 ena_src_test0 dvdd dvss sg13cmos5l_inv_2
+x10 net5 ena_snk_test0 dvdd dvss sg13cmos5l_inv_2
+x12 net2 ref_sel_vbg ena_vbg_3v3 avdd avss level_shift
+x1[15] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[14] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[13] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[12] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[11] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[10] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[9] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[8] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[7] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[6] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[5] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[4] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[3] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[2] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[1] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x1[0] nset ena_3v3 ncasc nbias avss avss avss bias_nset
+x14 avdd pbias pcasc ena_vbg_3v3 net6 avdd bias_pset
+Vmeas1 net7 nset 0
+.save i(vmeas1)
+Vmeas2 net6 net1 0
+.save i(vmeas2)
+x3 avdd pbias vbg vfb nbias avss ena_vbg_3v3 bias_amp_large
+x2[15] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[14] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[13] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[12] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[11] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[10] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[9] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[8] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[7] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[6] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[5] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[4] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[3] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[2] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[1] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x2[0] avdd pbias pcasc enb_fine_3v3 vfb shld2 avdd bias_pstack
+x15 net9 net8 enb_fine_3v3 avdd avss level_shift
+x16 net9 net8 dvdd dvss sg13cmos5l_inv_2
+x17 net15 ref_sel_coarse ref_sel_fine dvdd dvss sg13cmos5l_nand2_1
+x13 avdd pbias pcasc enb_coarse_3v3 vfb shld2 avdd bias_pstack
+x18 net16 ref_sel_coarse net18 dvdd dvss sg13cmos5l_nor2_1
+x19 net12 net11 enb_coarse_3v3 avdd avss level_shift
+x20 net12 net11 dvdd dvss sg13cmos5l_inv_2
+x21 net14 net13 enb_std_3v3 avdd avss level_shift
+x22 net14 net13 dvdd dvss sg13cmos5l_inv_2
+x25 net11 net15 ref_sel_vbg dvdd dvss sg13cmos5l_nand2_1
+x26 net8 net16 ref_sel_vbg dvdd dvss sg13cmos5l_nand2_1
+x27 net13 net17 ref_sel_vbg dvdd dvss sg13cmos5l_nand2_1
+x29 net18 ref_sel_fine dvdd dvss sg13cmos5l_inv_2
+x28 net17 net18 ref_sel_coarse dvdd dvss sg13cmos5l_nand2_1
+x30 avdd dummypbias pcasc enb_vbg_3v3 net6 pbias avdd bias_pset2
+x2 ref_sel_coarse dvdd dvss sg13cmos5l_antennanp
+x31 ref_sel_fine dvdd dvss sg13cmos5l_antennanp
+x4[1] avdd dummypbias pcasc avdd vfb pbias avdd bias_pstack
+x4[0] avdd dummypbias pcasc avdd vfb pbias avdd bias_pstack
+x3[1] nset avss ncasc nbias avss avss avss bias_nstack
+x3[0] nset avss ncasc nbias avss avss avss bias_nstack
+.ends
+
+
+* expanding   symbol:  bias_generator_be0n.sym # of pins=10
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be0n.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be0n.sch
+.subckt bias_generator_be0n dvdd dvss avdd nbias avss sink_ena[4] sink_ena[3] sink_ena[2] sink_ena[1] sink_ena[0] sink_ibias ncasc
++ shld2 shld3
+*.PININFO avss:B avdd:B dvdd:B dvss:B nbias:I ncasc:I sink_ibias:B sink_ena[4:0]:I shld2:B shld3:B
+x23[4] dvdd dvss sg13cmos5l_decap_4
+x23[3] dvdd dvss sg13cmos5l_decap_4
+x23[2] dvdd dvss sg13cmos5l_decap_4
+x23[1] dvdd dvss sg13cmos5l_decap_4
+x23[0] dvdd dvss sg13cmos5l_decap_4
+x79[4] sink_ena[4] dvdd dvss sg13cmos5l_antennanp
+x79[3] sink_ena[3] dvdd dvss sg13cmos5l_antennanp
+x79[2] sink_ena[2] dvdd dvss sg13cmos5l_antennanp
+x79[1] sink_ena[1] dvdd dvss sg13cmos5l_antennanp
+x79[0] sink_ena[0] dvdd dvss sg13cmos5l_antennanp
+x1 sink_ibias sink_ena_3v3[0] ncasc nbias avss shld2 shld3 bias_nstack
+x6[1] sink_ibias sink_ena_3v3[1] ncasc nbias avss shld2 shld3 bias_nstack
+x6[0] sink_ibias sink_ena_3v3[1] ncasc nbias avss shld2 shld3 bias_nstack
+x7[3] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[2] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[1] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[0] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x8[7] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[6] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[5] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[4] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[3] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[2] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[1] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[0] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x11[15] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[14] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[13] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[12] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[11] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[10] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[9] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[8] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[7] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[6] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[5] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[4] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[3] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[2] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[1] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[0] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x4[4] net1[4] sink_ena[4] sink_ena_3v3[4] avdd avss level_shift
+x4[3] net1[3] sink_ena[3] sink_ena_3v3[3] avdd avss level_shift
+x4[2] net1[2] sink_ena[2] sink_ena_3v3[2] avdd avss level_shift
+x4[1] net1[1] sink_ena[1] sink_ena_3v3[1] avdd avss level_shift
+x4[0] net1[0] sink_ena[0] sink_ena_3v3[0] avdd avss level_shift
+x5[4] net1[4] sink_ena[4] dvdd dvss sg13cmos5l_inv_2
+x5[3] net1[3] sink_ena[3] dvdd dvss sg13cmos5l_inv_2
+x5[2] net1[2] sink_ena[2] dvdd dvss sg13cmos5l_inv_2
+x5[1] net1[1] sink_ena[1] dvdd dvss sg13cmos5l_inv_2
+x5[0] net1[0] sink_ena[0] dvdd dvss sg13cmos5l_inv_2
+.ends
+
+
+* expanding   symbol:  bias_generator_be0p.sym # of pins=11
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be0p.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be0p.sch
+.subckt bias_generator_be0p dvdd dvss avdd pcasc pbias source_ena[4] source_ena[3] source_ena[2] source_ena[1] source_ena[0]
++ source_ibias avss shld2 shld3 shld_vdd
+*.PININFO avss:B avdd:B dvdd:B dvss:B pcasc:I pbias:I source_ena[4:0]:I source_ibias:B shld2:B shld3:B shld_vdd:B
+x9[4] source_ena[4] net1[4] source_ena_b_3v3[4] avdd avss level_shift
+x9[3] source_ena[3] net1[3] source_ena_b_3v3[3] avdd avss level_shift
+x9[2] source_ena[2] net1[2] source_ena_b_3v3[2] avdd avss level_shift
+x9[1] source_ena[1] net1[1] source_ena_b_3v3[1] avdd avss level_shift
+x9[0] source_ena[0] net1[0] source_ena_b_3v3[0] avdd avss level_shift
+x46[4] net1[4] source_ena[4] dvdd dvss sg13cmos5l_inv_2
+x46[3] net1[3] source_ena[3] dvdd dvss sg13cmos5l_inv_2
+x46[2] net1[2] source_ena[2] dvdd dvss sg13cmos5l_inv_2
+x46[1] net1[1] source_ena[1] dvdd dvss sg13cmos5l_inv_2
+x46[0] net1[0] source_ena[0] dvdd dvss sg13cmos5l_inv_2
+x23[4] dvdd dvss sg13cmos5l_decap_4
+x23[3] dvdd dvss sg13cmos5l_decap_4
+x23[2] dvdd dvss sg13cmos5l_decap_4
+x23[1] dvdd dvss sg13cmos5l_decap_4
+x23[0] dvdd dvss sg13cmos5l_decap_4
+x78[4] source_ena[4] dvdd dvss sg13cmos5l_antennanp
+x78[3] source_ena[3] dvdd dvss sg13cmos5l_antennanp
+x78[2] source_ena[2] dvdd dvss sg13cmos5l_antennanp
+x78[1] source_ena[1] dvdd dvss sg13cmos5l_antennanp
+x78[0] source_ena[0] dvdd dvss sg13cmos5l_antennanp
+x9 shld_vdd pbias pcasc source_ena_b_3v3[0] source_ibias shld2 shld3 bias_pstack
+x10[1] shld_vdd pbias pcasc source_ena_b_3v3[1] source_ibias shld2 shld3 bias_pstack
+x10[0] shld_vdd pbias pcasc source_ena_b_3v3[1] source_ibias shld2 shld3 bias_pstack
+x1[3] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[2] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[1] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[0] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x2[7] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[6] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[5] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[4] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[3] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[2] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[1] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[0] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x3[15] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[14] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[13] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[12] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[11] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[10] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[9] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[8] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[7] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[6] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[5] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[4] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[3] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[2] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[1] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[0] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+.ends
+
+
+* expanding   symbol:  bias_generator_be1n.sym # of pins=10
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be1n.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be1n.sch
+.subckt bias_generator_be1n dvdd dvss avdd nbias avss sink_ena[7] sink_ena[6] sink_ena[5] sink_ena[4] sink_ena[3] sink_ena[2]
++ sink_ena[1] sink_ena[0] sink_ibias ncasc shld2 shld3
+*.PININFO avss:B avdd:B dvdd:B dvss:B nbias:I ncasc:I sink_ibias:B sink_ena[7:0]:I shld2:B shld3:B
+x23[7] dvdd dvss sg13cmos5l_decap_4
+x23[6] dvdd dvss sg13cmos5l_decap_4
+x23[5] dvdd dvss sg13cmos5l_decap_4
+x23[4] dvdd dvss sg13cmos5l_decap_4
+x23[3] dvdd dvss sg13cmos5l_decap_4
+x23[2] dvdd dvss sg13cmos5l_decap_4
+x23[1] dvdd dvss sg13cmos5l_decap_4
+x23[0] dvdd dvss sg13cmos5l_decap_4
+x79[7] sink_ena[7] dvdd dvss sg13cmos5l_antennanp
+x79[6] sink_ena[6] dvdd dvss sg13cmos5l_antennanp
+x79[5] sink_ena[5] dvdd dvss sg13cmos5l_antennanp
+x79[4] sink_ena[4] dvdd dvss sg13cmos5l_antennanp
+x79[3] sink_ena[3] dvdd dvss sg13cmos5l_antennanp
+x79[2] sink_ena[2] dvdd dvss sg13cmos5l_antennanp
+x79[1] sink_ena[1] dvdd dvss sg13cmos5l_antennanp
+x79[0] sink_ena[0] dvdd dvss sg13cmos5l_antennanp
+x1 sink_ibias sink_ena_3v3[0] ncasc nbias avss shld2 shld3 bias_nstack
+x6[1] sink_ibias sink_ena_3v3[1] ncasc nbias avss shld2 shld3 bias_nstack
+x6[0] sink_ibias sink_ena_3v3[1] ncasc nbias avss shld2 shld3 bias_nstack
+x7[3] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[2] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[1] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x7[0] sink_ibias sink_ena_3v3[2] ncasc nbias avss shld2 shld3 bias_nstack
+x8[7] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[6] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[5] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[4] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[3] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[2] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[1] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x8[0] sink_ibias sink_ena_3v3[3] ncasc nbias avss shld2 shld3 bias_nstack
+x11[15] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[14] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[13] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[12] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[11] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[10] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[9] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[8] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[7] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[6] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[5] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[4] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[3] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[2] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[1] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x11[0] sink_ibias sink_ena_3v3[4] ncasc nbias avss shld2 shld3 bias_nstack
+x4[7] net1[7] sink_ena[7] sink_ena_3v3[7] avdd avss level_shift
+x4[6] net1[6] sink_ena[6] sink_ena_3v3[6] avdd avss level_shift
+x4[5] net1[5] sink_ena[5] sink_ena_3v3[5] avdd avss level_shift
+x4[4] net1[4] sink_ena[4] sink_ena_3v3[4] avdd avss level_shift
+x4[3] net1[3] sink_ena[3] sink_ena_3v3[3] avdd avss level_shift
+x4[2] net1[2] sink_ena[2] sink_ena_3v3[2] avdd avss level_shift
+x4[1] net1[1] sink_ena[1] sink_ena_3v3[1] avdd avss level_shift
+x4[0] net1[0] sink_ena[0] sink_ena_3v3[0] avdd avss level_shift
+x5[7] net1[7] sink_ena[7] dvdd dvss sg13cmos5l_inv_2
+x5[6] net1[6] sink_ena[6] dvdd dvss sg13cmos5l_inv_2
+x5[5] net1[5] sink_ena[5] dvdd dvss sg13cmos5l_inv_2
+x5[4] net1[4] sink_ena[4] dvdd dvss sg13cmos5l_inv_2
+x5[3] net1[3] sink_ena[3] dvdd dvss sg13cmos5l_inv_2
+x5[2] net1[2] sink_ena[2] dvdd dvss sg13cmos5l_inv_2
+x5[1] net1[1] sink_ena[1] dvdd dvss sg13cmos5l_inv_2
+x5[0] net1[0] sink_ena[0] dvdd dvss sg13cmos5l_inv_2
+x15[31] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[30] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[29] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[28] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[27] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[26] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[25] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[24] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[23] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[22] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[21] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[20] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[19] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[18] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[17] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[16] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[15] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[14] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[13] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[12] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[11] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[10] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[9] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[8] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[7] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[6] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[5] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[4] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[3] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[2] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[1] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x15[0] sink_ibias sink_ena_3v3[5] ncasc nbias avss shld2 shld3 bias_nstack
+x16[63] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[62] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[61] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[60] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[59] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[58] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[57] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[56] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[55] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[54] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[53] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[52] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[51] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[50] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[49] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[48] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[47] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[46] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[45] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[44] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[43] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[42] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[41] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[40] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[39] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[38] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[37] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[36] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[35] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[34] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[33] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[32] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[31] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[30] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[29] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[28] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[27] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[26] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[25] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[24] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[23] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[22] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[21] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[20] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[19] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[18] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[17] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[16] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[15] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[14] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[13] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[12] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[11] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[10] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[9] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[8] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[7] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[6] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[5] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[4] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[3] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[2] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[1] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x16[0] sink_ibias sink_ena_3v3[6] ncasc nbias avss shld2 shld3 bias_nstack
+x17[127] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[126] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[125] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[124] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[123] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[122] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[121] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[120] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[119] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[118] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[117] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[116] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[115] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[114] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[113] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[112] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[111] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[110] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[109] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[108] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[107] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[106] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[105] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[104] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[103] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[102] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[101] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[100] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[99] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[98] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[97] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[96] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[95] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[94] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[93] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[92] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[91] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[90] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[89] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[88] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[87] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[86] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[85] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[84] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[83] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[82] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[81] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[80] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[79] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[78] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[77] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[76] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[75] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[74] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[73] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[72] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[71] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[70] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[69] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[68] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[67] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[66] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[65] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[64] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[63] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[62] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[61] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[60] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[59] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[58] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[57] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[56] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[55] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[54] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[53] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[52] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[51] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[50] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[49] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[48] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[47] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[46] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[45] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[44] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[43] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[42] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[41] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[40] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[39] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[38] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[37] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[36] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[35] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[34] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[33] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[32] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[31] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[30] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[29] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[28] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[27] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[26] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[25] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[24] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[23] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[22] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[21] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[20] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[19] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[18] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[17] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[16] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[15] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[14] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[13] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[12] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[11] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[10] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[9] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[8] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[7] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[6] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[5] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[4] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[3] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[2] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[1] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+x17[0] sink_ibias sink_ena_3v3[7] ncasc nbias avss shld2 shld3 bias_nstack
+.ends
+
+
+* expanding   symbol:  bias_generator_be1p.sym # of pins=11
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be1p.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_generator_be1p.sch
+.subckt bias_generator_be1p dvdd dvss avdd pcasc pbias source_ena[7] source_ena[6] source_ena[5] source_ena[4] source_ena[3]
++ source_ena[2] source_ena[1] source_ena[0] source_ibias avss shld2 shld3 shld_vdd
+*.PININFO avss:B avdd:B dvdd:B dvss:B pcasc:I pbias:I source_ena[7:0]:I source_ibias:B shld2:B shld3:B shld_vdd:B
+x9[7] source_ena[7] net1[7] source_ena_b_3v3[7] avdd avss level_shift
+x9[6] source_ena[6] net1[6] source_ena_b_3v3[6] avdd avss level_shift
+x9[5] source_ena[5] net1[5] source_ena_b_3v3[5] avdd avss level_shift
+x9[4] source_ena[4] net1[4] source_ena_b_3v3[4] avdd avss level_shift
+x9[3] source_ena[3] net1[3] source_ena_b_3v3[3] avdd avss level_shift
+x9[2] source_ena[2] net1[2] source_ena_b_3v3[2] avdd avss level_shift
+x9[1] source_ena[1] net1[1] source_ena_b_3v3[1] avdd avss level_shift
+x9[0] source_ena[0] net1[0] source_ena_b_3v3[0] avdd avss level_shift
+x46[7] net1[7] source_ena[7] dvdd dvss sg13cmos5l_inv_2
+x46[6] net1[6] source_ena[6] dvdd dvss sg13cmos5l_inv_2
+x46[5] net1[5] source_ena[5] dvdd dvss sg13cmos5l_inv_2
+x46[4] net1[4] source_ena[4] dvdd dvss sg13cmos5l_inv_2
+x46[3] net1[3] source_ena[3] dvdd dvss sg13cmos5l_inv_2
+x46[2] net1[2] source_ena[2] dvdd dvss sg13cmos5l_inv_2
+x46[1] net1[1] source_ena[1] dvdd dvss sg13cmos5l_inv_2
+x46[0] net1[0] source_ena[0] dvdd dvss sg13cmos5l_inv_2
+x23[7] dvdd dvss sg13cmos5l_decap_4
+x23[6] dvdd dvss sg13cmos5l_decap_4
+x23[5] dvdd dvss sg13cmos5l_decap_4
+x23[4] dvdd dvss sg13cmos5l_decap_4
+x23[3] dvdd dvss sg13cmos5l_decap_4
+x23[2] dvdd dvss sg13cmos5l_decap_4
+x23[1] dvdd dvss sg13cmos5l_decap_4
+x23[0] dvdd dvss sg13cmos5l_decap_4
+x78[7] source_ena[7] dvdd dvss sg13cmos5l_antennanp
+x78[6] source_ena[6] dvdd dvss sg13cmos5l_antennanp
+x78[5] source_ena[5] dvdd dvss sg13cmos5l_antennanp
+x78[4] source_ena[4] dvdd dvss sg13cmos5l_antennanp
+x78[3] source_ena[3] dvdd dvss sg13cmos5l_antennanp
+x78[2] source_ena[2] dvdd dvss sg13cmos5l_antennanp
+x78[1] source_ena[1] dvdd dvss sg13cmos5l_antennanp
+x78[0] source_ena[0] dvdd dvss sg13cmos5l_antennanp
+x9 shld_vdd pbias pcasc source_ena_b_3v3[0] source_ibias shld2 shld3 bias_pstack
+x10[1] shld_vdd pbias pcasc source_ena_b_3v3[1] source_ibias shld2 shld3 bias_pstack
+x10[0] shld_vdd pbias pcasc source_ena_b_3v3[1] source_ibias shld2 shld3 bias_pstack
+x1[3] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[2] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[1] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x1[0] shld_vdd pbias pcasc source_ena_b_3v3[2] source_ibias shld2 shld3 bias_pstack
+x2[7] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[6] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[5] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[4] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[3] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[2] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[1] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x2[0] shld_vdd pbias pcasc source_ena_b_3v3[3] source_ibias shld2 shld3 bias_pstack
+x3[15] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[14] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[13] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[12] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[11] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[10] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[9] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[8] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[7] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[6] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[5] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[4] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[3] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[2] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[1] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x3[0] shld_vdd pbias pcasc source_ena_b_3v3[4] source_ibias shld2 shld3 bias_pstack
+x12[31] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[30] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[29] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[28] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[27] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[26] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[25] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[24] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[23] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[22] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[21] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[20] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[19] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[18] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[17] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[16] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[15] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[14] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[13] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[12] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[11] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[10] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[9] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[8] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[7] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[6] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[5] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[4] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[3] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[2] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[1] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x12[0] shld_vdd pbias pcasc source_ena_b_3v3[5] source_ibias shld2 shld3 bias_pstack
+x13[63] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[62] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[61] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[60] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[59] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[58] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[57] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[56] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[55] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[54] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[53] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[52] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[51] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[50] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[49] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[48] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[47] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[46] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[45] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[44] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[43] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[42] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[41] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[40] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[39] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[38] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[37] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[36] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[35] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[34] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[33] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[32] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[31] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[30] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[29] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[28] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[27] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[26] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[25] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[24] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[23] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[22] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[21] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[20] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[19] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[18] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[17] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[16] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[15] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[14] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[13] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[12] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[11] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[10] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[9] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[8] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[7] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[6] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[5] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[4] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[3] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[2] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[1] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x13[0] shld_vdd pbias pcasc source_ena_b_3v3[6] source_ibias shld2 shld3 bias_pstack
+x14[127] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[126] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[125] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[124] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[123] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[122] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[121] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[120] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[119] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[118] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[117] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[116] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[115] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[114] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[113] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[112] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[111] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[110] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[109] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[108] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[107] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[106] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[105] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[104] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[103] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[102] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[101] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[100] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[99] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[98] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[97] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[96] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[95] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[94] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[93] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[92] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[91] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[90] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[89] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[88] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[87] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[86] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[85] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[84] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[83] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[82] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[81] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[80] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[79] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[78] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[77] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[76] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[75] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[74] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[73] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[72] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[71] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[70] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[69] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[68] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[67] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[66] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[65] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[64] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[63] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[62] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[61] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[60] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[59] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[58] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[57] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[56] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[55] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[54] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[53] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[52] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[51] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[50] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[49] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[48] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[47] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[46] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[45] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[44] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[43] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[42] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[41] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[40] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[39] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[38] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[37] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[36] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[35] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[34] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[33] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[32] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[31] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[30] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[29] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[28] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[27] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[26] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[25] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[24] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[23] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[22] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[21] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[20] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[19] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[18] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[17] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[16] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[15] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[14] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[13] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[12] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[11] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[10] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[9] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[8] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[7] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[6] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[5] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[4] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[3] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[2] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[1] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+x14[0] shld_vdd pbias pcasc source_ena_b_3v3[7] source_ibias shld2 shld3 bias_pstack
+.ends
+
+
+* expanding   symbol:  bias_nstack.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_nstack.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_nstack.sch
+.subckt bias_nstack itail ena ncasc nbias avss shld2 shld3
+*.PININFO avss:B ena:I nbias:I itail:B ncasc:I shld2:B shld3:B
+XM3 net1 nbias avss avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+XM6 net2 ncasc net1 avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+XM12 itail ena net2 avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  bias_pstack.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pstack.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pstack.sch
+.subckt bias_pstack avdd pbias pcasc enb itail shld2 shld3
+*.PININFO avdd:B itail:B enb:I pcasc:I pbias:I shld2:B shld3:B
+XM13 net1 pbias avdd avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM18 itail enb net2 avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM14 net2 pcasc net1 avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  xgate.sym # of pins=6
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/xgate.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/xgate.sch
+.subckt xgate ena_b vdd in out vss ena
+*.PININFO out:B in:B vdd:B vss:B ena_b:I ena:I
+XM1 in ena_b out vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=1
+XM2 in ena out vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  hv_inv_1.sym # of pins=4
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/hv_inv_1.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/hv_inv_1.sch
+.subckt hv_inv_1 vdd A X vss
+*.PININFO A:I vdd:B vss:B X:O
+XM1 X A vdd vdd sg13_hv_pmos w=2.0u l=0.4u ng=1 m=1
+XM2 X A vss vss sg13_hv_nmos w=1.0u l=0.45u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  level_shift.sym # of pins=3
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/level_shift.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/level_shift.sch
+.subckt level_shift in_n in_p out vdd vss
+*.PININFO in_n:I in_p:I out:O
+XM1 net1 in_p vss vss sg13_hv_nmos w=4u l=0.5u ng=1 m=2
+XM2 net1 S1_N vdd vdd sg13_hv_pmos w=1u l=0.5u ng=1 m=2
+XM3 S1_N in_n vss vss sg13_hv_nmos w=4u l=0.5u ng=1 m=2
+XM4 S1_N net1 vdd vdd sg13_hv_pmos w=1u l=0.5u ng=1 m=2
+XM5 S2_N S1_N vdd vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=2
+XM6 S2_N S1_N vss vss sg13_hv_nmos w=1u l=0.5u ng=1 m=2
+XM7 out S2_N vdd vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=4
+XM8 out S2_N vss vss sg13_hv_nmos w=1u l=0.5u ng=1 m=4
+.ends
+
+
+* expanding   symbol:  p_amp_large.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/p_amp_large.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/p_amp_large.sch
+.subckt p_amp_large avdd out inn inp ibias avss ena_b
+*.PININFO avdd:B avss:B ena_b:I inp:I inn:I out:O ibias:B
+XM7 net3 net2 avdd avdd sg13_hv_pmos w=20u l=1u ng=20 m=1
+XM9 outn inp net1 avdd sg13_hv_pmos w=20u l=0.5u ng=20 m=1
+XM10 out inn net1 avdd sg13_hv_pmos w=20u l=0.5u ng=20 m=1
+XM11 out outn avss avss sg13_hv_nmos w=10u l=0.5u ng=10 m=1
+XM12 outn outn avss avss sg13_hv_nmos w=10u l=0.5u ng=10 m=1
+XM1 net2 net2 avdd avdd sg13_hv_pmos w=20u l=1u ng=20 m=1
+XM2 ibias ena_b net2 avdd sg13_hv_pmos w=20u l=0.5u ng=20 m=1
+Vmeas net3 net1 0
+.save i(vmeas)
+XM3 avss avss avss avss sg13_hv_nmos w=2u l=0.5u ng=2 m=2
+.ends
+
+
+* expanding   symbol:  n_amp_large.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/n_amp_large.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/n_amp_large.sch
+.subckt n_amp_large avdd out inn inp ibias avss ena
+*.PININFO inp:I inn:I out:O avdd:B avss:B ena:I ibias:B
+XM1 vcom net1 avss avss sg13_hv_nmos w=20u l=1u ng=20 m=1
+XM2 out outn avdd avdd sg13_hv_pmos w=10u l=0.5u ng=10 m=1
+XM3 outn outn avdd avdd sg13_hv_pmos w=10u l=0.5u ng=10 m=1
+XM4 outn inp vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM5 out inn vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM6 ibias ena net1 avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM7 net1 net1 avss avss sg13_hv_nmos w=20u l=1u ng=20 m=1
+XM8 avdd avdd avdd avdd sg13_hv_pmos w=2u l=0.5u ng=2 m=2
+.ends
+
+
+* expanding   symbol:  se_folded_cascode_p.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/se_folded_cascode_p.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/se_folded_cascode_p.sch
+.subckt se_folded_cascode_p vdd out inp inn vss bias ena_b
+*.PININFO inn:I inp:I out:O bias:B vdd:B vss:B ena_b:I
+XM3 out1p inn diff vdd sg13_hv_pmos w=4u l=1u ng=1 m=8
+XM2 out1n inp diff vdd sg13_hv_pmos w=4u l=1u ng=1 m=8
+XM1 diff vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=16
+XM4 out1n vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=16
+XM5 out1p vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=16
+XM6 mirr vbn2 out1n vss sg13_hv_nmos w=1u l=4u ng=1 m=8
+XM7 out vbn2 out1p vss sg13_hv_nmos w=1u l=4u ng=1 m=8
+XM8 mirr vbp2 nd10 vdd sg13_hv_pmos w=2u l=4u ng=1 m=8
+XM9 out vbp2 nd11 vdd sg13_hv_pmos w=2u l=4u ng=1 m=8
+XM10 nd10 mirr vdd vdd sg13_hv_pmos w=2u l=4u ng=1 m=8
+XM11 nd11 mirr vdd vdd sg13_hv_pmos w=2u l=4u ng=1 m=8
+XMB1 vbp2 vbp2 vbp1 vdd sg13_hv_pmos w=2u l=4u ng=1 m=4
+XMB2 vbp1 vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=4
+XMB3 vbn2 vbp1 vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=4
+XMB4 vbn2 vbn2 vbn1 vss sg13_hv_nmos w=1u l=4u ng=1 m=4
+XMB5 vbn1 vbn1 vss vss sg13_hv_nmos w=1u l=1u ng=1 m=4
+XMB6 bias ena_b vbp2 vdd sg13_hv_pmos w=2u l=4u ng=1 m=4
+XM12 vdd vdd vdd vdd sg13_hv_pmos w=4u l=1u ng=1 m=8
+XM13 vdd vdd vdd vdd sg13_hv_pmos w=1u l=1u ng=1 m=2
+XMB7 vss vss vss vss sg13_hv_nmos w=1u l=1u ng=1 m=16
+.ends
+
+
+* expanding   symbol:  bg_res.sym # of pins=11
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bg_res.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bg_res.sch
+.subckt bg_res b a d c vss f h k e g j
+*.PININFO a:I b:I c:O d:O vss:B f:O e:I h:O g:I k:O j:I
+XR1 a net1 vss rhigh w=0.69u l=20u m=1 b=0
+XR2 b net2 vss rhigh w=0.69u l=20u m=1 b=0
+XR3 net1 net6 vss rhigh w=0.69u l=20u m=1 b=0
+XR4 net2 net5 vss rhigh w=0.69u l=20u m=1 b=0
+XR5 net6 net3 vss rhigh w=0.69u l=20u m=1 b=0
+XR6 net5 net4 vss rhigh w=0.69u l=20u m=1 b=0
+XR7 net3 net10 vss rhigh w=0.69u l=20u m=1 b=0
+XR8 net4 net9 vss rhigh w=0.69u l=20u m=1 b=0
+XR9 net10 net7 vss rhigh w=0.69u l=20u m=1 b=0
+XR10 net9 net8 vss rhigh w=0.69u l=20u m=1 b=0
+XR11 net7 net12 vss rhigh w=0.69u l=20u m=1 b=0
+XR12 net8 net11 vss rhigh w=0.69u l=20u m=1 b=0
+XR13 net12 net14 vss rhigh w=0.69u l=20u m=1 b=0
+XR14 net11 net13 vss rhigh w=0.69u l=20u m=1 b=0
+XR15 net14 net16 vss rhigh w=0.69u l=20u m=1 b=0
+XR16 net13 net15 vss rhigh w=0.69u l=20u m=1 b=0
+XR17 net16 net18 vss rhigh w=0.69u l=20u m=1 b=0
+XR18 net15 net17 vss rhigh w=0.69u l=20u m=1 b=0
+XR19 net18 c vss rhigh w=0.69u l=20u m=1 b=0
+XR20 net17 d vss rhigh w=0.69u l=20u m=1 b=0
+XR21 e f vss rhigh w=0.69u l=20u m=1 b=0
+XR22 g h vss rhigh w=0.69u l=20u m=1 b=0
+XR23 j k vss rhigh w=0.69u l=20u m=1 b=0
+.ends
+
+
+* expanding   symbol:  bg_trim.sym # of pins=4
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bg_trim.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bg_trim.sch
+.subckt bg_trim top bot ctrl[15] ctrl[14] ctrl[13] ctrl[12] ctrl[11] ctrl[10] ctrl[9] ctrl[8] ctrl[7] ctrl[6] ctrl[5] ctrl[4]
++ ctrl[3] ctrl[2] ctrl[1] ctrl[0] vss
+*.PININFO vss:B ctrl[15:0]:I bot:B top:B
+XM0 net1 ctrl[0] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM1 net2 ctrl[1] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM2 net3 ctrl[2] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM3 net4 ctrl[3] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM4 net5 ctrl[4] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM5 net6 ctrl[5] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM6 net7 ctrl[6] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM7 net8 ctrl[7] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM12 net9 ctrl[12] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM13 net11 ctrl[13] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM14 net12 ctrl[14] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM15 top ctrl[15] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM8 net13 ctrl[8] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM9 net14 ctrl[9] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM10 net15 ctrl[10] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XM11 net10 ctrl[11] bot vss sg13_hv_nmos w=2u l=0.5u ng=1 m=1
+XR15 top net12 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR1 net2 net1 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR16 net1 bot vss rhigh w=1.41u l=3.4u m=1 b=0
+XR2 net3 net2 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR3 net4 net3 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR4 net5 net4 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR5 net6 net5 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR6 net7 net6 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR7 net8 net7 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR8 net13 net8 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR9 net14 net13 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR10 net15 net14 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR11 net10 net15 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR12 net9 net10 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR13 net11 net9 vss rhigh w=1.41u l=3.4u m=1 b=0
+XR14 net12 net11 vss rhigh w=1.41u l=3.4u m=1 b=0
+XM16 vss vss vss vss sg13_hv_nmos w=2u l=0.5u ng=1 m=2
+XR17 vss vss vss rhigh w=1.41u l=3.4u m=1 b=0
+XR18 top top vss rhigh w=1.41u l=3.4u m=1 b=0
+.ends
+
+
+* expanding   symbol:  bias_nset.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_nset.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_nset.sch
+.subckt bias_nset itail ena ncasc nbias avss shld2 shld3
+*.PININFO avss:B ena:I itail:B nbias:O ncasc:O shld2:B shld3:B
+XM3 nbias nbias avss avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+XM6 ncasc ncasc nbias avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+XM12 itail ena ncasc avss sg13_hv_nmos w=3u l=1u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  bias_pset.sym # of pins=6
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pset.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pset.sch
+.subckt bias_pset avdd pbias pcasc enb itail shld3
+*.PININFO pbias:B itail:B enb:I pcasc:O avdd:B shld3:B
+XM13 pbias pbias avdd avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM18 itail enb pcasc avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM14 pcasc pcasc pbias avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  bias_amp_large.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_amp_large.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_amp_large.sch
+.subckt bias_amp_large avdd out inn inp nbias avss ena
+*.PININFO inp:I nbias:I inn:I out:O avdd:B avss:B ena:I
+XM1 net1 nbias avss avss sg13_hv_nmos w=20u l=1u ng=20 m=1
+XM2 out outn avdd avdd sg13_hv_pmos w=10u l=0.5u ng=10 m=1
+XM3 outn outn avdd avdd sg13_hv_pmos w=10u l=0.5u ng=10 m=1
+XM4 outn inp vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM5 out inn vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM6 vcom ena net1 avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1
+XM7 avdd avdd avdd avdd sg13_hv_pmos w=2u l=0.5u ng=2 m=2
+.ends
+
+
+* expanding   symbol:  bias_pset2.sym # of pins=7
+** sym_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pset2.sym
+** sch_path: /home/tim/gits/sg13cmos5l_ocd_openframe/dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/bias_pset2.sch
+.subckt bias_pset2 avdd pbias pcasc enb itail shld2 shld3
+*.PININFO pbias:B itail:B enb:I pcasc:O avdd:B shld2:B shld3:B
+XM13 pbias pbias avdd avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM18 itail enb pcasc avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+XM14 pcasc pcasc pbias avdd sg13_hv_pmos w=3u l=1u ng=1 m=1
+.ends
+

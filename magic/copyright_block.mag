@@ -1,0 +1,293 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1771951557
+<< fillblock >>
+rect 0 7365 13759 8880
+rect 0 4928 16896 6786
+rect 0 2491 17161 4349
+rect 63 0 9535 1858
+use font_2C  font_2C_0 alpha
+timestamp 1606780946
+transform 1 0 13355 0 1 5362
+box 0 -180 360 360
+use font_2E  font_2E_1 alpha
+timestamp 1598786878
+transform 1 0 7004 0 1 7411
+box 0 0 360 360
+use font_4B  font_4B_1 alpha
+timestamp 1598766293
+transform 1 0 16428 0 1 2922
+box 0 0 540 1260
+use font_4C  font_4C_0 alpha
+timestamp 1598766404
+transform 1 0 14615 0 1 5362
+box 0 0 540 1260
+use font_4C  font_4C_1
+timestamp 1598766404
+transform 1 0 15335 0 1 5362
+box 0 0 540 1260
+use font_4C  font_4C_2
+timestamp 1598766404
+transform 1 0 9948 0 1 2922
+box 0 0 540 1260
+use font_4D  font_4D_0 alpha
+timestamp 1598766505
+transform 1 0 6708 0 1 2922
+box 0 0 900 1260
+use font_4F  font_4F_0 alpha
+timestamp 1598767855
+transform 1 0 215 0 1 5362
+box 0 0 540 1260
+use font_4F  font_4F_1
+timestamp 1598767855
+transform 1 0 7788 0 1 2922
+box 0 0 540 1260
+use font_6C  font_6C_4 alpha
+timestamp 1598776550
+transform 1 0 4484 0 1 7411
+box 0 0 180 1260
+use font_6E  font_6E_1 alpha
+timestamp 1598776997
+transform 1 0 2375 0 1 5362
+box 0 0 540 900
+use font_6E  font_6E_2
+timestamp 1598776997
+transform 1 0 12635 0 1 5362
+box 0 0 540 900
+use font_6E  font_6E_3
+timestamp 1598776997
+transform 1 0 13548 0 1 2922
+box 0 0 540 900
+use font_6F  font_6F_3 alpha
+timestamp 1598777049
+transform 1 0 11388 0 1 2922
+box 0 0 540 900
+use font_28  font_28_1 alpha
+timestamp 1606780629
+transform 1 0 8984 0 1 7411
+box 0 0 360 1260
+use font_29  font_29_1 alpha
+timestamp 1598786350
+transform 1 0 10244 0 1 7411
+box 0 0 360 1260
+use font_30  font_30_2 alpha
+timestamp 1598786981
+transform 1 0 7544 0 1 7411
+box 0 0 540 1260
+use font_30  font_30_3
+timestamp 1598786981
+transform 1 0 11504 0 1 7411
+box 0 0 540 1260
+use font_30  font_30_4
+timestamp 1598786981
+transform 1 0 7414 0 1 468
+box 0 0 540 1260
+use font_31  font_31_0 alpha
+timestamp 1598787010
+transform 1 0 4548 0 1 2922
+box 0 0 540 1260
+use font_32  font_32_2 alpha
+timestamp 1598787041
+transform 1 0 10784 0 1 7411
+box 0 0 540 1260
+use font_32  font_32_3
+timestamp 1598787041
+transform 1 0 12224 0 1 7411
+box 0 0 540 1260
+use font_32  font_32_4
+timestamp 1598787041
+transform 1 0 6694 0 1 468
+box 0 0 540 1260
+use font_32  font_32_5
+timestamp 1598787041
+transform 1 0 8134 0 1 468
+box 0 0 540 1260
+use font_33  font_33_1 alpha
+timestamp 1598787077
+transform 1 0 5268 0 1 2922
+box 0 0 540 1260
+use font_35  font_35_0 alpha
+timestamp 1598787165
+transform 1 0 9228 0 1 2922
+box 0 0 540 1260
+use font_36  font_36_1 alpha
+timestamp 1598787225
+transform 1 0 6284 0 1 7411
+box 0 0 540 1260
+use font_36  font_36_2
+timestamp 1598787225
+transform 1 0 12944 0 1 7411
+box 0 0 540 1260
+use font_36  font_36_3
+timestamp 1598787225
+transform 1 0 8854 0 1 468
+box 0 0 540 1260
+use font_43  font_43_2 alpha
+timestamp 1598763351
+transform 1 0 164 0 1 7411
+box 0 0 540 1260
+use font_43  font_43_3
+timestamp 1598763351
+transform 1 0 9524 0 1 7411
+box 0 0 540 1260
+use font_43  font_43_4
+timestamp 1598763351
+transform 1 0 3815 0 1 5362
+box 0 0 540 1260
+use font_43  font_43_5
+timestamp 1598763351
+transform 1 0 16055 0 1 5362
+box 0 0 540 1260
+use font_43  font_43_6
+timestamp 1598763351
+transform 1 0 5988 0 1 2922
+box 0 0 540 1260
+use font_44  font_44_1 alpha
+timestamp 1598763661
+transform 1 0 9215 0 1 5362
+box 0 0 540 1260
+use font_44  font_44_2
+timestamp 1598763661
+transform 1 0 15708 0 1 2922
+box 0 0 540 1260
+use font_46  font_46_0 alpha
+timestamp 1598765253
+transform 1 0 214 0 1 468
+box 0 0 540 1260
+use font_47  font_47_1 alpha
+timestamp 1598765398
+transform 1 0 3828 0 1 2922
+box 0 0 540 1260
+use font_48  font_48_0 alpha
+timestamp 1598765560
+transform 1 0 948 0 1 2922
+box 0 0 540 1260
+use font_49  font_49_0 alpha
+timestamp 1598765816
+transform 1 0 228 0 1 2922
+box 0 0 540 1260
+use font_50  font_50_1 alpha
+timestamp 1598768087
+transform 1 0 1668 0 1 2922
+box 0 0 540 1260
+use font_50  font_50_2
+timestamp 1598768087
+transform 1 0 14988 0 1 2922
+box 0 0 540 1260
+use font_53  font_53_1 alpha
+timestamp 1598768855
+transform 1 0 3108 0 1 2922
+box 0 0 540 1260
+use font_53  font_53_2
+timestamp 1598768855
+transform 1 0 8508 0 1 2922
+box 0 0 540 1260
+use font_56  font_56_1 alpha
+timestamp 1598769117
+transform 1 0 5564 0 1 7411
+box 0 0 540 1260
+use font_61  font_61_4 alpha
+timestamp 1598775307
+transform 1 0 884 0 1 7411
+box 0 0 540 900
+use font_61  font_61_5
+timestamp 1598775307
+transform 1 0 2324 0 1 7411
+box 0 0 540 900
+use font_61  font_61_6
+timestamp 1598775307
+transform 1 0 3814 0 1 468
+box 0 0 540 900
+use font_62  font_62_1 alpha
+timestamp 1598775406
+transform 1 0 1654 0 1 468
+box 0 0 540 1260
+use font_63  font_63_0 alpha
+timestamp 1598836169
+transform 1 0 5795 0 1 5362
+box 0 0 540 900
+use font_65  font_65_6 alpha
+timestamp 1598775915
+transform 1 0 3764 0 1 7411
+box 0 0 540 900
+use font_65  font_65_7
+timestamp 1598775915
+transform 1 0 1655 0 1 5362
+box 0 0 540 900
+use font_65  font_65_8
+timestamp 1598775915
+transform 1 0 9935 0 1 5362
+box 0 0 540 900
+use font_65  font_65_9
+timestamp 1598775915
+transform 1 0 12828 0 1 2922
+box 0 0 540 900
+use font_65  font_65_10
+timestamp 1598775915
+transform 1 0 934 0 1 468
+box 0 0 540 900
+use font_67  font_67_1 alpha
+timestamp 1598776042
+transform 1 0 11915 0 1 5362
+box 0 -360 540 900
+use font_69  font_69_1 alpha
+timestamp 1598776260
+transform 1 0 4535 0 1 5362
+box 0 0 360 1260
+use font_69  font_69_2
+timestamp 1598776260
+transform 1 0 7235 0 1 5362
+box 0 0 360 1260
+use font_69  font_69_3
+timestamp 1598776260
+transform 1 0 11375 0 1 5362
+box 0 0 360 1260
+use font_70  font_70_2 alpha
+timestamp 1598777090
+transform 1 0 935 0 1 5362
+box 0 -360 540 900
+use font_70  font_70_3
+timestamp 1598777090
+transform 1 0 12108 0 1 2922
+box 0 -360 540 900
+use font_72  font_72_3 alpha
+timestamp 1598777237
+transform 1 0 1604 0 1 7411
+box 0 0 540 900
+use font_72  font_72_4
+timestamp 1598777237
+transform 1 0 5075 0 1 5362
+box 0 0 540 900
+use font_72  font_72_5
+timestamp 1598777237
+transform 1 0 2374 0 1 468
+box 0 0 540 900
+use font_72  font_72_6
+timestamp 1598777237
+transform 1 0 4534 0 1 468
+box 0 0 540 900
+use font_73  font_73_2 alpha
+timestamp 1598777283
+transform 1 0 10655 0 1 5362
+box 0 0 540 900
+use font_74  font_74_1 alpha
+timestamp 1598777367
+transform 1 0 7775 0 1 5362
+box 0 0 540 1080
+use font_75  font_75_0 alpha
+timestamp 1598777411
+transform 1 0 6515 0 1 5362
+box 0 0 540 900
+use font_75  font_75_1
+timestamp 1598777411
+transform 1 0 3094 0 1 468
+box 0 0 540 900
+use font_76  font_76_1 alpha
+timestamp 1598777472
+transform 1 0 3044 0 1 7411
+box 0 0 540 900
+use font_79  font_79_1 alpha
+timestamp 1598777870
+transform 1 0 5254 0 1 468
+box 0 -360 540 900
+<< end >>

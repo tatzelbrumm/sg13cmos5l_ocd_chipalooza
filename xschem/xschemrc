@@ -1,0 +1,35 @@
+# Set default PDK_ROOT
+if {![info exists env(PDK_ROOT)]} {
+    puts stderr "Warning: PDK_ROOT env. var. not found or empty, trying to find an open_pdks install"
+    if {[file exists /usr/share/pdk/ihp-sg13cmos5l]} {
+	set ::env(PDK_ROOT) /usr/share/pdk
+    } elseif {[file exists /usr/local/share/pdk/ihp-sg13cmos5l]} {
+	set ::env(PDK_ROOT) /usr/local/share/pdk
+    } elseif {[file exists $env(HOME)/share/pdk/ihp-sg13cmos5l]} {
+	set ::env(PDK_ROOT) $env(HOME)/share/pdk
+    } elseif {[file exists $env(HOME)/.ciel/ihp-sg13cmos5l]} {
+	set ::env(PDK_ROOT) $env(HOME)/.ciel
+    } elseif {[file exists $env(HOME)/.volare/ihp-sg13cmos5l]} {
+	set ::env(PDK_ROOT) $env(HOME)/.volare
+    } else {
+	puts stderr "No open_pdks installation found, set PDK_ROOT env. var. and restart xschem"
+    }
+}
+
+# Set default PDK
+if { ![info exists env(PDK)] } {
+  set ::env(PDK) ihp-sg13cmos5l
+}
+
+# Source the PDK xschemrc file
+if {![info exists PDK]} {
+    source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
+}
+
+# Add current directory to xschem library path
+append XSCHEM_LIBRARY_PATH :[file dirname [info script]]
+
+# Source the xschemrc file of the dependent repositories
+
+source ../dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/xschemrc
+source ../dependencies/sg13cmos5l_ocd_ip__biasgen/xschem/xschemrc

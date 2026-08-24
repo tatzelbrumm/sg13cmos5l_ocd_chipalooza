@@ -1,0 +1,1009 @@
+/*-----------------------------------------------------------------------*/
+/* sg13cmos5l_padframe:  A 64-pad frame compatible with Efabless Caravel */
+/*									 */
+/* Written by:								 */
+/* Tim Edwards								 */
+/* Open Circuit Design, LLC						 */
+/* February 2026							 */
+/*-----------------------------------------------------------------------*/
+
+`default_nettype none
+
+/* Include netlists from the openframe top level */
+// `include "netlists.v"
+
+module sg13cmos5l_padframe(
+`ifdef USE_POWER_PINS
+    // Pad power connections
+    inout wire vccd,
+    inout wire vssd,
+    inout wire vddio,
+    inout wire vssio,
+`endif	/* USE_POWER_PINS */
+
+    // Pad signal connections
+    inout wire [43:0] gpio,
+    input wire resetb,
+    input wire clock,
+    input wire option,
+
+    // Core signal connections:  Input-only pads
+    output wire resetb_in,
+    output wire clock_in,
+    output wire option_in,
+
+    // Core signal connections:  Bidirectional digital pads
+    output wire flash_clk_in,
+    output wire flash_clk_out,
+    output wire flash_clk_ena,
+    output wire flash_clk_one,
+    output wire flash_clk_zero,
+    output wire flash_csb_in,
+    output wire flash_csb_out,
+    output wire flash_csb_ena,
+    output wire flash_csb_one,
+    output wire flash_csb_zero,
+    output wire flash_io0_in,
+    output wire flash_io0_out,
+    output wire flash_io0_ena,
+    output wire flash_io0_one,
+    output wire flash_io0_zero,
+    output wire flash_io1_in,
+    output wire flash_io1_out,
+    output wire flash_io1_ena,
+    output wire flash_io1_one,
+    output wire flash_io1_zero,
+    output wire flash_io2_in,
+    output wire flash_io2_out,
+    output wire flash_io2_ena,
+    output wire flash_io2_one,
+    output wire flash_io2_zero,
+    output wire flash_io3_in,
+    output wire flash_io3_out,
+    output wire flash_io3_ena,
+    output wire flash_io3_one,
+    output wire flash_io3_zero,
+    output wire gpio0_in,
+    output wire gpio0_out,
+    output wire gpio0_ena,
+    output wire gpio0_one,
+    output wire gpio0_zero,
+    output wire gpio1_in,
+    output wire gpio1_out,
+    output wire gpio1_ena,
+    output wire gpio1_one,
+    output wire gpio1_zero,
+    output wire spi_SDO_in,
+    output wire spi_SDO_out,
+    output wire spi_SDO_ena,
+    output wire spi_SDO_one,
+    output wire spi_SDO_zero,
+    output wire spi_CSB_in,
+    output wire spi_CSB_out,
+    output wire spi_CSB_ena,
+    output wire spi_CSB_one,
+    output wire spi_CSB_zero,
+    output wire spi_SDI_in,
+    output wire spi_SDI_out,
+    output wire spi_SDI_ena,
+    output wire spi_SDI_one,
+    output wire spi_SDI_zero,
+    output wire spi_SCK_in,
+    output wire spi_SCK_out,
+    output wire spi_SCK_ena,
+    output wire spi_SCK_one,
+    output wire spi_SCK_zero,
+    output wire UART_Rx_in,
+    output wire UART_Rx_out,
+    output wire UART_Rx_ena,
+    output wire UART_Rx_one,
+    output wire UART_Rx_zero,
+    output wire UART_Tx_in,
+    output wire UART_Tx_out,
+    output wire UART_Tx_ena,
+    output wire UART_Tx_one,
+    output wire UART_Tx_zero,
+
+    // Core signal connections:  User ID ROM
+    output wire [31:0] mask_rev,
+
+    // Core signal connections:  Analog
+    inout wire [28:0] analog_io,
+    inout wire [28:0] analog_io_esd
+);
+
+    // Instantiate the pads:
+
+    // Corner pads
+
+    sg13cmos5l_Corner corner_sw (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_Corner corner_se (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_Corner corner_nw (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_Corner corner_ne (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    // Bottom side pads
+
+    sg13cmos5l_IOPadVdd pad_vccd_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadVss pad_vssio_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadIn pad_resetb (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(resetb),
+	.p2c(resetb_in)
+    );
+
+    sg13cmos5l_IOPadIn pad_gpio_38 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[38]),
+	.p2c(clock_in)
+    );
+
+    sg13cmos5l_IOPadVss pad_vssd_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_39 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[39]),
+	.c2p(flash_csb_out),
+	.c2p_en(flash_csb_ena),
+	.p2c(flash_csb_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_40 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[40]),
+	.c2p(flash_clk_out),
+	.c2p_en(flash_clk_ena),
+	.p2c(flash_clk_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_41 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[41]),
+	.c2p(flash_io0_out),
+	.c2p_en(flash_io0_ena),
+	.p2c(flash_io0_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_42 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[42]),
+	.c2p(flash_io1_out),
+	.c2p_en(flash_io1_ena),
+	.p2c(flash_io1_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_43 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[43]),
+	.c2p(gpio0_out),
+	.c2p_en(gpio0_ena),
+	.p2c(gpio0_in)
+    );
+
+    sg13cmos5l_IOPadIOVss pad_vssio_1 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    // Right side pads
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[0]),
+	.c2p(gpio1_out),
+	.c2p_en(gpio1_ena),
+	.p2c(gpio1_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_1 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[1]),
+	.c2p(spi_SDO_out),
+	.c2p_en(spi_SDO_ena),
+	.p2c(spi_SDO_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_2 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[2]),
+	.c2p(spi_SDI_out),
+	.c2p_en(spi_SDI_ena),
+	.p2c(spi_SDI_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_3 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[3]),
+	.c2p(spi_CSB_out),
+	.c2p_en(spi_CSB_ena),
+	.p2c(spi_CSB_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_4 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[4]),
+	.c2p(spi_SCK_out),
+	.c2p_en(spi_SCK_ena),
+	.p2c(spi_SCK_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_5 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[5]),
+	.c2p(UART_Rx_out),
+	.c2p_en(UART_Rx_ena),
+	.p2c(UART_Rx_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_6 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[6]),
+	.c2p(UART_Tx_out),
+	.c2p_en(UART_Tx_ena),
+	.p2c(UART_Tx_in)
+    );
+
+    sg13cmos5l_IOPadIOVss pad_vssio_2 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadVss pad_vssd_1 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_1 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_7 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[7]),
+	.padres(analog_io_esd[0])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_8 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[8]),
+	.padres(analog_io_esd[1])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_9 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[9]),
+	.padres(analog_io_esd[2])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_10 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[10]),
+	.padres(analog_io_esd[3])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_11 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[11]),
+	.padres(analog_io_esd[4])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_12 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[12]),
+	.padres(analog_io_esd[5])
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_2 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_13 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[13]),
+	.padres(analog_io_esd[6])
+    );
+
+    sg13cmos5l_IOPadVdd pad_vccd_1 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_14 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[14]),
+	.padres(analog_io_esd[7])
+    );
+
+    // Top side pads
+
+    sg13cmos5l_IOPadAnalog pad_gpio_15 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[15]),
+	.padres(analog_io_esd[8])
+    );
+
+    sg13cmos5l_IOPadIOVss pad_vssio_3 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_16 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[16]),
+	.padres(analog_io_esd[9])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_17 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[17]),
+	.padres(analog_io_esd[10])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_18 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[18]),
+	.padres(analog_io_esd[11])
+    );
+
+    sg13cmos5l_IOPadIOVss pad_vssio_4 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_19 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[19]),
+	.padres(analog_io_esd[12])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_20 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[20]),
+	.padres(analog_io_esd[13])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_21 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[21]),
+	.padres(analog_io_esd[14])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_22 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[22]),
+	.padres(analog_io_esd[15])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_23 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[23]),
+	.padres(analog_io_esd[16])
+    );
+
+    sg13cmos5l_IOPadIn pad_option_0 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(option),
+	.p2c(option_in)
+    );
+
+    // Right side pads
+
+    sg13cmos5l_IOPadAnalog pad_gpio_24 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[24]),
+	.padres(analog_io_esd[17])
+    );
+
+    sg13cmos5l_IOPadVdd pad_vccd_2 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_3 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadIOVss pad_vssio_5 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_25 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[25]),
+	.padres(analog_io_esd[18])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_26 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[26]),
+	.padres(analog_io_esd[19])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_27 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[27]),
+	.padres(analog_io_esd[20])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_28 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[28]),
+	.padres(analog_io_esd[21])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_29 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[29]),
+	.padres(analog_io_esd[22])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_30 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[30]),
+	.padres(analog_io_esd[23])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_31 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[31]),
+	.padres(analog_io_esd[24])
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_4 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadVss pad_vssd_2 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_32 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[32]),
+	.padres(analog_io_esd[25])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_33 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[33]),
+	.padres(analog_io_esd[26])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_34 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[34]),
+	.padres(analog_io_esd[27])
+    );
+
+    sg13cmos5l_IOPadAnalog pad_gpio_35 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[35]),
+	.padres(analog_io_esd[28])
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_36 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[36]),
+	.c2p(flash_io2_out),
+	.c2p_en(flash_io2_ena),
+	.p2c(flash_io2_in)
+    );
+
+    sg13cmos5l_IOPadInOut4mA pad_gpio_37 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.pad(gpio[37]),
+	.c2p(flash_io3_out),
+	.c2p_en(flash_io3_ena),
+	.p2c(flash_io3_in)
+    );
+
+    sg13cmos5l_IOPadIOVdd pad_vddio_5 (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    /* Filler pads between each bond pad */
+
+    sg13cmos5l_Filler10000 spacer [59:0] (
+	`ifdef USE_POWER_PINS
+	    .iovdd(vddio),
+	    .iovss(vssio),
+	    .vdd(vccd),
+	    .vss(vssd)
+	`endif	/* USE_POWER_PINS */
+    );
+
+    /* Separate analog_io core signals from the pads with assignments,
+     * which represent metal resistor net breakers in the layout.
+     */
+    assign analog_io[28:0] = gpio[35:7];
+
+    /* Non-electrically-connected modules */
+
+    caravel_logo caravel_logo ();
+    caravel_motto caravel_motto ();
+    copyright_block copyright_block ();
+    user_id_textblock user_id_textblock ();
+    open_source open_source ();
+
+    /* To do:  Add in constant block (digital 1/0 near each digital pad)
+     * and user_id_programming (32-bit ROM block)
+     */
+   constant_block constant_block_flash_csb (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_csb_one),
+	.zero(flash_csb_zero)
+   );
+   constant_block constant_block_flash_clk (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_clk_one),
+	.zero(flash_clk_zero)
+   );
+   constant_block constant_block_flash_io0 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_io0_one),
+	.zero(flash_io0_zero)
+   );
+   constant_block constant_block_flash_io1 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_io1_one),
+	.zero(flash_io1_zero)
+   );
+   constant_block constant_block_flash_io2 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_io2_one),
+	.zero(flash_io2_zero)
+   );
+   constant_block constant_block_flash_io3 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(flash_io3_one),
+	.zero(flash_io3_zero)
+   );
+   constant_block constant_block_gpio0 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(gpio0_one),
+	.zero(gpio0_zero)
+   );
+   constant_block constant_block_gpio1 (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(gpio1_one),
+	.zero(gpio1_zero)
+   );
+   constant_block constant_block_spi_SDO (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(spi_SDO_one),
+	.zero(spi_SDO_zero)
+   );
+   constant_block constant_block_spi_SDI (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(spi_SDI_one),
+	.zero(spi_SDI_zero)
+   );
+   constant_block constant_block_spi_CSB (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(spi_CSB_one),
+	.zero(spi_CSB_zero)
+   );
+   constant_block constant_block_spi_SCK (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(spi_SCK_one),
+	.zero(spi_SCK_zero)
+   );
+   constant_block constant_block_spi_UART_Rx (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(UART_Rx_one),
+	.zero(UART_Rx_zero)
+   );
+   constant_block constant_block_spi_UART_Tx (
+	`ifdef USE_POWER_PINS
+	    .vdd(vccd),
+	    .vss(vssd),
+	`endif	/* USE_POWER_PINS */
+	.one(UART_Tx_one),
+	.zero(UART_Tx_zero)
+   );
+
+   user_id_programming user_id_programming (
+	`ifdef USE_POWER_PINS
+	    .VDD(vccd),
+	    .VSS(vssd),
+	`endif	/* USE_POWER_PINS */
+	.mask_rev(mask_rev)
+    );
+
+endmodule
+
+`default_nettype wire

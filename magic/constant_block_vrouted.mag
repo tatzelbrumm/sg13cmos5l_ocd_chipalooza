@@ -1,0 +1,41 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1774808302
+<< metal2 >>
+rect 256 4371 301 5183
+rect 487 4369 532 5181
+rect 909 2719 1109 3156
+rect 909 2205 931 2719
+rect 1091 2205 1109 2719
+rect 909 2185 1109 2205
+rect 2192 539 2392 2737
+rect 2192 25 2214 539
+rect 2374 25 2392 539
+rect 2192 0 2392 25
+<< via2 >>
+rect 931 2205 1091 2719
+rect 2214 25 2374 539
+<< metal3 >>
+rect 909 2719 1108 2745
+rect 909 2205 931 2719
+rect 1091 2205 1108 2719
+rect 909 2185 1108 2205
+rect 2192 539 2392 564
+rect 2192 25 2214 539
+rect 2374 25 2392 539
+rect 2192 0 2392 25
+use constant_block  constant_block_0
+timestamp 1774808302
+transform 1 0 48 0 1 3533
+box -48 -822 2448 855
+<< labels >>
+flabel metal2 487 4783 532 5181 0 FreeSans 480 90 0 0 one
+port 4 nsew
+flabel metal2 2207 619 2374 937 0 FreeSans 480 90 0 0 vss
+port 1 nsew
+flabel metal2 924 2800 1091 3118 0 FreeSans 480 90 0 0 vdd
+port 2 nsew
+flabel metal2 256 4783 301 5183 0 FreeSans 480 90 0 0 zero
+port 3 nsew
+<< end >>

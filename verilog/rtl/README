@@ -1,0 +1,3 @@
+iverilog -I/home/tim/gits/ihp-sg13cmos5l digital_tb.v
+vvp a.out
+gtkwave digital_tb.vcd

@@ -1,0 +1,37 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1772318024
+<< pwell >>
+rect -13 -13 308593 363
+<< sealcont >>
+rect 0 130 308580 146
+<< psubdiff >>
+rect 0 146 308580 350
+rect 0 0 308580 130
+<< metal1 >>
+rect 0 149 308580 350
+rect 0 0 308580 130
+<< sealvia1 >>
+rect 0 130 308580 149
+<< metal2 >>
+rect 0 149 308580 350
+rect 0 0 308580 130
+<< sealvia2 >>
+rect 0 130 308580 149
+<< metal3 >>
+rect 0 149 308580 350
+rect 0 0 308580 130
+<< sealvia3 >>
+rect 0 130 308580 149
+<< metal4 >>
+rect 0 172 308580 350
+rect 0 0 308580 130
+<< sealvia4 >>
+rect 0 130 308580 172
+<< metal5 >>
+rect 0 0 308580 350
+<< seal >>
+rect 0 -720 308580 -300
+<< properties >>
+string FIXED_BBOX 0 -720 308580 350
+<< end >>

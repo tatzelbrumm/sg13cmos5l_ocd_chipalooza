@@ -1,0 +1,99 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1774808302
+<< metal1 >>
+rect 571 327 573 371
+rect 1708 -93 1750 -89
+rect 1708 -227 1750 -222
+rect 1509 -344 1512 -302
+<< via1 >>
+rect 869 731 1050 804
+rect 1708 454 1750 583
+rect 451 327 571 371
+rect 1341 332 1509 374
+rect 2153 -24 2334 49
+rect 1708 -222 1750 -93
+rect 451 -346 569 -303
+rect 1341 -344 1509 -302
+rect 870 -781 1051 -708
+<< metal2 >>
+rect 208 -298 253 853
+rect 439 375 484 853
+rect 861 804 1061 855
+rect 861 731 869 804
+rect 1050 731 1061 804
+rect 439 371 580 375
+rect 439 327 451 371
+rect 571 327 580 371
+rect 439 322 580 327
+rect 208 -303 579 -298
+rect 208 -346 451 -303
+rect 569 -346 579 -303
+rect 208 -351 579 -346
+rect 861 -708 1061 731
+rect 1698 583 1759 590
+rect 1698 454 1708 583
+rect 1750 454 1759 583
+rect 1698 389 1759 454
+rect 1331 374 1759 389
+rect 1331 332 1341 374
+rect 1509 332 1759 374
+rect 1331 315 1759 332
+rect 2144 49 2344 855
+rect 2144 -24 2153 49
+rect 2334 -24 2344 49
+rect 1698 -93 1759 -86
+rect 1698 -222 1708 -93
+rect 1750 -222 1759 -93
+rect 1698 -287 1759 -222
+rect 1331 -302 1759 -287
+rect 1331 -344 1341 -302
+rect 1509 -344 1759 -302
+rect 1331 -361 1759 -344
+rect 861 -781 870 -708
+rect 1051 -781 1061 -708
+rect 861 -816 1061 -781
+rect 2144 -817 2344 -24
+use sg13cmos5l_buf_8  sg13cmos5l_buf_8_0 sg13cmos5l_stdcell
+timestamp 1773957321
+transform -1 0 1632 0 1 12
+box -48 -56 1296 834
+use sg13cmos5l_buf_8  sg13cmos5l_buf_8_1
+timestamp 1773957321
+transform -1 0 1632 0 -1 12
+box -48 -56 1296 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_0 sg13cmos5l_stdcell
+timestamp 1774721386
+transform 1 0 0 0 1 12
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_1
+timestamp 1774721386
+transform 1 0 2016 0 1 12
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_2
+timestamp 1774721386
+transform 1 0 0 0 -1 12
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_3
+timestamp 1774721386
+transform 1 0 2016 0 -1 12
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_0 sg13cmos5l_stdcell
+timestamp 1771620123
+transform -1 0 2016 0 1 12
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_0 sg13cmos5l_stdcell
+timestamp 1772036422
+transform -1 0 2016 0 -1 12
+box -48 -56 432 834
+<< labels >>
+flabel metal2 439 732 484 853 0 FreeSans 480 90 0 0 one
+port 0 nsew
+flabel metal2 861 817 1061 855 0 FreeSans 480 0 0 0 vdd
+port 2 nsew
+flabel metal2 2144 817 2344 855 0 FreeSans 480 0 0 0 vss
+port 3 nsew
+flabel metal2 208 732 253 853 0 FreeSans 480 90 0 0 zero
+port 1 nsew
+<< end >>

@@ -1,0 +1,746 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1774808302
+<< metal1 >>
+rect 2747 1750 2947 1810
+rect 1076 1457 1133 1606
+rect 1173 1459 1230 1606
+rect 1188 1270 1230 1459
+rect 2228 1457 2285 1606
+rect 2325 1459 2382 1606
+rect 2340 1270 2382 1459
+rect 3380 1457 3437 1606
+rect 3477 1459 3534 1606
+rect 3492 1270 3534 1459
+rect 4532 1457 4589 1606
+rect 4629 1459 4686 1606
+rect 4644 1270 4686 1459
+rect 5684 1457 5741 1606
+rect 5781 1459 5838 1606
+rect 5796 1270 5838 1459
+rect 6836 1457 6893 1606
+rect 6933 1459 6990 1606
+rect 6948 1270 6990 1459
+rect 7988 1457 8045 1606
+rect 8085 1459 8142 1606
+rect 8100 1270 8142 1459
+rect 9140 1457 9197 1606
+rect 9237 1459 9294 1606
+rect 9252 1270 9294 1459
+rect 10292 1457 10349 1606
+rect 10389 1459 10446 1606
+rect 10404 1270 10446 1459
+rect 11444 1457 11501 1606
+rect 11541 1459 11598 1606
+rect 11556 1270 11598 1459
+rect 12596 1457 12653 1606
+rect 12693 1459 12750 1606
+rect 12708 1270 12750 1459
+rect 13748 1457 13805 1606
+rect 13845 1459 13902 1606
+rect 13860 1270 13902 1459
+rect 14900 1457 14957 1606
+rect 14997 1459 15054 1606
+rect 15012 1270 15054 1459
+rect 16052 1457 16109 1606
+rect 16149 1459 16206 1606
+rect 16164 1270 16206 1459
+rect 17204 1457 17261 1606
+rect 17301 1459 17358 1606
+rect 17316 1270 17358 1459
+rect 18356 1457 18413 1606
+rect 18453 1459 18510 1606
+rect 18468 1270 18510 1459
+rect 1188 1226 1267 1270
+rect 2340 1226 2419 1270
+rect 3492 1226 3571 1270
+rect 4644 1226 4723 1270
+rect 5796 1226 5875 1270
+rect 6948 1226 7027 1270
+rect 8100 1226 8179 1270
+rect 9252 1226 9331 1270
+rect 10404 1226 10483 1270
+rect 11556 1226 11635 1270
+rect 12708 1226 12787 1270
+rect 13860 1226 13939 1270
+rect 15012 1226 15091 1270
+rect 16164 1226 16243 1270
+rect 17316 1226 17395 1270
+rect 18468 1226 18547 1270
+rect 1188 778 1267 822
+rect 2340 778 2419 822
+rect 3492 778 3571 822
+rect 4644 778 4723 822
+rect 5796 778 5875 822
+rect 6948 778 7027 822
+rect 8100 778 8179 822
+rect 9252 778 9331 822
+rect 10404 778 10483 822
+rect 11556 778 11635 822
+rect 12708 778 12787 822
+rect 13860 778 13939 822
+rect 15012 778 15091 822
+rect 16164 778 16243 822
+rect 17316 778 17395 822
+rect 18468 778 18547 822
+rect 1076 442 1133 591
+rect 1188 589 1230 778
+rect 1175 442 1230 589
+rect 2228 442 2285 591
+rect 2340 589 2382 778
+rect 2327 442 2382 589
+rect 3380 442 3437 591
+rect 3492 589 3534 778
+rect 3479 442 3534 589
+rect 4532 442 4589 591
+rect 4644 589 4686 778
+rect 4631 442 4686 589
+rect 5684 442 5741 591
+rect 5796 589 5838 778
+rect 5783 442 5838 589
+rect 6836 442 6893 591
+rect 6948 589 6990 778
+rect 6935 442 6990 589
+rect 7988 442 8045 591
+rect 8100 589 8142 778
+rect 8087 442 8142 589
+rect 9140 442 9197 591
+rect 9252 589 9294 778
+rect 9239 442 9294 589
+rect 10292 442 10349 591
+rect 10404 589 10446 778
+rect 10391 442 10446 589
+rect 11444 442 11501 591
+rect 11556 589 11598 778
+rect 11543 442 11598 589
+rect 12596 442 12653 591
+rect 12708 589 12750 778
+rect 12695 442 12750 589
+rect 13748 442 13805 591
+rect 13860 589 13902 778
+rect 13847 442 13902 589
+rect 14900 442 14957 591
+rect 15012 589 15054 778
+rect 14999 442 15054 589
+rect 16052 442 16109 591
+rect 16164 589 16206 778
+rect 16151 442 16206 589
+rect 17204 442 17261 591
+rect 17316 589 17358 778
+rect 17303 442 17358 589
+rect 18356 442 18413 591
+rect 18468 589 18510 778
+rect 18455 442 18510 589
+rect 2747 238 2947 298
+<< via1 >>
+rect 1595 1750 1795 1810
+rect 3899 1750 4099 1810
+rect 6203 1750 6403 1810
+rect 8507 1750 8707 1810
+rect 10811 1750 11011 1810
+rect 13115 1750 13315 1810
+rect 15419 1750 15619 1810
+rect 17723 1750 17923 1810
+rect 443 994 643 1054
+rect 2747 994 2947 1054
+rect 5051 994 5251 1054
+rect 7355 994 7555 1054
+rect 9659 994 9859 1054
+rect 11963 994 12163 1054
+rect 14267 994 14467 1054
+rect 16571 994 16771 1054
+rect 18875 994 19075 1054
+rect 1595 238 1795 298
+rect 3899 238 4099 298
+rect 6203 238 6403 298
+rect 8507 238 8707 298
+rect 10811 238 11011 298
+rect 13115 238 13315 298
+rect 15419 238 15619 298
+rect 17723 238 17923 298
+<< metal2 >>
+rect 443 1054 643 1845
+rect 1595 1810 1795 1845
+rect 443 198 643 994
+rect 831 1508 1251 1556
+rect 831 0 879 1508
+rect 1049 492 1455 540
+rect 1407 0 1455 492
+rect 1595 298 1795 1750
+rect 1595 198 1795 238
+rect 1983 1508 2403 1556
+rect 1983 0 2031 1508
+rect 2747 1054 2947 1845
+rect 3899 1810 4099 1845
+rect 2201 492 2607 540
+rect 2559 0 2607 492
+rect 2747 198 2947 994
+rect 3135 1508 3555 1556
+rect 3135 0 3183 1508
+rect 3353 492 3759 540
+rect 3711 0 3759 492
+rect 3899 298 4099 1750
+rect 3899 198 4099 238
+rect 4287 1508 4707 1556
+rect 4287 0 4335 1508
+rect 5051 1054 5251 1845
+rect 6203 1810 6403 1845
+rect 4505 492 4911 540
+rect 4863 0 4911 492
+rect 5051 198 5251 994
+rect 5439 1508 5859 1556
+rect 5439 0 5487 1508
+rect 5657 492 6063 540
+rect 6015 0 6063 492
+rect 6203 298 6403 1750
+rect 6203 198 6403 238
+rect 6591 1508 7011 1556
+rect 6591 0 6639 1508
+rect 7355 1054 7555 1845
+rect 8507 1810 8707 1845
+rect 6809 492 7215 540
+rect 7167 0 7215 492
+rect 7355 198 7555 994
+rect 7743 1508 8163 1556
+rect 7743 0 7791 1508
+rect 7961 492 8367 540
+rect 8319 0 8367 492
+rect 8507 298 8707 1750
+rect 8507 198 8707 238
+rect 8895 1508 9315 1556
+rect 8895 0 8943 1508
+rect 9659 1054 9859 1845
+rect 10811 1810 11011 1845
+rect 9113 492 9519 540
+rect 9471 0 9519 492
+rect 9659 198 9859 994
+rect 10047 1508 10467 1556
+rect 10047 0 10095 1508
+rect 10265 492 10671 540
+rect 10623 0 10671 492
+rect 10811 298 11011 1750
+rect 10811 198 11011 238
+rect 11199 1508 11619 1556
+rect 11199 0 11247 1508
+rect 11963 1054 12163 1845
+rect 13115 1810 13315 1845
+rect 11417 492 11823 540
+rect 11775 0 11823 492
+rect 11963 198 12163 994
+rect 12351 1508 12771 1556
+rect 12351 0 12399 1508
+rect 12569 492 12975 540
+rect 12927 0 12975 492
+rect 13115 298 13315 1750
+rect 13115 198 13315 238
+rect 13503 1508 13923 1556
+rect 13503 0 13551 1508
+rect 14267 1054 14467 1845
+rect 15419 1810 15619 1845
+rect 13721 492 14127 540
+rect 14079 0 14127 492
+rect 14267 198 14467 994
+rect 14655 1508 15075 1556
+rect 14655 0 14703 1508
+rect 14873 492 15279 540
+rect 15231 0 15279 492
+rect 15419 298 15619 1750
+rect 15419 198 15619 238
+rect 15807 1508 16227 1556
+rect 15807 0 15855 1508
+rect 16571 1054 16771 1845
+rect 17723 1810 17923 1845
+rect 16025 492 16431 540
+rect 16383 0 16431 492
+rect 16571 198 16771 994
+rect 16959 1508 17379 1556
+rect 16959 0 17007 1508
+rect 17177 492 17583 540
+rect 17535 0 17583 492
+rect 17723 298 17923 1750
+rect 17723 198 17923 238
+rect 18111 1508 18531 1556
+rect 18111 0 18159 1508
+rect 18875 1054 19075 1845
+rect 18329 492 18735 540
+rect 18687 0 18735 492
+rect 18875 198 19075 994
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_0 sg13cmos5l_stdcell
+timestamp 1774721386
+transform 1 0 48 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_1
+timestamp 1774721386
+transform 1 0 432 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_2
+timestamp 1774721386
+transform 1 0 1584 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_3
+timestamp 1774721386
+transform 1 0 2736 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_4
+timestamp 1774721386
+transform 1 0 3888 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_5
+timestamp 1774721386
+transform 1 0 5040 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_6
+timestamp 1774721386
+transform 1 0 6192 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_7
+timestamp 1774721386
+transform 1 0 7344 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_8
+timestamp 1774721386
+transform 1 0 8496 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_9
+timestamp 1774721386
+transform 1 0 9648 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_10
+timestamp 1774721386
+transform 1 0 10800 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_11
+timestamp 1774721386
+transform 1 0 11952 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_12
+timestamp 1774721386
+transform 1 0 13104 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_13
+timestamp 1774721386
+transform 1 0 14256 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_14
+timestamp 1774721386
+transform 1 0 15408 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_15
+timestamp 1774721386
+transform 1 0 16560 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_16
+timestamp 1774721386
+transform 1 0 17712 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_17
+timestamp 1774721386
+transform 1 0 18864 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_18
+timestamp 1774721386
+transform 1 0 19248 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_21
+timestamp 1774721386
+transform 1 0 18864 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_22
+timestamp 1774721386
+transform 1 0 19248 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_23
+timestamp 1774721386
+transform 1 0 17712 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_24
+timestamp 1774721386
+transform 1 0 16560 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_25
+timestamp 1774721386
+transform 1 0 15408 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_26
+timestamp 1774721386
+transform 1 0 14256 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_27
+timestamp 1774721386
+transform 1 0 13104 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_28
+timestamp 1774721386
+transform 1 0 11952 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_29
+timestamp 1774721386
+transform 1 0 10800 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_30
+timestamp 1774721386
+transform 1 0 9648 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_31
+timestamp 1774721386
+transform 1 0 8496 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_32
+timestamp 1774721386
+transform 1 0 7344 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_33
+timestamp 1774721386
+transform 1 0 6192 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_34
+timestamp 1774721386
+transform 1 0 5040 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_35
+timestamp 1774721386
+transform 1 0 3888 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_36
+timestamp 1774721386
+transform 1 0 2736 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_37
+timestamp 1774721386
+transform 1 0 1584 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_38
+timestamp 1774721386
+transform 1 0 432 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_decap_4  sg13cmos5l_decap_4_39
+timestamp 1774721386
+transform 1 0 48 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_0 sg13cmos5l_stdcell
+timestamp 1771620123
+transform 1 0 816 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_1
+timestamp 1771620123
+transform 1 0 1968 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_2
+timestamp 1771620123
+transform 1 0 3120 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_3
+timestamp 1771620123
+transform 1 0 4272 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_4
+timestamp 1771620123
+transform 1 0 5424 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_5
+timestamp 1771620123
+transform 1 0 6576 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_6
+timestamp 1771620123
+transform 1 0 7728 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_7
+timestamp 1771620123
+transform 1 0 8880 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_8
+timestamp 1771620123
+transform 1 0 10032 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_9
+timestamp 1771620123
+transform 1 0 11184 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_10
+timestamp 1771620123
+transform 1 0 12336 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_11
+timestamp 1771620123
+transform 1 0 13488 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_12
+timestamp 1771620123
+transform 1 0 14640 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_13
+timestamp 1771620123
+transform 1 0 15792 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_14
+timestamp 1771620123
+transform 1 0 16944 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_15
+timestamp 1771620123
+transform 1 0 18096 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_16
+timestamp 1771620123
+transform 1 0 18096 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_17
+timestamp 1771620123
+transform 1 0 16944 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_18
+timestamp 1771620123
+transform 1 0 15792 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_19
+timestamp 1771620123
+transform 1 0 14640 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_20
+timestamp 1771620123
+transform 1 0 13488 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_21
+timestamp 1771620123
+transform 1 0 12336 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_22
+timestamp 1771620123
+transform 1 0 11184 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_23
+timestamp 1771620123
+transform 1 0 10032 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_24
+timestamp 1771620123
+transform 1 0 8880 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_25
+timestamp 1771620123
+transform 1 0 7728 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_26
+timestamp 1771620123
+transform 1 0 6576 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_27
+timestamp 1771620123
+transform 1 0 5424 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_28
+timestamp 1771620123
+transform 1 0 4272 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_29
+timestamp 1771620123
+transform 1 0 3120 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_30
+timestamp 1771620123
+transform 1 0 1968 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tiehi  sg13cmos5l_tiehi_31
+timestamp 1771620123
+transform 1 0 816 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_0 sg13cmos5l_stdcell
+timestamp 1772036422
+transform -1 0 1584 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_1
+timestamp 1772036422
+transform -1 0 2736 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_2
+timestamp 1772036422
+transform -1 0 3888 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_3
+timestamp 1772036422
+transform -1 0 5040 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_4
+timestamp 1772036422
+transform -1 0 6192 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_5
+timestamp 1772036422
+transform -1 0 7344 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_6
+timestamp 1772036422
+transform -1 0 8496 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_7
+timestamp 1772036422
+transform -1 0 9648 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_8
+timestamp 1772036422
+transform -1 0 10800 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_9
+timestamp 1772036422
+transform -1 0 11952 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_10
+timestamp 1772036422
+transform -1 0 13104 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_11
+timestamp 1772036422
+transform -1 0 14256 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_12
+timestamp 1772036422
+transform -1 0 15408 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_13
+timestamp 1772036422
+transform -1 0 16560 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_14
+timestamp 1772036422
+transform -1 0 17712 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_15
+timestamp 1772036422
+transform -1 0 18864 0 1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_16
+timestamp 1772036422
+transform -1 0 18864 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_17
+timestamp 1772036422
+transform -1 0 17712 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_18
+timestamp 1772036422
+transform -1 0 16560 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_19
+timestamp 1772036422
+transform -1 0 15408 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_20
+timestamp 1772036422
+transform -1 0 14256 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_21
+timestamp 1772036422
+transform -1 0 13104 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_22
+timestamp 1772036422
+transform -1 0 11952 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_23
+timestamp 1772036422
+transform -1 0 10800 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_24
+timestamp 1772036422
+transform -1 0 9648 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_25
+timestamp 1772036422
+transform -1 0 8496 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_26
+timestamp 1772036422
+transform -1 0 7344 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_27
+timestamp 1772036422
+transform -1 0 6192 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_28
+timestamp 1772036422
+transform -1 0 5040 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_29
+timestamp 1772036422
+transform -1 0 3888 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_30
+timestamp 1772036422
+transform -1 0 2736 0 -1 1024
+box -48 -56 432 834
+use sg13cmos5l_tielo  sg13cmos5l_tielo_31
+timestamp 1772036422
+transform -1 0 1584 0 -1 1024
+box -48 -56 432 834
+use user_id_vias  user_id_vias_0
+timestamp 1772036422
+transform 1 0 1084 0 1 492
+box 97 -5 17426 1069
+<< labels >>
+flabel metal2 831 0 879 300 0 FreeSans 480 90 0 0 mask_rev[0]
+port 1 nsew
+flabel metal2 1407 0 1455 300 0 FreeSans 480 90 0 0 mask_rev[1]
+port 2 nsew
+flabel metal2 1983 0 2031 300 0 FreeSans 480 90 0 0 mask_rev[2]
+port 3 nsew
+flabel metal2 2559 0 2607 300 0 FreeSans 480 90 0 0 mask_rev[3]
+port 4 nsew
+flabel metal2 3135 0 3183 300 0 FreeSans 480 90 0 0 mask_rev[4]
+port 5 nsew
+flabel metal2 3711 0 3759 300 0 FreeSans 480 90 0 0 mask_rev[5]
+port 6 nsew
+flabel metal2 4287 0 4335 300 0 FreeSans 480 90 0 0 mask_rev[6]
+port 7 nsew
+flabel metal2 4863 0 4911 300 0 FreeSans 480 90 0 0 mask_rev[7]
+port 8 nsew
+flabel metal2 5439 0 5487 300 0 FreeSans 480 90 0 0 mask_rev[8]
+port 9 nsew
+flabel metal2 6015 0 6063 300 0 FreeSans 480 90 0 0 mask_rev[9]
+port 10 nsew
+flabel metal2 6591 0 6639 300 0 FreeSans 480 90 0 0 mask_rev[10]
+port 11 nsew
+flabel metal2 7167 0 7215 300 0 FreeSans 480 90 0 0 mask_rev[11]
+port 12 nsew
+flabel metal2 8319 0 8367 300 0 FreeSans 480 90 0 0 mask_rev[13]
+port 14 nsew
+flabel metal2 8895 0 8943 300 0 FreeSans 480 90 0 0 mask_rev[14]
+port 15 nsew
+flabel metal2 9471 0 9519 300 0 FreeSans 480 90 0 0 mask_rev[15]
+port 16 nsew
+flabel metal2 10047 0 10095 300 0 FreeSans 480 90 0 0 mask_rev[16]
+port 17 nsew
+flabel metal2 10623 0 10671 300 0 FreeSans 480 90 0 0 mask_rev[17]
+port 18 nsew
+flabel metal2 11199 0 11247 300 0 FreeSans 480 90 0 0 mask_rev[18]
+port 19 nsew
+flabel metal2 11775 0 11823 300 0 FreeSans 480 90 0 0 mask_rev[19]
+port 20 nsew
+flabel metal2 12351 0 12399 300 0 FreeSans 480 90 0 0 mask_rev[20]
+port 21 nsew
+flabel metal2 12927 0 12975 300 0 FreeSans 480 90 0 0 mask_rev[21]
+port 22 nsew
+flabel metal2 13503 0 13551 300 0 FreeSans 480 90 0 0 mask_rev[22]
+port 23 nsew
+flabel metal2 14079 0 14127 300 0 FreeSans 480 90 0 0 mask_rev[23]
+port 24 nsew
+flabel metal2 14655 0 14703 300 0 FreeSans 480 90 0 0 mask_rev[24]
+port 25 nsew
+flabel metal2 15231 0 15279 300 0 FreeSans 480 90 0 0 mask_rev[25]
+port 26 nsew
+flabel metal2 15807 0 15855 300 0 FreeSans 480 90 0 0 mask_rev[26]
+port 27 nsew
+flabel metal2 16383 0 16431 300 0 FreeSans 480 90 0 0 mask_rev[27]
+port 28 nsew
+flabel metal2 16959 0 17007 300 0 FreeSans 480 90 0 0 mask_rev[28]
+port 29 nsew
+flabel metal2 17535 0 17583 300 0 FreeSans 480 90 0 0 mask_rev[29]
+port 30 nsew
+flabel metal2 18111 0 18159 300 0 FreeSans 480 90 0 0 mask_rev[30]
+port 31 nsew
+flabel metal2 7743 0 7791 300 0 FreeSans 480 90 0 0 mask_rev[12]
+port 13 nsew
+flabel metal2 18687 0 18735 300 0 FreeSans 480 90 0 0 mask_rev[31]
+port 32 nsew
+<< end >>

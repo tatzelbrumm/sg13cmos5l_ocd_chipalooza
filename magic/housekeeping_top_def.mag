@@ -1,0 +1,915 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1773954165
+<< checkpaint >>
+rect 35000 46900 171000 49000
+rect 35000 46800 166015 46900
+rect 35000 31100 37100 46800
+rect 168900 40015 171000 46900
+rect 56985 31100 59015 31200
+rect 168800 31100 171000 40015
+rect 35000 29000 171000 31100
+<< obsm1 >>
+rect 36000 47900 170000 48000
+rect 36000 30000 36100 47900
+<< metal2 >>
+rect 36985 47800 37015 48000
+rect 37485 47800 37515 48000
+rect 37985 47800 38015 48000
+rect 38485 47800 38515 48000
+rect 38985 47800 39015 48000
+rect 39485 47800 39515 48000
+rect 39985 47800 40015 48000
+rect 40485 47800 40515 48000
+rect 40985 47800 41015 48000
+rect 41485 47800 41515 48000
+rect 41985 47800 42015 48000
+rect 42485 47800 42515 48000
+rect 42985 47800 43015 48000
+rect 43485 47800 43515 48000
+rect 43985 47800 44015 48000
+rect 44485 47800 44515 48000
+rect 44985 47800 45015 48000
+rect 45485 47800 45515 48000
+rect 45985 47800 46015 48000
+rect 46485 47800 46515 48000
+rect 46985 47800 47015 48000
+rect 47485 47800 47515 48000
+rect 47985 47800 48015 48000
+rect 48485 47800 48515 48000
+rect 48985 47800 49015 48000
+rect 49485 47800 49515 48000
+rect 49985 47800 50015 48000
+rect 50485 47800 50515 48000
+rect 50985 47800 51015 48000
+rect 51485 47800 51515 48000
+rect 51985 47800 52015 48000
+rect 52485 47800 52515 48000
+rect 52985 47800 53015 48000
+rect 53485 47800 53515 48000
+rect 53985 47800 54015 48000
+rect 54485 47800 54515 48000
+rect 54985 47800 55015 48000
+rect 55485 47800 55515 48000
+rect 55985 47800 56015 48000
+rect 56485 47800 56515 48000
+rect 56985 47800 57015 48000
+rect 57485 47800 57515 48000
+rect 57985 47800 58015 48000
+rect 58485 47800 58515 48000
+rect 58985 47800 59015 48000
+rect 59485 47800 59515 48000
+rect 59985 47800 60015 48000
+rect 60485 47800 60515 48000
+rect 60985 47800 61015 48000
+rect 61485 47800 61515 48000
+rect 61985 47800 62015 48000
+rect 62485 47800 62515 48000
+rect 62985 47800 63015 48000
+rect 63485 47800 63515 48000
+rect 63985 47800 64015 48000
+rect 64485 47800 64515 48000
+rect 64985 47800 65015 48000
+rect 65485 47800 65515 48000
+rect 65985 47800 66015 48000
+rect 66485 47800 66515 48000
+rect 66985 47800 67015 48000
+rect 67485 47800 67515 48000
+rect 67985 47800 68015 48000
+rect 68485 47800 68515 48000
+rect 68985 47800 69015 48000
+rect 69485 47800 69515 48000
+rect 69985 47800 70015 48000
+rect 70485 47800 70515 48000
+rect 70985 47800 71015 48000
+rect 71485 47800 71515 48000
+rect 71985 47800 72015 48000
+rect 72485 47800 72515 48000
+rect 72985 47800 73015 48000
+rect 73485 47800 73515 48000
+rect 73985 47800 74015 48000
+rect 74485 47800 74515 48000
+rect 74985 47800 75015 48000
+rect 75485 47800 75515 48000
+rect 75985 47800 76015 48000
+rect 76485 47800 76515 48000
+rect 76985 47800 77015 48000
+rect 77485 47800 77515 48000
+rect 77985 47800 78015 48000
+rect 78485 47800 78515 48000
+rect 78985 47800 79015 48000
+rect 79485 47800 79515 48000
+rect 79985 47800 80015 48000
+rect 80485 47800 80515 48000
+rect 80985 47800 81015 48000
+rect 81485 47800 81515 48000
+rect 81985 47800 82015 48000
+rect 82485 47800 82515 48000
+rect 82985 47800 83015 48000
+rect 83485 47800 83515 48000
+rect 83985 47800 84015 48000
+rect 84485 47800 84515 48000
+rect 84985 47800 85015 48000
+rect 85485 47800 85515 48000
+rect 85985 47800 86015 48000
+rect 86485 47800 86515 48000
+rect 86985 47800 87015 48000
+rect 87485 47800 87515 48000
+rect 87985 47800 88015 48000
+rect 88485 47800 88515 48000
+rect 88985 47800 89015 48000
+rect 89485 47800 89515 48000
+rect 89985 47800 90015 48000
+rect 90485 47800 90515 48000
+rect 90985 47800 91015 48000
+rect 91485 47800 91515 48000
+rect 91985 47800 92015 48000
+rect 92485 47800 92515 48000
+rect 92985 47800 93015 48000
+rect 93485 47800 93515 48000
+rect 93985 47800 94015 48000
+rect 94485 47800 94515 48000
+rect 94985 47800 95015 48000
+rect 95485 47800 95515 48000
+rect 95985 47800 96015 48000
+rect 96485 47800 96515 48000
+rect 96985 47800 97015 48000
+rect 97485 47800 97515 48000
+rect 97985 47800 98015 48000
+rect 98485 47800 98515 48000
+rect 98985 47800 99015 48000
+rect 99485 47800 99515 48000
+rect 99985 47800 100015 48000
+rect 100485 47800 100515 48000
+rect 100985 47800 101015 48000
+rect 101485 47800 101515 48000
+rect 101985 47800 102015 48000
+rect 102485 47800 102515 48000
+rect 102985 47800 103015 48000
+rect 103485 47800 103515 48000
+rect 103985 47800 104015 48000
+rect 104485 47800 104515 48000
+rect 104985 47800 105015 48000
+rect 105485 47800 105515 48000
+rect 105985 47800 106015 48000
+rect 106485 47800 106515 48000
+rect 106985 47800 107015 48000
+rect 107485 47800 107515 48000
+rect 107985 47800 108015 48000
+rect 108485 47800 108515 48000
+rect 108985 47800 109015 48000
+rect 109485 47800 109515 48000
+rect 109985 47800 110015 48000
+rect 110485 47800 110515 48000
+rect 110985 47800 111015 48000
+rect 111485 47800 111515 48000
+rect 111985 47800 112015 48000
+rect 112485 47800 112515 48000
+rect 112985 47800 113015 48000
+rect 113485 47800 113515 48000
+rect 113985 47800 114015 48000
+rect 114485 47800 114515 48000
+rect 114985 47800 115015 48000
+rect 115485 47800 115515 48000
+rect 115985 47800 116015 48000
+rect 116485 47800 116515 48000
+rect 116985 47800 117015 48000
+rect 117485 47800 117515 48000
+rect 117985 47800 118015 48000
+rect 118485 47800 118515 48000
+rect 118985 47800 119015 48000
+rect 119485 47800 119515 48000
+rect 119985 47800 120015 48000
+rect 120485 47800 120515 48000
+rect 120985 47800 121015 48000
+rect 121485 47800 121515 48000
+rect 121985 47800 122015 48000
+rect 122485 47800 122515 48000
+rect 122985 47800 123015 48000
+rect 123485 47800 123515 48000
+rect 123985 47800 124015 48000
+rect 124485 47800 124515 48000
+rect 124985 47800 125015 48000
+rect 125485 47800 125515 48000
+rect 125985 47800 126015 48000
+rect 126485 47800 126515 48000
+rect 126985 47800 127015 48000
+rect 127485 47800 127515 48000
+rect 127985 47800 128015 48000
+rect 128485 47800 128515 48000
+rect 128985 47800 129015 48000
+rect 129485 47800 129515 48000
+rect 129985 47800 130015 48000
+rect 130485 47800 130515 48000
+rect 130985 47800 131015 48000
+rect 131485 47800 131515 48000
+rect 131985 47800 132015 48000
+rect 132485 47800 132515 48000
+rect 132985 47800 133015 48000
+rect 133485 47800 133515 48000
+rect 133985 47800 134015 48000
+rect 134485 47800 134515 48000
+rect 134985 47800 135015 48000
+rect 135485 47800 135515 48000
+rect 135985 47800 136015 48000
+rect 136485 47800 136515 48000
+rect 136985 47800 137015 48000
+rect 137485 47800 137515 48000
+rect 137985 47800 138015 48000
+rect 138485 47800 138515 48000
+rect 138985 47800 139015 48000
+rect 139485 47800 139515 48000
+rect 139985 47800 140015 48000
+rect 140485 47800 140515 48000
+rect 140985 47800 141015 48000
+rect 141485 47800 141515 48000
+rect 141985 47800 142015 48000
+rect 142485 47800 142515 48000
+rect 142985 47800 143015 48000
+rect 143485 47800 143515 48000
+rect 143985 47800 144015 48000
+rect 144485 47800 144515 48000
+rect 144985 47800 145015 48000
+rect 145485 47800 145515 48000
+rect 145985 47800 146015 48000
+rect 146485 47800 146515 48000
+rect 146985 47800 147015 48000
+rect 147485 47800 147515 48000
+rect 147985 47800 148015 48000
+rect 148485 47800 148515 48000
+rect 148985 47800 149015 48000
+rect 149485 47800 149515 48000
+rect 149985 47800 150015 48000
+rect 150485 47800 150515 48000
+rect 150985 47800 151015 48000
+rect 151485 47800 151515 48000
+rect 151985 47800 152015 48000
+rect 152485 47800 152515 48000
+rect 152985 47800 153015 48000
+rect 153485 47800 153515 48000
+rect 153985 47800 154015 48000
+rect 154485 47800 154515 48000
+rect 154985 47800 155015 48000
+rect 155485 47800 155515 48000
+rect 155985 47800 156015 48000
+rect 156485 47800 156515 48000
+rect 156985 47800 157015 48000
+rect 157485 47800 157515 48000
+rect 157985 47800 158015 48000
+rect 158485 47800 158515 48000
+rect 158985 47800 159015 48000
+rect 159485 47800 159515 48000
+rect 159985 47800 160015 48000
+rect 160485 47800 160515 48000
+rect 160985 47800 161015 48000
+rect 161485 47800 161515 48000
+rect 161985 47800 162015 48000
+rect 162485 47800 162515 48000
+rect 162985 47800 163015 48000
+rect 163485 47800 163515 48000
+rect 163985 47800 164015 48000
+rect 164485 47800 164515 48000
+rect 164985 47800 165015 48000
+rect 57985 30000 58015 30200
+<< obsm2 >>
+rect 36000 30000 57985 30100
+rect 169900 30100 170000 48000
+rect 58015 30000 170000 30100
+<< metal3 >>
+rect 169800 38985 170000 39015
+rect 169800 37985 170000 38015
+rect 169800 36985 170000 37015
+rect 169800 35985 170000 36015
+rect 169800 34985 170000 35015
+rect 169800 34185 170000 34215
+rect 169800 34085 170000 34115
+rect 169800 33985 170000 34015
+rect 169800 33885 170000 33915
+rect 169800 33785 170000 33815
+rect 169800 33685 170000 33715
+rect 169800 33585 170000 33615
+rect 169800 33485 170000 33515
+rect 169800 33385 170000 33415
+rect 169800 33285 170000 33315
+rect 169800 33185 170000 33215
+rect 169800 33085 170000 33115
+rect 169800 32985 170000 33015
+rect 169800 32885 170000 32915
+rect 169800 32785 170000 32815
+rect 169800 32685 170000 32715
+rect 169800 32585 170000 32615
+rect 169800 32485 170000 32515
+rect 169800 32385 170000 32415
+rect 169800 32285 170000 32315
+rect 169800 32185 170000 32215
+rect 169800 32085 170000 32115
+rect 169800 31985 170000 32015
+rect 169800 31885 170000 31915
+rect 169800 31785 170000 31815
+rect 169800 31685 170000 31715
+rect 169800 31585 170000 31615
+rect 169800 31485 170000 31515
+rect 169800 31385 170000 31415
+rect 169800 31285 170000 31315
+rect 169800 31185 170000 31215
+rect 169800 31085 170000 31115
+<< obsm3 >>
+rect 36000 47900 170000 48000
+rect 36000 30000 36100 47900
+<< obsm4 >>
+rect 169900 30100 170000 48000
+rect 36000 30000 170000 30100
+<< labels >>
+flabel metal2 57985 30000 58015 30200 0 FreeSans 240 90 0 0 RSTB
+port 1 nsew signal input
+flabel metal3 169800 34985 170000 35015 0 FreeSans 240 0 0 0 SDO
+port 2 nsew signal output
+flabel metal3 169800 35985 170000 36015 0 FreeSans 240 0 0 0 sdo_ena
+port 3 nsew signal output
+flabel metal3 169800 36985 170000 37015 0 FreeSans 240 0 0 0 SDI
+port 4 nsew signal input
+flabel metal3 169800 37985 170000 38015 0 FreeSans 240 0 0 0 CSB
+port 5 nsew signal input
+flabel metal3 169800 38985 170000 39015 0 FreeSans 240 0 0 0 SCK
+port 6 nsew signal input
+flabel metal3 169800 31085 170000 31115 0 FreeSans 240 0 0 0 mask_rev_in[31]
+port 7 nsew signal input
+flabel metal3 169800 31185 170000 31215 0 FreeSans 240 0 0 0 mask_rev_in[30]
+port 8 nsew signal input
+flabel metal3 169800 31285 170000 31315 0 FreeSans 240 0 0 0 mask_rev_in[29]
+port 9 nsew signal input
+flabel metal3 169800 31385 170000 31415 0 FreeSans 240 0 0 0 mask_rev_in[28]
+port 10 nsew signal input
+flabel metal3 169800 31485 170000 31515 0 FreeSans 240 0 0 0 mask_rev_in[27]
+port 11 nsew signal input
+flabel metal3 169800 31585 170000 31615 0 FreeSans 240 0 0 0 mask_rev_in[26]
+port 12 nsew signal input
+flabel metal3 169800 31685 170000 31715 0 FreeSans 240 0 0 0 mask_rev_in[25]
+port 13 nsew signal input
+flabel metal3 169800 31785 170000 31815 0 FreeSans 240 0 0 0 mask_rev_in[24]
+port 14 nsew signal input
+flabel metal3 169800 31885 170000 31915 0 FreeSans 240 0 0 0 mask_rev_in[23]
+port 15 nsew signal input
+flabel metal3 169800 31985 170000 32015 0 FreeSans 240 0 0 0 mask_rev_in[22]
+port 16 nsew signal input
+flabel metal3 169800 32085 170000 32115 0 FreeSans 240 0 0 0 mask_rev_in[21]
+port 17 nsew signal input
+flabel metal3 169800 32185 170000 32215 0 FreeSans 240 0 0 0 mask_rev_in[20]
+port 18 nsew signal input
+flabel metal3 169800 32285 170000 32315 0 FreeSans 240 0 0 0 mask_rev_in[19]
+port 19 nsew signal input
+flabel metal3 169800 32385 170000 32415 0 FreeSans 240 0 0 0 mask_rev_in[18]
+port 20 nsew signal input
+flabel metal3 169800 32485 170000 32515 0 FreeSans 240 0 0 0 mask_rev_in[17]
+port 21 nsew signal input
+flabel metal3 169800 32585 170000 32615 0 FreeSans 240 0 0 0 mask_rev_in[16]
+port 22 nsew signal input
+flabel metal3 169800 32685 170000 32715 0 FreeSans 240 0 0 0 mask_rev_in[15]
+port 23 nsew signal input
+flabel metal3 169800 32785 170000 32815 0 FreeSans 240 0 0 0 mask_rev_in[14]
+port 24 nsew signal input
+flabel metal3 169800 32885 170000 32915 0 FreeSans 240 0 0 0 mask_rev_in[13]
+port 25 nsew signal input
+flabel metal3 169800 32985 170000 33015 0 FreeSans 240 0 0 0 mask_rev_in[12]
+port 26 nsew signal input
+flabel metal3 169800 33085 170000 33115 0 FreeSans 240 0 0 0 mask_rev_in[11]
+port 27 nsew signal input
+flabel metal3 169800 33185 170000 33215 0 FreeSans 240 0 0 0 mask_rev_in[10]
+port 28 nsew signal input
+flabel metal3 169800 33285 170000 33315 0 FreeSans 240 0 0 0 mask_rev_in[9]
+port 29 nsew signal input
+flabel metal3 169800 33385 170000 33415 0 FreeSans 240 0 0 0 mask_rev_in[8]
+port 30 nsew signal input
+flabel metal3 169800 33485 170000 33515 0 FreeSans 240 0 0 0 mask_rev_in[7]
+port 31 nsew signal input
+flabel metal3 169800 33585 170000 33615 0 FreeSans 240 0 0 0 mask_rev_in[6]
+port 32 nsew signal input
+flabel metal3 169800 33685 170000 33715 0 FreeSans 240 0 0 0 mask_rev_in[5]
+port 33 nsew signal input
+flabel metal3 169800 33785 170000 33815 0 FreeSans 240 0 0 0 mask_rev_in[4]
+port 34 nsew signal input
+flabel metal3 169800 33885 170000 33915 0 FreeSans 240 0 0 0 mask_rev_in[3]
+port 35 nsew signal input
+flabel metal3 169800 33985 170000 34015 0 FreeSans 240 0 0 0 mask_rev_in[2]
+port 36 nsew signal input
+flabel metal3 169800 34085 170000 34115 0 FreeSans 240 0 0 0 mask_rev_in[1]
+port 37 nsew signal input
+flabel metal3 169800 34185 170000 34215 0 FreeSans 240 0 0 0 mask_rev_in[0]
+port 38 nsew signal input
+flabel metal2 36985 47800 37015 48000 0 FreeSans 240 90 0 0 status[127]
+port 39 nsew signal input
+flabel metal2 37485 47800 37515 48000 0 FreeSans 240 90 0 0 status[126]
+port 40 nsew signal input
+flabel metal2 37985 47800 38015 48000 0 FreeSans 240 90 0 0 status[125]
+port 41 nsew signal input
+flabel metal2 38485 47800 38515 48000 0 FreeSans 240 90 0 0 status[124]
+port 42 nsew signal input
+flabel metal2 38985 47800 39015 48000 0 FreeSans 240 90 0 0 status[123]
+port 43 nsew signal input
+flabel metal2 39485 47800 39515 48000 0 FreeSans 240 90 0 0 status[122]
+port 44 nsew signal input
+flabel metal2 39985 47800 40015 48000 0 FreeSans 240 90 0 0 status[121]
+port 45 nsew signal input
+flabel metal2 40485 47800 40515 48000 0 FreeSans 240 90 0 0 status[120]
+port 46 nsew signal input
+flabel metal2 40985 47800 41015 48000 0 FreeSans 240 90 0 0 status[119]
+port 47 nsew signal input
+flabel metal2 41485 47800 41515 48000 0 FreeSans 240 90 0 0 status[118]
+port 48 nsew signal input
+flabel metal2 41985 47800 42015 48000 0 FreeSans 240 90 0 0 status[117]
+port 49 nsew signal input
+flabel metal2 42485 47800 42515 48000 0 FreeSans 240 90 0 0 status[116]
+port 50 nsew signal input
+flabel metal2 42985 47800 43015 48000 0 FreeSans 240 90 0 0 status[115]
+port 51 nsew signal input
+flabel metal2 43485 47800 43515 48000 0 FreeSans 240 90 0 0 status[114]
+port 52 nsew signal input
+flabel metal2 43985 47800 44015 48000 0 FreeSans 240 90 0 0 status[113]
+port 53 nsew signal input
+flabel metal2 44485 47800 44515 48000 0 FreeSans 240 90 0 0 status[112]
+port 54 nsew signal input
+flabel metal2 44985 47800 45015 48000 0 FreeSans 240 90 0 0 status[111]
+port 55 nsew signal input
+flabel metal2 45485 47800 45515 48000 0 FreeSans 240 90 0 0 status[110]
+port 56 nsew signal input
+flabel metal2 45985 47800 46015 48000 0 FreeSans 240 90 0 0 status[109]
+port 57 nsew signal input
+flabel metal2 46485 47800 46515 48000 0 FreeSans 240 90 0 0 status[108]
+port 58 nsew signal input
+flabel metal2 46985 47800 47015 48000 0 FreeSans 240 90 0 0 status[107]
+port 59 nsew signal input
+flabel metal2 47485 47800 47515 48000 0 FreeSans 240 90 0 0 status[106]
+port 60 nsew signal input
+flabel metal2 47985 47800 48015 48000 0 FreeSans 240 90 0 0 status[105]
+port 61 nsew signal input
+flabel metal2 48485 47800 48515 48000 0 FreeSans 240 90 0 0 status[104]
+port 62 nsew signal input
+flabel metal2 48985 47800 49015 48000 0 FreeSans 240 90 0 0 status[103]
+port 63 nsew signal input
+flabel metal2 49485 47800 49515 48000 0 FreeSans 240 90 0 0 status[102]
+port 64 nsew signal input
+flabel metal2 49985 47800 50015 48000 0 FreeSans 240 90 0 0 status[101]
+port 65 nsew signal input
+flabel metal2 50485 47800 50515 48000 0 FreeSans 240 90 0 0 status[100]
+port 66 nsew signal input
+flabel metal2 50985 47800 51015 48000 0 FreeSans 240 90 0 0 status[99]
+port 67 nsew signal input
+flabel metal2 51485 47800 51515 48000 0 FreeSans 240 90 0 0 status[98]
+port 68 nsew signal input
+flabel metal2 51985 47800 52015 48000 0 FreeSans 240 90 0 0 status[97]
+port 69 nsew signal input
+flabel metal2 52485 47800 52515 48000 0 FreeSans 240 90 0 0 status[96]
+port 70 nsew signal input
+flabel metal2 52985 47800 53015 48000 0 FreeSans 240 90 0 0 control[127]
+port 71 nsew signal output
+flabel metal2 53485 47800 53515 48000 0 FreeSans 240 90 0 0 control[126]
+port 72 nsew signal output
+flabel metal2 53985 47800 54015 48000 0 FreeSans 240 90 0 0 control[125]
+port 73 nsew signal output
+flabel metal2 54485 47800 54515 48000 0 FreeSans 240 90 0 0 control[124]
+port 74 nsew signal output
+flabel metal2 54985 47800 55015 48000 0 FreeSans 240 90 0 0 control[123]
+port 75 nsew signal output
+flabel metal2 55485 47800 55515 48000 0 FreeSans 240 90 0 0 control[122]
+port 76 nsew signal output
+flabel metal2 55985 47800 56015 48000 0 FreeSans 240 90 0 0 control[121]
+port 77 nsew signal output
+flabel metal2 56485 47800 56515 48000 0 FreeSans 240 90 0 0 control[120]
+port 78 nsew signal output
+flabel metal2 56985 47800 57015 48000 0 FreeSans 240 90 0 0 control[119]
+port 79 nsew signal output
+flabel metal2 57485 47800 57515 48000 0 FreeSans 240 90 0 0 control[118]
+port 80 nsew signal output
+flabel metal2 57985 47800 58015 48000 0 FreeSans 240 90 0 0 control[117]
+port 81 nsew signal output
+flabel metal2 58485 47800 58515 48000 0 FreeSans 240 90 0 0 control[116]
+port 82 nsew signal output
+flabel metal2 58985 47800 59015 48000 0 FreeSans 240 90 0 0 control[115]
+port 83 nsew signal output
+flabel metal2 59485 47800 59515 48000 0 FreeSans 240 90 0 0 control[114]
+port 84 nsew signal output
+flabel metal2 59985 47800 60015 48000 0 FreeSans 240 90 0 0 control[113]
+port 85 nsew signal output
+flabel metal2 60485 47800 60515 48000 0 FreeSans 240 90 0 0 control[112]
+port 86 nsew signal output
+flabel metal2 60985 47800 61015 48000 0 FreeSans 240 90 0 0 control[111]
+port 87 nsew signal output
+flabel metal2 61485 47800 61515 48000 0 FreeSans 240 90 0 0 control[110]
+port 88 nsew signal output
+flabel metal2 61985 47800 62015 48000 0 FreeSans 240 90 0 0 control[109]
+port 89 nsew signal output
+flabel metal2 62485 47800 62515 48000 0 FreeSans 240 90 0 0 control[108]
+port 90 nsew signal output
+flabel metal2 62985 47800 63015 48000 0 FreeSans 240 90 0 0 control[107]
+port 91 nsew signal output
+flabel metal2 63485 47800 63515 48000 0 FreeSans 240 90 0 0 control[106]
+port 92 nsew signal output
+flabel metal2 63985 47800 64015 48000 0 FreeSans 240 90 0 0 control[105]
+port 93 nsew signal output
+flabel metal2 64485 47800 64515 48000 0 FreeSans 240 90 0 0 control[104]
+port 94 nsew signal output
+flabel metal2 64985 47800 65015 48000 0 FreeSans 240 90 0 0 control[103]
+port 95 nsew signal output
+flabel metal2 65485 47800 65515 48000 0 FreeSans 240 90 0 0 control[102]
+port 96 nsew signal output
+flabel metal2 65985 47800 66015 48000 0 FreeSans 240 90 0 0 control[101]
+port 97 nsew signal output
+flabel metal2 66485 47800 66515 48000 0 FreeSans 240 90 0 0 control[100]
+port 98 nsew signal output
+flabel metal2 66985 47800 67015 48000 0 FreeSans 240 90 0 0 control[99]
+port 99 nsew signal output
+flabel metal2 67485 47800 67515 48000 0 FreeSans 240 90 0 0 control[98]
+port 100 nsew signal output
+flabel metal2 67985 47800 68015 48000 0 FreeSans 240 90 0 0 control[97]
+port 101 nsew signal output
+flabel metal2 68485 47800 68515 48000 0 FreeSans 240 90 0 0 control[96]
+port 102 nsew signal output
+flabel metal2 68985 47800 69015 48000 0 FreeSans 240 90 0 0 status[95]
+port 103 nsew signal input
+flabel metal2 69485 47800 69515 48000 0 FreeSans 240 90 0 0 status[94]
+port 104 nsew signal input
+flabel metal2 69985 47800 70015 48000 0 FreeSans 240 90 0 0 status[93]
+port 105 nsew signal input
+flabel metal2 70485 47800 70515 48000 0 FreeSans 240 90 0 0 status[92]
+port 106 nsew signal input
+flabel metal2 70985 47800 71015 48000 0 FreeSans 240 90 0 0 status[91]
+port 107 nsew signal input
+flabel metal2 71485 47800 71515 48000 0 FreeSans 240 90 0 0 status[90]
+port 108 nsew signal input
+flabel metal2 71985 47800 72015 48000 0 FreeSans 240 90 0 0 status[89]
+port 109 nsew signal input
+flabel metal2 72485 47800 72515 48000 0 FreeSans 240 90 0 0 status[88]
+port 110 nsew signal input
+flabel metal2 72985 47800 73015 48000 0 FreeSans 240 90 0 0 status[87]
+port 111 nsew signal input
+flabel metal2 73485 47800 73515 48000 0 FreeSans 240 90 0 0 status[86]
+port 112 nsew signal input
+flabel metal2 73985 47800 74015 48000 0 FreeSans 240 90 0 0 status[85]
+port 113 nsew signal input
+flabel metal2 74485 47800 74515 48000 0 FreeSans 240 90 0 0 status[84]
+port 114 nsew signal input
+flabel metal2 74985 47800 75015 48000 0 FreeSans 240 90 0 0 status[83]
+port 115 nsew signal input
+flabel metal2 75485 47800 75515 48000 0 FreeSans 240 90 0 0 status[82]
+port 116 nsew signal input
+flabel metal2 75985 47800 76015 48000 0 FreeSans 240 90 0 0 status[81]
+port 117 nsew signal input
+flabel metal2 76485 47800 76515 48000 0 FreeSans 240 90 0 0 status[80]
+port 118 nsew signal input
+flabel metal2 76985 47800 77015 48000 0 FreeSans 240 90 0 0 status[79]
+port 119 nsew signal input
+flabel metal2 77485 47800 77515 48000 0 FreeSans 240 90 0 0 status[78]
+port 120 nsew signal input
+flabel metal2 77985 47800 78015 48000 0 FreeSans 240 90 0 0 status[77]
+port 121 nsew signal input
+flabel metal2 78485 47800 78515 48000 0 FreeSans 240 90 0 0 status[76]
+port 122 nsew signal input
+flabel metal2 78985 47800 79015 48000 0 FreeSans 240 90 0 0 status[75]
+port 123 nsew signal input
+flabel metal2 79485 47800 79515 48000 0 FreeSans 240 90 0 0 status[74]
+port 124 nsew signal input
+flabel metal2 79985 47800 80015 48000 0 FreeSans 240 90 0 0 status[73]
+port 125 nsew signal input
+flabel metal2 80485 47800 80515 48000 0 FreeSans 240 90 0 0 status[72]
+port 126 nsew signal input
+flabel metal2 80985 47800 81015 48000 0 FreeSans 240 90 0 0 status[71]
+port 127 nsew signal input
+flabel metal2 81485 47800 81515 48000 0 FreeSans 240 90 0 0 status[70]
+port 128 nsew signal input
+flabel metal2 81985 47800 82015 48000 0 FreeSans 240 90 0 0 status[69]
+port 129 nsew signal input
+flabel metal2 82485 47800 82515 48000 0 FreeSans 240 90 0 0 status[68]
+port 130 nsew signal input
+flabel metal2 82985 47800 83015 48000 0 FreeSans 240 90 0 0 status[67]
+port 131 nsew signal input
+flabel metal2 83485 47800 83515 48000 0 FreeSans 240 90 0 0 status[66]
+port 132 nsew signal input
+flabel metal2 83985 47800 84015 48000 0 FreeSans 240 90 0 0 status[65]
+port 133 nsew signal input
+flabel metal2 84485 47800 84515 48000 0 FreeSans 240 90 0 0 status[64]
+port 134 nsew signal input
+flabel metal2 84985 47800 85015 48000 0 FreeSans 240 90 0 0 control[95]
+port 135 nsew signal output
+flabel metal2 85485 47800 85515 48000 0 FreeSans 240 90 0 0 control[94]
+port 136 nsew signal output
+flabel metal2 85985 47800 86015 48000 0 FreeSans 240 90 0 0 control[93]
+port 137 nsew signal output
+flabel metal2 86485 47800 86515 48000 0 FreeSans 240 90 0 0 control[92]
+port 138 nsew signal output
+flabel metal2 86985 47800 87015 48000 0 FreeSans 240 90 0 0 control[91]
+port 139 nsew signal output
+flabel metal2 87485 47800 87515 48000 0 FreeSans 240 90 0 0 control[90]
+port 140 nsew signal output
+flabel metal2 87985 47800 88015 48000 0 FreeSans 240 90 0 0 control[89]
+port 141 nsew signal output
+flabel metal2 88485 47800 88515 48000 0 FreeSans 240 90 0 0 control[88]
+port 142 nsew signal output
+flabel metal2 88985 47800 89015 48000 0 FreeSans 240 90 0 0 control[87]
+port 143 nsew signal output
+flabel metal2 89485 47800 89515 48000 0 FreeSans 240 90 0 0 control[86]
+port 144 nsew signal output
+flabel metal2 89985 47800 90015 48000 0 FreeSans 240 90 0 0 control[85]
+port 145 nsew signal output
+flabel metal2 90485 47800 90515 48000 0 FreeSans 240 90 0 0 control[84]
+port 146 nsew signal output
+flabel metal2 90985 47800 91015 48000 0 FreeSans 240 90 0 0 control[83]
+port 147 nsew signal output
+flabel metal2 91485 47800 91515 48000 0 FreeSans 240 90 0 0 control[82]
+port 148 nsew signal output
+flabel metal2 91985 47800 92015 48000 0 FreeSans 240 90 0 0 control[81]
+port 149 nsew signal output
+flabel metal2 92485 47800 92515 48000 0 FreeSans 240 90 0 0 control[80]
+port 150 nsew signal output
+flabel metal2 92985 47800 93015 48000 0 FreeSans 240 90 0 0 control[79]
+port 151 nsew signal output
+flabel metal2 93485 47800 93515 48000 0 FreeSans 240 90 0 0 control[78]
+port 152 nsew signal output
+flabel metal2 93985 47800 94015 48000 0 FreeSans 240 90 0 0 control[77]
+port 153 nsew signal output
+flabel metal2 94485 47800 94515 48000 0 FreeSans 240 90 0 0 control[76]
+port 154 nsew signal output
+flabel metal2 94985 47800 95015 48000 0 FreeSans 240 90 0 0 control[75]
+port 155 nsew signal output
+flabel metal2 95485 47800 95515 48000 0 FreeSans 240 90 0 0 control[74]
+port 156 nsew signal output
+flabel metal2 95985 47800 96015 48000 0 FreeSans 240 90 0 0 control[73]
+port 157 nsew signal output
+flabel metal2 96485 47800 96515 48000 0 FreeSans 240 90 0 0 control[72]
+port 158 nsew signal output
+flabel metal2 96985 47800 97015 48000 0 FreeSans 240 90 0 0 control[71]
+port 159 nsew signal output
+flabel metal2 97485 47800 97515 48000 0 FreeSans 240 90 0 0 control[70]
+port 160 nsew signal output
+flabel metal2 97985 47800 98015 48000 0 FreeSans 240 90 0 0 control[69]
+port 161 nsew signal output
+flabel metal2 98485 47800 98515 48000 0 FreeSans 240 90 0 0 control[68]
+port 162 nsew signal output
+flabel metal2 98985 47800 99015 48000 0 FreeSans 240 90 0 0 control[67]
+port 163 nsew signal output
+flabel metal2 99485 47800 99515 48000 0 FreeSans 240 90 0 0 control[66]
+port 164 nsew signal output
+flabel metal2 99985 47800 100015 48000 0 FreeSans 240 90 0 0 control[65]
+port 165 nsew signal output
+flabel metal2 100485 47800 100515 48000 0 FreeSans 240 90 0 0 control[64]
+port 166 nsew signal output
+flabel metal2 100985 47800 101015 48000 0 FreeSans 240 90 0 0 reset
+port 167 nsew signal output
+flabel metal2 101485 47800 101515 48000 0 FreeSans 240 90 0 0 control[63]
+port 168 nsew signal output
+flabel metal2 101985 47800 102015 48000 0 FreeSans 240 90 0 0 control[62]
+port 169 nsew signal output
+flabel metal2 102485 47800 102515 48000 0 FreeSans 240 90 0 0 control[61]
+port 170 nsew signal output
+flabel metal2 102985 47800 103015 48000 0 FreeSans 240 90 0 0 control[60]
+port 171 nsew signal output
+flabel metal2 103485 47800 103515 48000 0 FreeSans 240 90 0 0 control[59]
+port 172 nsew signal output
+flabel metal2 103985 47800 104015 48000 0 FreeSans 240 90 0 0 control[58]
+port 173 nsew signal output
+flabel metal2 104485 47800 104515 48000 0 FreeSans 240 90 0 0 control[57]
+port 174 nsew signal output
+flabel metal2 104985 47800 105015 48000 0 FreeSans 240 90 0 0 control[56]
+port 175 nsew signal output
+flabel metal2 105485 47800 105515 48000 0 FreeSans 240 90 0 0 control[55]
+port 176 nsew signal output
+flabel metal2 105985 47800 106015 48000 0 FreeSans 240 90 0 0 control[54]
+port 177 nsew signal output
+flabel metal2 106485 47800 106515 48000 0 FreeSans 240 90 0 0 control[53]
+port 178 nsew signal output
+flabel metal2 106985 47800 107015 48000 0 FreeSans 240 90 0 0 control[52]
+port 179 nsew signal output
+flabel metal2 107485 47800 107515 48000 0 FreeSans 240 90 0 0 control[51]
+port 180 nsew signal output
+flabel metal2 107985 47800 108015 48000 0 FreeSans 240 90 0 0 control[50]
+port 181 nsew signal output
+flabel metal2 108485 47800 108515 48000 0 FreeSans 240 90 0 0 control[49]
+port 182 nsew signal output
+flabel metal2 108985 47800 109015 48000 0 FreeSans 240 90 0 0 control[48]
+port 183 nsew signal output
+flabel metal2 109485 47800 109515 48000 0 FreeSans 240 90 0 0 control[47]
+port 184 nsew signal output
+flabel metal2 109985 47800 110015 48000 0 FreeSans 240 90 0 0 control[46]
+port 185 nsew signal output
+flabel metal2 110485 47800 110515 48000 0 FreeSans 240 90 0 0 control[45]
+port 186 nsew signal output
+flabel metal2 110985 47800 111015 48000 0 FreeSans 240 90 0 0 control[44]
+port 187 nsew signal output
+flabel metal2 111485 47800 111515 48000 0 FreeSans 240 90 0 0 control[43]
+port 188 nsew signal output
+flabel metal2 111985 47800 112015 48000 0 FreeSans 240 90 0 0 control[42]
+port 189 nsew signal output
+flabel metal2 112485 47800 112515 48000 0 FreeSans 240 90 0 0 control[41]
+port 190 nsew signal output
+flabel metal2 112985 47800 113015 48000 0 FreeSans 240 90 0 0 control[40]
+port 191 nsew signal output
+flabel metal2 113485 47800 113515 48000 0 FreeSans 240 90 0 0 control[39]
+port 192 nsew signal output
+flabel metal2 113985 47800 114015 48000 0 FreeSans 240 90 0 0 control[38]
+port 193 nsew signal output
+flabel metal2 114485 47800 114515 48000 0 FreeSans 240 90 0 0 control[37]
+port 194 nsew signal output
+flabel metal2 114985 47800 115015 48000 0 FreeSans 240 90 0 0 control[36]
+port 195 nsew signal output
+flabel metal2 115485 47800 115515 48000 0 FreeSans 240 90 0 0 control[35]
+port 196 nsew signal output
+flabel metal2 115985 47800 116015 48000 0 FreeSans 240 90 0 0 control[34]
+port 197 nsew signal output
+flabel metal2 116485 47800 116515 48000 0 FreeSans 240 90 0 0 control[33]
+port 198 nsew signal output
+flabel metal2 116985 47800 117015 48000 0 FreeSans 240 90 0 0 control[32]
+port 199 nsew signal output
+flabel metal2 117485 47800 117515 48000 0 FreeSans 240 90 0 0 status[63]
+port 200 nsew signal input
+flabel metal2 117985 47800 118015 48000 0 FreeSans 240 90 0 0 status[62]
+port 201 nsew signal input
+flabel metal2 118485 47800 118515 48000 0 FreeSans 240 90 0 0 status[61]
+port 202 nsew signal input
+flabel metal2 118985 47800 119015 48000 0 FreeSans 240 90 0 0 status[60]
+port 203 nsew signal input
+flabel metal2 119485 47800 119515 48000 0 FreeSans 240 90 0 0 status[59]
+port 204 nsew signal input
+flabel metal2 119985 47800 120015 48000 0 FreeSans 240 90 0 0 status[58]
+port 205 nsew signal input
+flabel metal2 120485 47800 120515 48000 0 FreeSans 240 90 0 0 status[57]
+port 206 nsew signal input
+flabel metal2 120985 47800 121015 48000 0 FreeSans 240 90 0 0 status[56]
+port 207 nsew signal input
+flabel metal2 121485 47800 121515 48000 0 FreeSans 240 90 0 0 status[55]
+port 208 nsew signal input
+flabel metal2 121985 47800 122015 48000 0 FreeSans 240 90 0 0 status[54]
+port 209 nsew signal input
+flabel metal2 122485 47800 122515 48000 0 FreeSans 240 90 0 0 status[53]
+port 210 nsew signal input
+flabel metal2 122985 47800 123015 48000 0 FreeSans 240 90 0 0 status[52]
+port 211 nsew signal input
+flabel metal2 123485 47800 123515 48000 0 FreeSans 240 90 0 0 status[51]
+port 212 nsew signal input
+flabel metal2 123985 47800 124015 48000 0 FreeSans 240 90 0 0 status[50]
+port 213 nsew signal input
+flabel metal2 124485 47800 124515 48000 0 FreeSans 240 90 0 0 status[49]
+port 214 nsew signal input
+flabel metal2 124985 47800 125015 48000 0 FreeSans 240 90 0 0 status[48]
+port 215 nsew signal input
+flabel metal2 125485 47800 125515 48000 0 FreeSans 240 90 0 0 status[47]
+port 216 nsew signal input
+flabel metal2 125985 47800 126015 48000 0 FreeSans 240 90 0 0 status[46]
+port 217 nsew signal input
+flabel metal2 126485 47800 126515 48000 0 FreeSans 240 90 0 0 status[45]
+port 218 nsew signal input
+flabel metal2 126985 47800 127015 48000 0 FreeSans 240 90 0 0 status[44]
+port 219 nsew signal input
+flabel metal2 127485 47800 127515 48000 0 FreeSans 240 90 0 0 status[43]
+port 220 nsew signal input
+flabel metal2 127985 47800 128015 48000 0 FreeSans 240 90 0 0 status[42]
+port 221 nsew signal input
+flabel metal2 128485 47800 128515 48000 0 FreeSans 240 90 0 0 status[41]
+port 222 nsew signal input
+flabel metal2 128985 47800 129015 48000 0 FreeSans 240 90 0 0 status[40]
+port 223 nsew signal input
+flabel metal2 129485 47800 129515 48000 0 FreeSans 240 90 0 0 status[39]
+port 224 nsew signal input
+flabel metal2 129985 47800 130015 48000 0 FreeSans 240 90 0 0 status[38]
+port 225 nsew signal input
+flabel metal2 130485 47800 130515 48000 0 FreeSans 240 90 0 0 status[37]
+port 226 nsew signal input
+flabel metal2 130985 47800 131015 48000 0 FreeSans 240 90 0 0 status[36]
+port 227 nsew signal input
+flabel metal2 131485 47800 131515 48000 0 FreeSans 240 90 0 0 status[35]
+port 228 nsew signal input
+flabel metal2 131985 47800 132015 48000 0 FreeSans 240 90 0 0 status[34]
+port 229 nsew signal input
+flabel metal2 132485 47800 132515 48000 0 FreeSans 240 90 0 0 status[33]
+port 230 nsew signal input
+flabel metal2 132985 47800 133015 48000 0 FreeSans 240 90 0 0 status[32]
+port 231 nsew signal input
+flabel metal2 133485 47800 133515 48000 0 FreeSans 240 90 0 0 control[31]
+port 232 nsew signal output
+flabel metal2 133985 47800 134015 48000 0 FreeSans 240 90 0 0 control[30]
+port 233 nsew signal output
+flabel metal2 134485 47800 134515 48000 0 FreeSans 240 90 0 0 control[29]
+port 234 nsew signal output
+flabel metal2 134985 47800 135015 48000 0 FreeSans 240 90 0 0 control[28]
+port 235 nsew signal output
+flabel metal2 135485 47800 135515 48000 0 FreeSans 240 90 0 0 control[27]
+port 236 nsew signal output
+flabel metal2 135985 47800 136015 48000 0 FreeSans 240 90 0 0 control[26]
+port 237 nsew signal output
+flabel metal2 136485 47800 136515 48000 0 FreeSans 240 90 0 0 control[25]
+port 238 nsew signal output
+flabel metal2 136985 47800 137015 48000 0 FreeSans 240 90 0 0 control[24]
+port 239 nsew signal output
+flabel metal2 137485 47800 137515 48000 0 FreeSans 240 90 0 0 control[23]
+port 240 nsew signal output
+flabel metal2 137985 47800 138015 48000 0 FreeSans 240 90 0 0 control[22]
+port 241 nsew signal output
+flabel metal2 138485 47800 138515 48000 0 FreeSans 240 90 0 0 control[21]
+port 242 nsew signal output
+flabel metal2 138985 47800 139015 48000 0 FreeSans 240 90 0 0 control[20]
+port 243 nsew signal output
+flabel metal2 139485 47800 139515 48000 0 FreeSans 240 90 0 0 control[19]
+port 244 nsew signal output
+flabel metal2 139985 47800 140015 48000 0 FreeSans 240 90 0 0 control[18]
+port 245 nsew signal output
+flabel metal2 140485 47800 140515 48000 0 FreeSans 240 90 0 0 control[17]
+port 246 nsew signal output
+flabel metal2 140985 47800 141015 48000 0 FreeSans 240 90 0 0 control[16]
+port 247 nsew signal output
+flabel metal2 141485 47800 141515 48000 0 FreeSans 240 90 0 0 control[15]
+port 248 nsew signal output
+flabel metal2 141985 47800 142015 48000 0 FreeSans 240 90 0 0 control[14]
+port 249 nsew signal output
+flabel metal2 142485 47800 142515 48000 0 FreeSans 240 90 0 0 control[13]
+port 250 nsew signal output
+flabel metal2 142985 47800 143015 48000 0 FreeSans 240 90 0 0 control[12]
+port 251 nsew signal output
+flabel metal2 143485 47800 143515 48000 0 FreeSans 240 90 0 0 control[11]
+port 252 nsew signal output
+flabel metal2 143985 47800 144015 48000 0 FreeSans 240 90 0 0 control[10]
+port 253 nsew signal output
+flabel metal2 144485 47800 144515 48000 0 FreeSans 240 90 0 0 control[9]
+port 254 nsew signal output
+flabel metal2 144985 47800 145015 48000 0 FreeSans 240 90 0 0 control[8]
+port 255 nsew signal output
+flabel metal2 145485 47800 145515 48000 0 FreeSans 240 90 0 0 control[7]
+port 256 nsew signal output
+flabel metal2 145985 47800 146015 48000 0 FreeSans 240 90 0 0 control[6]
+port 257 nsew signal output
+flabel metal2 146485 47800 146515 48000 0 FreeSans 240 90 0 0 control[5]
+port 258 nsew signal output
+flabel metal2 146985 47800 147015 48000 0 FreeSans 240 90 0 0 control[4]
+port 259 nsew signal output
+flabel metal2 147485 47800 147515 48000 0 FreeSans 240 90 0 0 control[3]
+port 260 nsew signal output
+flabel metal2 147985 47800 148015 48000 0 FreeSans 240 90 0 0 control[2]
+port 261 nsew signal output
+flabel metal2 148485 47800 148515 48000 0 FreeSans 240 90 0 0 control[1]
+port 262 nsew signal output
+flabel metal2 148985 47800 149015 48000 0 FreeSans 240 90 0 0 control[0]
+port 263 nsew signal output
+flabel metal2 149485 47800 149515 48000 0 FreeSans 240 90 0 0 status[31]
+port 264 nsew signal input
+flabel metal2 149985 47800 150015 48000 0 FreeSans 240 90 0 0 status[30]
+port 265 nsew signal input
+flabel metal2 150485 47800 150515 48000 0 FreeSans 240 90 0 0 status[29]
+port 266 nsew signal input
+flabel metal2 150985 47800 151015 48000 0 FreeSans 240 90 0 0 status[28]
+port 267 nsew signal input
+flabel metal2 151485 47800 151515 48000 0 FreeSans 240 90 0 0 status[27]
+port 268 nsew signal input
+flabel metal2 151985 47800 152015 48000 0 FreeSans 240 90 0 0 status[26]
+port 269 nsew signal input
+flabel metal2 152485 47800 152515 48000 0 FreeSans 240 90 0 0 status[25]
+port 270 nsew signal input
+flabel metal2 152985 47800 153015 48000 0 FreeSans 240 90 0 0 status[24]
+port 271 nsew signal input
+flabel metal2 153485 47800 153515 48000 0 FreeSans 240 90 0 0 status[23]
+port 272 nsew signal input
+flabel metal2 153985 47800 154015 48000 0 FreeSans 240 90 0 0 status[22]
+port 273 nsew signal input
+flabel metal2 154485 47800 154515 48000 0 FreeSans 240 90 0 0 status[21]
+port 274 nsew signal input
+flabel metal2 154985 47800 155015 48000 0 FreeSans 240 90 0 0 status[20]
+port 275 nsew signal input
+flabel metal2 155485 47800 155515 48000 0 FreeSans 240 90 0 0 status[19]
+port 276 nsew signal input
+flabel metal2 155985 47800 156015 48000 0 FreeSans 240 90 0 0 status[18]
+port 277 nsew signal input
+flabel metal2 156485 47800 156515 48000 0 FreeSans 240 90 0 0 status[17]
+port 278 nsew signal input
+flabel metal2 156985 47800 157015 48000 0 FreeSans 240 90 0 0 status[16]
+port 279 nsew signal input
+flabel metal2 157485 47800 157515 48000 0 FreeSans 240 90 0 0 status[15]
+port 280 nsew signal input
+flabel metal2 157985 47800 158015 48000 0 FreeSans 240 90 0 0 status[14]
+port 281 nsew signal input
+flabel metal2 158485 47800 158515 48000 0 FreeSans 240 90 0 0 status[13]
+port 282 nsew signal input
+flabel metal2 158985 47800 159015 48000 0 FreeSans 240 90 0 0 status[12]
+port 283 nsew signal input
+flabel metal2 159485 47800 159515 48000 0 FreeSans 240 90 0 0 status[11]
+port 284 nsew signal input
+flabel metal2 159985 47800 160015 48000 0 FreeSans 240 90 0 0 status[10]
+port 285 nsew signal input
+flabel metal2 160485 47800 160515 48000 0 FreeSans 240 90 0 0 status[9]
+port 286 nsew signal input
+flabel metal2 160985 47800 161015 48000 0 FreeSans 240 90 0 0 status[8]
+port 287 nsew signal input
+flabel metal2 161485 47800 161515 48000 0 FreeSans 240 90 0 0 status[7]
+port 288 nsew signal input
+flabel metal2 161985 47800 162015 48000 0 FreeSans 240 90 0 0 status[6]
+port 289 nsew signal input
+flabel metal2 162485 47800 162515 48000 0 FreeSans 240 90 0 0 status[5]
+port 290 nsew signal input
+flabel metal2 162985 47800 163015 48000 0 FreeSans 240 90 0 0 status[4]
+port 291 nsew signal input
+flabel metal2 163485 47800 163515 48000 0 FreeSans 240 90 0 0 status[3]
+port 292 nsew signal input
+flabel metal2 163985 47800 164015 48000 0 FreeSans 240 90 0 0 status[2]
+port 293 nsew signal input
+flabel metal2 164485 47800 164515 48000 0 FreeSans 240 90 0 0 status[1]
+port 294 nsew signal input
+flabel metal2 164985 47800 165015 48000 0 FreeSans 240 90 0 0 status[0]
+port 295 nsew signal input
+<< properties >>
+string FIXED_BBOX 36000 30000 170000 48000
+<< end >>

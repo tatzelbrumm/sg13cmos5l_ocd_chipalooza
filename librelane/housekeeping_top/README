@@ -1,0 +1,27 @@
+Building the sg13cmos5l_ocd_chipalooza housekeeping and sequencer digital block:
+
+	cd sg13cmos5l_ocd_chipalooza
+
+If nix is not installed, then follow instructions from
+	https://librelane.readthedocs.io/en/sttable/installation/\
+	nix_installation/installation_linux.html
+
+This will start the nix-daemon.  If librelane is not installed, then
+clone it from https://github.com/librelane/librelane
+
+Start the nix shell by cd'ing to the librelane repository root and doing:
+
+	nix-shell
+
+Once in the nix shell, cd back to the design repository (e.g.,
+sg13cmos5l_ocd_chipalooza/librelane/housekeeping_top/, where this README is located),
+and do:
+
+	export PDK_ROOT=<where the ihp-sg13cmos5l PDK is located>
+
+	librelane config.yaml --manual-pdk --pdk ihp-sg13cmos5l --pdk-root ${PDK_ROOT}
+
+NOTE:  The run results are *not* pushed back to the git repository, because
+the size of everything in the directories is huge.  The project final output
+was copied into the ../gds/ directory, and the project can be recreated on
+demand from the existing configuration files.

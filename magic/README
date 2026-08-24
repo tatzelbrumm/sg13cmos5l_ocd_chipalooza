@@ -1,0 +1,6 @@
+Be sure to source ../scripts/layout_setup.tcl before opening a layout.
+
+This will resolve all paths.
+
+The script can be run at any time, but running it first keeps magic
+from griping about not finding cells.
