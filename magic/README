@@ -1,6 +1,17 @@
-Be sure to source ../scripts/layout_setup.tcl before opening a layout.
+Before opening a layout, start Magic from this directory without naming a
+layout file.  For example, from a shell:
 
-This will resolve all paths.
+    cd /foss/designs/sg13cmos5l_ocd_openframe/magic
+    magic
 
-The script can be run at any time, but running it first keeps magic
-from griping about not finding cells.
+Then source the setup script at the Magic Tcl prompt (not from the shell):
+
+    source ../scripts/layout_setup.tcl
+
+This resolves the paths to the dependent cell libraries.  After sourcing the
+script, open the desired layout with Magic's `load` command.  For example:
+
+    load <cell-name>
+
+The setup script can be sourced later, but sourcing it before loading a layout
+prevents warnings about cells that Magic cannot find.
