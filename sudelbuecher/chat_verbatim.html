@@ -86,24 +86,21 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="/mnt/data/chat_export.css" />
+  <link rel="stylesheet" href="chat_export_revised.css" />
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">Chat transcript</h1>
-</header>
 <h1 id="chat-transcript">Chat transcript</h1>
 <h2 id="user">User</h2>
 <p>commonalities and differences of the recommended directory structures
 of analog/mixed signal/digital <code>Makefile</code>s in <a
 href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template</a>
 and <a
-href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project</a>
-Look in [<a
-href="https://heichips.github.io/heichips26-analog-workshop/](https://heichips.github.io/heichips26-analog-workshop/)">https://heichips.github.io/heichips26-analog-workshop/](https://heichips.github.io/heichips26-analog-workshop/)</a>
+href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project</a><br />
+Look in <a
+href="https://heichips.github.io/heichips26-analog-workshop/">https://heichips.github.io/heichips26-analog-workshop/</a>
 and <a
-href="https://github.com/iic-jku/analog-circuit-design/for">https://github.com/iic-jku/analog-circuit-design/for</a>
-additional documentation</p>
+href="https://github.com/iic-jku/analog-circuit-design/">https://github.com/iic-jku/analog-circuit-design/</a>
+for additional documentation</p>
 <hr />
 <h2 id="assistant">Assistant</h2>
 <p>I’ll compare the two templates at the level of actual directory
@@ -152,9 +149,9 @@ similar</strong>, but naturally adds RTL, LibreLane, cocotb/Verilog,
 FPGA, synthesized netlists, etc.</li>
 <li>The JKU full-chip top level is the actual <strong>mixed-signal
 superset</strong> of the analog and digital structures. (<a
-href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">github.com</a>)</li>
+href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">iic-jku/ihp-sg13cmos5l-ams-chip-template</a>)</li>
 </ul>
-<h2 id="1-the-common-mental-model">1. The common mental model</h2>
+<h2 id="the-common-mental-model">1. The common mental model</h2>
 <p>The basic abstraction in both projects is:</p>
 <pre class="text"><code>design-unit/
 ├── Makefile
@@ -182,14 +179,14 @@ href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">github.com</a
 both the analog and digital project can contain sub-macros, each with
 its own <code>Makefile</code>, and the parent invokes them with
 <code>$(MAKE) -C ... all</code>. (<a
-href="https://github.com/HeiChips/heichips26-template">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template">HeiChips/heichips26-template</a>)</p>
 <p>The JKU AMS template uses exactly the same principle: every component
 under <code>macros/</code> and <code>ip/</code> has its own
 <code>Makefile</code>/<code>README</code>, can be built independently,
 and is recursively invoked from the parent. (<a
-href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">github.com</a>)</p>
+href="https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template">iic-jku/ihp-sg13cmos5l-ams-chip-template</a>)</p>
 <hr />
-<h1 id="2-analog-leaf-macro-almost-the-same-structure">2. Analog leaf
+<h1 id="analog-leaf-macro-almost-the-same-structure">2. Analog leaf
 macro: almost the same structure</h1>
 <p>This is probably the most useful comparison.</p>
 <h3 id="jku-macrosinverter">JKU <code>macros/inverter</code></h3>
@@ -215,7 +212,8 @@ verification/cace
 verification/lvs
 verification/drc</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile
+(raw)</a>)</p>
 <h3 id="heichips-heichips26_analog_projectmacrosinverter">HeiChips
 <code>heichips26_analog_project/macros/inverter</code></h3>
 <p>It declares:</p>
@@ -239,7 +237,8 @@ verification/cace
 verification/lvs
 verification/drc</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile
+(raw)</a>)</p>
 <p>So the important conclusion is:</p>
 <blockquote>
 <p><strong>These are not merely similar. They are the same basic analog
@@ -251,12 +250,16 @@ render/img/
 
 HeiChips:
 final/render/</code></pre>
-<p>That's a minor organizational choice. JKU separates
+<p>That’s a minor organizational choice. JKU separates
 documentation/debug rendering from integration deliverables, while the
 HeiChips project puts the render beside the other <code>final/</code>
 artifacts.</p>
 <h3 id="semantic-division">Semantic division</h3>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Directory</th>
@@ -316,10 +319,11 @@ artifacts.</p>
 <p>The workshop documentation describes the same separation almost
 verbatim: schematic, testbenches, layout, three kinds of netlists,
 verification, scripts, and <code>final/</code> deliverables. (<a
-href="https://heichips.github.io/heichips26-analog-workshop/">heichips.github.io</a>)</p>
+href="https://heichips.github.io/heichips26-analog-workshop/">HeiChips26
+analog workshop</a>)</p>
 <hr />
 <h1
-id="3-one-significant-analog-difference-inverter-versus-inverter_top">3.
+id="one-significant-analog-difference-inverter-versus-inverter_top">3.
 One significant analog difference: <code>inverter</code> versus
 <code>inverter_top</code></h1>
 <p>The current JKU example is slightly more sophisticated
@@ -330,11 +334,13 @@ structurally.</p>
 <pre class="text"><code>inverter
 inverter_top</code></pre>
 <p>with <code>*-verify-all</code>. (<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile
+(raw)</a>)</p>
 <p>The HeiChips workshop/submacro has simply</p>
 <pre class="make"><code>TOP = inverter</code></pre>
 <p>and its <code>*-verify-all</code> verifies just that cell. (<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile
+(raw)</a>)</p>
 <p>This illustrates an important point about the directory
 convention:</p>
 <p><strong>you do not make one directory per layout cell.</strong></p>
@@ -357,10 +363,10 @@ macros/output_stage/
 macros/my_amplifier/</code></pre>
 <p>unless those really are reusable independently published macros.</p>
 <hr />
-<h1 id="4-heichips-analog-on-top-is-one-hierarchy-level-higher">4.
+<h1 id="heichips-analog-on-top-is-one-hierarchy-level-higher">4.
 HeiChips analog-on-top is one hierarchy level higher</h1>
 <p><code>macros/heichips26_analog_project/</code> is therefore
-<strong>not exactly equivalent</strong> to JKU's
+<strong>not exactly equivalent</strong> to JKU’s
 <code>macros/inverter/</code>.</p>
 <p>It is closer to an <strong>analog subsystem/top macro</strong>,
 containing:</p>
@@ -379,7 +385,7 @@ containing:</p>
         ├── Makefile
         └── ...</code></pre>
 <p>(<a
-href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">HeiChips/heichips26-template/macros/heichips26_analog_project</a>)</p>
 <p>The parent Makefile explicitly does:</p>
 <pre class="make"><code>build-inverter:
         $(MAKE) -C $(MACROS_DIR)/inverter all
@@ -394,7 +400,7 @@ build-macros:
         $(MAKE) build-top
         $(MAKE) sim-all</code></pre>
 <p>(<a
-href="https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/Makefile">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/Makefile">HeiChips/heichips26-template/macros/heichips26_analog_project/Makefile</a>)</p>
 <p>So the hierarchy is deliberately:</p>
 <pre class="text"><code>analog project
     ↓
@@ -403,9 +409,9 @@ analog submacro(s)</code></pre>
 <p>The HeiChips README explicitly says that flattening everything into
 the top-level layout is possible but <strong>not recommended</strong>.
 (<a
-href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project">HeiChips/heichips26-template/macros/heichips26_analog_project</a>)</p>
 <hr />
-<h1 id="5-digital-macro-same-outer-architecture-different-contents">5.
+<h1 id="digital-macro-same-outer-architecture-different-contents">5.
 Digital macro: same outer architecture, different contents</h1>
 <p>Digital uses the same architectural categories but substitutes the
 digital flow artifacts.</p>
@@ -439,7 +445,8 @@ final/</code></pre>
 verification:</p>
 <pre class="make"><code>LAY_DIR := final/gds</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/counter/Makefile
+(raw)</a>)</p>
 <p>That is an important analog/digital distinction:</p>
 <h3 id="analog">Analog</h3>
 <pre class="text"><code>layout/*.gds
@@ -462,9 +469,10 @@ final/gds/*.gds
 <p>So <strong><code>layout/</code> is fundamental for analog but often
 unnecessary for a digital macro</strong>. In the digital Makefile,
 <code>LAY_DIR := final/gds</code> reflects exactly that distinction. (<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/counter/Makefile
+(raw)</a>)</p>
 <hr />
-<h1 id="6-heichips-digital-structure-follows-the-same-convention">6.
+<h1 id="heichips-digital-structure-follows-the-same-convention">6.
 HeiChips digital structure follows the same convention</h1>
 <p>The HeiChips digital project top declares:</p>
 <pre class="text"><code>macros/
@@ -487,7 +495,8 @@ flow/
 
 final/</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile">HeiChips/heichips26-template/macros/heichips26_digital_project/Makefile
+(raw)</a>)</p>
 <p>Its <code>all</code> flow is:</p>
 <pre class="text"><code>lint
 → build child macros
@@ -495,7 +504,8 @@ href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros
 → LibreLane top build
 → simulation</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile">HeiChips/heichips26-template/macros/heichips26_digital_project/Makefile
+(raw)</a>)</p>
 <p>Its <code>counter</code> submacro is fuller because it is a reusable
 hardened macro and therefore also contains:</p>
 <pre class="text"><code>schematic/xschem
@@ -503,7 +513,8 @@ testbenches/xschem
 netlist/xspice
 netlist/pex</code></pre>
 <p>for mixed-signal use and post-layout extraction. (<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/macros/counter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/macros/counter/Makefile">HeiChips/heichips26-template/macros/heichips26_digital_project/macros/counter/Makefile
+(raw)</a>)</p>
 <p>That again demonstrates a useful rule:</p>
 <blockquote>
 <p>A <strong>digital macro intended to participate in AMS
@@ -512,7 +523,7 @@ symbol/schematic, XSPICE/SPICE and PEX.</p>
 </blockquote>
 <p>The underlying design remains digital.</p>
 <hr />
-<h1 id="7-what-is-the-mixed-signal-directory-structure">7. What is the
+<h1 id="what-is-the-mixed-signal-directory-structure">7. What is the
 “mixed-signal directory structure”?</h1>
 <p>This is where the two repositories differ most substantially.</p>
 <h2 id="jku">JKU</h2>
@@ -561,7 +572,8 @@ NET_SPICE_DIR  := netlist/spice
 LIBRELANE_DIR  := flow/librelane
 ...</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/Makefile
+(raw)</a>)</p>
 <p>That is essentially:</p>
 <blockquote>
 <p><strong>mixed-signal = union of analog and digital representations +
@@ -579,7 +591,7 @@ equivalent</strong> inside <code>heichips26-template</code>.</p>
 two example top-level macros and that the submitted project is
 subsequently connected to the eFPGA and integrated into the HeiChips
 chip. (<a
-href="https://github.com/HeiChips/heichips26-template">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template">HeiChips/heichips26-template</a>)</p>
 <p>Thus:</p>
 <pre class="text"><code>JKU template:
 user controls chip
@@ -595,8 +607,8 @@ user controls submission macro
 HeiChips tapeout integration controls chip</code></pre>
 <p>That explains a lot of apparent structural disagreement.</p>
 <hr />
-<h1 id="8-final-means-something-especially-useful">8.
-<code>final/</code> means something especially useful</h1>
+<h1 id="final-means-something-especially-useful">8. <code>final/</code>
+means something especially useful</h1>
 <p>Both designs converge on the idea that hierarchical macro boundaries
 should expose <strong>tool-neutral artifacts</strong>.</p>
 <p>For analog HeiChips:</p>
@@ -607,10 +619,11 @@ should expose <strong>tool-neutral artifacts</strong>.</p>
 ├── render/
 └── vh/</code></pre>
 <p>(<a
-href="https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/README.md">github.com</a>)</p>
+href="https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/README.md">HeiChips/heichips26-template/macros/heichips26_analog_project/README.md</a>)</p>
 <p>The JKU analog macro likewise creates GDS, LEF, Liberty and a Verilog
 stub for top-level integration. (<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile
+(raw)</a>)</p>
 <p>This gives a very clean interface:</p>
 <pre class="text"><code>internal implementation
 ────────────────────────────────
@@ -631,7 +644,7 @@ final/
     vh        HDL black-box interface</code></pre>
 <p>I would preserve this distinction in any derived project.</p>
 <hr />
-<h1 id="9-source-vs-generated-files">9. Source vs generated files</h1>
+<h1 id="source-vs-generated-files">9. Source vs generated files</h1>
 <p>Another convention common to the projects is worth making
 explicit:</p>
 <h3 id="mostly-source-controlled-design-input">Mostly source-controlled
@@ -659,17 +672,19 @@ but intentionally publishable/integratable</h3>
 netlists, <code>verification/</code> as reports and <code>final/</code>
 as top-level integration deliverables; <code>make clean</code> removes
 those generated products. (<a
-href="https://heichips.github.io/heichips26-analog-workshop/">heichips.github.io</a>)</p>
+href="https://heichips.github.io/heichips26-analog-workshop/">HeiChips26
+analog workshop</a>)</p>
 <p>That separation is one of the strongest parts of this convention.</p>
 <hr />
-<h1 id="10-where-cace-belongs">10. Where CACE belongs</h1>
+<h1 id="where-cace-belongs">10. Where CACE belongs</h1>
 <p>Both analog macro Makefiles put CACE here:</p>
 <pre class="text"><code>verification/
 └── cace/</code></pre>
 <p>rather than:</p>
 <pre class="text"><code>testbenches/cace/</code></pre>
 <p>(<a
-href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile">HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile
+(raw)</a>)</p>
 <p>Conceptually that makes sense because CACE is not merely “run this
 waveform simulation”; it expresses
 <strong>specification/characterization over design
@@ -679,18 +694,26 @@ distinction particularly well: it treats ordinary circuit testbenches
 separately from PVT/process variation and Monte Carlo/mismatch
 characterization, and recommends using both corners and Monte Carlo
 where appropriate. (<a
-href="https://iic-jku.github.io/analog-circuit-design/aicd.html">iic-jku.github.io</a>)</p>
-<p>Thus I'd regard:</p>
+href="https://iic-jku.github.io/analog-circuit-design/aicd.html">IIC-JKU
+analog-circuit-design</a>)</p>
+<p>Thus I’d regard:</p>
 <pre class="text"><code>testbenches/xschem/</code></pre>
 <p>as <strong>individual experiments</strong>, and</p>
 <pre class="text"><code>verification/cace/</code></pre>
 <p>as <strong>design-space/specification characterization</strong>.</p>
-<p>That's a useful semantic distinction, not merely a historical
+<p>That’s a useful semantic distinction, not merely a historical
 accident.</p>
 <hr />
-<h1 id="11-the-differences-in-one-table">11. The differences in one
+<h1 id="the-differences-in-one-table">11. The differences in one
 table</h1>
 <table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>Feature</th>
@@ -837,10 +860,10 @@ table</h1>
 </tbody>
 </table>
 <p>(<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile
+(raw)</a>)</p>
 <hr />
-<h1
-id="12-what-i-would-regard-as-the-emerging-recommended-structure">12.
+<h1 id="what-i-would-regard-as-the-emerging-recommended-structure">12.
 What I would regard as the emerging “recommended” structure</h1>
 <p>If you want something suitable for your own reusable
 analog/mixed-signal IP, I would take the common denominator rather than
@@ -898,7 +921,7 @@ copy either repository literally:</p>
     └── vh/</code></pre>
 <p>Then let the Makefile activate only the relevant subsets.</p>
 <p>So I would <strong>not</strong> have separate incompatible “analog”,
-“digital”, and “mixed-signal” directory standards. I'd view them as
+“digital”, and “mixed-signal” directory standards. I’d view them as
 profiles of one schema:</p>
 <pre class="text"><code>                   common design-unit schema
                              │
@@ -918,7 +941,8 @@ the macro <code>Makefile</code> as the single entry point for
 simulation, verification, building and cleanup, while the JKU full-chip
 documentation generalizes that same convention recursively to every
 macro/IP component. (<a
-href="https://heichips.github.io/heichips26-analog-workshop/">heichips.github.io</a>)</p>
+href="https://heichips.github.io/heichips26-analog-workshop/">HeiChips26
+analog workshop</a>)</p>
 <p>One detail I would deliberately copy from the <strong>new JKU
 template rather than the HeiChips workshop copy</strong> is the
 distinction between <code>render/img/</code> and <code>final/</code>:
@@ -926,31 +950,33 @@ renders are documentation/debug artifacts, whereas <code>final/</code>
 should ideally contain only things that form the formal interface to the
 parent/integration flow. The JKU tree is semantically cleaner on that
 point. (<a
-href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">raw.githubusercontent.com</a>)</p>
+href="https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile">iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile
+(raw)</a>)</p>
 <hr />
 <h2 id="user-1">User</h2>
 <p>The Austrian School of repository and Makefile organization looks
 fairly consistent.</p>
-<p>And Now For Something Completely Different: Mr Potbox Tim Edwards is
-Old School and uses <code>Tk/Tcl</code> and <code>bash</code> scripts
-instead of <code>python</code>, <code>yaml</code>, <code>toml</code> and
-whatnot for scripting.</p>
+<p>And Now For Something Completely Different:<br />
+Mr Potbox Tim Edwards is Old School and uses <code>Tk/Tcl</code> and
+<code>bash</code> scripts instead of <code>python</code>,
+<code>yaml</code>, <code>toml</code> and whatnot for scripting.</p>
 <p>How can this be consolidated into a coherent superstructure? Start
 looking at <a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1">https://github.com/RTimothyEdwards/chipalooza_projects_1</a>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1">https://github.com/RTimothyEdwards/chipalooza_projects_1</a><br />
 <a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_2">https://github.com/RTimothyEdwards/chipalooza_projects_2</a>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_2">https://github.com/RTimothyEdwards/chipalooza_projects_2</a><br />
 <a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe</a>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe</a><br />
 <a
-href="https://github.com/RTimothyEdwards/caravel_openframe_project">https://github.com/RTimothyEdwards/caravel_openframe_project</a>
+href="https://github.com/RTimothyEdwards/caravel_openframe_project">https://github.com/RTimothyEdwards/caravel_openframe_project</a><br />
 <a
-href="https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe">https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe</a>
+href="https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe">https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe</a><br />
 <a
-href="https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe">https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe</a>
+href="https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe">https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe</a><br />
 <a
-href="https://github.com/RTimothyEdwards/caravel_testing">https://github.com/RTimothyEdwards/caravel_testing</a>
-and generally in Tim's repositories. Also have a look at <a
+href="https://github.com/RTimothyEdwards/caravel_testing">https://github.com/RTimothyEdwards/caravel_testing</a><br />
+and generally in Tim’s repositories.<br />
+Also have a look at <a
 href="https://opencircuitdesign.com/">https://opencircuitdesign.com/</a></p>
 <hr />
 <h2 id="assistant-4">Assistant</h2>
@@ -987,7 +1013,7 @@ WHEN?   → Make
 HOW?    → Tcl / shell / Python / native config</code></pre>
 <p>That keeps the best part of both traditions.</p>
 <h2
-id="1-first-correction-tim-is-less-tcl-instead-of-python-than-it-initially-looks">1.
+id="first-correction-tim-is-less-tcl-instead-of-python-than-it-initially-looks">1.
 First correction: Tim is less “Tcl instead of Python” than it initially
 looks</h2>
 <p>His repositories are certainly Tcl/Unix-heavy, but they are not
@@ -1015,22 +1041,23 @@ tech_change.py</code></pre>
 <blockquote>
 <p><strong>use the language closest to the problem.</strong></p>
 </blockquote>
-<p>Magic automation is Tcl because <strong>Tcl is Magic's command
+<p>Magic automation is Tcl because <strong>Tcl is Magic’s command
 language</strong>. Netgen is similarly Tcl-based and explicitly supports
 batch Tcl operation. Shell connects Unix processes. Python appears where
 parsing or structured transformation benefits from it. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts">RTimothyEdwards/sg13cmos5l_ocd_openframe/scripts</a>)</p>
 <p>Even his newer analog IP work incorporates CACE and therefore YAML
 when YAML is the appropriate declarative input format. So I would not
 make “no YAML/Python” part of the architecture. (<a
-href="https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com">RTimothyEdwards/sky130_ef_ip__rdac3v_8bit</a>)</p>
 <p>And <code>Tk</code> should really be separated from <code>Tcl</code>
 in our mental model. Tk is the GUI toolkit. For an automated flow, the
 significant component is <strong>Tcl</strong>; Magic can run headlessly
 and Netgen can run in batch mode. (<a
-href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">opencircuitdesign.com</a>)</p>
+href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">OpenCircuitDesign
+Magic User’s Guide</a>)</p>
 <hr />
-<h1 id="2-the-real-difference-is-the-first-directory-axis">2. The real
+<h1 id="the-real-difference-is-the-first-directory-axis">2. The real
 difference is the first directory axis</h1>
 <p>This is more fundamental than programming language.</p>
 <p>The Austrian hierarchy tends to answer:</p>
@@ -1069,17 +1096,17 @@ trees. <code>chipalooza_projects_1</code>, for example, has
 <code>netlist</code>, <code>openlane</code>, <code>verilog</code>, and
 <code>xschem</code> at the top level; Chipalooza 2 follows much the same
 pattern. (<a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1">RTimothyEdwards/chipalooza_projects_1</a>)</p>
 <p>Likewise the SG13 openframe tree has <code>def</code>,
 <code>gds</code>, <code>librelane</code>, <code>magic</code>,
 <code>netlist</code>, <code>verilog</code>, and <code>xschem</code>. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">github.com</a>)</p>
-<p>That's why trying to merge the two directory structures literally
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">RTimothyEdwards/sg13cmos5l_ocd_openframe</a>)</p>
+<p>That’s why trying to merge the two directory structures literally
 becomes ugly.</p>
 <p>The solution is to make the <strong>semantic role the first
 coordinate and tool/representation the second coordinate</strong>.</p>
 <hr />
-<h1 id="3-the-superstructure-i-would-use">3. The superstructure I would
+<h1 id="the-superstructure-i-would-use">3. The superstructure I would
 use</h1>
 <p>Something like this:</p>
 <pre class="text"><code>my_design/
@@ -1168,7 +1195,7 @@ use</h1>
 <p>The particularly important addition compared with my previous
 Austrian schema is:</p>
 <pre class="text"><code>layout/magic/</code></pre>
-<p>rather than Tim's root-level:</p>
+<p>rather than Tim’s root-level:</p>
 <pre class="text"><code>mag/</code></pre>
 <p>That says simultaneously:</p>
 <pre class="text"><code>role           = editable layout
@@ -1181,15 +1208,15 @@ tool = Magic</code></pre>
 <p>instead of making <code>.tcl</code> or <code>magic/</code> itself the
 semantic category.</p>
 <hr />
-<h1 id="4-do-not-organize-scripts-primarily-by-programming-language">4.
-Do <strong>not</strong> organize <code>scripts/</code> primarily by
+<h1 id="do-not-organize-scripts-primarily-by-programming-language">4. Do
+<strong>not</strong> organize <code>scripts/</code> primarily by
 programming language</h1>
 <p>I would avoid this:</p>
 <pre class="text"><code>scripts/
 ├── bash/
 ├── python/
 └── tcl/</code></pre>
-<p>because that's programmer-centric rather than
+<p>because that’s programmer-centric rather than
 design-flow-centric.</p>
 <p>If there are enough scripts to require subdivision, this is
 better:</p>
@@ -1210,19 +1237,19 @@ happen to be Python. A launch wrapper might happen to be Bash.</p>
 <p>This is one place where I think the synthesis can actually improve on
 <strong>both</strong> families of repository.</p>
 <hr />
-<h1 id="5-gnu-make-should-be-the-constitutional-layer">5. GNU Make
-should be the constitutional layer</h1>
+<h1 id="gnu-make-should-be-the-constitutional-layer">5. GNU Make should
+be the constitutional layer</h1>
 <p>This is where the two schools are already converging.</p>
-<p>Tim's SG13 OpenFrame README says explicitly that the individual
+<p>Tim’s SG13 OpenFrame README says explicitly that the individual
 scripts are intended eventually to be collected behind a Makefile, with
 steps becoming <code>make &lt;something&gt;</code> operations. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">RTimothyEdwards/sg13cmos5l_ocd_openframe</a>)</p>
 <p>And in the Chipalooza projects Make is already largely a
 <strong>facade/router/orchestrator</strong>. It manages environment
 variables, obtains IP, descends recursively into other flows, invokes
 verification, and even forwards targets to the Caravel Makefile. (<a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">github.com</a>)</p>
-<p>That's exactly what I would formalize.</p>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">RTimothyEdwards/chipalooza_projects_1/Makefile</a>)</p>
+<p>That’s exactly what I would formalize.</p>
 <p>The user-facing API should be stable:</p>
 <pre class="text"><code>make setup
 make deps
@@ -1263,10 +1290,10 @@ make sim-pex</code></pre>
 <p>That means a project can switch verification implementation without
 breaking its top-level API.</p>
 <hr />
-<h1 id="6-tcl-then-becomes-exactly-what-it-ought-to-be">6. Tcl then
+<h1 id="tcl-then-becomes-exactly-what-it-ought-to-be">6. Tcl then
 becomes exactly what it ought to be</h1>
 <p>Suppose Make wants a Magic extraction.</p>
-<p>Don't do:</p>
+<p>Don’t do:</p>
 <pre class="text"><code>Make
   ↓
 Python Magic wrapper
@@ -1285,10 +1312,11 @@ magic -dnull ... flow/magic/extract.tcl
 Magic/Tcl</code></pre>
 <p>Magic itself is a Tcl application environment; invoking its API in
 its native command language is not nostalgic eccentricity. It removes an
-unnecessary abstraction layer. The same argument applies to Netgen's Tcl
+unnecessary abstraction layer. The same argument applies to Netgen’s Tcl
 interface. (<a
-href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">opencircuitdesign.com</a>)</p>
-<p>The shell's job is different:</p>
+href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">OpenCircuitDesign
+Magic User’s Guide</a>)</p>
+<p>The shell’s job is different:</p>
 <pre class="text"><code>Make
   ↓
 bash
@@ -1305,12 +1333,12 @@ Python
   ├── transform netlists/configurations
   ├── generate reports
   └── manipulate geometry/data models</code></pre>
-<p>That is in fact roughly what Tim's own mixed
+<p>That is in fact roughly what Tim’s own mixed
 Tcl/<code>.sh</code>/<code>.py</code> script sets demonstrate. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts">RTimothyEdwards/sg13cmos5l_ocd_openframe/scripts</a>)</p>
 <hr />
 <h1
-id="7-the-configuration-hierarchy-should-also-have-clear-jurisdiction">7.
+id="the-configuration-hierarchy-should-also-have-clear-jurisdiction">7.
 The configuration hierarchy should also have clear jurisdiction</h1>
 <p>This is where modern EDA repositories easily become an Augean
 stable:</p>
@@ -1353,7 +1381,7 @@ bar.py
 </tr>
 <tr class="odd">
 <td>LibreLane configuration</td>
-<td>LibreLane's native configuration format</td>
+<td>LibreLane’s native configuration format</td>
 </tr>
 <tr class="even">
 <td>CACE specification</td>
@@ -1385,19 +1413,19 @@ class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb59-1"><a href="#
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="kw">load</span> <span class="dt">$top</span></span>
 <span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
-<p>That is not hypothetical; Tim's Chipalooza/OpenFrame Tcl scripts
+<p>That is not hypothetical; Tim’s Chipalooza/OpenFrame Tcl scripts
 already consume environment variables such as <code>PDK_ROOT</code>,
 <code>PDK</code>, and <code>IP_ROOT</code> set by the surrounding Make
 environment. (<a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/mag/construct_testchip.tcl">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/mag/construct_testchip.tcl">RTimothyEdwards/chipalooza_projects_1/mag/construct_testchip.tcl</a>)</p>
 <p>So:</p>
 <blockquote>
 <p><strong>Make/config.mk owns policy; Tcl receives parameters rather
 than secretly redefining policy.</strong></p>
 </blockquote>
-<p>That's a very clean interface.</p>
+<p>That’s a very clean interface.</p>
 <hr />
-<h1 id="8-dont-invent-yaml-merely-to-look-modern">8. Don't invent YAML
+<h1 id="dont-invent-yaml-merely-to-look-modern">8. Don’t invent YAML
 merely to look modern</h1>
 <p>This is probably the biggest philosophical point where I would side
 with Mr Potbox.</p>
@@ -1417,23 +1445,23 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb62-1"><a href="#
 PDK := ihp-sg13g2</code></pre>
 <p>Make already has variables, dependencies, conditional rules,
 incremental rebuild semantics and a CLI.</p>
-<p>Conversely, CACE's characterization data <strong>is naturally
+<p>Conversely, CACE’s characterization data <strong>is naturally
 structured</strong>, so:</p>
 <pre class="text"><code>verification/cace/spec.yaml</code></pre>
 <p>makes sense.</p>
 <p>Likewise a LibreLane configuration should use whatever data
-representation LibreLane's supported interface expects.</p>
+representation LibreLane’s supported interface expects.</p>
 <p>So the rule should be:</p>
 <blockquote>
 <p><strong>Declarative serialization formats are domain interfaces, not
 a universal configuration religion.</strong></p>
 </blockquote>
-<p>Tim's own repositories actually support this conclusion: old-style
+<p>Tim’s own repositories actually support this conclusion: old-style
 Tcl/shell lives alongside Python helpers, while newer IP uses CACE YAML
 when CACE is part of the job. (<a
-href="https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com">RTimothyEdwards/sky130_ef_ip__rdac3v_8bit</a>)</p>
 <hr />
-<h1 id="9-the-final-boundary-needs-one-edwards-addition-mag">9. The
+<h1 id="the-final-boundary-needs-one-edwards-addition-.mag">9. The
 <code>final/</code> boundary needs one Edwards addition:
 <code>.mag</code></h1>
 <p>From the Austrian structure I argued:</p>
@@ -1442,7 +1470,7 @@ href="https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=ch
 ├── lef/
 ├── lib/
 └── vh/</code></pre>
-<p>Tim's flows reveal one omission.</p>
+<p>Tim’s flows reveal one omission.</p>
 <p>For a hierarchy assembled in Magic, the useful parent-facing
 representation may be:</p>
 <pre class="text"><code>final/mag/</code></pre>
@@ -1452,7 +1480,7 @@ brought back as Magic databases specifically because the
 <code>.mag</code> representation preserves useful hierarchy/reference
 information for subsequent Magic-level integration, alongside netlist
 views for LVS and mixed-mode simulation. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe?utm_source=chatgpt.com">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe?utm_source=chatgpt.com">RTimothyEdwards/sg13cmos5l_ocd_openframe</a>)</p>
 <p>So I would generalize <code>final/</code> to mean:</p>
 <blockquote>
 <p><strong>published views through which the parent design is permitted
@@ -1474,14 +1502,14 @@ to consume this design unit.</strong></p>
 <p>That meshes particularly well with mixed-signal hierarchical
 design.</p>
 <hr />
-<h1 id="10-macros-ip-and-dependencies-should-have-distinct-meanings">10.
+<h1 id="macros-ip-and-dependencies-should-have-distinct-meanings">10.
 <code>macros/</code>, <code>ip/</code>, and <code>dependencies/</code>
 should have distinct meanings</h1>
-<p>Tim's projects use <code>dependencies/</code> heavily, sometimes
+<p>Tim’s projects use <code>dependencies/</code> heavily, sometimes
 populated by Make targets cloning repositories; the newer SG13 OpenFrame
 also uses git submodules for external IP. (<a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">github.com</a>)</p>
-<p>I'd make the distinction explicit:</p>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">RTimothyEdwards/chipalooza_projects_1/Makefile</a>)</p>
+<p>I’d make the distinction explicit:</p>
 <pre class="text"><code>macros/</code></pre>
 <p>= design units <strong>owned by this project</strong> and physically
 instantiated hierarchically.</p>
@@ -1491,7 +1519,7 @@ distinction from <code>macros/</code> is useful.</p>
 <pre class="text"><code>dependencies/</code></pre>
 <p>= <strong>external repositories/packages</strong>, not edited as part
 of the project.</p>
-<p>Then each external dependency retains its native organization. That's
+<p>Then each external dependency retains its native organization. That’s
 important.</p>
 <p>If I import a Tim-style IP with:</p>
 <pre class="text"><code>mag/
@@ -1510,13 +1538,13 @@ own</strong>, not coercively to third-party IP.</p>
 <p>That gives us interoperability without a Great Directory Renaming
 Campaign.</p>
 <hr />
-<h1 id="11-this-also-explains-tims-configtxt">11. This also explains
-Tim's <code>config.txt</code></h1>
-<p>The OpenFrame project's <code>config.txt</code> is an interesting
+<h1 id="this-also-explains-tims-config.txt">11. This also explains Tim’s
+<code>config.txt</code></h1>
+<p>The OpenFrame project’s <code>config.txt</code> is an interesting
 case. It contains project identity and pad assignment information in a
 simple human-readable format; <code>parse_config.py</code> then
 generates Verilog/Tcl-derived products. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/blob/main/config.txt">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/blob/main/config.txt">RTimothyEdwards/sg13cmos5l_ocd_openframe/config.txt</a>)</p>
 <p>That is actually architecturally sound:</p>
 <pre class="text"><code>declarative pad assignment
           │
@@ -1526,7 +1554,7 @@ href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/blob/main/conf
       ↓      ↓
   Verilog    Tcl
  interface  layout construction</code></pre>
-<p>I wouldn't replace that with YAML merely because YAML exists.</p>
+<p>I wouldn’t replace that with YAML merely because YAML exists.</p>
 <p>I <strong>might</strong> give it a more explicit name:</p>
 <pre class="text"><code>padframe.conf</code></pre>
 <p>and document its grammar.</p>
@@ -1537,7 +1565,7 @@ derivatives.</p>
 </blockquote>
 <p>That is precisely what we want in mixed-signal integration.</p>
 <hr />
-<h1 id="12-the-resulting-architecture-has-four-layers">12. The resulting
+<h1 id="the-resulting-architecture-has-four-layers">12. The resulting
 architecture has four layers</h1>
 <p>I think this is the cleanest conceptual diagram:</p>
 <pre class="text"><code>┌──────────────────────────────────────────────────────┐
@@ -1584,9 +1612,8 @@ CACE YAML     → CACE
 LibreLane cfg → LibreLane
 Tcl           → executable tool commands</code></pre>
 <hr />
-<h1
-id="13-this-is-actually-quite-close-to-tims-architecture-already">13.
-This is actually quite close to Tim's architecture already</h1>
+<h1 id="this-is-actually-quite-close-to-tims-architecture-already">13.
+This is actually quite close to Tim’s architecture already</h1>
 <p>The SG13 OpenFrame project is particularly instructive because it is
 a transitional form.</p>
 <p>It has:</p>
@@ -1602,14 +1629,15 @@ librelane/</code></pre>
 <p>and a scripted sequence that constructs padframe, wrapper,
 user-project integration, stream-out, extraction and LVS. Its README
 explicitly anticipates exposing these operations through Make. (<a
-href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe">RTimothyEdwards/sg13cmos5l_ocd_openframe</a>)</p>
 <p>The Chipalooza Makefiles already use Make as an outer control plane
 around external IP and subflows. (<a
-href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">github.com</a>)</p>
+href="https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile">RTimothyEdwards/chipalooza_projects_1/Makefile</a>)</p>
 <p>Meanwhile Magic and Netgen make Tcl a perfectly natural inner control
 plane. (<a
-href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">opencircuitdesign.com</a>)</p>
-<p>So we don't actually need to reconcile two incompatible
+href="https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com">OpenCircuitDesign
+Magic User’s Guide</a>)</p>
+<p>So we don’t actually need to reconcile two incompatible
 philosophies.</p>
 <p>The two traditions mostly occupy <strong>different levels of
 abstraction</strong>.</p>

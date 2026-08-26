@@ -35,7 +35,7 @@ The short version is: **the two repositories now describe essentially the same d
 - `heichips26-template` gives the user **one submission macro**, either analog-on-top or digital-on-top, which may recursively contain smaller macros.
 - The **analog leaf-macro structure is almost the same** in both.
 - The **digital leaf-macro structure is likewise very similar**, but naturally adds RTL, LibreLane, cocotb/Verilog, FPGA, synthesized netlists, etc.
-- The JKU full-chip top level is the actual **mixed-signal superset** of the analog and digital structures. ([github.com](https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template))
+- The JKU full-chip top level is the actual **mixed-signal superset** of the analog and digital structures. ([iic-jku/ihp-sg13cmos5l-ams-chip-template](https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template))
 
 ## 1. The common mental model
 
@@ -66,9 +66,9 @@ design-unit/
         └── ...
 ```
 
-That recursive `macros/` idea is explicit in HeiChips: both the analog and digital project can contain sub-macros, each with its own `Makefile`, and the parent invokes them with `$(MAKE) -C ... all`. ([github.com](https://github.com/HeiChips/heichips26-template))
+That recursive `macros/` idea is explicit in HeiChips: both the analog and digital project can contain sub-macros, each with its own `Makefile`, and the parent invokes them with `$(MAKE) -C ... all`. ([HeiChips/heichips26-template](https://github.com/HeiChips/heichips26-template))
 
-The JKU AMS template uses exactly the same principle: every component under `macros/` and `ip/` has its own `Makefile`/`README`, can be built independently, and is recursively invoked from the parent. ([github.com](https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template))
+The JKU AMS template uses exactly the same principle: every component under `macros/` and `ip/` has its own `Makefile`/`README`, can be built independently, and is recursively invoked from the parent. ([iic-jku/ihp-sg13cmos5l-ams-chip-template](https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template))
 
 ---
 
@@ -103,7 +103,7 @@ verification/lvs
 verification/drc
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
+([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
 
 ### HeiChips `heichips26_analog_project/macros/inverter`
 
@@ -131,7 +131,7 @@ verification/lvs
 verification/drc
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
+([HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
 
 So the important conclusion is:
 
@@ -167,7 +167,7 @@ That's a minor organizational choice. JKU separates documentation/debug renderin
 
 That last distinction is particularly useful: **`layout/` is working/source layout; `final/gds/` is a published macro artifact.**
 
-The workshop documentation describes the same separation almost verbatim: schematic, testbenches, layout, three kinds of netlists, verification, scripts, and `final/` deliverables. ([heichips.github.io](https://heichips.github.io/heichips26-analog-workshop/))
+The workshop documentation describes the same separation almost verbatim: schematic, testbenches, layout, three kinds of netlists, verification, scripts, and `final/` deliverables. ([HeiChips26 analog workshop](https://heichips.github.io/heichips26-analog-workshop/))
 
 ---
 
@@ -188,7 +188,7 @@ inverter
 inverter_top
 ```
 
-with `*-verify-all`. ([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
+with `*-verify-all`. ([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
 
 The HeiChips workshop/submacro has simply
 
@@ -196,7 +196,7 @@ The HeiChips workshop/submacro has simply
 TOP = inverter
 ```
 
-and its `*-verify-all` verifies just that cell. ([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
+and its `*-verify-all` verifies just that cell. ([HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
 
 This illustrates an important point about the directory convention:
 
@@ -254,7 +254,7 @@ heichips26_analog_project/
         └── ...
 ```
 
-([github.com](https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project))
+([HeiChips/heichips26-template/macros/heichips26_analog_project](https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project))
 
 The parent Makefile explicitly does:
 
@@ -277,7 +277,7 @@ all:
         $(MAKE) sim-all
 ```
 
-([github.com](https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/Makefile))
+([HeiChips/heichips26-template/macros/heichips26_analog_project/Makefile](https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/Makefile))
 
 So the hierarchy is deliberately:
 
@@ -289,7 +289,7 @@ analog submacro(s)
 
 not one huge flat analog project.
 
-The HeiChips README explicitly says that flattening everything into the top-level layout is possible but **not recommended**. ([github.com](https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project))
+The HeiChips README explicitly says that flattening everything into the top-level layout is possible but **not recommended**. ([HeiChips/heichips26-template/macros/heichips26_analog_project](https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project))
 
 ---
 
@@ -333,7 +333,7 @@ with the hardened GDS considered the layout used for physical verification:
 LAY_DIR := final/gds
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile))
+([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/counter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile))
 
 That is an important analog/digital distinction:
 
@@ -365,7 +365,7 @@ final/gds/*.gds
 
 LibreLane creates the layout.
 
-So **`layout/` is fundamental for analog but often unnecessary for a digital macro**. In the digital Makefile, `LAY_DIR := final/gds` reflects exactly that distinction. ([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile))
+So **`layout/` is fundamental for analog but often unnecessary for a digital macro**. In the digital Makefile, `LAY_DIR := final/gds` reflects exactly that distinction. ([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/counter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/counter/Makefile))
 
 ---
 
@@ -395,7 +395,7 @@ flow/
 final/
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile))
+([HeiChips/heichips26-template/macros/heichips26_digital_project/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile))
 
 Its `all` flow is:
 
@@ -407,7 +407,7 @@ lint
 → simulation
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile))
+([HeiChips/heichips26-template/macros/heichips26_digital_project/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/Makefile))
 
 Its `counter` submacro is fuller because it is a reusable hardened macro and therefore also contains:
 
@@ -418,7 +418,7 @@ netlist/xspice
 netlist/pex
 ```
 
-for mixed-signal use and post-layout extraction. ([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/macros/counter/Makefile))
+for mixed-signal use and post-layout extraction. ([HeiChips/heichips26-template/macros/heichips26_digital_project/macros/counter/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_digital_project/macros/counter/Makefile))
 
 That again demonstrates a useful rule:
 
@@ -484,7 +484,7 @@ LIBRELANE_DIR  := flow/librelane
 ...
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/Makefile))
+([iic-jku/ihp-sg13cmos5l-ams-chip-template/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/Makefile))
 
 That is essentially:
 
@@ -504,7 +504,7 @@ macros/
 └── heichips26_digital_project/
 ```
 
-and submit one of them. The repository explicitly says these are the two example top-level macros and that the submitted project is subsequently connected to the eFPGA and integrated into the HeiChips chip. ([github.com](https://github.com/HeiChips/heichips26-template))
+and submit one of them. The repository explicitly says these are the two example top-level macros and that the submitted project is subsequently connected to the eFPGA and integrated into the HeiChips chip. ([HeiChips/heichips26-template](https://github.com/HeiChips/heichips26-template))
 
 Thus:
 
@@ -542,9 +542,9 @@ final/
 └── vh/
 ```
 
-([github.com](https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/README.md))
+([HeiChips/heichips26-template/macros/heichips26_analog_project/README.md](https://github.com/HeiChips/heichips26-template/blob/main/macros/heichips26_analog_project/README.md))
 
-The JKU analog macro likewise creates GDS, LEF, Liberty and a Verilog stub for top-level integration. ([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
+The JKU analog macro likewise creates GDS, LEF, Liberty and a Verilog stub for top-level integration. ([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
 
 This gives a very clean interface:
 
@@ -607,7 +607,7 @@ flow/.../runs/
 final/
 ```
 
-The workshop explicitly describes `netlist/` as exported netlists, `verification/` as reports and `final/` as top-level integration deliverables; `make clean` removes those generated products. ([heichips.github.io](https://heichips.github.io/heichips26-analog-workshop/))
+The workshop explicitly describes `netlist/` as exported netlists, `verification/` as reports and `final/` as top-level integration deliverables; `make clean` removes those generated products. ([HeiChips26 analog workshop](https://heichips.github.io/heichips26-analog-workshop/))
 
 That separation is one of the strongest parts of this convention.
 
@@ -628,11 +628,11 @@ rather than:
 testbenches/cace/
 ```
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
+([HeiChips/heichips26-template/macros/heichips26_analog_project/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/HeiChips/heichips26-template/main/macros/heichips26_analog_project/macros/inverter/Makefile))
 
 Conceptually that makes sense because CACE is not merely “run this waveform simulation”; it expresses **specification/characterization over design variation**.
 
-The `analog-circuit-design` material supports that distinction particularly well: it treats ordinary circuit testbenches separately from PVT/process variation and Monte Carlo/mismatch characterization, and recommends using both corners and Monte Carlo where appropriate. ([iic-jku.github.io](https://iic-jku.github.io/analog-circuit-design/aicd.html))
+The `analog-circuit-design` material supports that distinction particularly well: it treats ordinary circuit testbenches separately from PVT/process variation and Monte Carlo/mismatch characterization, and recommends using both corners and Monte Carlo where appropriate. ([IIC-JKU analog-circuit-design](https://iic-jku.github.io/analog-circuit-design/aicd.html))
 
 Thus I'd regard:
 
@@ -676,7 +676,7 @@ That's a useful semantic distinction, not merely a historical accident.
 | `fpga/` | no | no | no | optional/yes |
 | parent purpose | chip macro | project submacro | tapeout submission | hardened digital macro |
 
-([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
+([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
 
 ---
 
@@ -757,9 +757,9 @@ So I would **not** have separate incompatible “analog”, “digital”, and �
                            final/
 ```
 
-That appears to be exactly the direction the JKU and HeiChips material has converged toward. The workshop documentation even describes the macro `Makefile` as the single entry point for simulation, verification, building and cleanup, while the JKU full-chip documentation generalizes that same convention recursively to every macro/IP component. ([heichips.github.io](https://heichips.github.io/heichips26-analog-workshop/))
+That appears to be exactly the direction the JKU and HeiChips material has converged toward. The workshop documentation even describes the macro `Makefile` as the single entry point for simulation, verification, building and cleanup, while the JKU full-chip documentation generalizes that same convention recursively to every macro/IP component. ([HeiChips26 analog workshop](https://heichips.github.io/heichips26-analog-workshop/))
 
-One detail I would deliberately copy from the **new JKU template rather than the HeiChips workshop copy** is the distinction between `render/img/` and `final/`: renders are documentation/debug artifacts, whereas `final/` should ideally contain only things that form the formal interface to the parent/integration flow. The JKU tree is semantically cleaner on that point. ([raw.githubusercontent.com](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
+One detail I would deliberately copy from the **new JKU template rather than the HeiChips workshop copy** is the distinction between `render/img/` and `final/`: renders are documentation/debug artifacts, whereas `final/` should ideally contain only things that form the formal interface to the parent/integration flow. The JKU tree is semantically cleaner on that point. ([iic-jku/ihp-sg13cmos5l-ams-chip-template/macros/inverter/Makefile (raw)](https://raw.githubusercontent.com/iic-jku/ihp-sg13cmos5l-ams-chip-template/main/macros/inverter/Makefile))
 
 ---
 
@@ -844,11 +844,11 @@ So the actual Edwards rule looks more like:
 
 > **use the language closest to the problem.**
 
-Magic automation is Tcl because **Tcl is Magic's command language**. Netgen is similarly Tcl-based and explicitly supports batch Tcl operation. Shell connects Unix processes. Python appears where parsing or structured transformation benefits from it. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts))
+Magic automation is Tcl because **Tcl is Magic's command language**. Netgen is similarly Tcl-based and explicitly supports batch Tcl operation. Shell connects Unix processes. Python appears where parsing or structured transformation benefits from it. ([RTimothyEdwards/sg13cmos5l_ocd_openframe/scripts](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts))
 
-Even his newer analog IP work incorporates CACE and therefore YAML when YAML is the appropriate declarative input format. So I would not make “no YAML/Python” part of the architecture. ([github.com](https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com))
+Even his newer analog IP work incorporates CACE and therefore YAML when YAML is the appropriate declarative input format. So I would not make “no YAML/Python” part of the architecture. ([RTimothyEdwards/sky130_ef_ip__rdac3v_8bit](https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com))
 
-And `Tk` should really be separated from `Tcl` in our mental model. Tk is the GUI toolkit. For an automated flow, the significant component is **Tcl**; Magic can run headlessly and Netgen can run in batch mode. ([opencircuitdesign.com](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
+And `Tk` should really be separated from `Tcl` in our mental model. Tk is the GUI toolkit. For an automated flow, the significant component is **Tcl**; Magic can run headlessly and Netgen can run in batch mode. ([OpenCircuitDesign Magic User's Guide](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
 
 ---
 
@@ -897,9 +897,9 @@ lvs/
 netlist/
 ```
 
-You see that repeatedly in Chipalooza, Caravel/OpenFrame, and related trees. `chipalooza_projects_1`, for example, has `gds`, `lvs`, `mag`, `netlist`, `openlane`, `verilog`, and `xschem` at the top level; Chipalooza 2 follows much the same pattern. ([github.com](https://github.com/RTimothyEdwards/chipalooza_projects_1))
+You see that repeatedly in Chipalooza, Caravel/OpenFrame, and related trees. `chipalooza_projects_1`, for example, has `gds`, `lvs`, `mag`, `netlist`, `openlane`, `verilog`, and `xschem` at the top level; Chipalooza 2 follows much the same pattern. ([RTimothyEdwards/chipalooza_projects_1](https://github.com/RTimothyEdwards/chipalooza_projects_1))
 
-Likewise the SG13 openframe tree has `def`, `gds`, `librelane`, `magic`, `netlist`, `verilog`, and `xschem`. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
+Likewise the SG13 openframe tree has `def`, `gds`, `librelane`, `magic`, `netlist`, `verilog`, and `xschem`. ([RTimothyEdwards/sg13cmos5l_ocd_openframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
 
 That's why trying to merge the two directory structures literally becomes ugly.
 
@@ -1074,9 +1074,9 @@ This is one place where I think the synthesis can actually improve on **both** f
 
 This is where the two schools are already converging.
 
-Tim's SG13 OpenFrame README says explicitly that the individual scripts are intended eventually to be collected behind a Makefile, with steps becoming `make <something>` operations. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
+Tim's SG13 OpenFrame README says explicitly that the individual scripts are intended eventually to be collected behind a Makefile, with steps becoming `make <something>` operations. ([RTimothyEdwards/sg13cmos5l_ocd_openframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
 
-And in the Chipalooza projects Make is already largely a **facade/router/orchestrator**. It manages environment variables, obtains IP, descends recursively into other flows, invokes verification, and even forwards targets to the Caravel Makefile. ([github.com](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
+And in the Chipalooza projects Make is already largely a **facade/router/orchestrator**. It manages environment variables, obtains IP, descends recursively into other flows, invokes verification, and even forwards targets to the Caravel Makefile. ([RTimothyEdwards/chipalooza_projects_1/Makefile](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
 
 That's exactly what I would formalize.
 
@@ -1168,7 +1168,7 @@ magic -dnull ... flow/magic/extract.tcl
 Magic/Tcl
 ```
 
-Magic itself is a Tcl application environment; invoking its API in its native command language is not nostalgic eccentricity. It removes an unnecessary abstraction layer. The same argument applies to Netgen's Tcl interface. ([opencircuitdesign.com](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
+Magic itself is a Tcl application environment; invoking its API in its native command language is not nostalgic eccentricity. It removes an unnecessary abstraction layer. The same argument applies to Netgen's Tcl interface. ([OpenCircuitDesign Magic User's Guide](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
 
 The shell's job is different:
 
@@ -1195,7 +1195,7 @@ Python
   └── manipulate geometry/data models
 ```
 
-That is in fact roughly what Tim's own mixed Tcl/`.sh`/`.py` script sets demonstrate. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts))
+That is in fact roughly what Tim's own mixed Tcl/`.sh`/`.py` script sets demonstrate. ([RTimothyEdwards/sg13cmos5l_ocd_openframe/scripts](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/tree/main/scripts))
 
 ---
 
@@ -1253,7 +1253,7 @@ load $top
 ...
 ```
 
-That is not hypothetical; Tim's Chipalooza/OpenFrame Tcl scripts already consume environment variables such as `PDK_ROOT`, `PDK`, and `IP_ROOT` set by the surrounding Make environment. ([github.com](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/mag/construct_testchip.tcl))
+That is not hypothetical; Tim's Chipalooza/OpenFrame Tcl scripts already consume environment variables such as `PDK_ROOT`, `PDK`, and `IP_ROOT` set by the surrounding Make environment. ([RTimothyEdwards/chipalooza_projects_1/mag/construct_testchip.tcl](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/mag/construct_testchip.tcl))
 
 So:
 
@@ -1310,7 +1310,7 @@ So the rule should be:
 
 > **Declarative serialization formats are domain interfaces, not a universal configuration religion.**
 
-Tim's own repositories actually support this conclusion: old-style Tcl/shell lives alongside Python helpers, while newer IP uses CACE YAML when CACE is part of the job. ([github.com](https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com))
+Tim's own repositories actually support this conclusion: old-style Tcl/shell lives alongside Python helpers, while newer IP uses CACE YAML when CACE is part of the job. ([RTimothyEdwards/sky130_ef_ip__rdac3v_8bit](https://github.com/RTimothyEdwards/sky130_ef_ip__rdac3v_8bit?utm_source=chatgpt.com))
 
 ---
 
@@ -1336,7 +1336,7 @@ final/mag/
 
 not merely GDS.
 
-In the SG13 OpenFrame instructions, hardened LibreLane blocks are brought back as Magic databases specifically because the `.mag` representation preserves useful hierarchy/reference information for subsequent Magic-level integration, alongside netlist views for LVS and mixed-mode simulation. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe?utm_source=chatgpt.com))
+In the SG13 OpenFrame instructions, hardened LibreLane blocks are brought back as Magic databases specifically because the `.mag` representation preserves useful hierarchy/reference information for subsequent Magic-level integration, alongside netlist views for LVS and mixed-mode simulation. ([RTimothyEdwards/sg13cmos5l_ocd_openframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe?utm_source=chatgpt.com))
 
 So I would generalize `final/` to mean:
 
@@ -1366,7 +1366,7 @@ That meshes particularly well with mixed-signal hierarchical design.
 
 # 10. `macros/`, `ip/`, and `dependencies/` should have distinct meanings
 
-Tim's projects use `dependencies/` heavily, sometimes populated by Make targets cloning repositories; the newer SG13 OpenFrame also uses git submodules for external IP. ([github.com](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
+Tim's projects use `dependencies/` heavily, sometimes populated by Make targets cloning repositories; the newer SG13 OpenFrame also uses git submodules for external IP. ([RTimothyEdwards/chipalooza_projects_1/Makefile](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
 
 I'd make the distinction explicit:
 
@@ -1418,7 +1418,7 @@ That gives us interoperability without a Great Directory Renaming Campaign.
 
 # 11. This also explains Tim's `config.txt`
 
-The OpenFrame project's `config.txt` is an interesting case. It contains project identity and pad assignment information in a simple human-readable format; `parse_config.py` then generates Verilog/Tcl-derived products. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/blob/main/config.txt))
+The OpenFrame project's `config.txt` is an interesting case. It contains project identity and pad assignment information in a simple human-readable format; `parse_config.py` then generates Verilog/Tcl-derived products. ([RTimothyEdwards/sg13cmos5l_ocd_openframe/config.txt](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe/blob/main/config.txt))
 
 That is actually architecturally sound:
 
@@ -1525,11 +1525,11 @@ def/
 librelane/
 ```
 
-and a scripted sequence that constructs padframe, wrapper, user-project integration, stream-out, extraction and LVS. Its README explicitly anticipates exposing these operations through Make. ([github.com](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
+and a scripted sequence that constructs padframe, wrapper, user-project integration, stream-out, extraction and LVS. Its README explicitly anticipates exposing these operations through Make. ([RTimothyEdwards/sg13cmos5l_ocd_openframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe))
 
-The Chipalooza Makefiles already use Make as an outer control plane around external IP and subflows. ([github.com](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
+The Chipalooza Makefiles already use Make as an outer control plane around external IP and subflows. ([RTimothyEdwards/chipalooza_projects_1/Makefile](https://github.com/RTimothyEdwards/chipalooza_projects_1/blob/main/Makefile))
 
-Meanwhile Magic and Netgen make Tcl a perfectly natural inner control plane. ([opencircuitdesign.com](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
+Meanwhile Magic and Netgen make Tcl a perfectly natural inner control plane. ([OpenCircuitDesign Magic User's Guide](https://opencircuitdesign.com/magic/userguide.html?utm_source=chatgpt.com))
 
 So we don't actually need to reconcile two incompatible philosophies.
 
