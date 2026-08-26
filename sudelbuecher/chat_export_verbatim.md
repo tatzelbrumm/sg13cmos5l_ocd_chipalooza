@@ -2,8 +2,8 @@
 
 ## User
 
-commonalities and differences of the recommended directory structures of analog/mixed signal/digital `Makefile`s in https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template and https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project 
-Look in [https://heichips.github.io/heichips26-analog-workshop/](https://heichips.github.io/heichips26-analog-workshop/) and https://github.com/iic-jku/analog-circuit-design/for additional documentation
+commonalities and differences of the recommended directory structures of analog/mixed signal/digital `Makefile`s in [https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template](https://github.com/iic-jku/ihp-sg13cmos5l-ams-chip-template) and [https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project](https://github.com/HeiChips/heichips26-template/tree/main/macros/heichips26_analog_project)  
+Look in [https://heichips.github.io/heichips26-analog-workshop/](https://heichips.github.io/heichips26-analog-workshop/) and [https://github.com/iic-jku/analog-circuit-design/](https://github.com/iic-jku/analog-circuit-design/) for additional documentation
 
 ---
 
@@ -765,22 +765,22 @@ One detail I would deliberately copy from the **new JKU template rather than the
 
 ## User
 
-The Austrian School of repository and Makefile organization looks fairly consistent.
+The Austrian School of repository and Makefile organization looks fairly consistent.  
 
-And Now For Something Completely Different:
-Mr Potbox Tim Edwards is Old School and uses `Tk/Tcl` and `bash` scripts instead of `python`, `yaml`, `toml` and whatnot for scripting.
+And Now For Something Completely Different:  
+Mr Potbox Tim Edwards is Old School and uses `Tk/Tcl` and `bash` scripts instead of `python`, `yaml`, `toml` and whatnot for scripting.  
 
 How can this be consolidated into a coherent superstructure?
 Start looking at 
-https://github.com/RTimothyEdwards/chipalooza_projects_1
-https://github.com/RTimothyEdwards/chipalooza_projects_2
-https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe
-https://github.com/RTimothyEdwards/caravel_openframe_project
-https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe
-https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe
-https://github.com/RTimothyEdwards/caravel_testing
-and generally in Tim's repositories.
-Also have a look at https://opencircuitdesign.com/
+[https://github.com/RTimothyEdwards/chipalooza_projects_1](https://github.com/RTimothyEdwards/chipalooza_projects_1)  
+[https://github.com/RTimothyEdwards/chipalooza_projects_2](https://github.com/RTimothyEdwards/chipalooza_projects_2)  
+[https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_openframe)  
+[https://github.com/RTimothyEdwards/caravel_openframe_project](https://github.com/RTimothyEdwards/caravel_openframe_project)  
+[https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe](https://github.com/RTimothyEdwards/gf180mcu_ocd_openframe)  
+[https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe](https://github.com/RTimothyEdwards/gf180mcu_caravel_padframe)  
+[https://github.com/RTimothyEdwards/caravel_testing](https://github.com/RTimothyEdwards/caravel_testing)  
+and generally in Tim's repositories.  
+Also have a look at [https://opencircuitdesign.com/](https://opencircuitdesign.com/)  
 
 ---
 
