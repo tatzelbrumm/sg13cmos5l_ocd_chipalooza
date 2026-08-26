@@ -86,4 +86,6 @@ Then, **only if the block itself is hierarchical**, add:
     * layout hierarchy  
 * consolidate verification (DRC, LvS, PEX) procedures for **both** `magic` and `klayout`
 
-### Merge and consolidate Makefile  
+### [Merge and consolidate Makefile](./chat_export_verbatim.md)  
+* [PDF](./chat_export_verbatim.pdf)  
+* [HTML](./chat_verbatim.html)  
