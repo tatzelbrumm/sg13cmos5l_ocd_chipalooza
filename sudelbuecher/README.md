@@ -14,3 +14,66 @@ commonalities and differences of the recommended directory structures for analog
 
 Look in [https://heichips.github.io/heichips26-analog-workshop/](https://heichips.github.io/heichips26-analog-workshop/) and 
 [iic-jku/analog-circuit-design](https://github.com/iic-jku/analog-circuit-design/) for additional documentation.
+
+[ChatGPT](https://chatgpt.com/share/6a8ec8d1-c6f0-83eb-b186-0812440fa1ae), probably assuming `klayout` as the only layout tool (no `magic`) recommends:
+```
+my_analog_block/
+├── README.md
+├── Makefile
+│
+├── schematic/
+│   └── xschem/
+│       ├── my_analog_block.sch
+│       ├── my_analog_block.sym
+│       ├── my_analog_block_pex.sym
+│       └── xschemrc
+│
+├── testbenches/
+│   └── xschem/
+│       ├── my_analog_block_tb_dc.sch
+│       ├── my_analog_block_tb_ac.sch
+│       ├── my_analog_block_tb_tran.sch
+│       ├── xschemrc
+│       └── plot_simulations/
+│           ├── data/                 # generated
+│           ├── figures/              # generated
+│           └── plot_my_analog_block.py
+│
+├── scripts/
+│   ├── sizing/
+│   │   ├── data/
+│   │   ├── figures/
+│   │   └── sizing_my_analog_block.ipynb
+│   └── ...
+│
+├── layout/
+│   └── my_analog_block.gds
+│
+├── netlist/                          # generated
+│   ├── schematic/
+│   ├── layout/
+│   └── pex/
+│
+├── verification/
+│   ├── drc/                          # generated results
+│   ├── lvs/                          # generated results
+│   └── cace/
+│       ├── my_analog_block.yaml
+│       ├── templates/
+│       ├── scripts/
+│       └── results/                  # generated
+│
+└── final/                            # generated integration views
+    ├── gds/
+    ├── lef/
+    ├── lib/
+    ├── vh/
+    └── render/
+```
+Then, **only if the block itself is hierarchical**, add:
+```
+├── macros/
+│   ├── bias/
+│   ├── ota/
+│   └── comparator/
+```
