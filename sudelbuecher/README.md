@@ -77,3 +77,13 @@ Then, **only if the block itself is hierarchical**, add:
 │   ├── ota/
 │   └── comparator/
 ```
+
+### Provide layout infrastructure for both magic and klayout  
+
+* elaborate the `layout` directory structure, to include  
+    * both `magic` and `layout`  
+    * parametric cells  
+    * layout hierarchy  
+* consolidate verification (DRC, LvS, PEX) procedures for **both** `magic` and `klayout`
+
+### Merge and consolidate Makefile  
