@@ -116,13 +116,6 @@ module housekeeping_spi (
             wrstb <= 1'b0;
             ldata  <= 8'b00000000;
             sdoena <= 1'b0;
-	    sram_ena <= 1'b0;
-	    seq_strobe <= 1'b0;
-	    seq_mode <= 2'b00;
-	    dig_reset <= 1'b0;
-	    writemode <= 1'b0;
-	    readmode <= 1'b0;
-	    cmdlb <= 3'b00;
         end else begin
 
             // After CSB low, 1st SCK starts command
@@ -169,8 +162,11 @@ module housekeeping_spi (
             writemode <= 1'b0;
 	    sramwritemode <= 1'b0;
 	    sramreadmode <= 1'b0;
+	    sram_ena <= 1'b0;
 	    seq_strobe <= 1'b0;
 	    seq_mode <= 2'b00;
+	    dig_reset <= 1'b0;
+	    cmdlb <= 3'b00;
         end else begin
             // After csb_reset low, 1st SCK starts command
             if (state == `COMMAND) begin

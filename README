@@ -1,0 +1,466 @@
+Chipalooza Analog Harness for IHP SG13CMOS5L
+---------------------------------------------------------------------------
+
+The Chipalooza Analog Harness design was created for the Open Circuit
+Design "Chipalooza Challenge", a program to develop analog circuit blocks
+for use in SoC designs, make them entirely open source and publicly
+available, and make them roughly compatible across the three major open
+source PDKs (Sky130, GF180MCU, and SG13CMOS5L).  Measurement and
+characterization of the analog blocks requires a test structure, and to
+minimize costs, an analog "harness" chip was developed to accommodate
+multiple analog blocks with individual and shared resources including
+pins, biases, and digital communication.
+
+Efabless, Inc. ran the first Chipalooza challenge in 2024 on the Sky130
+process, using a custom-made test chip based on the Efabless Caravel
+"openframe" structure.  The Chipalooza harness chip in this repository
+is based on the Caravel Openframe (in this case ported to IHP SG13CMOS5L),
+but differs from the original, partly in pin count (80 padframe pins instead
+of the original 64, although both designs go in a 64-pin package), and
+mainly by having specific "slots" for users to place their analog blocks.
+The fixed definition of the slots allows for the automation of the top-level
+assembly of the test chip.
+
+The idea behind the "harness" chip is that many circuit designers want to
+spend time designing, simulating, testing, validating, and measuring a single
+circuit or subsystem for a specific purpose.  Manufacturing and testing that
+circuit requires an entire additional layer of skills, work, and time.  The
+circuit under test needs significant infrastructure:  Control logic, padframe,
+stable voltage and current biases, and an interface to get signals and data
+off chip to a host computer and instrumentation.  The purpose of the harness
+chip is to provide that infrastructure.
+
+Unlike previous harness designs, the Chipalooza harness is designed such that
+each user project has access to dedicated padframe pads, and these pads can
+be any pad (from the same foundry I/O set) that the user wishes to have there.
+This means that every aspect of the chip is customizable.  Chip top level
+assembly requires filling out a configuration file "config.txt" in the top
+level directory containing a list of pad types for each project.  Automated
+scripts then assemble all of the chip views and layout based on templates
+and the configuration file definitions.
+
+This specific project is a three-level hierarchy:
+
+(1) The padframe is a fixed-pin-count 80-pin design which is not based on the
+    Efabless "caravel" but is a new design for the Chipalooza test chip
+    series.  The size of the chip is fixed according to both the pin count and
+    the size and number of spacers, all of which can be modified in the
+    padframe template as needed.  
+
+(2) The "chipalooza frame wrapper" fills the entire area inside the padframe,
+    connecting to power and ground, and analog or general-purpose digital I/O.
+    It contains the "housekeeping" SPI, registers, and sequencer, the
+    sequencer SRAM, and the project slot power switches, shared current
+    and voltage bias generators, and all other shared resources.
+
+(3) A "slot" is an analog user project that fits in one of the eighteen
+    avaiable locations in the chipalooza frame wrapper area.
+
+The design flow is described here, with information about how to create an
+analog project that fits into a slot, or to create an entirely new openframe
+project.  All design steps are handled by scripts.
+
+The openframe repository itself is designed to be as independent of a specific
+PDK as possible, so it is relatively easy to port between processes.  Each
+process will of course have its own I/O library with its own pad definitions,
+which is mainly what drives the process-specific implementation.  While porting
+is made convenient, it is not really possible/practical to create one repository
+that is compatible with multiple processes.  So it is expected that an openframe
+repository is process-specific; this one is for IHP SG13CMOS5L.
+
+Unlike the original Efabless implementation, this openframe harness design aims
+to have user-defined pad types in each signal pad position, as well as pre-
+defined pad types for shared analog and digital resources.  Each foundry PDK has
+different analog and digital cells in the I/O library with different inputs and
+outputs.  The original openframe harness was for sky130, which had an unusually
+complex general-purpose I/O design that was both analog and digital capable.
+That made it convenient to design a single fixed padframe supporting both analog
+and digital projects.  Since other PDKs don't have the combination I/O, it was
+necessary to work out a method by which each signal pad can be selected.  But
+that implies that the core-facing signals change when any pad changes, so a
+large number of verilog, schematic, and layout files have to change accordingly,
+which in turn requires a large amount of automation.  This repository provides
+that automation.
+
+These instructions are currently very incomplete.  The steps below require running
+individual scripts.  The scripts will eventually be collected into a Makefile,
+where each step is a process of "make <something>", and instructions will be
+modified accordingly.
+
+To create a new Chipalooza test chip with custom user analog projects:
+
+(1)  Clone or fork this repository.  You probably want to create a new branch for
+     the test chip;  then each test chip has the same upstream repository but
+     exists in its own development branch.
+
+(2)  All scripts make use of an environment variable PDK_ROOT which should be set
+     appropriately to point to the directory containing the PDK (ihp-sg13cmos5l).
+
+(3)  Run the script scripts/setup.sh to import IHP open PDK library views into
+     local .mag files.  This is largely specific to the IHP PDK, which does not
+     have .mag views for its standard cell and I/O libraries.  It creates two
+     directories, magic/sg13cmos5l_stdcell and magic/sg13cmos5l_io, and populates
+     them with .mag files, so that working in magic does not require reading the
+     GDS of the PDK libraries each time.  These two directories are excluded from
+     pushes to the upstream repository.
+
+(4)  Edit the "config.txt" file.  This contains a "project_id" value which is an
+     arbitrary hex string of 8 digits.  This corresponds to a metal text block on
+     the layout, and a digital 32-bit ID value made available to the openframe
+     project.  It is recommended that the last four bits of the code be reserved
+     for a revision number.
+
+     This is followed by a list of signal pads.  The signal pads are listed in
+     counter-clockwise order of their physical position in the padframe.  This
+     allows the openframe project designer to choose whether each of the signal
+     pads will be analog, or digital input, output, or bidirectional.  The user
+     does not need to supply any additional information about the pads.  The top
+     level pin names will remain the same ("gpio[*]"), and the internal signal
+     names will be derived from the pad signal names, with an index.
+
+     The signal pad list entries are in the form:
+
+		sN_an[x]:  pad_name
+
+     where "N" is the project slot number, 1 to 16 (there are 18 total slots;
+     the last two have no dedicated pads and so do not appear in the config
+     file).
+
+     Example:
+		s1_an[0]: sg13cmos5l_IOPadInOut4mA
+
+     Core signal names are derived from a signal name.  For the SG13CMOS5L
+     technology, if the pad is a digital input-only or digital output-only pad,
+     then there is only one core facing signal, which is what is given in the
+     config.txt file.  If the pad is an analog pad, there are two signals, one
+     of which is the pad name (that is, the core name = the pad name because
+     there is a direct connection to the pad and the signals are the same), and
+     the other of which is the given signal name.  If the pad is one of the
+     "InOut" pads, then there are five core signals <signal_name>_in,
+     <signal_name>_out, <signal_name>_ena, <signal_name>_one, and
+     <signal_name>_zero.  The first three are the pad-to-core signal, the
+     core-to-pad signal, and the output enable signal, respectively.  The
+     additional two signals are digital zero and one outputs provided next to
+     the pad so that a project can opt to tie off control signals at the pad, or
+     to use these to power digital logic close to the pad.  In the example above,
+     the core facing signals would be:
+
+		s1_an_0_out
+		s1_an_0_in
+		s1_an_0_ena
+		s1_an_0_one
+		s1_an_0_zero
+
+     Note that only the user anlog project dedicated pads can be reassigned.  The
+     power pads, SPI pins, and the shared analog and digital pins are fixed.  Note
+     that this does not prevent the user from specifying a power or ground pad in
+     one or more of the project's dedicated pad locations;  the only restriction is
+     that the location must be occupied by a wirebond pad, or else the wirebond
+     diagram becomes invalid).
+
+     To recap:  For SG13CMOS5L's PDK I/O library, there are eleven pad types, with
+     pin and core names derived per the following example:
+
+     1. Input-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadIn	mysig
+
+		pad signal is:		gpio[0]
+		core signal is:		mysig
+
+     2. Output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadOut4mA	mysig
+
+		pad signal is:		gpio[0]
+		core signal is:		mysig
+
+     3. Medium-drive output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadOut16mA	mysig
+
+		pad signal is:		gpio[0]
+		core signal is:		mysig
+
+     4. High-drive output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadOut30mA	mysig
+
+		pad signal is:		gpio[0]
+		core signal is:		mysig
+
+     5. Tri-state output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadTriOut4mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig
+					mysig_ena
+
+     6. Medium-drive tri-state output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadTriOut16mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig
+					mysig_ena
+					mysig_zero
+					mysig_one
+
+     7. High-drive tri-state output-only pad:
+
+	gpio[0]:	sg13cmos5l_IOPadTriOut30mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig
+					mysig_ena
+					mysig_zero
+					mysig_one
+
+     8. Bidrectional pad:
+
+	gpio[0]:	sg13cmos5l_IOPadInOut4mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig_in
+					mysig_out
+					mysig_ena
+					mysig_zero
+					mysig_one
+     9. Medium-drive bidrectional pad:
+
+	gpio[0]:	sg13cmos5l_IOPadInOut16mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig_in
+					mysig_out
+					mysig_ena
+					mysig_zero
+					mysig_one
+
+     10. High-drive bidrectional pad:
+
+	gpio[0]:	sg13cmos5l_IOPadInOut30mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	mysig_in
+					mysig_out
+					mysig_ena
+					mysig_zero
+					mysig_one
+
+     11. Analog pad:
+
+	gpio[0]:	sg13cmos5l_IOPadInOut30mA	mysig
+
+		pad signal is:		gpio[0]
+		core signals are:	gpio[0]
+					mysig_esd
+
+	Note that the analog pad is slightly different from other pads:
+	For all other pads, the user project wrapper pin names are the
+	same as the padframe core-facing pin names.  However, the analog
+	pad is connected directly to the core-facing non-ESD pin, so in
+	the padframe, the core-facing pin name is the same as the pad name.
+	In the user project wrapper, however, the core-facing non-ESD pin
+	is given the name "mysig".
+
+     Signals should not be indexed, as then different signals would have
+     different index ranges which would not match the indexes of the pads.
+
+     All pads in this library are the same size.
+
+(5)  Run the script "scripts/parse_config.py".  This script reads in the
+     configuration file and produces:
+
+	1) A verilog netlist of the padframe in verilog/gl/sg13cmos5l_padframe.v
+	2) A verilog netlist of the user project wrapper in
+	   verilog/gl/openframe_project_wrapper.v
+	3) A Tcl script used in the next step to generate the padframe and
+	   wrapper layouts.
+
+     If the script determines that any of the output files already exist, it
+     will not run.  Delete the existing files before re-running the config
+     file parser.
+
+     WARNING:  Because the "chipalooza_frame_wrapper" layout and verilog
+     contain the user project, MAKE SURE that you do not overwrite existing
+     layout and netlist work.  (See comments below about creating the frame
+     wrapper layout.)  No verilog netlist is made for the analog user project
+     slots, which are assumed to be analog/mixed signal and exist as a schematic,
+     not verilog.
+
+(6)  Run the script "scripts/run_gen_padframe.sh".  This script reads in the
+     configuration file and produces:
+
+	1) A padframe layout in magic/sg13cmos5l_padframe.mag
+	2) The user project wrapper layout in magic/openframe_project_wrapper.mag
+
+     This script must be run from the magic/ directory.  If the script determines
+     that a file "sg13cmos5_padframe.mag" exists, it will not run.  It may be run
+     again at any time by deleting the padframe layout.
+
+(7)  Run the script "set_user_id.py".  This script reads the configuration file
+     and produces:
+
+	1) A modified layout "user_id_textblock.mag" with the text of the project
+           ID in metal
+	2) A modified layout "user_id_vias.mag" with the via programming for the
+           32-bit ROM matching the project ID.
+	3) A modified "caravel_openframe.v" with the project ID set
+	4) A modified "user_id_programming.v" with the project ID bits set
+
+Now the openframe project is set up and ready for the project wrapper area to be
+completed.  As mentioned above, the user project for an analog or mixed-signa chip
+is generally done as a schematic.  The pinout of the user project itself does not
+need to match the names in the wrapper.  The wrapper is the place where the user
+project is instantiated and wired up to the wrapper pins.
+
+(8)  If there are digital synthesized blocks inside the user project, then they
+     should be run through LibreLane individually.  From the output of LibreLane,
+     copy the verilog netlist from the flow after fill insertion (in the "standard"
+     flow, this is 51-openroad-fillinsertion/).  Use the ".pnl.v" file, which is
+     the one that has power pins defined on the standard cells, and is appropriate
+     for LVS.  You will also want the ".nl.v" netlist for mixed-mode simulation.
+     This works best if your verilog includes module files from a single file
+     listing all of the includes.  Either keep a separate list file for each
+     purpose (LVS or simulation), or use "`ifdef SIM" and/or "`ifdef LVS" in the
+     file to choose the appropriate netlist.
+
+     Copy the layout from the post-stream-out directory.  In the "standard"
+     LibreLane flow, this is 55-magic-streamout-1.  The layout should be the
+     ".mag" file, not the GDS, as the ".mag" file keeps references to the
+     standard cell, not complete copies of the standard cells.
+
+(9)  The user project top level works best as a separate level of hierarchy from
+     the wrapper.  By convention, this is called "openframe_user_project" although
+     it can be called anything.  These instructions will refer to the user project
+     cell as "chipalooza_frame_wrapper".
+
+     The tools that prepare the openframe will regenerate the wrapper files.
+     Keeping the user project in a separate hierarchical level avoids the
+     misfortune of accidentally deleting the entire user project.  In the
+     worst case, the user project layout needs only to be placed inside the
+     wrapper layout, and the user project module needs to be placed in the
+     wrapper module with appropriate signal connections.  With the separated
+     hierarchy, the file "openframe_project_wrapper.v" instances the module
+     "openframe_user_project" (see above), which typically will not exist
+     as a verilog module at all, but as a schematic.
+
+(10) These instructions are not meant to cover how to create the user project
+     other than mentioning how to pull results from LibreLane (see above)
+     and how to connect the project to the wrapper.  As a general
+     recommendation, however, the layout is best done by first dumping the
+     openframe_project_wrapper layout contents into the openframe_user_project
+     layout.  Pin labels can then be erased where they are not used, or
+     renamed to match the user project pinout.  This will ensure that when
+     the user project is later placed inside the wrapper, the pins will match
+     exactly.  Do not edit the wrapper itself other than to place the user
+     project inside it, as the pins and boundary are placed to exactly match
+     to the padframe.
+
+Once the user project itself is created and validated, the assembly into
+the final chip goes as follows:
+
+(11) Run the script "run_gen_wrapper_gds.sh".
+     The script "run_gen_wrapper_gds.sh" creates GDS of the user project
+     wrapper and its contents.  Note that as a custom analog layout,
+     magic should generate GDS with hierarchical corrections, which is
+     the default way that magic writes GDS.  Top level assembly is
+     different;  because everything outside of the wrapper is a PDK
+     library component (I/O cell or standard cell), no hierarchical
+     processing is needed, which greatly increases the speed at which
+     magic writes the GDS output.  "run_gen_wrapper_gds.sh" creates
+     the GDS file which is then pulled into the final chip verbatim.
+     The GDS file is "gds/openframe_project_wrapper.gds.gz".
+
+(12) Run the script "run_gen_openframe_gds.sh".  This step assembles
+     the user project wrapper GDS created in the previous step with
+     the padframe and seal ring, generates a (pre-fill) top-level
+     .mag file of the layout, and writes out a (pre-fill) top-level
+     GDS file called "gds/sg13cmos5l_caravel_openframe.gds.gz".
+
+(13) "cd" to the gds/ directory and run the script "generate_fill.py"
+     as follows:
+
+	../scripts/generate_fill.py sg13cmos5l_caravel_openframe.gds.gz -dist 
+
+     This step generates the fill patterns for the chip, in a separate
+     GDS file called sg13cmos5l_caravel_openframe_fill_pattern.gds.gz.
+
+(14) Run the script "run_gen_filled_final_gds.sh" to get the (post-fill)
+     final design.  The final top level has its own cell name.  By default
+     (which is not an IHP-approved name) the top level cell will be
+     called "sg13cmos5l_caravel_openframe_final".  For IHP submissions, IHP
+     will provide the name of the top level cell as part of the submission
+     process.  To get the correct final top level cell name and file name,
+     set the environment variable "PROJECT" to the cell name before running
+     the script.
+
+(15) Final DRC verification:  The script "run_klayout_drc_final.sh" runs
+     klayout DRC on the final design GDS.  If environment PROJECT has been
+     set (see above), then the final DRC result can be found in
+     validate/${PROJECT}.lyrdb
+
+(16) Final LVS verification:  The script "run_extract_openframe.sh" does a
+     full layout extraction on the top level, producing a netlist that
+     is placed in netlist/layout/.  If the PROJECT environment variable
+     has been set, then the final netlist is netlist/layout/${PROJECT}.spice.
+
+(17) Final LVS:  The script "run_lvs_openframe.sh" runs top-level LVS.
+     Note that since the LVS process is highly dependent on what exists
+     in the user project area, this script needs to be modified for each
+     project.  It is normally set up to start with the top level verilog
+     and read the user project from a netlist, which should be extracted
+     from the user project schematic.  Everything above the user project
+     is in a verilog netlist.  If the top level cell has been named
+     according to environment variable PROJECT, then a top level verilog
+     netlist needs to be made for a module with the name ${PROJECT}.  This
+     is easy to do by copying the "sg13cmos5l_caravel_openframe_final.v"
+     file to ${PROJECT}.v and changing the module name to ${PROJECT}.
+
+     [To do:  Currently top level LVS through magic and netgen fails due
+     to issues in the padframe I/O netlists in the PDK, which need to be
+     resolved.  Checking LVS with klayout has not been attempted and would
+     require converting the verilog of the padframe, wrapper, and top
+     level cell to SPICE/CDL]
+     
+-------------------------------------------------------------------
+Mixed-signal multi-project mixed-signal harness
+-------------------------------------------------------------------
+
+This repository contains a full example of an openframe design in the form of a
+multi-project mixed-signal harness design.  This is a framework for aggregating
+up to eighteen analog or mixed-signal sub-projects, each one able to be separately
+powered.
+
+The user project has dependent libraries which are hierarchical and therefore also
+independent git projects.  They should be instantiated as git submodules.  The
+submodules can be cloned with the project by doing
+
+git clone https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__openframe.git \
+	--recurse-submodules
+
+or after cloning, by doing
+
+git submodule update --init --recursive
+
+That initializes the dependent repositories used for the project example.  For a
+different project, new submodules can be added by first creating the IP as a git
+project, use
+
+git submodule add <repository_URL>
+
+For simplicity, keep the subdirectory name the same as the repository.  After
+adding the submodule, commit and push as usual.
+
+-------------------------------------------------------------------
+Mixed-signal sub-projects
+-------------------------------------------------------------------
+
+The mixed-signal aggregator has not yet formalized the areas available for analog
+and mixed-signal projects.  The idea is that the empty area of the chip is divided
+into eighteen slots.  Each slot has an identical footprint.  It gets its 3.3V power
+and 1.2V power supplies through a pMOS power switch, and is given pins to connect
+to the digital interface of the harness (control and status lines), regulated
+voltage bias signals, regulated current bias signals, and shared analog lines.

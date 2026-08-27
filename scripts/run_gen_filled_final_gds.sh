@@ -1,20 +1,20 @@
 #!/bin/bash
 #
-# Run layout GDS generation on sg13cmos5l_caravel_openframe
+# Run layout GDS generation on sg13cmos5l_ocd_chipalooza
 # Run this script from the magic/ directory
 #
 # This is a compositor designed to do the following:
-# (1) Read the top level sg13cmos5l_caravel_openframe
+# (1) Read the top level sg13cmos5l_ocd_chipalooza
 # (2) Add the fill pattern cell
 # (3) Write out everything with a new top level.
 #
 # NOTE:  If PROJECT is set as an environment variable, then the final
 # top level cell name and GDS file name will be set to its value.  If
-# not, then the default top level name is "sg13cmos5l_caravel_openframe_final".
+# not, then the default top level name is "sg13cmos5l_ocd_chipalooza_final".
 # When submitting for an IHP shuttle run, the project name will be dictated
 # by the IHP submission process (e.g., PROJECT=IHP__MPC9763).
 
-echo ${PROJECT:=sg13cmos5l_caravel_openframe_final} > /dev/null
+echo ${PROJECT:=sg13cmos5l_ocd_chipalooza_final} > /dev/null
 
 echo ${PDK_ROOT:=/home/tim/gits} > /dev/null
 echo ${PDK:=ihp-sg13cmos5l} > /dev/null
@@ -34,17 +34,17 @@ locking disable
 
 gds readonly true
 gds rescale false
-gds read ../gds/sg13cmos5l_caravel_openframe.gds.gz
-gds read ../gds/sg13cmos5l_caravel_openframe_fill_pattern.gds.gz
+gds read ../gds/sg13cmos5l_ocd_chipalooza.gds.gz
+gds read ../gds/sg13cmos5l_ocd_chipalooza_fill_pattern.gds.gz
 
 units microns
 snap internal
 
 load $PROJECT -silent
 box values 0 0 0 0
-getcell sg13cmos5l_caravel_openframe child 0 0
+getcell sg13cmos5l_ocd_chipalooza child 0 0
 box position 0 0
-getcell sg13cmos5l_caravel_openframe_fill_pattern child 0 0
+getcell sg13cmos5l_ocd_chipalooza_fill_pattern child 0 0
 
 # Regenerate the pad pins on the new top level.
 box position 16.1 16.1

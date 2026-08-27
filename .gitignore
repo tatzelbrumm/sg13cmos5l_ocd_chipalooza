@@ -7,11 +7,12 @@
 *.vcd
 *.gtkw
 a.out
-librelane/runs
+librelane/housekeeping_top/runs
+librelane/user_project_control/runs
 magic/sg13cmos5l_io/
 magic/sg13cmos5l_stdcell/
 magic/sg13cmos5l_sram/
-gds/openframe_project_wrapper.gds.gz
-gds/sg13cmos5l_caravel_openframe_fill_pattern.gds.gz
-gds/sg13cmos5l_caravel_openframe.gds.gz
-validate/sg13cmos5l_caravel_openframe.lyrdb
+gds/chipalooza_frame_wrapper.gds.gz
+gds/sg13cmos5l_ocd_chipalooza_fill_pattern.gds.gz
+gds/sg13cmos5l_ocd_chipalooza.gds.gz
+validate/sg13cmos5l_ocd_chipalooza.lyrdb

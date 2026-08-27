@@ -1,0 +1,70 @@
+#-----------------------------------------------------------------
+# config.txt:  Project and I/O configuration for the Chipalooza Harness
+#
+# Editable fields:
+#
+# 1. The project ID number is an arbitrary user-selected 8 hex digits
+#
+# 2. The "pad type" is one of 11 valid pad types:
+#		sg13cmos5l_IOPadIn
+#		sg13cmos5l_IOPadOut16mA
+#		sg13cmos5l_IOPadOut16mA
+#		sg13cmos5l_IOPadOut30mA
+#		sg13cmos5l_IOPadTriOut16mA
+#		sg13cmos5l_IOPadTriOut16mA
+#		sg13cmos5l_IOPadTriOut30mA
+#		sg13cmos5l_IOPadInOut16mA
+#		sg13cmos5l_IOPadInOut16mA
+#		sg13cmos5l_IOPadInOut30mA
+#		sg13cmos5l_IOPadAnalog
+#
+# 3. The "core signal name" is an arbitrary name for the core signal
+#	(root name) at each pin
+#
+# 4. The default value of each user project pin is an analog pad.
+#
+# Do *not* change the key values ("project_id" and "s*_an[x]"),
+# which are fixed by the harness chip definition.
+#-----------------------------------------------------------------
+
+project_id: 20260805
+
+#-----------------------------------------------------------------
+# Pad name	Pad type			Core signal name
+#-----------------------------------------------------------------
+s1_an[0]:	sg13cmos5l_IOPadAnalog		s1_an_0
+s1_an[1]:	sg13cmos5l_IOPadAnalog		s1_an_1
+s1_an[2]:	sg13cmos5l_IOPadAnalog		s1_an_2
+s1_an[3]:	sg13cmos5l_IOPadAnalog		s1_an_3
+s2_an[0]:	sg13cmos5l_IOPadAnalog		s2_an_0
+s3_an[0]:	sg13cmos5l_IOPadAnalog		s3_an_0
+s3_an[1]:	sg13cmos5l_IOPadAnalog		s3_an_1
+s4_an[0]:	sg13cmos5l_IOPadAnalog		s4_an_0
+s4_an[1]:	sg13cmos5l_IOPadAnalog		s4_an_1
+s4_an[2]:	sg13cmos5l_IOPadAnalog		s4_an_2
+s5_an[0]:	sg13cmos5l_IOPadAnalog		s5_an_0
+s5_an[1]:	sg13cmos5l_IOPadAnalog		s5_an_1
+s6_an[0]:	sg13cmos5l_IOPadAnalog		s6_an_0
+s7_an[0]:	sg13cmos5l_IOPadAnalog		s7_an_0
+s7_an[1]:	sg13cmos5l_IOPadAnalog		s7_an_1
+s8_an[0]:	sg13cmos5l_IOPadAnalog		s8_an_0
+s8_an[1]:	sg13cmos5l_IOPadAnalog		s8_an_1
+s8_an[2]:	sg13cmos5l_IOPadAnalog		s8_an_2
+s9_an[0]:	sg13cmos5l_IOPadAnalog		s9_an_0
+s9_an[1]:	sg13cmos5l_IOPadAnalog		s9_an_1
+s9_an[2]:	sg13cmos5l_IOPadAnalog		s9_an_2
+s10_an[0]:	sg13cmos5l_IOPadAnalog		s10_an_0
+s10_an[1]:	sg13cmos5l_IOPadAnalog		s10_an_1
+s11_an[0]:	sg13cmos5l_IOPadAnalog		s11_an_0
+s12_an[0]:	sg13cmos5l_IOPadAnalog		s12_an_0
+s12_an[1]:	sg13cmos5l_IOPadAnalog		s12_an_1
+s13_an[0]:	sg13cmos5l_IOPadAnalog		s13_an_0
+s13_an[1]:	sg13cmos5l_IOPadAnalog		s13_an_1
+s13_an[2]:	sg13cmos5l_IOPadAnalog		s13_an_2
+s14_an[0]:	sg13cmos5l_IOPadAnalog		s14_an_0
+s14_an[1]:	sg13cmos5l_IOPadAnalog		s14_an_1
+s15_an[0]:	sg13cmos5l_IOPadAnalog		s15_an_0
+s16_an[0]:	sg13cmos5l_IOPadAnalog		s16_an_0
+s16_an[1]:	sg13cmos5l_IOPadAnalog		s16_an_1
+s16_an[2]:	sg13cmos5l_IOPadAnalog		s16_an_2
+s16_an[3]:	sg13cmos5l_IOPadAnalog		s16_an_3

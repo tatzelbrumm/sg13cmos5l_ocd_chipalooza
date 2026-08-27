@@ -16,25 +16,55 @@
 #
 # Signal pins:
 #
-# RSTB			(input)		bottom, at resetb pad
-# SCK			(input)		
-# SDI			(input)
-# CSB			(input)
-# SDO			(output)
-# sdo_ena		(output)
+# SDO			(output)	bottom, above pad
+# sdo_ena		(output)	bottom, above pad
+# SDI			(input)		bottom, above pad
+# CSB			(input)		bottom, above pad
+# SCK			(input)		bottom, above pad
+# clk			(input)		bottom, above pad
+# porb			(input)
 # reset			(output)	top center
-# control[127:0]	(output)	across the top
-# status[127:0]		(input)		across the top
 # mask_rev_in[31:0]	(input)		bottom right corner
+# sram_clk		(output)	left
+# sram_addr[9:0]	(output)	left
+# sram_idata[7:0]	(output)	left
+# sram_odata[7:0]	(input)		left
+# sram_read		(output)	left
+# sram_write		(output)	left
+# io_in[11:0]		(input)		0-7 on bottom, 8-11 top
+# io_out[11:0]		(output)	0-7 on bottom, 8-11 top
+# io_oe[11:0]		(output)	0-7 on bottom, 8-11 top
+# dbus_out[21:0]	(output)	top 
+# dbus_in[11:0]		(input)		top 
+# proj_sel[4:0]		(output)	top 
+# proj_ena		(output)	top 
+# proj_dig_ena		(output)	top 
+# proj_3v3_ena		(output)	top 
+# proj_1v2_ena		(output)	top 
+# analog_bus_ena[3:0]	(output)	top 
+# idac1_value[4:0]	(output)	top 
+# idac1_control[5:0]	(output)	top 
+# idac2_value[4:0]	(output)	top 
+# idac2_control[5:0]	(output)	top 
+# vbias_control[5:0]	(output)	top 
+# bandgap_control[6:0]	(output)	top 
 #
-# control and status get divided into four parts of 32 bits each
-# and are interleaved across the top, but the interleaving is mirrored
-# around the center so that all power switch and bias current controls
-# can be near the center:
+# The top signals are clustered at the center where they can
+# access the infrastructure running up between the two columns
+# of user projects on each side.
 #
-#	status[127:96] control[127:96] status[95:64] control[95:64] ...
-#	... control[63:32] status[63:32] control[31:0] status[31:0]
-#
+#--------------------------------------------------------------
+# Prep:  Make sure that the layout file does not exist.  If so,
+# exit.  The user must knowingly delete the original file.
+#--------------------------------------------------------------
+
+if {[file exists housekeeping_top_def.mag]} {
+    puts stderr "Layout for housekeeping_top DEF exists!"
+    puts stderr "(File is magic/housekeeping_top_def.mag)"
+    puts stderr "Back up and delete before regenerating!"
+    quit -noprompt
+}
+
 #--------------------------------------------------------------
 # Setup
 #--------------------------------------------------------------
@@ -44,10 +74,14 @@ namespace path {::tcl::mathop ::tcl::mathfunc}
 units microns
 load housekeeping_top_def -silent
 
-set die_llx 360
+# Die dimensions leave room for the IHP 1024x8 SRAM on the left.
+# Make sure these numbers match the die and core areas in the
+# LibreLane config.yaml file.
+
+set die_llx 640
 set die_lly 300
-set die_urx 1700
-set die_ury 480
+set die_urx 1895
+set die_ury 453
 
 box values 0 0 0 0
 
@@ -125,315 +159,212 @@ property FIXED_BBOX $die_llx $die_lly $die_urx $die_ury
 # Create the pins
 #--------------------------------------------------------------
 
-label_bottom_signal RSTB	580	input
+# All of these signals are under the SRAM, so put them far to
+# the left.
 
-label_right_signal SDO		350	output
-label_right_signal sdo_ena	360	output
-label_right_signal SDI		370	input
-label_right_signal CSB		380	input
-label_right_signal SCK		390	input
+label_bottom_signal SDO		650	output
+label_bottom_signal sdo_ena	653	output
+label_bottom_signal SDI		656	input
+label_bottom_signal CSB		659	input
+label_bottom_signal SCK		662	input
 
-label_right_signal mask_rev_in\[31\] 311	input
-label_right_signal mask_rev_in\[30\] 312	input
-label_right_signal mask_rev_in\[29\] 313	input
-label_right_signal mask_rev_in\[28\] 314	input
-label_right_signal mask_rev_in\[27\] 315	input
-label_right_signal mask_rev_in\[26\] 316	input
-label_right_signal mask_rev_in\[25\] 317	input
-label_right_signal mask_rev_in\[24\] 318	input
-label_right_signal mask_rev_in\[23\] 319	input
-label_right_signal mask_rev_in\[22\] 320	input
-label_right_signal mask_rev_in\[21\] 321	input
-label_right_signal mask_rev_in\[20\] 322	input
-label_right_signal mask_rev_in\[19\] 323	input
-label_right_signal mask_rev_in\[18\] 324	input
-label_right_signal mask_rev_in\[17\] 325	input
-label_right_signal mask_rev_in\[16\] 326	input
-label_right_signal mask_rev_in\[15\] 327	input
-label_right_signal mask_rev_in\[14\] 328	input
-label_right_signal mask_rev_in\[13\] 329	input
-label_right_signal mask_rev_in\[12\] 330	input
-label_right_signal mask_rev_in\[11\] 331	input
-label_right_signal mask_rev_in\[10\] 332	input
-label_right_signal mask_rev_in\[9\]  333	input
-label_right_signal mask_rev_in\[8\]  334	input
-label_right_signal mask_rev_in\[7\]  335	input
-label_right_signal mask_rev_in\[6\]  336	input
-label_right_signal mask_rev_in\[5\]  337	input
-label_right_signal mask_rev_in\[4\]  338	input
-label_right_signal mask_rev_in\[3\]  339	input
-label_right_signal mask_rev_in\[2\]  340	input
-label_right_signal mask_rev_in\[1\]  341	input
-label_right_signal mask_rev_in\[0\]  342	input
+# From "clk", 
 
-# Spread the controls evenly across the top, at 5um pitch.
-# This leaves 85 on either side.
+label_bottom_signal clk		760	input
+label_bottom_signal porb	800	input
 
-label_top_signal status\[127\]   370	input
-label_top_signal status\[126\]   375	input
-label_top_signal status\[125\]   380	input
-label_top_signal status\[124\]   385	input
-label_top_signal status\[123\]   390	input
-label_top_signal status\[122\]   395	input
-label_top_signal status\[121\]   400	input
-label_top_signal status\[120\]   405	input
-label_top_signal status\[119\]   410	input
-label_top_signal status\[118\]   415	input
-label_top_signal status\[117\]   420	input
-label_top_signal status\[116\]   425	input
-label_top_signal status\[115\]   430	input
-label_top_signal status\[114\]   435	input
-label_top_signal status\[113\]   440	input
-label_top_signal status\[112\]   445	input
-label_top_signal status\[111\]   450	input
-label_top_signal status\[110\]   455	input
-label_top_signal status\[109\]   460	input
-label_top_signal status\[108\]   465	input
-label_top_signal status\[107\]   470	input
-label_top_signal status\[106\]   475	input
-label_top_signal status\[105\]   480	input
-label_top_signal status\[104\]   485	input
-label_top_signal status\[103\]   490	input
-label_top_signal status\[102\]   495	input
-label_top_signal status\[101\]   500	input
-label_top_signal status\[100\]   505	input
-label_top_signal status\[99\]    510	input
-label_top_signal status\[98\]    515	input
-label_top_signal status\[97\]    520	input
-label_top_signal status\[96\]    525	input
+label_bottom_signal mask_rev_in\[31\] 1860	input
+label_bottom_signal mask_rev_in\[30\] 1861	input
+label_bottom_signal mask_rev_in\[29\] 1862	input
+label_bottom_signal mask_rev_in\[28\] 1863	input
+label_bottom_signal mask_rev_in\[27\] 1864	input
+label_bottom_signal mask_rev_in\[26\] 1865	input
+label_bottom_signal mask_rev_in\[25\] 1866	input
+label_bottom_signal mask_rev_in\[24\] 1867	input
+label_bottom_signal mask_rev_in\[23\] 1868	input
+label_bottom_signal mask_rev_in\[22\] 1869	input
+label_bottom_signal mask_rev_in\[21\] 1870	input
+label_bottom_signal mask_rev_in\[20\] 1871	input
+label_bottom_signal mask_rev_in\[19\] 1872	input
+label_bottom_signal mask_rev_in\[18\] 1873	input
+label_bottom_signal mask_rev_in\[17\] 1874	input
+label_bottom_signal mask_rev_in\[16\] 1875	input
+label_bottom_signal mask_rev_in\[15\] 1876	input
+label_bottom_signal mask_rev_in\[14\] 1877	input
+label_bottom_signal mask_rev_in\[13\] 1878	input
+label_bottom_signal mask_rev_in\[12\] 1881	input
+label_bottom_signal mask_rev_in\[11\] 1882	input
+label_bottom_signal mask_rev_in\[10\] 1883	input
+label_bottom_signal mask_rev_in\[9\]  1884	input
+label_bottom_signal mask_rev_in\[8\]  1885	input
+label_bottom_signal mask_rev_in\[7\]  1886	input
+label_bottom_signal mask_rev_in\[6\]  1887	input
+label_bottom_signal mask_rev_in\[5\]  1888	input
+label_bottom_signal mask_rev_in\[4\]  1889	input
+label_bottom_signal mask_rev_in\[3\]  1890	input
+label_bottom_signal mask_rev_in\[2\]  1891	input
+label_bottom_signal mask_rev_in\[1\]  1892	input
+label_bottom_signal mask_rev_in\[0\]  1893	input
 
-label_top_signal control\[127\]  530	output
-label_top_signal control\[126\]  535	output
-label_top_signal control\[125\]  540	output
-label_top_signal control\[124\]  545	output
-label_top_signal control\[123\]  550	output
-label_top_signal control\[122\]  555	output
-label_top_signal control\[121\]  560	output
-label_top_signal control\[120\]  565	output
-label_top_signal control\[119\]  570	output
-label_top_signal control\[118\]  575	output
-label_top_signal control\[117\]  580	output
-label_top_signal control\[116\]  585	output
-label_top_signal control\[115\]  590	output
-label_top_signal control\[114\]  595	output
-label_top_signal control\[113\]  600	output
-label_top_signal control\[112\]  605	output
-label_top_signal control\[111\]  610	output
-label_top_signal control\[110\]  615	output
-label_top_signal control\[109\]  620	output
-label_top_signal control\[108\]  625	output
-label_top_signal control\[107\]  630	output
-label_top_signal control\[106\]  635	output
-label_top_signal control\[105\]  640	output
-label_top_signal control\[104\]  645	output
-label_top_signal control\[103\]  650	output
-label_top_signal control\[102\]  655	output
-label_top_signal control\[101\]  660	output
-label_top_signal control\[100\]  665	output
-label_top_signal control\[99\]   670	output
-label_top_signal control\[98\]   675	output
-label_top_signal control\[97\]   680	output
-label_top_signal control\[96\]   685	output
+label_bottom_signal io_out\[0\]	      1068	output
+label_bottom_signal io_oe\[0\]	      1071	output
+label_bottom_signal io_in\[0\]	      1110	output
+label_bottom_signal io_out\[1\]	      1178	output
+label_bottom_signal io_oe\[1\]	      1181	output
+label_bottom_signal io_in\[1\]	      1220	output
+label_bottom_signal io_out\[2\]	      1288	output
+label_bottom_signal io_oe\[2\]	      1291	output
+label_bottom_signal io_in\[2\]	      1330	output
+label_bottom_signal io_out\[3\]	      1398	output
+label_bottom_signal io_oe\[3\]	      1401	output
+label_bottom_signal io_in\[3\]	      1440	output
+label_bottom_signal io_out\[4\]	      1508	output
+label_bottom_signal io_oe\[4\]	      1511	output
+label_bottom_signal io_in\[4\]	      1550	output
+label_bottom_signal io_out\[5\]	      1618	output
+label_bottom_signal io_oe\[5\]	      1621	output
+label_bottom_signal io_in\[5\]	      1660	output
+label_bottom_signal io_out\[6\]	      1728	output
+label_bottom_signal io_oe\[6\]	      1731	output
+label_bottom_signal io_in\[6\]	      1770	output
+label_bottom_signal io_out\[7\]	      1838	output
+label_bottom_signal io_oe\[7\]	      1841	output
+label_bottom_signal io_in\[7\]	      1880	output
 
-label_top_signal status\[95\]    690	input
-label_top_signal status\[94\]    695	input
-label_top_signal status\[93\]    700	input
-label_top_signal status\[92\]    705	input
-label_top_signal status\[91\]    710	input
-label_top_signal status\[90\]    715	input
-label_top_signal status\[89\]    720	input
-label_top_signal status\[88\]    725	input
-label_top_signal status\[87\]    730	input
-label_top_signal status\[86\]    735	input
-label_top_signal status\[85\]    740	input
-label_top_signal status\[84\]    745	input
-label_top_signal status\[83\]    750	input
-label_top_signal status\[82\]    755	input
-label_top_signal status\[81\]    760	input
-label_top_signal status\[80\]    765	input
-label_top_signal status\[79\]    770	input
-label_top_signal status\[78\]    775	input
-label_top_signal status\[77\]    780	input
-label_top_signal status\[76\]    785	input
-label_top_signal status\[75\]    790	input
-label_top_signal status\[74\]    795	input
-label_top_signal status\[73\]    800	input
-label_top_signal status\[72\]    805	input
-label_top_signal status\[71\]    810	input
-label_top_signal status\[70\]    815	input
-label_top_signal status\[69\]    820	input
-label_top_signal status\[68\]    825	input
-label_top_signal status\[67\]    830	input
-label_top_signal status\[66\]    835	input
-label_top_signal status\[65\]    840	input
-label_top_signal status\[64\]    845	input
+label_left_signal sram_idata\[0\]     305	output
+label_left_signal sram_odata\[0\]     312	input
+label_left_signal sram_idata\[1\]     316	output
+label_left_signal sram_odata\[1\]     323	input
+label_left_signal sram_idata\[2\]     327	output
+label_left_signal sram_odata\[2\]     335	input
+label_left_signal sram_idata\[3\]     338	output
+label_left_signal sram_odata\[3\]     346	input
+label_left_signal sram_addr\[6\]      359	output
+label_left_signal sram_addr\[7\]      360	output
+label_left_signal sram_clk	      369	output
+label_left_signal sram_addr\[1\]      370	output
+label_left_signal sram_addr\[0\]      371	output
+label_left_signal sram_write          372	output
+label_left_signal sram_read           373	output
+label_left_signal sram_addr\[3\]      378	output
+label_left_signal sram_addr\[2\]      379	output
+label_left_signal sram_addr\[5\]      380	output
+label_left_signal sram_addr\[4\]      382	output
+label_left_signal sram_addr\[9\]      384	output
+label_left_signal sram_addr\[8\]      389	output
+label_left_signal sram_odata\[4\]     404	input
+label_left_signal sram_idata\[4\]     411	output
+label_left_signal sram_odata\[5\]     415	input
+label_left_signal sram_idata\[5\]     423	output
+label_left_signal sram_odata\[6\]     426	input
+label_left_signal sram_idata\[6\]     434	output
+label_left_signal sram_odata\[7\]     438	input
+label_left_signal sram_idata\[7\]     445	output
 
-label_top_signal control\[95\]   850	output
-label_top_signal control\[94\]   855	output
-label_top_signal control\[93\]   860	output
-label_top_signal control\[92\]   865	output
-label_top_signal control\[91\]   870	output
-label_top_signal control\[90\]   875	output
-label_top_signal control\[89\]   880	output
-label_top_signal control\[88\]   885	output
-label_top_signal control\[87\]   890	output
-label_top_signal control\[86\]   895	output
-label_top_signal control\[85\]   900	output
-label_top_signal control\[84\]   905	output
-label_top_signal control\[83\]   910	output
-label_top_signal control\[82\]   915	output
-label_top_signal control\[81\]   920	output
-label_top_signal control\[80\]   925	output
-label_top_signal control\[79\]   930	output
-label_top_signal control\[78\]   935	output
-label_top_signal control\[77\]   940	output
-label_top_signal control\[76\]   945	output
-label_top_signal control\[75\]   950	output
-label_top_signal control\[74\]   955	output
-label_top_signal control\[73\]   960	output
-label_top_signal control\[72\]   965	output
-label_top_signal control\[71\]   970	output
-label_top_signal control\[70\]   975	output
-label_top_signal control\[69\]   980	output
-label_top_signal control\[68\]   985	output
-label_top_signal control\[67\]   990	output
-label_top_signal control\[66\]   995	output
-label_top_signal control\[65\]  1000	output
-label_top_signal control\[64\]  1005	output
+label_top_signal reset		  990	output
 
-label_top_signal reset		1010	output
+label_top_signal dbus_out\[0\]    1000	output
+label_top_signal dbus_out\[1\]    1002	output
+label_top_signal dbus_out\[2\]    1004	output
+label_top_signal dbus_out\[3\]    1006	output
+label_top_signal dbus_out\[4\]    1008	output
+label_top_signal dbus_out\[5\]    1010	output
+label_top_signal dbus_out\[6\]    1012	output
+label_top_signal dbus_out\[7\]    1014	output
+label_top_signal dbus_out\[8\]    1018	output
+label_top_signal dbus_out\[9\]    1020	output
+label_top_signal dbus_out\[10\]   1022	output
+label_top_signal dbus_out\[11\]   1024	output
+label_top_signal dbus_out\[12\]   1026	output
+label_top_signal dbus_out\[13\]   1028	output
+label_top_signal dbus_out\[14\]   1030	output
+label_top_signal dbus_out\[15\]   1032	output
+label_top_signal dbus_out\[16\]   1036	output
+label_top_signal dbus_out\[17\]   1038	output
+label_top_signal dbus_out\[18\]   1040	output
+label_top_signal dbus_out\[19\]   1042	output
+label_top_signal dbus_out\[20\]   1044	output
+label_top_signal dbus_out\[21\]   1046	output
+label_top_signal dbus_out\[22\]   1048	output
+label_top_signal dbus_out\[23\]   1050	output
 
-label_top_signal control\[63\]  1015	output
-label_top_signal control\[62\]  1020	output
-label_top_signal control\[61\]  1025	output
-label_top_signal control\[60\]  1030	output
-label_top_signal control\[59\]  1035	output
-label_top_signal control\[58\]  1040	output
-label_top_signal control\[57\]  1045	output
-label_top_signal control\[56\]  1050	output
-label_top_signal control\[55\]  1055	output
-label_top_signal control\[54\]  1060	output
-label_top_signal control\[53\]  1065	output
-label_top_signal control\[52\]  1070	output
-label_top_signal control\[51\]  1075	output
-label_top_signal control\[50\]  1080	output
-label_top_signal control\[49\]  1085	output
-label_top_signal control\[48\]  1090	output
-label_top_signal control\[47\]  1095	output
-label_top_signal control\[46\]  1100	output
-label_top_signal control\[45\]  1105	output
-label_top_signal control\[44\]  1110	output
-label_top_signal control\[43\]  1115	output
-label_top_signal control\[42\]  1120	output
-label_top_signal control\[41\]  1125	output
-label_top_signal control\[40\]  1130	output
-label_top_signal control\[39\]  1135	output
-label_top_signal control\[38\]  1140	output
-label_top_signal control\[37\]  1145	output
-label_top_signal control\[36\]  1150	output
-label_top_signal control\[35\]  1155	output
-label_top_signal control\[34\]  1160	output
-label_top_signal control\[33\]  1165	output
-label_top_signal control\[32\]  1170	output
+label_top_signal dbus_in\[0\]    1053	input
+label_top_signal dbus_in\[1\]    1055	input
+label_top_signal dbus_in\[2\]    1058	input
+label_top_signal dbus_in\[3\]    1060	input
+label_top_signal dbus_in\[4\]    1062	input
+label_top_signal dbus_in\[5\]    1064	input
+label_top_signal dbus_in\[6\]    1066	input
+label_top_signal dbus_in\[7\]    1068	input
+label_top_signal dbus_in\[8\]    1070	input
+label_top_signal dbus_in\[9\]    1072	input
+label_top_signal dbus_in\[10\]   1074	input
+label_top_signal dbus_in\[11\]   1076	input
 
-label_top_signal status\[63\]   1175	input
-label_top_signal status\[62\]   1180	input
-label_top_signal status\[61\]   1185	input
-label_top_signal status\[60\]   1190	input
-label_top_signal status\[59\]   1195	input
-label_top_signal status\[58\]   1200	input
-label_top_signal status\[57\]   1205	input
-label_top_signal status\[56\]   1210	input
-label_top_signal status\[55\]   1215	input
-label_top_signal status\[54\]   1220	input
-label_top_signal status\[53\]   1225	input
-label_top_signal status\[52\]   1230	input
-label_top_signal status\[51\]   1235	input
-label_top_signal status\[50\]   1240	input
-label_top_signal status\[49\]   1245	input
-label_top_signal status\[48\]   1250	input
-label_top_signal status\[47\]   1255	input
-label_top_signal status\[46\]   1260	input
-label_top_signal status\[45\]   1265	input
-label_top_signal status\[44\]   1270	input
-label_top_signal status\[43\]   1275	input
-label_top_signal status\[42\]   1280	input
-label_top_signal status\[41\]   1285	input
-label_top_signal status\[40\]   1290	input
-label_top_signal status\[39\]   1295	input
-label_top_signal status\[38\]   1300	input
-label_top_signal status\[37\]   1305	input
-label_top_signal status\[36\]   1310	input
-label_top_signal status\[35\]   1315	input
-label_top_signal status\[34\]   1320	input
-label_top_signal status\[33\]   1325	input
-label_top_signal status\[32\]   1330	input
+label_top_signal proj_sel\[0\]   1080	output
+label_top_signal proj_sel\[1\]   1082	output
+label_top_signal proj_sel\[2\]   1084	output
+label_top_signal proj_sel\[3\]   1086	output
+label_top_signal proj_sel\[4\]   1088	output
 
-label_top_signal control\[31\]  1335	output
-label_top_signal control\[30\]  1340	output
-label_top_signal control\[29\]  1345	output
-label_top_signal control\[28\]  1350	output
-label_top_signal control\[27\]  1355	output
-label_top_signal control\[26\]  1360	output
-label_top_signal control\[25\]  1365	output
-label_top_signal control\[24\]  1370	output
-label_top_signal control\[23\]  1375	output
-label_top_signal control\[22\]  1380	output
-label_top_signal control\[21\]  1385	output
-label_top_signal control\[20\]  1390	output
-label_top_signal control\[19\]  1395	output
-label_top_signal control\[18\]  1400	output
-label_top_signal control\[17\]  1405	output
-label_top_signal control\[16\]  1410	output
-label_top_signal control\[15\]  1415	output
-label_top_signal control\[14\]  1420	output
-label_top_signal control\[13\]  1425	output
-label_top_signal control\[12\]  1430	output
-label_top_signal control\[11\]  1435	output
-label_top_signal control\[10\]  1440	output
-label_top_signal control\[9\]   1445	output
-label_top_signal control\[8\]   1450	output
-label_top_signal control\[7\]   1455	output
-label_top_signal control\[6\]   1460	output
-label_top_signal control\[5\]   1465	output
-label_top_signal control\[4\]   1470	output
-label_top_signal control\[3\]   1475	output
-label_top_signal control\[2\]   1480	output
-label_top_signal control\[1\]   1485	output
-label_top_signal control\[0\]   1490	output
+label_top_signal proj_ena        1090	output
+label_top_signal proj_dig_ena    1092	output
+label_top_signal proj_3v3_ena    1094	output
+label_top_signal proj_1v2_ena    1096	output
 
-label_top_signal status\[31\]   1495	input
-label_top_signal status\[30\]   1500	input
-label_top_signal status\[29\]   1505	input
-label_top_signal status\[28\]   1510	input
-label_top_signal status\[27\]   1515	input
-label_top_signal status\[26\]   1520	input
-label_top_signal status\[25\]   1525	input
-label_top_signal status\[24\]   1530	input
-label_top_signal status\[23\]   1535	input
-label_top_signal status\[22\]   1540	input
-label_top_signal status\[21\]   1545	input
-label_top_signal status\[20\]   1550	input
-label_top_signal status\[19\]   1555	input
-label_top_signal status\[18\]   1560	input
-label_top_signal status\[17\]   1565	input
-label_top_signal status\[16\]   1570	input
-label_top_signal status\[15\]   1575	input
-label_top_signal status\[14\]   1580	input
-label_top_signal status\[13\]   1585	input
-label_top_signal status\[12\]   1590	input
-label_top_signal status\[11\]   1595	input
-label_top_signal status\[10\]   1600	input
-label_top_signal status\[9\]    1605	input
-label_top_signal status\[8\]    1610	input
-label_top_signal status\[7\]    1615	input
-label_top_signal status\[6\]    1620	input
-label_top_signal status\[5\]    1625	input
-label_top_signal status\[4\]    1630	input
-label_top_signal status\[3\]    1635	input
-label_top_signal status\[2\]    1640	input
-label_top_signal status\[1\]    1645	input
-label_top_signal status\[0\]    1650	input
+label_top_signal analog_bus_ena\[0\]   1100	output
+label_top_signal analog_bus_ena\[1\]   1102	output
+label_top_signal analog_bus_ena\[2\]   1104	output
+label_top_signal analog_bus_ena\[3\]   1106	output
+label_top_signal idac1_value\[0\]      1108	output
+label_top_signal idac1_value\[1\]      1110	output
+label_top_signal idac1_value\[2\]      1112	output
+label_top_signal idac1_value\[3\]      1114	output
+label_top_signal idac1_value\[4\]      1116	output
+label_top_signal idac1_control\[0\]    1118	output
+label_top_signal idac1_control\[1\]    1120	output
+label_top_signal idac1_control\[2\]    1122	output
+label_top_signal idac1_control\[3\]    1124	output
+label_top_signal idac1_control\[4\]    1126	output
+label_top_signal idac1_control\[5\]    1128	output
+label_top_signal idac2_value\[0\]      1132	output
+label_top_signal idac2_value\[1\]      1134	output
+label_top_signal idac2_value\[2\]      1136	output
+label_top_signal idac2_value\[3\]      1138	output
+label_top_signal idac2_value\[4\]      1140	output
+label_top_signal idac2_control\[0\]    1142	output
+label_top_signal idac2_control\[1\]    1144	output
+label_top_signal idac2_control\[2\]    1146	output
+label_top_signal idac2_control\[3\]    1148	output
+label_top_signal idac2_control\[4\]    1150	output
+label_top_signal idac2_control\[5\]    1152	output
+label_top_signal vbias_control\[0\]    1156	output
+label_top_signal vbias_control\[1\]    1158	output
+label_top_signal vbias_control\[2\]    1160	output
+label_top_signal vbias_control\[3\]    1162	output
+label_top_signal vbias_control\[4\]    1164	output
+label_top_signal vbias_control\[5\]    1166	output
+label_top_signal bandgap_control\[0\]  1170	output
+label_top_signal bandgap_control\[1\]  1172	output
+label_top_signal bandgap_control\[2\]  1174	output
+label_top_signal bandgap_control\[3\]  1176	output
+label_top_signal bandgap_control\[4\]  1178	output
+label_top_signal bandgap_control\[5\]  1180	output
+label_top_signal bandgap_control\[6\]  1182	output
+
+# The I/O ports at the top have to be threaded through the center
+label_top_signal io_out\[8\]	      1186	output
+label_top_signal io_oe\[8\]	      1189	output
+label_top_signal io_in\[8\]	      1192	output
+label_top_signal io_out\[9\]	      1195	output
+label_top_signal io_oe\[9\]	      1198	output
+label_top_signal io_in\[9\]	      1201	output
+label_top_signal io_out\[10\]	      1204	output
+label_top_signal io_oe\[10\]	      1207	output
+label_top_signal io_in\[10\]	      1210	output
+label_top_signal io_out\[11\]	      1213	output
+label_top_signal io_oe\[11\]	      1216	output
+label_top_signal io_in\[11\]	      1219	output
 
 # Add route obstructions around the edges over and under the pins
 tech unlock *

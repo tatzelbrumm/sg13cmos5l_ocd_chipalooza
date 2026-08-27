@@ -190,8 +190,8 @@ if __name__ == '__main__':
             found = False
             idrex = re.compile("parameter USER_PROJECT_ID = 32'h([0-9A-F]+);")
 
-            # Check if USER_PROJECT_ID has a non-zero value in caravel.v
-            rtl_top_path = user_project_path + '/verilog/gl/caravel_openframe.v'
+            # Check if USER_PROJECT_ID has a non-zero value in sg13cmos5l_ocd_chipalooza.v
+            rtl_top_path = user_project_path + '/verilog/gl/sg13cmos5l_ocd_chipalooza.v'
             if os.path.isfile(rtl_top_path):
                 with open(rtl_top_path, 'r') as ifile:
                     vlines = ifile.read().splitlines()
@@ -209,7 +209,7 @@ if __name__ == '__main__':
                 if reportmode:
                     user_id_int = 0
                 else:
-                    print('Error:  No USER_PROJECT_ID found in caravel top level verilog.')
+                    print('Error:  No USER_PROJECT_ID found in chipalooza top level verilog.')
                     sys.exit(1)
         else:
             print('Error:  No config.txt file and no user ID argument given.')
@@ -321,7 +321,7 @@ if __name__ == '__main__':
     print('Step 2:  Add user project ID parameter to source verilog.')
 
     changed = False
-    with open(vpath + '/gl/caravel_openframe.v', 'r') as ifile:
+    with open(vpath + '/gl/sg13cmos5l_ocd_chipalooza.v', 'r') as ifile:
         vlines = ifile.read().splitlines()
         outlines = []
         for line in vlines:
@@ -333,12 +333,12 @@ if __name__ == '__main__':
             outlines.append(oline)
 
     if changed:
-        with open(vpath + '/gl/caravel_openframe.v', 'w') as ofile:
+        with open(vpath + '/gl/sg13cmos5l_ocd_chipalooza.v', 'w') as ofile:
             for line in outlines:
                 print(line, file=ofile)
             print('Done!')
     else:
-        print('Error:  No substitutions done on verilog/gl/caravel_openframe.v.')
+        print('Error:  No substitutions done on verilog/gl/sg13cmos5l_ocd_chipalooza.v.')
         print('Ending process.')
         sys.exit(1)
 

@@ -1,5 +1,6 @@
 # set clock_port __VIRTUAL_CLK__
-set clock_port SCK
+# set clock_port SCK
+set clock_port clk
 if { [info exists ::env(CLOCK_PORT)] } {
     set port_count [llength $::env(CLOCK_PORT)]
 
@@ -82,7 +83,7 @@ if { [info exists ::env(OPENLANE_SDC_IDEAL_CLOCKS)] && $::env(OPENLANE_SDC_IDEAL
 # asynchronous inputs
 
 # Reset
-set_false_path -from [get_ports RSTB]
+set_false_path -from [get_ports porb]
 
 # SPI SCK
 # set_false_path -from [get_ports SCK]
@@ -95,6 +96,4 @@ set_false_path -from [get_ports SDI]
 
 # SPI SDO
 # set_false_path -from [get_ports SDO]
-
-# Probably need the UART and SPI master signals, too.
 
