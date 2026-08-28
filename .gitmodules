@@ -1,0 +1,6 @@
+[submodule "dependencies/sg13cmos5l_ocd_ip__analog_switches"]
+	path = dependencies/sg13cmos5l_ocd_ip__analog_switches
+	url = https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__analog_switches
+[submodule "dependencies/sg13cmos5l_ocd_ip__biasgen"]
+	path = dependencies/sg13cmos5l_ocd_ip__biasgen
+	url = https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__biasgen
