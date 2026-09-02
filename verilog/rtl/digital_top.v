@@ -35,14 +35,26 @@ module digital_top (
     output wire	      proj_dig_ena,	// project shared digital bus enable
     output wire       proj_3v3_ena,	// project 3.3V power gate enable
     output wire       proj_1v2_ena,	// project 1.2V power gate enable
+    output wire [1:0] proj_ibias_ena,	// project current bias switches
+    output wire       proj_vbias_ena,	// project voltage bias switch
     output wire [3:0] analog_bus_ena,	// project analog bus enable
 
     output wire [4:0] idac1_value,
-    output wire [5:0] idac1_control,
     output wire [4:0] idac2_value,
-    output wire [5:0] idac2_control,
-    output wire [5:0] vbias_control,             // voltage bias output control
-    output wire [6:0] bandgap_control            // bandgap enable and trim
+    output wire [2:0] voltgen_ena,               // voltage bias enables
+    output wire voltgen_high,                    // voltage bias high trim
+    output wire [2:0] voltgen_value,             // voltage bias value
+    output wire bandgap_ena,                     // bandgap enable
+    output wire [15:0] bandgap_trim,             // bandgap trim (thermometer code)
+    output wire biasgen_ena,                     // biasgen enable
+    output wire biasgen_coarse,                  // biasgen coarse/fine control
+    output wire biasgen_fine,                    // biasgen coarse/fine control
+    output wire biasgen_ref_vbg,                 // biasgen bandgap-stabilize
+    output wire [2:0] bandgap_sink1,             // bandgap ibias 1 sink tuning
+    output wire [1:0] bandgap_sink2,             // bandgap ibias 2 sink tuning
+    output wire [2:0] voltgen_sink1,             // voltage bias ibias 1 sink tuning
+    output wire [2:0] voltgen_sink2,             // voltage bias ibias 2 sink tuning
+    output wire [4:0] voltgen_source             // voltage bias ibias source tuning
 );
 
     wire [9:0] sram_addr;
@@ -83,13 +95,25 @@ module digital_top (
 	    .proj_dig_ena(proj_dig_ena),
 	    .proj_3v3_ena(proj_3v3_ena),
 	    .proj_1v2_ena(proj_1v2_ena),
+	    .proj_ibias_ena(proj_ibias_ena),
+	    .proj_vbias_ena(proj_vbias_ena),
 	    .analog_bus_ena(analog_bus_ena),
 	    .idac1_value(idac1_value),
-	    .idac1_control(idac1_control),
 	    .idac2_value(idac2_value),
-	    .idac2_control(idac2_control),
-	    .vbias_control(vbias_control),
-	    .bandgap_control(bandgap_control)
+            .voltgen_ena(voltgen_ena),
+            .voltgen_high(voltgen_high),
+            .voltgen_value(voltgen_value),
+            .bandgap_ena(bandgap_ena),
+            .bandgap_trim(bandgap_trim),
+            .biasgen_ena(biasgen_ena),
+            .biasgen_coarse(biasgen_coarse),
+            .biasgen_fine(biasgen_fine),
+            .biasgen_ref_vbg(biasgen_ref_vbg),
+            .bandgap_sink1(bandgap_sink1),
+            .bandgap_sink2(bandgap_sink2),
+            .voltgen_sink1(voltgen_sink1),
+            .voltgen_sink2(voltgen_sink2),
+            .voltgen_source(voltgen_source)
     );
 
     /* Instantiate the SRAM */
@@ -133,16 +157,17 @@ module digital_top (
 
     generate
 	for (i = 0; i < 18; i = i + 1) begin
-		user_project_control #(
-		    .PROJ_ADDRESS(i + 1)
-		) ctrl (
+	    wire [4:0] bit_index;
+            assign bit_index = i + 1; // Implicitly truncate
+		user_project_control ctrl (
+		    .proj_addr(bit_index),
 		    .proj_sel(proj_sel),
 		    .clk(clk),
 		    .dig_ena(proj_dig_ena),
 	  	    .enable(proj_ena),
 		    .analog_ena(analog_bus_ena),
-		    .ibias_ena({idac2_control[0], idac1_control[0]}),
-		    .vbias_ena(vbias_control[0]),
+		    .ibias_ena(proj_ibias_ena),
+		    .vbias_ena(proj_vbias_ena),
 		    .power_3v3_ena(proj_3v3_ena),
 		    .power_1v2_ena(proj_1v2_ena),
 		    .dig_in(dbus_out),

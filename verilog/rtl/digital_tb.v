@@ -25,13 +25,25 @@ module digital_tb ();
     wire proj_dig_ena;
     wire proj_3v3_ena;
     wire proj_1v2_ena;
+    wire [1:0] proj_ibias_ena;
+    wire proj_vbias_ena;
     wire [3:0] analog_bus_ena;
     wire [4:0] idac1_value;
-    wire [5:0] idac1_control;
     wire [4:0] idac2_value;
-    wire [5:0] idac2_control;
-    wire [5:0] vbias_control;
-    wire [6:0] bandgap_control;
+    wire [2:0] voltgen_ena;
+    wire voltgen_high;
+    wire [2:0] voltgen_value;
+    wire bandgap_ena;
+    wire [15:0] bandgap_trim;
+    wire biasgen_ena;
+    wire biasgen_coarse;
+    wire biasgen_fine;
+    wire biasgen_ref_vbg;
+    wire [2:0] bandgap_sink1;
+    wire [1:0] bandgap_sink2;
+    wire [2:0] voltgen_sink1;
+    wire [2:0] voltgen_sink2;
+    wire [4:0] voltgen_source;
 
     integer i;
     reg [7:0] tbdata;
@@ -136,7 +148,7 @@ module digital_tb ();
 	start_csb();
 	write_byte(8'h01);	// Run sequencer, looping (starts clock)
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h12);	// Address (register 0x12 = clock prescaler)
+	write_byte(8'h0e);	// Address (register 0x0e = clock prescaler)
 	write_byte(8'h00);
 	end_csb();
 	#10;
@@ -144,7 +156,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h12);	// Address (register 0x12 = clock prescaler)
+	write_byte(8'h0e);	// Address (register 0x1e = clock prescaler)
 	write_byte(8'h01);
 	end_csb();
 	#10;
@@ -152,7 +164,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h12);	// Address (register 0x12 = clock prescaler)
+	write_byte(8'h0e);	// Address (register 0x0e = clock prescaler)
 	write_byte(8'h02);
 	end_csb();
 	#10;
@@ -160,7 +172,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h12);	// Address (register 0x12 = clock prescaler)
+	write_byte(8'h0e);	// Address (register 0x0e = clock prescaler)
 	write_byte(8'h03);
 	end_csb();
 	#10;
@@ -168,7 +180,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h12);	// Address (register 0x12 = clock prescaler)
+	write_byte(8'h0e);	// Address (register 0x0e = clock prescaler)
 	write_byte(8'h0b);
 	end_csb();
 	#10;
@@ -236,7 +248,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write stream command
-	write_byte(8'h14);	// Sequencer start/stop (4 bytes)
+	write_byte(8'h12);	// Sequencer start/stop (4 bytes)
 	write_byte(8'h12);
 	write_byte(8'h11);
 	write_byte(8'h15);
@@ -284,7 +296,7 @@ module digital_tb ();
 
 	start_csb();
 	write_byte(8'h80);	// Write register
-	write_byte(8'h18);	// Pattern generator stop address
+	write_byte(8'h16);	// Pattern generator stop address
 	write_byte(8'h07);	// Value 7
 	write_byte(8'h00);
 	end_csb();
@@ -410,13 +422,25 @@ module digital_tb ();
 	    .proj_dig_ena(proj_dig_ena),
 	    .proj_3v3_ena(proj_3v3_ena),
 	    .proj_1v2_ena(proj_1v2_ena),
+	    .proj_ibias_ena(proj_ibias_ena),
+	    .proj_vbias_ena(proj_vbias_ena),
 	    .analog_bus_ena(analog_bus_ena),
 	    .idac1_value(idac1_value),
-	    .idac1_control(idac1_control),
 	    .idac2_value(idac2_value),
-	    .idac2_control(idac2_control),
-	    .vbias_control(vbias_control),
-	    .bandgap_control(bandgap_control)
+            .voltgen_ena(voltgen_ena),
+            .voltgen_high(voltgen_high),
+            .voltgen_value(voltgen_value),
+            .bandgap_ena(bandgap_ena),
+            .bandgap_trim(bandgap_trim),
+            .biasgen_ena(biasgen_ena),
+            .biasgen_coarse(biasgen_coarse),
+            .biasgen_fine(biasgen_fine),
+            .biasgen_ref_vbg(biasgen_ref_vbg),
+            .bandgap_sink1(bandgap_sink1),
+            .bandgap_sink2(bandgap_sink2),
+            .voltgen_sink1(voltgen_sink1),
+            .voltgen_sink2(voltgen_sink2),
+            .voltgen_source(voltgen_source)
     );
 
 endmodule

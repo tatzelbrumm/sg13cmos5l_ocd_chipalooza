@@ -35,16 +35,10 @@ meta:
     # Some macros may overlap on purpose
     Checker.IllegalOverlap: null
 
-DESIGN_NAME: housekeeping_top
+DESIGN_NAME: user_project_control
 VERILOG_FILES:
 - dir::../../verilog/rtl/synth_defs.v
-- dir::../../verilog/rtl/housekeeping_spi.v
-- dir::../../verilog/rtl/housekeeping.v
-- dir::../../verilog/rtl/sequencer.v
-- dir::../../verilog/rtl/pattern.v
-- dir::../../verilog/rtl/router.v
-- dir::../../verilog/rtl/lfsr.v
-- dir::../../verilog/rtl/housekeeping_top.v
+- dir::../../verilog/rtl/user_project_control.v
 
 DEDUPLICATE_CORNERS: true
 
@@ -159,10 +153,10 @@ PDN_CORE_RING: false
 # Floorplanning
 FP_SIZING: absolute
 
-DIE_AREA: [ 640.00,  300.00, 1895.00, 453.00 ]
-CORE_AREA: [ 643.00,  303.00, 1892.00, 450.00 ]
+DIE_AREA: [ 0.00, 0.00, 110.00, 35.00 ]
+CORE_AREA: [ 3.00, 3.00, 107.00, 32.00 ]
 
-FP_DEF_TEMPLATE: dir::../../def/housekeeping_top.def
+FP_DEF_TEMPLATE: dir::../../def/user_project_control.def
 FP_TEMPLATE_MATCH_MODE: permissive
 #FP_TEMPLATE_COPY_POWER_PINS: True
 

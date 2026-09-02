@@ -39,14 +39,18 @@
  *	shared voltage bias.
  * There is an enable for the 3.3V power switch
  * There is an enable for the 1.2V power switch
+ *
+ * Note that this block needs to be synthesizable and should be able
+ * to service 18 analog project locations, so instead of supplying
+ * the address to match as a parameter, the address to match is
+ * hardwired outside of the block and passed as an input vector.
  */
 
-module user_project_control #(
-    parameter PROJ_ADDRESS = 5'h00
-) (
+module user_project_control (
     /* Infrastructure-facing signals */
 
-    input wire [4:0] proj_sel,		// Selected project
+    input wire [4:0] proj_addr,		// Project address (external)
+    input wire [4:0] proj_sel,		// Selected project (from houskeeping)
     input wire clk,			// Master system clock
     input wire dig_ena,			// Digital connect enable
     input wire enable,			// Enable signal for project
@@ -81,7 +85,7 @@ wire select;
  * instance, then the corresponding project is selected.
  */
 
-assign select = (proj_sel == PROJ_ADDRESS) ? 1'b1 : 1'b0;
+assign select = (proj_sel == proj_addr) ? 1'b1 : 1'b0;
 
 /* Outputs are high impedence when project is not enabled.
  * Inputs are zero when project is not enabled.

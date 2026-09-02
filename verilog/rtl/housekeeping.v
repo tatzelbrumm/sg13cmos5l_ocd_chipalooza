@@ -54,18 +54,20 @@
 //	with via programming.  Via programmed with a script to match
 //	each project ID.
 //
+// Register 0x0F:	clock prescaler
 // Register 0x10:	sequencer mode
 // Register 0x11:	SRAM mode
-// Register 0x12:	clock prescaler
-// Register 0x13-0x14:	sequencer start value
-// Register 0x15-0x16:	sequencer stop value
-// Register 0x17-0x18:	pattern generator stop value
+// Register 0x12-0x13:	sequencer start value
+// Register 0x14-0x15:	sequencer stop value
+// Register 0x16-0x17:	pattern generator stop value
+// Register 0x18:	bias generator coarse/fine control
 // Register 0x19:	iDAC1 value
-// Register 0x1A:	iDAC1 control
-// Register 0x1B:	iDAC2 value
-// Register 0x1C:	iDAC2 control
-// Register 0x1D:	voltage bias control
-// Register 0x1E:	bandgap control
+// Register 0x1A:	iDAC2 value
+// Register 0x1B:	voltage bias control
+// Register 0x1C:	bandgap control
+// Register 0x1D:	bandgap bias tuning
+// Register 0x1E:	voltage bias tuning (sink)
+// Register 0x1F:	voltage bias tuning (source)
 // Register 0x20-0x37:	user project digital input routing
 // Register 0x38:	user project digital output (sampled)
 // Register 0x40-0x47:	user project digital output routing
@@ -107,14 +109,26 @@ module housekeeping (
     output reg 		proj_dig_ena,	// individual project digital bus enable
     output reg 		proj_3v3_ena,	// individual project power gate enable
     output reg 		proj_1v2_ena,	// individual project power gate enable
+    output reg  [1:0]	proj_ibias_ena,	// individual project current bias enables
+    output reg		proj_vbias_ena,	// individual project voltage bias enable
     output reg	[3:0]	analog_bus_ena,	// individual project analog bus enable
 
     output reg [4:0] idac1_value,
-    output reg [5:0] idac1_control,
     output reg [4:0] idac2_value,
-    output reg [5:0] idac2_control,
-    output reg [5:0] vbias_control,		// voltage bias output control
-    output reg [6:0] bandgap_control		// bandgap enable and trim
+    output reg [2:0] voltgen_ena,		// voltage bias enables
+    output reg voltgen_high,			// voltage bias high trim
+    output reg [2:0] voltgen_value,		// voltage bias value
+    output reg bandgap_ena,			// bandgap enable
+    output wire [15:0] bandgap_trim,		// bandgap trim (thermometer code)
+    output reg biasgen_ena,			// biasgen enable
+    output reg biasgen_coarse,			// biasgen coarse/fine control
+    output reg biasgen_fine,			// biasgen coarse/fine control
+    output reg biasgen_ref_vbg,			// biasgen bandgap-stabilize
+    output reg [2:0] bandgap_sink1,		// bandgap ibias 1 sink tuning
+    output reg [1:0] bandgap_sink2,		// bandgap ibias 2 sink tuning
+    output reg [2:0] voltgen_sink1,		// voltage bias ibias 1 sink tuning
+    output reg [2:0] voltgen_sink2,		// voltage bias ibias 2 sink tuning
+    output reg [4:0] voltgen_source		// voltage bias ibias source tuning
 );
 
     wire [7:0] odata;
@@ -124,6 +138,8 @@ module housekeeping (
     wire [9:0] pat_sram_addr;
     wire [7:0] pat_sram_data;
     wire [15:0] seq_out;
+
+    reg [4:0] bandgap_trim_set;		// Undecoded bandgap trim
 
     wire rdstb;
     wire wrstb;
@@ -191,6 +207,14 @@ module housekeeping (
 					// 8 address bits only (SRAM gets
 					// all 10 bits).
 
+    // Bandgap trim is a thermometer code
+    genvar i;
+    generate
+        for (i = 0; i < 16; i = i + 1) begin : bg_trim_gen
+            assign bandgap_trim[i] = (bandgap_trim_set > i);
+        end
+    endgenerate
+
     // Drive sequencer from SPI commands.  The SPI commands reset when CSB
     // is raised, so housekeeping_spi can only produce a strobe that needs
     // to be detected here, so that the sequencer can remain active after
@@ -231,22 +255,27 @@ module housekeeping (
     (iaddr == 8'h06) ? mask_rev[15:8] :		// Mask rev (metal programmed)
     (iaddr == 8'h07) ? mask_rev[7:0] :		// Mask rev (metal programmed)
 
+    (iaddr == 8'h0e) ? seq_prescaler :
+    (iaddr == 8'h0f) ? pat_prescaler :
+
     (iaddr == 8'h10) ? {5'h00, seq_mode} :
     (iaddr == 8'h11) ? {6'h00, sram_mode} :
-    (iaddr == 8'h12) ? seq_prescaler :
-    (iaddr == 8'h13) ? pat_prescaler :
-    (iaddr == 8'h14) ? seq_start[7:0] :
-    (iaddr == 8'h15) ? seq_start[15:8] :
-    (iaddr == 8'h16) ? seq_stop[7:0] :
-    (iaddr == 8'h17) ? seq_stop[15:8] :
-    (iaddr == 8'h18) ? pat_stop[7:0] :
-    (iaddr == 8'h19) ? {6'h00, pat_stop[9:8]} :
-    (iaddr == 8'h1a) ? {3'h0, idac1_value} :
-    (iaddr == 8'h1b) ? {2'h0, idac1_control} :
-    (iaddr == 8'h1c) ? {3'h0, idac2_value} :
-    (iaddr == 8'h1d) ? {2'h0, idac2_control} :
-    (iaddr == 8'h1e) ? {2'h0, vbias_control} :
-    (iaddr == 8'h1f) ? {1'h0, bandgap_control} :
+    (iaddr == 8'h12) ? seq_start[7:0] :
+    (iaddr == 8'h13) ? seq_start[15:8] :
+    (iaddr == 8'h14) ? seq_stop[7:0] :
+    (iaddr == 8'h15) ? seq_stop[15:8] :
+    (iaddr == 8'h16) ? pat_stop[7:0] :
+    (iaddr == 8'h17) ? {6'h00, pat_stop[9:8]} :
+    (iaddr == 8'h18) ? {4'h0, biasgen_ref_vbg, biasgen_fine, biasgen_coarse,
+			biasgen_ena} :
+    (iaddr == 8'h19) ? {3'h0, idac1_value} :
+    (iaddr == 8'h1a) ? {3'h0, idac2_value} :
+    (iaddr == 8'h1b) ? {1'h0, voltgen_value, voltgen_high, voltgen_ena} :
+    (iaddr == 8'h1c) ? {2'h0, bandgap_trim_set, bandgap_ena} :
+    (iaddr == 8'h1d) ? {3'h0, bandgap_sink2, bandgap_sink1} :
+    (iaddr == 8'h1e) ? {2'h0, voltgen_sink2, voltgen_sink1} :
+    (iaddr == 8'h1f) ? {3'h0, voltgen_source} :
+
     (iaddr == 8'h20) ? {4'h0, user_in_route[0*4 +: 4]} :
     (iaddr == 8'h21) ? {4'h0, user_in_route[1*4 +: 4]} :
     (iaddr == 8'h22) ? {4'h0, user_in_route[2*4 +: 4]} :
@@ -290,6 +319,7 @@ module housekeeping (
     (iaddr == 8'h50) ? {3'h0, proj_sel} :
     (iaddr == 8'h51) ? {analog_bus_ena, proj_dig_ena, proj_1v2_ena,
 			proj_3v3_ena, proj_ena} :
+    (iaddr == 8'h52) ? {5'h0, proj_vbias_ena, proj_ibias_ena} :
                8'h00;	// Default
 
     // Register mapping and I/O to module
@@ -303,11 +333,9 @@ module housekeeping (
 	pat_prescaler <= 8'h07;	// Clock prescaler for pattern generator = 7 (x8)
 	seq_start <= 16'h0000;	// Sequencer starts at count 0
 	seq_stop <= 16'h00ff;	// Sequencer ends at count 255
-	pat_stop <= 16'h03ff;	// Pattern generator ends at addr 1023
+	pat_stop <= 10'h3ff;	// Pattern generator ends at addr 1023
 	idac1_value <= 5'h00;	// iDAC current value = 0
-	idac1_control <= 7'h00;	// (TBD)
 	idac2_value <= 5'h00;	// iDAC current value = 0
-	idac2_control <= 7'h00;	// (TBD)
 	user_in_route <= 96'd0;	// (See router.v)
 	user_out_route <= 48'd0; // (See router.v)
 	proj_sel <= 5'h00;	// Diagnostic project selected
@@ -315,59 +343,89 @@ module housekeeping (
 	proj_dig_ena <= 1'b0;	// Project digital I/O disabled
 	proj_3v3_ena <= 1'b0;	// Project 3.3V power switch disabled
 	proj_1v2_ena <= 1'b0;	// Project 1.2V power switch disabled
+	proj_ibias_ena <= 2'b0;	// Project ibias switch disabled
+	proj_vbias_ena <= 1'b0;	// Project ibias switch disabled
 	analog_bus_ena <= 4'h0;	// Analog switches disabled
 	sram_monitor <= 8'h00;	// SRAM monitoring disabled
 	strobe_monitor <= 2'b00; // Strobe monitoring disabled.
+	voltgen_ena <= 3'b000;	// Voltage bias generator enables
+	voltgen_high <= 1'b0;	// Voltage bias generator high trim
+	voltgen_value <= 3'b000; // Voltage bias generator value (selection)
+	bandgap_ena <= 1'b0;	// Bandgap enable
+	bandgap_trim_set <= 5'h00; // Bandgap trim (binary coded)
+	biasgen_ena <= 1'b0;	// Current bias generator enable
+	biasgen_coarse <= 1'b0;	// Current bias generator coarse trim
+	biasgen_fine <= 1'b0;	// Current bias generator fine trim
+	biasgen_ref_vbg <= 1'b0; // Current bias generator bandgap regulation
+	bandgap_sink1 <= 3'b000; // Bandgap sink 1 current bias trim
+	bandgap_sink2 <= 2'b00; // Bandgap sink 2 current bias trim
+	voltgen_sink1 <= 3'b000; // Voltage bias generator sink 1 current bias trim
+	voltgen_sink2 <= 3'b000; // Voltage bias generator sink 2 current bias trim
+ 	voltgen_source <= 5'h00; // Voltage bias generator source current bias trim
 
     end else if ((wrstb == 1'b1) && (sram_ena == 1'b0)) begin
         case (iaddr)
+	8'h0e: begin
+	     seq_prescaler <= idata;
+	       end
+	8'h0f: begin
+	     pat_prescaler <= idata;
+	       end
         8'h10: begin
 	     seq_mode <= idata[2:0];
                end
         8'h11: begin
 	     sram_mode <= idata[1:0];
                end
-	8'h12: begin
-	     seq_prescaler <= idata;
-	       end
-	8'h13: begin
-	     pat_prescaler <= idata;
-	       end
-        8'h14: begin
+        8'h12: begin
 	     seq_start[7:0] <= idata;
                end
-        8'h15: begin
+        8'h13: begin
 	     seq_start[15:8] <= idata;
                end
-        8'h16: begin
+        8'h14: begin
 	     seq_stop[7:0] <= idata;
                end
-        8'h17: begin
+        8'h15: begin
 	     seq_stop[15:8] <= idata;
                end
-        8'h18: begin
+        8'h16: begin
 	     pat_stop[7:0] <= idata;
                end
-        8'h19: begin
+        8'h17: begin
 	     pat_stop[9:8] <= idata[1:0];
                end
-        8'h1a: begin
+	8'h18: begin
+	     biasgen_ref_vbg <= idata[3];
+	     biasgen_fine <= idata[2];
+	     biasgen_coarse <= idata[1];
+	     biasgen_ena <= idata[0];
+	       end
+        8'h19: begin
 	     idac1_value <= idata[4:0];
                end
-        8'h1b: begin
-	     idac1_control <= idata[6:0];
-               end
-        8'h1c: begin
+        8'h1a: begin
 	     idac2_value <= idata[4:0];
                end
+        8'h1b: begin
+	     voltgen_value <= idata[6:4];
+	     voltgen_high <= idata[6:3];
+	     voltgen_ena <= idata[2:0];
+               end
+        8'h1c: begin
+	     bandgap_trim_set <= idata[5:1];
+	     bandgap_ena <= idata[0];
+               end
         8'h1d: begin
-	     idac2_control <= idata[6:0];
+	     bandgap_sink2 <= idata[4:3];
+	     bandgap_sink1 <= idata[2:0];
                end
         8'h1e: begin
-	     vbias_control <= idata[6:0];
+	     voltgen_sink2 <= idata[5:3];
+	     voltgen_sink1 <= idata[2:0];
                end
         8'h1f: begin
-	     bandgap_control <= idata[7:0];
+	     voltgen_source <= idata[4:0];
                end
         8'h20: begin
 	     user_in_route[0*4 +: 4] <= idata[3:0];
@@ -492,6 +550,10 @@ module housekeeping (
 	     proj_1v2_ena <= idata[2];
 	     proj_dig_ena <= idata[3];
 	     analog_bus_ena <= idata[7:4];
+	       end
+        8'h52: begin
+	     proj_ibias_ena <= idata[1:0];
+	     proj_vbias_ena <= idata[2];
 	       end
         endcase	// (iaddr)
     end
