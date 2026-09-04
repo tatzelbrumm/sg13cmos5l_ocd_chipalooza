@@ -159,14 +159,14 @@ PDN_CORE_RING: false
 # Floorplanning
 FP_SIZING: absolute
 
-DIE_AREA: [ 640.00,  300.00, 1895.00, 453.00 ]
-CORE_AREA: [ 643.00,  303.00, 1892.00, 450.00 ]
+DIE_AREA: [ 640.00,  300.00, 1895.00, 430.00 ]
+CORE_AREA: [ 643.00,  303.00, 1892.00, 427.00 ]
 
 FP_DEF_TEMPLATE: dir::../../def/housekeeping_top.def
 FP_TEMPLATE_MATCH_MODE: permissive
 #FP_TEMPLATE_COPY_POWER_PINS: True
 
-PL_TARGET_DENSITY_PCT: 40 # Adjust?
+PL_TARGET_DENSITY_PCT: 50 # Adjust as needed
 
 # FP_OBSTRUCTIONS:
 ## SRAM

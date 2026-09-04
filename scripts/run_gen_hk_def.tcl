@@ -89,11 +89,13 @@ load housekeeping_top_def -silent
 # Die dimensions leave room for the IHP 1024x8 SRAM on the left.
 # Make sure these numbers match the die and core areas in the
 # LibreLane config.yaml file.
+#
+# (Updated version: Shaving 20 micons off of the height)
 
 set die_llx 640
 set die_lly 300
 set die_urx 1895
-set die_ury 453
+set die_ury 430
 
 box values 0 0 0 0
 
@@ -267,138 +269,140 @@ label_left_signal sram_addr\[8\]      389	output
 label_left_signal sram_odata\[4\]     404	input
 label_left_signal sram_idata\[4\]     411	output
 label_left_signal sram_odata\[5\]     415	input
-label_left_signal sram_idata\[5\]     423	output
-label_left_signal sram_odata\[6\]     426	input
-label_left_signal sram_idata\[6\]     434	output
-label_left_signal sram_odata\[7\]     438	input
-label_left_signal sram_idata\[7\]     445	output
+# Moved down because height was reduced.  Was: 423, 426, 434, 438, 445
+# New ymax is 430
+label_left_signal sram_idata\[5\]     418	output
+label_left_signal sram_odata\[6\]     420	input
+label_left_signal sram_idata\[6\]     422	output
+label_left_signal sram_odata\[7\]     424	input
+label_left_signal sram_idata\[7\]     426	output
 
-label_top_signal reset		  990	output
+label_top_signal reset		  1125	output
 
-label_top_signal dbus_out\[0\]    1000	output
-label_top_signal dbus_out\[1\]    1002	output
-label_top_signal dbus_out\[2\]    1004	output
-label_top_signal dbus_out\[3\]    1006	output
-label_top_signal dbus_out\[4\]    1008	output
-label_top_signal dbus_out\[5\]    1010	output
-label_top_signal dbus_out\[6\]    1012	output
-label_top_signal dbus_out\[7\]    1014	output
-label_top_signal dbus_out\[8\]    1018	output
-label_top_signal dbus_out\[9\]    1020	output
-label_top_signal dbus_out\[10\]   1022	output
-label_top_signal dbus_out\[11\]   1024	output
-label_top_signal dbus_out\[12\]   1026	output
-label_top_signal dbus_out\[13\]   1028	output
-label_top_signal dbus_out\[14\]   1030	output
-label_top_signal dbus_out\[15\]   1032	output
-label_top_signal dbus_out\[16\]   1036	output
-label_top_signal dbus_out\[17\]   1038	output
-label_top_signal dbus_out\[18\]   1040	output
-label_top_signal dbus_out\[19\]   1042	output
-label_top_signal dbus_out\[20\]   1044	output
-label_top_signal dbus_out\[21\]   1046	output
-label_top_signal dbus_out\[22\]   1048	output
-label_top_signal dbus_out\[23\]   1050	output
+label_top_signal dbus_out\[0\]    1135	output
+label_top_signal dbus_out\[1\]    1137	output
+label_top_signal dbus_out\[2\]    1139	output
+label_top_signal dbus_out\[3\]    1141	output
+label_top_signal dbus_out\[4\]    1143	output
+label_top_signal dbus_out\[5\]    1145	output
+label_top_signal dbus_out\[6\]    1147	output
+label_top_signal dbus_out\[7\]    1149	output
+label_top_signal dbus_out\[8\]    1151	output
+label_top_signal dbus_out\[9\]    1153	output
+label_top_signal dbus_out\[10\]   1155	output
+label_top_signal dbus_out\[11\]   1157	output
+label_top_signal dbus_out\[12\]   1159	output
+label_top_signal dbus_out\[13\]   1161	output
+label_top_signal dbus_out\[14\]   1163	output
+label_top_signal dbus_out\[15\]   1165	output
+label_top_signal dbus_out\[16\]   1167	output
+label_top_signal dbus_out\[17\]   1169	output
+label_top_signal dbus_out\[18\]   1171	output
+label_top_signal dbus_out\[19\]   1173	output
+label_top_signal dbus_out\[20\]   1175	output
+label_top_signal dbus_out\[21\]   1177	output
+label_top_signal dbus_out\[22\]   1179	output
+label_top_signal dbus_out\[23\]   1181	output
 
-label_top_signal dbus_in\[0\]    1053	input
-label_top_signal dbus_in\[1\]    1055	input
-label_top_signal dbus_in\[2\]    1058	input
-label_top_signal dbus_in\[3\]    1060	input
-label_top_signal dbus_in\[4\]    1062	input
-label_top_signal dbus_in\[5\]    1064	input
-label_top_signal dbus_in\[6\]    1066	input
-label_top_signal dbus_in\[7\]    1068	input
-label_top_signal dbus_in\[8\]    1070	input
-label_top_signal dbus_in\[9\]    1072	input
-label_top_signal dbus_in\[10\]   1074	input
-label_top_signal dbus_in\[11\]   1076	input
+label_top_signal dbus_in\[0\]    1184	input
+label_top_signal dbus_in\[1\]    1186	input
+label_top_signal dbus_in\[2\]    1188	input
+label_top_signal dbus_in\[3\]    1190	input
+label_top_signal dbus_in\[4\]    1192	input
+label_top_signal dbus_in\[5\]    1194	input
+label_top_signal dbus_in\[6\]    1196	input
+label_top_signal dbus_in\[7\]    1198	input
+label_top_signal dbus_in\[8\]    1200	input
+label_top_signal dbus_in\[9\]    1202	input
+label_top_signal dbus_in\[10\]   1204	input
+label_top_signal dbus_in\[11\]   1206	input
 
-label_top_signal proj_sel\[0\]   1080	output
-label_top_signal proj_sel\[1\]   1082	output
-label_top_signal proj_sel\[2\]   1084	output
-label_top_signal proj_sel\[3\]   1086	output
-label_top_signal proj_sel\[4\]   1088	output
+label_top_signal proj_sel\[0\]   1210	output
+label_top_signal proj_sel\[1\]   1212	output
+label_top_signal proj_sel\[2\]   1214	output
+label_top_signal proj_sel\[3\]   1216	output
+label_top_signal proj_sel\[4\]   1218	output
 
-label_top_signal proj_ena        1090	output
-label_top_signal proj_dig_ena    1092	output
-label_top_signal proj_3v3_ena    1094	output
-label_top_signal proj_1v2_ena    1096	output
-label_top_signal proj_ibias_ena\[0\]    1098	output
-label_top_signal proj_ibias_ena\[1\]    1100	output
-label_top_signal proj_vbias_ena  1102	output
+label_top_signal proj_ena        1220	output
+label_top_signal proj_dig_ena    1222	output
+label_top_signal proj_3v3_ena    1224	output
+label_top_signal proj_1v2_ena    1226	output
+label_top_signal proj_ibias_ena\[0\]    1228	output
+label_top_signal proj_ibias_ena\[1\]    1230	output
+label_top_signal proj_vbias_ena  1232	output
 
-label_top_signal analog_bus_ena\[0\]   1104	output
-label_top_signal analog_bus_ena\[1\]   1106	output
-label_top_signal analog_bus_ena\[2\]   1108	output
-label_top_signal analog_bus_ena\[3\]   1110	output
-label_top_signal idac1_value\[0\]      1112	output
-label_top_signal idac1_value\[1\]      1114	output
-label_top_signal idac1_value\[2\]      1116	output
-label_top_signal idac1_value\[3\]      1118	output
-label_top_signal idac1_value\[4\]      1120	output
-label_top_signal idac2_value\[0\]      1122	output
-label_top_signal idac2_value\[1\]      1124	output
-label_top_signal idac2_value\[2\]      1126	output
-label_top_signal idac2_value\[3\]      1128	output
-label_top_signal idac2_value\[4\]      1130	output
-label_top_signal voltgen_ena\[0\]      1132	output
-label_top_signal voltgen_ena\[1\]      1134	output
-label_top_signal voltgen_ena\[2\]      1136	output
-label_top_signal voltgen_high	       1138	output
-label_top_signal voltgen_value\[0\]    1140	output
-label_top_signal voltgen_value\[1\]    1142	output
-label_top_signal voltgen_value\[2\]    1144	output
-label_top_signal bandgap_ena	       1146	output
-label_top_signal bandgap_trim\[0\]     1148	output
-label_top_signal bandgap_trim\[1\]     1150	output
-label_top_signal bandgap_trim\[2\]     1152	output
-label_top_signal bandgap_trim\[3\]     1154	output
-label_top_signal bandgap_trim\[4\]     1156	output
-label_top_signal bandgap_trim\[5\]     1158	output
-label_top_signal bandgap_trim\[6\]     1160	output
-label_top_signal bandgap_trim\[7\]     1162	output
-label_top_signal bandgap_trim\[8\]     1164	output
-label_top_signal bandgap_trim\[9\]     1166	output
-label_top_signal bandgap_trim\[10\]    1168	output
-label_top_signal bandgap_trim\[11\]    1170	output
-label_top_signal bandgap_trim\[12\]    1172	output
-label_top_signal bandgap_trim\[13\]    1174	output
-label_top_signal bandgap_trim\[14\]    1176	output
-label_top_signal bandgap_trim\[15\]    1178	output
-label_top_signal biasgen_ena	       1180	output
-label_top_signal biasgen_coarse	       1182	output
-label_top_signal biasgen_fine	       1184	output
-label_top_signal biasgen_ref_vbg       1186	output
-label_top_signal bandgap_sink1\[0\]    1188	output
-label_top_signal bandgap_sink1\[1\]    1190	output
-label_top_signal bandgap_sink1\[2\]    1192	output
-label_top_signal bandgap_sink2\[0\]    1194	output
-label_top_signal bandgap_sink2\[1\]    1196	output
-label_top_signal voltgen_sink1\[0\]    1198	output
-label_top_signal voltgen_sink1\[1\]    1200	output
-label_top_signal voltgen_sink1\[2\]    1202	output
-label_top_signal voltgen_sink2\[0\]    1204	output
-label_top_signal voltgen_sink2\[1\]    1206	output
-label_top_signal voltgen_sink2\[2\]    1208	output
-label_top_signal voltgen_source\[0\]   1210	output
-label_top_signal voltgen_source\[1\]   1212	output
-label_top_signal voltgen_source\[2\]   1214	output
-label_top_signal voltgen_source\[3\]   1216	output
-label_top_signal voltgen_source\[4\]   1218	output
+label_top_signal analog_bus_ena\[0\]   1234	output
+label_top_signal analog_bus_ena\[1\]   1236	output
+label_top_signal analog_bus_ena\[2\]   1238	output
+label_top_signal analog_bus_ena\[3\]   1240	output
+label_top_signal idac1_value\[0\]      1242	output
+label_top_signal idac1_value\[1\]      1244	output
+label_top_signal idac1_value\[2\]      1246	output
+label_top_signal idac1_value\[3\]      1248	output
+label_top_signal idac1_value\[4\]      1250	output
+label_top_signal idac2_value\[0\]      1252	output
+label_top_signal idac2_value\[1\]      1254	output
+label_top_signal idac2_value\[2\]      1256	output
+label_top_signal idac2_value\[3\]      1258	output
+label_top_signal idac2_value\[4\]      1260	output
+label_top_signal voltgen_ena\[0\]      1262	output
+label_top_signal voltgen_ena\[1\]      1264	output
+label_top_signal voltgen_ena\[2\]      1266	output
+label_top_signal voltgen_high	       1268	output
+label_top_signal voltgen_value\[0\]    1270	output
+label_top_signal voltgen_value\[1\]    1272	output
+label_top_signal voltgen_value\[2\]    1274	output
+label_top_signal bandgap_ena	       1276	output
+label_top_signal bandgap_trim\[0\]     1278	output
+label_top_signal bandgap_trim\[1\]     1280	output
+label_top_signal bandgap_trim\[2\]     1282	output
+label_top_signal bandgap_trim\[3\]     1284	output
+label_top_signal bandgap_trim\[4\]     1286	output
+label_top_signal bandgap_trim\[5\]     1288	output
+label_top_signal bandgap_trim\[6\]     1290	output
+label_top_signal bandgap_trim\[7\]     1292	output
+label_top_signal bandgap_trim\[8\]     1294	output
+label_top_signal bandgap_trim\[9\]     1296	output
+label_top_signal bandgap_trim\[10\]    1298	output
+label_top_signal bandgap_trim\[11\]    1300	output
+label_top_signal bandgap_trim\[12\]    1302	output
+label_top_signal bandgap_trim\[13\]    1304	output
+label_top_signal bandgap_trim\[14\]    1306	output
+label_top_signal bandgap_trim\[15\]    1308	output
+label_top_signal biasgen_ena	       1310	output
+label_top_signal biasgen_coarse	       1312	output
+label_top_signal biasgen_fine	       1314	output
+label_top_signal biasgen_ref_vbg       1316	output
+label_top_signal bandgap_sink1\[0\]    1318	output
+label_top_signal bandgap_sink1\[1\]    1320	output
+label_top_signal bandgap_sink1\[2\]    1322	output
+label_top_signal bandgap_sink2\[0\]    1324	output
+label_top_signal bandgap_sink2\[1\]    1326	output
+label_top_signal voltgen_sink1\[0\]    1328	output
+label_top_signal voltgen_sink1\[1\]    1330	output
+label_top_signal voltgen_sink1\[2\]    1332	output
+label_top_signal voltgen_sink2\[0\]    1334	output
+label_top_signal voltgen_sink2\[1\]    1336	output
+label_top_signal voltgen_sink2\[2\]    1338	output
+label_top_signal voltgen_source\[0\]   1340	output
+label_top_signal voltgen_source\[1\]   1342	output
+label_top_signal voltgen_source\[2\]   1344	output
+label_top_signal voltgen_source\[3\]   1346	output
+label_top_signal voltgen_source\[4\]   1348	output
 
 # The I/O ports at the top have to be threaded through the center
-label_top_signal io_out\[8\]	      1222	output
-label_top_signal io_oe\[8\]	      1225	output
-label_top_signal io_in\[8\]	      1228	output
-label_top_signal io_out\[9\]	      1231	output
-label_top_signal io_oe\[9\]	      1234	output
-label_top_signal io_in\[9\]	      1237	output
-label_top_signal io_out\[10\]	      1240	output
-label_top_signal io_oe\[10\]	      1243	output
-label_top_signal io_in\[10\]	      1246	output
-label_top_signal io_out\[11\]	      1249	output
-label_top_signal io_oe\[11\]	      1252	output
-label_top_signal io_in\[11\]	      1255	output
+label_top_signal io_out\[8\]	      1352	output
+label_top_signal io_oe\[8\]	      1355	output
+label_top_signal io_in\[8\]	      1358	output
+label_top_signal io_out\[9\]	      1361	output
+label_top_signal io_oe\[9\]	      1364	output
+label_top_signal io_in\[9\]	      1367	output
+label_top_signal io_out\[10\]	      1380	output
+label_top_signal io_oe\[10\]	      1383	output
+label_top_signal io_in\[10\]	      1386	output
+label_top_signal io_out\[11\]	      1389	output
+label_top_signal io_oe\[11\]	      1392	output
+label_top_signal io_in\[11\]	      1395	output
 
 # Add route obstructions around the edges over and under the pins
 tech unlock *
