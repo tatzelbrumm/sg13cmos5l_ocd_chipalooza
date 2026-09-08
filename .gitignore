@@ -7,6 +7,7 @@
 *.vcd
 *.gtkw
 a.out
+archive/
 librelane/housekeeping_top/runs
 librelane/user_project_control/runs
 magic/sg13cmos5l_io/

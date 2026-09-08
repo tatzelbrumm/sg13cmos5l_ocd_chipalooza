@@ -3,10 +3,10 @@
 # parse_config.py ---
 #
 # Parse the "config.txt" file with information about what type
-# of pad is at each GPIO pin position (0 to 43), and what core
-# signal name to use at that position.  Using that information,
-# make replacements into the following files to produce the
-# given output files:
+# of pad is at each GPIO pin position (for slots 1 to 18, with a
+# varying number of pins per slot), and what core signal name to
+# use at that position.  Using that information, make replacements
+# into the following files to produce the given output files:
 #
 #	verilog/gl/:
 #
@@ -297,7 +297,11 @@ with open(tcl_in_file, 'r') as ifile:
             pad_slot_idx = pmatch.group(1)
             pad_pin_idx = pmatch.group(2)
             pad_subs = pmatch.group(3)
-            padrec = padlist[pad_slot_idx, pad_pin_idx]
+            try:
+                padrec = padlist[pad_slot_idx, pad_pin_idx]
+            except:
+                print('Error:  slot ' + str(pad_slot_idx) + ' pin ' + str(pad_pin_idx) + ' not found in ' + tcl_in_file)
+                sys.exit(1)
             subtext = 'PAD_' + pad_slot_idx + '_' + pad_pin_idx + '_' + pad_subs
             pad_type = padrec[0]
             if pad_subs == 'TYPE':

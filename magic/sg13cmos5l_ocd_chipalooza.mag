@@ -1,9 +1,11 @@
 magic
 tech ihp-sg13cmos5l
-timestamp 1788813680
+timestamp 1788899528
 << checkpaint >>
+rect 610 320000 220610 330610
 rect 0 256000 234791 320000
-rect 16000 -12131 234791 256000
+rect 610 610 234791 256000
+rect 16000 -12131 234791 610
 << metal5 >>
 rect 30320 319820 36900 329400
 rect 41320 319820 47900 329400
@@ -94,54 +96,18 @@ timestamp 1787863937
 transform 1 0 0 0 1 0
 box 0 0 221220 331220
 use sg13cmos5l_padframe  sg13cmos5l_padframe_0
-timestamp 1785975392
+timestamp 1788899167
 transform 1 0 1610 0 1 1610
 box 0 0 218000 328000
 << labels >>
-flabel metal5 1820 294320 11400 300900 0 FreeSans 16000 0 0 0 s9_an[0]
-port 45 nsew
-flabel metal5 1820 283320 11400 289900 0 FreeSans 16000 0 0 0 s9_an[1]
-port 46 nsew
-flabel metal5 1820 272320 11400 278900 0 FreeSans 16000 0 0 0 s9_an[2]
-port 47 nsew
 flabel metal5 1820 261320 11400 267900 0 FreeSans 16000 0 0 0 vss1v2
 port 25 nsew
-flabel metal5 1820 250320 11400 256900 0 FreeSans 16000 0 0 0 s10_an[0]
-port 48 nsew
-flabel metal5 1820 239320 11400 245900 0 FreeSans 16000 0 0 0 s10_an[1]
-port 49 nsew
-flabel metal5 1820 228320 11400 234900 0 FreeSans 16000 0 0 0 s11_an[0]
-port 50 nsew
 flabel metal5 1820 217320 11400 223900 0 FreeSans 16000 0 0 0 vss3v3
 port 21 nsew
-flabel metal5 1820 206320 11400 212900 0 FreeSans 16000 0 0 0 s12_an[0]
-port 51 nsew
-flabel metal5 1820 195320 11400 201900 0 FreeSans 16000 0 0 0 s12_an[1]
-port 52 nsew
-flabel metal5 1820 184320 11400 190900 0 FreeSans 16000 0 0 0 s13_an[0]
-port 53 nsew
-flabel metal5 1820 173320 11400 179900 0 FreeSans 16000 0 0 0 s13_an[1]
-port 54 nsew
-flabel metal5 1820 162320 11400 168900 0 FreeSans 16000 0 0 0 s13_an[2]
-port 55 nsew
 flabel metal5 1820 151320 11400 157900 0 FreeSans 16000 0 0 0 vss3v3
 port 21 nsew
-flabel metal5 1820 140320 11400 146900 0 FreeSans 16000 0 0 0 s14_an[0]
-port 56 nsew
-flabel metal5 1820 129320 11400 135900 0 FreeSans 16000 0 0 0 s14_an[1]
-port 57 nsew
-flabel metal5 1820 118320 11400 124900 0 FreeSans 16000 0 0 0 s15_an[0]
-port 58 nsew
 flabel metal5 1820 107320 11400 113900 0 FreeSans 16000 0 0 0 vss1v2
 port 25 nsew
-flabel metal5 1820 96320 11400 102900 0 FreeSans 16000 0 0 0 s16_an[0]
-port 59 nsew
-flabel metal5 1820 85320 11400 91900 0 FreeSans 16000 0 0 0 s16_an[1]
-port 60 nsew
-flabel metal5 1820 74320 11400 80900 0 FreeSans 16000 0 0 0 s16_an[2]
-port 61 nsew
-flabel metal5 1820 63320 11400 69900 0 FreeSans 16000 0 0 0 s16_an[3]
-port 62 nsew
 flabel metal5 1820 52320 11400 58900 0 FreeSans 16000 0 0 0 vdd1v2
 port 16 nsew
 flabel metal5 1820 41320 11400 47900 0 FreeSans 16000 0 0 0 vdd1v2
@@ -188,46 +154,14 @@ flabel metal5 209820 63320 219400 69900 0 FreeSans 16000 0 0 0 s1_an[0]
 port 17 nsew
 flabel metal5 209820 74320 219400 80900 0 FreeSans 16000 0 0 0 s1_an[1]
 port 18 nsew
-flabel metal5 209820 85320 219400 91900 0 FreeSans 16000 0 0 0 s1_an[2]
-port 19 nsew
-flabel metal5 209820 96320 219400 102900 0 FreeSans 16000 0 0 0 s1_an[3]
-port 20 nsew
 flabel metal5 209820 107320 219400 113900 0 FreeSans 16000 0 0 0 vss3v3
 port 21 nsew
-flabel metal5 209820 118320 219400 124900 0 FreeSans 16000 0 0 0 s2_an[0]
-port 22 nsew
-flabel metal5 209820 129320 219400 135900 0 FreeSans 16000 0 0 0 s3_an[0]
-port 23 nsew
-flabel metal5 209820 140320 219400 146900 0 FreeSans 16000 0 0 0 s3_an[1]
-port 24 nsew
 flabel metal5 209820 151320 219400 157900 0 FreeSans 16000 0 0 0 vss1v2
 port 25 nsew
-flabel metal5 209820 162320 219400 168900 0 FreeSans 16000 0 0 0 s4_an[0]
-port 26 nsew
-flabel metal5 209820 173320 219400 179900 0 FreeSans 16000 0 0 0 s4_an[1]
-port 27 nsew
-flabel metal5 209820 184320 219400 190900 0 FreeSans 16000 0 0 0 s4_an[2]
-port 28 nsew
-flabel metal5 209820 195320 219400 201900 0 FreeSans 16000 0 0 0 s5_an[0]
-port 29 nsew
-flabel metal5 209820 206320 219400 212900 0 FreeSans 16000 0 0 0 s5_an[1]
-port 30 nsew
 flabel metal5 209820 217320 219400 223900 0 FreeSans 16000 0 0 0 vss1v2
 port 25 nsew
-flabel metal5 209820 228320 219400 234900 0 FreeSans 16000 0 0 0 s6_an[0]
-port 31 nsew
-flabel metal5 209820 239320 219400 245900 0 FreeSans 16000 0 0 0 s7_an[0]
-port 32 nsew
-flabel metal5 209820 250320 219400 256900 0 FreeSans 16000 0 0 0 s7_an[1]
-port 33 nsew
 flabel metal5 209820 261320 219400 267900 0 FreeSans 16000 0 0 0 vss3v3
 port 21 nsew
-flabel metal5 209820 272320 219400 278900 0 FreeSans 16000 0 0 0 s8_an[0]
-port 34 nsew
-flabel metal5 209820 283320 219400 289900 0 FreeSans 16000 0 0 0 s8_an[1]
-port 35 nsew
-flabel metal5 209820 294320 219400 300900 0 FreeSans 16000 0 0 0 s8_an[2]
-port 36 nsew
 flabel metal5 30320 1820 36900 11400 0 FreeSans 16000 0 0 0 SDO
 port 1 nsew
 flabel metal5 41320 1820 47900 11400 0 FreeSans 16000 0 0 0 SDI
@@ -258,4 +192,72 @@ flabel metal5 173320 1820 179900 11400 0 FreeSans 16000 0 0 0 gpio[6]
 port 13 nsew
 flabel metal5 184320 1820 190900 11400 0 FreeSans 16000 0 0 0 gpio[7]
 port 14 nsew
+flabel metal5 209820 85320 219400 91900 0 FreeSans 16000 0 0 0 s2_an[0]
+port 19 nsew
+flabel metal5 209820 96320 219400 102900 0 FreeSans 16000 0 0 0 s2_an[1]
+port 20 nsew
+flabel metal5 209820 118320 219400 124900 0 FreeSans 16000 0 0 0 s3_an[0]
+port 22 nsew
+flabel metal5 209820 129320 219400 135900 0 FreeSans 16000 0 0 0 s3_an[1]
+port 23 nsew
+flabel metal5 209820 140320 219400 146900 0 FreeSans 16000 0 0 0 s4_an[0]
+port 24 nsew
+flabel metal5 209820 162320 219400 168900 0 FreeSans 16000 0 0 0 s5_an[0]
+port 26 nsew
+flabel metal5 209820 173320 219400 179900 0 FreeSans 16000 0 0 0 s5_an[1]
+port 27 nsew
+flabel metal5 209820 184320 219400 190900 0 FreeSans 16000 0 0 0 s5_an[2]
+port 28 nsew
+flabel metal5 209820 195320 219400 201900 0 FreeSans 16000 0 0 0 s6_an[0]
+port 29 nsew
+flabel metal5 209820 206320 219400 212900 0 FreeSans 16000 0 0 0 s6_an[1]
+port 30 nsew
+flabel metal5 209820 228320 219400 234900 0 FreeSans 16000 0 0 0 s7_an[0]
+port 31 nsew
+flabel metal5 209820 239320 219400 245900 0 FreeSans 16000 0 0 0 s7_an[1]
+port 32 nsew
+flabel metal5 209820 250320 219400 256900 0 FreeSans 16000 0 0 0 s8_an[0]
+port 33 nsew
+flabel metal5 209820 272320 219400 278900 0 FreeSans 16000 0 0 0 s9_an[0]
+port 34 nsew
+flabel metal5 209820 283320 219400 289900 0 FreeSans 16000 0 0 0 s9_an[1]
+port 35 nsew
+flabel metal5 209820 294320 219400 300900 0 FreeSans 16000 0 0 0 s9_an[2]
+port 36 nsew
+flabel metal5 1820 294320 11400 300900 0 FreeSans 16000 0 0 0 s10_an[0]
+port 45 nsew
+flabel metal5 1820 283320 11400 289900 0 FreeSans 16000 0 0 0 s10_an[1]
+port 46 nsew
+flabel metal5 1820 272320 11400 278900 0 FreeSans 16000 0 0 0 s10_an[2]
+port 47 nsew
+flabel metal5 1820 250320 11400 256900 0 FreeSans 16000 0 0 0 s11_an[0]
+port 48 nsew
+flabel metal5 1820 239320 11400 245900 0 FreeSans 16000 0 0 0 s12_an[0]
+port 49 nsew
+flabel metal5 1820 228320 11400 234900 0 FreeSans 16000 0 0 0 s12_an[1]
+port 50 nsew
+flabel metal5 1820 206320 11400 212900 0 FreeSans 16000 0 0 0 s13_an[0]
+port 51 nsew
+flabel metal5 1820 195320 11400 201900 0 FreeSans 16000 0 0 0 s13_an[1]
+port 52 nsew
+flabel metal5 1820 184320 11400 190900 0 FreeSans 16000 0 0 0 s14_an[0]
+port 53 nsew
+flabel metal5 1820 173320 11400 179900 0 FreeSans 16000 0 0 0 s14_an[1]
+port 54 nsew
+flabel metal5 1820 162320 11400 168900 0 FreeSans 16000 0 0 0 s14_an[2]
+port 55 nsew
+flabel metal5 1820 140320 11400 146900 0 FreeSans 16000 0 0 0 s15_an[0]
+port 56 nsew
+flabel metal5 1820 129320 11400 135900 0 FreeSans 16000 0 0 0 s16_an[0]
+port 57 nsew
+flabel metal5 1820 118320 11400 124900 0 FreeSans 16000 0 0 0 s16_an[1]
+port 58 nsew
+flabel metal5 1820 96320 11400 102900 0 FreeSans 16000 0 0 0 s17_an[0]
+port 59 nsew
+flabel metal5 1820 85320 11400 91900 0 FreeSans 16000 0 0 0 s17_an[1]
+port 60 nsew
+flabel metal5 1820 74320 11400 80900 0 FreeSans 16000 0 0 0 s18_an[0]
+port 61 nsew
+flabel metal5 1820 63320 11400 69900 0 FreeSans 16000 0 0 0 s18_an[1]
+port 62 nsew
 << end >>

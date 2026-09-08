@@ -23,18 +23,13 @@
  *
  * Written by Tim Edwards
  * February 2026
+ * Updated September 2026
  *
  * TEMPLATE_MESSAGE
  *-------------------------------------------------------------------------
  */
 
 // `default_nettype none
-
-// There are 44 GPIO pads in the openframe definition.  This
-// is fixed and corresponds to the standard pinout and
-// packaging for the Caravel harness chip.
-
-`define OPENFRAME_IO_PADS 44
 
 module chipalooza_frame_wrapper (
 	`ifdef USE_POWER_PINS
@@ -49,9 +44,15 @@ module chipalooza_frame_wrapper (
 
 	INPUT_OUTPUT_LIST
 
-	input  resetb_in,
-	input  clock_in,
-	input  option_in,
+	output SDO,
+	output sdoena,
+	input  SDI,
+	input  CSB,
+	input  SCK,
+	input  clk,
+	input [11:0] gpio,
+	inout [3:0] analog,
+	input  porb,
 	input  [31:0] mask_rev
 );
 
