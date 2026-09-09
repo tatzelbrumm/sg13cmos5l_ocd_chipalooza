@@ -25,6 +25,8 @@
 echo ${PDK_ROOT:=/home/tim/gits} > /dev/null
 echo ${PDK:=ihp-sg13cmos5l} > /dev/null
 
+cd magic
+
 # Back up any existing slot wrapper layouts
 for i in {1..18}; do
     [ -f "slot${i}_wrapper.mag" ] && mv "slot${i}_wrapper.mag" ../archive/
@@ -32,7 +34,6 @@ done
 
 echo "Generating slot wrappers"
 
-cd magic
 magic -dnull -noconsole -rcfile ${PDK_ROOT}/${PDK}/libs.tech/magic/${PDK}.magicrc << EOF
 drc off
 crashbackups stop
@@ -106,6 +107,19 @@ for {set i 1} {\$i <= 18} {incr i} {
     # Now make all of the connections into ports
     select top cell
     port makeall
+
+    # for ports 10 to 18, flip the layout so that resources are on the left
+    # and pads are on the right.
+    if {\${i} >= 10} {
+	select top cell
+	select area
+	sideways
+    }
+
+    # Move the lower left corner to the origin and set the bounding box
+    select top cell
+    move origin {*}[box position]
+    property FIXED_BBOX 0 0 537.15 273
 
     # save this result
     writeall force slot\${i}_wrapper
