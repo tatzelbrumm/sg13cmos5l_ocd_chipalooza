@@ -56,6 +56,10 @@ SOURCES += [(f"sg13cmos5l_ocd_ip__{n}", os.path.join(
                 DEPS, "sg13cmos5l_ocd_ip__biasgen/verilog",
                 f"sg13cmos5l_ocd_ip__{n}.v"))
             for n in ("bandgap_v2", "biasgen2", "voltgen_v2")]
+# The power-on reset lives in its own submodule.
+SOURCES += [("sg13cmos5l_ocd_ip__por", os.path.join(
+                DEPS, "sg13cmos5l_ocd_ip__por/verilog",
+                "sg13cmos5l_ocd_ip__por.v"))]
 SOURCES += [(f"slot{i}_wrapper", os.path.join(RTL, f"slot{i}_wrapper.v"))
             for i in range(1, 19)]
 

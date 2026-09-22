@@ -406,6 +406,32 @@ solving, or a different simulator, before SDF would mean anything.
 HARDWARE BEHAVIOUR THE TESTS ENCODE
 =============================================================
 
+THE POWER-ON RESET IS A ONE-SHOT, NOT A BROWN-OUT DETECTOR.  porb is no
+longer a port of digital_top;  it is generated on chip by
+sg13cmos5l_ocd_ip__por, and there is no porb pad.  The circuit's trickle
+current only ever CHARGES its capacitor, so:
+
+  - "ena" low before the Schmitt trips holds the part in reset forever.
+    That is the mis-tie case, and it is worth catching:  ena gates the
+    amplifier's tail current, so a chip with it grounded never boots.
+  - "ena" or the supply removed AFTER the trip leaves the capacitor
+    charged, and the output HOLDS.  No second reset pulse is produced,
+    by the model or by the silicon.  How long it holds is leakage
+    dependent and has not been simulated.
+  - a supply that sags and recovers therefore does NOT re-reset the
+    chip.  Nothing in the design may rely on it doing so.
+
+harness.reset() consequently cannot drive porb, and cannot get a fresh
+reset by toggling anything.  It deposits 1 on the POR model's internal
+por_int instead, which models "unpowered long enough for the capacitor
+to leak away" --- the one thing the model cannot derive for itself --- and
+then waits POR_DELAY_NS.  Without that, only the FIRST test in the suite
+would see a reset at all, since cocotb runs everything in one
+simulation.  The model documents the affordance at the point that
+provides it.
+
+
+
 SRAM reads lag by one byte.  The SRAM cannot latch the full address by
 the next SCK edge, so the byte shifted out during transfer k+1 holds the
 contents of address k, and the first byte out is a dummy (X after

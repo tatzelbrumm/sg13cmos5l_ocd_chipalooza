@@ -15,7 +15,6 @@ module digital_top (
     inout DVSS,     // common ground
 `endif
   
-    input wire porb,
     input wire clk,
     input wire SCK,      // from padframe
     input wire SDI,      // from padframe
@@ -142,6 +141,9 @@ module digital_top (
     wire [23:0]  dbus_out;
     wire [119:0] dbus_vec_left;		// 12 bits * 10
     wire [119:0] dbus_vec_right;	// 12 bits * 10
+    wire porb;				// power-on reset, active low.
+					// Generated on chip by the POR block
+					// below;  there is no porb pad.
     wire project_zero;			// diagnostic
     wire clk_out;			// buffered clock to the projects
 
@@ -541,6 +543,32 @@ module digital_top (
 	.voltgen_source_ibias(voltgen_source_ibias),
 	.idac1_source_ibias(user_ibias_shared[0]),
 	.idac2_source_ibias(user_ibias_shared[1])
+    );
+
+    /* A power-on-reset circuit generates the "porb" signal on power-up.
+     * Keep the default parameter POR_DELAY_NS (= 1us) for simulation purposes.
+     */
+
+    sg13cmos5l_ocd_ip__por por (
+	`ifdef USE_POWER_PINS
+	    .vdd1v2(DVDD),
+	    .vss(DVSS),
+	`endif
+	/* "ena" gates the amplifier's tail current and is tied to the
+	 * 1.2 V supply in the layout.  It must NOT be written as DVDD
+	 * unconditionally:  DVDD only exists inside the USE_POWER_PINS
+	 * guard, so without that define it becomes an implicit undeclared
+	 * net, the enable is x, and the part never leaves reset.  That is
+	 * the same trap that .ref_in(AVDD) fell into on the biasgen.
+	 */
+	`ifdef USE_POWER_PINS
+	    .ena(DVDD),
+	`else
+	    .ena(1'b1),
+	`endif
+	.por(),		// unused output
+	.porb(porb),
+	.por_unbuf()	// diagnostic output, not to be used
     );
 
     /* These four switches are diagnostic:  They provide a way to measure the outputs of the

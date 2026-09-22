@@ -56,6 +56,7 @@
 `include "../../dependencies/sg13cmos5l_ocd_ip__biasgen/verilog/sg13cmos5l_ocd_ip__bandgap_v2.v"
 `include "../../dependencies/sg13cmos5l_ocd_ip__biasgen/verilog/sg13cmos5l_ocd_ip__voltgen_v2.v"
 `include "../../dependencies/sg13cmos5l_ocd_ip__biasgen/verilog/sg13cmos5l_ocd_ip__biasgen2.v"
+`include "../../dependencies/sg13cmos5l_ocd_ip__por/verilog/sg13cmos5l_ocd_ip__por.v"
 
 // Foundry IP blocks
 `include "libs.ref/sg13cmos5l_sram/verilog/RM_IHPSG13_1P_1024x8_c2_bm_bist.v"

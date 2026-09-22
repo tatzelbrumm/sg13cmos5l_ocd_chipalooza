@@ -7,8 +7,15 @@
 *.vcd
 *.gtkw
 a.out
+*.vvp
+
+# cocotb/iverilog build directory.  Note that *.vvp alone is not
+# enough:  sim_build also holds cmds.f and results.xml.
+sim_build/
+results.xml
+__pycache__/
 CLAUDE.md
-archive/
+# archive/
 librelane/housekeeping_top/runs
 librelane/user_project_control/runs
 magic/sg13cmos5l_io/

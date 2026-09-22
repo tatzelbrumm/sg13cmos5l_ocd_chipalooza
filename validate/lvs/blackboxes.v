@@ -236,6 +236,18 @@ module sg13cmos5l_ocd_ip__voltgen_v2 (
 );
 endmodule
 
+/* sg13cmos5l_ocd_ip__por --- 6 pins, from dependencies/sg13cmos5l_ocd_ip__por/verilog/sg13cmos5l_ocd_ip__por.v */
+(* blackbox *)
+module sg13cmos5l_ocd_ip__por (
+    inout wire vdd1v2,
+    inout wire vss,
+    input wire ena,
+    output wire por,
+    output wire porb,
+    output wire por_unbuf
+);
+endmodule
+
 /* slot1_wrapper --- 18 pins, from verilog/rtl/slot1_wrapper.v */
 (* blackbox *)
 module slot1_wrapper (

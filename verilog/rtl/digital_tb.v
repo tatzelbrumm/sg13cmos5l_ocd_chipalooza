@@ -7,7 +7,10 @@
 module digital_tb ();
 
     /* Define inputs to the digital top module */
-    reg porb;
+    /* porb is no longer a port:  it is generated on chip by the POR
+     * block inside digital_top.  Nothing here drives it;  the sequence
+     * below simply waits the POR out.  See verilog/dv/harness.py for
+     * why a cocotb suite needs more than that. */
     reg SCK, SDI, CSB;
     reg clk;
     wire SDO, sdo_ena;
@@ -117,7 +120,6 @@ module digital_tb ();
 	$dumpfile("digital_tb.vcd");
 	$dumpvars(0, digital_tb);
 
-	porb <= 1'b0;	// in reset
 	SCK <= 1'b0;
 	SDI <= 1'b0;
 	CSB <= 1'b1;	// SPI disabled
@@ -125,9 +127,13 @@ module digital_tb ();
 	mask_rev_in <= 32'hdeadbeef;
 	io_in <= 12'h000;
 
+	/* Wait out the on-chip POR (POR_DELAY_NS = 1 us by default),
+	 * then let the released reset propagate. */
 	#1000;
-	porb <= 1'b1;	// bring out of reset
 	#1000;
+	if (dig_top.porb !== 1'b1)
+	    $display("ERROR: porb = %b after the POR should have released",
+		     dig_top.porb);
 
 	// Test 1:  Read from housekeeping fixed value register
 
@@ -422,7 +428,6 @@ module digital_tb ();
 	    .VPWR(VPWR),
 	    .VGND(VGND),
 	`endif
-	    .porb(porb),
 	    .clk(clk),
 	    .SCK(SCK),
 	    .SDI(SDI),

@@ -231,12 +231,33 @@ def read_pad(dut, pin):
     return float(getattr(dut, f"analog_pin{pin}_out").value)
 
 
+# How long the POR model holds reset after a power-up, in ns.  This is
+# sg13cmos5l_ocd_ip__por's POR_DELAY_NS default;  silicon is ~40 ms, and
+# the model is deliberately many orders of magnitude faster.
+POR_DELAY_NS = 1000
+
+
 async def reset(dut, clk_running=True):
     """Bring the DUT up in a known state.
 
-    porb is held low, then released.  Returns an SPI driver bound to dut.
+    THERE IS NO porb PORT ANY MORE.  porb is generated on chip by
+    sg13cmos5l_ocd_ip__por, so a testbench cannot simply drive it.
+
+    The POR is a ONE-SHOT, not a brown-out detector:  its trickle
+    current only ever charges the capacitor, so once the Schmitt trigger
+    has tripped, nothing the testbench can do to ena or the supply will
+    produce a second reset pulse.  Silicon gets one by being unpowered
+    long enough for the capacitor to leak away, and the discharge is not
+    characterised, so the model cannot derive it.
+
+    cocotb runs the whole suite in ONE simulation, so without help only
+    the first test would see a reset at all.  The deposit below is that
+    help:  it puts the POR model back into its asserted state, which
+    models "the part has been off long enough to forget", and the model
+    then serves a full POR_DELAY_NS before releasing.  It is an explicit
+    testbench affordance, and the model documents it as such.
     """
-    dut.porb.value = 0
+    dut.por.por_int.value = 1
     dut.SCK.value = 0
     dut.SDI.value = 0
     dut.CSB.value = 1
@@ -251,9 +272,17 @@ async def reset(dut, clk_running=True):
     for pin in range(ANALOG_PINS):
         drive_pad(dut, pin, NAN)
 
+    # Let the deposit take effect, then wait out the POR, then let the
+    # released reset propagate.
+    await Timer(1, unit="ns")
+    await Timer(POR_DELAY_NS, unit="ns")
     await Timer(1000, unit="ns")
-    dut.porb.value = 1
-    await Timer(1000, unit="ns")
+
+    assert int(dut.porb.value) == 1, (
+        f"porb is {dut.porb.value} after waiting out the POR.  If it is 0 "
+        f"the part never came out of reset, which usually means the POR's "
+        f"'ena' is not tied high;  if it is x, ena is undriven."
+    )
 
     return SPI(dut)
 
