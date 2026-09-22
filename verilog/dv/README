@@ -1,0 +1,419 @@
+cocotb testbench for the Chipalooza harness digital subsystem
+=============================================================
+
+Setup (once), following the same pattern as lctime:
+
+	python3 -m venv venv
+	./venv/bin/pip install -r requirements.txt
+
+Run:
+
+	PATH=$PWD/venv/bin:$PATH make
+	PATH=$PWD/venv/bin:$PATH make COCOTB_TEST_MODULES=test_spi
+	PATH=$PWD/venv/bin:$PATH make COCOTB_TESTCASE=test_nop_command
+	PATH=$PWD/venv/bin:$PATH make WAVES=1		# dump a VCD
+
+VERILOG_SOURCES names only dut.v, because the rest of the design
+arrives through `include and make cannot see an include.  The Makefile
+adds verilog/rtl/*.v as an explicit prerequisite of sim.vvp so that an
+RTL edit does rebuild.  Anything OUTSIDE verilog/rtl --- the PDK models,
+or the behavioural analog models in dependencies/ --- is still not
+tracked, so "make clean" first after editing those.
+
+One WARNING line is expected in a clean run:
+
+	WARNING: digital_top.bandgap ...: bandgap bias out of range
+
+It comes from test_bias_range_check_rejects_a_wrong_setting, which
+deliberately mis-sets a trim to prove the check is not vacuous.  Any
+OTHER bias warning means a test is running an analog block outside the
+conditions it was characterised at, and the number that block produces
+is not trustworthy.
+
+PDK_ROOT/PDK must point at the IHP PDK so that sim_defs.v can find the
+SRAM and standard-cell models.  They default to $(HOME)/gits and
+ihp-sg13cmos5l respectively.
+
+What this replaces
+------------------
+verilog/rtl/digital_tb.v is a linear smoke script:  it has 32 $display
+calls but only five of them compare against an expected value, and none
+of them assert, so a wrong result prints and the run still exits 0.  It
+is useful for eyeballing a waveform and is kept for that.  These tests
+assert, and fail the build when they should.
+
+
+=============================================================
+TESTS CURRENTLY EXERCISED
+=============================================================
+
+test_spi.py --- SPI protocol and register file
+	test_identity_registers
+		Manufacturer ID (0x567), product ID (0x18) and SPI
+		status read back their hard-coded values.
+	test_mask_rev_passthrough
+		mask_rev_in appears byte for byte at 0x04..0x07.
+	test_register_write_readback
+		Eight writable registers hold what was written.
+	test_address_autoincrement
+		A write stream walks consecutive addresses, and so does
+		a read stream.
+	test_csb_resets_spi
+		A transfer abandoned after the address byte leaves the
+		register unchanged and the interface still usable.
+	test_nop_command
+		Command 0x00 does not write.
+
+test_sram.py --- pattern memory over SPI
+	test_sram_write_read
+		Four bytes written and read back.
+	test_sram_autoincrement_across_256
+		The SPI address phase is 8 bits, so only auto-increment
+		reaches above 255.  Writes 0xFC..0x103 and reads back.
+	test_sram_high_addresses_are_distinct
+		0x100 is a different location from 0x00, i.e. the
+		address carries rather than wrapping.
+	test_sram_walking_ones
+		Walking ones and walking zeros, so every data bit is
+		exercised independently.
+	test_sram_read_does_not_disturb
+		Repeated reads return the same contents.
+	test_register_access_after_sram_access
+		sram_ena clears, so register reads work after an SRAM
+		stream rather than continuing to return memory.
+
+test_clocking.py --- claims the timing constraints assert but cannot prove
+	test_sram_clock_sources_are_exclusive
+		An SRAM access command stops the sequencer.  This is the
+		premise behind -logically_exclusive on sram_clk_c and
+		sram_clk_s;  without it the SRAM could be clocked by SCK
+		while the sequencer runs on clk.
+	test_sram_clock_follows_selected_source
+		sram_clk tracks SCK when stopped and clk when running.
+	test_seq_strobe_is_not_a_clock
+		Back-to-back sequencer commands in one CSB session both
+		take effect.  Guards the seq_load restructure;  the old
+		data-generated seq_strobe clock dropped the second.
+	test_loop_mode_tracks_command
+		Looping vs single-shot select different loop_mode.
+	test_digital_reset_clears_sequencer
+		Command 0x04 clears the sequencer with clk stopped,
+		which is what loc_reset being asynchronous is for.
+
+
+test_project_control.py --- per-slot selection, input latch, gated clock
+	test_select_is_one_hot
+		Every one of the 18 addresses enables exactly one slot.
+		An x here means proj_addr is undriven, which is what the
+		bit_index fix in digital_top.v addressed.
+	test_slot_zero_selects_nothing
+		Address 0 is the diagnostic address and matches no slot.
+	test_addresses_above_18_select_nothing
+		19, 20 and 31 are unassigned;  proj_addr is a truncated
+		localparam, so an off-by-one would show up here.
+	test_unselected_slots_see_no_enables
+		No unselected slot has enable, 3.3V or 1.2V asserted.
+	test_dig_in_latch_is_transparent_then_holds
+		Program the routing, raise dig_ena so the whole word
+		arrives at once, lower it, change the routing underneath,
+		and confirm the project still sees the held value.
+		FOUND THE RESET_B INVERSION (see BUGS FOUND below).
+	test_dig_in_latch_clears_when_deselected
+		Deselecting resets a slot's latch, so a project cannot
+		keep a stale word from when it was last configured.
+	test_only_the_selected_slot_sees_the_bus
+		One project gets the pattern, seventeen get zero.
+	test_proj_clk_runs_only_on_the_selected_slot
+		The clock gate passes clk to one slot;  the other 17 stay
+		low.  A gate stuck open would load a clock tree that was
+		not built for it.
+	test_proj_clk_has_no_glitch_when_selection_changes
+		Selecting a slot with clk parked HIGH emits no edge.
+		This is what the lgcp_1 is for and what a plain
+		"select & clk" gets wrong;  clk stopped high is
+		explicitly permitted.
+	test_proj_clk_stops_cleanly_on_deselect
+		The mirror case:  deselecting does not leave a project's
+		clock frozen high.
+	test_proj_reset_is_synchronised_and_per_slot
+		Command 0x04 reaches only the selected project, and only
+		once the clock has run, since reset_sync is two stages
+		deep.  Releases when CSB clears dig_reset.
+	test_dig_out_daisy_chain_is_continuous
+		Both chains relay their zero seed through all 18 slots
+		and arrive resolvable, not x.  A break or a misindexed
+		slice in dbus_vec_left/right shows up as x here.
+
+test_analog.py --- power gating, bias routing, analog switches, bandgap
+	test_power_gate_reaches_only_selected_slot
+		3.3 V and 1.2 V arrive at the selected slot at their
+		nominal values and NaN everywhere else.
+	test_power_gates_independent
+		All four combinations of the two gate enables.
+	test_deselecting_removes_power
+		Selecting another slot removes power from the previous.
+	test_power_is_off_after_reset
+		No slot comes up powered.
+	test_bias_switches_route_to_selected_slot
+		ibias0, ibias1 and vbias reach one slot only.
+	test_bias_switches_independent
+		The three are separately controlled.
+	test_vbias_follows_voltgen
+		The bias delivered to a project tracks voltgen: zero with
+		no bandgap reference, non-zero with one, and monotonic in
+		the selector.  No absolute voltage is asserted.
+	test_voltgen_disabled_is_zero_not_floating
+		A disabled generator is a connected 0 V, NOT NaN.  The
+		distinction is the whole point of the sentinel.
+	test_analog_bus_enables_are_one_hot
+		Only the selected slot's four bus switches are on.
+	test_analog_bus_lines_independent
+		analog_bus_ena selects the four lines individually.
+	test_analog_bus_is_not_connected_to_any_slot_after_reset
+		Nothing reaches a project from the shared pins on reset.
+	test_project_zero_asserted_only_for_slot_zero
+		project_zero follows proj_sel == 0, including out of
+		reset, where 0 is the default.
+	test_diagnostic_switches_drive_the_shared_pins
+		Selecting project 0 puts the internal biases on the four
+		shared pins, and any other selection closes all four ---
+		otherwise an internal bias would be shorted onto a pin a
+		project is using.
+	test_bandgap_off_is_zero_and_on_is_plausible
+		0 V disabled;  enabled, inside a sanity band.  NOT a spec
+		check: see the note on the trim equation below.
+	test_bandgap_trim_is_monotonic_and_saturates
+		Raising the code never lowers the output, the
+		thermometer decode has exactly N bits set for code N, and
+		codes above 16 are all the same setting.
+	test_pads_are_disconnected_by_default
+		An undriven shared pad reads NaN, not 0 V.
+	test_pad_voltage_reaches_only_the_selected_slot
+		End to end: pad -> resolving mux -> per-slot switch ->
+		project.  All four pads carry different voltages so a
+		transposition between bus lines cannot pass.
+	test_pad_is_gated_by_its_own_bus_enable
+		A pad reaches a project only while that line's enable is
+		set.
+	test_diagnostic_drive_takes_precedence_over_the_pad
+		With project 0 selected the internal driver wins over an
+		external one, and releasing the pad does not disturb the
+		diagnostic measurement.
+
+test_bias.py --- the current bias generator and what it feeds
+	Driven from harness.BIAS_DEFAULTS, the documented working
+	settings, rather than from values invented for the test:
+		0x18 = 9   biasgen enable | stabilize with bandgap
+		0x1D = 12  bandgap sink2 = 1 unit, sink1 = 4 units
+		0x1E = 36  voltgen sink2 = 4 units, sink1 = 4 units
+		0x1F = 4   voltgen source = 4 units
+	Every trim is an integer count of unit currents;  the unit is
+	250 nA under these settings, so 1 uA is a count of 4 placed in
+	whichever bit field the register assigns.
+	test_bias_defaults_produce_the_documented_currents
+		All five internal biases come out at nominal.  If a bit
+		field moves in housekeeping.v, or a documented value
+		changes, the mismatch lands here.
+	test_bias_range_checks_pass_with_the_documented_settings
+		The bandgap and voltgen both accept what they are given.
+		FOUND THE BANDGAP BIAS CROSSING (see BUGS FOUND below).
+	test_bias_range_check_rejects_a_wrong_setting
+		The range check is not vacuous:  halving a trim fails it.
+	test_biasgen_disabled_zeroes_every_bias
+		A disabled biasgen sources and sinks nothing.  Zero, not
+		NaN:  the block is present and off, not absent.
+	test_idac_outputs_scale_with_the_unit_current
+		idac1 and idac2 are integer counts of 250 nA.
+	test_idac_current_reaches_a_project_unclamped
+		The current a project receives is the current the iDAC
+		sourced.  Guards CURRENT_MODE on the bias switches.
+	test_bias_polarity_is_preserved_through_the_switches
+		Sinks stay negative and sources positive at the
+		destination, which is why biasgen signs them.
+	test_bias_registers_read_back
+		The documented values survive a write/read round trip.
+
+
+=============================================================
+BUGS FOUND BY THESE TESTS
+=============================================================
+
+user_project_control.v, the dig_ena input latch.  The 24 dlhrq_1 cells
+had .RESET_B(~select).  RESET_B is ACTIVE LOW, so the inversion held the
+latch in reset on whichever slot was selected --- that project's 24
+inputs were pinned to zero and it could never receive anything from the
+shared bus --- while all seventeen unselected slots had their reset
+released and went transparent on dig_ena, latching the bus instead.
+Exactly backwards, and invisible to static timing, which by design does
+not cover dig_in -> proj_dig_in at all.  Now .RESET_B(select).
+NOTE:  this changes the user_project_control netlist, so the block needs
+re-synthesis before the result is signed off.
+
+digital_top.v, the bandgap bias connections.  The two blocks number
+their bias pins by different conventions:
+
+    biasgen2   bandgap_sink1 is the 1 uA sink   (3-bit trim)
+               bandgap_sink2 is the 250 nA sink (2-bit trim)
+    bandgap    ibias1_250n   wants 250 nA
+               ibias2_1      wants 1 uA
+
+They had been paired up by ordinal, which delivered 1 uA where 250 nA
+was wanted and 250 nA where 1 uA was wanted --- a clean factor of four
+the wrong way on both pins, with the documented register settings
+correctly programmed.  Now crossed to match the magnitudes.  Caught by
+the bias range check added to the bandgap model, which is what that
+check was for.  Behavioural model only:  nothing in the digital netlist
+changes, but the corresponding connection in the analog schematic is
+worth confirming against this.
+
+
+=============================================================
+MODEL LIMITATIONS, NOT RTL BUGS
+=============================================================
+
+Representing an analog node as one real is the root of all of these:
+the number has no units, no impedance and no direction, so each model
+has to be told out of band what it is carrying.  Verilog-A is what would
+make them go away, by carrying branch voltage and current together.
+What is left after the fixes recorded above:
+
+1.  The slot wrappers are empty, so proj_dig_out is undriven.  The
+    dig_out daisy chain can only be checked for continuity of the zero
+    seed, not for data injected by a selected project.
+
+2.  The dedicated per-slot analog pins are still tied to a NaN constant
+    (pad_not_modelled in digital_top).  Only the four SHARED pins are
+    exported.  Wiring up the dedicated pins means 40 more scalar real
+    ports, which is worth doing only if something is going to drive
+    them.
+
+3.  Contention on a shared pin is resolved in favour of the on-chip
+    driver rather than by output impedance.  Defined, but not physical.
+
+RESOLVED, and how, since they bound what earlier tests could assert:
+
+  - The four shared analog nets had no driver, so with a slot selected
+    they read NaN and nothing could be routed to a project.  digital_top
+    now exports them as analog_pinN_in / analog_pinN_out.  They are two
+    ports per pad because a real has no high-impedance state, iverilog
+    rejects a real inout, and a real cannot have two drivers.  The
+    diagnostic switches feed a resolving mux instead of driving the net
+    directly.  BEWARE:  an undriven "input real" reads 0.0, which is a
+    legitimate voltage, so harness.reset drives all four to NaN.
+
+  - analog_pswitch_small clamped its output up to PMOS_FLOOR = 0.8 on
+    nets carrying a CURRENT, turning a 250 nA bias into 0.8.  The model
+    now takes a CURRENT_MODE parameter that disables the voltage floor,
+    and the four instances on the ibias distribution set it.  The device
+    is the same either way;  only the meaning of the value changes.
+
+  - biasgen2 ignored its "ena" input.  Both unit currents are now gated
+    by it, so all seven outputs go to zero together when the block is
+    disabled --- and to NaN, not zero, if the enable is unknown, since
+    nothing downstream could tell "off" from "never driven" otherwise.
+
+  - The bandgap and voltgen models had a "to do" asking for a check that
+    the bias currents handed to them are in range, their behaviour being
+    uncharacterised away from nominal.  Both now carry one.  It is a
+    readable flag (bias_ok) plus a warning while the block is enabled,
+    not a clamp and not $error:  clamping would hide a misconnection and
+    $error would stop a deliberate sweep.  NaN fails the check, which is
+    intended.
+
+
+=============================================================
+NOT YET COVERED
+=============================================================
+
+Add to this list as gaps are found;  it doubles as the to-do list.
+The feature lists below were read out of the RTL headers, so they may
+name things the main document does not yet describe.
+
+Sequencer (sequencer.v).  seq_mode, register 0x10, three bits:
+	0  binary up count			NOT TESTED
+	1  binary down count			NOT TESTED
+	2  grayscale up count			NOT TESTED
+	3  grayscale down count			NOT TESTED
+	4  pseudorandom (LFSR)			NOT TESTED
+	5  constant zero (sequencer off)	NOT TESTED
+	6  constant one (sequencer off)		NOT TESTED
+	- start/stop counts (0x12..0x15) bounding the sequence
+	- seq_prescaler (0x0E) dividing the interval
+	- single-shot terminating vs looping wrapping
+	- lfsr.v itself:  sequence length, and no lockup at zero
+
+Pattern generator (pattern.v).  sram_mode, register 0x11, two bits:
+	0  increment at the sequencer clock rate	NOT TESTED
+	1  variable rate;  alternate memory locations hold
+	   the delay before the next step			NOT TESTED
+	2  increment at sequencer end			NOT TESTED
+	- pat_stop (0x16/0x17) as the recycle point
+	- the documented one-shot convention:  a value of all ones in
+	  the location just past the end of the sequence
+	- pat_prescaler (0x0F), and its multiplication with the
+	  variable time step in mode 1
+
+Router / crossbar (router.v).  Wholly untested.
+	- the 24 input-route nibbles (0x20..0x37):  constant 0,
+	  constant 1, sequencer output, SRAM output, and pass-through
+	  from each of the 12 I/O pins
+	- the 12 output-route nibbles (0x38..0x43)
+	- io_oe direction control and the 6/6, 8/4, 10/2 splits
+	- sram_monitor (0x4C), strobe_monitor and seq_monitor (0x4D)
+	- io_in -> dbus_out and dbus_in -> io_out feedthrough
+
+Project control (user_project_control.v).  NOW COVERED by
+test_project_control.py, except:
+	- the dig_out daisy chain carrying real data.  Only continuity
+	  of the zero seed is checkable while the slot wrappers are
+	  empty (model limitation 3 above), so the OR of the two chains
+	  at the housekeeping end is still unproven for a 1
+	- the routing itself:  which dbus_out bit lands on which
+	  proj_dig_in bit is checked as a 24-bit word, but the word is
+	  built out of constants, so a transposition inside the router
+	  would not show.  That belongs with the router tests below
+
+Power and bias configuration (0x18..0x1F, 0x51, 0x52).  NOW COVERED by
+test_analog.py and test_bias.py at the documented settings.  Still open:
+	- biasgen's coarse / fine unit-current selection.  Only the
+	  default (both clear, so a 250 nA unit) is exercised;  the
+	  50 nA, 1 uA and 333 nA units are not, and neither is
+	  ref_sel_vbg = 0, where the source unit mirrors the sink
+	- voltgen_high, which switches the resistor divider from
+	  vbg/4 to vbg/3
+	- the bandgap trim EQUATION.  Deliberately not asserted: the
+	  model's curve is linearized between endpoints pending a
+	  curve-fit, and the resistances are still being tuned, so a
+	  test against 0.96688 + j * 0.0203 would only confirm that the
+	  placeholder is still there.  Once the curve is final, add a
+	  value check;  the monotonicity and saturation tests already
+	  written should survive it unchanged
+	- an out-of-bounds assertion on the bias currents handed to the
+	  bandgap and voltgen models.  Both carry a "to do" saying
+	  their behaviour is uncharacterised away from -250 nA / -1 uA,
+	  so a testbench that quietly supplies something else is
+	  measuring nothing
+
+Gate level.  Everything here runs against RTL.  A gate-level mode using
+verilog/gl with SDF back-annotation is what would make this signoff
+grade rather than RTL grade.  Note that the PDK cell models' specify
+blocks are currently discarded (-gno-specify in the Makefile) because
+iverilog cannot parse their "ifnone" edge-sensitive paths;  that needs
+solving, or a different simulator, before SDF would mean anything.
+
+
+=============================================================
+HARDWARE BEHAVIOUR THE TESTS ENCODE
+=============================================================
+
+SRAM reads lag by one byte.  The SRAM cannot latch the full address by
+the next SCK edge, so the byte shifted out during transfer k+1 holds the
+contents of address k, and the first byte out is a dummy (X after
+reset).  harness.py's sram_read discards it, so callers get exactly the
+bytes they asked for.  digital_tb.v documents the same quirk above its
+own read.
+
+The register map in harness.py was read out of the odata mux in
+housekeeping.v rather than copied from the documentation, so that a
+divergence between RTL and document shows up as a failing test instead
+of as a test that agrees with the wrong thing.

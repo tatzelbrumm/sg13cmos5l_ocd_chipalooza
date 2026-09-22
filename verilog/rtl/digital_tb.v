@@ -17,9 +17,6 @@ module digital_tb ();
     wire [11:0] io_out;
     wire [11:0] io_oe;
 
-    wire [23:0] dbus_out;
-    reg [11:0] dbus_in;
-
     wire [4:0] proj_sel;
     wire proj_ena;
     wire proj_dig_ena;
@@ -127,7 +124,6 @@ module digital_tb ();
 	clk <= 1'b0;
 	mask_rev_in <= 32'hdeadbeef;
 	io_in <= 12'h000;
-	dbus_in <= 12'h000;
 
 	#1000;
 	porb <= 1'b1;	// bring out of reset
@@ -398,7 +394,30 @@ module digital_tb ();
     always #10 clk <= (clk === 1'b0);
 
     /* Instantiate the digital top module */
+    /* The four shared analog pins.
+     *
+     * These MUST be connected even though this testbench does not use
+     * them.  An unconnected "input real" port is 0.0, not NaN, and 0.0
+     * is a legitimate voltage --- so leaving them dangling would quietly
+     * tell the design that something outside is holding all four shared
+     * pins at ground.  NaN is "nothing is connected", which is the truth
+     * here.
+     */
+    wire real analog_pin_unconnected;
+    assign analog_pin_unconnected = 0.0/0.0;
+
+    wire real analog_pin0_out, analog_pin1_out;
+    wire real analog_pin2_out, analog_pin3_out;
+
     digital_top dig_top (
+	    .analog_pin0_in(analog_pin_unconnected),
+	    .analog_pin1_in(analog_pin_unconnected),
+	    .analog_pin2_in(analog_pin_unconnected),
+	    .analog_pin3_in(analog_pin_unconnected),
+	    .analog_pin0_out(analog_pin0_out),
+	    .analog_pin1_out(analog_pin1_out),
+	    .analog_pin2_out(analog_pin2_out),
+	    .analog_pin3_out(analog_pin3_out),
 	`ifdef USE_POWER_PINS
 	    .VPWR(VPWR),
 	    .VGND(VGND),
@@ -415,8 +434,6 @@ module digital_tb ();
 	    .io_in(io_in),
 	    .io_out(io_out),
 	    .io_oe(io_oe),
-	    .dbus_out(dbus_out),
-	    .dbus_in(dbus_in),
 	    .proj_sel(proj_sel),
 	    .proj_ena(proj_ena),
 	    .proj_dig_ena(proj_dig_ena),

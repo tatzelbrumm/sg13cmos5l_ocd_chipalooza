@@ -78,8 +78,8 @@ module housekeeping_spi (
     output reg rdstb,
     output reg wrstb,
     output reg sram_ena,
-    output reg seq_strobe,
-    output reg [1:0] seq_mode,
+    output wire seq_load,
+    output wire [1:0] seq_mode,
     output reg dig_reset
 );
 
@@ -107,6 +107,37 @@ module housekeeping_spi (
 
     assign cmdword = {writemode, readmode, sramwritemode, sramreadmode,
 			cmdlb, SDI};
+
+    /* Sequencer load strobe and mode --- both combinational.
+     *
+     * These used to be registers:  seq_strobe was set on the SCK edge
+     * that completed a sequencer command, and housekeeping.v then used
+     * "posedge seq_strobe" as a clock to capture seq_mode.  But
+     * seq_strobe and seq_mode were assigned in the same case branch on
+     * the same SCK edge, so the capturing flop sampled seq_mode at the
+     * exact moment it changed.  STA put that at -0.505 ns of hold slack
+     * once seq_strobe was finally declared as a clock;  before that it
+     * was invisible, because those flops were among the 324 unclocked
+     * register pins.
+     *
+     * Decoding combinationally instead lets housekeeping.v register
+     * seq_ena/loop_mode on posedge SCK with seq_load as a plain enable.
+     * They update on exactly the same edge as before --- so the SPI
+     * protocol is unchanged, and no extra SCK cycle is needed before
+     * CSB rises --- but seq_strobe is no longer a clock, which removes
+     * the race and one whole clock domain.
+     *
+     * Note cmdword's LSB is SDI itself, so these are functions of a live
+     * input;  that is the same setup/hold relationship as any other SPI
+     * data bit, and it is covered by the set_input_delay on SDI.
+     */
+    assign seq_load = (state == `COMMAND) && (count == 3'b111) &&
+			((cmdword == 8'h20) || (cmdword == 8'h10) ||
+			 (cmdword == 8'h30) || (cmdword == 8'h01) ||
+			 (cmdword == 8'h02) || (cmdword == 8'h03));
+
+    assign seq_mode = (cmdword == 8'h01) ? 2'b00 :
+		      (cmdword == 8'h02) ? 2'b01 : 2'b10;
 
     // Readback data is captured on the falling edge of SCK so that
     // it is guaranteed valid at the next rising edge.
@@ -163,8 +194,6 @@ module housekeeping_spi (
 	    sramwritemode <= 1'b0;
 	    sramreadmode <= 1'b0;
 	    sram_ena <= 1'b0;
-	    seq_strobe <= 1'b0;
-	    seq_mode <= 2'b00;
 	    dig_reset <= 1'b0;
 	    cmdlb <= 3'b00;
         end else begin
@@ -189,40 +218,20 @@ module housekeeping_spi (
 			8'h20:  begin
 			    sram_ena <= 1'b1;
 			    writemode <= 1'b1;
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b10;
 			    end
 			8'h10:  begin
 			    sram_ena <= 1'b1;
 			    readmode <= 1'b1;
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b10;
 			    end
 			8'h30:  begin
 			    sram_ena <= 1'b1;
 			    readmode <= 1'b1;
 			    writemode <= 1'b1;
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b10;
-			    end
-			8'h01:  begin
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b00;
-			    end
-			8'h02:  begin
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b01;
-			    end
-			8'h03:  begin
-			    seq_strobe <= 1'b1;
-			    seq_mode <= 2'b10;
 			    end
 			8'h04:  begin
-			    seq_strobe <= 1'b0;		// Default
 			    dig_reset <= 1'b1;
 			    end
 			default: begin
-			    seq_strobe <= 1'b0;		// Default
 			    end
 		    endcase
 		    if (cmdword[2:0] != 3'b000) begin

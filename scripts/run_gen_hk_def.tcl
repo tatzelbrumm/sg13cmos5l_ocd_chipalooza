@@ -22,7 +22,7 @@
 # CSB			(input)		bottom, above pad
 # SCK			(input)		bottom, above pad
 # clk			(input)		bottom, above pad
-# porb			(input)
+# porb			(input)		top right (analog resource)
 # reset			(output)	top center
 # mask_rev_in[31:0]	(input)		bottom right corner
 # sram_clk		(output)	left
@@ -34,8 +34,8 @@
 # io_in[11:0]		(input)		0-7 on bottom, 8-11 top
 # io_out[11:0]		(output)	0-7 on bottom, 8-11 top
 # io_oe[11:0]		(output)	0-7 on bottom, 8-11 top
-# dbus_out[21:0]	(output)	top 
-# dbus_in[11:0]		(input)		top 
+# dbus_out[23:0]	(output)	top 
+# dbus_in_left[11:0]	(input)		top 
 # proj_sel[4:0]		(output)	top 
 # proj_ena		(output)	top 
 # proj_dig_ena		(output)	top 
@@ -60,6 +60,8 @@
 # voltgen_sink1[2:0]	(output)	top
 # voltgen_sink2[2:0]	(output)	top
 # voltgen_source[4:0]	(output)	top
+# project_zero		(output)	top
+# dbus_in_right[11:0]	(input)		top 
 #
 # The top signals are clustered at the center where they can
 # access the infrastructure running up between the two columns
@@ -182,10 +184,11 @@ label_bottom_signal SDI		656	input
 label_bottom_signal CSB		659	input
 label_bottom_signal SCK		662	input
 
-# From "clk", 
+# From "clk" pad in
 
 label_bottom_signal clk		760	input
-label_bottom_signal porb	800	input
+
+# The mask revision input is on the far right
 
 label_bottom_signal mask_rev_in\[31\] 1860	input
 label_bottom_signal mask_rev_in\[30\] 1861	input
@@ -220,30 +223,36 @@ label_bottom_signal mask_rev_in\[2\]  1891	input
 label_bottom_signal mask_rev_in\[1\]  1892	input
 label_bottom_signal mask_rev_in\[0\]  1893	input
 
+# Digital I/O pads on the bottom of the chip
+
 label_bottom_signal io_out\[0\]	      1068	output
 label_bottom_signal io_oe\[0\]	      1071	output
-label_bottom_signal io_in\[0\]	      1110	output
+label_bottom_signal io_in\[0\]	      1110	input
 label_bottom_signal io_out\[1\]	      1178	output
 label_bottom_signal io_oe\[1\]	      1181	output
-label_bottom_signal io_in\[1\]	      1220	output
+label_bottom_signal io_in\[1\]	      1220	input
 label_bottom_signal io_out\[2\]	      1288	output
 label_bottom_signal io_oe\[2\]	      1291	output
-label_bottom_signal io_in\[2\]	      1330	output
+label_bottom_signal io_in\[2\]	      1330	input
 label_bottom_signal io_out\[3\]	      1398	output
 label_bottom_signal io_oe\[3\]	      1401	output
-label_bottom_signal io_in\[3\]	      1440	output
+label_bottom_signal io_in\[3\]	      1440	input
 label_bottom_signal io_out\[4\]	      1508	output
 label_bottom_signal io_oe\[4\]	      1511	output
-label_bottom_signal io_in\[4\]	      1550	output
+label_bottom_signal io_in\[4\]	      1550	input
 label_bottom_signal io_out\[5\]	      1618	output
 label_bottom_signal io_oe\[5\]	      1621	output
-label_bottom_signal io_in\[5\]	      1660	output
+label_bottom_signal io_in\[5\]	      1660	input
 label_bottom_signal io_out\[6\]	      1728	output
 label_bottom_signal io_oe\[6\]	      1731	output
-label_bottom_signal io_in\[6\]	      1770	output
+label_bottom_signal io_in\[6\]	      1770	input
 label_bottom_signal io_out\[7\]	      1838	output
 label_bottom_signal io_oe\[7\]	      1841	output
-label_bottom_signal io_in\[7\]	      1880	output
+label_bottom_signal io_in\[7\]	      1880	input
+
+# The SRAM is on the left of housekeeping with pins facing right.
+# The pin positions are aligned to the nearest integer micron so
+# they can be routed straight through on the shortest path.
 
 label_left_signal sram_idata\[0\]     305	output
 label_left_signal sram_odata\[0\]     312	input
@@ -277,132 +286,187 @@ label_left_signal sram_idata\[6\]     422	output
 label_left_signal sram_odata\[7\]     424	input
 label_left_signal sram_idata\[7\]     426	output
 
-label_top_signal reset		  1125	output
+# The "analog row" is directly above the housekeeping and digital
+# control signals for those blocks (current bias generator,
+# voltage bias generator, and bandgap) align roughly with the
+# corresponding block's x-position.
 
-label_top_signal dbus_out\[0\]    1135	output
-label_top_signal dbus_out\[1\]    1137	output
-label_top_signal dbus_out\[2\]    1139	output
-label_top_signal dbus_out\[3\]    1141	output
-label_top_signal dbus_out\[4\]    1143	output
-label_top_signal dbus_out\[5\]    1145	output
-label_top_signal dbus_out\[6\]    1147	output
-label_top_signal dbus_out\[7\]    1149	output
-label_top_signal dbus_out\[8\]    1151	output
-label_top_signal dbus_out\[9\]    1153	output
-label_top_signal dbus_out\[10\]   1155	output
-label_top_signal dbus_out\[11\]   1157	output
-label_top_signal dbus_out\[12\]   1159	output
-label_top_signal dbus_out\[13\]   1161	output
-label_top_signal dbus_out\[14\]   1163	output
-label_top_signal dbus_out\[15\]   1165	output
-label_top_signal dbus_out\[16\]   1167	output
-label_top_signal dbus_out\[17\]   1169	output
-label_top_signal dbus_out\[18\]   1171	output
-label_top_signal dbus_out\[19\]   1173	output
-label_top_signal dbus_out\[20\]   1175	output
-label_top_signal dbus_out\[21\]   1177	output
-label_top_signal dbus_out\[22\]   1179	output
-label_top_signal dbus_out\[23\]   1181	output
+# The iDAC is leftmost.  Signals start at X=760
 
-label_top_signal dbus_in\[0\]    1184	input
-label_top_signal dbus_in\[1\]    1186	input
-label_top_signal dbus_in\[2\]    1188	input
-label_top_signal dbus_in\[3\]    1190	input
-label_top_signal dbus_in\[4\]    1192	input
-label_top_signal dbus_in\[5\]    1194	input
-label_top_signal dbus_in\[6\]    1196	input
-label_top_signal dbus_in\[7\]    1198	input
-label_top_signal dbus_in\[8\]    1200	input
-label_top_signal dbus_in\[9\]    1202	input
-label_top_signal dbus_in\[10\]   1204	input
-label_top_signal dbus_in\[11\]   1206	input
+label_top_signal idac1_value\[0\]       760	output
+label_top_signal idac1_value\[1\]       762	output
+label_top_signal idac1_value\[2\]       764	output
+label_top_signal idac1_value\[3\]       766	output
+label_top_signal idac1_value\[4\]       768	output
+label_top_signal idac2_value\[0\]       770	output
+label_top_signal idac2_value\[1\]       772	output
+label_top_signal idac2_value\[2\]       774	output
+label_top_signal idac2_value\[3\]       776	output
+label_top_signal idac2_value\[4\]       778	output
+label_top_signal biasgen_ena	        780	output
+label_top_signal biasgen_coarse	        782	output
+label_top_signal biasgen_fine	        784	output
+label_top_signal biasgen_ref_vbg        786	output
+label_top_signal bandgap_sink1\[0\]     788	output
+label_top_signal bandgap_sink1\[1\]     790	output
+label_top_signal bandgap_sink1\[2\]     792	output
+label_top_signal bandgap_sink2\[0\]     794	output
+label_top_signal bandgap_sink2\[1\]     796	output
+label_top_signal voltgen_sink1\[0\]     798	output
+label_top_signal voltgen_sink1\[1\]     800	output
+label_top_signal voltgen_sink1\[2\]     802	output
+label_top_signal voltgen_sink2\[0\]     804	output
+label_top_signal voltgen_sink2\[1\]     806	output
+label_top_signal voltgen_sink2\[2\]     808	output
+label_top_signal voltgen_source\[0\]    810	output
+label_top_signal voltgen_source\[1\]    812	output
+label_top_signal voltgen_source\[2\]    814	output
+label_top_signal voltgen_source\[3\]    816	output
+label_top_signal voltgen_source\[4\]    818	output
 
-label_top_signal proj_sel\[0\]   1210	output
-label_top_signal proj_sel\[1\]   1212	output
-label_top_signal proj_sel\[2\]   1214	output
-label_top_signal proj_sel\[3\]   1216	output
-label_top_signal proj_sel\[4\]   1218	output
+# The end of the left-side digital out daisy chain is next
+# X=1000
 
-label_top_signal proj_ena        1220	output
-label_top_signal proj_dig_ena    1222	output
-label_top_signal proj_3v3_ena    1224	output
-label_top_signal proj_1v2_ena    1226	output
-label_top_signal proj_ibias_ena\[0\]    1228	output
-label_top_signal proj_ibias_ena\[1\]    1230	output
-label_top_signal proj_vbias_ena  1232	output
+label_top_signal dbus_in_left\[0\]    1000	input
+label_top_signal dbus_in_left\[1\]    1002	input
+label_top_signal dbus_in_left\[2\]    1004	input
+label_top_signal dbus_in_left\[3\]    1006	input
+label_top_signal dbus_in_left\[4\]    1008	input
+label_top_signal dbus_in_left\[5\]    1010	input
+label_top_signal dbus_in_left\[6\]    1012	input
+label_top_signal dbus_in_left\[7\]    1014	input
+label_top_signal dbus_in_left\[8\]    1016	input
+label_top_signal dbus_in_left\[9\]    1018	input
+label_top_signal dbus_in_left\[10\]   1020	input
+label_top_signal dbus_in_left\[11\]   1022	input
 
-label_top_signal analog_bus_ena\[0\]   1234	output
-label_top_signal analog_bus_ena\[1\]   1236	output
-label_top_signal analog_bus_ena\[2\]   1238	output
-label_top_signal analog_bus_ena\[3\]   1240	output
-label_top_signal idac1_value\[0\]      1242	output
-label_top_signal idac1_value\[1\]      1244	output
-label_top_signal idac1_value\[2\]      1246	output
-label_top_signal idac1_value\[3\]      1248	output
-label_top_signal idac1_value\[4\]      1250	output
-label_top_signal idac2_value\[0\]      1252	output
-label_top_signal idac2_value\[1\]      1254	output
-label_top_signal idac2_value\[2\]      1256	output
-label_top_signal idac2_value\[3\]      1258	output
-label_top_signal idac2_value\[4\]      1260	output
-label_top_signal voltgen_ena\[0\]      1262	output
-label_top_signal voltgen_ena\[1\]      1264	output
-label_top_signal voltgen_ena\[2\]      1266	output
-label_top_signal voltgen_high	       1268	output
-label_top_signal voltgen_value\[0\]    1270	output
-label_top_signal voltgen_value\[1\]    1272	output
-label_top_signal voltgen_value\[2\]    1274	output
-label_top_signal bandgap_ena	       1276	output
-label_top_signal bandgap_trim\[0\]     1278	output
-label_top_signal bandgap_trim\[1\]     1280	output
-label_top_signal bandgap_trim\[2\]     1282	output
-label_top_signal bandgap_trim\[3\]     1284	output
-label_top_signal bandgap_trim\[4\]     1286	output
-label_top_signal bandgap_trim\[5\]     1288	output
-label_top_signal bandgap_trim\[6\]     1290	output
-label_top_signal bandgap_trim\[7\]     1292	output
-label_top_signal bandgap_trim\[8\]     1294	output
-label_top_signal bandgap_trim\[9\]     1296	output
-label_top_signal bandgap_trim\[10\]    1298	output
-label_top_signal bandgap_trim\[11\]    1300	output
-label_top_signal bandgap_trim\[12\]    1302	output
-label_top_signal bandgap_trim\[13\]    1304	output
-label_top_signal bandgap_trim\[14\]    1306	output
-label_top_signal bandgap_trim\[15\]    1308	output
-label_top_signal biasgen_ena	       1310	output
-label_top_signal biasgen_coarse	       1312	output
-label_top_signal biasgen_fine	       1314	output
-label_top_signal biasgen_ref_vbg       1316	output
-label_top_signal bandgap_sink1\[0\]    1318	output
-label_top_signal bandgap_sink1\[1\]    1320	output
-label_top_signal bandgap_sink1\[2\]    1322	output
-label_top_signal bandgap_sink2\[0\]    1324	output
-label_top_signal bandgap_sink2\[1\]    1326	output
-label_top_signal voltgen_sink1\[0\]    1328	output
-label_top_signal voltgen_sink1\[1\]    1330	output
-label_top_signal voltgen_sink1\[2\]    1332	output
-label_top_signal voltgen_sink2\[0\]    1334	output
-label_top_signal voltgen_sink2\[1\]    1336	output
-label_top_signal voltgen_sink2\[2\]    1338	output
-label_top_signal voltgen_source\[0\]   1340	output
-label_top_signal voltgen_source\[1\]   1342	output
-label_top_signal voltgen_source\[2\]   1344	output
-label_top_signal voltgen_source\[3\]   1346	output
-label_top_signal voltgen_source\[4\]   1348	output
+# "project_zero" connects switches below the central column, so
+# put this just to the left of everything else that connects to
+# the central column digital bus (X = 1040)
 
-# The I/O ports at the top have to be threaded through the center
-label_top_signal io_out\[8\]	      1352	output
-label_top_signal io_oe\[8\]	      1355	output
-label_top_signal io_in\[8\]	      1358	output
-label_top_signal io_out\[9\]	      1361	output
-label_top_signal io_oe\[9\]	      1364	output
-label_top_signal io_in\[9\]	      1367	output
-label_top_signal io_out\[10\]	      1380	output
-label_top_signal io_oe\[10\]	      1383	output
-label_top_signal io_in\[10\]	      1386	output
-label_top_signal io_out\[11\]	      1389	output
-label_top_signal io_oe\[11\]	      1392	output
-label_top_signal io_in\[11\]	      1395	output
+label_top_signal project_zero	  1040	output
+
+# Note:  The bandgap was reworked to a narrow aspect ratio so that
+# it can fit in the "analog row" above housekeeping.  This leaves
+# the center clear for all the routing to connect to the central
+# column.  Start at X=1050
+
+label_top_signal clk_out	  1050	output
+label_top_signal reset		  1060	output
+
+label_top_signal dbus_out\[0\]    1070	output
+label_top_signal dbus_out\[1\]    1072	output
+label_top_signal dbus_out\[2\]    1074	output
+label_top_signal dbus_out\[3\]    1076	output
+label_top_signal dbus_out\[4\]    1078	output
+label_top_signal dbus_out\[5\]    1080	output
+label_top_signal dbus_out\[6\]    1082	output
+label_top_signal dbus_out\[7\]    1084	output
+label_top_signal dbus_out\[8\]    1086	output
+label_top_signal dbus_out\[9\]    1088	output
+label_top_signal dbus_out\[10\]   1090	output
+label_top_signal dbus_out\[11\]   1092	output
+label_top_signal dbus_out\[12\]   1094	output
+label_top_signal dbus_out\[13\]   1096	output
+label_top_signal dbus_out\[14\]   1098	output
+label_top_signal dbus_out\[15\]   1100	output
+label_top_signal dbus_out\[16\]   1102	output
+label_top_signal dbus_out\[17\]   1104	output
+label_top_signal dbus_out\[18\]   1106	output
+label_top_signal dbus_out\[19\]   1108	output
+label_top_signal dbus_out\[20\]   1110  output
+label_top_signal dbus_out\[21\]   1112	output
+label_top_signal dbus_out\[22\]   1114	output
+label_top_signal dbus_out\[23\]   1116	output
+
+label_top_signal proj_sel\[0\]   1120	output
+label_top_signal proj_sel\[1\]   1122	output
+label_top_signal proj_sel\[2\]   1124	output
+label_top_signal proj_sel\[3\]   1126	output
+label_top_signal proj_sel\[4\]   1128	output
+
+label_top_signal proj_ena        1130	output
+label_top_signal proj_dig_ena    1132	output
+label_top_signal proj_3v3_ena    1134	output
+label_top_signal proj_1v2_ena    1136	output
+label_top_signal proj_ibias_ena\[0\]    1138	output
+label_top_signal proj_ibias_ena\[1\]    1140	output
+label_top_signal proj_vbias_ena  1142	output
+
+label_top_signal analog_bus_ena\[0\]   1144	output
+label_top_signal analog_bus_ena\[1\]   1146	output
+label_top_signal analog_bus_ena\[2\]   1148	output
+label_top_signal analog_bus_ena\[3\]   1150	output
+
+# Right-side dbus return signals from project slot 1
+# Start at X=1210
+
+label_top_signal dbus_in_right\[0\]    1210	input
+label_top_signal dbus_in_right\[1\]    1212	input
+label_top_signal dbus_in_right\[2\]    1214	input
+label_top_signal dbus_in_right\[3\]    1216	input
+label_top_signal dbus_in_right\[4\]    1218	input
+label_top_signal dbus_in_right\[5\]    1220	input
+label_top_signal dbus_in_right\[6\]    1222	input
+label_top_signal dbus_in_right\[7\]    1224	input
+label_top_signal dbus_in_right\[8\]    1226	input
+label_top_signal dbus_in_right\[9\]    1228	input
+label_top_signal dbus_in_right\[10\]   1230	input
+label_top_signal dbus_in_right\[11\]   1232	input
+
+# The I/O ports at the top have to be threaded through the far
+# right side of the center column.  Start X at 1260
+
+label_top_signal io_out\[8\]	      1260	output
+label_top_signal io_oe\[8\]	      1262	output
+label_top_signal io_in\[8\]	      1264	input
+label_top_signal io_out\[9\]	      1266	output
+label_top_signal io_oe\[9\]	      1268	output
+label_top_signal io_in\[9\]	      1270	input
+label_top_signal io_out\[10\]	      1272	output
+label_top_signal io_oe\[10\]	      1274	output
+label_top_signal io_in\[10\]	      1276	input
+label_top_signal io_out\[11\]	      1278	output
+label_top_signal io_oe\[11\]	      1280	output
+label_top_signal io_in\[11\]	      1282	input
+
+# The voltage bias generator is at X=1400 but pins come
+# from the left and start at x=1370
+
+label_top_signal voltgen_ena\[0\]      1370	output
+label_top_signal voltgen_ena\[1\]      1372	output
+label_top_signal voltgen_ena\[2\]      1374	output
+label_top_signal voltgen_high	       1376	output
+label_top_signal voltgen_value\[0\]    1378	output
+label_top_signal voltgen_value\[1\]    1380	output
+label_top_signal voltgen_value\[2\]    1382	output
+
+# The bandgap is on the right with left-facing pins
+# Start at X=1500 (Note: First tried right-facing pins
+# at X=1780 but ran into congestion issues.  Flipping
+# the layout may or may not have any impact.)
+
+label_top_signal bandgap_ena	       1500	output
+label_top_signal bandgap_trim\[0\]     1502	output
+label_top_signal bandgap_trim\[1\]     1504	output
+label_top_signal bandgap_trim\[2\]     1506	output
+label_top_signal bandgap_trim\[3\]     1508	output
+label_top_signal bandgap_trim\[4\]     1510	output
+label_top_signal bandgap_trim\[5\]     1512	output
+label_top_signal bandgap_trim\[6\]     1514	output
+label_top_signal bandgap_trim\[7\]     1516	output
+label_top_signal bandgap_trim\[8\]     1518	output
+label_top_signal bandgap_trim\[9\]     1520	output
+label_top_signal bandgap_trim\[10\]    1522	output
+label_top_signal bandgap_trim\[11\]    1524	output
+label_top_signal bandgap_trim\[12\]    1526	output
+label_top_signal bandgap_trim\[13\]    1528	output
+label_top_signal bandgap_trim\[14\]    1530	output
+label_top_signal bandgap_trim\[15\]    1532	output
+
+# POR sits at the far right (X = 1780)
+
+label_top_signal porb		       1780	input
 
 # Add route obstructions around the edges over and under the pins
 tech unlock *
@@ -418,6 +482,13 @@ paint obsm4
 box values $die_llx [- $die_ury 1] $die_urx $die_ury
 paint obsm1
 paint obsm3
+
+# Add route obstructions on the right side to allow the 3.3V power
+# bus to be brought in from the pad in the lower right corner.
+box values [- $die_urx 33] [+ $die_lly 25] $die_urx [- $die_ury 60]
+paint obsm5
+box values [- $die_urx 33] [+ $die_lly 25] $die_urx $die_ury
+paint obsm4
 
 writeall force housekeeping_top_def
 

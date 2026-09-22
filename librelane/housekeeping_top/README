@@ -25,3 +25,9 @@ NOTE:  The run results are *not* pushed back to the git repository, because
 the size of everything in the directories is huge.  The project final output
 was copied into the ../gds/ directory, and the project can be recreated on
 demand from the existing configuration files.
+
+Another note:  After a LibreLane failure that filled up my memory and swap and
+locked up my machine, on advice of Claude Opus I am running with a memory cap:
+
+	systemd-run --user --scope -p MemoryMax=24G -p MemorySwapMax=0 -- \
+	librelane config.yaml --manual-pdk --pdk ihp-sg13cmos5l --pdk-root ${PDK_ROOT}

@@ -19,26 +19,47 @@ meta:
     Magic.WriteLef: null
     Odb.CheckDesignAntennaProperties: null
     
-    # KLayout doesn't streamout (?)
-    KLayout.StreamOut: null
-    KLayout.XOR: null
-    
     # Magic has no issues with DRC
     # Magic.DRC: null
     
-    # We run KLayout DRC manually
-    KLayout.DRC: null
-    
-    # We run LVS manually
-    Netgen.LVS: null
-    
     # Some macros may overlap on purpose
     Checker.IllegalOverlap: null
+    
+    # NOTE:  KLayout.StreamOut / KLayout.XOR / KLayout.DRC / Netgen.LVS
+    # are no longer disabled here.  Nulling a step leaves its Checker
+    # behind with nothing to check, which is where the
+    #   "The XOR differences metric was not found."
+    # message came from.  They are disabled through the flow control
+    # variables further down instead, which drop the checkers too.
+
+# Signoff tool selection and flow control
+#
+# THE IMPORTANT ONE:  the IHP PDK sets PRIMARY_GDSII_STREAMOUT_TOOL to
+# "klayout", and Magic.StreamOut only registers the GDS view when this is
+# "magic" (otherwise it registers MAG_GDS and MAG only).  With KLayout's
+# streamout disabled, nothing produced a GDS view at all, so Magic.DRC
+# --- which takes DesignFormat.GDS as a REQUIRED input --- aborted before
+# running, leaving an empty step directory and an empty error.log.  That
+# is why the flow always stopped just short of DRC.
+PRIMARY_GDSII_STREAMOUT_TOOL: magic
+
+# KLayout streamout is off, which also switches off KLayout.XOR and
+# Checker.XOR (they are gated on the streamouts as well).  Note this
+# means the magic-vs-klayout GDS cross-check is not being run;  see the
+# README if it is ever worth turning back on.
+RUN_KLAYOUT_STREAMOUT: false
+RUN_KLAYOUT_XOR: false
+
+# KLayout DRC and LVS are run manually from validate/.  Disabling them
+# by flow control variable also drops Checker.KLayoutDRC and Checker.LVS.
+RUN_KLAYOUT_DRC: false
+RUN_LVS: false
 
 DESIGN_NAME: user_project_control
 VERILOG_FILES:
 - dir::../../verilog/rtl/synth_defs.v
 - dir::../../verilog/rtl/user_project_control.v
+- dir::../../verilog/rtl/user_project_control_base.v
 
 DEDUPLICATE_CORNERS: true
 
@@ -104,7 +125,12 @@ CLOCK_PORT: clk
 CLOCK_PERIOD: 15
 
 # SDC
-FALLBACK_SDC_FILE: dir::base.sdc
+# NOTE:  FALLBACK_SDC (the deprecated FALLBACK_SDC_FILE) only ever
+# constrains the first entry of CLOCK_PORT, which is why the templated
+# base.sdc could not describe this block.  Setting the per-step files
+# explicitly instead.  base.sdc is now unused and can be deleted.
+PNR_SDC_FILE: dir::constraints.sdc
+SIGNOFF_SDC_FILE: dir::constraints.sdc
 
 # CTS
 CTS_OBSTRUCTION_AWARE: true
@@ -115,8 +141,14 @@ CTS_SINK_CLUSTERING_MAX_DIAMETER: 60 # default 50
 # Routing
 GRT_ALLOW_CONGESTION: true
 RT_CLOCK_MAX_LAYER: Metal4
-#RT_MAX_LAYER: Metal4
-#DRT_MAX_LAYER: Metal4
+
+# The sg13cmos5l routable stack is Metal1..Metal4 plus TopMetal1 (which
+# magic calls "metal5"/m5).  TopMetal1 has a 3.28 um pitch and 1.64 um
+# width, so it is of no use for signal routing in a 35 um tall block:
+# the previous run placed exactly zero TopMetal1 signal wires in it.
+# Capping the router at Metal4 keeps TopMetal1 entirely free for the
+# chip-level power distribution that runs over this block.
+RT_MAX_LAYER: Metal4
 
 # Resizer
 # RSZ_DONT_TOUCH_RX: porb_l|por_l
@@ -133,6 +165,12 @@ GND_NETS:
 - vssd
 
 PDN_CORE_RING: false
+
+# Keep the block PDN off TopMetal1.  With PDN_MULTILAYER false, pdngen
+# builds Metal1 follow-pin rails plus Metal4 vertical straps and stops
+# there, instead of adding the TopMetal1 horizontal straps that had to
+# be deleted by hand after the previous run.
+PDN_MULTILAYER: false
 
 # FP_PDN_CFG: dir::pdn_cfg.tcl
 
@@ -153,14 +191,23 @@ PDN_CORE_RING: false
 # Floorplanning
 FP_SIZING: absolute
 
-DIE_AREA: [ 0.00, 0.00, 110.00, 35.00 ]
-CORE_AREA: [ 3.00, 3.00, 107.00, 32.00 ]
+# 205 sites x 14 rows = 5207.3 um2 of core, for ~2940 um2 of cells
+# (56% utilization).  The 0.48 um site / 3.78 um row grid is anchored at
+# die (0,0), so the usable row area is NOT (urx-llx)*(ury-lly):  rows run
+# y = 3.78 .. 56.70 and sites x = 3.36 .. 101.76.  Check both when
+# changing these numbers --- at 115x35 the rows only reached y = 30.24
+# inside a core ending at 32, giving 2870 um2 against 2938 um2 of cells,
+# which is why placement could not be legalized after CTS.
+DIE_AREA: [ 0.00, 0.00, 105.00, 60.00 ]
+CORE_AREA: [ 3.00, 3.00, 102.00, 57.00 ]
 
 FP_DEF_TEMPLATE: dir::../../def/user_project_control.def
 FP_TEMPLATE_MATCH_MODE: permissive
 #FP_TEMPLATE_COPY_POWER_PINS: True
 
-PL_TARGET_DENSITY_PCT: 40 # Adjust?
+# Kept above the ~56% actual utilization so the global placer has room
+# to spread rather than packing to the target.
+PL_TARGET_DENSITY_PCT: 65
 
 # FP_OBSTRUCTIONS:
 ## SRAM
@@ -168,96 +215,54 @@ PL_TARGET_DENSITY_PCT: 40 # Adjust?
 ## ADC/DAC area
 # - [790, 0.00, 1720, 290]
 
+# Obstructions
+#
+# IMPORTANT:  Odb.ApplyDEFTemplate only relocates pins and reads the die
+# area out of FP_DEF_TEMPLATE.  It does NOT import the BLOCKAGES section,
+# so the obsm* shapes painted by scripts/run_gen_ctrl_def.tcl have no
+# effect on the flow and have to be restated here.  Keep the two in step
+# when the template is regenerated.
+#
+# Layer names here are LEF names.  magic's "m4"/metal4 is Metal4;  its
+# "m5"/metal5 is TopMetal1.
+#
+# These three vertical corridors are where the chip-level Metal4 power
+# buses, distributing supplies out to the user projects, run across this
+# block.  The block is rotated 90 degrees at chip level, so buses that
+# run horizontally there are vertical in these coordinates.  The block's
+# own router and its PDN both have to stay out of them.
+#
+# Corridors (die is 0,0 .. 105,60):   x = 0.0 .. 4.3
+#                                     x = 31.8 .. 61.7
+#                                     x = 75.0 .. 105.0
+# Leaving free windows for PDN straps at  x = 4.3 .. 31.8
+#                                     and x = 61.7 .. 75.0
+#
+# These follow run_gen_ctrl_def.tcl, where the third corridor is written
+# as (die_urx - 30) and so moved in with the right edge when the die
+# narrowed from 115 to 105.  If that bus actually sits at a fixed chip
+# coordinate rather than relative to this block's right edge, the
+# corridor should be 85.0 .. 105.0 instead --- 20 um wide, not 30 --- and
+# the script should use an absolute x.  Worth confirming in the layout.
+
 PDN_OBSTRUCTIONS:
-## SIO
-# - [Metal1, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal2, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal3, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal4, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal5, 2661.15, 0.00, 3141.15, 46.715]
-## ADC/DAC area
-# - [Metal4, 790, 0.00, 1720, 290] #[Metal4, 800, 20, 1700, 270]
-# - [Metal5, 790, 0.00, 1720, 290] #[Metal5, 800, 20, 1700, 270]
-## Logo
-# - [Metal5, 2665, 120, 3129.4, 203.5]
-
-# Power connections
-
-# Bottom
-# - [Metal4, 26.45, 0, 100.66, 20]
-# 
-# - [Metal4, 931.45, 0, 1005.66, 20]
-#
-#- [Metal4, 1611.45, 0, 1685.66, 20]
-#
-#- [Metal4, 2551.45, 0, 2625.66, 20]
-
-# Top
-#- [Metal4, 3085.65, 4750.65, 3147.9, 4770.65]
-#
-#- [Metal4, 2375.64, 4750.65, 2449.905, 4770.65]
-#
-#- [Metal4, 725.65, 4750.65, 799.85, 4770.65]
-#
-#- [Metal4, 27.65, 4750.65, 89.85, 4770.65]
+- [Metal4, 0.00, 0.00, 4.30, 60.00]
+- [Metal4, 31.80, 0.00, 61.70, 60.00]
+- [Metal4, 75.00, 0.00, 105.00, 60.00]
 
 ROUTING_OBSTRUCTIONS:
-## SIO
-# - [Metal1, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal2, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal3, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal4, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal5, 2661.15, 0.00, 3141.15, 46.715]
-## ADC/DAC area
-# - [Metal4, 800, 0.00, 1700, 270]
-## Logo
-# - [Metal5, 2665, 120, 3070, 265]
+- [Metal4, 0.00, 0.00, 4.30, 60.00]
+- [Metal4, 31.80, 0.00, 61.70, 60.00]
+- [Metal4, 75.00, 0.00, 105.00, 60.00]
 
-# Power connections
-
-# Bottom
-#- [Metal3, 26.45, 0, 100.66, 20]
-#- [Metal4, 26.45, 0, 100.66, 20]
-#
-#- [Metal3, 931.45, 0, 1005.66, 20]
-#- [Metal4, 931.45, 0, 1005.66, 20]
-#
-#- [Metal3, 1611.45, 0, 1685.66, 20]
-#- [Metal4, 1611.45, 0, 1685.66, 20]
-#
-#- [Metal3, 2551.45, 0, 2625.66, 20]
-#- [Metal4, 2551.45, 0, 2625.66, 20]
-#
-# Right
-#- [Metal3, 3150.3, 584.8, 3170.3, 659]
-#
-#- [Metal3, 3150.3, 2184.8, 3170.3, 2259.01]
-#
-#- [Metal3, 3150.3, 3487.8, 3170.3, 3562]
-#
-#- [Metal3, 3150.3, 4527.8, 3170.3, 4602.01]
-#
-# Top
-#- [Metal3, 3085.65, 4750.65, 3147.9, 4770.65]
-#- [Metal4, 3085.65, 4750.65, 3147.9, 4770.65]
-#
-#- [Metal3, 2375.64, 4750.65, 2449.905, 4770.65]
-#- [Metal4, 2375.64, 4750.65, 2449.905, 4770.65]
-#
-#- [Metal3, 725.65, 4750.65, 799.85, 4770.65]
-#- [Metal4, 725.65, 4750.65, 799.85, 4770.65]
-#
-#- [Metal3, 27.65, 4750.65, 89.85, 4770.65]
-#- [Metal4, 27.65, 4750.65, 89.85, 4770.65]
-#
-# Left
-#- [Metal3, 0, 4537, 20, 4611.2]
-#
-#- [Metal3, 0, 3497, 20, 3571.2]
-#
-#- [Metal3, 0, 2199, 20, 2273.2]
-#
-#- [Metal3, 0, 589, 20, 663.2]
+# NOTE:  run_gen_ctrl_def.tcl also paints 1 um obsm1/obsm2/obsm3/obsm4
+# strips along all four die edges, over the pins.  Those are NOT
+# restated here on purpose:  the pin shapes themselves are only 2 um
+# long, so a 1 um routing blockage on the same layer would cover half of
+# every pin and could make them unreachable.  The 3 um CORE_AREA margin
+# already keeps placement and most routing off the die edge.  If edge
+# blockages do turn out to be needed at chip level, they should be made
+# narrower than the pin overhang first.
 
 # Magic: Use GDS views (no DRC issues)
 MAGIC_DRC_USE_GDS: True

@@ -1,0 +1,4 @@
+# Pinned deliberately.  cocotb 2.x is a breaking API change from 1.x
+# (Timer's "units=" became "unit=", among others), and these tests are
+# written against 2.x.
+cocotb==2.1.0

@@ -1,4 +1,23 @@
 /*
+ * DEPRECATED --- archived 2026-09-18.
+ *
+ * harness_top.v was the whole-chip representation, instantiating the
+ * user project wrappers alongside the digital blocks.  It went stale:
+ * it instantiates wrappers by padframe-side pin count, which no longer
+ * matches the per-slot pin assignment in config.txt, and it predates the
+ * slot renumbering.
+ *
+ * Its role has been taken over by digital_top.v, which is now "the
+ * digital equivalent of the chip top level":  the digital blocks, the 18
+ * per-slot wrappers (slot1_wrapper.v .. slot18_wrapper.v, one per slot
+ * rather than one per pin count), and behavioural models of the analog
+ * switches and bias generators so that connectivity and control can be
+ * checked as though the whole chip were digital.
+ *
+ * Kept for reference only.  Not compiled by sim_defs.v.
+ */
+
+/*
  * Module which instantiates all of the main components of the analog
  * harness chip:  housekeeping, SRAM, and 18 project slots with control.
  */

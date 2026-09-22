@@ -1,0 +1,253 @@
+Structural equivalence: simulated top level vs. schematic
+==========================================================
+
+	make netlist	elaborate digital_top into a structural netlist
+	make selftest	check the comparison can detect a real error
+	make lvs SCHEMATIC=/path/to/digital_top.spice
+
+Why this exists
+---------------
+digital_top.v is simulated but not taped out.  The schematic and layout
+are taped out but not simulated against the cocotb suite.  Nothing
+connects the two, so "the tests pass" says nothing about the thing that
+gets fabricated unless the two netlists are shown to be the same.
+
+The claim is split in two, because only one half is mechanisable:
+
+  STRUCTURE  the two netlists instantiate the same cells wired to the
+	     same nets.  That is what this directory proves.
+  BEHAVIOUR  each behavioural model matches the circuit it stands for.
+	     Not provable by netlist comparison, ever.  Discharged per
+	     block against ngspice --- see validate/switch_polarity for
+	     the pattern, and the bias range checks now built into the
+	     bandgap and voltgen models.
+
+The structural half is worth more than it sounds.  Every bug found in
+this design so far has been a wiring bug:  the dlhrq RESET_B inversion,
+bit_index resolving to x, and the bandgap bias crossing.  The last of
+those is exactly what a structural compare catches without anyone
+having thought to test for it, which is why selftest.py injects it.
+
+How it works
+------------
+netgen's Verilog reader is a STRUCTURAL netlist reader, not an RTL
+elaborator:  it reads digital_top.v happily until the first generate
+loop and then stops.  So yosys does the elaboration first.
+
+	digital_top.v + blackboxes.v
+	  -> yosys (hierarchy, proc)		elaborates the generates
+	  -> digital_top.struct.v		207 instances, 1588 nets
+	  -> netgen lvs vs the xschem .spice
+
+TWO yosys write_verilog passes are needed, and both matter.
+"-blackboxes" is exclusive rather than additive:  it writes ONLY the
+blackbox modules, and a plain write_verilog writes only the others.
+Without the blackbox half netgen has no port list for the leaves, so it
+infers each placeholder's pins from the connections it happens to see
+-- which is how it came to report an error on one tie-off and stay
+silent about twenty-eight others.
+
+yosys rejects "real" ports outright, so the structural view cannot carry
+reals at all.  LVS_STRUCTURAL in digital_top.v swaps them for plain
+nets.  There are eight such guards and they are listed below so they can
+be checked by eye --- that is the entire surface where the simulated and
+taped-out views are allowed to differ.
+
+The LVS_STRUCTURAL guards in digital_top.v
+------------------------------------------
+1. The four shared analog pads.  Behaviourally each pad is TWO ports
+   (analog_pinN_in / analog_pinN_out) because a real has no
+   high-impedance state, iverilog rejects a real inout, and a real
+   cannot have two drivers.  Structurally each is one inout wire, which
+   is what the schematic and the layout have.  This is an iverilog
+   artifact --- the correct construct is a user-defined nettype with a
+   resolution function, or Verilog-AMS wreal, neither of which iverilog
+   supports.
+2-5. Four blocks of "wire real" declarations become plain "wire".  Same
+   net either way;  only what it carries differs.
+6. avdd_rail / dvdd_rail.  Behaviourally these convert a 1-bit supply
+   net into a voltage;  structurally they are aliases for AVDD and DVDD.
+   LVS_STRUCTURAL therefore REQUIRES USE_POWER_PINS, which lvs_top.v
+   defines alongside it.
+7. The resolving mux on the shared pins.  Structurally the diagnostic
+   switch output, the pad and the on-chip distribution are one net, so
+   the four nets are simply tied together.  The mux exists only because
+   a real cannot have two drivers.
+8. pad_not_modelled.  The dedicated per-slot analog pads are not
+   exported yet, so structurally they are one dangling net.  LVS WILL
+   FLAG unconnected pins on every slot wrapper, and that complaint is
+   correct:  the schematic has real pads there.  See "known gaps".
+
+A CONSTANT IS NOT A NET
+-----------------------
+The remaining guards are not real-vs-wire questions but physical ones,
+and they exist because of a hole that had to be measured to be found.
+
+netgen DROPS a connection written as a literal.  It does not warn;  the
+pin simply does not take part in the comparison.  So every hard-wired
+constant in digital_top was silently outside the check:
+
+	18 x proj_addr[4:0]	the slot address, 90 pins
+	10 x SRAM tie-offs	A_DLY, A_BM and the BIST pins, 40 pins
+	 2 x dig_out_relay	the top of each daisy chain, 24 pins
+
+The proj_addr case was the serious one.  That five-bit address is the
+ONLY thing that distinguishes one user_project_control instance from the
+other seventeen -- everything else about them is identical -- so it is
+the single connection most in need of checking, and it was the one being
+ignored.  LVS reported "Circuits match uniquely" on a netlist with two
+slots' addresses swapped:  a chip where every project answered to the
+wrong selector would have passed.
+
+Only the daisy-chain tie-off ever produced a complaint, and only by
+accident:  netgen had already learned dig_out_relay's width from the 16
+instances that connect it to a real bus, so when it met the constant it
+tried to split it across 12 pins and failed.  proj_addr is a constant in
+all 18 instances, so netgen never learned anything to be inconsistent
+with.  An error that depends on a port being used correctly SOMEWHERE
+else is not a safety net.
+
+The fix is the same in every case, and it is more physically honest than
+what it replaces:  these pins are tied to a supply rail in the
+schematic, so the structural view ties them to DVDD/DVSS through tie_hi
+and tie_lo.  Behaviourally those two nets are just 1 and 0, so nothing
+about the simulation changes.  "make netlist" now prints no constant
+connections at all, and selftest.py checks that a swapped slot address
+is detected.
+
+CONFIRM AGAINST THE SCHEMATIC, since these are assumptions about what it
+will contain:
+  - proj_addr on each slot, tied per bit to give 1..18
+  - the SRAM's A_DLY high, A_BM all high, and every BIST pin low
+  - dig_out_relay low at the top of each chain (24 pins, 12 per chain)
+
+"make netlist" rejects constants
+--------------------------------
+check_netlist.py fails the build if any instance pin is connected to a
+literal, naming each one.  That is the rule netgen should enforce and
+currently does not -- see the bug report written up in the scratchpad
+notes -- so it is enforced here instead, where a regression in
+digital_top.v shows up immediately rather than as a quietly smaller LVS.
+
+Tie the pin to the supply net for ITS domain.  Do not expect any tool to
+infer which one:  this chip has AVDD/AVSS at 3.3 V and DVDD/DVSS at
+1.2 V, so a bare 1'b0 does not identify a net, and a tool that guessed
+could bond a 3.3 V domain pin to the 1.2 V return without saying so.
+
+blackboxes.v
+------------
+Port-only stubs for all 29 leaves, GENERATED by gen_blackboxes.py from
+the real module headers.  Do not hand-edit:  a stub whose pins have
+quietly drifted from the module it stands for is worse than no stub,
+because yosys would elaborate it without complaint and LVS would then
+compare the wrong thing.  Regenerate with
+
+	./gen_blackboxes.py > blackboxes.v
+
+The generator applies two transformations.  A real port becomes a plain
+wire, and an analog port becomes "inout" whatever the behavioural model
+calls it --- the models are unidirectional because a real cannot have
+two drivers, but the devices are not.
+
+housekeeping_top, user_project_control and the SRAM are blackboxes here
+because they are separately placed, routed and LVS'd.  At this level
+they are correctly opaque.
+
+setup.tcl
+---------
+Permutes the in/out pins of the three analog switch cells.  Those are
+symmetric devices --- which terminal is called "in" is a modelling
+convention, not a fact about the layout --- so a swap is not an error.
+The cost is real and deliberate:  a genuinely reversed switch connection
+will also pass.  That is the right trade ONLY because the device is
+symmetric.  The power stages are NOT permuted, because IOVDD_IN comes
+from the pad ring and IOVDD_OUT feeds one project, and reversing those
+would be a genuine error.
+
+selftest.py
+-----------
+A comparison that always passes is worse than no comparison, because it
+reads like evidence -- and this one did pass on a netlist with two slot
+addresses swapped, until the tie-offs above were fixed.  So the harness
+is checked against deliberately damaged copies before its verdict is
+trusted:
+
+	identity    the netlist against a copy of itself     must MATCH
+	crossed     two bias nets swapped                    must FAIL
+	addresses   two slots' hard-wired addresses swapped  must FAIL
+
+Both injected errors are real ones.  Add a case here whenever a class of
+connection turns out not to be covered;  that is what the address case
+is, and it is the reason to keep running it.
+
+Planned, not done yet
+---------------------
+Two improvements to how the hard-wired constants are represented.
+Neither is urgent and both can be spliced in later;  they are recorded
+here so the reasoning is not lost.
+
+1.  TIE CELLS instead of a direct connection to the rails.  Connecting a
+    gate input straight to power or ground is an antenna and ESD
+    liability and is generally poor practice.  The PDK has the cells:
+
+	sg13cmos5l_tiehi (L_HI)		sg13cmos5l_tielo (L_LO)
+
+    and neither appears on the PDK's synth_exclude or pnr_exclude lists,
+    so an explicitly instantiated one is kept.  The splice point is
+    narrow by construction:  tie_hi and tie_lo are defined in exactly
+    ONE place in digital_top.v, and everything else refers to them by
+    name.  Replacing the two assigns with two instantiations is the
+    whole change.
+
+    Note that one shared tie_hi net feeding all 18 slots plus the SRAM
+    is not what a real tie-cell implementation looks like --- the point
+    of a tie cell is to keep the charge path short, so they are normally
+    placed local to their loads.  How many instances to use is a layout
+    decision, not a netlist one.
+
+2.  ROM BLOCKS for the constants, like the 32-bit mask ROM already
+    feeding housekeeping:  a 12-bit ROM at the top of each daisy chain
+    and a 5-bit ROM per slot address.  This is cleaner than either ties
+    or literals, because the constant becomes a real instance that LVS
+    compares as an object rather than a pattern of net connections.
+
+    ONE CAVEAT, because it is the same trap this directory already fell
+    into, one level down.  If all 18 slots instantiate the SAME ROM cell
+    with the same connectivity, LVS at digital_top level cannot tell
+    them apart:  18 identical instances wired identically are
+    interchangeable in the netlist graph, so slot 5's ROM and slot 12's
+    could be swapped and the comparison would still pass.  The address
+    would have moved inside the ROM, where it becomes that cell's own
+    LVS problem and is no longer checked here at all --- exactly the
+    blind spot that the literals had.
+
+    So it has to be 18 distinct ROM cells, slot1_addr_rom ..
+    slot18_addr_rom, not one metal-programmed cell used 18 times.  Then
+    the cell TYPE carries the address, netgen distinguishes them, and it
+    is self-documenting in the schematic.  The layouts are not the
+    obstacle they look like:  the same script that via-programs the
+    32-bit mask ROM can generate all 18 in one pass.
+
+    Distinct MODULES does not mean distinct FILES.  All 18 can live in
+    one file, and the same is true of the 18 slot wrappers, which are
+    currently one file each for no reason that matters.  This harness
+    does not care either way:  gen_blackboxes.py looks up each module by
+    name within whatever file it is pointed at, so consolidating is just
+    a matter of pointing the 18 SOURCES entries at the same path.
+    Verified, not assumed.
+
+    When the representation changes, add a case to selftest.py that
+    swaps two slots' addresses in the NEW form and confirm it still
+    fails.  The existing case matches on the tied form;  it exits with
+    an error rather than passing when it cannot find that form, so it
+    will not silently rot, but it will need replacing rather than
+    keeping.
+
+Known gaps this comparison will report
+--------------------------------------
+- The 40 dedicated per-slot analog pins are not exported from
+  digital_top, so every slot wrapper will show unconnected analog_pinN.
+  Export them when something needs to drive them.
+- The slot wrappers themselves are empty in RTL.  They are blackboxes on
+  both sides, so their contents are not compared here at all;  each user
+  project is its own LVS.
