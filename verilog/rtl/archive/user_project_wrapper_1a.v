@@ -35,23 +35,24 @@
  * There is an enable for the 1.2V power switch
  */
 
-module user_project_wrapper_0a (
+module user_project_wrapper_1a (
 `ifdef USE_POWER_PINS
     inout wire vdd_3v3,		// 3.3V gated power
     inout wire vdd_1v2,		// 1.2V gated power
     inout wire vss_3v3,
     inout wire vss_1v2,
-    inout wire vssio,		// substrate ground
 `endif
 
     input wire enable,		// project enable
     input wire clk,		// shared external clock
+    input wire reset,		// digital reset
     
     input  wire [23:0] dig_in,	// 24 digital bit shared bus
     output wire [11:0]  dig_out, // 12 digital bit shared bus
 
     // Analog I/O (here marked as verilog wires)
 
+    inout wire analog_pin,	// project dedicated analog pin (1)
     input wire [1:0] ibias, 	// shared current biases
     input wire	     vbias,	// shared voltage bias
   

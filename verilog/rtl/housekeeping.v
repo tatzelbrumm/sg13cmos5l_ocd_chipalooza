@@ -54,24 +54,30 @@
 //	with via programming.  Via programmed with a script to match
 //	each project ID.
 //
-// Register 0x0F:	clock prescaler
-// Register 0x10:	sequencer mode
-// Register 0x11:	SRAM mode
-// Register 0x12-0x13:	sequencer start value
-// Register 0x14-0x15:	sequencer stop value
-// Register 0x16-0x17:	pattern generator stop value
-// Register 0x18:	bias generator coarse/fine control
-// Register 0x19:	iDAC1 value
-// Register 0x1A:	iDAC2 value
-// Register 0x1B:	voltage bias control
-// Register 0x1C:	bandgap control
-// Register 0x1D:	bandgap bias tuning
-// Register 0x1E:	voltage bias tuning (sink)
-// Register 0x1F:	voltage bias tuning (source)
-// Register 0x20-0x37:	user project digital input routing
-// Register 0x38:	user project digital output (sampled)
-// Register 0x40-0x47:	user project digital output routing
-// Register 0x50-0x62:	user project configuration
+// Register 0x0E:	Sequencer clock prescaler (8 bits)
+// Register 0x0F:	Pattern generator clock prescaler (8 bits)
+// Register 0x10:	sequencer mode (3 bits)
+// Register 0x11:	SRAM mode (2 bits)
+// Register 0x12-0x13:	sequencer start value (16 bits)
+// Register 0x14-0x15:	sequencer stop value (16 bits)
+// Register 0x16-0x17:	pattern generator stop value (10 bits)
+// Register 0x18:	bias generator coarse/fine control (4 bits)
+// Register 0x19:	iDAC1 value (5 bits)
+// Register 0x1A:	iDAC2 value (5 bits)
+// Register 0x1B:	voltage bias control (7 bits)
+// Register 0x1C:	bandgap control (6 bits)
+// Register 0x1D:	bandgap bias tuning (5 bits)
+// Register 0x1E:	voltage bias tuning (sink) (6 bits)
+// Register 0x1F:	voltage bias tuning (source) (5 bits)
+// Register 0x20-0x37:	user project digital input routing (4 bits)
+// Register 0x38:	user project digital output (sampled) (8 bits)
+// Register 0x39:	user project digital output (sampled) (4 bits)
+// Register 0x40-0x4B:	user project digital output routing (4 bits)
+// Register 0x4C:	SRAM monitor (see SRAM values on digital out pins) (8 bits)
+// Register 0x4D:	sequencer/strobe monitors (4 bits)
+// Register 0x50:	selected user project (5 bits)
+// Register 0x51:	user project configuration (8 bits)
+// Register 0x52:	user project configuration (3 bits)
 //------------------------------------------------------------
 
 module housekeeping (
@@ -87,10 +93,11 @@ module housekeeping (
     input wire CSB,		// from padframe
     output wire SDO,		// to padframe
     output wire sdo_ena,	// to padframe
-    output wire reset,
+    output wire reset,		// to user projects
+    output wire clk_out,	// to user projects
     input wire [31:0] mask_rev_in,	// metal programmed;  3.3V domain
 
-    output wire	sram_clk,		// SRAM clock
+    output wire	seq_ena_out,		// sequencer running (selects the SRAM clock)
     output wire [9:0] sram_addr,	// SRAM address
     output wire [7:0] sram_idata,	// data input to SRAM
     input wire [7:0] sram_odata,	// data output from SRAM
@@ -102,7 +109,10 @@ module housekeeping (
     output wire [11:0] io_oe,	// to shared digital I/O pads
 
     output wire [23:0] dbus_out,	// shared project digital bus (input to project)
-    input wire [11:0] dbus_in,		// shared project digital bus (output from project)
+    input wire [11:0] dbus_in_left,	// shared project digital bus (output from
+					// projects on left side, daisy-chained)
+    input wire [11:0] dbus_in_right,	// shared project digital bus (output from
+					// projects on right side, daisy-chained)
 
     output reg	[4:0]	proj_sel,	// selected project to enable
     output reg 		proj_ena,	// individual project enables
@@ -128,7 +138,8 @@ module housekeeping (
     output reg [1:0] bandgap_sink2,		// bandgap ibias 2 sink tuning
     output reg [2:0] voltgen_sink1,		// voltage bias ibias 1 sink tuning
     output reg [2:0] voltgen_sink2,		// voltage bias ibias 2 sink tuning
-    output reg [4:0] voltgen_source		// voltage bias ibias source tuning
+    output reg [4:0] voltgen_source,		// voltage bias ibias source tuning
+    output wire project_zero			// used for enabling diagnostic tests
 );
 
     wire [7:0] odata;
@@ -138,6 +149,7 @@ module housekeeping (
     wire [9:0] pat_sram_addr;
     wire [7:0] pat_sram_data;
     wire [15:0] seq_out;
+    wire [11:0] dbus_in;
 
     reg [4:0] bandgap_trim_set;		// Undecoded bandgap trim
 
@@ -147,19 +159,26 @@ module housekeeping (
     wire loc_reset;
 
     wire sram_ena;
-    wire clk_scaled;
 
     reg seq_ena;
     reg loop_mode;
     wire seq_trig;
     wire pat_trig;
 
-
-    wire seq_strobe;
+    wire seq_load;
     wire [1:0] seq_cmd;		// loop, single-shot, stop
 
     assign SDO = loc_sdo;
     assign loc_reset = ~porb | reset;
+
+    // OR the two chains of "dbus_in" from the projects.  Only one project can
+    // be active at a time, and the inactive projects emit zero.
+
+    assign dbus_in = dbus_in_right | dbus_in_left;
+
+    // Buffer the clock passed to the user projects
+
+    assign clk_out = clk;
 
     // Principle chip registers
 
@@ -174,6 +193,7 @@ module housekeeping (
     reg [47:0] user_out_route;		// user digital output bus assignments 
     reg [7:0] sram_monitor;		// monitor SRAM on digital out [7:0]
     reg [1:0] strobe_monitor;		// monitor strobes on digital out [9:8]
+    reg [1:0] seq_monitor;		// monitor sequencer on digital out
 
     // Instantiate the SPI interface
 
@@ -190,7 +210,7 @@ module housekeeping (
     	.rdstb(rdstb),
     	.wrstb(wrstb),
 	.sram_ena(sram_ena),
-	.seq_strobe(seq_strobe),
+	.seq_load(seq_load),
 	.seq_mode(seq_cmd),
 	.dig_reset(reset)
     );
@@ -207,6 +227,9 @@ module housekeeping (
 					// 8 address bits only (SRAM gets
 					// all 10 bits).
 
+    // Decode the project selection for project 0 (enables diagnostic tests)
+    assign project_zero = (proj_sel == 5'h00);
+
     // Bandgap trim is a thermometer code
     genvar i;
     generate
@@ -215,16 +238,26 @@ module housekeeping (
         end
     endgenerate
 
-    // Drive sequencer from SPI commands.  The SPI commands reset when CSB
-    // is raised, so housekeeping_spi can only produce a strobe that needs
-    // to be detected here, so that the sequencer can remain active after
-    // the SPI transmission stops.
+    // Drive sequencer from SPI commands.  The SPI registers reset when CSB
+    // is raised, so seq_ena and loop_mode are held here instead, and the
+    // sequencer stays active after the SPI transmission stops.
+    //
+    // Clocked on SCK with seq_load as the enable, NOT on "posedge
+    // seq_strobe".  seq_load and seq_cmd are combinational decodes of the
+    // command word, so these capture on exactly the SCK edge that
+    // completes the command --- the same edge the old registered
+    // seq_strobe rose on --- but without a data-generated clock, and
+    // without seq_cmd changing at the instant of its own capture edge.
+    // See the note in housekeeping_spi.v.
+    //
+    // loc_reset stays asynchronous so that por/dig_reset clears the
+    // sequencer even with SCK stopped.
 
-    always @(posedge seq_strobe or posedge loc_reset) begin
+    always @(posedge SCK or posedge loc_reset) begin
 	if (loc_reset) begin
 	    seq_ena <= 1'b0;
 	    loop_mode <= 1'b0;
-	end else begin
+	end else if (seq_load) begin
 	    case (seq_cmd)
 		2'b00: begin
 		    seq_ena <= 1'b1;
@@ -300,7 +333,8 @@ module housekeeping (
     (iaddr == 8'h35) ? {4'h0, user_in_route[21*4 +: 4]} :
     (iaddr == 8'h36) ? {4'h0, user_in_route[22*4 +: 4]} :
     (iaddr == 8'h37) ? {4'h0, user_in_route[23*4 +: 4]} :
-    (iaddr == 8'h38) ? dbus_in :
+    (iaddr == 8'h38) ? dbus_in[7:0] :
+    (iaddr == 8'h39) ? dbus_in[11:8] :
     (iaddr == 8'h40) ? {4'h0, user_out_route[0*4 +: 4]} :
     (iaddr == 8'h41) ? {4'h0, user_out_route[1*4 +: 4]} :
     (iaddr == 8'h42) ? {4'h0, user_out_route[2*4 +: 4]} :
@@ -314,8 +348,7 @@ module housekeeping (
     (iaddr == 8'h4a) ? {4'h0, user_out_route[10*4 +: 4]} :
     (iaddr == 8'h4b) ? {4'h0, user_out_route[11*4 +: 4]} :
     (iaddr == 8'h4c) ? sram_monitor :
-    (iaddr == 8'h4d) ? {6'h00, strobe_monitor} :
-    
+    (iaddr == 8'h4d) ? {4'h0, seq_monitor, strobe_monitor} :
     (iaddr == 8'h50) ? {3'h0, proj_sel} :
     (iaddr == 8'h51) ? {analog_bus_ena, proj_dig_ena, proj_1v2_ena,
 			proj_3v3_ena, proj_ena} :
@@ -348,6 +381,7 @@ module housekeeping (
 	analog_bus_ena <= 4'h0;	// Analog switches disabled
 	sram_monitor <= 8'h00;	// SRAM monitoring disabled
 	strobe_monitor <= 2'b00; // Strobe monitoring disabled.
+	seq_monitor <= 2'b00;	// Sequencer monitoring disabled.
 	voltgen_ena <= 3'b000;	// Voltage bias generator enables
 	voltgen_high <= 1'b0;	// Voltage bias generator high trim
 	voltgen_value <= 3'b000; // Voltage bias generator value (selection)
@@ -409,7 +443,7 @@ module housekeeping (
                end
         8'h1b: begin
 	     voltgen_value <= idata[6:4];
-	     voltgen_high <= idata[6:3];
+	     voltgen_high <= idata[3];
 	     voltgen_ena <= idata[2:0];
                end
         8'h1c: begin
@@ -540,6 +574,7 @@ module housekeeping (
 	       end
 	8'h4d: begin
 	     strobe_monitor <= idata[1:0];
+	     seq_monitor <= idata[3:2];
 	       end
         8'h50: begin
 	     proj_sel <= idata[4:0];
@@ -566,10 +601,18 @@ assign sram_read = seq_ena | (sram_ena & rdstb);
 assign sram_write = sram_ena & wrstb;
 assign sram_idata = {8{sram_ena}} & idata;
 
-/* Warning: gated clock.  Allows the SRAM to be accessed via the
- * SPI on the SPI's clock.
+/* The SRAM clock is muxed between clk (sequencer running) and SCK (SPI
+ * access), but the mux itself is an explicitly instantiated cell in
+ * housekeeping_top.v rather than a ternary here.  Left as a ternary,
+ * yosys built it out of a nand2 and an o21ai, which is both glitch-prone
+ * and impossible to point an SDC at.  Only the select needs to leave
+ * this module.
+ *
+ * Note the documented restriction that makes this safe:  "SRAM cannot be
+ * accessed while the sequencer is running", so the two clock sources are
+ * mutually exclusive and are declared logically exclusive in the SDC.
  */
-assign sram_clk = (seq_ena == 1'b1) ? clk : SCK;
+assign seq_ena_out = seq_ena;
 
 /* Sequencer */
 sequencer sequencer (
@@ -616,7 +659,8 @@ router router (
     .user_in_route(user_in_route),
     .user_out_route(user_out_route),
     .sram_monitor(sram_monitor),
-    .strobe_monitor(strobe_monitor)
+    .strobe_monitor(strobe_monitor),
+    .seq_monitor(seq_monitor)
 );
 
 endmodule	// housekeeping

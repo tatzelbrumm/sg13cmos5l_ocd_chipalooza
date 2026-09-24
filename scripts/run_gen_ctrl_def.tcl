@@ -13,29 +13,33 @@
 #
 # Signal pins:
 #
-# proj_addr[4:0]	(input)		right side
+# dig_out[11:0]		(output)	right
 #
 # proj_sel[4:0]		(input)		bottom
 # clk			(input)		bottom
 # dig_ena		(input)		bottom
 # enable		(input)		bottom
+# reset			(input)		bottom
 # analog_ena[3:0]	(input)		bottom
 # ibias_ena[1:0]	(input)		bottom
 # vbias_ena		(input)		bottom
 # power_3v3_ena		(input)		bottom
 # power_1v2_ena		(input)		bottom
 # dig_in[23:0]		(input)		bottom
-# proj_dig_out[11:0]	(input)		bottom
+# proj_addr[4:0]	(input)		bottom
 #
 # proj_clk		(output)	top
 # proj_ena		(output)	top
+# proj_reset		(output)	top
 # proj_3v3_ena		(output)	top
 # proj_1v2_ena		(output)	top
 # proj_analog_ena[3:0]	(output)	top
 # proj_ibias_ena[1:0]	(output)	top
 # proj_vbias_ena	(output)	top
 # proj_dig_in[23:0]	(output)	top
-# dig_out[11:0]		(output)	top
+# proj_dig_out[11:0]	(input)		top
+#
+# dig_out_relay[11:0]	(input)		left
 #
 #--------------------------------------------------------------
 # Prep:  Make sure that the layout file does not exist.  If so,
@@ -63,8 +67,8 @@ load user_project_control_def -silent
 
 set die_llx 0
 set die_lly 0
-set die_urx 110
-set die_ury 35
+set die_urx 105
+set die_ury 60
 
 box values 0 0 0 0
 
@@ -145,113 +149,143 @@ property FIXED_BBOX $die_llx $die_lly $die_urx $die_ury
 # All of these signals are under the SRAM, so put them far to
 # the left.
 
-label_bottom_signal clk		  2	input
-label_bottom_signal proj_sel\[4\] 4	input
-label_bottom_signal proj_sel\[3\] 6	input
-label_bottom_signal proj_sel\[2\] 8	input
-label_bottom_signal proj_sel\[1\] 10	input
-label_bottom_signal proj_sel\[0\] 12	input
-label_bottom_signal dig_ena 	  14	input
-label_bottom_signal enable 	  16	input
-label_bottom_signal analog_ena\[3\] 18	input
-label_bottom_signal analog_ena\[2\] 20	input
-label_bottom_signal analog_ena\[1\] 22	input
-label_bottom_signal analog_ena\[0\] 24 	input
-label_bottom_signal ibias_ena\[1\] 26 	input
-label_bottom_signal ibias_ena\[0\] 28 	input
-label_bottom_signal vbias_ena	  30 	input
-label_bottom_signal power_3v3_ena 32 	input
-label_bottom_signal power_1v2_ena 34 	input
-label_bottom_signal dig_in\[23\]  36 	input
-label_bottom_signal dig_in\[22\]  38 	input
-label_bottom_signal dig_in\[21\]  40 	input
-label_bottom_signal dig_in\[20\]  42 	input
-label_bottom_signal dig_in\[19\]  44 	input
-label_bottom_signal dig_in\[18\]  46 	input
-label_bottom_signal dig_in\[17\]  48 	input
-label_bottom_signal dig_in\[16\]  50 	input
-label_bottom_signal dig_in\[15\]  52 	input
-label_bottom_signal dig_in\[14\]  54 	input
-label_bottom_signal dig_in\[13\]  56 	input
-label_bottom_signal dig_in\[12\]  58 	input
-label_bottom_signal dig_in\[11\]  60 	input
-label_bottom_signal dig_in\[10\]  62 	input
-label_bottom_signal dig_in\[9\]   64 	input
-label_bottom_signal dig_in\[8\]   66 	input
-label_bottom_signal dig_in\[7\]   68 	input
-label_bottom_signal dig_in\[6\]   70 	input
-label_bottom_signal dig_in\[5\]   72 	input
-label_bottom_signal dig_in\[4\]   74 	input
-label_bottom_signal dig_in\[3\]   76 	input
-label_bottom_signal dig_in\[2\]   78 	input
-label_bottom_signal dig_in\[1\]   80 	input
-label_bottom_signal dig_in\[0\]   82 	input
-label_bottom_signal dig_out\[11\] 84 	output
-label_bottom_signal dig_out\[10\] 86 	output
-label_bottom_signal dig_out\[9\]  88 	output
-label_bottom_signal dig_out\[8\]  90 	output
-label_bottom_signal dig_out\[7\]  92 	output
-label_bottom_signal dig_out\[6\]  94 	output
-label_bottom_signal dig_out\[5\]  96 	output
-label_bottom_signal dig_out\[4\]  98 	output
-label_bottom_signal dig_out\[3\]  100	output
-label_bottom_signal dig_out\[2\]  102	output
-label_bottom_signal dig_out\[1\]  104	output
-label_bottom_signal dig_out\[0\]  106	output
+label_bottom_signal clk		  3	input
+label_bottom_signal proj_sel\[4\] 5	input
+label_bottom_signal proj_sel\[3\] 7	input
+label_bottom_signal proj_sel\[2\] 9	input
+label_bottom_signal proj_sel\[1\] 11	input
+label_bottom_signal proj_sel\[0\] 13	input
+label_bottom_signal dig_ena 	  15	input
+label_bottom_signal enable 	  17	input
+label_bottom_signal reset 	  19	input
+label_bottom_signal analog_ena\[3\] 21	input
+label_bottom_signal analog_ena\[2\] 23	input
+label_bottom_signal analog_ena\[1\] 25	input
+label_bottom_signal analog_ena\[0\] 27 	input
+label_bottom_signal ibias_ena\[1\] 29 	input
+label_bottom_signal ibias_ena\[0\] 31 	input
+label_bottom_signal vbias_ena	  33 	input
+label_bottom_signal power_3v3_ena 35 	input
+label_bottom_signal power_1v2_ena 37 	input
+label_bottom_signal dig_in\[23\]  39 	input
+label_bottom_signal dig_in\[22\]  41 	input
+label_bottom_signal dig_in\[21\]  43 	input
+label_bottom_signal dig_in\[20\]  45 	input
+label_bottom_signal dig_in\[19\]  47 	input
+label_bottom_signal dig_in\[18\]  49 	input
+label_bottom_signal dig_in\[17\]  51 	input
+label_bottom_signal dig_in\[16\]  53 	input
+label_bottom_signal dig_in\[15\]  55 	input
+label_bottom_signal dig_in\[14\]  57 	input
+label_bottom_signal dig_in\[13\]  59 	input
+label_bottom_signal dig_in\[12\]  61 	input
+label_bottom_signal dig_in\[11\]  63 	input
+label_bottom_signal dig_in\[10\]  65 	input
+label_bottom_signal dig_in\[9\]   67 	input
+label_bottom_signal dig_in\[8\]   69 	input
+label_bottom_signal dig_in\[7\]   71 	input
+label_bottom_signal dig_in\[6\]   73 	input
+label_bottom_signal dig_in\[5\]   75 	input
+label_bottom_signal dig_in\[4\]   77 	input
+label_bottom_signal dig_in\[3\]   79 	input
+label_bottom_signal dig_in\[2\]   81 	input
+label_bottom_signal dig_in\[1\]   83 	input
+label_bottom_signal dig_in\[0\]   85 	input
 
-label_top_signal proj_clk	 	2	output
-label_top_signal proj_ena	 	4  	output
-label_top_signal proj_3v3_ena		6  	output
-label_top_signal proj_1v2_ena	 	8  	output
-label_top_signal proj_analog_ena\[3\]   10 	output
-label_top_signal proj_analog_ena\[2\]   12 	output
-label_top_signal proj_analog_ena\[1\]   14 	output
-label_top_signal proj_analog_ena\[0\]   16 	output
-label_top_signal proj_ibias_ena\[1\]    18 	output
-label_top_signal proj_ibias_ena\[0\]    20 	output
-label_top_signal proj_vbias_ena	        22 	output
-label_top_signal proj_dig_in\[23\]      24 	output
-label_top_signal proj_dig_in\[22\]      26 	output
-label_top_signal proj_dig_in\[21\]      28 	output
-label_top_signal proj_dig_in\[20\]      30 	output
-label_top_signal proj_dig_in\[19\]      32 	output
-label_top_signal proj_dig_in\[18\]      34 	output
-label_top_signal proj_dig_in\[17\]      36 	output
-label_top_signal proj_dig_in\[16\]      38 	output
-label_top_signal proj_dig_in\[15\]      40 	output
-label_top_signal proj_dig_in\[14\]      42 	output
-label_top_signal proj_dig_in\[13\]      44 	output
-label_top_signal proj_dig_in\[12\]      46 	output
-label_top_signal proj_dig_in\[11\]      48 	output
-label_top_signal proj_dig_in\[10\]      50 	output
-label_top_signal proj_dig_in\[9\]       52 	output
-label_top_signal proj_dig_in\[8\]       54 	output
-label_top_signal proj_dig_in\[7\]       56 	output
-label_top_signal proj_dig_in\[6\]       58 	output
-label_top_signal proj_dig_in\[5\]       60 	output
-label_top_signal proj_dig_in\[4\]       62 	output
-label_top_signal proj_dig_in\[3\]       64 	output
-label_top_signal proj_dig_in\[2\]       66 	output
-label_top_signal proj_dig_in\[1\]       68 	output
-label_top_signal proj_dig_in\[0\]       70 	output
-label_top_signal proj_dig_out\[11\]     72 	input
-label_top_signal proj_dig_out\[10\]     74 	input
-label_top_signal proj_dig_out\[9\]      76 	input
-label_top_signal proj_dig_out\[8\]      78 	input
-label_top_signal proj_dig_out\[7\]      80 	input
-label_top_signal proj_dig_out\[6\]      82 	input
-label_top_signal proj_dig_out\[5\]      84 	input
-label_top_signal proj_dig_out\[4\]      86 	input
-label_top_signal proj_dig_out\[3\]      88 	input
-label_top_signal proj_dig_out\[2\]      90 	input
-label_top_signal proj_dig_out\[1\]      92 	input
-label_top_signal proj_dig_out\[0\]      94 	input
+label_bottom_signal proj_addr\[4\] 87	input
+label_bottom_signal proj_addr\[3\] 89	input
+label_bottom_signal proj_addr\[2\] 91	input
+label_bottom_signal proj_addr\[1\] 93	input
+label_bottom_signal proj_addr\[0\] 95	input
 
-label_right_signal proj_addr\[4\] 10	output
-label_right_signal proj_addr\[3\] 12 	output
-label_right_signal proj_addr\[2\] 14 	output
-label_right_signal proj_addr\[1\] 16 	output
-label_right_signal proj_addr\[0\] 18	output
+label_top_signal proj_clk	 	3	output
+label_top_signal proj_ena	 	5  	output
+label_top_signal proj_reset	 	7  	output
+label_top_signal proj_3v3_ena		9  	output
+label_top_signal proj_1v2_ena	 	11  	output
+label_top_signal proj_analog_ena\[3\]   13 	output
+label_top_signal proj_analog_ena\[2\]   15 	output
+label_top_signal proj_analog_ena\[1\]   17 	output
+label_top_signal proj_analog_ena\[0\]   19 	output
+label_top_signal proj_ibias_ena\[1\]    21 	output
+label_top_signal proj_ibias_ena\[0\]    23 	output
+label_top_signal proj_vbias_ena	        25 	output
+label_top_signal proj_dig_in\[23\]      27 	output
+label_top_signal proj_dig_in\[22\]      29 	output
+label_top_signal proj_dig_in\[21\]      31 	output
+label_top_signal proj_dig_in\[20\]      33 	output
+label_top_signal proj_dig_in\[19\]      35 	output
+label_top_signal proj_dig_in\[18\]      37 	output
+label_top_signal proj_dig_in\[17\]      39 	output
+label_top_signal proj_dig_in\[16\]      41 	output
+label_top_signal proj_dig_in\[15\]      43 	output
+label_top_signal proj_dig_in\[14\]      45 	output
+label_top_signal proj_dig_in\[13\]      47 	output
+label_top_signal proj_dig_in\[12\]      49 	output
+label_top_signal proj_dig_in\[11\]      51 	output
+label_top_signal proj_dig_in\[10\]      53 	output
+label_top_signal proj_dig_in\[9\]       55 	output
+label_top_signal proj_dig_in\[8\]       57 	output
+label_top_signal proj_dig_in\[7\]       59 	output
+label_top_signal proj_dig_in\[6\]       61 	output
+label_top_signal proj_dig_in\[5\]       63 	output
+label_top_signal proj_dig_in\[4\]       65 	output
+label_top_signal proj_dig_in\[3\]       67 	output
+label_top_signal proj_dig_in\[2\]       69 	output
+label_top_signal proj_dig_in\[1\]       71 	output
+label_top_signal proj_dig_in\[0\]       73 	output
+label_top_signal proj_dig_out\[11\]     75 	input
+label_top_signal proj_dig_out\[10\]     77 	input
+label_top_signal proj_dig_out\[9\]      79 	input
+label_top_signal proj_dig_out\[8\]      81 	input
+label_top_signal proj_dig_out\[7\]      83 	input
+label_top_signal proj_dig_out\[6\]      85 	input
+label_top_signal proj_dig_out\[5\]      87 	input
+label_top_signal proj_dig_out\[4\]      89 	input
+label_top_signal proj_dig_out\[3\]      91 	input
+label_top_signal proj_dig_out\[2\]      93 	input
+label_top_signal proj_dig_out\[1\]      95 	input
+label_top_signal proj_dig_out\[0\]      97 	input
+
+# The daisy-chained return bus.  dig_out (right edge) and
+# dig_out_relay (left edge) must stay at matching y positions and in
+# matching bit order:  slot N's dig_out faces slot N+1's dig_out_relay,
+# so identical positions give a straight-across connection with no jogs
+# at the top level.
+#
+# Spread on a 4 um pitch over y = 8 .. 52, centred in the 60 um die,
+# rather than bunched into y = 5 .. 27 as they were when the die was
+# only 35 um tall.  Spreading them lets the placer distribute the 12
+# output buffers and 12 relay muxes vertically instead of forcing all
+# 24 nets through one horizontal channel --- which matters here because
+# the Metal4 power corridors leave this block routing almost entirely
+# on Metal2 (vertical) and Metal3 (horizontal).
+
+label_right_signal dig_out\[11\]      8	output
+label_right_signal dig_out\[10\]      12	output
+label_right_signal dig_out\[9\]       16	output
+label_right_signal dig_out\[8\]       20	output
+label_right_signal dig_out\[7\]       24	output
+label_right_signal dig_out\[6\]       28	output
+label_right_signal dig_out\[5\]       32	output
+label_right_signal dig_out\[4\]       36	output
+label_right_signal dig_out\[3\]       40	output
+label_right_signal dig_out\[2\]       44	output
+label_right_signal dig_out\[1\]       48	output
+label_right_signal dig_out\[0\]       52	output
+
+label_left_signal dig_out_relay\[11\] 8	input
+label_left_signal dig_out_relay\[10\] 12	input
+label_left_signal dig_out_relay\[9\]  16	input
+label_left_signal dig_out_relay\[8\]  20	input
+label_left_signal dig_out_relay\[7\]  24	input
+label_left_signal dig_out_relay\[6\]  28	input
+label_left_signal dig_out_relay\[5\]  32	input
+label_left_signal dig_out_relay\[4\]  36	input
+label_left_signal dig_out_relay\[3\]  40	input
+label_left_signal dig_out_relay\[2\]  44	input
+label_left_signal dig_out_relay\[1\]  48	input
+label_left_signal dig_out_relay\[0\]  52	input
 
 # Add route obstructions around the edges over and under the pins
 tech unlock *
@@ -267,6 +301,15 @@ paint obsm4
 box values $die_llx [- $die_ury 1] $die_urx $die_ury
 paint obsm1
 paint obsm3
+
+# Prevent metal4 from being routed in these areas which are power buses
+# running over the top of the cell
+box values $die_llx $die_lly [+ $die_llx 4.3] $die_ury
+paint obsm4
+box values [+ $die_llx 31.8] $die_lly [+ $die_llx 61.7] $die_ury
+paint obsm4
+box values [- $die_urx 30] $die_lly $die_urx $die_ury
+paint obsm4
 
 writeall force user_project_control_def
 

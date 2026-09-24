@@ -29,30 +29,30 @@
  * There is 1 digital enable bit that connects the project to the
  *	shared 24-bit digital input bus and the shared 12-bit digital
  *	output bus.
- * There are 3 enable bits to individually connect to the three
+ * There are 4 enable bits to individually connect to the three
  *	shared analog buses/pins.
  * There is an enable for the 3.3V power switch
  * There is an enable for the 1.2V power switch
  */
 
-module user_project_wrapper_1a (
+module user_project_wrapper_4a (
 `ifdef USE_POWER_PINS
     inout wire vdd_3v3,		// 3.3V gated power
     inout wire vdd_1v2,		// 1.2V gated power
     inout wire vss_3v3,
     inout wire vss_1v2,
-    inout wire vssio,		// substrate ground
 `endif
 
     input wire enable,		// project enable
     input wire clk,		// shared external clock
+    input wire reset,		// digital reset
     
     input  wire [23:0] dig_in,	// 24 digital bit shared bus
     output wire [11:0]  dig_out, // 12 digital bit shared bus
 
     // Analog I/O (here marked as verilog wires)
 
-    inout wire analog_pin,	// project dedicated analog pin (1)
+    inout wire [3:0] analog_pin, // project dedicated analog pins (4)
     input wire [1:0] ibias, 	// shared current biases
     input wire	     vbias,	// shared voltage bias
   

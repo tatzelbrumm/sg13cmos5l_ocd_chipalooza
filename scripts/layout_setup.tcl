@@ -7,6 +7,11 @@
 # the contents of the submodules.
 #
 # Source this from the top level layout directory (../magic/).
+#
+# Basic setup
+
+units microns
+snap internal
 
 # Analog switches library (for the power gating switch)
 
@@ -18,6 +23,11 @@ addpath ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
 
 addpath ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
 addpath ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+
+# The POR block (in its own repository)
+
+addpath ../dependencies/sg13cmos5l_ocd_ip__por/magic
+addpath ../dependencies/sg13cmos5l_ocd_ip__por/magic/paramcells
 
 # The repositories contains references to IHP standard cells, which
 # are actually located here.

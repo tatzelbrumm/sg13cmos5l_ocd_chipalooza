@@ -58,9 +58,10 @@ module router(
     input wire [95:0] user_in_route,	// pin assignments
     input wire [47:0] user_out_route, 	// pin assignments
 
-    /* SRAM and strobe monitor settings */
+    /* SRAM, strobe, and sequencer monitor settings (diagnostic) */
     input wire [7:0] sram_monitor,
-    input wire [1:0] strobe_monitor
+    input wire [1:0] strobe_monitor,
+    input wire [1:0] seq_monitor
 );
 
 /* Special functions bundled into 12 bits to match the digital out.
@@ -84,6 +85,8 @@ genvar i;
 generate
 for (i = 0; i < 12; i = i + 1) begin : out_mux
     assign io_out[i] =
+	(seq_monitor[0] == 1'b1) ? seq_out[i] :
+	(seq_monitor[1] == 1'b1) ? seq_out[i + 4] :
 	(spec_ena[i] == 1'b1) ? spec_func[i] :
 	(user_out_route[0*4 +: 4] == i) ? dbus_in[0] :
 	(user_out_route[1*4 +: 4] == i) ? dbus_in[1] :
@@ -101,6 +104,7 @@ for (i = 0; i < 12; i = i + 1) begin : out_mux
 
     /* Output enables:  Take precedence over input configuration */
     assign io_oe[i] =
+	(seq_monitor != 2'b00) ? 1'b1 :
 	((user_out_route[0*4 +: 4] == i) ||
 	(user_out_route[1*4 +: 4] == i) || (user_out_route[2*4 +: 4] == i) || 
 	(user_out_route[3*4 +: 4] == i) || (user_out_route[4*4 +: 4] == i) ||

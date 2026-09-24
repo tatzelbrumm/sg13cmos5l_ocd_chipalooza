@@ -19,21 +19,38 @@ meta:
     Magic.WriteLef: null
     Odb.CheckDesignAntennaProperties: null
     
-    # KLayout doesn't streamout (?)
-    KLayout.StreamOut: null
-    KLayout.XOR: null
-    
     # Magic has no issues with DRC
     # Magic.DRC: null
     
-    # We run KLayout DRC manually
-    KLayout.DRC: null
-    
-    # We run LVS manually
-    Netgen.LVS: null
+    # NOTE:  KLayout.StreamOut / KLayout.XOR / KLayout.DRC / Netgen.LVS
+    # are disabled through the RUN_* flow control variables below rather
+    # than nulled here.  Nulling a step leaves its Checker behind with
+    # nothing to check, which produced the
+    #   "The XOR differences metric was not found."
+    # message;  the flow control variables drop the checkers too.
     
     # Some macros may overlap on purpose
     Checker.IllegalOverlap: null
+
+# Signoff tool selection and flow control
+#
+# THE IMPORTANT ONE:  the IHP PDK sets PRIMARY_GDSII_STREAMOUT_TOOL to
+# "klayout", and Magic.StreamOut only registers the GDS view when this is
+# "magic".  With KLayout's streamout disabled nothing produced a GDS at
+# all, so Magic.DRC --- which takes DesignFormat.GDS as a REQUIRED input
+# --- aborted before running, leaving an empty step directory and an
+# empty error.log.  That is why the flow always stopped short of DRC.
+PRIMARY_GDSII_STREAMOUT_TOOL: magic
+
+# KLayout streamout off, which also drops KLayout.XOR and Checker.XOR.
+# Note this means the magic-vs-klayout GDS cross-check is not running.
+RUN_KLAYOUT_STREAMOUT: false
+RUN_KLAYOUT_XOR: false
+
+# KLayout DRC and LVS are run manually from validate/.  Disabling them
+# here also drops Checker.KLayoutDRC and Checker.LVS.
+RUN_KLAYOUT_DRC: false
+RUN_LVS: false
 
 DESIGN_NAME: housekeeping_top
 VERILOG_FILES:
@@ -105,21 +122,48 @@ SYNTH_WRITE_NOATTR: False
 PL_TIME_DRIVEN: False
 
 # Clock
-CLOCK_NET: clk
-CLOCK_PORT: clk
+# BOTH clocks must be listed.  CLOCK_PORT feeds CLOCK_NET, which is the
+# list CTS uses to decide what to build a tree for --- so with only "clk"
+# here, CTS never built one for SCK at all.  That is the direct cause of
+# the 324 unclocked register pins in the previous run:  the ~325 SCK
+# flops got whatever the resizer's max-fanout repair produced instead of
+# a balanced tree.
+CLOCK_NET: [clk, SCK]
+CLOCK_PORT: [clk, SCK]
+
+# The primary period.  SCK's 100 ns is set in constraints.sdc;  this
+# value is what LibreLane derives its own defaults from.
 CLOCK_PERIOD: 15
 
 # SDC
-FALLBACK_SDC_FILE: dir::base.sdc
+# FALLBACK_SDC (deprecated name FALLBACK_SDC_FILE) only ever constrains
+# the FIRST entry of CLOCK_PORT, which is why the templated base.sdc
+# could never describe this block.  base.sdc is now unused.
+#
+# Two files, not one:  sram_clk is a clock mux output needing two
+# generated clocks on one port.  OpenSTA accepts that, TritonCTS does not
+# ("[ERROR CTS-0114] Clock sram_clk_s overlaps a previous clock"), so PnR
+# analyses the sequencer mode only via a case analysis and signoff
+# analyses both.  Both source constraints_common.sdc.
+PNR_SDC_FILE: dir::constraints_pnr.sdc
+SIGNOFF_SDC_FILE: dir::constraints_signoff.sdc
 
 # CTS
 CTS_OBSTRUCTION_AWARE: true
-CTS_CLK_MAX_WIRE_LENGTH: 1200
+# CTS_CLK_MAX_WIRE_LENGTH removed.  Its default is 0, which lets
+# TritonCTS pick the segment length itself;  the explicit 1200 um was an
+# override roughly the width of the whole block, so the tree went almost
+# unbuffered.  Combined with no max_transition constraint, that produced
+# 4.589 ns of clock skew and 56 max-slew violations at
+# nom_slow_1p08V_125C, with a 468 um average leaf wire on 112 sinks.
+# max_transition is now set in constraints.sdc.
 CTS_SINK_CLUSTERING_SIZE: 25 # default 25
 CTS_SINK_CLUSTERING_MAX_DIAMETER: 60 # default 50
 
 # Routing
 GRT_ALLOW_CONGESTION: true
+# NOTE:  Changed to false to check for congestion issues early
+## GRT_ALLOW_CONGESTION: false
 RT_CLOCK_MAX_LAYER: Metal4
 #RT_MAX_LAYER: Metal4
 #DRT_MAX_LAYER: Metal4
@@ -160,7 +204,7 @@ PDN_CORE_RING: false
 FP_SIZING: absolute
 
 DIE_AREA: [ 640.00,  300.00, 1895.00, 430.00 ]
-CORE_AREA: [ 643.00,  303.00, 1892.00, 427.00 ]
+CORE_AREA: [ 641.50,  301.50, 1893.50, 428.50 ]
 
 FP_DEF_TEMPLATE: dir::../../def/housekeeping_top.def
 FP_TEMPLATE_MATCH_MODE: permissive
@@ -174,96 +218,35 @@ PL_TARGET_DENSITY_PCT: 50 # Adjust as needed
 ## ADC/DAC area
 # - [790, 0.00, 1720, 290]
 
+# Obstructions
+#
+# Odb.ApplyDEFTemplate only relocates pins and reads the die area out of
+# FP_DEF_TEMPLATE.  It does NOT import the BLOCKAGES section, so the
+# obsm* shapes painted by scripts/run_gen_hk_def.tcl have no effect on
+# the flow and must be restated here.  Keep the two in step.
+#
+# Layer names are LEF names.  magic's "m4"/metal4 is Metal4;  its
+# "m5"/metal5 is TopMetal1.
+#
+# This keepout lets the 3.3 V supply reach up from the pad in the lower
+# right corner, over the right-hand end of this block.  It mirrors the
+# two boxes at the end of run_gen_hk_def.tcl:
+#     obsm5  (die_urx-33, die_lly+25) .. (die_urx, die_ury-60)
+#     obsm4  (die_urx-33, die_lly+25) .. (die_urx, die_ury)
+
 PDN_OBSTRUCTIONS:
-## SIO
-# - [Metal1, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal2, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal3, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal4, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal5, 2661.15, 0.00, 3141.15, 46.715]
-## ADC/DAC area
-# - [Metal4, 790, 0.00, 1720, 290] #[Metal4, 800, 20, 1700, 270]
-# - [Metal5, 790, 0.00, 1720, 290] #[Metal5, 800, 20, 1700, 270]
-## Logo
-# - [Metal5, 2665, 120, 3129.4, 203.5]
-
-# Power connections
-
-# Bottom
-# - [Metal4, 26.45, 0, 100.66, 20]
-# 
-# - [Metal4, 931.45, 0, 1005.66, 20]
-#
-#- [Metal4, 1611.45, 0, 1685.66, 20]
-#
-#- [Metal4, 2551.45, 0, 2625.66, 20]
-
-# Top
-#- [Metal4, 3085.65, 4750.65, 3147.9, 4770.65]
-#
-#- [Metal4, 2375.64, 4750.65, 2449.905, 4770.65]
-#
-#- [Metal4, 725.65, 4750.65, 799.85, 4770.65]
-#
-#- [Metal4, 27.65, 4750.65, 89.85, 4770.65]
+- [TopMetal1, 1862.00, 325.00, 1895.00, 370.00]
+- [Metal4, 1862.00, 325.00, 1895.00, 430.00]
 
 ROUTING_OBSTRUCTIONS:
-## SIO
-# - [Metal1, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal2, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal3, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal4, 2661.15, 0.00, 3141.15, 46.715]
-# - [Metal5, 2661.15, 0.00, 3141.15, 46.715]
-## ADC/DAC area
-# - [Metal4, 800, 0.00, 1700, 270]
-## Logo
-# - [Metal5, 2665, 120, 3070, 265]
+- [TopMetal1, 1862.00, 325.00, 1895.00, 370.00]
+- [Metal4, 1862.00, 325.00, 1895.00, 430.00]
 
-# Power connections
-
-# Bottom
-#- [Metal3, 26.45, 0, 100.66, 20]
-#- [Metal4, 26.45, 0, 100.66, 20]
-#
-#- [Metal3, 931.45, 0, 1005.66, 20]
-#- [Metal4, 931.45, 0, 1005.66, 20]
-#
-#- [Metal3, 1611.45, 0, 1685.66, 20]
-#- [Metal4, 1611.45, 0, 1685.66, 20]
-#
-#- [Metal3, 2551.45, 0, 2625.66, 20]
-#- [Metal4, 2551.45, 0, 2625.66, 20]
-#
-# Right
-#- [Metal3, 3150.3, 584.8, 3170.3, 659]
-#
-#- [Metal3, 3150.3, 2184.8, 3170.3, 2259.01]
-#
-#- [Metal3, 3150.3, 3487.8, 3170.3, 3562]
-#
-#- [Metal3, 3150.3, 4527.8, 3170.3, 4602.01]
-#
-# Top
-#- [Metal3, 3085.65, 4750.65, 3147.9, 4770.65]
-#- [Metal4, 3085.65, 4750.65, 3147.9, 4770.65]
-#
-#- [Metal3, 2375.64, 4750.65, 2449.905, 4770.65]
-#- [Metal4, 2375.64, 4750.65, 2449.905, 4770.65]
-#
-#- [Metal3, 725.65, 4750.65, 799.85, 4770.65]
-#- [Metal4, 725.65, 4750.65, 799.85, 4770.65]
-#
-#- [Metal3, 27.65, 4750.65, 89.85, 4770.65]
-#- [Metal4, 27.65, 4750.65, 89.85, 4770.65]
-#
-# Left
-#- [Metal3, 0, 4537, 20, 4611.2]
-#
-#- [Metal3, 0, 3497, 20, 3571.2]
-#
-#- [Metal3, 0, 2199, 20, 2273.2]
-#
-#- [Metal3, 0, 589, 20, 663.2]
+# NOTE:  run_gen_hk_def.tcl also paints 1 um obsm1..obsm4 strips along
+# all four die edges over the pins.  Those are deliberately NOT restated
+# here:  the pin shapes are only 2 um long, so a 1 um same-layer routing
+# blockage would cover half of every pin.  The 3 um CORE_AREA margin
+# already keeps placement and most routing off the die edge.
 
 # Magic: Use GDS views (no DRC issues)
 MAGIC_DRC_USE_GDS: True
