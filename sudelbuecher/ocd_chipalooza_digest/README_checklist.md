@@ -1,6 +1,6 @@
 # SG13CMOS5L OCD Chipalooza README checklist
 
-Source: read-only review of [`sg13cmos5l_ocd_chipalooza/README`](../../sg13cmos5l_ocd_chipalooza/README), with filenames checked against that repository on 2026-09-23. All paths below are relative to the source repository. An unchecked box describes work in the source README; it does **not** mean the work has not already been done. The README says its instructions are incomplete and still use individual scripts rather than a Makefile.
+Source: read-only review of [`sg13cmos5l_ocd_chipalooza/README`](../../README), with filenames checked against that repository on 2026-09-23. All paths below are relative to the source repository. An unchecked box describes work in the source README; it does **not** mean the work has not already been done. The README says its instructions are incomplete and still use individual scripts rather than a Makefile.
 
 ## What is being assembled
 
