@@ -1,8 +1,8 @@
 # OCD Chipalooza — verbatim chat log
 
-Session: `01a0cc19-cd0a-7510-91a0-dde8075cd0a6`. Timestamps are UTC as recorded by Codex. The last assistant entry is the update-completion reply prepared with this file. Message bodies are plain Markdown. Entries 01, 12, and 83 have formatted views with the exact original text in expandable sections.
+Session: `01a0cc19-cd0a-7510-91a0-dde8075cd0a6`. Timestamps are UTC as recorded by Codex. The last assistant entry is the update-completion reply prepared with this file. Message bodies are plain Markdown. Entries 01, 12, and 83 have formatted views with the exact original text in expandable sections. After moving this file into the Chipalooza repository, links to files in this repository were retargeted to relative paths; the historical message wording remains unchanged.
 
-**Scope.** Every recorded user and user-visible assistant text message is preserved in chronological order. Entries 01, 12, and 83 show formatted views; their exact original text is retained in expandable sections. Other message bodies are reproduced without rewriting. This includes commentary updates, the environment-context messages, and the accidental `tinyBGR` paste followed by its correction. Hidden system/developer instructions, private reasoning, and tool invocations/results are outside the chat transcript, following the reference chat-log convention. Sources are indexed in [`ref/`](ref/README.md); [`pix/`](pix/README.md) records the absence of image attachments.
+**Scope.** Every recorded user and user-visible assistant text message is preserved in chronological order. Entries 01, 12, and 83 show formatted views; their exact original text is retained in expandable sections. Other message wording is reproduced without rewriting, apart from the retargeted link destinations. This includes commentary updates, the environment-context messages, and the accidental `tinyBGR` paste followed by its correction. Hidden system/developer instructions, private reasoning, and tool invocations/results are outside the chat transcript, following the reference chat-log convention. Sources are indexed in [`ref/`](ref/README.md); [`pix/`](pix/README.md) records the absence of image attachments.
 
 ---
 
@@ -80,7 +80,7 @@ The repository has diverged from parts of its README: several wrapper and GDS na
 
 ## 06 — Assistant (final_answer) — 2026-09-23T02:35:01.858Z
 
-Saved the checklist at [README_checklist.md](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/README_checklist.md).
+Saved the checklist at [README_checklist.md](README_checklist.md).
 
 It covers the README’s setup, assembly, and verification steps, with checked filenames and notes where the current scripts differ from the README. The source repository was read only.
 
@@ -238,7 +238,7 @@ The host is using hardware accelerated Intel graphics, so it is not falling back
 
 ## 28 — Assistant (final_answer) — 2026-09-24T15:16:24.486Z
 
-I found a concrete reason for the slow full-chip redraws: **the hierarchy is enormous once expanded**. In the layout you have open, the padframe contains 40 analog-pad instances and four corner instances. Each analog-pad cell has about 140,000 rectangles; each corner has about 528,000. Together with the 347,000 rectangles in `housekeeping_top`, fully expanding the chip exposes **at least eight million rectangles**, before counting other cells. That makes plain `x` over a large box particularly expensive. [Padframe](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/magic/sg13cmos5l_padframe.mag) · [Housekeeping](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/magic/housekeeping_top.mag)
+I found a concrete reason for the slow full-chip redraws: **the hierarchy is enormous once expanded**. In the layout you have open, the padframe contains 40 analog-pad instances and four corner instances. Each analog-pad cell has about 140,000 rectangles; each corner has about 528,000. Together with the 347,000 rectangles in `housekeeping_top`, fully expanding the chip exposes **at least eight million rectangles**, before counting other cells. That makes plain `x` over a large box particularly expensive. [Padframe](../../magic/sg13cmos5l_padframe.mag) · [Housekeeping](../../magic/housekeeping_top.mag)
 
 The running Magic process was idle when sampled, using about 327 MB of RAM; the system had ample available memory. The host also reports hardware accelerated Intel graphics. Those checks make memory exhaustion and software OpenGL unlikely explanations. I **haven’t measured a redraw while it happens**, so I can’t rule out background DRC contributing to each pause.
 
@@ -260,7 +260,7 @@ I’ll check the Magic instance records to see whether `project_control_area` is
 
 ## 31 — Assistant (final_answer) — 2026-09-24T15:20:24.464Z
 
-Yes: [chipalooza_frame.mag](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/magic/chipalooza_frame.mag:3448) places **18 separate instances** of `project_control_area`, numbered `_0` through `_17`. They share one cell definition, but they are **not a Magic array**; each has its own `use` record and transform. Adjacent placements alternate between normal and mirrored orientation.
+Yes: [chipalooza_frame.mag](../../magic/chipalooza_frame.mag#L3448) places **18 separate instances** of `project_control_area`, numbered `_0` through `_17`. They share one cell definition, but they are **not a Magic array**; each has its own `use` record and transform. Adjacent placements alternate between normal and mirrored orientation.
 
 ## 32 — User — 2026-09-24T15:21:04.193Z
 
@@ -284,7 +284,7 @@ expand selection
 findbox zoom
 ```
 
-That opens only the parent path needed to reach instance `_10`, then zooms to it. The name is `project_control_area_10`, as recorded in [chipalooza_frame.mag](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/magic/chipalooza_frame.mag:3488). `select cell <instance-name>` is Magic’s named-instance selection syntax. [Magic command reference](https://opencircuitdesign.com/magic/commandref/select.html)
+That opens only the parent path needed to reach instance `_10`, then zooms to it. The name is `project_control_area_10`, as recorded in [chipalooza_frame.mag](../../magic/chipalooza_frame.mag#L3488). `select cell <instance-name>` is Magic’s named-instance selection syntax. [Magic command reference](https://opencircuitdesign.com/magic/commandref/select.html)
 
 ## 35 — User — 2026-09-24T15:21:54.849Z
 
@@ -407,7 +407,7 @@ I found the reference layout. Its chat files preserve user and assistant wording
 
 ## 51 — Assistant (final_answer) — 2026-09-24T15:44:56.339Z
 
-Exported the verbatim conversation to [the chat log](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md). It includes every user and assistant message, including the accidental paste and correction. As in the example, tool activity is omitted; [ref/](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/ref/README.md) indexes sources, and [pix/](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/pix/README.md) records that no images were attached.
+Exported the verbatim conversation to [the chat log](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md). It includes every user and assistant message, including the accidental paste and correction. As in the example, tool activity is omitted; [ref/](ref/README.md) indexes sources, and [pix/](pix/README.md) records that no images were attached.
 
 ## 52 — User — 2026-09-24T15:51:08.302Z
 
@@ -515,7 +515,7 @@ The saved log ends at the export reply. I found the recorded messages after it a
 
 ## 72 — Assistant (final_answer) — 2026-09-24T16:42:31.957Z
 
-Updated the [unabridged chat log](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through this request, including the CACE discussion and all four bare GitHub URLs.
+Updated the [unabridged chat log](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through this request, including the CACE discussion and all four bare GitHub URLs.
 
 ## 73 — User — 2026-09-24T16:45:37.050Z
 
@@ -615,7 +615,7 @@ I’ll save the assignment table as Markdown in `ocd_chipalooza_digest`, with a 
 
 ## 88 — Assistant (final_answer) — 2026-09-24T17:04:21.738Z
 
-Saved the table as [chipalooza_slot_assignments.md](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/chipalooza_slot_assignments.md). All 18 pin counts match the harness `config.txt`; the file identifies your pasted table as the source of the designer assignments.
+Saved the table as [chipalooza_slot_assignments.md](chipalooza_slot_assignments.md). All 18 pin counts match the harness `config.txt`; the file identifies your pasted table as the source of the designer assignments.
 
 ## 89 — User — 2026-09-24T17:25:59.699Z
 
@@ -771,7 +771,7 @@ I’ll check the `single2diff2single` GDS folders for a working KLayout setup or
 
 For the slot 7 layout in KLayout, you need these files:
 
-- **Layout:** [slot7_wrapper.gds](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/gds/slot7_wrapper.gds)
+- **Layout:** [slot7_wrapper.gds](../../gds/slot7_wrapper.gds)
 - **KLayout technology:** [sg13cmos5l.lyt](/home/cmaier/EDA/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyt)
 - **Layer names and colors:** [sg13cmos5l.lyp](/home/cmaier/EDA/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyp), which the `.lyt` references
 
@@ -841,7 +841,7 @@ The two files have the **same top cell, six cells total, five child placements, 
 | `14/0` pSD | About **359 µm²** differs. |
 | `5/0` GatPoly and `52/0` HeatRes | A **2 µm²** shape disappears from GatPoly and appears on HeatRes. |
 
-Smaller differences occur on five other layers. Text elements also differ: **87** in the [library-derived GDS](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/gds/sg13cmos5l_IOPadAnalog.gds) versus **104** in the [Magic export](/home/cmaier/EDA/sg13cmos5l_ocd_chipalooza/gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
+Smaller differences occur on five other layers. Text elements also differ: **87** in the [library-derived GDS](../../gds/sg13cmos5l_IOPadAnalog.gds) versus **104** in the [Magic export](../../gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
 
 **Use the library-derived GDS when you need the foundry IO pad geometry.** These differences go beyond polygon splitting. They suggest a Magic layer conversion issue, though the files alone do not establish which Magic technology file was active during export. I used the existing EDA container for read-only comparisons; no container, image, or output file was created.
 
@@ -859,7 +859,7 @@ The export has one prepared reply whose wording differs from what was actually s
 
 ## 133 — Assistant (final_answer) — 2026-09-24T18:34:57.125Z
 
-Updated the [verbatim chat log](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through this request. I also updated the [reference index](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/ref/references.md). The [pix directory](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/pix/README.md) remains empty because this chat has no attached or generated images.
+Updated the [verbatim chat log](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through this request. I also updated the [reference index](ref/references.md). The [pix directory](pix/README.md) remains empty because this chat has no attached or generated images.
 
 ## 134 — User — 2026-09-24T18:37:24.160Z
 
@@ -903,7 +903,7 @@ I’ll add the push discussion to the existing transcript, check it against the 
 
 ## 142 — Assistant (final_answer) — 2026-09-24T18:54:18.957Z
 
-Updated the [verbatim chat log](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through the push check. I also updated the [reference index](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/ref/references.md) with the verified fork branch tips. The [pix directory](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/pix/README.md) remains empty because no images were attached or generated.
+Updated the [verbatim chat log](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md) through the push check. I also updated the [reference index](ref/references.md) with the verified fork branch tips. The [pix directory](pix/README.md) remains empty because no images were attached or generated.
 
 ## 143 — User — 2026-09-24T18:58:03.472Z
 
@@ -915,7 +915,7 @@ I’ll remove the outer text fences from every entry so Markdown renders the mes
 
 ## 145 — Assistant (final_answer) — 2026-09-24T18:58:59.410Z
 
-Removed the outer text fences from every entry in the [verbatim chat log](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md). Message text and its own code blocks are unchanged; the log now includes this request.
+Removed the outer text fences from every entry in the [verbatim chat log](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md). Message text and its own code blocks are unchanged; the log now includes this request.
 
 ## 146 — User — 2026-09-24T19:05:13.640Z
 
@@ -931,4 +931,4 @@ The two environment entries are XML, and entry 83 contains literal `\n` text rat
 
 ## 149 — Assistant (final) — 2026-09-24 (update completion)
 
-Formatted [entries 01, 12, and 83](/home/cmaier/EDA/chipalooza_cmos5L/ocd_chipalooza_digest/2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md): the environment blocks are indented XML, and the slot assignment is a complete 18-row Markdown table. Each entry keeps its exact original text in an expandable section. Your staged version is intact; these edits are unstaged.
+Formatted [entries 01, 12, and 83](2026-09-23_to_2026-09-24_codex_ocd_chipalooza_chat.md): the environment blocks are indented XML, and the slot assignment is a complete 18-row Markdown table. Each entry keeps its exact original text in an expandable section. Your staged version is intact; these edits are unstaged.

@@ -3,19 +3,19 @@
 ## Local sources
 
 - Source repository: `~/EDA/sg13cmos5l_ocd_chipalooza/`. The repository was read for analysis; the user later exported `gds/slot7_wrapper.gds` from Magic and saved an IO pad GDS from KLayout.
-- Top-level design instructions: [`README`](../../../sg13cmos5l_ocd_chipalooza/README).
-- Configuration: [`config.txt`](../../../sg13cmos5l_ocd_chipalooza/config.txt).
-- Top-level Magic cells: [`sg13cmos5l_ocd_chipalooza.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/sg13cmos5l_ocd_chipalooza.mag), [`sg13cmos5l_ocd_chipalooza_final.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/sg13cmos5l_ocd_chipalooza_final.mag).
-- Hierarchy and instance counts: [`chipalooza_frame.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/chipalooza_frame.mag), [`project_control_area.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/project_control_area.mag), [`sg13cmos5l_padframe.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/sg13cmos5l_padframe.mag), [`housekeeping_top.mag`](../../../sg13cmos5l_ocd_chipalooza/magic/housekeeping_top.mag).
-- Repository setup: [`scripts/layout_setup.tcl`](../../../sg13cmos5l_ocd_chipalooza/scripts/layout_setup.tcl), [`magic/README`](../../../sg13cmos5l_ocd_chipalooza/magic/README).
+- Top-level design instructions: [`README`](../../../README).
+- Configuration: [`config.txt`](../../../config.txt).
+- Top-level Magic cells: [`sg13cmos5l_ocd_chipalooza.mag`](../../../magic/sg13cmos5l_ocd_chipalooza.mag), [`sg13cmos5l_ocd_chipalooza_final.mag`](../../../magic/sg13cmos5l_ocd_chipalooza_final.mag).
+- Hierarchy and instance counts: [`chipalooza_frame.mag`](../../../magic/chipalooza_frame.mag), [`project_control_area.mag`](../../../magic/project_control_area.mag), [`sg13cmos5l_padframe.mag`](../../../magic/sg13cmos5l_padframe.mag), [`housekeeping_top.mag`](../../../magic/housekeeping_top.mag).
+- Repository setup: [`scripts/layout_setup.tcl`](../../../scripts/layout_setup.tcl), [`magic/README`](../../../magic/README).
 - Digest created during this chat: [`README_checklist.md`](../README_checklist.md).
 - Slot assignment table supplied by the user: [`chipalooza_slot_assignments.md`](../chipalooza_slot_assignments.md). Its designer and circuit assignments were not independently sourced.
-- Physical slot and pin map: [`doc/sg13cmos5l_chipalooza_harness_64pin.pdf`](../../../sg13cmos5l_ocd_chipalooza/doc/sg13cmos5l_chipalooza_harness_64pin.pdf).
-- Magic GDS technology file: [`gds/ihp-sg13cmos5l-GDS.tech`](../../../sg13cmos5l_ocd_chipalooza/gds/ihp-sg13cmos5l-GDS.tech).
-- Slot 7 export: [`gds/slot7_wrapper.gds`](../../../sg13cmos5l_ocd_chipalooza/gds/slot7_wrapper.gds).
-- IO pad files compared: [`sg13cmos5l_IOPadAnalog.gds`](../../../sg13cmos5l_ocd_chipalooza/gds/sg13cmos5l_IOPadAnalog.gds) and [`sg13cmos5l_IOPadAnalog_from_magic.gds`](../../../sg13cmos5l_ocd_chipalooza/gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
-- KLayout PDK setup: [`sg13cmos5l.lyt`](../../../IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyt) and [`sg13cmos5l.lyp`](../../../IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyp).
-- Related project inspected for a KLayout example: [`sg13cmos5l_cm_ip__single2diff2single/README.md`](../../../sg13cmos5l_cm_ip__single2diff2single/README.md).
+- Physical slot and pin map: [`doc/sg13cmos5l_chipalooza_harness_64pin.pdf`](../../../doc/sg13cmos5l_chipalooza_harness_64pin.pdf).
+- Magic GDS technology file: [`gds/ihp-sg13cmos5l-GDS.tech`](../../../gds/ihp-sg13cmos5l-GDS.tech).
+- Slot 7 export: [`gds/slot7_wrapper.gds`](../../../gds/slot7_wrapper.gds).
+- IO pad files compared: [`sg13cmos5l_IOPadAnalog.gds`](../../../gds/sg13cmos5l_IOPadAnalog.gds) and [`sg13cmos5l_IOPadAnalog_from_magic.gds`](../../../gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
+- KLayout PDK setup: [`sg13cmos5l.lyt`](https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/main/libs.tech/klayout/tech/sg13cmos5l.lyt) and [`sg13cmos5l.lyp`](https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/main/libs.tech/klayout/tech/sg13cmos5l.lyp).
+- Related project inspected for a KLayout example: [`sg13cmos5l_cm_ip__single2diff2single/README.md`](https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single/blob/main/README.md).
 - Installed Magic Cell Manager implementation inspected in the EDA container: `/foss/tools/magic/lib/magic/tcl/cellmgr.tcl` (read only). Its `magic::addlistset` routine lists child cell definitions and chooses the first instance for each definition.
 
 ## Magic documentation
