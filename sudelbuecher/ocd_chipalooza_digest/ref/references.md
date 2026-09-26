@@ -55,3 +55,14 @@ The `tinyBGR` clone URL appears in the transcript because it was pasted accident
 - [Sonnet session log](https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single/blob/sudel_buecher/sudelbuecher/chatlog/2026-09-04_ocd_reconciliation_and_ogueyaebischerbias_cace.md).
 - [Opus session log](https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single/blob/sudel_buecher/sudelbuecher/chatlog/2026-09-04_opus_cace_templates_and_oab_sizing.md).
 - [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference): raw output mode and its `Alt-R` binding.
+
+## Upstream changes reviewed on 2026-09-26
+
+The report in the chat was based on local Git objects and file inspection, comparing upstream `4102889` with `b6ce377`. These links identify the versions reviewed; the working checkout was not updated by the analysis.
+
+- [Upstream comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/compare/4102889...b6ce377), including [dc3a2b4](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/commit/dc3a2b4) and [b6ce377](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/commit/b6ce377): LVS and interface changes. The successful LVS result was reported by the commit author, not rerun in this chat.
+- [Updated slot 7 Magic wrapper](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/slot7_wrapper.mag): control-pin geometry and bias/bus labels. Compared with the existing [slot 7 GDS export](../../../gds/slot7_wrapper.gds), whose text records still contained the old labels.
+- [Updated padframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/sg13cmos5l_padframe.mag), [frame](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/chipalooza_frame.mag), and [project control area](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/project_control_area.mag).
+- [Analog-switch submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__analog_switches/compare/b301f61...73c001a): digisub geometry correction in two Magic cells.
+- [Bias-generator submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__biasgen/compare/40addcc...72536a2): CACE material and a GDS export; no Magic layout file changes in this range.
+- The POR gitlink also changed (`e38bb48` to `e6e8d8f`), but the target commit was unavailable locally and its contents were not inspected.
