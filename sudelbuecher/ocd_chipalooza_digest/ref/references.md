@@ -66,3 +66,9 @@ The report in the chat was based on local Git objects and file inspection, compa
 - [Analog-switch submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__analog_switches/compare/b301f61...73c001a): digisub geometry correction in two Magic cells.
 - [Bias-generator submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__biasgen/compare/40addcc...72536a2): CACE material and a GDS export; no Magic layout file changes in this range.
 - The POR gitlink also changed (`e38bb48` to `e6e8d8f`), but the target commit was unavailable locally and its contents were not inspected.
+
+## Git merge and subtree rebase discussion, 2026-09-27
+
+- [Git rebase documentation](https://git-scm.com/docs/git-rebase): `--rebase-merges`, `no-rebase-cousins`, `--onto`, and interactive merge recreation.
+- Repository history inspected locally: old branch point `fd10995`, subtree import merge `71501ad`, imported digest tip `70340fd`, pre-rebase documentation tip `df6c706`, and updated `tatzelbranch` tip `34f6437`. These identify the history used for the advice, rather than the subsequently rewritten commit IDs.
+- A temporary local clone was used to test the rebase. Ordinary merge recreation misplaced the subtree contents; replacing the import's todo entry with `git subtree add --prefix=sudelbuecher/ocd_chipalooza_digest 70340fd` succeeded. The test preserved the complete `sudelbuecher` tree and both original roots (`2c1cd6c` and `fb24503`). The temporary clone and editor script were removed afterward.
