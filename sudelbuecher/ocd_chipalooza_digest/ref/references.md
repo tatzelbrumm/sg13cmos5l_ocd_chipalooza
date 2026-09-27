@@ -3,17 +3,17 @@
 ## Local sources
 
 - Source repository: `~/EDA/sg13cmos5l_ocd_chipalooza/`. The repository was read for analysis; the user later exported `gds/slot7_wrapper.gds` from Magic and saved an IO pad GDS from KLayout.
-- Top-level design instructions: [`README`](../../../README).
-- Configuration: [`config.txt`](../../../config.txt).
-- Top-level Magic cells: [`sg13cmos5l_ocd_chipalooza.mag`](../../../magic/sg13cmos5l_ocd_chipalooza.mag), [`sg13cmos5l_ocd_chipalooza_final.mag`](../../../magic/sg13cmos5l_ocd_chipalooza_final.mag).
-- Hierarchy and instance counts: [`chipalooza_frame.mag`](../../../magic/chipalooza_frame.mag), [`project_control_area.mag`](../../../magic/project_control_area.mag), [`sg13cmos5l_padframe.mag`](../../../magic/sg13cmos5l_padframe.mag), [`housekeeping_top.mag`](../../../magic/housekeeping_top.mag).
-- Repository setup: [`scripts/layout_setup.tcl`](../../../scripts/layout_setup.tcl), [`magic/README`](../../../magic/README).
+- Top-level design instructions: [`README`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/README).
+- Configuration: [`config.txt`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/config.txt).
+- Top-level Magic cells: [`sg13cmos5l_ocd_chipalooza.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/sg13cmos5l_ocd_chipalooza.mag), [`sg13cmos5l_ocd_chipalooza_final.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/sg13cmos5l_ocd_chipalooza_final.mag).
+- Hierarchy and instance counts: [`chipalooza_frame.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/chipalooza_frame.mag), [`project_control_area.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/project_control_area.mag), [`sg13cmos5l_padframe.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/sg13cmos5l_padframe.mag), [`housekeeping_top.mag`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/housekeeping_top.mag).
+- Repository setup: [`scripts/layout_setup.tcl`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/scripts/layout_setup.tcl), [`magic/README`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/magic/README).
 - Digest created during this chat: [`README_checklist.md`](../README_checklist.md).
 - Slot assignment table supplied by the user: [`chipalooza_slot_assignments.md`](../chipalooza_slot_assignments.md). Its designer and circuit assignments were not independently sourced.
-- Physical slot and pin map: [`doc/sg13cmos5l_chipalooza_harness_64pin.pdf`](../../../doc/sg13cmos5l_chipalooza_harness_64pin.pdf).
-- Magic GDS technology file: [`gds/ihp-sg13cmos5l-GDS.tech`](../../../gds/ihp-sg13cmos5l-GDS.tech).
-- Slot 7 export: [`gds/slot7_wrapper.gds`](../../../gds/slot7_wrapper.gds).
-- IO pad files compared: [`sg13cmos5l_IOPadAnalog.gds`](../../../gds/sg13cmos5l_IOPadAnalog.gds) and [`sg13cmos5l_IOPadAnalog_from_magic.gds`](../../../gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
+- Physical slot and pin map: [`doc/sg13cmos5l_chipalooza_harness_64pin.pdf`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/doc/sg13cmos5l_chipalooza_harness_64pin.pdf).
+- Magic GDS technology file: [`gds/ihp-sg13cmos5l-GDS.tech`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/gds/ihp-sg13cmos5l-GDS.tech).
+- Slot 7 export: [`gds/slot7_wrapper.gds`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/gds/slot7_wrapper.gds).
+- IO pad files compared: [`sg13cmos5l_IOPadAnalog.gds`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/gds/sg13cmos5l_IOPadAnalog.gds) and [`sg13cmos5l_IOPadAnalog_from_magic.gds`](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/gds/sg13cmos5l_IOPadAnalog_from_magic.gds).
 - KLayout PDK setup: [`sg13cmos5l.lyt`](https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/main/libs.tech/klayout/tech/sg13cmos5l.lyt) and [`sg13cmos5l.lyp`](https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/main/libs.tech/klayout/tech/sg13cmos5l.lyp).
 - Related project inspected for a KLayout example: [`sg13cmos5l_cm_ip__single2diff2single/README.md`](https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single/blob/main/README.md).
 - Installed Magic Cell Manager implementation inspected in the EDA container: `/foss/tools/magic/lib/magic/tcl/cellmgr.tcl` (read only). Its `magic::addlistset` routine lists child cell definitions and chooses the first instance for each definition.
@@ -61,7 +61,7 @@ The `tinyBGR` clone URL appears in the transcript because it was pasted accident
 The report in the chat was based on local Git objects and file inspection, comparing upstream `4102889` with `b6ce377`. These links identify the versions reviewed; the working checkout was not updated by the analysis.
 
 - [Upstream comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/compare/4102889...b6ce377), including [dc3a2b4](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/commit/dc3a2b4) and [b6ce377](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/commit/b6ce377): LVS and interface changes. The successful LVS result was reported by the commit author, not rerun in this chat.
-- [Updated slot 7 Magic wrapper](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/slot7_wrapper.mag): control-pin geometry and bias/bus labels. Compared with the existing [slot 7 GDS export](../../../gds/slot7_wrapper.gds), whose text records still contained the old labels.
+- [Updated slot 7 Magic wrapper](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/slot7_wrapper.mag): control-pin geometry and bias/bus labels. Compared with the existing [slot 7 GDS export](https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/tatzelbranch/gds/slot7_wrapper.gds), whose text records still contained the old labels.
 - [Updated padframe](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/sg13cmos5l_padframe.mag), [frame](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/chipalooza_frame.mag), and [project control area](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_chipalooza/blob/b6ce377/magic/project_control_area.mag).
 - [Analog-switch submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__analog_switches/compare/b301f61...73c001a): digisub geometry correction in two Magic cells.
 - [Bias-generator submodule comparison](https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__biasgen/compare/40addcc...72536a2): CACE material and a GDS export; no Magic layout file changes in this range.
@@ -72,3 +72,10 @@ The report in the chat was based on local Git objects and file inspection, compa
 - [Git rebase documentation](https://git-scm.com/docs/git-rebase): `--rebase-merges`, `no-rebase-cousins`, `--onto`, and interactive merge recreation.
 - Repository history inspected locally: old branch point `fd10995`, subtree import merge `71501ad`, imported digest tip `70340fd`, pre-rebase documentation tip `df6c706`, and updated `tatzelbranch` tip `34f6437`. These identify the history used for the advice, rather than the subsequently rewritten commit IDs.
 - A temporary local clone was used to test the rebase. Ordinary merge recreation misplaced the subtree contents; replacing the import's todo entry with `git subtree add --prefix=sudelbuecher/ocd_chipalooza_digest 70340fd` succeeded. The test preserved the complete `sudelbuecher` tree and both original roots (`2c1cd6c` and `fb24503`). The temporary clone and editor script were removed afterward.
+
+## Documentation worktree and quota discussion, 2026-09-27
+
+- Primary export location: `~/EDA/sg13cmos5l_ocd_chipalooza_sudelbuecher/sudelbuecher/ocd_chipalooza_digest/`, on branch `sudel_buecher`. Design-file links use explicit GitHub URLs on `tatzelbranch`, so they resolve when viewed on GitHub as well as locally. Links within this documentation remain relative.
+- The documentation history was recreated from `34f6437..9be789f`, importing digest tip `70340fd` under `sudelbuecher/ocd_chipalooza_digest`, then replaying `012346d..dc155dd`. The user performed the branch changes and push. The resulting local documentation tip inspected was `daff5d0`.
+- The six files contributed by `consolidate_xschemrc` (remote tip `3c16b91`) were compared against the retained documentation branch. Their contents survived; the README gained the digest link. The user subsequently reported deleting the remote branch.
+- [Codex developer commands](https://learn.chatgpt.com/docs/developer-commands): `/status` and rate-limit display. Local session records showed approximately 100% five-hour and 97% weekly quota remaining at the inspected September 27 snapshot; the September 24 five-hour usage had reached 61%. A retained warning was offered as a likely explanation, not a confirmed UI diagnosis.
