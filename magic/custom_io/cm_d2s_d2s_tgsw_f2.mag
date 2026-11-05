@@ -1,0 +1,113 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect -2260 -2270 3076 2460
+<< nwell >>
+rect -260 -124 324 350
+<< poly >>
+rect -120 129 -20 158
+rect -120 97 -86 129
+rect -54 97 -20 129
+rect -120 68 -20 97
+rect 328 129 428 158
+rect 328 97 362 129
+rect 394 97 428 129
+rect 328 68 428 97
+rect 720 129 820 158
+rect 720 97 754 129
+rect 786 97 820 129
+rect 720 68 820 97
+<< polycont >>
+rect -86 97 -54 129
+rect 362 97 394 129
+rect 754 97 786 129
+<< metal1 >>
+rect 0 274 1040 284
+rect 0 234 920 274
+rect 960 234 1040 274
+rect 0 180 1040 234
+rect -100 133 -40 144
+rect -100 93 -90 133
+rect -50 93 -40 133
+rect -100 82 -40 93
+rect 348 133 408 144
+rect 348 93 358 133
+rect 398 93 408 133
+rect 348 82 408 93
+rect 740 133 800 144
+rect 740 93 750 133
+rect 790 93 800 133
+rect 740 82 800 93
+rect 50 -62 150 46
+rect 498 -62 598 46
+rect -260 -120 598 -62
+rect 890 -160 990 46
+<< via1 >>
+rect 920 234 960 274
+rect -90 129 -50 133
+rect -90 97 -86 129
+rect -86 97 -54 129
+rect -54 97 -50 129
+rect -90 93 -50 97
+rect 358 129 398 133
+rect 358 97 362 129
+rect 362 97 394 129
+rect 394 97 398 129
+rect 358 93 398 97
+rect 750 129 790 133
+rect 750 97 754 129
+rect 754 97 786 129
+rect 786 97 790 129
+rect 750 93 790 97
+<< metal2 >>
+rect -260 300 407 358
+rect -99 133 -41 142
+rect -99 93 -90 133
+rect -50 93 -41 133
+rect -99 -212 -41 93
+rect 349 133 407 300
+rect 910 274 970 460
+rect 910 234 920 274
+rect 960 234 970 274
+rect 910 224 970 234
+rect 349 93 358 133
+rect 398 93 407 133
+rect 349 84 407 93
+rect 741 133 799 142
+rect 741 93 750 133
+rect 790 93 799 133
+rect 741 -212 799 93
+rect -260 -270 799 -212
+use cm_d2s_nmosHV_1  cm_d2s_nmosHV_1_0
+timestamp 1622507382
+transform 0 1 840 -1 0 226
+box -26 -36 252 236
+use cm_d2s_nmosHV_1  cm_d2s_nmosHV_1_1
+timestamp 1622507382
+transform 0 1 448 -1 0 226
+box -26 -36 252 236
+use cm_d2s_pmosHV  cm_d2s_pmosHV_0
+timestamp 1622507382
+transform 0 1 0 -1 0 226
+box -124 -124 350 324
+<< labels >>
+rlabel comment s 100 113 100 113 4 TGP
+rlabel comment s 548 113 548 113 4 TGN
+rlabel comment s 940 113 940 113 4 TDN
+rlabel metal2 s 910 380 970 460 4 ni
+port 2 nsew
+rlabel metal2 s -260 -270 -200 -212 4 en_3v3_b
+port 3 nsew
+rlabel metal2 s -260 300 -200 358 4 en_3v3
+port 4 nsew
+rlabel metal1 s 890 -160 990 -100 4 iovss
+port 5 nsew
+rlabel metal1 s -260 -120 -200 -62 4 iref
+port 6 nsew
+<< properties >>
+string GDS_END 245842
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 243164
+<< end >>

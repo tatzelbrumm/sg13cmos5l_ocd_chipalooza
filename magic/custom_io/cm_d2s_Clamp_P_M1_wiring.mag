@@ -1,0 +1,87 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect -385 -1428 16555 5378
+<< metal1 >>
+rect 1615 3346 7439 3378
+rect 8259 3346 14331 3378
+rect 1747 572 1871 3280
+rect 2351 572 2475 3280
+rect 2955 572 3079 3280
+rect 3559 572 3683 3280
+rect 4163 572 4287 3280
+rect 4767 572 4891 3280
+rect 5371 572 5495 3280
+rect 5975 572 6099 3280
+rect 6579 572 6703 3280
+rect 7183 572 7307 3280
+rect 7526 3220 7687 3280
+rect 7787 3220 8043 3280
+rect 7787 572 7911 3220
+rect 8391 572 8515 3280
+rect 8995 572 9119 3280
+rect 9599 572 9723 3280
+rect 10203 572 10327 3280
+rect 10807 572 10931 3280
+rect 11411 572 11535 3280
+rect 12015 572 12139 3280
+rect 12619 572 12743 3280
+rect 13223 572 13347 3280
+rect 13827 572 13951 3280
+rect 14431 572 14555 3280
+<< labels >>
+flabel metal1 s 1747 572 1871 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 2351 572 2475 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 2955 572 3079 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 3559 572 3683 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 4163 572 4287 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 4767 572 4891 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 5371 572 5495 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 5975 572 6099 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 6579 572 6703 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 7183 572 7307 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 7787 572 7911 3280 0 FreeSans 51 0 0 0 dabp
+port 3 nsew
+flabel metal1 s 8391 572 8515 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 8995 572 9119 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 9599 572 9723 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 10203 572 10327 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 10807 572 10931 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 11411 572 11535 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 12015 572 12139 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 12619 572 12743 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 13223 572 13347 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 13827 572 13951 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 14431 572 14555 3280 0 FreeSans 51 0 0 0 pad
+port 2 nsew
+flabel metal1 s 1615 3346 7439 3378 0 FreeSans 51 0 0 0 a
+port 4 nsew
+flabel metal1 s 8259 3346 14331 3378 0 FreeSans 51 0 0 0 a
+port 4 nsew
+<< properties >>
+string GDS_END 969646
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 966750
+<< end >>

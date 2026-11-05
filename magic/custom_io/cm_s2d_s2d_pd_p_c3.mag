@@ -1,0 +1,75 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect -2000 -2000 2640 2594
+<< nwell >>
+rect 0 0 640 594
+<< hvnsubdiff >>
+rect 124 170 516 184
+rect 124 138 141 170
+rect 173 138 209 170
+rect 241 138 399 170
+rect 431 138 467 170
+rect 499 138 516 170
+rect 124 124 516 138
+<< hvnsubdiffcont >>
+rect 141 138 173 170
+rect 209 138 241 170
+rect 399 138 431 170
+rect 467 138 499 170
+<< poly >>
+rect 192 538 448 582
+rect 192 506 236 538
+rect 268 506 304 538
+rect 336 506 372 538
+rect 404 506 448 538
+rect 192 484 448 506
+rect 192 470 282 484
+rect 358 470 448 484
+<< polycont >>
+rect 236 506 268 538
+rect 304 506 336 538
+rect 372 506 404 538
+<< metal1 >>
+rect 294 550 346 594
+rect 226 538 414 550
+rect 226 506 236 538
+rect 268 506 304 538
+rect 336 506 372 538
+rect 404 506 414 538
+rect 0 340 170 400
+rect 470 340 640 400
+rect 124 170 258 184
+rect 124 138 141 170
+rect 173 138 209 170
+rect 241 138 258 170
+rect 124 124 258 138
+rect 304 0 336 270
+rect 382 170 516 184
+rect 382 138 399 170
+rect 431 138 467 170
+rect 499 138 516 170
+rect 382 124 516 138
+use cm_s2d_pmosHV_w2_l0p45_ng2  cm_s2d_pmosHV_w2_l0p45_ng2_0
+timestamp 1622507382
+transform 1 0 124 0 1 270
+box -124 -124 516 324
+<< labels >>
+rlabel comment s 320 370 320 370 4 TPP  TNP
+rlabel metal1 s 124 124 258 184 4 iovdd
+port 2 nsew
+rlabel metal1 s 294 534 346 594 4 en_3v3
+port 3 nsew
+rlabel metal1 s 304 0 336 60 4 vcm
+port 4 nsew
+rlabel metal1 s 0 340 60 400 4 voutp
+port 5 nsew
+rlabel metal1 s 580 340 640 400 4 voutn
+port 6 nsew
+<< properties >>
+string GDS_END 365132
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds
+string GDS_START 363226
+<< end >>

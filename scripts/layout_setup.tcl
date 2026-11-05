@@ -39,4 +39,8 @@ addpath sg13cmos5l_stdcell
 addpath sg13cmos5l_io
 addpath sg13cmos5l_sram
 
+# Custom (non-foundry) I/O pad cells, imported by scripts/setup_custom_io.sh
+
+addpath custom_io
+
 # All local references should already be resolved.

@@ -1,0 +1,89 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1622507382
+<< checkpaint >>
+rect -1013 -1013 1077 1323
+<< pwell >>
+rect -13 -13 77 323
+<< ndiode >>
+rect 0 299 64 310
+rect 0 283 7 299
+rect 23 283 41 299
+rect 57 283 64 299
+rect 0 265 64 283
+rect 0 249 7 265
+rect 23 249 41 265
+rect 57 249 64 265
+rect 0 231 64 249
+rect 0 215 7 231
+rect 23 215 41 231
+rect 57 215 64 231
+rect 0 197 64 215
+rect 0 181 7 197
+rect 23 181 41 197
+rect 57 181 64 197
+rect 0 163 64 181
+rect 0 147 7 163
+rect 23 147 41 163
+rect 57 147 64 163
+rect 0 129 64 147
+rect 0 113 7 129
+rect 23 113 41 129
+rect 57 113 64 129
+rect 0 95 64 113
+rect 0 79 7 95
+rect 23 79 41 95
+rect 57 79 64 95
+rect 0 61 64 79
+rect 0 45 7 61
+rect 23 45 41 61
+rect 57 45 64 61
+rect 0 27 64 45
+rect 0 11 7 27
+rect 23 11 41 27
+rect 57 11 64 27
+rect 0 0 64 11
+<< ndiodecont >>
+rect 7 283 23 299
+rect 41 283 57 299
+rect 7 249 23 265
+rect 41 249 57 265
+rect 7 215 23 231
+rect 41 215 57 231
+rect 7 181 23 197
+rect 41 181 57 197
+rect 7 147 23 163
+rect 41 147 57 163
+rect 7 113 23 129
+rect 41 113 57 129
+rect 7 79 23 95
+rect 41 79 57 95
+rect 7 45 23 61
+rect 41 45 57 61
+rect 7 11 23 27
+rect 41 11 57 27
+<< metal1 >>
+rect 23 283 41 299
+rect 7 265 57 283
+rect 23 249 41 265
+rect 7 231 57 249
+rect 23 215 41 231
+rect 7 197 57 215
+rect 23 181 41 197
+rect 7 163 57 181
+rect 23 147 41 163
+rect 7 129 57 147
+rect 23 113 41 129
+rect 7 95 57 113
+rect 23 79 41 95
+rect 7 61 57 79
+rect 23 45 41 61
+rect 7 27 57 45
+rect 23 11 41 27
+<< labels >>
+flabel comment s 32 155 32 155 0 FreeSans 200 0 0 0 dant
+<< properties >>
+string GDS_END 59674
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 58198
+<< end >>

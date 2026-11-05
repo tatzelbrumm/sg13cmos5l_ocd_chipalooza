@@ -1,0 +1,56 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1622507382
+<< checkpaint >>
+rect -1062 -1062 1530 1162
+<< nwell >>
+rect -62 -62 530 162
+<< hvpmos >>
+rect 34 0 434 100
+<< hvpdiff >>
+rect 0 93 34 100
+rect 0 77 7 93
+rect 23 77 34 93
+rect 0 58 34 77
+rect 0 42 7 58
+rect 23 42 34 58
+rect 0 23 34 42
+rect 0 7 7 23
+rect 23 7 34 23
+rect 0 0 34 7
+rect 434 93 468 100
+rect 434 77 445 93
+rect 461 77 468 93
+rect 434 58 468 77
+rect 434 42 445 58
+rect 461 42 468 58
+rect 434 23 468 42
+rect 434 7 445 23
+rect 461 7 468 23
+rect 434 0 468 7
+<< hvpdiffc >>
+rect 7 77 23 93
+rect 7 42 23 58
+rect 7 7 23 23
+rect 445 77 461 93
+rect 445 42 461 58
+rect 445 7 461 23
+<< poly >>
+rect 34 100 434 118
+rect 34 -18 434 0
+<< metal1 >>
+rect 7 93 23 100
+rect 7 58 23 77
+rect 7 23 23 42
+rect 7 0 23 7
+rect 445 93 461 100
+rect 445 58 461 77
+rect 445 23 461 42
+rect 445 0 461 7
+<< labels >>
+flabel comment s 234 50 234 50 0 FreeSans 100 90 0 0 pmosHV
+<< properties >>
+string GDS_END 8400
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds
+string GDS_START 7038
+<< end >>

@@ -1,0 +1,10 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1622507382
+<< checkpaint >>
+rect -1000 -1000 1000 1000
+<< properties >>
+string GDS_END 1443396
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 1417408
+<< end >>

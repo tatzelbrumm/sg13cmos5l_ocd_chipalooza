@@ -1,0 +1,88 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect -2124 -2270 2736 4124
+<< nwell >>
+rect -124 -270 736 2124
+<< hvnsubdiff >>
+rect 0 -100 612 -86
+rect 0 -132 24 -100
+rect 56 -132 92 -100
+rect 124 -132 488 -100
+rect 520 -132 556 -100
+rect 588 -132 612 -100
+rect 0 -146 612 -132
+<< hvnsubdiffcont >>
+rect 24 -132 56 -100
+rect 92 -132 124 -100
+rect 488 -132 520 -100
+rect 556 -132 588 -100
+<< poly >>
+rect 68 2068 544 2112
+rect 68 2036 84 2068
+rect 116 2036 152 2068
+rect 184 2036 220 2068
+rect 252 2036 360 2068
+rect 392 2036 428 2068
+rect 460 2036 496 2068
+rect 528 2036 544 2068
+rect 68 2014 544 2036
+rect 68 2000 268 2014
+rect 344 2000 544 2014
+<< polycont >>
+rect 84 2036 116 2068
+rect 152 2036 184 2068
+rect 220 2036 252 2068
+rect 360 2036 392 2068
+rect 428 2036 460 2068
+rect 496 2036 528 2068
+<< metal1 >>
+rect 74 2068 262 2080
+rect 74 2036 84 2068
+rect 116 2036 152 2068
+rect 184 2036 220 2068
+rect 252 2036 262 2068
+rect 350 2068 538 2080
+rect 350 2036 360 2068
+rect 392 2036 428 2068
+rect 460 2036 496 2068
+rect 528 2036 538 2068
+rect 14 -33 148 0
+rect 14 -73 61 -33
+rect 101 -73 148 -33
+rect 14 -100 148 -73
+rect 14 -132 24 -100
+rect 56 -132 92 -100
+rect 124 -132 148 -100
+rect 195 -124 417 0
+rect 464 -33 598 0
+rect 464 -73 511 -33
+rect 551 -73 598 -33
+rect 464 -100 598 -73
+rect 14 -270 148 -132
+rect 464 -132 488 -100
+rect 520 -132 556 -100
+rect 588 -132 598 -100
+rect 464 -270 598 -132
+<< via1 >>
+rect 61 -73 101 -33
+rect 511 -73 551 -33
+<< metal2 >>
+rect 52 -33 560 -24
+rect 52 -73 61 -33
+rect 101 -73 511 -33
+rect 551 -73 560 -33
+rect 52 -82 560 -73
+use cm_s2d_pmosHV_w20_l1_ng2  cm_s2d_pmosHV_w20_l1_ng2_0
+timestamp 1622507382
+transform 1 0 0 0 1 0
+box -124 -124 736 2124
+<< labels >>
+rlabel comment s 306 1000 306 1000 4 M
+<< properties >>
+string GDS_END 52212
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds
+string GDS_START 50586
+<< end >>

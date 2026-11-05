@@ -1,0 +1,36 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect 13270 16000 17510 21080
+<< metal2 >>
+rect 15310 18940 15470 19040
+rect 15310 18900 15329 18940
+rect 15451 18900 15470 18940
+rect 15310 18180 15470 18900
+rect 15310 18140 15329 18180
+rect 15451 18140 15470 18180
+rect 15310 18040 15470 18140
+<< via2 >>
+rect 15329 18900 15451 18940
+rect 15329 18140 15451 18180
+<< metal3 >>
+rect 15310 18940 15470 18980
+rect 15310 18900 15329 18940
+rect 15451 18900 15470 18940
+rect 15310 18860 15470 18900
+rect 15310 18180 15470 18220
+rect 15310 18140 15329 18180
+rect 15451 18140 15470 18180
+rect 15310 18100 15470 18140
+<< comment >>
+rect 15270 18000 15510 19080
+<< labels >>
+rlabel comment s 15270 18000 15510 19080 4 iovdd_rail_tie: removable, delete this instance (C3 2026-11-04)
+port 0 nsew
+<< properties >>
+string GDS_END 964054
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds
+string GDS_START 963438
+<< end >>

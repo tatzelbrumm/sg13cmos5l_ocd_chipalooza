@@ -1,0 +1,129 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1622507382
+<< checkpaint >>
+rect -1031 -1031 1095 1529
+<< nwell >>
+rect -31 -31 95 529
+<< pdiode >>
+rect 0 478 64 498
+rect 0 462 7 478
+rect 23 462 41 478
+rect 57 462 64 478
+rect 0 444 64 462
+rect 0 428 7 444
+rect 23 428 41 444
+rect 57 428 64 444
+rect 0 410 64 428
+rect 0 394 7 410
+rect 23 394 41 410
+rect 57 394 64 410
+rect 0 376 64 394
+rect 0 360 7 376
+rect 23 360 41 376
+rect 57 360 64 376
+rect 0 342 64 360
+rect 0 326 7 342
+rect 23 326 41 342
+rect 57 326 64 342
+rect 0 308 64 326
+rect 0 292 7 308
+rect 23 292 41 308
+rect 57 292 64 308
+rect 0 274 64 292
+rect 0 258 7 274
+rect 23 258 41 274
+rect 57 258 64 274
+rect 0 240 64 258
+rect 0 224 7 240
+rect 23 224 41 240
+rect 57 224 64 240
+rect 0 206 64 224
+rect 0 190 7 206
+rect 23 190 41 206
+rect 57 190 64 206
+rect 0 172 64 190
+rect 0 156 7 172
+rect 23 156 41 172
+rect 57 156 64 172
+rect 0 138 64 156
+rect 0 122 7 138
+rect 23 122 41 138
+rect 57 122 64 138
+rect 0 104 64 122
+rect 0 88 7 104
+rect 23 88 41 104
+rect 57 88 64 104
+rect 0 70 64 88
+rect 0 54 7 70
+rect 23 54 41 70
+rect 57 54 64 70
+rect 0 36 64 54
+rect 0 20 7 36
+rect 23 20 41 36
+rect 57 20 64 36
+rect 0 0 64 20
+<< pdiodecont >>
+rect 7 462 23 478
+rect 41 462 57 478
+rect 7 428 23 444
+rect 41 428 57 444
+rect 7 394 23 410
+rect 41 394 57 410
+rect 7 360 23 376
+rect 41 360 57 376
+rect 7 326 23 342
+rect 41 326 57 342
+rect 7 292 23 308
+rect 41 292 57 308
+rect 7 258 23 274
+rect 41 258 57 274
+rect 7 224 23 240
+rect 41 224 57 240
+rect 7 190 23 206
+rect 41 190 57 206
+rect 7 156 23 172
+rect 41 156 57 172
+rect 7 122 23 138
+rect 41 122 57 138
+rect 7 88 23 104
+rect 41 88 57 104
+rect 7 54 23 70
+rect 41 54 57 70
+rect 7 20 23 36
+rect 41 20 57 36
+<< metal1 >>
+rect 23 462 41 478
+rect 7 444 57 462
+rect 23 428 41 444
+rect 7 410 57 428
+rect 23 394 41 410
+rect 7 376 57 394
+rect 23 360 41 376
+rect 7 342 57 360
+rect 23 326 41 342
+rect 7 308 57 326
+rect 23 292 41 308
+rect 7 274 57 292
+rect 23 258 41 274
+rect 7 240 57 258
+rect 23 224 41 240
+rect 7 206 57 224
+rect 23 190 41 206
+rect 7 172 57 190
+rect 23 156 41 172
+rect 7 138 57 156
+rect 23 122 41 138
+rect 7 104 57 122
+rect 23 88 41 104
+rect 7 70 57 88
+rect 23 54 41 70
+rect 7 36 57 54
+rect 23 20 41 36
+<< labels >>
+flabel comment s 32 249 32 249 0 FreeSans 200 0 0 0 dpant
+<< properties >>
+string GDS_END 58150
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 55904
+<< end >>

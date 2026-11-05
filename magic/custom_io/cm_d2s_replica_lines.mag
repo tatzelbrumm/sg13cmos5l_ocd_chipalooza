@@ -1,0 +1,28 @@
+magic
+tech ihp-sg13cmos5l
+magscale 1 2
+timestamp 1622507382
+<< checkpaint >>
+rect 5630 1651 9910 19200
+<< via1 >>
+rect 7788 15042 7910 16230
+rect 7788 13622 7910 14810
+rect 7748 3672 7870 4532
+<< metal2 >>
+rect 7630 4553 7690 17200
+rect 7788 16230 7910 17200
+rect 7788 14810 7910 15042
+rect 7788 13561 7910 13622
+rect 7630 4532 7870 4553
+rect 7630 3672 7748 4532
+rect 7630 3651 7870 3672
+<< labels >>
+rlabel metal2 s 7630 17000 7690 17200 4 dabn
+port 2 nsew
+rlabel metal2 s 7788 17000 7910 17200 4 dabp
+port 3 nsew
+<< properties >>
+string GDS_END 1853146
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds
+string GDS_START 1847494
+<< end >>

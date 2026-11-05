@@ -1,0 +1,36 @@
+magic
+tech ihp-sg13cmos5l
+timestamp 1622507382
+<< checkpaint >>
+rect -1000 -1043 1050 1397
+<< poly >>
+rect 0 390 50 397
+rect 0 374 7 390
+rect 43 374 50 390
+rect 0 354 50 374
+rect 0 -20 50 0
+rect 0 -36 7 -20
+rect 43 -36 50 -20
+rect 0 -43 50 -36
+<< polycont >>
+rect 7 374 43 390
+rect 7 -36 43 -20
+<< ppolyres >>
+rect 0 0 50 354
+<< metal1 >>
+rect 2 390 48 397
+rect 2 374 7 390
+rect 43 374 48 390
+rect 2 367 48 374
+rect 2 -20 48 -13
+rect 2 -36 7 -20
+rect 43 -36 48 -20
+rect 2 -43 48 -36
+<< labels >>
+flabel comment s 25 177 25 177 0 FreeSans 100 90 0 0 rppd r=1958.972
+<< properties >>
+string GDS_END 867128
+string GDS_FILE custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds
+string GDS_START 865756
+string MASKHINTS_CONTBAR 7 374 43 390 7 -36 43 -20
+<< end >>
