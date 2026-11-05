@@ -1,0 +1,7 @@
+./scripts/get_projects.sh 7
+slot_7: cloning https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single
+    at 4611357166b7368be4fbf8e176b1e82b8a9a85d0 (frozen)
+
+1 slot(s) changed.  Review and commit:
+    git status
+    git commit config.txt .gitmodules dependencies

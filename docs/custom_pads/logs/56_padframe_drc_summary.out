@@ -1,0 +1,9 @@
+/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc/clip_now.lyrdb: 116 violations in 5 rules
+  Pad.fR_M2                                64
+  Pad.fR_M3                                16
+  Pad.fR_M4                                16
+  Pad.fR_TM1                               16
+  Pad.fR_M1                                4
+/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc/clip_base.lyrdb: 101 violations in 5 rules
+difference now - base per rule:
+  Pad.fR_M2                                +15   new locations (first 5): []

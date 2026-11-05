@@ -1,0 +1,121 @@
+NOT BUILT
+   validate/lvs/comp.out
+        build with:  make lvs   (in validate/lvs)
+
+STALE  (a source is newer than the derived view)
+   netlist/schematic/chipalooza_frame.spice
+        older than xschem/slot7_wrapper.sym  by 62 min
+        rebuild with:  xschem/run_extract_chipalooza_frame.sh
+   netlist/layout/chipalooza_frame.spice
+        older than magic/chipalooza_frame.mag  by 63 min
+        rebuild with:  the magic extraction script for chipalooza_frame
+   verilog/gl/slot1_wrapper_lvs.v
+        older than magic/slot1_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot1_wrapper.sym
+        older than magic/slot1_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot2_wrapper_lvs.v
+        older than magic/slot2_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot2_wrapper.sym
+        older than magic/slot2_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot3_wrapper_lvs.v
+        older than magic/slot3_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot3_wrapper.sym
+        older than magic/slot3_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot4_wrapper_lvs.v
+        older than magic/slot4_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot4_wrapper.sym
+        older than magic/slot4_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot5_wrapper_lvs.v
+        older than magic/slot5_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot5_wrapper.sym
+        older than magic/slot5_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot6_wrapper_lvs.v
+        older than magic/slot6_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot6_wrapper.sym
+        older than magic/slot6_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot7_wrapper_lvs.v
+        older than magic/slot7_wrapper.mag  by 1 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot7_wrapper.sym
+        older than magic/slot7_wrapper.mag  by 1 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot8_wrapper_lvs.v
+        older than magic/slot8_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot8_wrapper.sym
+        older than magic/slot8_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot9_wrapper_lvs.v
+        older than magic/slot9_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot9_wrapper.sym
+        older than magic/slot9_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot10_wrapper_lvs.v
+        older than magic/slot10_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot10_wrapper.sym
+        older than magic/slot10_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot11_wrapper_lvs.v
+        older than magic/slot11_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot11_wrapper.sym
+        older than magic/slot11_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot12_wrapper_lvs.v
+        older than magic/slot12_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot12_wrapper.sym
+        older than magic/slot12_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot13_wrapper_lvs.v
+        older than magic/slot13_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot13_wrapper.sym
+        older than magic/slot13_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot14_wrapper_lvs.v
+        older than magic/slot14_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot14_wrapper.sym
+        older than magic/slot14_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot15_wrapper_lvs.v
+        older than magic/slot15_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot15_wrapper.sym
+        older than magic/slot15_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot16_wrapper_lvs.v
+        older than magic/slot16_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot16_wrapper.sym
+        older than magic/slot16_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot17_wrapper_lvs.v
+        older than magic/slot17_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot17_wrapper.sym
+        older than magic/slot17_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   verilog/gl/slot18_wrapper_lvs.v
+        older than magic/slot18_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+   xschem/slot18_wrapper.sym
+        older than magic/slot18_wrapper.mag  by 63 min
+        rebuild with:  scripts/run_gen_xschem_syms.sh
+
+38 stale, 1 not built, 46 checked

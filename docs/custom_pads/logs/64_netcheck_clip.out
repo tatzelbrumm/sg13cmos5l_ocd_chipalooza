@@ -1,0 +1,15 @@
+/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc/clip_now.gds clip_now clip (1885.0,2255.0)-(2080.0,2455.0) + /home/user/sg13cmos5l_cm_ip__single2diff2single/final/gds/slot_7.gds at (1363.85,2153.95)
+  s7_an_0_vref       OK  net labels: ['s7_an_0_vref', 'vref']
+  s7_an_0_outp       OK  net labels: ['outp', 's7_an_0_outp', 's7_an_1_vinp', 'vfbp', 'vinp', 'voutp']
+  s7_an_0_outn       OK  net labels: ['outn', 's7_an_0_outn', 's7_an_1_vinn', 'vfbn', 'vinn', 'voutn']
+  s7_an_0_vcm        OK  net labels: ['s7_an_0_vcm', 'vcm']
+  s7_an_0_en_3v3     OK  net labels: ['en_3v3', 's7_an_0_en_3v3']
+  s7_an_0_en_3v3_b   OK  net labels: ['en_3v3_b', 's7_an_0_en_3v3_b']
+  s7_an_0_iref       OK  net labels: ['iref', 's7_an_0_iref']
+  s7_an_1_vinp       OK  net labels: ['outp', 's7_an_0_outp', 's7_an_1_vinp', 'vfbp', 'vinp', 'voutp']
+  s7_an_1_vinn       OK  net labels: ['outn', 's7_an_0_outn', 's7_an_1_vinn', 'vfbn', 'vinn', 'voutn']
+  s7_an_1_vref       OK  net labels: ['s7_an_1_vref', 'vref']
+  s7_an_1_iref       OK  net labels: ['iref', 's7_an_1_iref']
+  s7_an_1_en_3v3_b   OK  net labels: ['en_3v3_b', 's7_an_1_en_3v3_b']
+  s7_an_1_en_3v3     OK  net labels: ['en_3v3', 's7_an_1_en_3v3']
+RESULT all 13 pins OK

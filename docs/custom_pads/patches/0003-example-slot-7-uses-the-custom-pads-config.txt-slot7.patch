@@ -1,0 +1,92 @@
+From 3b6f443b4d3c0128f77042ff218ab0b8b9b1fa6d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 19:54:30 +0000
+Subject: [PATCH 3/3] example: slot 7 uses the custom pads (config.txt,
+ slot7_wrapper.v)
+
+Inputs only.  After this, regenerate:  make clean-config config padframe
+frame-custom-io wrappers gds-slots, then the slot 7 symbol.  Not handled by
+any script and therefore not in this patch:  verilog/rtl/chipalooza_frame.v,
+verilog/gl/sg13cmos5l_ocd_chipalooza.v, xschem/chipalooza_frame.sch and the
+testbenches still use s7_an[1:0], s7_an_0_esd, s7_an_1_esd.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
+---
+ config.txt                  |  9 +++++++--
+ verilog/rtl/slot7_wrapper.v | 25 ++++++++++++++++++++++---
+ 2 files changed, 29 insertions(+), 5 deletions(-)
+
+diff --git a/config.txt b/config.txt
+index 235eb32..a1f10e1 100644
+--- a/config.txt
++++ b/config.txt
+@@ -63,6 +63,11 @@
+ #	The default value of each user project pad type is an analog
+ #	pad sg13cmos5l_IOPadAnalog.
+ #
++#	In addition, the custom pad cells listed in CUSTOM_PADS in
++#	scripts/parse_config.py (views in magic/custom_io/) are valid
++#	pad types.  Each core-side pin <pin> of such a cell becomes the
++#	core signal <core signal name>_<pin>.
++#
+ #    B. The "core signal name" is an arbitrary name for the core signal
+ #	(root name) at each pin.
+ #
+@@ -153,8 +158,8 @@ s5_an[1]:	sg13cmos5l_IOPadAnalog		s5_an_1
+ s5_an[2]:	sg13cmos5l_IOPadAnalog		s5_an_2
+ s6_an[0]:	sg13cmos5l_IOPadIn		s6_an_0
+ s6_an[1]:	sg13cmos5l_IOPadOut16mA		s6_an_1
+-s7_an[0]:	sg13cmos5l_IOPadAnalog		s7_an_0
+-s7_an[1]:	sg13cmos5l_IOPadAnalog		s7_an_1
++s7_an[0]:	sg13cmos5l_IOPadSingle2Diff	s7_an_0
++s7_an[1]:	sg13cmos5l_IOPadDiff2Single	s7_an_1
+ s8_an[0]:	sg13cmos5l_IOPadAnalog		s8_an_0
+ s9_an[0]:	sg13cmos5l_IOPadAnalog		s9_an_0
+ s9_an[1]:	sg13cmos5l_IOPadAnalog		s9_an_1
+diff --git a/verilog/rtl/slot7_wrapper.v b/verilog/rtl/slot7_wrapper.v
+index 5933029..fa80ba6 100644
+--- a/verilog/rtl/slot7_wrapper.v
++++ b/verilog/rtl/slot7_wrapper.v
+@@ -21,7 +21,8 @@
+  * I/O cell than the default on a dedicated pin, only this file changes.
+  *
+  * The number of dedicated analog pins is fixed per slot by the padframe
+- * and is taken from config.txt (the sN_an[] entries).  This slot has 2.
++ * and is taken from config.txt (the sN_an[] entries).  This slot has 2,
++ * both custom pads (see below).
+  *
+  * ANALOG PORTS ARE SCALAR "real", ONE PER LINE.  This looks verbose next
+  * to a packed bus, and it is the only form that works:
+@@ -72,8 +73,26 @@ module slot7_wrapper (
+      * The names match the layout and the documented chip pinout,
+      * which is also what LVS compares against.
+      */
+-    inout wire [1:0] s7_an,	// dedicated analog pad(s)
+-    inout wire s7_an_0_esd,	// secondary ESD-protected pin
++    /* Custom pads (config.txt):  s7_an[0] = sg13cmos5l_IOPadSingle2Diff
++     * (core signal s7_an_0), s7_an[1] = sg13cmos5l_IOPadDiff2Single
++     * (core signal s7_an_1).  One port per core-side pad pin, named
++     * <core signal>_<pad pin> (scripts/parse_config.py CUSTOM_PADS).
++     * The pads themselves (s7_an[1:0]) are not core ports any more.
++     * Plain wires, for the same reason as the dedicated pads above.
++     */
++    inout wire s7_an_0_vref,	// S2D output common-mode reference
++    inout wire s7_an_0_outp,	// S2D differential output +
++    inout wire s7_an_0_outn,	// S2D differential output -
++    inout wire s7_an_0_vcm,	// S2D output common mode
++    inout wire s7_an_0_en_3v3,	// S2D enable (3.3 V)
++    inout wire s7_an_0_en_3v3_b,	// S2D enable complement (3.3 V)
++    inout wire s7_an_0_iref,	// S2D bias current (sourced)
++    inout wire s7_an_1_vinp,	// D2S differential input +
++    inout wire s7_an_1_vinn,	// D2S differential input -
++    inout wire s7_an_1_vref,	// D2S output reference
++    inout wire s7_an_1_iref,	// D2S bias current (sourced)
++    inout wire s7_an_1_en_3v3_b,	// D2S enable complement (3.3 V)
++    inout wire s7_an_1_en_3v3,	// D2S enable (3.3 V)
+     input real ibias0,		// shared current bias 0
+     input real ibias1,		// shared current bias 1
+     input real vbias,		// shared voltage bias
+-- 
+2.43.0
+

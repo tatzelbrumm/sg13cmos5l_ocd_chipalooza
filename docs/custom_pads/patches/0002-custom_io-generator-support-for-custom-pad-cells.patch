@@ -1,0 +1,684 @@
+From f74d6cb124650042ed42769912febfd391edbac7 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 19:30:17 +0000
+Subject: [PATCH 2/3] custom_io: generator support for custom pad cells
+
+- scripts/parse_config.py: CUSTOM_PADS table (cell -> core-side pins),
+  checked against the ports of magic/custom_io/<cell>.mag, used in all
+  four places that switch on the pad type.  One core signal and one
+  wrapper port <signal>_<pin> per pad pin.
+- scripts/custom_io.tcl (new): label_right_custom / label_left_custom,
+  Via2 on the pad's M2 pin stub + 0.29 um Metal3 strap + port label,
+  sourced by gen_padframe_template.tcl (+ addpath custom_io).
+- scripts/run_update_frame_custom_io.sh (new, make frame-custom-io):
+  erases the stale hand-made pad-edge copies in chipalooza_frame.mag in
+  the bands of custom pads, before make wrappers.
+- netlist/schematic/custom_io.spice (new) and one readnet line each in
+  validate/run_lvs_padframe.sh and validate/run_lvs_ocd_chipalooza.sh.
+
+Foundry pad types and other slots: make config output unchanged;
+padframe and wrapper .mag unchanged except port index renumbering.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
+---
+ Makefile                              |   4 +
+ netlist/schematic/custom_io.spice     | 279 ++++++++++++++++++++++++++
+ scripts/custom_io.tcl                 |  81 ++++++++
+ scripts/gen_padframe_template.tcl     |   5 +
+ scripts/parse_config.py               |  68 +++++++
+ scripts/run_update_frame_custom_io.sh |  95 +++++++++
+ validate/run_lvs_ocd_chipalooza.sh    |   2 +
+ validate/run_lvs_padframe.sh          |   2 +
+ 8 files changed, 536 insertions(+)
+ create mode 100644 netlist/schematic/custom_io.spice
+ create mode 100644 scripts/custom_io.tcl
+ create mode 100755 scripts/run_update_frame_custom_io.sh
+
+diff --git a/Makefile b/Makefile
+index 5f21051..6877fa4 100644
+--- a/Makefile
++++ b/Makefile
+@@ -85,6 +85,10 @@ clean-config:				## move config.txt-generated files to archive/
+ padframe:				## generate magic/sg13cmos5l_padframe.mag
+ 	./scripts/run_gen_padframe.sh
+ 
++.PHONY: frame-custom-io
++frame-custom-io:			## drop stale pad-edge copies from chipalooza_frame (custom pads)
++	./scripts/run_update_frame_custom_io.sh
++
+ .PHONY: user-id
+ user-id:				## set the project ID in layout and verilog
+ 	./scripts/set_user_id.py
+diff --git a/netlist/schematic/custom_io.spice b/netlist/schematic/custom_io.spice
+new file mode 100644
+index 0000000..84d3e9c
+--- /dev/null
++++ b/netlist/schematic/custom_io.spice
+@@ -0,0 +1,279 @@
++* custom_io.spice --- LVS netlists of the custom I/O pad cells (magic/custom_io/).
++*
++* Concatenation of, from tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single commit 91a7da8b67ac56a26c605501146667a1fde28c32:
++*   macros/sg13cmos5l_IOPadDiff2Single/netlist/schematic/sg13cmos5l_IOPadDiff2Single_magic.spice
++*   macros/sg13cmos5l_IOPadSingle2Diff/netlist/schematic/sg13cmos5l_IOPadSingle2Diff_magic.spice
++*     (without its copy of .subckt unit_r2, which is identical to the one above)
++* Read by validate/run_lvs_padframe.sh and validate/run_lvs_ocd_chipalooza.sh.
++* Known (pad READMEs):  magic + netgen LVS of these cells fails on pin vss only,
++* because vss and iovss are one substrate node in the layout.
++*
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/sg13cmos5l_IOPadDiff2Single.sch
++.subckt sg13cmos5l_IOPadDiff2Single iovdd iovss vdd vss pad vinp vinn vref iref en_3v3 en_3v3_b
++*.PININFO iovdd:B iovss:B vdd:B vss:B pad:B vinp:I vinn:I vref:I iref:B en_3v3:I en_3v3_b:I
++xt iovdd iovss iref vbp vbn vbpc vbnc vabp vabn en_3v3 en_3v3_b bias_tree_pd
++xd iovdd iovss iovdd iovss vinp vinn vref pad a b dabp dabn vbp vbn vbpc vbnc vabp vabn en_3v3 en_3v3_b d2s_mpdda_pd
++xfp iovdd a pad dabp d2s_out_p
++xfn iovss b pad dabn d2s_out_n
++XCMA pa a pa pa sg13_hv_pmos w=7.96u l=32.16u ng=1 m=1 mm_ok=1
++XSPA pa iovdd iovss pad d2s_sp2k
++XCMB b pb b b sg13_hv_pmos w=7.96u l=32.16u ng=1 m=1 mm_ok=1
++XSPB pb iovdd iovss pad d2s_sp2k
++XDP0 pad iovdd dpantenna l=65.8u w=1.26u
++XDP1 pad iovdd dpantenna l=65.8u w=1.26u
++XDN0 iovss pad dantenna l=67.6u w=1.26u
++XDN1 iovss pad dantenna l=67.6u w=1.26u
++.ends
++
++* expanding   symbol:  bias_tree_pd.sym # of pins=11
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/bias_tree_pd/schematic/xschem/bias_tree_pd.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/bias_tree_pd/schematic/xschem/bias_tree_pd.sch
++.subckt bias_tree_pd vdd vss iref vbp vbn vbpc vbnc vabp vabn en_3v3 en_3v3_b
++*.PININFO vdd:B vss:B iref:B vbp:O vbn:O vbpc:O vbnc:O vabp:O vabn:O en_3v3:I en_3v3_b:I
++XNI ni ni vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XBPC vbpc vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XNBPC vbpc ni vss vss sg13_hv_nmos w=2.4u l=6u ng=1 m=1 mm_ok=1
++XBP vbp vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XNBP vbp ni vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XNABP vabp ni vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XPBNC vbnc vbp vdd vdd sg13_hv_pmos w=2u l=6u ng=1 m=1 mm_ok=1
++XBNC vbnc vbnc vss vss sg13_hv_nmos w=1u l=8u ng=1 m=1 mm_ok=1
++XPBN vbn vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XBN vbn vbn vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XPABN vabn vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XTGP ni en_3v3_b iref vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTGN iref en_3v3 ni vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTDN ni en_3v3_b vss vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XMDBP vdd vbp vdd vdd sg13_hv_pmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDBN ni ni ni vss sg13_hv_nmos w=2.4u l=6u ng=1 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  d2s_mpdda_pd.sym # of pins=20
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_mpdda_pd.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_mpdda_pd.sch
++.subckt d2s_mpdda_pd vdd vss vddo vsso vinp vinn vref vfb a b dabp dabn vbp vbn vbpc vbnc vabp vabn en_3v3 en_3v3_b
++*.PININFO vdd:B vss:B vddo:B vsso:B vinp:I vinn:I vref:I vfb:I vbp:I vbn:I vbpc:I vbnc:I vabp:I vabn:I en_3v3:I en_3v3_b:I a:O b:O
++*+ dabp:B dabn:B
++XA x y vinp vref vdd vss vbp unit_r2
++XB x y vref vinn vdd vss vbp unit_r2
++XC1 x y vref vfb vdd vss vbp unit_r2
++XC2 x y vref vfb vdd vss vbp unit_r2
++XFNL l2 vabn l1 vss sg13_hv_nmos w=4.4u l=1u ng=1 m=1 mm_ok=1
++XCX l1 vbnc x vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSX x vbn vss vss sg13_hv_nmos w=36u l=6u ng=6 m=1 mm_ok=1
++XPL pl l2 vdd vdd sg13_hv_pmos w=24u l=4u ng=4 m=1 mm_ok=1
++XPCL l2 vbpc pl vdd sg13_hv_pmos w=30u l=3u ng=2 m=1 mm_ok=1
++XFPL l1 vabp l2 vdd sg13_hv_pmos w=6.66u l=0.6u ng=1 m=1 mm_ok=1
++XPR pr l2 vdd vdd sg13_hv_pmos w=24u l=4u ng=4 m=1 mm_ok=1
++XPCR a vbpc pr vdd sg13_hv_pmos w=30u l=3u ng=2 m=1 mm_ok=1
++XABP b vabp a vdd sg13_hv_pmos w=6.66u l=0.6u ng=1 m=1 mm_ok=1
++XABN a vabn b vss sg13_hv_nmos w=4.4u l=1u ng=1 m=1 mm_ok=1
++XCY b vbnc y vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSY y vbn vss vss sg13_hv_nmos w=36u l=6u ng=6 m=1 mm_ok=1
++XSABP vabp en_3v3 vdd vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XSA a en_3v3 vddo vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XSABN vabn en_3v3_b vss vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XSB b en_3v3_b vsso vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XRP2 vabp vabp dabp vdd sg13_hv_pmos w=6.66u l=0.6u ng=1 m=1 mm_ok=1
++XRN2 vabn vabn dabn vss sg13_hv_nmos w=4.4u l=1u ng=1 m=1 mm_ok=1
++XMDT[3] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[2] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[1] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[0] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDTL[2] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDTL[1] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDTL[0] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDL[3] vdd l2 vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[2] vdd l2 vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[1] vdd l2 vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[0] vdd l2 vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDPC vdd vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDABP[1] vdd vdd vdd vdd sg13_hv_pmos w=6.66u l=0.6u ng=1 m=1 mm_ok=1
++XMDABP[0] vdd vdd vdd vdd sg13_hv_pmos w=6.66u l=0.6u ng=1 m=1 mm_ok=1
++XMDABN[1] vss vss vss vss sg13_hv_nmos w=4.4u l=1u ng=1 m=1 mm_ok=1
++XMDABN[0] vss vss vss vss sg13_hv_nmos w=4.4u l=1u ng=1 m=1 mm_ok=1
++XMDCN[3] vbnc vbnc vbnc vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[2] vbnc vbnc vbnc vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[1] vbnc vbnc vbnc vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[0] vbnc vbnc vbnc vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDSK[3] vbn vbn vbn vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[2] vbn vbn vbn vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[1] vbn vbn vbn vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[0] vbn vbn vbn vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDBNT vbn vbn vbn vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XRD[1] vss vss vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XRD[0] vss vss vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++.ends
++
++
++* expanding   symbol:  d2s_out_p.sym # of pins=4
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_out_p.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_out_p.sch
++.subckt d2s_out_p vddo a vout dabp
++*.PININFO vddo:B a:I vout:B dabp:B
++XOP vout a vddo vddo sg13_hv_pmos w=546.12u l=0.6u ng=82 m=1 mm_ok=1
++XRP1 dabp dabp vddo vddo sg13_hv_pmos w=13.32u l=0.6u ng=2 m=1 mm_ok=1
++XRPD dabp vddo vddo vddo sg13_hv_pmos w=13.32u l=0.6u ng=2 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  d2s_out_n.sym # of pins=4
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_out_n.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_out_n.sch
++.subckt d2s_out_n vsso b vout dabn
++*.PININFO vsso:B b:I vout:B dabn:B
++XON vout b vsso vsso sg13_hv_nmos w=299.2u l=1u ng=68 m=1 mm_ok=1
++XRN1 dabn dabn vsso vsso sg13_hv_nmos w=8.8u l=1u ng=2 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  d2s_sp2k.sym # of pins=4
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_sp2k.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/d2s_sp2k.sch
++.subckt d2s_sp2k core iovdd iovss pad
++*.PININFO core:B iovdd:B iovss:B pad:B
++XR0 pad core iovss rppd w=1u l=7.435u m=1 b=0 mm_ok=1
++XD0 core iovdd dpantenna l=4.98u w=0.64u
++XD1 iovss core dantenna l=3.1u w=0.64u
++.ends
++
++
++* expanding   symbol:  unit_r2.sym # of pins=7
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/unit_r2.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/unit_r2.sch
++.subckt unit_r2 x y gp gn vdd vss vbp
++*.PININFO x:O y:O gp:I gn:I vdd:B vss:B vbp:I
++XTa sa vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XTb sb vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMa y gp sa sa sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMb x gn sb sb sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XR[3] sa n1 vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XR[2] n1 n2 vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XR[1] n2 n3 vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XR[0] n3 sb vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++.ends
++
++
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/sg13cmos5l_IOPadSingle2Diff.sch
++.subckt sg13cmos5l_IOPadSingle2Diff iovdd iovss vdd vss pad outp outn vcm vref iref en_3v3 en_3v3_b
++*.PININFO iovdd:B iovss:B vdd:B vss:B pad:B outp:O outn:O vcm:I vref:I iref:B en_3v3:I en_3v3_b:I
++xt iovdd iovss iref vbp vbn vbpc vbnc en_3v3 en_3v3_b bias_tree_noab_pd
++xa iovdd iovss pad vref vcm outp outn outp outn vbp vbn vbpc vbnc en_3v3 en_3v3_b s2d_mpdda_pd
++xp iovdd iovss pad s2d_pad_esd
++.ends
++
++* expanding   symbol:  bias_tree_noab_pd.sym # of pins=9
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/bias_tree_noab_pd/schematic/xschem/bias_tree_noab_pd.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/bias_tree_noab_pd/schematic/xschem/bias_tree_noab_pd.sch
++.subckt bias_tree_noab_pd vdd vss iref vbp vbn vbpc vbnc en_3v3 en_3v3_b
++*.PININFO vdd:B vss:B iref:B vbp:O vbn:O vbpc:O vbnc:O en_3v3:I en_3v3_b:I
++XNI ni ni vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XBPC vbpc vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XNBPC vbpc ni vss vss sg13_hv_nmos w=2.4u l=6u ng=1 m=1 mm_ok=1
++XBP vbp vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XNBP vbp ni vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XPBNC vbnc vbp vdd vdd sg13_hv_pmos w=2u l=6u ng=1 m=1 mm_ok=1
++XBNC vbnc vbnc vss vss sg13_hv_nmos w=1u l=8u ng=1 m=1 mm_ok=1
++XPBN vbn vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XBN vbn vbn vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XTGP ni en_3v3_b iref vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTGN iref en_3v3 ni vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTDN ni en_3v3_b vss vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XMDBP vdd vbp vdd vdd sg13_hv_pmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDBN vss ni vss vss sg13_hv_nmos w=2.4u l=6u ng=1 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  s2d_mpdda_pd.sym # of pins=15
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_mpdda_pd.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_mpdda_pd.sch
++.subckt s2d_mpdda_pd vdd vss vin vref vcm voutp voutn vfbp vfbn vbp vbn vbpc vbnc en_3v3 en_3v3_b
++*.PININFO vdd:B en_3v3:I en_3v3_b:I vin:I vref:I vcm:I vfbp:I vfbn:I vbp:I vbn:I vbpc:I vbnc:I vss:B voutp:O voutn:O
++xs vdd vss vin vref vcm voutp voutn vfbp vfbn vbp vbn vbpc vbnc s2d_mpdda
++XTPN vcm en_3v3_b voutp vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTPP voutp en_3v3 vcm vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTNN vcm en_3v3_b voutn vss sg13_hv_nmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XTNP voutn en_3v3 vcm vdd sg13_hv_pmos w=1u l=0.45u ng=1 m=1 mm_ok=1
++XMDT[3] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[2] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[1] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDT[0] vdd vdd vdd vdd sg13_hv_pmos w=20u l=1u ng=2 m=1 mm_ok=1
++XMDTL[2] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDTL[1] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDTL[0] vdd vbp vdd vdd sg13_hv_pmos w=5u l=6u ng=1 m=1 mm_ok=1
++XMDPC[2] vdd vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDPC[1] vdd vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDPC[0] vdd vbpc vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XRD[1] vss vss vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XRD[0] vss vss vss rhigh w=0.5u l=12.65u m=1 b=0 mm_ok=1
++XMDSK[3] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[2] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[1] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSK[0] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDBNT vss vbn vss vss sg13_hv_nmos w=6u l=6u ng=1 m=1 mm_ok=1
++XMDSC[3] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSC[2] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSC[1] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDSC[0] vss vbn vss vss sg13_hv_nmos w=2u l=6u ng=1 m=1 mm_ok=1
++XMDCN[3] vss vbnc vss vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[2] vss vbnc vss vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[1] vss vbnc vss vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++XMDCN[0] vss vbnc vss vss sg13_hv_nmos w=2u l=3u ng=1 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  s2d_pad_esd.sym # of pins=3
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_pad_esd.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_pad_esd.sch
++.subckt s2d_pad_esd iovdd iovss pad
++*.PININFO iovdd:B iovss:B pad:B
++XDP1 pad iovdd dpantenna l=27.78u w=1.26u
++XDN1 iovss pad dantenna l=27.78u w=1.26u
++XDP2 pad iovdd dpantenna l=27.78u w=1.26u
++XDN2 iovss pad dantenna l=27.78u w=1.26u
++XRP iovdd gp iovss rppd w=0.5u l=12.9u m=1 b=0 mm_ok=1
++XMCP pad gp iovdd iovdd sg13_hv_pmos w=266.4u l=0.6u ng=40 m=1 mm_ok=1
++XRN gn iovss iovss rppd w=0.5u l=3.54u m=1 b=0 mm_ok=1
++XMCN pad gn iovss iovss sg13_hv_nmos w=88u l=0.6u ng=20 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  s2d_mpdda.sym # of pins=13
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_mpdda.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadSingle2Diff/schematic/xschem/s2d_mpdda.sch
++.subckt s2d_mpdda vdd vss vin vref vcm voutp voutn vfbp vfbn vbp vbn vbpc vbnc
++*.PININFO vdd:B vss:B vin:I vref:I vcm:I voutp:O voutn:O vfbp:I vfbn:I vbp:B vbn:B vbpc:B vbnc:B
++XA1 x y vin vref vdd vss vbp unit_r2
++XA2 x y vin vref vdd vss vbp unit_r2
++XF1 x y vcm vfbp vdd vss vbp unit_r2
++XF2 x y vfbn vcm vdd vss vbp unit_r2
++XLP lp vcmfb vdd vdd sg13_hv_pmos w=24u l=4u ng=4 m=1 mm_ok=1
++XLPC voutp vbpc lp vdd sg13_hv_pmos w=30u l=3u ng=2 m=1 mm_ok=1
++XCX voutp vbnc x vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSX x vbn vss vss sg13_hv_nmos w=36u l=6u ng=6 m=1 mm_ok=1
++XLN ln vcmfb vdd vdd sg13_hv_pmos w=24u l=4u ng=4 m=1 mm_ok=1
++XLNC voutn vbpc ln vdd sg13_hv_pmos w=30u l=3u ng=2 m=1 mm_ok=1
++XCY voutn vbnc y vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSY y vbn vss vss sg13_hv_nmos w=36u l=6u ng=6 m=1 mm_ok=1
++XCLP vss voutp vss vss sg13_hv_nmos w=12u l=12u ng=1 m=1 mm_ok=1
++XCLN vss voutn vss vss sg13_hv_nmos w=12u l=12u ng=1 m=1 mm_ok=1
++XM1 xc yc vfbp vcm vdd vss vbp unit_r2
++XM2 xc yc vfbn vcm vdd vss vbp unit_r2
++XD dd vcmfb vdd vdd sg13_hv_pmos w=24u l=4u ng=4 m=1 mm_ok=1
++XDC vcmfb vbpc dd vdd sg13_hv_pmos w=30u l=3u ng=2 m=1 mm_ok=1
++XCXC vcmfb vbnc xc vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSXC xc vbn vss vss sg13_hv_nmos w=24u l=6u ng=4 m=1 mm_ok=1
++XCYC vdd vbnc yc vss sg13_hv_nmos w=30u l=3u ng=2 m=1 mm_ok=1
++XSYC yc vbn vss vss sg13_hv_nmos w=24u l=6u ng=4 m=1 mm_ok=1
++XMDL[3] vdd vcmfb vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[2] vdd vcmfb vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[1] vdd vcmfb vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++XMDL[0] vdd vcmfb vdd vdd sg13_hv_pmos w=1u l=4u ng=1 m=1 mm_ok=1
++.ends
++
++
++* expanding   symbol:  unit_r2.sym # of pins=7
++** sym_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/unit_r2.sym
++** sch_path: /home/user/sg13cmos5l_cm_ip__single2diff2single/macros/sg13cmos5l_IOPadDiff2Single/schematic/xschem/unit_r2.sch
++
+diff --git a/scripts/custom_io.tcl b/scripts/custom_io.tcl
+new file mode 100644
+index 0000000..e75c625
+--- /dev/null
++++ b/scripts/custom_io.tcl
+@@ -0,0 +1,81 @@
++#----------------------------------------------------------------
++# custom_io.tcl --
++#
++# Label procedures for custom (non-foundry) I/O pad cells, the
++# counterpart of label_right_analog / label_left_analog in
++# gen_padframe_template.tcl.  Sourced by gen_padframe.tcl (only used
++# if config.txt names a custom pad type) and by
++# run_update_frame_custom_io.sh.  Units:  microns.
++#
++# A custom pad brings each core-side signal out on Metal2 at the
++# core edge of the pad (0.29 um wide stubs, pitch down to 0.54 um).
++# Per pin, label_<side>_custom paints, in the cell being edited:
++#
++#   - a Via2 (0.2 x 0.2) on the pad's own M2 stub, 0.05 um inside the
++#     pad's core edge (M2 enclosure >= 0.04 at the sides),
++#   - a Metal3 strap 0.29 um wide from 0.3 um inside the pad edge
++#     to 1.1 um outside it (into the core = the slot area), like the
++#     1.1 um strip of label_right_analog,
++#   - a label with port on the part of the strap outside the pad.
++#
++# At 0.54 um pitch the straps are 0.25 um apart (Metal3 min. 0.21).
++# The via and the strap inside the pad touch nothing of the pad but
++# its pin stub (pad Metal3 ends 2 um from the core edge).
++#----------------------------------------------------------------
++
++# Return the strap geometry {via m3 label} as three boxes {llx lly urx ury}
++# for pin "pin_name" of pad instance "pad_name".  side is "right" (pad
++# rotated 270, core edge = west edge) or "left" (pad rotated 90, core
++# edge = east edge).
++proc custom_io_rects {side pad_name pin_name} {
++    set ibox [instance list abutment $pad_name]
++    goto ${pad_name}/${pin_name}
++    set lbox [box values]
++    set yc [expr {([lindex $lbox 1] + [lindex $lbox 3]) / 2.0}]
++    # Everything is placed on the 10 nm grid:  the padframe session runs
++    # on a 10 nm internal grid and rounds finer coordinates, and the
++    # chipalooza_frame copy (run_update_frame_custom_io.sh) must be
++    # identical.  The 0.29 um strap and the 0.2 um via start at the 10 nm
++    # position at or just below (pin center - half width):  at most 5 nm
++    # off the pin (M2 enclosure of the via >= 0.04 along the edge, 0.05
++    # at the pad edge).
++    set yc [expr {round($yc * 200.0) / 200.0}]
++    set y0 [expr {floor(($yc - 0.145) * 100.0 + 1e-6) / 100.0}]
++    set y1 [expr {$y0 + 0.29}]
++    set v0 [expr {floor(($yc - 0.1) * 100.0 + 1e-6) / 100.0}]
++    set v1 [expr {$v0 + 0.2}]
++    if {$side == "right"} {
++	set xe [lindex $ibox 0]
++	set via [list [expr {$xe + 0.05}] $v0 [expr {$xe + 0.25}] $v1]
++	set m3  [list [expr {$xe - 1.1}] $y0 [expr {$xe + 0.3}] $y1]
++	set lab [list [expr {$xe - 1.1}] $y0 [expr {$xe - 0.3}] $y1]
++    } else {
++	set xe [lindex $ibox 2]
++	set via [list [expr {$xe - 0.25}] $v0 [expr {$xe - 0.05}] $v1]
++	set m3  [list [expr {$xe - 0.3}] $y0 [expr {$xe + 1.1}] $y1]
++	set lab [list [expr {$xe + 0.3}] $y0 [expr {$xe + 1.1}] $y1]
++    }
++    return [list $via $m3 $lab]
++}
++
++proc custom_io_paint {rects pin_text {with_via 1}} {
++    lassign $rects via m3 lab
++    if {$with_via} {
++	box values {*}$via
++	paint via2
++    }
++    box values {*}$m3
++    paint m3
++    box values {*}$lab
++    label $pin_text FreeSans 0.3 0 0 0 c m3
++    port make
++}
++
++# Label a custom pad core pin on the right / left side (padframe).
++proc label_right_custom {pad_name pin_name pin_text} {
++    custom_io_paint [custom_io_rects right $pad_name $pin_name] $pin_text 1
++}
++
++proc label_left_custom {pad_name pin_name pin_text} {
++    custom_io_paint [custom_io_rects left $pad_name $pin_name] $pin_text 1
++}
+diff --git a/scripts/gen_padframe_template.tcl b/scripts/gen_padframe_template.tcl
+index fdba3b5..ac6c467 100755
+--- a/scripts/gen_padframe_template.tcl
++++ b/scripts/gen_padframe_template.tcl
+@@ -21,6 +21,8 @@ units microns
+ # Add the I/O library path (see setup.sh)
+ addpath sg13cmos5l_io
+ addpath paramcells
++# Custom (non-foundry) pad cells (see setup_custom_io.sh)
++addpath custom_io
+ 
+ # Ensure that the padframe layout does not already exist.
+ if {[file exists sg13cmos5l_padframe.mag]} {
+@@ -200,6 +202,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
+     port make
+ }
+ 
++# Label procedures for custom pad cells (label_right_custom, label_left_custom)
++source ../scripts/custom_io.tcl
++
+ # Add routed "constant_block" cells.  Given a cell instance name, the
+ # constant block is set off to the side under the pad bus.
+ 
+diff --git a/scripts/parse_config.py b/scripts/parse_config.py
+index 3008df4..70a7d76 100755
+--- a/scripts/parse_config.py
++++ b/scripts/parse_config.py
+@@ -88,6 +88,46 @@ with open(config_file, 'r') as ifile:
+             signal_name = imatch.group(4)
+             padlist[slot_index, pin_index] = [pad_type, signal_name]
+ 
++#-----------------------------------------------------------------
++# Custom (non-foundry) pad cells.  One entry per cell:  the cell name
++# and its core-side signal pins, in order along the pad's core edge.
++# Each pin becomes one core signal "<signal_name>_<pin>" (one wrapper
++# port per pad pin;  nothing is merged).  The ring-side pin "pad" and
++# the rails (iovdd, iovss, vdd, vss) are connected like an analog pad's.
++# The cells live in magic/custom_io/ (scripts/setup_custom_io.sh);  the
++# pin lists are checked against the ports of the .mag views below.
++#-----------------------------------------------------------------
++
++CUSTOM_PADS = {
++    'sg13cmos5l_IOPadDiff2Single':
++        ['vinp', 'vinn', 'vref', 'iref', 'en_3v3_b', 'en_3v3'],
++    'sg13cmos5l_IOPadSingle2Diff':
++        ['vref', 'outp', 'outn', 'vcm', 'en_3v3', 'en_3v3_b', 'iref'],
++}
++CUSTOM_RING_PINS = {'pad', 'iovdd', 'iovss', 'vdd', 'vss'}
++
++def custom_pins_from_mag(cellname):
++    # Port names of the magic view, minus the ring-side pins
++    magfile = os.path.join(project_path, 'magic', 'custom_io', cellname + '.mag')
++    ports = set()
++    with open(magfile, 'r') as ifile:
++        last = None
++        for line in ifile.read().splitlines():
++            if line.startswith('rlabel') or line.startswith('flabel'):
++                last = line.split()[-1]
++            elif line.startswith('port ') and last:
++                ports.add(last)
++    return ports - CUSTOM_RING_PINS
++
++for pad_idx in padlist.keys():
++    pad_type = padlist[pad_idx][0]
++    if pad_type in CUSTOM_PADS:
++        magpins = custom_pins_from_mag(pad_type)
++        if magpins != set(CUSTOM_PADS[pad_type]):
++            print('Error:  CUSTOM_PADS entry for ' + pad_type + ' does not match the ports of')
++            print('        magic/custom_io/' + pad_type + '.mag: ' + ' '.join(sorted(magpins)))
++            sys.exit(1)
++
+ #-----------------------------------------------------------------
+ # Prepare the chipalooza_frame_wrapper.v netlist
+ #-----------------------------------------------------------------
+@@ -141,6 +181,12 @@ with open(wrapper_in_file, 'r') as ifile:
+                     newline = spaces + 'input  ' + signal_name + '_one,'
+                     wrapper_lines.append(newline)
+                     newline = spaces + 'input  ' + signal_name + '_zero,'
++                elif pad_type in CUSTOM_PADS:
++                    # Custom pad:  one inout per core-side pad pin
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        wrapper_lines.append(spaces + 'inout  ' + signal_name + '_' + pin + ',')
++                    newline = spaces + 'inout  ' + signal_name + '_' + pins[-1] + ','
+                 else:
+                     print('Error:  Bad pad type ' + pad_type)
+                     newline = line
+@@ -203,6 +249,11 @@ with open(padframe_in_file, 'r') as ifile:
+                     newline = spaces + '.c2p_en(' + signal_name + '_ena),'
+                     padframe_lines.append(newline)
+                     newline = spaces + '.p2c(' + signal_name + '_in)'
++                elif pad_type in CUSTOM_PADS:
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        padframe_lines.append(spaces + '.' + pin + '(' + signal_name + '_' + pin + '),')
++                    newline = spaces + '.' + pins[-1] + '(' + signal_name + '_' + pins[-1] + ')'
+                 else:
+                     print('Bad pad type ' + pad_type)
+                     newline = line
+@@ -238,6 +289,11 @@ with open(padframe_in_file, 'r') as ifile:
+                     newline = spaces + 'output wire ' + signal_name + '_one,'
+                     padframe_lines.append(newline)
+                     newline = spaces + 'output wire ' + signal_name + '_zero,'
++                elif pad_type in CUSTOM_PADS:
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        padframe_lines.append(spaces + 'inout wire ' + signal_name + '_' + pin + ',')
++                    newline = spaces + 'inout wire ' + signal_name + '_' + pins[-1] + ','
+                 else:
+                     print('Bad pad type ' + pad_type)
+                     newline = line
+@@ -344,6 +400,18 @@ with open(tcl_in_file, 'r') as ifile:
+                     tcl_lines.append(newline)
+                     newline = spaces + 'label_' + side + '_signal pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  p2c    ' + signal_name + '_in'
+ 
++                elif pad_type in CUSTOM_PADS:
++                    # One Via2 + Metal3 strap + port per core-side pad pin
++                    # (procs in scripts/custom_io.tcl)
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        tcl_lines.append(spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pin + '    ' + signal_name + '_' + pin)
++                    newline = spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pins[-1] + '    ' + signal_name + '_' + pins[-1]
++
++                else:
++                    print('Error:  Bad pad type ' + pad_type)
++                    newline = line
++
+             tcl_lines.append(newline)
+ 
+         elif 'CONSTANT_BLOCKS' in line:
+diff --git a/scripts/run_update_frame_custom_io.sh b/scripts/run_update_frame_custom_io.sh
+new file mode 100755
+index 0000000..cecd43b
+--- /dev/null
++++ b/scripts/run_update_frame_custom_io.sh
+@@ -0,0 +1,95 @@
++#!/bin/bash
++#
++# run_update_frame_custom_io.sh --- remove the stale hand-made copies of
++# the default pads' core-side strips from chipalooza_frame where a custom
++# pad has replaced the default pad.
++#
++# Why:  run_gen_user_wrappers.sh carves the slot wrappers out of
++# chipalooza_frame, taking both its flat paint and the paint of the
++# expanded subcell chipalooza_frame_wrapper_0 (the cell generated by
++# "make padframe", placed in chipalooza_frame at +1 internal unit in y).
++# chipalooza_frame.mag also holds hand-made FLAT copies of the pad-edge
++# strips of the default analog pads (s<N>_an[x], s<N>_an_x_esd).  When a
++# pad becomes a custom pad, these stale copies would stay in the slot
++# wrapper next to the new pins (as happens in main for slot 6, whose
++# wrapper has both its analog and its digital labels).
++#
++# What:  for every pad named in a "label_<side>_custom <pad> <pin> <text>"
++# line of the generated scripts/gen_padframe.tcl (from make config), this
++# script erases, in chipalooza_frame only (not in its subcells), the
++# Metal2/Metal3 paint and the labels in the core-edge band of that pad
++# (1.2 um outside to 1.0 um inside the pad's core edge, over the pad's
++# full length).  The new pins then come only from chipalooza_frame_wrapper.
++# chipalooza_frame and sg13cmos5l_padframe share one origin in the chip top
++# level, so padframe coordinates are used as they are.  Only bands of
++# custom pads are touched;  if there are none, nothing is written.
++#
++# Run from the top level directory, after "make padframe" and before
++# "make wrappers".
++
++export PDK_ROOT=${PDK_ROOT:-/home/tim/gits}
++export PDK=${PDK:-ihp-sg13cmos5l}
++
++if ! grep -q '^[ \t]*label_\(right\|left\)_custom ' scripts/gen_padframe.tcl; then
++    echo "No custom pads in scripts/gen_padframe.tcl;  chipalooza_frame unchanged."
++    exit 0
++fi
++
++cd magic
++
++magic -dnull -noconsole -rcfile ${PDK_ROOT}/${PDK}/libs.tech/magic/${PDK}.magicrc << EOF
++drc off
++crashbackups stop
++locking disable
++source ../scripts/layout_setup.tcl
++addpath paramcells
++units microns
++
++# Collect the custom pad pins from the generated padframe script
++set pins {}
++set fh [open ../scripts/gen_padframe.tcl r]
++foreach line [split [read \$fh] "\n"] {
++    if {[regexp {^\s*label_(right|left)_custom\s+(\S+)\s+(\S+)\s+(\S+)} \$line -> side pad pin text]} {
++	lappend pins [list \$side \$pad \$pin \$text]
++    }
++}
++close \$fh
++
++# Pad bands from the padframe
++load sg13cmos5l_padframe
++select top cell
++array set bands {}
++foreach p \$pins {
++    lassign \$p side pad pin text
++    # (as in gen_padframe.tcl:  select the instance, then ask for its abutment box)
++    select cell \$pad
++    set ibox [instance list abutment]
++    if {\$side == "right"} {
++	set xe [lindex \$ibox 0]
++	set bands(\$pad) [list [expr {\$xe - 1.2}] [lindex \$ibox 1] [expr {\$xe + 1.0}] [lindex \$ibox 3]]
++    } else {
++	set xe [lindex \$ibox 2]
++	set bands(\$pad) [list [expr {\$xe - 1.0}] [lindex \$ibox 1] [expr {\$xe + 1.2}] [lindex \$ibox 3]]
++    }
++}
++
++# Edit chipalooza_frame
++load chipalooza_frame
++select top cell
++foreach pad [array names bands] {
++    box values {*}\$bands(\$pad)
++    select area
++    puts "FRAME band \$pad \$bands(\$pad) before: [what -list]"
++    select clear
++    erase m2,m3
++    erase labels
++    select area
++    puts "FRAME band \$pad after: [what -list]"
++    select clear
++}
++save chipalooza_frame
++quit -noprompt
++EOF
++
++echo "Done!"
++exit 0
+diff --git a/validate/run_lvs_ocd_chipalooza.sh b/validate/run_lvs_ocd_chipalooza.sh
+index eb9448d..6663d8c 100755
+--- a/validate/run_lvs_ocd_chipalooza.sh
++++ b/validate/run_lvs_ocd_chipalooza.sh
+@@ -17,6 +17,8 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
+ 
+ # Issues in foundry I/O netlist require custom version.
+ readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
++# Custom (non-foundry) I/O pad cells (magic/custom_io/)
++readnet spice ../netlist/schematic/custom_io.spice \$circuit2
+ # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
+ 
+ # housekeeping_top must be read before the user project since it is a
+diff --git a/validate/run_lvs_padframe.sh b/validate/run_lvs_padframe.sh
+index 88ce79b..87f9ec9 100755
+--- a/validate/run_lvs_padframe.sh
++++ b/validate/run_lvs_padframe.sh
+@@ -21,6 +21,8 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
+ # the use of global "sub!")
+ # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
+ readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
++# Custom (non-foundry) I/O pad cells (magic/custom_io/)
++readnet spice ../netlist/schematic/custom_io.spice \$circuit2
+ 
+ # Read verilog submodules
+ readnet verilog ../verilog/gl/netlists_lvs.v \$circuit2
+-- 
+2.43.0
+

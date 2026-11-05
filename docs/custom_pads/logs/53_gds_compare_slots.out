@@ -1,0 +1,21 @@
+slot 1: SAME
+slot 2: SAME
+slot 3: SAME
+slot 4: SAME
+slot 5: SAME
+slot 6: SAME
+slot 7: DIFFERENT
+  30/0 xor area 70.2843 um2 bbox (535.05,112.115;537.15,266.93)
+  30/2 xor area 40.8440 um2 bbox (535.05,112.115;537.15,266.93)
+  30/25 texts differ: [('s7_an[0]', 535450, 144545), ('s7_an[1]', 535450, 254545), ('s7_an_0_en_3v3', 535450, 142650), ('s7_an_0_en_3v3_b', 535450, 153840), ('s7_an_0_esd', 536150, 163660), ('s7_an_0_iref', 535450, 159510)]
+slot 8: SAME
+slot 9: SAME
+slot 10: SAME
+slot 11: SAME
+slot 12: SAME
+slot 13: SAME
+slot 14: SAME
+slot 15: SAME
+slot 16: SAME
+slot 17: SAME
+slot 18: SAME

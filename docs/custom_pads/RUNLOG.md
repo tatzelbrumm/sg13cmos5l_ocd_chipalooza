@@ -371,3 +371,96 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 - changed (45): xschem/slot7_wrapper.sym and verilog/gl/slot7_wrapper_lvs.v regenerated (29 pins; slot template now 200 x 700, 34 left rows, because the row template is the union over all 18 wrappers: a full `make symbols` would re-lay-out all 18 symbols). Only slot 7's files written.
 - (manual) verilog/rtl/slot7_wrapper.v: `s7_an[1:0]` and `s7_an_0_esd` replaced by the 13 scalar `inout wire` ports, with comments.
 - NOT changed (STOP condition "chip core", written down in FINDINGS): verilog/rtl/chipalooza_frame.v (ports s7_an[1:0], s7_an_0_esd, s7_an_1_esd and the slot7_wrapper instance), verilog/gl/sg13cmos5l_ocd_chipalooza.v (wires s7_an_0_esd/s7_an_1_esd, padframe and frame instance connections), xschem/chipalooza_frame.sch, verilog/gl/chipalooza_tb.v, verilog/rtl/digital_tb.v. No script generates these.
+
+## Phase 3: the padframe sequence (README steps 5-7), from a clean config
+
+### 46 make_clean-config
+- start 2026-11-05T19:30:38Z, end 2026-11-05T19:30:38Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/46_make_clean-config.out`, `logs/46_make_clean-config.err`
+
+### 47 make_config
+- start 2026-11-05T19:30:38Z, end 2026-11-05T19:30:38Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/47_make_config.out`, `logs/47_make_config.err`
+
+### 48 make_padframe
+- start 2026-11-05T19:30:38Z, end 2026-11-05T19:30:47Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/48_make_padframe.out`, `logs/48_make_padframe.err`
+
+### 49 make_frame-custom-io
+- start 2026-11-05T19:30:47Z, end 2026-11-05T19:30:48Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make frame-custom-io`
+- exit status: 0
+- logs: `logs/49_make_frame-custom-io.out`, `logs/49_make_frame-custom-io.err`
+
+### 50 make_wrappers
+- start 2026-11-05T19:30:48Z, end 2026-11-05T19:30:50Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make wrappers`
+- exit status: 0
+- logs: `logs/50_make_wrappers.out`, `logs/50_make_wrappers.err`
+
+### 51 make_gds-slots
+- start 2026-11-05T19:30:50Z, end 2026-11-05T19:30:51Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make gds-slots`
+- exit status: 0
+- logs: `logs/51_make_gds-slots.out`, `logs/51_make_gds-slots.err`
+
+### 52 make_check
+- start 2026-11-05T19:30:51Z, end 2026-11-05T19:30:52Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make check`
+- exit status: 2
+- logs: `logs/52_make_check.out`, `logs/52_make_check.err`
+- changed (46-52): all exit 0 except make check (exit 2, mtime-based staleness of 38 views; 1 not built). Step 7 of the README: `make wrappers` (run_gen_user_wrappers.sh, regenerates slot<N>_wrapper.mag from chipalooza_frame) must run BEFORE `make gds-slots` (run_gen_wrapper_gds.sh only writes GDS of the existing .mag); the README names only gds-slots. With custom pads, `make frame-custom-io` goes between padframe and wrappers.
+- 53: `python3 docs/custom_pads/tools/gds_compare.py <baseline>/slotN_wrapper.gds gds/slotN_wrapper.gds` for N = 1..18 (cwd harness): all SAME (shapes per layer and texts) except slot 7. Byte comparison is useless (GDS time stamps).
+- 54 (first attempt, padframe_drc.sh writing the whole padframe GDS): stopped by hand after ~14 min, magic still in 'Generating output for cell sg13cmos5l_padframe'; no journal entry (killed). Script changed to save and write only the region around the slot-7 pads.
+
+### 55 padframe_drc
+- start 2026-11-05T19:44:47Z, end 2026-11-05T19:48:12Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `docs/custom_pads/tools/padframe_drc.sh /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/baseline/main/sg13cmos5l_padframe.mag`
+- exit status: 0
+- logs: `logs/55_padframe_drc.out`, `logs/55_padframe_drc.err`
+- changed (55): nothing in the tree (outputs in the scratchpad: clip GDS of x 1860..2180, y 2180..2540 um of the current and the baseline padframe, KLayout DRC reports). 3 min 25 s.
+- 56: `python3 docs/custom_pads/tools/lyrdb_summary.py clip_now.lyrdb clip_base.lyrdb`: now 116 violations (Pad.fR_M2 64, Pad.fR_M3 16, Pad.fR_M4 16, Pad.fR_TM1 16, Pad.fR_M1 4), baseline 101; all are the RECOMMENDED rule "Min. recommended Mx exit length is 7.0 um" at the bond pad edge (x 2075.1..2077.0) of every pad, foundry pads included; the +15 on Pad.fR_M2 come from the custom pads' finer M2 finger pattern there. No violation of a mandatory rule and none at the new straps (x 1898.9..1900.3).
+
+## Phase 4: slot 7 through the ordinary flow
+- (manual, slot repo) branch harness-test created from toplevel 91a7da8b67ac56a26c605501146667a1fde28c32; `macros/slot/harness_test/build_views.sh /home/user/sg13cmos5l_ocd_chipalooza/magic/slot7_wrapper.mag` (cwd slot repo, exit 0) wrote final/gds/slot_7.gds, final/{lef,lib,vh}/slot_7.*, macros/slot/harness_test/slot7_pins.md; KLayout DRC of slot_7.gds (feol, beol, deep): 0 violations. Committed and pushed as 4611357166b7368be4fbf8e176b1e82b8a9a85d0.
+- (manual) config.txt: `s7_version:	harness-test	4611357166b7368be4fbf8e176b1e82b8a9a85d0` (format: branch, then commit, tab-separated, as get_projects.sh --help describes).
+
+### 59 make_projects_7
+- start 2026-11-05T19:50:14Z, end 2026-11-05T19:50:26Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make projects SLOTS=7`
+- exit status: 0
+- logs: `logs/59_make_projects_7.out`, `logs/59_make_projects_7.err`
+- changed (59): dependencies/slot_7 added as submodule (gitlink 4611357), .gitmodules (branch = harness-test).
+
+### 60 make_projects-gds_7
+- start 2026-11-05T19:50:36Z, end 2026-11-05T19:50:47Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make projects-gds SLOTS=7`
+- exit status: 0
+- logs: `logs/60_make_projects-gds_7.out`, `logs/60_make_projects-gds_7.err`
+- changed (60): scripts/user_projects.tcl (generated; 1 project placed, slot_7 at 1379.95 2170.05 um = slot7_wrapper position + frame offset 16.1 16.1).
+
+### 61 make_user-id
+- start 2026-11-05T19:50:56Z, end 2026-11-05T19:50:57Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make user-id`
+- exit status: 0
+- logs: `logs/61_make_user-id.out`, `logs/61_make_user-id.err`
+- changed (61): magic/user_id_textblock.mag, magic/user_id_vias.mag, verilog/gl/user_id_programming.v (project_id 20260908 from config.txt; 6 verilog lines changed).
+- 63 (manual, cwd harness): `python3 docs/custom_pads/tools/netcheck_slot7.py <scratch>/clip_now.gds clip_now 1885 2255 2080 2455 /home/user/sg13cmos5l_cm_ip__single2diff2single/final/gds/slot_7.gds 1363.85 2153.95` (padframe region + slot_7 at its padframe-relative position), exit 1: 9 pins OK, the outp/vinp and outn/vinn nets carry the S2D-internal labels vfbp, voutp resp. vfbn, voutn (documented in-cell ties, not shorts). Log logs/63_netcheck_clip_raw.out.
+- 64: same after adding those four labels as documented in-cell aliases to the script: all 13 OK (logs/64_netcheck_clip.out).
