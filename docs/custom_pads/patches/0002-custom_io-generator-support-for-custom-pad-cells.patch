@@ -1,7 +1,7 @@
-From f74d6cb124650042ed42769912febfd391edbac7 Mon Sep 17 00:00:00 2001
+From d8801fec5a641c17f25d9ed9e46f8f03155f9a37 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 5 Nov 2026 19:30:17 +0000
-Subject: [PATCH 2/3] custom_io: generator support for custom pad cells
+Subject: [PATCH 2/4] custom_io: generator support for custom pad cells
 
 - scripts/parse_config.py: CUSTOM_PADS table (cell -> core-side pins),
   checked against the ports of magic/custom_io/<cell>.mag, used in all

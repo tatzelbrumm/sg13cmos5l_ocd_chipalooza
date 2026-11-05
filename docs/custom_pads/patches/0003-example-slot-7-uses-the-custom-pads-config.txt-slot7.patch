@@ -1,7 +1,7 @@
-From 3b6f443b4d3c0128f77042ff218ab0b8b9b1fa6d Mon Sep 17 00:00:00 2001
+From 465cc4c2967f56298de5d80ec21b80b6a5bf9867 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Thu, 5 Nov 2026 19:54:30 +0000
-Subject: [PATCH 3/3] example: slot 7 uses the custom pads (config.txt,
+Subject: [PATCH 3/4] example: slot 7 uses the custom pads (config.txt,
  slot7_wrapper.v)
 
 Inputs only.  After this, regenerate:  make clean-config config padframe

@@ -62,6 +62,7 @@ slot GDS commit 4611357). Steps, times, exit codes: `RUNLOG.md`; logs: `logs/`. 
 | Makefile | changed | +target frame-custom-io |
 | config.txt | changed | s7_an[0/1] custom types, s7_version, comment |
 | verilog/rtl/slot7_wrapper.v | changed | 13 ports |
+| verilog/rtl/chipalooza_frame.v, verilog/gl/sg13cmos5l_ocd_chipalooza.v, verilog/rtl/digital_tb.v, validate/lvs/blackboxes.v | changed | slot 7 core nets (follow-up) |
 | magic/chipalooza_frame.mag | changed (by script) | stale s7 copies erased |
 | generated: gen_padframe.tcl, verilog/gl/{sg13cmos5l_padframe,chipalooza_frame_wrapper,slot7_wrapper_lvs,user_id_programming}.v, magic/*padframe*, slot*_wrapper.{mag,gds}, xschem/slot7_wrapper.sym, user_id*.mag, scripts/user_projects.tcl, .gitmodules + dependencies/slot_7 | regenerated | flow outputs |
 | docs/custom_pads/ | new | records, tools |
@@ -158,12 +159,11 @@ Cost of the heavy steps here (4 cores, 15 GB): padframe extraction 7 min, gds-pr
 
 ## What blocks a real tape-out
 
-- Chip-core views no script generates still carry the analog pins of slot 7: `verilog/rtl/chipalooza_frame.v`
-  (ports `s7_an[1:0]`, `s7_an_0_esd`, `s7_an_1_esd`; slot7_wrapper instance), `verilog/gl/sg13cmos5l_ocd_chipalooza.v`
-  (wires `s7_an_*_esd`, padframe/frame connections), `xschem/chipalooza_frame.sch`, `verilog/gl/chipalooza_tb.v`,
-  `verilog/rtl/digital_tb.v`. Exact change: replace those three ports by the 13 `s7_an_0_*`/`s7_an_1_*` nets
-  everywhere (port lists, the padframe instance, the frame instance and the slot7_wrapper instance); `s7_an[1:0]` stay
-  only as chip pins. Until then top-level LVS (`make lvs-top`) cannot pass for slot 7.
+- Chip-core views: Verilog done after the test (follow-up commit, patch 0004): `chipalooza_frame.v`,
+  `sg13cmos5l_ocd_chipalooza.v`, `digital_tb.v`, `validate/lvs/blackboxes.v` carry the 13 nets; iverilog elaborates
+  `chipalooza_frame` as before. Still old (`s7_an_*_esd`, `s7_an[0:1]`): `xschem/chipalooza_frame.sch`,
+  `xschem/sg13cmos5l_ocd_chipalooza.sch`, their symbols, and `validate/lvs/chipalooza_frame.struct.v` (yosys). Top-level
+  LVS (`make lvs-top`) not run (skipped by request).
 - All 18 slot symbols share one row template; a full `make symbols` re-lays out every symbol (34 left rows now).
 - The pads' own known LVS mismatch (vss = iovss substrate) carries into padframe/top LVS.
 - Recommended-rule `Pad.fR_M2` exits (+15) at the bond pad edge of the custom pads.
@@ -179,6 +179,7 @@ Cost of the heavy steps here (4 cores, 15 GB): padframe extraction 7 min, gds-pr
    `gen_padframe_template.tcl`, `scripts/run_update_frame_custom_io.sh` + Makefile target, `netlist/schematic/custom_io.spice`
    + 1 readnet line in each LVS script. Foundry pad types: identical `make config` output.
 3. `0003` example inputs for slot 7 (`config.txt`, `slot7_wrapper.v`); outputs are regenerated, not patched.
+4. `0004` chip-core Verilog for slot 7 (frame RTL, top gl netlist, digital_tb, LVS blackboxes); schematics still to do.
 Not in the series, decisions for Tim: the 5 nm offset of `chipalooza_frame_wrapper_0` in `chipalooza_frame`; the
 hand-made flat strip copies in `chipalooza_frame.mag` (slot 6 already broken by them); `label_*_analog ... pad` painting
 at the bond pad edge; README step 7 should name `make wrappers` before `make gds-slots`; magic 8.3.685 `locking disable`.

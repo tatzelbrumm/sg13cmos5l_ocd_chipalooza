@@ -1,0 +1,217 @@
+From 82fa15fe12d6f0cf75a12fa7eca6868d19864747 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 5 Nov 2026 20:26:06 +0000
+Subject: [PATCH 4/4] slot 7: chip-core Verilog uses the 13 custom-pad core
+ nets
+
+verilog/rtl/chipalooza_frame.v: ports s7_an[1:0], s7_an_0_esd and
+s7_an_1_esd replaced by the 13 nets s7_an_0_* / s7_an_1_*, connected by
+name to slot7_wrapper.  verilog/gl/sg13cmos5l_ocd_chipalooza.v: the same
+13 nets between padframe and harness_core; the pads s7_an[1:0] remain chip
+pins only.  verilog/rtl/digital_tb.v: the 13 ports left open.
+validate/lvs/blackboxes.v regenerated (gen_blackboxes.py).
+
+Checked: iverilog elaborates chipalooza_frame with dut.v (cocotb setup)
+before and after, identical warnings.  Not changed: xschem schematics and
+symbols, validate/lvs/chipalooza_frame.struct.v (needs yosys).
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
+---
+ validate/lvs/blackboxes.v              | 17 ++++++++--
+ verilog/gl/sg13cmos5l_ocd_chipalooza.v | 47 +++++++++++++++++++++-----
+ verilog/rtl/chipalooza_frame.v         | 31 +++++++++++++++--
+ verilog/rtl/digital_tb.v               | 14 +++++++-
+ 4 files changed, 94 insertions(+), 15 deletions(-)
+
+diff --git a/validate/lvs/blackboxes.v b/validate/lvs/blackboxes.v
+index e843e23..7d1f1ec 100644
+--- a/validate/lvs/blackboxes.v
++++ b/validate/lvs/blackboxes.v
+@@ -400,7 +400,7 @@ module slot6_wrapper (
+ );
+ endmodule
+ 
+-/* slot7_wrapper --- 18 pins, from verilog/rtl/slot7_wrapper.v */
++/* slot7_wrapper --- 29 pins, from verilog/rtl/slot7_wrapper.v */
+ (* blackbox *)
+ module slot7_wrapper (
+     inout wire vdd_3v3,
+@@ -412,8 +412,19 @@ module slot7_wrapper (
+     input wire reset,
+     input wire [23:0] dig_in,
+     output wire [11:0] dig_out,
+-    inout wire [1:0] s7_an,
+-    inout wire s7_an_0_esd,
++    inout wire s7_an_0_vref,
++    inout wire s7_an_0_outp,
++    inout wire s7_an_0_outn,
++    inout wire s7_an_0_vcm,
++    inout wire s7_an_0_en_3v3,
++    inout wire s7_an_0_en_3v3_b,
++    inout wire s7_an_0_iref,
++    inout wire s7_an_1_vinp,
++    inout wire s7_an_1_vinn,
++    inout wire s7_an_1_vref,
++    inout wire s7_an_1_iref,
++    inout wire s7_an_1_en_3v3_b,
++    inout wire s7_an_1_en_3v3,
+     inout wire ibias0,
+     inout wire ibias1,
+     inout wire vbias,
+diff --git a/verilog/gl/sg13cmos5l_ocd_chipalooza.v b/verilog/gl/sg13cmos5l_ocd_chipalooza.v
+index 816f8a2..113ae08 100644
+--- a/verilog/gl/sg13cmos5l_ocd_chipalooza.v
++++ b/verilog/gl/sg13cmos5l_ocd_chipalooza.v
+@@ -69,8 +69,19 @@ module sg13cmos5l_ocd_chipalooza (
+     wire s5_an_2_esd;
+     wire s6_an_0_esd;
+     wire s6_an_1_esd;
+-    wire s7_an_0_esd;
+-    wire s7_an_1_esd;
++    wire s7_an_0_vref;
++    wire s7_an_0_outp;
++    wire s7_an_0_outn;
++    wire s7_an_0_vcm;
++    wire s7_an_0_en_3v3;
++    wire s7_an_0_en_3v3_b;
++    wire s7_an_0_iref;
++    wire s7_an_1_vinp;
++    wire s7_an_1_vinn;
++    wire s7_an_1_vref;
++    wire s7_an_1_iref;
++    wire s7_an_1_en_3v3_b;
++    wire s7_an_1_en_3v3;
+     wire s8_an_0_esd;
+     wire s9_an_0_esd;
+     wire s9_an_1_esd;
+@@ -187,8 +198,19 @@ module sg13cmos5l_ocd_chipalooza (
+ 	.s5_an_2_esd(s5_an_2_esd),
+ 	.s6_an_0_esd(s6_an_0_esd),
+ 	.s6_an_1_esd(s6_an_1_esd),
+-	.s7_an_0_esd(s7_an_0_esd),
+-	.s7_an_1_esd(s7_an_1_esd),
++	.s7_an_0_vref(s7_an_0_vref),
++	.s7_an_0_outp(s7_an_0_outp),
++	.s7_an_0_outn(s7_an_0_outn),
++	.s7_an_0_vcm(s7_an_0_vcm),
++	.s7_an_0_en_3v3(s7_an_0_en_3v3),
++	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
++	.s7_an_0_iref(s7_an_0_iref),
++	.s7_an_1_vinp(s7_an_1_vinp),
++	.s7_an_1_vinn(s7_an_1_vinn),
++	.s7_an_1_vref(s7_an_1_vref),
++	.s7_an_1_iref(s7_an_1_iref),
++	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
++	.s7_an_1_en_3v3(s7_an_1_en_3v3),
+ 	.s8_an_0_esd(s8_an_0_esd),
+ 	.s9_an_0_esd(s9_an_0_esd),
+ 	.s9_an_1_esd(s9_an_1_esd),
+@@ -239,8 +261,6 @@ module sg13cmos5l_ocd_chipalooza (
+ 	.s5_an_2(s5_an[2]),
+ 	.s6_an_0(s6_an[0]),
+ 	.s6_an_1(s6_an[1]),
+-	.s7_an_0(s7_an[0]),
+-	.s7_an_1(s7_an[1]),
+ 	.s8_an_0(s8_an[0]),
+ 	.s9_an_0(s9_an[0]),
+ 	.s9_an_1(s9_an[1]),
+@@ -276,8 +296,19 @@ module sg13cmos5l_ocd_chipalooza (
+ 	.s5_an_2_esd(s5_an_2_esd),
+ 	.s6_an_0_esd(s6_an_0_esd),
+ 	.s6_an_1_esd(s6_an_1_esd),
+-	.s7_an_0_esd(s7_an_0_esd),
+-	.s7_an_1_esd(s7_an_1_esd),
++	.s7_an_0_vref(s7_an_0_vref),
++	.s7_an_0_outp(s7_an_0_outp),
++	.s7_an_0_outn(s7_an_0_outn),
++	.s7_an_0_vcm(s7_an_0_vcm),
++	.s7_an_0_en_3v3(s7_an_0_en_3v3),
++	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
++	.s7_an_0_iref(s7_an_0_iref),
++	.s7_an_1_vinp(s7_an_1_vinp),
++	.s7_an_1_vinn(s7_an_1_vinn),
++	.s7_an_1_vref(s7_an_1_vref),
++	.s7_an_1_iref(s7_an_1_iref),
++	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
++	.s7_an_1_en_3v3(s7_an_1_en_3v3),
+ 	.s8_an_0_esd(s8_an_0_esd),
+ 	.s9_an_0_esd(s9_an_0_esd),
+ 	.s9_an_1_esd(s9_an_1_esd),
+diff --git a/verilog/rtl/chipalooza_frame.v b/verilog/rtl/chipalooza_frame.v
+index e7551d3..21c420b 100644
+--- a/verilog/rtl/chipalooza_frame.v
++++ b/verilog/rtl/chipalooza_frame.v
+@@ -103,7 +103,21 @@ module chipalooza_frame (
+     inout  [0:0] s4_an,  inout s4_an_0_esd,
+     inout  [2:0] s5_an,  inout s5_an_0_esd, inout s5_an_1_esd, inout s5_an_2_esd,
+     inout  [1:0] s6_an,  inout s6_an_0_esd, inout s6_an_1_esd,
+-    inout  [1:0] s7_an,  inout s7_an_0_esd, inout s7_an_1_esd,
++    /* Slot 7:  custom pads (config.txt), no pad-to-core analog path;
++     * one port per core-side pin of each custom pad. */
++    inout  s7_an_0_vref,
++    inout  s7_an_0_outp,
++    inout  s7_an_0_outn,
++    inout  s7_an_0_vcm,
++    inout  s7_an_0_en_3v3,
++    inout  s7_an_0_en_3v3_b,
++    inout  s7_an_0_iref,
++    inout  s7_an_1_vinp,
++    inout  s7_an_1_vinn,
++    inout  s7_an_1_vref,
++    inout  s7_an_1_iref,
++    inout  s7_an_1_en_3v3_b,
++    inout  s7_an_1_en_3v3,
+     inout  [0:0] s8_an,  inout s8_an_0_esd,
+     inout  [2:0] s9_an,  inout s9_an_0_esd, inout s9_an_1_esd, inout s9_an_2_esd,
+     inout  [2:0] s10_an,  inout s10_an_0_esd, inout s10_an_1_esd, inout s10_an_2_esd,
+@@ -1139,8 +1153,19 @@ module chipalooza_frame (
+ 	.reset(user_reset[6]),
+ 	.dig_in(user_dig_in[6*24 +: 24]),
+ 	.dig_out(user_dig_out[6*12 +: 12]),
+-	.s7_an(s7_an),
+-	.s7_an_0_esd(s7_an_0_esd),
++	.s7_an_0_vref(s7_an_0_vref),
++	.s7_an_0_outp(s7_an_0_outp),
++	.s7_an_0_outn(s7_an_0_outn),
++	.s7_an_0_vcm(s7_an_0_vcm),
++	.s7_an_0_en_3v3(s7_an_0_en_3v3),
++	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
++	.s7_an_0_iref(s7_an_0_iref),
++	.s7_an_1_vinp(s7_an_1_vinp),
++	.s7_an_1_vinn(s7_an_1_vinn),
++	.s7_an_1_vref(s7_an_1_vref),
++	.s7_an_1_iref(s7_an_1_iref),
++	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
++	.s7_an_1_en_3v3(s7_an_1_en_3v3),
+ 	.ibias0(user_ibias[6*2 + 0]),
+ 	.ibias1(user_ibias[6*2 + 1]),
+ 	.vbias(user_vbias[6]),
+diff --git a/verilog/rtl/digital_tb.v b/verilog/rtl/digital_tb.v
+index f931948..d03b0c6 100644
+--- a/verilog/rtl/digital_tb.v
++++ b/verilog/rtl/digital_tb.v
+@@ -432,7 +432,19 @@ module digital_tb ();
+ 	    .s4_an(),
+ 	    .s5_an(),
+ 	    .s6_an(),
+-	    .s7_an(),
++	    .s7_an_0_vref(),
++	    .s7_an_0_outp(),
++	    .s7_an_0_outn(),
++	    .s7_an_0_vcm(),
++	    .s7_an_0_en_3v3(),
++	    .s7_an_0_en_3v3_b(),
++	    .s7_an_0_iref(),
++	    .s7_an_1_vinp(),
++	    .s7_an_1_vinn(),
++	    .s7_an_1_vref(),
++	    .s7_an_1_iref(),
++	    .s7_an_1_en_3v3_b(),
++	    .s7_an_1_en_3v3(),
+ 	    .s8_an(),
+ 	    .s9_an(),
+ 	    .s10_an(),
+-- 
+2.43.0
+
