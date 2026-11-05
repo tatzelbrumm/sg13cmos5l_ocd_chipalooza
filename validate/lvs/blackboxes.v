@@ -400,7 +400,7 @@ module slot6_wrapper (
 );
 endmodule
 
-/* slot7_wrapper --- 18 pins, from verilog/rtl/slot7_wrapper.v */
+/* slot7_wrapper --- 29 pins, from verilog/rtl/slot7_wrapper.v */
 (* blackbox *)
 module slot7_wrapper (
     inout wire vdd_3v3,
@@ -412,8 +412,19 @@ module slot7_wrapper (
     input wire reset,
     input wire [23:0] dig_in,
     output wire [11:0] dig_out,
-    inout wire [1:0] s7_an,
-    inout wire s7_an_0_esd,
+    inout wire s7_an_0_vref,
+    inout wire s7_an_0_outp,
+    inout wire s7_an_0_outn,
+    inout wire s7_an_0_vcm,
+    inout wire s7_an_0_en_3v3,
+    inout wire s7_an_0_en_3v3_b,
+    inout wire s7_an_0_iref,
+    inout wire s7_an_1_vinp,
+    inout wire s7_an_1_vinn,
+    inout wire s7_an_1_vref,
+    inout wire s7_an_1_iref,
+    inout wire s7_an_1_en_3v3_b,
+    inout wire s7_an_1_en_3v3,
     inout wire ibias0,
     inout wire ibias1,
     inout wire vbias,

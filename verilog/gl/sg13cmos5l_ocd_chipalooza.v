@@ -69,8 +69,19 @@ module sg13cmos5l_ocd_chipalooza (
     wire s5_an_2_esd;
     wire s6_an_0_esd;
     wire s6_an_1_esd;
-    wire s7_an_0_esd;
-    wire s7_an_1_esd;
+    wire s7_an_0_vref;
+    wire s7_an_0_outp;
+    wire s7_an_0_outn;
+    wire s7_an_0_vcm;
+    wire s7_an_0_en_3v3;
+    wire s7_an_0_en_3v3_b;
+    wire s7_an_0_iref;
+    wire s7_an_1_vinp;
+    wire s7_an_1_vinn;
+    wire s7_an_1_vref;
+    wire s7_an_1_iref;
+    wire s7_an_1_en_3v3_b;
+    wire s7_an_1_en_3v3;
     wire s8_an_0_esd;
     wire s9_an_0_esd;
     wire s9_an_1_esd;
@@ -187,8 +198,19 @@ module sg13cmos5l_ocd_chipalooza (
 	.s5_an_2_esd(s5_an_2_esd),
 	.s6_an_0_esd(s6_an_0_esd),
 	.s6_an_1_esd(s6_an_1_esd),
-	.s7_an_0_esd(s7_an_0_esd),
-	.s7_an_1_esd(s7_an_1_esd),
+	.s7_an_0_vref(s7_an_0_vref),
+	.s7_an_0_outp(s7_an_0_outp),
+	.s7_an_0_outn(s7_an_0_outn),
+	.s7_an_0_vcm(s7_an_0_vcm),
+	.s7_an_0_en_3v3(s7_an_0_en_3v3),
+	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
+	.s7_an_0_iref(s7_an_0_iref),
+	.s7_an_1_vinp(s7_an_1_vinp),
+	.s7_an_1_vinn(s7_an_1_vinn),
+	.s7_an_1_vref(s7_an_1_vref),
+	.s7_an_1_iref(s7_an_1_iref),
+	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
+	.s7_an_1_en_3v3(s7_an_1_en_3v3),
 	.s8_an_0_esd(s8_an_0_esd),
 	.s9_an_0_esd(s9_an_0_esd),
 	.s9_an_1_esd(s9_an_1_esd),
@@ -239,8 +261,6 @@ module sg13cmos5l_ocd_chipalooza (
 	.s5_an_2(s5_an[2]),
 	.s6_an_0(s6_an[0]),
 	.s6_an_1(s6_an[1]),
-	.s7_an_0(s7_an[0]),
-	.s7_an_1(s7_an[1]),
 	.s8_an_0(s8_an[0]),
 	.s9_an_0(s9_an[0]),
 	.s9_an_1(s9_an[1]),
@@ -276,8 +296,19 @@ module sg13cmos5l_ocd_chipalooza (
 	.s5_an_2_esd(s5_an_2_esd),
 	.s6_an_0_esd(s6_an_0_esd),
 	.s6_an_1_esd(s6_an_1_esd),
-	.s7_an_0_esd(s7_an_0_esd),
-	.s7_an_1_esd(s7_an_1_esd),
+	.s7_an_0_vref(s7_an_0_vref),
+	.s7_an_0_outp(s7_an_0_outp),
+	.s7_an_0_outn(s7_an_0_outn),
+	.s7_an_0_vcm(s7_an_0_vcm),
+	.s7_an_0_en_3v3(s7_an_0_en_3v3),
+	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
+	.s7_an_0_iref(s7_an_0_iref),
+	.s7_an_1_vinp(s7_an_1_vinp),
+	.s7_an_1_vinn(s7_an_1_vinn),
+	.s7_an_1_vref(s7_an_1_vref),
+	.s7_an_1_iref(s7_an_1_iref),
+	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
+	.s7_an_1_en_3v3(s7_an_1_en_3v3),
 	.s8_an_0_esd(s8_an_0_esd),
 	.s9_an_0_esd(s9_an_0_esd),
 	.s9_an_1_esd(s9_an_1_esd),
