@@ -108,7 +108,7 @@ s3_version:	-		-
 s4_version:	-		-
 s5_version:	-		-
 s6_version:	-		-
-s7_version:	-		-
+s7_version:	harness-test	4611357166b7368be4fbf8e176b1e82b8a9a85d0
 s8_version:	-		-
 s9_version:	-		-
 s10_version:	-		-

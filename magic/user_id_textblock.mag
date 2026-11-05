@@ -3,15 +3,15 @@ tech ihp-sg13cmos5l
 timestamp 1608324878
 << fillblock >>
 rect -328 754 16860 5172
-use alpha_0  alphaX_0 hexdigits
+use alpha_8  alphaX_0 hexdigits
 timestamp 1598786981
 transform 1 0 14887 0 1 1080
 box 0 0 1620 3780
-use alpha_3  alphaX_1 hexdigits
+use alpha_0  alphaX_1 hexdigits
 timestamp 1598786981
 transform 1 0 12750 0 1 1080
 box 0 0 1620 3780
-use alpha_3  alphaX_2
+use alpha_9  alphaX_2 hexdigits
 timestamp 1598786981
 transform 1 0 10625 0 1 1080
 box 0 0 1620 3780
