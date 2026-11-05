@@ -141,3 +141,45 @@ Environment for every step: `export PDK_ROOT=/foss/pdks PDK=ihp-sg13cmos5l`.
 
 ### 14 make symbols (baseline)
 - Fails on main's own state: `gen_xschem_sym.py` exits with "magic/slot6_wrapper.mag: port 119 has two names: s6_an_0_esd, s6_an_0". Cause: chipalooza_frame.mag holds FLAT copies of the pad-edge strips and labels, which run_gen_user_wrappers.sh carves into the slot wrappers. For slot 6 the new digital-pad strips (s6_an_0, s6_an_1) were added to chipalooza_frame.mag but the old analog strips/labels (s6_an[0], s6_an_0_esd, ...) were not removed, so the two labels merge into one port. The regenerated chipalooza_frame_wrapper.mag (from `make padframe`) does NOT feed the slot wrappers at all.
+
+### note: SRAM macro (after a user question)
+- /foss/pdks/IHP-Open-PDK (github.com/IHP-GmbH/IHP-Open-PDK, commit df4c5054) tracks `ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram` as a symlink (git mode 120000) into `ihp-sg13g2/libs.ref/sg13g2_sram`, and the files RM_IHPSG13_1P_1024x8_c2_bm_bist.{gds,lef,cdl} are in that repo. The environment's sparse checkout includes only `/ihp-sg13cmos5l/` and parts of `ihp-sg13g2/libs.tech`, so the link target is absent. Fix outside this test: add `/ihp-sg13g2/libs.ref/sg13g2_sram/` to the sparse checkout, then re-run `make setup`. Not on the slot-7 critical path (SRAM is in chipalooza_frame's housekeeping area); left as is.
+
+## Phase 1: import of the pad GDS
+
+### 16 setup_custom_io
+- start 2026-11-05T19:04:13Z, end 2026-11-05T19:04:16Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `./scripts/setup_custom_io.sh`
+- exit status: 0
+- logs: `logs/16_setup_custom_io.out`, `logs/16_setup_custom_io.err`
+- changed (16): magic/custom_io/: cm_d2s_*.mag, cm_s2d_*.mag, the two pad .mag, gds/*.uniq.gds. FIXED_BBOX came out as 0 0 32000 72000 (twice the intended 16000 36000) because magic rescaled the grid on GDS input ('units rescaled by factor of 5 / 1') and does not convert the property; script changed to set FIXED_BBOX in a second session on the written .mag.
+
+### 17 setup_custom_io
+- start 2026-11-05T19:04:54Z, end 2026-11-05T19:04:57Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `./scripts/setup_custom_io.sh`
+- exit status: 0
+- logs: `logs/17_setup_custom_io.out`, `logs/17_setup_custom_io.err`
+- changed (17): FIXED_BBOX still 0 0 32000 72000: the property command takes lambda, so 16000 36000 lambda = 32000 72000 internal. Also a stray magic/$$$CONTEXT_INFO$$$.mag appeared: KLayout had written its context-info cell into the .uniq.gds. Fixed both (uniquify writes without context info; FIXED_BBOX given as 0 0 8000 18000 lambda); stray file deleted.
+
+### 18 setup_custom_io
+- start 2026-11-05T19:05:26Z, end 2026-11-05T19:05:29Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `./scripts/setup_custom_io.sh`
+- exit status: 0
+- logs: `logs/18_setup_custom_io.out`, `logs/18_setup_custom_io.err`
+- changed (18): FIXED_BBOX now 0 0 16000 36000 in both pad .mag; .uniq.gds have exactly one top cell (60 resp. 44 cells). Ports: D2S pad vinp vinn vref iref en_3v3_b en_3v3 iovdd iovss vdd; S2D vref outp outn vcm en_3v3 en_3v3_b iref pad vdd iovss iovdd. No vss port (vss is the substrate only), no vfb/vfbp/vfbn/vcmfb port. scripts/layout_setup.tcl: added 'addpath custom_io'.
+- 19 (first attempt) stopped by hand after 300 s: the Tcl file was given as an argument (magic reads arguments as layout names), not on stdin; the runner wrote no journal entry because it was killed. Re-run as 20.
+- 20: cells coexist (112 loaded, 59 cm_d2s_*, 43 cm_s2d_*, no name conflicts), then the test hung in its own port-listing loop (my 'port first/next' loop never ended) and was cut by timeout 300 (exit 124). Port lists are taken from the .mag files instead (see 18). Loop removed; re-run as 21.
+
+### 21 coexist_test
+- start 2026-11-05T19:16:48Z, end 2026-11-05T19:16:49Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza/magic`
+- command: `bash -c magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.magicrc < ../docs/custom_pads/tools/coexist_test.tcl`
+- exit status: 0
+- logs: `logs/21_coexist_test.out`, `logs/21_coexist_test.err`
+- changed (21): nothing (test only). Result: both custom pads and the foundry pads load in one magic session; FIXED_BBOX 0 0 80 180 um for all three. Trap c: `git check-ignore` confirms magic/custom_io/ is NOT ignored (only magic/sg13cmos5l_io/ etc. are).
+
+Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) is identical to sg13cmos5l_IOPadAnalog, as are the metal rails within 1 um of either edge (no XOR difference on 30/0, 50/0, 126/0); trap b, 13 of the 21 shared sub-cell names differ in content (Clamp_N_M1, Clamp_P_M1, DCNDiode, DCPDiode, edge_stubs, nmosHV, nmosHV$1..$7, rppd), 8 are identical; none collides with a foundry cell; solved by prefixing all sub-cells (cm_d2s_, cm_s2d_) in derived .uniq.gds files.
+- note: logs/20_coexist_test.err was 830 MB (endless loop output); truncated by hand to its first 50 and last 20 lines plus the distinct lines, so that it can be pushed (GitHub limit 100 MB).
