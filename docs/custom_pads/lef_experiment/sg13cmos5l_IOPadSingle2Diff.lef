@@ -1,0 +1,198 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO sg13cmos5l_IOPadSingle2Diff
+  CLASS PAD INOUT ;
+  FOREIGN sg13cmos5l_IOPadSingle2Diff ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 80.000 BY 180.000 ;
+  PIN vref
+    ANTENNAGATEAREA 40.000000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 6.060 179.480 6.350 180.000 ;
+    END
+  END vref
+  PIN outp
+    ANTENNAGATEAREA 184.000000 ;
+    ANTENNADIFFAREA 21.080000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 17.670 177.565 17.960 180.000 ;
+    END
+  END outp
+  PIN outn
+    ANTENNAGATEAREA 184.000000 ;
+    ANTENNADIFFAREA 21.080000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 23.770 178.645 24.060 180.000 ;
+    END
+  END outn
+  PIN vcm
+    ANTENNAGATEAREA 80.000000 ;
+    ANTENNADIFFAREA 0.760000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 29.820 178.105 30.110 180.000 ;
+    END
+  END vcm
+  PIN en_3v3
+    ANTENNAGATEAREA 1.350000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 36.455 175.220 36.745 180.000 ;
+    END
+  END en_3v3
+  PIN en_3v3_b
+    ANTENNAGATEAREA 1.800000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 47.640 177.025 47.930 180.000 ;
+    END
+  END en_3v3_b
+  PIN iref
+    ANTENNADIFFAREA 0.680000 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 53.310 164.550 53.600 180.000 ;
+    END
+  END iref
+  PIN pad
+    ANTENNAGATEAREA 40.000000 ;
+    ANTENNADIFFAREA 349.107178 ;
+    PORT
+      LAYER Metal2 ;
+        RECT 5.000 0.000 75.000 3.000 ;
+    END
+    PORT
+      LAYER Metal2 ;
+        RECT 20.400 26.630 21.020 31.480 ;
+    END
+    PORT
+      LAYER Metal3 ;
+        RECT 5.000 0.000 75.000 3.000 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 5.000 0.000 75.000 3.000 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 5.000 0.000 75.000 3.000 ;
+    END
+  END pad
+  PIN vdd
+    ANTENNADIFFAREA 0.306000 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 160.000 80.000 178.000 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 140.000 80.000 155.800 ;
+    END
+  END vdd
+  PIN iovss
+    ANTENNADIFFAREA 399.830780 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 7.000 80.000 32.500 ;
+    END
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 126.000 80.000 134.000 ;
+    END
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 34.500 80.000 60.000 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 7.000 80.000 32.500 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 34.500 80.000 60.000 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 126.000 80.000 134.000 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 0.000 34.500 80.000 60.000 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 0.000 7.000 80.000 32.500 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 0.000 126.000 80.000 134.000 ;
+    END
+  END iovss
+  PIN iovdd
+    ANTENNAGATEAREA 80.000000 ;
+    ANTENNADIFFAREA 635.182800 ;
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 66.000 80.000 91.500 ;
+    END
+    PORT
+      LAYER Metal3 ;
+        RECT 0.000 93.500 80.000 119.000 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 66.000 80.000 91.500 ;
+    END
+    PORT
+      LAYER Metal4 ;
+        RECT 0.000 93.500 80.000 119.000 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 0.000 66.000 80.000 91.500 ;
+    END
+    PORT
+      LAYER TopMetal1 ;
+        RECT 0.000 93.500 80.000 119.000 ;
+    END
+  END iovdd
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 6.000 80.000 176.470 ;
+      LAYER Metal1 ;
+        RECT 0.000 6.000 80.000 178.690 ;
+      LAYER Metal2 ;
+        RECT 0.100 179.270 5.850 179.770 ;
+        RECT 6.560 179.270 17.460 179.770 ;
+        RECT 0.100 177.355 17.460 179.270 ;
+        RECT 18.170 178.435 23.560 179.770 ;
+        RECT 24.270 178.435 29.610 179.770 ;
+        RECT 18.170 177.895 29.610 178.435 ;
+        RECT 30.320 177.895 36.245 179.770 ;
+        RECT 18.170 177.355 36.245 177.895 ;
+        RECT 0.100 175.010 36.245 177.355 ;
+        RECT 36.955 176.815 47.430 179.770 ;
+        RECT 48.140 176.815 53.100 179.770 ;
+        RECT 36.955 175.010 53.100 176.815 ;
+        RECT 0.100 164.340 53.100 175.010 ;
+        RECT 53.810 164.340 79.900 179.770 ;
+        RECT 0.100 31.690 79.900 164.340 ;
+        RECT 0.100 26.420 20.190 31.690 ;
+        RECT 21.230 26.420 79.900 31.690 ;
+        RECT 0.100 3.210 79.900 26.420 ;
+        RECT 0.100 3.000 4.790 3.210 ;
+        RECT 75.210 3.000 79.900 3.210 ;
+      LAYER Metal3 ;
+        RECT 0.000 134.210 80.000 158.000 ;
+        RECT 0.000 120.150 80.000 125.790 ;
+      LAYER Metal4 ;
+        RECT 0.000 156.010 80.000 178.000 ;
+  END
+END sg13cmos5l_IOPadSingle2Diff
+END LIBRARY
+

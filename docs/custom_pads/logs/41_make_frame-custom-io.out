@@ -1,0 +1,219 @@
+./scripts/run_update_frame_custom_io.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_padframe read from current working directory
+Cell sg13cmos5l_IOPadAnalog read from path sg13cmos5l_io
+sg13cmos5l_IOPadAnalog: 10000 rects
+sg13cmos5l_IOPadAnalog: 20000 rects
+sg13cmos5l_IOPadAnalog: 30000 rects
+sg13cmos5l_IOPadAnalog: 40000 rects
+sg13cmos5l_IOPadAnalog: 50000 rects
+sg13cmos5l_IOPadAnalog: 60000 rects
+sg13cmos5l_IOPadAnalog: 70000 rects
+sg13cmos5l_IOPadAnalog: 80000 rects
+sg13cmos5l_IOPadAnalog: 90000 rects
+sg13cmos5l_IOPadAnalog: 100000 rects
+sg13cmos5l_IOPadAnalog: 110000 rects
+sg13cmos5l_IOPadAnalog: 120000 rects
+sg13cmos5l_IOPadAnalog: 130000 rects
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+Cell cm_s2d_DCPDiode read from path custom_io
+Scaled magic input cell cm_s2d_DCPDiode geometry by factor of 2
+Cell sg13cmos5l_Corner read from path sg13cmos5l_io
+sg13cmos5l_Corner: 10000 rects
+sg13cmos5l_Corner: 20000 rects
+sg13cmos5l_Corner: 30000 rects
+sg13cmos5l_Corner: 40000 rects
+sg13cmos5l_Corner: 50000 rects
+sg13cmos5l_Corner: 60000 rects
+sg13cmos5l_Corner: 70000 rects
+sg13cmos5l_Corner: 80000 rects
+sg13cmos5l_Corner: 90000 rects
+sg13cmos5l_Corner: 100000 rects
+sg13cmos5l_Corner: 110000 rects
+sg13cmos5l_Corner: 120000 rects
+sg13cmos5l_Corner: 130000 rects
+sg13cmos5l_Corner: 140000 rects
+sg13cmos5l_Corner: 150000 rects
+sg13cmos5l_Corner: 160000 rects
+sg13cmos5l_Corner: 170000 rects
+sg13cmos5l_Corner: 180000 rects
+sg13cmos5l_Corner: 190000 rects
+sg13cmos5l_Corner: 200000 rects
+sg13cmos5l_Corner: 210000 rects
+sg13cmos5l_Corner: 220000 rects
+sg13cmos5l_Corner: 230000 rects
+sg13cmos5l_Corner: 240000 rects
+sg13cmos5l_Corner: 250000 rects
+sg13cmos5l_Corner: 260000 rects
+sg13cmos5l_Corner: 270000 rects
+sg13cmos5l_Corner: 280000 rects
+sg13cmos5l_Corner: 290000 rects
+sg13cmos5l_Corner: 300000 rects
+sg13cmos5l_Corner: 310000 rects
+sg13cmos5l_Corner: 320000 rects
+sg13cmos5l_Corner: 330000 rects
+sg13cmos5l_Corner: 340000 rects
+sg13cmos5l_Corner: 350000 rects
+sg13cmos5l_Corner: 360000 rects
+sg13cmos5l_Corner: 370000 rects
+sg13cmos5l_Corner: 380000 rects
+sg13cmos5l_Corner: 390000 rects
+sg13cmos5l_Corner: 400000 rects
+sg13cmos5l_Corner: 410000 rects
+sg13cmos5l_Corner: 420000 rects
+sg13cmos5l_Corner: 430000 rects
+sg13cmos5l_Corner: 440000 rects
+sg13cmos5l_Corner: 450000 rects
+sg13cmos5l_Corner: 460000 rects
+sg13cmos5l_Corner: 470000 rects
+sg13cmos5l_Corner: 480000 rects
+sg13cmos5l_Corner: 490000 rects
+sg13cmos5l_Corner: 500000 rects
+sg13cmos5l_Corner: 510000 rects
+sg13cmos5l_Corner: 520000 rects
+sg13cmos5l_Corner: 530000 rects
+Cell open_source read from current working directory
+Scaled magic input cell open_source geometry by factor of 2
+Cell cm_s2d_esd_wiring read from path custom_io
+Cell cm_s2d_rppd read from path custom_io
+Scaled magic input cell cm_s2d_rppd geometry by factor of 2
+Cell sg13cmos5l_IOPadTriOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadTriOut16mA: 10000 rects
+sg13cmos5l_IOPadTriOut16mA: 20000 rects
+sg13cmos5l_IOPadTriOut16mA: 30000 rects
+sg13cmos5l_IOPadTriOut16mA: 40000 rects
+sg13cmos5l_IOPadTriOut16mA: 50000 rects
+sg13cmos5l_IOPadTriOut16mA: 60000 rects
+sg13cmos5l_IOPadTriOut16mA: 70000 rects
+sg13cmos5l_IOPadTriOut16mA: 80000 rects
+sg13cmos5l_IOPadTriOut16mA: 90000 rects
+sg13cmos5l_IOPadTriOut16mA: 100000 rects
+sg13cmos5l_IOPadTriOut16mA: 110000 rects
+sg13cmos5l_IOPadTriOut16mA: 120000 rects
+sg13cmos5l_IOPadTriOut16mA: 130000 rects
+Cell sg13cmos5l_IOPadInOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadInOut16mA: 10000 rects
+sg13cmos5l_IOPadInOut16mA: 20000 rects
+sg13cmos5l_IOPadInOut16mA: 30000 rects
+sg13cmos5l_IOPadInOut16mA: 40000 rects
+sg13cmos5l_IOPadInOut16mA: 50000 rects
+sg13cmos5l_IOPadInOut16mA: 60000 rects
+sg13cmos5l_IOPadInOut16mA: 70000 rects
+sg13cmos5l_IOPadInOut16mA: 80000 rects
+sg13cmos5l_IOPadInOut16mA: 90000 rects
+sg13cmos5l_IOPadInOut16mA: 100000 rects
+sg13cmos5l_IOPadInOut16mA: 110000 rects
+sg13cmos5l_IOPadInOut16mA: 120000 rects
+sg13cmos5l_IOPadInOut16mA: 130000 rects
+Cell sg13cmos5l_IOPadIn read from path sg13cmos5l_io
+sg13cmos5l_IOPadIn: 10000 rects
+sg13cmos5l_IOPadIn: 20000 rects
+sg13cmos5l_IOPadIn: 30000 rects
+sg13cmos5l_IOPadIn: 40000 rects
+sg13cmos5l_IOPadIn: 50000 rects
+sg13cmos5l_IOPadIn: 60000 rects
+sg13cmos5l_IOPadIn: 70000 rects
+sg13cmos5l_IOPadIn: 80000 rects
+sg13cmos5l_IOPadIn: 90000 rects
+sg13cmos5l_IOPadIn: 100000 rects
+sg13cmos5l_IOPadIn: 110000 rects
+sg13cmos5l_IOPadIn: 120000 rects
+sg13cmos5l_IOPadIn: 130000 rects
+sg13cmos5l_IOPadIn: 140000 rects
+sg13cmos5l_IOPadIn: 150000 rects
+sg13cmos5l_IOPadIn: 160000 rects
+sg13cmos5l_IOPadIn: 170000 rects
+sg13cmos5l_IOPadIn: 180000 rects
+sg13cmos5l_IOPadIn: 190000 rects
+sg13cmos5l_IOPadIn: 200000 rects
+sg13cmos5l_IOPadIn: 210000 rects
+sg13cmos5l_IOPadIn: 220000 rects
+sg13cmos5l_IOPadIn: 230000 rects
+sg13cmos5l_IOPadIn: 240000 rects
+Cell sg13cmos5l_IOPadVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadVss: 10000 rects
+sg13cmos5l_IOPadVss: 20000 rects
+sg13cmos5l_IOPadVss: 30000 rects
+sg13cmos5l_IOPadVss: 40000 rects
+sg13cmos5l_IOPadVss: 50000 rects
+sg13cmos5l_IOPadVss: 60000 rects
+sg13cmos5l_IOPadVss: 70000 rects
+sg13cmos5l_IOPadVss: 80000 rects
+sg13cmos5l_IOPadVss: 90000 rects
+sg13cmos5l_IOPadVss: 100000 rects
+sg13cmos5l_IOPadVss: 110000 rects
+sg13cmos5l_IOPadVss: 120000 rects
+sg13cmos5l_IOPadVss: 130000 rects
+sg13cmos5l_IOPadVss: 140000 rects
+sg13cmos5l_IOPadVss: 150000 rects
+sg13cmos5l_IOPadVss: 160000 rects
+sg13cmos5l_IOPadVss: 170000 rects
+sg13cmos5l_IOPadVss: 180000 rects
+sg13cmos5l_IOPadVss: 190000 rects
+sg13cmos5l_IOPadVss: 200000 rects
+sg13cmos5l_IOPadVss: 210000 rects
+sg13cmos5l_IOPadVss: 220000 rects
+sg13cmos5l_IOPadVss: 230000 rects
+sg13cmos5l_IOPadVss: 240000 rects
+sg13cmos5l_IOPadVss: 250000 rects
+Cell sg13cmos5l_IOPadVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadVdd: 10000 rects
+sg13cmos5l_IOPadVdd: 20000 rects
+sg13cmos5l_IOPadVdd: 30000 rects
+sg13cmos5l_IOPadVdd: 40000 rects
+sg13cmos5l_IOPadVdd: 50000 rects
+sg13cmos5l_IOPadVdd: 60000 rects
+Cell user_id_routing read from current working directory
+Cell bondpad_LX3CBX read from path paramcells
+Scaled magic input cell bondpad_LX3CBX geometry by factor of 2
+Cell sg13cmos5l_SecondaryProtection read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_P20N0D read from path sg13cmos5l_io
+sg13cmos5l_Clamp_P20N0D: 10000 rects
+Cell via_Y6HHCQ read from path paramcells
+Cell sg13cmos5l_IOPadOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadOut16mA: 10000 rects
+sg13cmos5l_IOPadOut16mA: 20000 rects
+sg13cmos5l_IOPadOut16mA: 30000 rects
+sg13cmos5l_IOPadOut16mA: 40000 rects
+sg13cmos5l_IOPadOut16mA: 50000 rects
+sg13cmos5l_IOPadOut16mA: 60000 rects
+sg13cmos5l_IOPadOut16mA: 70000 rects
+sg13cmos5l_IOPadOut16mA: 80000 rects
+sg13cmos5l_IOPadOut16mA: 90000 rects
+sg13cmos5l_IOPadOut16mA: 100000 rects
+sg13cmos5l_IOPadOut16mA: 110000 rects
+sg13cmos5l_IOPadOut16mA: 120000 rects
+sg13cmos5l_IOPadOut16mA: 130000 rects
+Cell sg13cmos5l_Clamp_P8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_N43N43D4R read from path sg13cmos5l_io
+sg13cmos5l_Clamp_N43N43D4R: 10000 rects
+sg13cmos5l_Clamp_N43N43D4R: 20000 rects
+Cell user_id_programming read from current working directory
+Cell via_Y6HR5N read from path paramcells
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: user_id_programming.
+Cell chipalooza_frame read from current working directory
+Cell project_control_area read from current working directory
+Cell central_column read from current working directory
+FRAME band pad_s7_an_0 1898.8 2260 1901.0 2340 before: metal3 {{{s7_an[0]} metal3 {}} {s7_an_0_esd metal3 {}}} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+FRAME band pad_s7_an_0 after: {} {} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+Done!

@@ -1,0 +1,44 @@
+++ pwd
++ H=/home/user/sg13cmos5l_ocd_chipalooza
++ OUT=/home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment
++ mkdir -p /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment magic/custom_io/lef
++ cp magic/sg13cmos5l_padframe.mag /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/A_sg13cmos5l_padframe.mag
++ for c in sg13cmos5l_IOPadDiff2Single sg13cmos5l_IOPadSingle2Diff
++ cd magic
++ magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.magicrc
++ cd ..
++ for c in sg13cmos5l_IOPadDiff2Single sg13cmos5l_IOPadSingle2Diff
++ cd magic
++ magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13cmos5l/libs.tech/magic/ihp-sg13cmos5l.magicrc
++ cd ..
++ make clean-config
++ make config
++ make padframe
++ cp magic/sg13cmos5l_padframe.mag /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/B_sg13cmos5l_padframe.mag
++ for c in sg13cmos5l_IOPadDiff2Single sg13cmos5l_IOPadSingle2Diff
++ git checkout -- magic/custom_io/sg13cmos5l_IOPadDiff2Single.mag
++ sed -i '/^string FIXED_BBOX/d' magic/custom_io/sg13cmos5l_IOPadDiff2Single.mag
++ for c in sg13cmos5l_IOPadDiff2Single sg13cmos5l_IOPadSingle2Diff
++ git checkout -- magic/custom_io/sg13cmos5l_IOPadSingle2Diff.mag
++ sed -i '/^string FIXED_BBOX/d' magic/custom_io/sg13cmos5l_IOPadSingle2Diff.mag
++ make clean-config
++ make config
++ make padframe
++ cp magic/sg13cmos5l_padframe.mag /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/C_sg13cmos5l_padframe.mag
++ git checkout -- magic/custom_io/
++ make clean-config
++ make config
++ make padframe
++ cmp magic/sg13cmos5l_padframe.mag /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/A_sg13cmos5l_padframe.mag
++ for v in B C
++ echo '== A vs B (timestamps ignored)'
++ grep -c '^[<>]'
+++ grep -v '^timestamp' /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/A_sg13cmos5l_padframe.mag
++ diff /dev/fd/61 /dev/fd/60
+++ grep -v '^timestamp' /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/B_sg13cmos5l_padframe.mag
++ for v in B C
++ echo '== A vs C (timestamps ignored)'
++ grep -c '^[<>]'
+++ grep -v '^timestamp' /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/A_sg13cmos5l_padframe.mag
++ diff /dev/fd/61 /dev/fd/60
+++ grep -v '^timestamp' /home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/lef_experiment/C_sg13cmos5l_padframe.mag

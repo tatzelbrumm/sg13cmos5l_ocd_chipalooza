@@ -183,3 +183,191 @@ Environment for every step: `export PDK_ROOT=/foss/pdks PDK=ihp-sg13cmos5l`.
 
 Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) is identical to sg13cmos5l_IOPadAnalog, as are the metal rails within 1 um of either edge (no XOR difference on 30/0, 50/0, 126/0); trap b, 13 of the 21 shared sub-cell names differ in content (Clamp_N_M1, Clamp_P_M1, DCNDiode, DCPDiode, edge_stubs, nmosHV, nmosHV$1..$7, rppd), 8 are identical; none collides with a foundry cell; solved by prefixing all sub-cells (cm_d2s_, cm_s2d_) in derived .uniq.gds files.
 - note: logs/20_coexist_test.err was 830 MB (endless loop output); truncated by hand to its first 50 and last 20 lines plus the distinct lines, so that it can be pushed (GitHub limit 100 MB).
+
+## Phase 2: make the pads digestible
+- (manual edits, see FINDINGS file table) scripts/custom_io.tcl (new), scripts/parse_config.py (CUSTOM_PADS), scripts/gen_padframe_template.tcl (+addpath custom_io, +source custom_io.tcl), config.txt (s7_an[0] = sg13cmos5l_IOPadSingle2Diff, s7_an[1] = sg13cmos5l_IOPadDiff2Single, + comment).
+
+### 22 make_clean-config
+- start 2026-11-05T19:20:18Z, end 2026-11-05T19:20:18Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/22_make_clean-config.out`, `logs/22_make_clean-config.err`
+
+### 23 make_config
+- start 2026-11-05T19:20:18Z, end 2026-11-05T19:20:19Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/23_make_config.out`, `logs/23_make_config.err`
+- changed (22, 23): generated files regenerated; diff against the Phase 0 baseline is limited to slot 7 (pad types, 13 label_right_custom lines, 13 ports) plus the two template lines (addpath custom_io, source custom_io.tcl).
+
+### 24 make_padframe
+- start 2026-11-05T19:20:29Z, end 2026-11-05T19:20:38Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/24_make_padframe.out`, `logs/24_make_padframe.err`
+- changed (24): padframe built, 13 straps present, but on the 10 nm lambda grid (via2 0.19 um tall, too small for a cut; strap end 1900.30 instead of 1900.295) because gen_padframe.tcl runs without 'snap internal'. scripts/custom_io.tcl now sets 'snap internal' inside custom_io_paint and restores the old mode.
+
+### 25 make_clean-config
+- start 2026-11-05T19:21:07Z, end 2026-11-05T19:21:07Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/25_make_clean-config.out`, `logs/25_make_clean-config.err`
+
+### 26 make_config
+- start 2026-11-05T19:21:07Z, end 2026-11-05T19:21:07Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/26_make_config.out`, `logs/26_make_config.err`
+
+### 27 make_padframe
+- start 2026-11-05T19:21:07Z, end 2026-11-05T19:21:16Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/27_make_padframe.out`, `logs/27_make_padframe.err`
+- changed (25-27): same result; 'snap internal' did not help. Found by test: the padframe session runs on a 10 nm internal grid (the 5 nm magscale appears only in the file), so 5 nm coordinates are rounded. scripts/custom_io.tcl: custom_io_fine_grid runs 'scalegrid 1 2' once if the internal grid is coarser than 5 nm.
+
+### 28 make_clean-config
+- start 2026-11-05T19:22:44Z, end 2026-11-05T19:22:44Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/28_make_clean-config.out`, `logs/28_make_clean-config.err`
+
+### 29 make_config
+- start 2026-11-05T19:22:44Z, end 2026-11-05T19:22:44Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/29_make_config.out`, `logs/29_make_config.err`
+
+### 30 make_padframe
+- start 2026-11-05T19:22:44Z, end 2026-11-05T19:22:54Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/30_make_padframe.out`, `logs/30_make_padframe.err`
+- changed (28-30): same rounding; the scalegrid check did not fire. Not pursued further: scripts/custom_io.tcl now places the strap on the 10 nm grid by construction (via 0.2 x 0.2 at the 10 nm position just below the pin center, strap end 0.30 um inside the pad); the snap/scalegrid code was removed again. A debug session to find the cause failed (custom_io_rects errored on a hand-placed pad) and is not in the logs.
+
+### 31 make_clean-config
+- start 2026-11-05T19:23:38Z, end 2026-11-05T19:23:39Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/31_make_clean-config.out`, `logs/31_make_clean-config.err`
+
+### 32 make_config
+- start 2026-11-05T19:23:39Z, end 2026-11-05T19:23:39Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/32_make_config.out`, `logs/32_make_config.err`
+
+### 33 make_padframe
+- start 2026-11-05T19:23:39Z, end 2026-11-05T19:23:47Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/33_make_padframe.out`, `logs/33_make_padframe.err`
+- changed (31-33): strap now on the 10 nm grid (via2 1900.05..1900.25 x 2266.10..2266.30, M3 1898.9..1900.30 x 2266.06..2266.35 for s7_an_0_vref). Padframe/frame-wrapper .mag differ from the Phase 0 baseline only in the slot-7 zone (x 1898..1901.2 and the two pad cells; the old outer analog strips at x 2075.9..2077 are gone), in port index renumbering, and one label moved in file order (s8_an_0_esd, same geometry).
+
+### 34 lef_experiment
+- start 2026-11-05T19:24:33Z, end 2026-11-05T19:25:00Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `docs/custom_pads/tools/lef_experiment.sh`
+- exit status: 0
+- logs: `logs/34_lef_experiment.out`, `logs/34_lef_experiment.err`
+- changed (34): docs/custom_pads/lef_experiment/: padframe .mag of variants A (FIXED_BBOX, no LEF), B (magic "lef write" + "lef read" annotation), C (no FIXED_BBOX), and the two LEF files. A vs B: 0 differing lines (timestamps ignored). A vs C: 342 lines; without FIXED_BBOX every pad from pad_s7_an_0 on moves by 0.62 um (124 units) per custom pad. Final rebuild with the committed .mag; magic/custom_io/ restored from git; LEF files moved out of magic/custom_io/lef/ (not needed there).
+- (manual) netlist/schematic/custom_io.spice (new; concatenation of the two *_magic.spice from the slot repo, second unit_r2 dropped, identical); validate/run_lvs_padframe.sh and validate/run_lvs_ocd_chipalooza.sh: +1 readnet line each; scripts/run_update_frame_custom_io.sh (new); Makefile: + target frame-custom-io.
+
+### 35 make_frame-custom-io
+- start 2026-11-05T19:26:18Z, end 2026-11-05T19:26:26Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make frame-custom-io`
+- exit status: 0
+- logs: `logs/35_make_frame-custom-io.out`, `logs/35_make_frame-custom-io.err`
+- changed (35): chipalooza_frame.mag: in the two s7 pad bands the old analog strips/labels (s7_an[0], s7_an_0_esd, s7_an[1], s7_an_1_esd) erased, 13 M3 straps + port labels painted. Found: s7_an_0_en_3v3 strap 2296.455..2296.745 here but 2296.45..2296.74 in the padframe (the S2D pin is off the 10 nm grid and the padframe session rounds). custom_io.tcl changed to put the strap edges on 10 nm too; chipalooza_frame.mag restored from git and the sequence re-run (36-39).
+
+### 36 make_clean-config
+- start 2026-11-05T19:26:52Z, end 2026-11-05T19:26:52Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make clean-config`
+- exit status: 0
+- logs: `logs/36_make_clean-config.out`, `logs/36_make_clean-config.err`
+
+### 37 make_config
+- start 2026-11-05T19:26:52Z, end 2026-11-05T19:26:53Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make config`
+- exit status: 0
+- logs: `logs/37_make_config.out`, `logs/37_make_config.err`
+
+### 38 make_padframe
+- start 2026-11-05T19:26:53Z, end 2026-11-05T19:27:01Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make padframe`
+- exit status: 0
+- logs: `logs/38_make_padframe.out`, `logs/38_make_padframe.err`
+
+### 39 make_frame-custom-io
+- start 2026-11-05T19:27:01Z, end 2026-11-05T19:27:09Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make frame-custom-io`
+- exit status: 0
+- logs: `logs/39_make_frame-custom-io.out`, `logs/39_make_frame-custom-io.err`
+
+### 40 make_wrappers
+- start 2026-11-05T19:27:19Z, end 2026-11-05T19:27:21Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make wrappers`
+- exit status: 0
+- logs: `logs/40_make_wrappers.out`, `logs/40_make_wrappers.err`
+- changed (36-39): straps identical in padframe and chipalooza_frame (13 y-intervals compared).
+- changed (40): slot wrappers regenerated. Slot 7 got every new port TWICE, 1 internal unit (5 nm) apart: run_gen_user_wrappers.sh also copies the paint/labels of the expanded subcell chipalooza_frame_wrapper_0, which sits in chipalooza_frame at "transform 1 0 0 0 1 1" (+5 nm in y); the hand-made flat copies in main are at that same +5 nm, which is why they never doubled. Other slots: only "port N" index lines differ from the baseline (renumbered), no geometry or label line.
+- scripts/run_update_frame_custom_io.sh changed to ERASE only (stale flat copies in the custom pads' bands), no painting; the new pins come from chipalooza_frame_wrapper_0 alone. chipalooza_frame.mag restored from git, re-run as 41-42.
+
+### 41 make_frame-custom-io
+- start 2026-11-05T19:28:13Z, end 2026-11-05T19:28:19Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make frame-custom-io`
+- exit status: 0
+- logs: `logs/41_make_frame-custom-io.out`, `logs/41_make_frame-custom-io.err`
+
+### 42 make_wrappers
+- start 2026-11-05T19:28:20Z, end 2026-11-05T19:28:22Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make wrappers`
+- exit status: 0
+- logs: `logs/42_make_wrappers.out`, `logs/42_make_wrappers.err`
+- changed (41, 42): only pad_s7_an_0's band was cleaned; error 'can't use empty string as operand of "-"' at the first pin of pad_s7_an_1 ('instance list abutment <name>' returned nothing). Script changed to 'select cell <pad>; instance list abutment' as gen_padframe.tcl does. chipalooza_frame.mag restored from git; re-run as 43-44.
+
+### 43 make_frame-custom-io
+- start 2026-11-05T19:28:42Z, end 2026-11-05T19:28:43Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make frame-custom-io`
+- exit status: 0
+- logs: `logs/43_make_frame-custom-io.out`, `logs/43_make_frame-custom-io.err`
+
+### 44 make_wrappers
+- start 2026-11-05T19:28:43Z, end 2026-11-05T19:28:45Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make wrappers`
+- exit status: 0
+- logs: `logs/44_make_wrappers.out`, `logs/44_make_wrappers.err`
+- changed (43, 44): chipalooza_frame.mag: in the two s7 bands the flat strips and labels s7_an[0], s7_an_0_esd, s7_an[1], s7_an_1_esd erased, nothing else there (the band listing before/after is in the log). slot7_wrapper.mag: exactly the 13 new ports (M3, x 535.05..536.45 slot-local) and none of the old s7 pad pins.
+- `python3 scripts/gen_xschem_sym.py slot7_wrapper` (cwd harness, manual, exit 1): "magic/slot6_wrapper.mag: port 119 has two names: s6_an_0_esd, s6_an_0" (main's defect, see 14). Workaround in docs/custom_pads/tools/symbols_slot7.sh (new): main's committed slot6_wrapper.mag in place for that one run.
+
+### 45 symbols_slot7
+- start 2026-11-05T19:29:37Z, end 2026-11-05T19:29:38Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `docs/custom_pads/tools/symbols_slot7.sh`
+- exit status: 0
+- logs: `logs/45_symbols_slot7.out`, `logs/45_symbols_slot7.err`
+- changed (45): xschem/slot7_wrapper.sym and verilog/gl/slot7_wrapper_lvs.v regenerated (29 pins; slot template now 200 x 700, 34 left rows, because the row template is the union over all 18 wrappers: a full `make symbols` would re-lay-out all 18 symbols). Only slot 7's files written.
+- (manual) verilog/rtl/slot7_wrapper.v: `s7_an[1:0]` and `s7_an_0_esd` replaced by the 13 scalar `inout wire` ports, with comments.
+- NOT changed (STOP condition "chip core", written down in FINDINGS): verilog/rtl/chipalooza_frame.v (ports s7_an[1:0], s7_an_0_esd, s7_an_1_esd and the slot7_wrapper instance), verilog/gl/sg13cmos5l_ocd_chipalooza.v (wires s7_an_0_esd/s7_an_1_esd, padframe and frame instance connections), xschem/chipalooza_frame.sch, verilog/gl/chipalooza_tb.v, verilog/rtl/digital_tb.v. No script generates these.

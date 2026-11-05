@@ -1,0 +1,3 @@
+  SKIP RM_IHPSG13_1P_1024x8_c2_bm_bist: no /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_1024x8_c2_bm_bist.cdl
+  slot template: 200 x 700 (34 left rows, 1 right)
+  slot7_wrapper.sym                           29 pins (28 left, 1 right)  [mag]  + gl/slot7_wrapper_lvs.v
