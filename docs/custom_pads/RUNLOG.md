@@ -464,3 +464,26 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 - changed (61): magic/user_id_textblock.mag, magic/user_id_vias.mag, verilog/gl/user_id_programming.v (project_id 20260908 from config.txt; 6 verilog lines changed).
 - 63 (manual, cwd harness): `python3 docs/custom_pads/tools/netcheck_slot7.py <scratch>/clip_now.gds clip_now 1885 2255 2080 2455 /home/user/sg13cmos5l_cm_ip__single2diff2single/final/gds/slot_7.gds 1363.85 2153.95` (padframe region + slot_7 at its padframe-relative position), exit 1: 9 pins OK, the outp/vinp and outn/vinn nets carry the S2D-internal labels vfbp, voutp resp. vfbn, voutn (documented in-cell ties, not shorts). Log logs/63_netcheck_clip_raw.out.
 - 64: same after adding those four labels as documented in-cell aliases to the script: all 13 OK (logs/64_netcheck_clip.out).
+
+### 57 make_extract-padframe
+- start 2026-11-05T19:48:59Z, end 2026-11-05T19:56:06Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make extract-padframe`
+- exit status: 0
+- logs: `logs/57_make_extract-padframe.out`, `logs/57_make_extract-padframe.err`
+
+### 58 make_lvs-padframe
+- start 2026-11-05T19:56:06Z, end 2026-11-05T19:56:07Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make lvs-padframe`
+- exit status: 0
+- logs: `logs/58_make_lvs-padframe.out`, `logs/58_make_lvs-padframe.err`
+
+### 62 make_gds-prefill
+- start 2026-11-05T19:51:12Z, end 2026-11-05T19:56:20Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make gds-prefill`
+- exit status: 0
+- logs: `logs/62_make_gds-prefill.out`, `logs/62_make_gds-prefill.err`
+- changed (57): netlist/layout/sg13cmos5l_padframe.spice (7 min 7 s). (58): validate/comp_sg13cmos5l_padframe.out. Result "Top level cell failed pin matching" (as in main's committed comp file); devices 500/499, nets 313/310; the mismatches are 2 x sg13cmos5l_ocd_Split200 present only in the verilog and the RC clamp nets of the supply pads (not slot 7). All 15 slot-7 pins (s7_an[0], s7_an[1] and the 13 core pins) match. Both custom pads: devices and nets match (S2D 37 nets; D2S 76 devices, 36 nets), "Netlists match with 7 symmetries with property errors"; property errors are only "mm_ok" (xschem parameter, 234 times); pin mismatch only iovss/vss (layout "sub" vs schematic iovss + separate vss): the known, accepted vss issue.
+- changed (62): gds/sg13cmos5l_ocd_chipalooza.gds.gz (14.2 MB, gitignored), 5 min 9 s.

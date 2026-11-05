@@ -18,7 +18,8 @@ slot GDS commit 4611357). Steps, times, exit codes: `RUNLOG.md`; logs: `logs/`. 
    slots and foundry pads: `make config` output identical outside slot 7; padframe/wrapper `.mag` identical except port
    index renumbering; 17 slot wrapper GDS identical in shapes and texts. DRC/LVS: see below.
 4. **Slot 7 in the flow (Q4):** `make projects SLOTS=7`, `projects-gds`, `user-id` exit 0, slot_7 placed at
-   1379.95/2170.05 = wrapper position. PREFILL_RESULT
+   1379.95/2170.05 = wrapper position; `make gds-prefill` exit 0 (5 min); `make drc`: DRCRESULT.
+   Pads in the ring and slot in the wrapper: `pad_ring_s7.png`, `slot7_area.png`, `zoom_s7_an_1_pins.png`.
    Net by net, all 13 pad core pins reach their slot net and nothing else (table below).
 
 **LEF:** not needed. No script reads an I/O LEF except setup.sh (annotation); a magic-written LEF read back changes
@@ -103,7 +104,7 @@ All Metal3, right edge, x 535.05..536.45 um slot-local (label 535.05..535.85); y
 | s7_an_1_en_3v3_b | s7_an[1] | M3 | right | 260.995 | 261.285 |
 | s7_an_1_en_3v3 | s7_an[1] | M3 | right | 261.535 | 261.825 |
 
-## Net by net (KLayout extraction, M1..M4/V1..V3, padframe region + slot_7; `logs/64_netcheck_clip.out`)
+## Net by net (KLayout extraction M1..M4/V1..V3 of the PRE-FILL TOP, clip 1901.1..2096.1 x 2271.1..2471.1 um; `logs/66_netcheck_prefill.out`)
 
 ```
 s7_an_0_vref       OK  net labels: ['s7_an_0_vref', 'vref']
@@ -120,7 +121,7 @@ s7_an_1_iref       OK  net labels: ['iref', 's7_an_1_iref']
 s7_an_1_en_3v3_b   OK  net labels: ['en_3v3_b', 's7_an_1_en_3v3_b']
 s7_an_1_en_3v3     OK  net labels: ['en_3v3', 's7_an_1_en_3v3']
 ```
-No net reported FAILED. Labels allowed besides the pin and strap: the documented S2D in-cell aliases vfbp/voutp (outp), vfbn/voutn (outn); the raw run without them is `logs/63_netcheck_clip_raw.out`.
+No net reported FAILED. Labels allowed besides the pin and strap: the documented S2D in-cell aliases vfbp/voutp (outp), vfbn/voutn (outn); the raw run without them is `logs/63_netcheck_clip_raw.out` (padframe + slot_7 composite, same result).
 
 ## First distinct DRC / LVS messages
 

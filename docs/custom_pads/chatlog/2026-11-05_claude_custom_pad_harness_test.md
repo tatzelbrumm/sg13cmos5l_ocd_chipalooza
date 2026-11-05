@@ -12,3 +12,7 @@ The conversation text is therefore NOT in this file; nothing below is reconstruc
 
 [GAP: entire conversation from the launch prompt (2026-11-05T18:29Z) onward. Missing because the transcript
 export was stopped, see note above. The user can export the visible conversation from the Claude app.]
+
+**Note (2026-11-05, end of Phases 1-3 and during Phase 4):** the export was not attempted again (the stop from
+Phase 0 stands; it is not worked around). The gap above covers the whole session. The run log
+(`docs/custom_pads/RUNLOG.md`) records every command, and the commit messages record each phase.
