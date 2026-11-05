@@ -206,6 +206,33 @@ Xsg13cmos5l_GateDecode_0 sg13cmos5l_GateDecode_0/ngate sg13cmos5l_GateDecode_0/p
 Xsg13cmos5l_DCNDiode_0 vss pad sg13cmos5l_DCNDiode_0/guard pad sg13cmos5l_DCNDiode
 .ends
 
+.subckt sg13cmos5l_LevelUpInv o i iovdd vdd vss
+X0 a_89_470# a_21_1826# vss vss sg13_hv_nmos ad=0.646p pd=4.48u as=0.361p ps=2.28u w=1.9u l=0.45u
+X1 iovdd a_89_470# a_21_506# iovdd sg13_hv_pmos ad=57f pd=0.68u as=0.102p ps=1.28u w=0.3u l=0.45u
+X2 vdd i a_21_1826# vdd sg13_lv_pmos ad=1.615p pd=10.18u as=1.615p ps=10.18u w=4.75u l=0.13u
+X3 a_89_470# a_21_506# iovdd iovdd sg13_hv_pmos ad=0.102p pd=1.28u as=57f ps=0.68u w=0.3u l=0.45u
+X4 vss i a_21_1826# vss sg13_lv_nmos ad=0.935p pd=6.18u as=0.935p ps=6.18u w=2.75u l=0.13u
+X5 vss i a_21_506# vss sg13_hv_nmos ad=0.361p pd=2.28u as=0.646p ps=4.48u w=1.9u l=0.45u
+X6 o a_89_470# vss vss sg13_hv_nmos ad=0.646p pd=4.48u as=0.646p ps=4.48u w=1.9u l=0.45u
+X7 o a_89_470# iovdd iovdd sg13_hv_pmos ad=1.326p pd=8.48u as=1.326p ps=8.48u w=3.9u l=0.45u
+.ends
+
+.subckt sg13cmos5l_GateLevelUpInv ngate pgate iovdd core vdd vss
+Xsg13cmos5l_LevelUpInv_0 pgate core iovdd vdd vss sg13cmos5l_LevelUpInv
+Xsg13cmos5l_LevelUpInv_1 ngate core iovdd vdd vss sg13cmos5l_LevelUpInv
+.ends
+
+.subckt sg13cmos5l_IOPadOut16mA pad c2p vdd iovdd iovss vss iovdd_uq0 sg13cmos5l_DCNDiode_0/guard
+Xsg13cmos5l_DCPDiode_0 pad iovdd_uq0 vss pad sg13cmos5l_DCPDiode
+Xsg13cmos5l_Clamp_P8N8D_0 sg13cmos5l_Clamp_P8N8D_0/gate iovdd_uq0 vss pad pad pad
++ pad sg13cmos5l_Clamp_P8N8D
+Xsg13cmos5l_Clamp_N8N8D_0 sg13cmos5l_Clamp_N8N8D_0/gate vss pad pad pad pad sg13cmos5l_DCNDiode_0/guard
++ sg13cmos5l_Clamp_N8N8D
+Xsg13cmos5l_GateLevelUpInv_0 sg13cmos5l_Clamp_N8N8D_0/gate sg13cmos5l_Clamp_P8N8D_0/gate
++ iovdd c2p vdd vss sg13cmos5l_GateLevelUpInv
+Xsg13cmos5l_DCNDiode_0 vss pad sg13cmos5l_DCNDiode_0/guard pad sg13cmos5l_DCNDiode
+.ends
+
 .subckt sg13cmos5l_Clamp_N43N43D4R gate iovss pad pad_uq0 pad_uq1 pad_uq2 pad_uq3
 + pad_uq4 pad_uq5 pad_uq6 pad_uq7 pad_uq8 pad_uq9 pad_uq10 pad_uq11 pad_uq12 pad_uq13
 + pad_uq14 pad_uq15 pad_uq16 pad_uq17 pad_uq18 pad_uq19 pad_uq20 w_n124_n124#
@@ -533,70 +560,70 @@ X3 VSS a_23_195# a_23_195# VSS sg13_lv_nmos ad=0.49637p pd=3.565u as=0.111p ps=1
 + mask_rev[5] mask_rev[6] mask_rev[7] mask_rev[8] mask_rev[9] mask_rev[10] mask_rev[11]
 + mask_rev[12] mask_rev[13] mask_rev[14] mask_rev[15] mask_rev[16] mask_rev[17] mask_rev[18]
 + mask_rev[19] mask_rev[20] mask_rev[21] mask_rev[22] mask_rev[23] mask_rev[24] mask_rev[25]
-+ mask_rev[26] mask_rev[27] mask_rev[28] mask_rev[29] mask_rev[30] mask_rev[31] VSS
-+ VDD
-Xsg13cmos5l_tielo_24 mask_rev[15] VDD VSS sg13cmos5l_tielo
++ mask_rev[26] mask_rev[27] mask_rev[28] mask_rev[29] mask_rev[30] mask_rev[31] VDD
++ VSS
 Xsg13cmos5l_tielo_13 mask_rev[26] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_tielo_25 mask_rev[13] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_24 mask_rev[15] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_14 mask_rev[28] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_25 mask_rev[13] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_30 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_26 mask_rev[11] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_15 mask_rev[30] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_26 mask_rev[11] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_30 sg13cmos5l_tiehi_30/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_31 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_27 sg13cmos5l_tielo_27/L_LO VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_16 mask_rev[31] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_tiehi_31 sg13cmos5l_tiehi_31/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tielo_27 sg13cmos5l_tielo_27/L_LO VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_20 sg13cmos5l_tiehi_20/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_32 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_21 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_tiehi_31 sg13cmos5l_tiehi_31/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_10 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tiehi_21 mask_rev[21] VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_decap_4_21 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_32 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_10 sg13cmos5l_tiehi_10/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tielo_28 mask_rev[7] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tiehi_21 mask_rev[21] VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tielo_17 sg13cmos5l_tielo_17/L_LO VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_decap_4_33 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_22 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_tielo_28 mask_rev[7] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_11 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_29 sg13cmos5l_tielo_29/L_LO VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_decap_4_22 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_33 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_18 mask_rev[27] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_tiehi_22 sg13cmos5l_tiehi_22/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tielo_29 sg13cmos5l_tielo_29/L_LO VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_11 sg13cmos5l_tiehi_11/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_22 sg13cmos5l_tiehi_22/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_34 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_23 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_12 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tiehi_23 mask_rev[17] VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_decap_4_23 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_12 sg13cmos5l_tiehi_12/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_23 mask_rev[17] VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tielo_19 mask_rev[25] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_35 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_24 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_13 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tiehi_24 sg13cmos5l_tiehi_24/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_decap_4_24 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_13 sg13cmos5l_tiehi_13/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tiehi_25 sg13cmos5l_tiehi_25/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tiehi_14 sg13cmos5l_tiehi_14/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_24 sg13cmos5l_tiehi_24/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_36 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_25 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_tiehi_14 sg13cmos5l_tiehi_14/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_25 sg13cmos5l_tiehi_25/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_14 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_25 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_37 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_26 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_15 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tiehi_26 sg13cmos5l_tiehi_26/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_decap_4_26 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_15 sg13cmos5l_tiehi_15/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tiehi_27 mask_rev[9] VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tiehi_16 sg13cmos5l_tiehi_16/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_26 sg13cmos5l_tiehi_26/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_38 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_27 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_tiehi_16 sg13cmos5l_tiehi_16/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_27 mask_rev[9] VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_16 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_27 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_39 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_decap_4_28 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_decap_4_17 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tiehi_28 sg13cmos5l_tiehi_28/L_HI VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_decap_4_28 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_17 mask_rev[29] VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_tiehi_29 mask_rev[5] VDD VSS sg13cmos5l_tiehi
+Xsg13cmos5l_tiehi_28 sg13cmos5l_tiehi_28/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tiehi_18 sg13cmos5l_tiehi_18/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_29 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_tiehi_29 mask_rev[5] VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_18 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_29 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_19 sg13cmos5l_tiehi_19/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tiehi_0 sg13cmos5l_tiehi_0/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tiehi_1 sg13cmos5l_tiehi_1/L_HI VDD VSS sg13cmos5l_tiehi
@@ -606,37 +633,37 @@ Xsg13cmos5l_tielo_0 mask_rev[0] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_4 mask_rev[8] VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_tielo_1 mask_rev[2] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_5 sg13cmos5l_tiehi_5/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_0 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_2 sg13cmos5l_tielo_2/L_LO VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_decap_4_0 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_6 sg13cmos5l_tiehi_6/L_HI VDD VSS sg13cmos5l_tiehi
 Xsg13cmos5l_decap_4_1 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_3 mask_rev[6] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tiehi_7 sg13cmos5l_tiehi_7/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_2 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_4 sg13cmos5l_tielo_4/L_LO VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_decap_4_2 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_8 sg13cmos5l_tiehi_8/L_HI VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_3 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_5 mask_rev[10] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_decap_4_3 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tiehi_9 mask_rev[18] VDD VSS sg13cmos5l_tiehi
-Xsg13cmos5l_decap_4_4 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_6 mask_rev[12] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_decap_4_5 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_4 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_7 mask_rev[14] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_decap_4_6 VDD VSS sg13cmos5l_decap_4
+Xsg13cmos5l_decap_4_5 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_8 mask_rev[16] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_tielo_30 mask_rev[3] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_decap_4_6 VDD VSS sg13cmos5l_decap_4
 Xsg13cmos5l_tielo_9 sg13cmos5l_tielo_9/L_LO VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_30 mask_rev[3] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_7 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_31 mask_rev[1] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_20 mask_rev[23] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_31 mask_rev[1] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_8 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_21 sg13cmos5l_tielo_21/L_LO VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_10 mask_rev[20] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_21 sg13cmos5l_tielo_21/L_LO VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_decap_4_9 VDD VSS sg13cmos5l_decap_4
-Xsg13cmos5l_tielo_22 mask_rev[19] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_11 mask_rev[22] VDD VSS sg13cmos5l_tielo
-Xsg13cmos5l_tielo_23 sg13cmos5l_tielo_23/L_LO VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_22 mask_rev[19] VDD VSS sg13cmos5l_tielo
 Xsg13cmos5l_tielo_12 mask_rev[24] VDD VSS sg13cmos5l_tielo
+Xsg13cmos5l_tielo_23 sg13cmos5l_tielo_23/L_LO VDD VSS sg13cmos5l_tielo
 .ends
 
 .subckt user_id_routing mask_rev[0] mask_rev[1] mask_rev[2] mask_rev[3] mask_rev[4]
@@ -649,14 +676,910 @@ Xuser_id_programming_0 mask_rev[0] mask_rev[1] mask_rev[2] mask_rev[3] mask_rev[
 + mask_rev[5] mask_rev[6] mask_rev[7] mask_rev[8] mask_rev[9] mask_rev[10] mask_rev[11]
 + mask_rev[12] mask_rev[13] mask_rev[14] mask_rev[15] mask_rev[16] mask_rev[17] mask_rev[18]
 + mask_rev[19] mask_rev[20] mask_rev[21] mask_rev[22] mask_rev[23] mask_rev[24] mask_rev[25]
-+ mask_rev[26] mask_rev[27] mask_rev[28] mask_rev[29] mask_rev[30] mask_rev[31] vss
-+ vdd user_id_programming
++ mask_rev[26] mask_rev[27] mask_rev[28] mask_rev[29] mask_rev[30] mask_rev[31] vdd
++ vss user_id_programming
 .ends
 
 .subckt sg13cmos5l_IOPadIn pad p2c vdd vss iovdd sg13cmos5l_DCNDiode_0/guard
 Xsg13cmos5l_DCPDiode_0 pad iovdd vss pad sg13cmos5l_DCPDiode
 Xsg13cmos5l_LevelDown_0 p2c pad vdd vss vss iovdd sg13cmos5l_LevelDown
 Xsg13cmos5l_DCNDiode_0 vss pad sg13cmos5l_DCNDiode_0/guard pad sg13cmos5l_DCNDiode
+.ends
+
+.subckt cm_s2d_rppd_1 a_0_2580# sub a_0_n86#
+X0 a_0_2580# a_0_n86# sub rppd l=12.9u w=0.5u
+.ends
+
+.subckt cm_s2d_DCNDiode cathode anode guard cathode_uq0
+X0 anode cathode_uq0 dantenna l=1.26u w=27.78u
+X1 anode cathode dantenna l=1.26u w=27.78u
+.ends
+
+.subckt cm_s2d_Clamp_N_M1 pad gate iovss pad_uq0 pad_uq1 pad_uq2 pad_uq3 pad_uq4 pad_uq5
++ pad_uq6 pad_uq7 pad_uq8 w_n124_n124#
+X0 iovss gate pad_uq4 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X1 pad gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X2 iovss gate pad iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X3 pad_uq5 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X4 iovss gate pad_uq1 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X5 pad_uq1 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X6 iovss gate pad_uq5 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X7 pad_uq2 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X8 iovss gate pad_uq6 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X9 pad_uq6 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X10 iovss gate pad_uq2 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X11 iovss gate pad_uq3 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X12 pad_uq0 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X13 pad_uq8 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=2.068p ps=9.74u w=4.4u l=0.6u
+X14 pad_uq7 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X15 iovss gate pad_uq7 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+X16 pad_uq3 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X17 iovss gate pad_uq0 iovss sg13_hv_nmos ad=2.068p pd=9.74u as=2.596p ps=5.58u w=4.4u l=0.6u
+X18 pad_uq4 gate iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=0.6u
+X19 iovss gate pad_uq8 iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=0.6u
+.ends
+
+.subckt cm_s2d_DCPDiode anode cathode guard anode_uq0
+X0 anode_uq0 cathode dpantenna l=1.26u w=27.78u
+X1 anode cathode dpantenna l=1.26u w=27.78u
+.ends
+
+.subckt cm_s2d_Clamp_P_M1 pad gate iovdd iovss pad_uq0 pad_uq1 pad_uq2 pad_uq3 pad_uq4
++ pad_uq5 pad_uq6 pad_uq7 pad_uq8
+X0 pad_uq8 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=3.1302p ps=14.26u w=6.66u l=0.6u
+X1 pad gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X2 iovdd gate pad_uq4 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X3 pad_uq5 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X4 iovdd gate pad iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X5 iovdd gate pad_uq8 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X6 iovdd gate pad_uq4 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X7 pad_uq6 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X8 pad_uq4 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X9 pad gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X10 pad_uq5 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X11 iovdd gate pad_uq1 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X12 iovdd gate pad_uq3 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X13 iovdd gate pad_uq0 iovdd sg13_hv_pmos ad=3.1302p pd=14.26u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X14 pad_uq1 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X15 iovdd gate pad_uq5 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X16 pad_uq1 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X17 pad_uq0 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X18 iovdd gate pad_uq5 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X19 pad_uq7 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X20 pad_uq2 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X21 iovdd gate pad iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X22 iovdd gate pad_uq6 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X23 iovdd gate pad_uq6 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X24 pad_uq6 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X25 iovdd gate pad_uq2 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X26 pad_uq2 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X27 iovdd gate pad_uq3 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X28 pad_uq0 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X29 iovdd gate pad_uq7 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X30 iovdd gate pad_uq1 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X31 pad_uq8 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=3.1302p ps=14.26u w=6.66u l=0.6u
+X32 pad_uq7 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X33 pad_uq3 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X34 iovdd gate pad_uq0 iovdd sg13_hv_pmos ad=3.1302p pd=14.26u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X35 iovdd gate pad_uq7 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X36 pad_uq3 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X37 iovdd gate pad_uq2 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X38 pad_uq4 gate iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X39 iovdd gate pad_uq8 iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+.ends
+
+.subckt cm_s2d_rppd a_0_708# sub a_0_n86#
+X0 a_0_708# a_0_n86# sub rppd l=3.54u w=0.5u
+.ends
+
+.subckt cm_s2d_pmosHV_w5_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.7p pd=10.68u as=1.7p ps=10.68u w=5u l=6u
+.ends
+
+.subckt cm_s2d_s2d_tails_lo_f iovdd sb_A2 sa_F1 sa_F2 sb_A1 sb_M1 sa_M2 vbp
+Xcm_s2d_pmosHV_w5_l6_0 vbp iovdd iovdd iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_1 vbp iovdd sa_M2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_2 vbp iovdd sb_M1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_3 vbp iovdd sb_A1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_4 vbp iovdd sa_F2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_5 vbp iovdd sa_F1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_6 vbp iovdd sb_A2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_7 vbp iovdd iovdd iovdd cm_s2d_pmosHV_w5_l6
+.ends
+
+.subckt cm_s2d_s2d_tails_hi_f iovdd sa_A1 sb_F2 sb_F1 sa_A2 sa_M1 sb_M2 vbp
+Xcm_s2d_pmosHV_w5_l6_0 vbp iovdd iovdd iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_1 vbp iovdd sb_M2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_2 vbp iovdd sa_M1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_3 vbp iovdd sa_A2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_4 vbp iovdd sb_F1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_5 vbp iovdd sb_F2 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_6 vbp iovdd sa_A1 iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w5_l6_7 vbp iovdd vbp iovdd cm_s2d_pmosHV_w5_l6
+.ends
+
+.subckt cm_s2d_pmosHV_w15_l3 a_68_n36# a_668_0# w_n124_n124# a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=5.1p pd=30.68u as=5.1p ps=30.68u w=15u l=3u
+.ends
+
+.subckt cm_s2d_pmosHV_w1_l4_1 a_68_n36# w_n124_n124# a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=4u
+.ends
+
+.subckt cm_s2d_s2d_casc_p_f iovdd voutp voutn lp ln dd vbpc vcmfb
+Xcm_s2d_pmosHV_w15_l3_0 vbpc voutn iovdd ln cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w15_l3_1 vbpc voutp iovdd lp cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w15_l3_2 vbpc vcmfb iovdd dd cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w15_l3_3 vbpc vcmfb iovdd dd cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w15_l3_4 vbpc voutn iovdd ln cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w15_l3_5 vbpc voutp iovdd lp cm_s2d_pmosHV_w15_l3
+Xcm_s2d_pmosHV_w1_l4_1_0 vbpc iovdd iovdd vbpc cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_1 vbpc iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_2 vbpc iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_3 vbpc iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+.ends
+
+.subckt cm_s2d_nmosHV_7 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.816p pd=5.48u as=0.816p ps=5.48u w=2.4u l=6u
+.ends
+
+.subckt cm_s2d_nmosHV_5 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_s2d_nmosHV_1 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=6u
+.ends
+
+.subckt cm_s2d_bias_tree_noab_n_c3 iovss ni vbpc vbp iref en_3v3 en_3v3_b
+Xcm_s2d_nmosHV_7_0 ni iovss iovss iovss cm_s2d_nmosHV_7
+Xcm_s2d_nmosHV_7_1 ni iovss iovss vbpc cm_s2d_nmosHV_7
+Xcm_s2d_nmosHV_5_0 en_3v3_b iovss iovss ni cm_s2d_nmosHV_5
+Xcm_s2d_nmosHV_5_1 en_3v3 iovss ni iref cm_s2d_nmosHV_5
+Xcm_s2d_nmosHV_1_0 ni iovss iovss ni cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_1 ni iovss iovss vbp cm_s2d_nmosHV_1
+.ends
+
+.subckt cm_s2d_rhigh a_0_2530# sub a_0_n86#
+X0 a_0_2530# a_0_n86# sub rhigh l=12.65u w=0.5u
+.ends
+
+.subckt cm_s2d_s2d_rhigh_c3 iovss sa_A1 sb_A1 sb_A2 sa_F1 sa_F2 sa_M1 sb_M1 sa_M2
++ sb_M2 sb_F2 sb_F1 sa_A2
+Xcm_s2d_rhigh_16 m1_1109_3024# iovss m1_2333_n270# cm_s2d_rhigh
+Xcm_s2d_rhigh_17 m1_973_3118# iovss m1_2469_n176# cm_s2d_rhigh
+Xcm_s2d_rhigh_18 sb_M2 iovss m1_2469_n176# cm_s2d_rhigh
+Xcm_s2d_rhigh_19 sb_M1 iovss m1_2333_n270# cm_s2d_rhigh
+Xcm_s2d_rhigh_0 sa_A1 iovss m1_157_n646# cm_s2d_rhigh
+Xcm_s2d_rhigh_1 sa_A2 iovss m1_293_n552# cm_s2d_rhigh
+Xcm_s2d_rhigh_2 sa_F1 iovss m1_429_n458# cm_s2d_rhigh
+Xcm_s2d_rhigh_3 sa_F2 iovss m1_565_n364# cm_s2d_rhigh
+Xcm_s2d_rhigh_4 sa_M1 iovss m1_701_n270# cm_s2d_rhigh
+Xcm_s2d_rhigh_5 sa_M2 iovss m1_837_n176# cm_s2d_rhigh
+Xcm_s2d_rhigh_6 m1_973_3118# iovss m1_837_n176# cm_s2d_rhigh
+Xcm_s2d_rhigh_7 m1_1109_3024# iovss m1_701_n270# cm_s2d_rhigh
+Xcm_s2d_rhigh_8 m1_1245_2930# iovss m1_565_n364# cm_s2d_rhigh
+Xcm_s2d_rhigh_9 m1_1381_2836# iovss m1_429_n458# cm_s2d_rhigh
+Xcm_s2d_rhigh_20 sb_F2 iovss m1_2197_n364# cm_s2d_rhigh
+Xcm_s2d_rhigh_10 m1_1517_2742# iovss m1_293_n552# cm_s2d_rhigh
+Xcm_s2d_rhigh_21 sb_F1 iovss m1_2061_n458# cm_s2d_rhigh
+Xcm_s2d_rhigh_11 m1_1653_2648# iovss m1_157_n646# cm_s2d_rhigh
+Xcm_s2d_rhigh_22 sb_A2 iovss m1_1925_n552# cm_s2d_rhigh
+Xcm_s2d_rhigh_12 iovss iovss iovss cm_s2d_rhigh
+Xcm_s2d_rhigh_23 sb_A1 iovss m1_1789_n646# cm_s2d_rhigh
+Xcm_s2d_rhigh_13 m1_1517_2742# iovss m1_1925_n552# cm_s2d_rhigh
+Xcm_s2d_rhigh_14 m1_1381_2836# iovss m1_2061_n458# cm_s2d_rhigh
+Xcm_s2d_rhigh_24 iovss iovss iovss cm_s2d_rhigh
+Xcm_s2d_rhigh_25 m1_1653_2648# iovss m1_1789_n646# cm_s2d_rhigh
+Xcm_s2d_rhigh_15 m1_1245_2930# iovss m1_2197_n364# cm_s2d_rhigh
+.ends
+
+.subckt cm_s2d_nmosHV_6 a_68_n36# a_2468_0# sub a_0_0#
+X0 a_2468_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=4.08p pd=24.68u as=4.08p ps=24.68u w=12u l=12u
+.ends
+
+.subckt cm_s2d_s2d_cload_c3 iovss voutp voutn vcm en_3v3_b
+Xcm_s2d_nmosHV_5_0 en_3v3_b iovss voutn vcm cm_s2d_nmosHV_5
+Xcm_s2d_nmosHV_5_1 en_3v3_b iovss vcm voutp cm_s2d_nmosHV_5
+Xcm_s2d_nmosHV_6_0 voutn iovss iovss iovss cm_s2d_nmosHV_6
+Xcm_s2d_nmosHV_6_1 voutp iovss iovss iovss cm_s2d_nmosHV_6
+.ends
+
+.subckt cm_s2d_pmosHV_w2_l0p45_ng2 a_68_n36# a_234_n36# w_n124_n124# a_158_0# a_324_0#
++ a_0_0#
+X0 a_324_0# a_234_n36# a_158_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X1 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_s2d_s2d_pd_p_c3 iovdd en_3v3 vcm voutp voutn
+Xcm_s2d_pmosHV_w2_l0p45_ng2_0 en_3v3 en_3v3 iovdd vcm voutn voutp cm_s2d_pmosHV_w2_l0p45_ng2
+.ends
+
+.subckt cm_s2d_nmosHV a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt cm_s2d_s2d_sinks_cmfb_c3_core iovss xc vbn yc
+Xcm_s2d_nmosHV_0 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_1 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_2 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_3 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_1_0 vbn iovss yc iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_1 vbn iovss xc iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_2 vbn iovss iovss xc cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_3 vbn iovss iovss yc cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_4 vbn iovss xc iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_5 vbn iovss yc iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_6 vbn iovss iovss yc cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_7 vbn iovss iovss xc cm_s2d_nmosHV_1
+.ends
+
+.subckt cm_s2d_nmosHV_2 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=3u
+.ends
+
+.subckt cm_s2d_nmosHV_3 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=5.1p pd=30.68u as=5.1p ps=30.68u w=15u l=3u
+.ends
+
+.subckt cm_s2d_nmosHV_4 a_68_n36# sub a_0_0# a_1668_0#
+X0 a_1668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=8u
+.ends
+
+.subckt cm_s2d_s2d_casc_n_f iovss iovdd xc yc x y vcmfb voutp vbnc voutn
+Xcm_s2d_nmosHV_2_2 vbnc iovss iovss iovss cm_s2d_nmosHV_2
+Xcm_s2d_nmosHV_2_3 vbnc iovss iovss iovss cm_s2d_nmosHV_2
+Xcm_s2d_nmosHV_3_0 vbnc vcmfb iovss xc cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_1 vbnc voutp iovss x cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_2 vbnc yc iovss iovdd cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_3 vbnc y iovss voutn cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_4 vbnc voutn iovss y cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_5 vbnc iovdd iovss yc cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_6 vbnc x iovss voutp cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_3_7 vbnc xc iovss vcmfb cm_s2d_nmosHV_3
+Xcm_s2d_nmosHV_4_0 vbnc iovss vbnc iovss cm_s2d_nmosHV_4
+Xcm_s2d_nmosHV_2_0 vbnc iovss iovss iovss cm_s2d_nmosHV_2
+Xcm_s2d_nmosHV_2_1 vbnc iovss iovss iovss cm_s2d_nmosHV_2
+.ends
+
+.subckt cm_s2d_pmosHV_w2_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt cm_s2d_pmosHV_w1_l0p45 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_s2d_bias_tree_noab_p_c3 iovdd en_3v3_b iref ni vbnc vbn vbp
+Xcm_s2d_pmosHV_w2_l6_0 vbp iovdd iovdd iovdd cm_s2d_pmosHV_w2_l6
+Xcm_s2d_pmosHV_w2_l6_1 vbp iovdd vbnc iovdd cm_s2d_pmosHV_w2_l6
+Xcm_s2d_pmosHV_w5_l6_0 vbp iovdd vbn iovdd cm_s2d_pmosHV_w5_l6
+Xcm_s2d_pmosHV_w1_l0p45_0 en_3v3_b iovdd ni iref cm_s2d_pmosHV_w1_l0p45
+.ends
+
+.subckt cm_s2d_sinks_6x6_s2d_c3_core iovss x vbn y
+Xcm_s2d_nmosHV_0 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_1 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_2 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_3 vbn iovss iovss iovss cm_s2d_nmosHV
+Xcm_s2d_nmosHV_1_0 vbn iovss y iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_1 vbn iovss y iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_2 vbn iovss x iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_3 vbn iovss iovss y cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_4 vbn iovss iovss x cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_5 vbn iovss iovss x cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_10 vbn iovss iovss vbn cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_6 vbn iovss iovss iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_11 vbn iovss iovss y cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_12 vbn iovss iovss y cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_7 vbn iovss x iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_13 vbn iovss iovss x cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_8 vbn iovss x iovss cm_s2d_nmosHV_1
+Xcm_s2d_nmosHV_1_9 vbn iovss y iovss cm_s2d_nmosHV_1
+.ends
+
+.subckt cm_s2d_pmosHV_w20_l1_ng2 a_268_0# a_68_n36# a_344_n36# w_n124_n124# a_544_0#
++ a_0_0#
+X0 a_544_0# a_344_n36# a_268_0# w_n124_n124# sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=1u
+X1 a_268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=1u
+.ends
+
+.subckt cm_s2d_tub_p20x1_c3 a_68_2000# w_n124_n270# m1_195_n124#
+Xcm_s2d_pmosHV_w20_l1_ng2_0 m1_195_n124# a_68_2000# a_68_2000# w_n124_n270# w_n124_n270#
++ w_n124_n270# cm_s2d_pmosHV_w20_l1_ng2
+.ends
+
+.subckt cm_s2d_s2d_inputs_c3 sa_F1 sa_F2 sb_A1 sa_M2 sa_A1 sb_F2 sa_A2 sa_M1 sb_M2
++ vref vfbn vcm vfbp vin y x yc xc sb_M1 sb_F1 sb_A2 iovdd
+Xcm_s2d_tub_p20x1_c3_1 vcm sb_M2 xc cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_2 vfbp sa_M1 yc cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_3 vin sa_A2 y cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_4 vfbp sb_F1 x cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_5 vcm sb_F2 x cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_6 vin sa_A1 y cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_7 iovdd iovdd iovdd cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_8 iovdd iovdd iovdd cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_9 vfbn sa_M2 yc cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_10 vcm sb_M1 xc cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_11 vref sb_A1 x cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_12 vfbn sa_F2 y cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_13 vcm sa_F1 y cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_14 vref sb_A2 x cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_15 iovdd iovdd iovdd cm_s2d_tub_p20x1_c3
+Xcm_s2d_tub_p20x1_c3_0 iovdd iovdd iovdd cm_s2d_tub_p20x1_c3
+.ends
+
+.subckt cm_s2d_pmosHV_w6_l4 a_68_n36# w_n124_n124# a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=4u
+.ends
+
+.subckt cm_s2d_s2d_loads_f iovdd lp dd ln vcmfb
+Xcm_s2d_pmosHV_w6_l4_0 vcmfb iovdd iovdd dd cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_1 vcmfb iovdd iovdd ln cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_2 vcmfb iovdd iovdd lp cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_3 vcmfb iovdd iovdd lp cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_4 vcmfb iovdd iovdd ln cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_5 vcmfb iovdd iovdd dd cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_6 vcmfb iovdd iovdd lp cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_7 vcmfb iovdd iovdd ln cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_10 vcmfb iovdd iovdd ln cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_8 vcmfb iovdd iovdd dd cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_11 vcmfb iovdd iovdd lp cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w6_l4_9 vcmfb iovdd iovdd dd cm_s2d_pmosHV_w6_l4
+Xcm_s2d_pmosHV_w1_l4_1_0 vcmfb iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_1 vcmfb iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_2 vcmfb iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+Xcm_s2d_pmosHV_w1_l4_1_3 vcmfb iovdd iovdd iovdd cm_s2d_pmosHV_w1_l4_1
+.ends
+
+.subckt cm_s2d_s2d_block vref outp outn vcm en_3v3 en_3v3_b iref cm_s2d_pwr_f_0/iovdd_uq1
++ cm_s2d_pwr_f_0/iovdd_uq0 cm_s2d_s2d_inputs_c3_0/vin cm_s2d_pwr_f_0/iovdd cm_s2d_pwr_f_0/m1_4173_6380#
++ sub
+Xcm_s2d_s2d_tails_lo_f_0 cm_s2d_pwr_f_0/iovdd cm_s2d_pwr_f_0/sb_A2 cm_s2d_pwr_f_0/sa_F1
++ cm_s2d_pwr_f_0/sa_F2 cm_s2d_pwr_f_0/sb_A1 cm_s2d_pwr_f_0/sb_M1 cm_s2d_pwr_f_0/sa_M2
++ cm_s2d_s2d_tails_lo_f_0/vbp cm_s2d_s2d_tails_lo_f
+Xcm_s2d_s2d_tails_hi_f_0 cm_s2d_pwr_f_0/iovdd cm_s2d_pwr_f_0/sa_A1 cm_s2d_pwr_f_0/sb_F2
++ cm_s2d_pwr_f_0/sb_F1 cm_s2d_pwr_f_0/sa_A2 cm_s2d_pwr_f_0/sa_M1 cm_s2d_pwr_f_0/sb_M2
++ cm_s2d_s2d_tails_lo_f_0/vbp cm_s2d_s2d_tails_hi_f
+Xcm_s2d_s2d_casc_p_f_0 cm_s2d_pwr_f_0/iovdd_uq0 outp outn cm_s2d_s2d_loads_f_0/lp
++ cm_s2d_s2d_loads_f_0/ln cm_s2d_s2d_loads_f_0/dd cm_s2d_s2d_casc_p_f_0/vbpc cm_s2d_s2d_loads_f_0/vcmfb
++ cm_s2d_s2d_casc_p_f
+Xcm_s2d_bias_tree_noab_n_c3_0 sub cm_s2d_bias_tree_noab_p_c3_0/ni cm_s2d_s2d_casc_p_f_0/vbpc
++ cm_s2d_s2d_tails_lo_f_0/vbp iref en_3v3 en_3v3_b cm_s2d_bias_tree_noab_n_c3
+Xcm_s2d_s2d_rhigh_c3_0 sub cm_s2d_pwr_f_0/sa_A1 cm_s2d_pwr_f_0/sb_A1 cm_s2d_pwr_f_0/sb_A2
++ cm_s2d_pwr_f_0/sa_F1 cm_s2d_pwr_f_0/sa_F2 cm_s2d_pwr_f_0/sa_M1 cm_s2d_pwr_f_0/sb_M1
++ cm_s2d_pwr_f_0/sa_M2 cm_s2d_pwr_f_0/sb_M2 cm_s2d_pwr_f_0/sb_F2 cm_s2d_pwr_f_0/sb_F1
++ cm_s2d_pwr_f_0/sa_A2 cm_s2d_s2d_rhigh_c3
+Xcm_s2d_s2d_cload_c3_0 sub outp outn vcm en_3v3_b cm_s2d_s2d_cload_c3
+Xcm_s2d_s2d_pd_p_c3_0 cm_s2d_pwr_f_0/iovdd_uq1 en_3v3 vcm outp outn cm_s2d_s2d_pd_p_c3
+Xcm_s2d_s2d_sinks_cmfb_c3_core_0 sub cm_s2d_s2d_casc_n_f_0/xc cm_s2d_bias_tree_noab_p_c3_0/vbn
++ cm_s2d_s2d_casc_n_f_0/yc cm_s2d_s2d_sinks_cmfb_c3_core
+Xcm_s2d_s2d_casc_n_f_0 sub cm_s2d_pwr_f_0/iovdd_uq0 cm_s2d_s2d_casc_n_f_0/xc cm_s2d_s2d_casc_n_f_0/yc
++ cm_s2d_s2d_casc_n_f_0/x cm_s2d_s2d_casc_n_f_0/y cm_s2d_s2d_loads_f_0/vcmfb outp
++ cm_s2d_s2d_casc_n_f_0/vbnc outn cm_s2d_s2d_casc_n_f
+Xcm_s2d_bias_tree_noab_p_c3_0 cm_s2d_pwr_f_0/iovdd_uq1 en_3v3_b iref cm_s2d_bias_tree_noab_p_c3_0/ni
++ cm_s2d_s2d_casc_n_f_0/vbnc cm_s2d_bias_tree_noab_p_c3_0/vbn cm_s2d_s2d_tails_lo_f_0/vbp
++ cm_s2d_bias_tree_noab_p_c3
+Xcm_s2d_sinks_6x6_s2d_c3_core_0 sub cm_s2d_s2d_casc_n_f_0/x cm_s2d_bias_tree_noab_p_c3_0/vbn
++ cm_s2d_s2d_casc_n_f_0/y cm_s2d_sinks_6x6_s2d_c3_core
+Xcm_s2d_s2d_inputs_c3_0 cm_s2d_pwr_f_0/sa_F1 cm_s2d_pwr_f_0/sa_F2 cm_s2d_pwr_f_0/sb_A1
++ cm_s2d_pwr_f_0/sa_M2 cm_s2d_pwr_f_0/sa_A1 cm_s2d_pwr_f_0/sb_F2 cm_s2d_pwr_f_0/sa_A2
++ cm_s2d_pwr_f_0/sa_M1 cm_s2d_pwr_f_0/sb_M2 vref outn vcm outp cm_s2d_s2d_inputs_c3_0/vin
++ cm_s2d_s2d_casc_n_f_0/y cm_s2d_s2d_casc_n_f_0/x cm_s2d_s2d_casc_n_f_0/yc cm_s2d_s2d_casc_n_f_0/xc
++ cm_s2d_pwr_f_0/sb_M1 cm_s2d_pwr_f_0/sb_F1 cm_s2d_pwr_f_0/sb_A2 cm_s2d_pwr_f_0/iovdd
++ cm_s2d_s2d_inputs_c3
+Xcm_s2d_s2d_loads_f_0 cm_s2d_pwr_f_0/iovdd_uq0 cm_s2d_s2d_loads_f_0/lp cm_s2d_s2d_loads_f_0/dd
++ cm_s2d_s2d_loads_f_0/ln cm_s2d_s2d_loads_f_0/vcmfb cm_s2d_s2d_loads_f
+.ends
+
+.subckt sg13cmos5l_IOPadSingle2Diff vref vcm en_3v3_b pad sub outp outn iref vdd m3_0_28000#
++ en_3v3 iovdd
+Xcm_s2d_rppd_1_0 cm_s2d_Clamp_P_M1_0/gate sub iovdd cm_s2d_rppd_1
+Xcm_s2d_DCNDiode_0 pad sub iovdd pad cm_s2d_DCNDiode
+Xcm_s2d_Clamp_N_M1_0 pad cm_s2d_Clamp_N_M1_0/gate sub pad pad pad pad pad pad pad
++ pad pad iovdd cm_s2d_Clamp_N_M1
+Xcm_s2d_DCPDiode_0 pad iovdd sub pad cm_s2d_DCPDiode
+Xcm_s2d_Clamp_P_M1_0 pad cm_s2d_Clamp_P_M1_0/gate iovdd sub pad pad pad pad pad pad
++ pad pad pad cm_s2d_Clamp_P_M1
+Xcm_s2d_rppd_0 cm_s2d_Clamp_N_M1_0/gate sub sub cm_s2d_rppd
+Xcm_s2d_s2d_block_0 vref outp outn vcm en_3v3 en_3v3_b iref iovdd iovdd pad iovdd
++ sub sub cm_s2d_s2d_block
+.ends
+
+.subckt cm_d2s_DCPDiode anode cathode guard anode_uq0
+X0 anode_uq0 cathode dpantenna l=1.26u w=65.8u
+X1 anode cathode dpantenna l=1.26u w=65.8u
+.ends
+
+.subckt cm_d2s_d2s_cma a m2_600_7860# w_514_8292#
+X0 w_514_8292# a w_514_8292# w_514_8292# sg13_hv_pmos ad=2.7064p pd=16.6u as=0 ps=0 w=7.96u l=32.16u
+.ends
+
+.subckt cm_d2s_Clamp_N_M1 iovss a_12075_476# a_5635_476# a_6163_550# a_11747_476#
++ a_12275_550# a_4435_476# a_10547_476# a_4107_476# a_10747_550# a_4635_550# a_10219_476#
++ a_2907_476# a_6399_476# a_9019_476# a_3107_550# a_4871_476# a_9219_550# a_10983_476#
++ a_13603_476# a_5199_476# w_n124_n124# a_13803_550# a_5399_550# a_3671_476# a_9783_476#
++ a_9983_550# a_3871_550# a_9455_476# a_3343_476# a_8255_476# a_2143_476# a_1815_476#
++ a_14367_476# a_7927_476# a_8455_550# a_2343_550# a_14567_550# a_14039_476# a_12511_476#
++ a_6727_476# a_6927_550# a_12839_476# a_13039_550# a_8691_476# a_11311_476# a_2579_476#
++ a_11511_550# a_7491_476# a_7691_550# a_7163_476# a_1379_476# a_13275_476# a_1579_550#
++ a_5963_476#
+X0 a_3871_550# a_3671_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X1 iovss a_3343_476# a_3107_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X2 a_4635_550# a_4435_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X3 iovss a_6399_476# a_6163_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X4 iovss a_4107_476# a_3871_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X5 a_7691_550# a_7491_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X6 iovss a_1815_476# a_1579_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X7 iovss a_4871_476# a_4635_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X8 iovss a_7163_476# a_6927_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X9 a_3107_550# a_2907_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X10 a_8455_550# a_8255_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X11 iovss a_5635_476# a_5399_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X12 a_6163_550# a_5963_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X13 iovss a_8691_476# a_8455_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X14 a_9219_550# a_9019_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X15 a_12275_550# a_12075_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X16 a_6927_550# a_6727_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X17 a_9983_550# a_9783_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X18 iovss a_9455_476# a_9219_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X19 iovss a_10219_476# a_9983_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X20 a_10747_550# a_10547_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X21 a_11511_550# a_11311_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X22 iovss a_13275_476# a_13039_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X23 iovss a_7927_476# a_7691_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X24 iovss a_10983_476# a_10747_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X25 a_14567_550# a_14367_476# iovss iovss sg13_hv_nmos ad=3.256p pd=10.28u as=1.408p ps=5.04u w=4.4u l=1u
+X26 iovss a_14039_476# a_13803_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X27 iovss a_11747_476# a_11511_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X28 iovss a_12511_476# a_12275_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+X29 a_13039_550# a_12839_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X30 a_13803_550# a_13603_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X31 a_1579_550# a_1379_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=2.068p ps=9.74u w=4.4u l=1u
+X32 a_2343_550# a_2143_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X33 a_5399_550# a_5199_476# iovss iovss sg13_hv_nmos ad=2.596p pd=5.58u as=1.408p ps=5.04u w=4.4u l=1u
+X34 iovss a_2579_476# a_2343_550# iovss sg13_hv_nmos ad=1.408p pd=5.04u as=2.596p ps=5.58u w=4.4u l=1u
+.ends
+
+.subckt cm_d2s_d2s_cmb b a_8278_8380#
+X0 b a_8278_8380# b b sg13_hv_pmos ad=2.7064p pd=16.6u as=0 ps=0 w=7.96u l=32.16u
+.ends
+
+.subckt cm_d2s_Clamp_P_M1 iovdd iovss a_5551_476# a_1927_476# a_9543_550# a_5919_550#
++ a_13167_550# a_12799_476# a_10631_476# a_9175_476# a_1571_476# a_14255_476# a_7007_476#
++ a_5195_476# a_2531_476# a_13771_550# a_6523_550# a_7611_476# a_9779_476# a_6155_476#
++ a_10147_550# a_11235_476# a_5799_476# a_2175_476# a_10751_550# a_3503_550# a_1691_550#
++ a_7127_550# a_10383_476# a_6759_476# a_3135_476# a_14375_550# a_11839_476# a_8215_476#
++ a_2779_476# a_7731_550# a_4107_550# a_10987_476# a_7363_476# a_3739_476# a_11355_550#
++ a_2295_550# a_12443_476# a_8819_476# a_3383_476# a_4711_550# a_8335_550# a_13403_476#
++ a_11591_476# a_7967_476# a_4343_476# a_11959_550# a_2899_550# a_9423_476# a_3987_476#
++ a_13047_476# a_8571_476# a_4947_476# a_12563_550# a_8939_550# a_5315_550# a_14007_476#
++ a_6403_476# a_13651_476# a_12195_476# a_4591_476# a_10027_476#
+X0 a_11959_550# a_11839_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X1 a_11355_550# a_11235_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X2 iovdd a_14007_476# a_13771_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X3 iovdd a_8571_476# a_8335_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X4 a_3503_550# a_3383_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X5 iovdd a_6155_476# a_5919_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X6 a_2899_550# a_2779_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X7 a_6523_550# a_6403_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X8 a_8939_550# a_8819_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X9 a_6523_550# a_6403_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X10 iovdd a_14007_476# a_13771_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X11 a_13771_550# a_13651_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X12 a_12563_550# a_12443_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X13 iovdd a_8571_476# a_8335_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X14 iovdd a_3739_476# a_3503_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X15 a_5919_550# a_5799_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X16 a_3503_550# a_3383_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X17 a_5919_550# a_5799_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X18 a_9543_550# a_9423_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X19 iovdd a_3739_476# a_3503_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X20 a_8939_550# a_8819_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X21 iovdd a_13403_476# a_13167_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X22 iovdd a_10987_476# a_10751_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X23 a_13167_550# a_13047_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X24 a_5315_550# a_5195_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X25 iovdd a_4343_476# a_4107_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X26 iovdd a_6759_476# a_6523_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X27 iovdd a_3135_476# a_2899_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X28 a_8335_550# a_8215_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X29 iovdd a_10383_476# a_10147_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X30 iovdd a_10383_476# a_10147_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X31 iovdd a_12799_476# a_12563_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X32 a_10751_550# a_10631_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X33 iovdd a_13403_476# a_13167_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X34 iovdd a_5551_476# a_5315_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X35 iovdd a_7363_476# a_7127_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X36 iovdd a_9779_476# a_9543_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X37 a_2899_550# a_2779_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X38 iovdd a_12799_476# a_12563_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X39 a_11355_550# a_11235_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X40 a_10147_550# a_10027_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X41 a_2295_550# a_2175_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X42 iovdd a_7967_476# a_7731_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X43 a_2295_550# a_2175_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X44 a_8335_550# a_8215_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X45 iovdd a_12195_476# a_11959_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X46 a_12563_550# a_12443_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X47 iovdd a_2531_476# a_2295_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X48 a_4711_550# a_4591_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X49 iovdd a_7363_476# a_7127_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X50 a_7731_550# a_7611_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X51 a_10751_550# a_10631_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X52 a_14375_550# a_14255_476# iovdd iovdd sg13_hv_pmos ad=4.9284p pd=14.8u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X53 iovdd a_1927_476# a_1691_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X54 iovdd a_3135_476# a_2899_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X55 a_5315_550# a_5195_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X56 a_1691_550# a_1571_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=3.1302p ps=14.26u w=6.66u l=0.6u
+X57 a_4107_550# a_3987_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X58 a_7731_550# a_7611_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X59 a_7127_550# a_7007_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X60 iovdd a_9779_476# a_9543_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X61 a_13771_550# a_13651_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X62 iovdd a_4947_476# a_4711_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X63 a_14375_550# a_14255_476# iovdd iovdd sg13_hv_pmos ad=4.9284p pd=14.8u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X64 iovdd a_2531_476# a_2295_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X65 iovdd a_4947_476# a_4711_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X66 iovdd a_6155_476# a_5919_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X67 iovdd a_9175_476# a_8939_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X68 a_4711_550# a_4591_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X69 a_1691_550# a_1571_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=3.1302p ps=14.26u w=6.66u l=0.6u
+X70 iovdd a_4343_476# a_4107_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X71 a_9543_550# a_9423_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X72 a_10147_550# a_10027_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X73 iovdd a_12195_476# a_11959_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X74 iovdd a_11591_476# a_11355_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X75 iovdd a_10987_476# a_10751_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X76 iovdd a_5551_476# a_5315_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X77 a_7127_550# a_7007_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X78 iovdd a_9175_476# a_8939_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X79 iovdd a_7967_476# a_7731_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X80 iovdd a_6759_476# a_6523_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X81 a_11959_550# a_11839_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X82 iovdd a_11591_476# a_11355_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X83 a_13167_550# a_13047_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+X84 iovdd a_1927_476# a_1691_550# iovdd sg13_hv_pmos ad=2.1312p pd=7.3u as=3.9294p ps=7.84u w=6.66u l=0.6u
+X85 a_4107_550# a_3987_476# iovdd iovdd sg13_hv_pmos ad=3.9294p pd=7.84u as=2.1312p ps=7.3u w=6.66u l=0.6u
+.ends
+
+.subckt cm_d2s_DCNDiode cathode anode guard cathode_uq0
+X0 anode cathode_uq0 dantenna l=1.26u w=67.6u
+X1 anode cathode dantenna l=1.26u w=67.6u
+.ends
+
+.subckt cm_d2s_dantenna sub a_0_0#
+X0 sub a_0_0# dantenna l=3.1u w=0.64u
+.ends
+
+.subckt cm_d2s_dpantenna w_n62_n62# a_0_0#
+X0 a_0_0# w_n62_n62# dpantenna l=4.98u w=0.64u
+.ends
+
+.subckt cm_d2s_rppd a_0_1487# sub a_0_n86#
+X0 a_0_1487# a_0_n86# sub rppd l=7.435u w=1u
+.ends
+
+.subckt cm_d2s_d2s_sp2k_f2 pad core iovss iovdd
+Xcm_d2s_dantenna_0 iovss core cm_d2s_dantenna
+Xcm_d2s_dpantenna_0 iovdd core cm_d2s_dpantenna
+Xcm_d2s_rppd_0 core iovss pad cm_d2s_rppd
+.ends
+
+.subckt cm_d2s_nmosHV_1 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_d2s_pmosHV a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_d2s_d2s_tgsw_f2 ni en_3v3_b en_3v3 iovss iref sub w_n260_n124#
+Xcm_d2s_nmosHV_1_0 en_3v3_b sub iovss ni cm_d2s_nmosHV_1
+Xcm_d2s_nmosHV_1_1 en_3v3 sub iref ni cm_d2s_nmosHV_1
+Xcm_d2s_pmosHV_0 en_3v3_b w_n260_n124# iref ni cm_d2s_pmosHV
+.ends
+
+.subckt cm_d2s_nmosHV_3 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=6u
+.ends
+
+.subckt cm_d2s_nmosHV_2 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.816p pd=5.48u as=0.816p ps=5.48u w=2.4u l=6u
+.ends
+
+.subckt cm_d2s_bias_tree_n_f2 ni iovss vbpc vabp vbp
+Xcm_d2s_nmosHV_3_1 ni iovss iovss ni cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_2 ni iovss iovss vbp cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_2_0 ni iovss ni ni cm_d2s_nmosHV_2
+Xcm_d2s_nmosHV_2_1 ni iovss iovss vbpc cm_d2s_nmosHV_2
+Xcm_d2s_nmosHV_3_0 ni iovss iovss vabp cm_d2s_nmosHV_3
+.ends
+
+.subckt cm_d2s_pmosHV_w5_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.7p pd=10.68u as=1.7p ps=10.68u w=5u l=6u
+.ends
+
+.subckt cm_d2s_d2s_tails_c2 vbp sb_B sa_C1 sa_C2 sb_A sa_A sb_C2 sb_C1 sa_B iovdd
+Xcm_d2s_pmosHV_w5_l6_10 vbp iovdd sa_B iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_11 vbp iovdd sb_C1 iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_0 vbp iovdd iovdd iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_1 vbp iovdd sb_A iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_2 vbp iovdd sa_C2 iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_3 vbp iovdd sb_C2 iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_4 vbp iovdd sa_A iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_5 vbp iovdd vbp iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_6 vbp iovdd sa_C1 iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_7 vbp iovdd sb_B iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_8 vbp iovdd iovdd iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_9 vbp iovdd iovdd iovdd cm_d2s_pmosHV_w5_l6
+.ends
+
+.subckt cm_d2s_nmosHV_6 a_68_n36# sub a_0_0# a_1668_0#
+X0 a_1668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=8u
+.ends
+
+.subckt cm_d2s_nmosHV_4 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=3u
+.ends
+
+.subckt cm_d2s_nmosHV_5 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=5.1p pd=30.68u as=5.1p ps=30.68u w=15u l=3u
+.ends
+
+.subckt cm_d2s_d2s_casc_n_f2 x y l1 vbnc b iovss
+Xcm_d2s_nmosHV_6_0 vbnc iovss vbnc iovss cm_d2s_nmosHV_6
+Xcm_d2s_nmosHV_4_0 vbnc vbnc iovss vbnc cm_d2s_nmosHV_4
+Xcm_d2s_nmosHV_4_1 vbnc vbnc iovss vbnc cm_d2s_nmosHV_4
+Xcm_d2s_nmosHV_4_2 vbnc vbnc iovss vbnc cm_d2s_nmosHV_4
+Xcm_d2s_nmosHV_4_3 vbnc vbnc iovss vbnc cm_d2s_nmosHV_4
+Xcm_d2s_nmosHV_5_0 vbnc l1 iovss x cm_d2s_nmosHV_5
+Xcm_d2s_nmosHV_5_1 vbnc y iovss b cm_d2s_nmosHV_5
+Xcm_d2s_nmosHV_5_2 vbnc b iovss y cm_d2s_nmosHV_5
+Xcm_d2s_nmosHV_5_3 vbnc x iovss l1 cm_d2s_nmosHV_5
+.ends
+
+.subckt cm_d2s_pmosHV_w2_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt cm_d2s_bias_tree_p_f2 vbnc vbn vabn vbp iovdd
+Xcm_d2s_pmosHV_w2_l6_0 vbp iovdd iovdd iovdd cm_d2s_pmosHV_w2_l6
+Xcm_d2s_pmosHV_w2_l6_1 vbp iovdd vbnc iovdd cm_d2s_pmosHV_w2_l6
+Xcm_d2s_pmosHV_w5_l6_0 vbp iovdd vabn iovdd cm_d2s_pmosHV_w5_l6
+Xcm_d2s_pmosHV_w5_l6_1 vbp iovdd vbn iovdd cm_d2s_pmosHV_w5_l6
+.ends
+
+.subckt cm_d2s_nmosHV a_268_0# a_68_n36# sub a_0_0#
+X0 a_268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=1.496p pd=9.48u as=1.496p ps=9.48u w=4.4u l=1u
+.ends
+
+.subckt cm_d2s_d2s_ab_n_f2 vabn iovss l2 l1 dabn a b en_3v3_b m1_1204_1386#
+Xcm_d2s_nmosHV_0 iovss iovss iovss iovss cm_d2s_nmosHV
+Xcm_d2s_nmosHV_1_0 en_3v3_b iovss m1_1204_1386# b cm_d2s_nmosHV_1
+Xcm_d2s_nmosHV_1 b vabn iovss a cm_d2s_nmosHV
+Xcm_d2s_nmosHV_1_1 en_3v3_b iovss vabn iovss cm_d2s_nmosHV_1
+Xcm_d2s_nmosHV_2 dabn vabn iovss vabn cm_d2s_nmosHV
+Xcm_d2s_nmosHV_3 l1 vabn iovss l2 cm_d2s_nmosHV
+Xcm_d2s_nmosHV_4 iovss iovss iovss iovss cm_d2s_nmosHV
+.ends
+
+.subckt cm_d2s_rhigh a_0_2530# sub a_0_n86#
+X0 a_0_2530# a_0_n86# sub rhigh l=12.65u w=0.5u
+.ends
+
+.subckt cm_d2s_d2s_rhigh_f2 sa_A sb_A sa_B sb_B sa_C1 sa_C2 sb_C2 iovss sb_C1
+Xcm_d2s_rhigh_0 sa_A iovss m1_157_n458# cm_d2s_rhigh
+Xcm_d2s_rhigh_1 sa_B iovss m1_293_n364# cm_d2s_rhigh
+Xcm_d2s_rhigh_2 sa_C1 iovss m1_429_n270# cm_d2s_rhigh
+Xcm_d2s_rhigh_3 sa_C2 iovss m1_565_n176# cm_d2s_rhigh
+Xcm_d2s_rhigh_4 m1_701_2930# iovss m1_565_n176# cm_d2s_rhigh
+Xcm_d2s_rhigh_5 m1_837_2836# iovss m1_429_n270# cm_d2s_rhigh
+Xcm_d2s_rhigh_6 m1_973_2742# iovss m1_293_n364# cm_d2s_rhigh
+Xcm_d2s_rhigh_7 m1_1109_2648# iovss m1_157_n458# cm_d2s_rhigh
+Xcm_d2s_rhigh_8 iovss iovss iovss cm_d2s_rhigh
+Xcm_d2s_rhigh_9 m1_973_2742# iovss m1_1381_n364# cm_d2s_rhigh
+Xcm_d2s_rhigh_10 m1_837_2836# iovss m1_1517_n270# cm_d2s_rhigh
+Xcm_d2s_rhigh_11 m1_701_2930# iovss m1_1653_n176# cm_d2s_rhigh
+Xcm_d2s_rhigh_12 sb_C2 iovss m1_1653_n176# cm_d2s_rhigh
+Xcm_d2s_rhigh_13 sb_C1 iovss m1_1517_n270# cm_d2s_rhigh
+Xcm_d2s_rhigh_14 sb_B iovss m1_1381_n364# cm_d2s_rhigh
+Xcm_d2s_rhigh_15 sb_A iovss m1_1245_n458# cm_d2s_rhigh
+Xcm_d2s_rhigh_16 iovss iovss iovss cm_d2s_rhigh
+Xcm_d2s_rhigh_17 m1_1109_2648# iovss m1_1245_n458# cm_d2s_rhigh
+.ends
+
+.subckt cm_d2s_nmosHV_7 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt cm_d2s_sinks_6x6_f2 x vbn y iovss
+Xcm_d2s_nmosHV_3_1 vbn iovss y iovss cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_2 vbn iovss y iovss cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_3 vbn iovss iovss y cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_4 vbn iovss iovss x cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_5 vbn iovss iovss x cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_6 vbn iovss iovss x cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_7 vbn iovss vbn vbn cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_8 vbn iovss x iovss cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_9 vbn iovss x iovss cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_10 vbn iovss y iovss cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_11 vbn iovss iovss y cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_12 vbn iovss iovss y cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_3_13 vbn iovss iovss vbn cm_d2s_nmosHV_3
+Xcm_d2s_nmosHV_7_0 vbn iovss vbn vbn cm_d2s_nmosHV_7
+Xcm_d2s_nmosHV_7_1 vbn iovss vbn vbn cm_d2s_nmosHV_7
+Xcm_d2s_nmosHV_7_2 vbn iovss vbn vbn cm_d2s_nmosHV_7
+Xcm_d2s_nmosHV_7_3 vbn iovss vbn vbn cm_d2s_nmosHV_7
+Xcm_d2s_nmosHV_3_0 vbn iovss x iovss cm_d2s_nmosHV_3
+.ends
+
+.subckt cm_d2s_pmosHV_w20_l1_ng2 a_268_0# a_68_n36# a_344_n36# w_n124_n124# a_544_0#
++ a_0_0#
+X0 a_544_0# a_344_n36# a_268_0# w_n124_n124# sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=1u
+X1 a_268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=1u
+.ends
+
+.subckt cm_d2s_tub_p20x1_c2 a_68_2000# m1_195_n124# w_n226_n124#
+Xcm_d2s_pmosHV_w20_l1_ng2_0 m1_195_n124# a_68_2000# a_68_2000# w_n226_n124# w_n226_n124#
++ w_n226_n124# cm_d2s_pmosHV_w20_l1_ng2
+.ends
+
+.subckt cm_d2s_d2s_inputs_c2 vinn vref vfb vinp x y sb_B sa_C1 sa_C2 sa_A sb_C2 sb_C1
++ sa_B sb_A iovdd
+Xcm_d2s_tub_p20x1_c2_0 iovdd iovdd iovdd cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_1 vref y sa_B cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_10 vinn x sb_B cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_2 vfb x sb_C1 cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_11 iovdd iovdd iovdd cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_3 vfb x sb_C2 cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_4 vinp y sa_A cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_5 iovdd iovdd iovdd cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_6 iovdd iovdd iovdd cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_7 vref x sb_A cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_8 vref y sa_C2 cm_d2s_tub_p20x1_c2
+Xcm_d2s_tub_p20x1_c2_9 vref y sa_C1 cm_d2s_tub_p20x1_c2
+.ends
+
+.subckt cm_d2s_pmosHV_w1_l4 a_68_n36# w_n124_n124# a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=4u
+.ends
+
+.subckt cm_d2s_pmosHV_w15_l3 a_68_n36# a_668_0# w_n124_n124# a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=5.1p pd=30.68u as=5.1p ps=30.68u w=15u l=3u
+.ends
+
+.subckt cm_d2s_d2s_casc_p_c2 l2 vbpc a pr pl iovdd
+Xcm_d2s_pmosHV_w1_l4_1 vbpc iovdd iovdd iovdd cm_d2s_pmosHV_w1_l4
+Xcm_d2s_pmosHV_w15_l3_0 vbpc l2 iovdd pl cm_d2s_pmosHV_w15_l3
+Xcm_d2s_pmosHV_w15_l3_1 vbpc l2 iovdd pl cm_d2s_pmosHV_w15_l3
+Xcm_d2s_pmosHV_w15_l3_2 vbpc a iovdd pr cm_d2s_pmosHV_w15_l3
+Xcm_d2s_pmosHV_w15_l3_3 vbpc a iovdd pr cm_d2s_pmosHV_w15_l3
+Xcm_d2s_pmosHV_w1_l4_0 vbpc iovdd iovdd vbpc cm_d2s_pmosHV_w1_l4
+.ends
+
+.subckt cm_d2s_pmosHV_w6_l4 a_68_n36# w_n124_n124# a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=4u
+.ends
+
+.subckt cm_d2s_d2s_loads_c2 pl l2 pr iovdd
+Xcm_d2s_pmosHV_w1_l4_1 l2 iovdd iovdd iovdd cm_d2s_pmosHV_w1_l4
+Xcm_d2s_pmosHV_w1_l4_2 l2 iovdd iovdd iovdd cm_d2s_pmosHV_w1_l4
+Xcm_d2s_pmosHV_w1_l4_3 l2 iovdd iovdd iovdd cm_d2s_pmosHV_w1_l4
+Xcm_d2s_pmosHV_w6_l4_0 l2 iovdd iovdd pr cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_1 l2 iovdd iovdd pl cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_2 l2 iovdd iovdd pr cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_3 l2 iovdd iovdd pl cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_4 l2 iovdd iovdd pl cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_5 l2 iovdd iovdd pr cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_6 l2 iovdd iovdd pl cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w6_l4_7 l2 iovdd iovdd pr cm_d2s_pmosHV_w6_l4
+Xcm_d2s_pmosHV_w1_l4_0 l2 iovdd iovdd iovdd cm_d2s_pmosHV_w1_l4
+.ends
+
+.subckt cm_d2s_pmosHV_w1_l0p45 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt cm_d2s_pmosHV_w6p66_l0p6 a_68_n36# w_n124_n124# a_188_0# a_0_0#
+X0 a_188_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=2.2644p pd=14u as=2.2644p ps=14u w=6.66u l=0.6u
+.ends
+
+.subckt cm_d2s_d2s_ab_p_f2 vabp iovdd en_3v3 l1 l2 dabp b a iovdd_uq0
+Xcm_d2s_pmosHV_w1_l0p45_1 en_3v3 iovdd vabp iovdd cm_d2s_pmosHV_w1_l0p45
+Xcm_d2s_pmosHV_w6p66_l0p6_0 iovdd iovdd iovdd iovdd cm_d2s_pmosHV_w6p66_l0p6
+Xcm_d2s_pmosHV_w6p66_l0p6_1 vabp iovdd a b cm_d2s_pmosHV_w6p66_l0p6
+Xcm_d2s_pmosHV_w6p66_l0p6_2 vabp iovdd dabp vabp cm_d2s_pmosHV_w6p66_l0p6
+Xcm_d2s_pmosHV_w6p66_l0p6_3 vabp iovdd l1 l2 cm_d2s_pmosHV_w6p66_l0p6
+Xcm_d2s_pmosHV_w6p66_l0p6_4 iovdd iovdd iovdd iovdd cm_d2s_pmosHV_w6p66_l0p6
+Xcm_d2s_pmosHV_w1_l0p45_0 en_3v3 iovdd iovdd_uq0 a cm_d2s_pmosHV_w1_l0p45
+.ends
+
+.subckt cm_d2s_d2s_block vinp vinn vref iref en_3v3 en_3v3_b cm_d2s_d2s_sp2k_f2_1/pad
++ cm_d2s_d2s_sp2k_f2_0/core cm_d2s_d2s_ab_n_f2_0/dabn cm_d2s_d2s_sp2k_f2_1/core cm_d2s_d2s_ab_p_f2_0/a
++ cm_d2s_d2s_ab_p_f2_0/b cm_d2s_d2s_ab_p_f2_0/dabp cm_d2s_d2s_sp2k_f2_0/pad cm_d2s_d2s_inputs_c2_0/vfb
++ cm_d2s_pwr_f2_0/iovss_o cm_d2s_d2s_sp2k_f2_0/iovdd cm_d2s_d2s_sp2k_f2_1/iovdd sub
++ cm_d2s_d2s_casc_p_c2_0/a cm_d2s_pwr_f2_0/iovdd_up cm_d2s_pwr_f2_0/iovdd_o
+Xcm_d2s_d2s_sp2k_f2_1 cm_d2s_d2s_sp2k_f2_1/pad cm_d2s_d2s_sp2k_f2_1/core sub cm_d2s_d2s_sp2k_f2_1/iovdd
++ cm_d2s_d2s_sp2k_f2
+Xcm_d2s_d2s_tgsw_f2_0 cm_d2s_d2s_tgsw_f2_0/ni en_3v3_b en_3v3 sub iref sub cm_d2s_pwr_f2_0/iovdd_up
++ cm_d2s_d2s_tgsw_f2
+Xcm_d2s_bias_tree_n_f2_0 cm_d2s_d2s_tgsw_f2_0/ni sub cm_d2s_d2s_casc_p_c2_0/vbpc cm_d2s_d2s_ab_p_f2_0/vabp
++ cm_d2s_d2s_tails_c2_0/vbp cm_d2s_bias_tree_n_f2
+Xcm_d2s_d2s_tails_c2_0 cm_d2s_d2s_tails_c2_0/vbp cm_d2s_d2s_tails_c2_0/sb_B cm_d2s_d2s_tails_c2_0/sa_C1
++ cm_d2s_d2s_tails_c2_0/sa_C2 cm_d2s_d2s_tails_c2_0/sb_A cm_d2s_d2s_tails_c2_0/sa_A
++ cm_d2s_d2s_tails_c2_0/sb_C2 cm_d2s_d2s_tails_c2_0/sb_C1 cm_d2s_d2s_tails_c2_0/sa_B
++ cm_d2s_pwr_f2_0/iovdd_up cm_d2s_d2s_tails_c2
+Xcm_d2s_d2s_casc_n_f2_0 cm_d2s_sinks_6x6_f2_0/x cm_d2s_sinks_6x6_f2_0/y cm_d2s_d2s_ab_p_f2_0/l1
++ cm_d2s_d2s_casc_n_f2_0/vbnc cm_d2s_d2s_ab_p_f2_0/b sub cm_d2s_d2s_casc_n_f2
+Xcm_d2s_bias_tree_p_f2_0 cm_d2s_d2s_casc_n_f2_0/vbnc cm_d2s_sinks_6x6_f2_0/vbn cm_d2s_d2s_ab_n_f2_0/vabn
++ cm_d2s_d2s_tails_c2_0/vbp cm_d2s_pwr_f2_0/iovdd_up cm_d2s_bias_tree_p_f2
+Xcm_d2s_d2s_ab_n_f2_0 cm_d2s_d2s_ab_n_f2_0/vabn sub cm_d2s_d2s_ab_p_f2_0/l2 cm_d2s_d2s_ab_p_f2_0/l1
++ cm_d2s_d2s_ab_n_f2_0/dabn cm_d2s_d2s_ab_p_f2_0/a cm_d2s_d2s_ab_p_f2_0/b en_3v3_b
++ cm_d2s_pwr_f2_0/iovss_o cm_d2s_d2s_ab_n_f2
+Xcm_d2s_d2s_rhigh_f2_0 cm_d2s_d2s_tails_c2_0/sa_A cm_d2s_d2s_tails_c2_0/sb_A cm_d2s_d2s_tails_c2_0/sa_B
++ cm_d2s_d2s_tails_c2_0/sb_B cm_d2s_d2s_tails_c2_0/sa_C1 cm_d2s_d2s_tails_c2_0/sa_C2
++ cm_d2s_d2s_tails_c2_0/sb_C2 sub cm_d2s_d2s_tails_c2_0/sb_C1 cm_d2s_d2s_rhigh_f2
+Xcm_d2s_sinks_6x6_f2_0 cm_d2s_sinks_6x6_f2_0/x cm_d2s_sinks_6x6_f2_0/vbn cm_d2s_sinks_6x6_f2_0/y
++ sub cm_d2s_sinks_6x6_f2
+Xcm_d2s_d2s_inputs_c2_0 vinn vref cm_d2s_d2s_inputs_c2_0/vfb vinp cm_d2s_sinks_6x6_f2_0/x
++ cm_d2s_sinks_6x6_f2_0/y cm_d2s_d2s_tails_c2_0/sb_B cm_d2s_d2s_tails_c2_0/sa_C1 cm_d2s_d2s_tails_c2_0/sa_C2
++ cm_d2s_d2s_tails_c2_0/sa_A cm_d2s_d2s_tails_c2_0/sb_C2 cm_d2s_d2s_tails_c2_0/sb_C1
++ cm_d2s_d2s_tails_c2_0/sa_B cm_d2s_d2s_tails_c2_0/sb_A cm_d2s_pwr_f2_0/iovdd_up cm_d2s_d2s_inputs_c2
+Xcm_d2s_d2s_casc_p_c2_0 cm_d2s_d2s_ab_p_f2_0/l2 cm_d2s_d2s_casc_p_c2_0/vbpc cm_d2s_d2s_casc_p_c2_0/a
++ cm_d2s_d2s_loads_c2_0/pr cm_d2s_d2s_loads_c2_0/pl cm_d2s_pwr_f2_0/iovdd_up cm_d2s_d2s_casc_p_c2
+Xcm_d2s_d2s_loads_c2_0 cm_d2s_d2s_loads_c2_0/pl cm_d2s_d2s_ab_p_f2_0/l2 cm_d2s_d2s_loads_c2_0/pr
++ cm_d2s_pwr_f2_0/iovdd_up cm_d2s_d2s_loads_c2
+Xcm_d2s_d2s_ab_p_f2_0 cm_d2s_d2s_ab_p_f2_0/vabp cm_d2s_pwr_f2_0/iovdd_up en_3v3 cm_d2s_d2s_ab_p_f2_0/l1
++ cm_d2s_d2s_ab_p_f2_0/l2 cm_d2s_d2s_ab_p_f2_0/dabp cm_d2s_d2s_ab_p_f2_0/b cm_d2s_d2s_ab_p_f2_0/a
++ cm_d2s_pwr_f2_0/iovdd_o cm_d2s_d2s_ab_p_f2
+Xcm_d2s_d2s_sp2k_f2_0 cm_d2s_d2s_sp2k_f2_0/pad cm_d2s_d2s_sp2k_f2_0/core sub cm_d2s_d2s_sp2k_f2_0/iovdd
++ cm_d2s_d2s_sp2k_f2
+.ends
+
+.subckt sg13cmos5l_IOPadDiff2Single pad vinp vinn iref en_3v3 vdd cm_d2s_TopLayersTo4_0/vss
++ en_3v3_b vref sub iovdd
+Xcm_d2s_DCPDiode_0 pad iovdd sub pad cm_d2s_DCPDiode
+Xcm_d2s_d2s_cma_0 cm_d2s_d2s_cma_0/a pad cm_d2s_d2s_block_0/cm_d2s_d2s_sp2k_f2_1/core
++ cm_d2s_d2s_cma
+Xcm_d2s_Clamp_N_M1_0 sub cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad pad cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b iovdd pad pad cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b pad pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad
++ pad pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ cm_d2s_Clamp_N_M1
+Xcm_d2s_Clamp_N_M1_1 sub cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad pad cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b iovdd pad pad cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b pad pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b
++ cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_replica_lines_0/dabn
++ pad pad pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b pad cm_d2s_replica_lines_0/dabn
++ cm_d2s_replica_lines_0/dabn cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b cm_d2s_d2s_cmb_0/b
++ pad cm_d2s_d2s_cmb_0/b cm_d2s_Clamp_N_M1
+Xcm_d2s_d2s_cmb_0 cm_d2s_d2s_cmb_0/b cm_d2s_d2s_block_0/cm_d2s_d2s_sp2k_f2_0/core
++ cm_d2s_d2s_cmb
+Xcm_d2s_Clamp_P_M1_0 iovdd sub cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a pad pad pad cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a pad pad iovdd cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a pad pad pad pad cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a cm_d2s_replica_lines_0/dabp pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a pad pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ pad pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_replica_lines_0/dabp cm_d2s_d2s_cma_0/a
++ pad pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a pad pad pad cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_d2s_cma_0/a cm_d2s_Clamp_P_M1
+Xcm_d2s_DCNDiode_0 pad sub iovdd pad cm_d2s_DCNDiode
+Xcm_d2s_d2s_block_0 vinp vinn vref iref en_3v3 en_3v3_b pad cm_d2s_d2s_block_0/cm_d2s_d2s_sp2k_f2_0/core
++ cm_d2s_replica_lines_0/dabn cm_d2s_d2s_block_0/cm_d2s_d2s_sp2k_f2_1/core cm_d2s_d2s_cma_0/a
++ cm_d2s_d2s_cmb_0/b cm_d2s_replica_lines_0/dabp pad pad sub iovdd iovdd sub cm_d2s_d2s_cma_0/a
++ iovdd iovdd cm_d2s_d2s_block
 .ends
 
 .subckt sg13cmos5l_IOPadTriOut16mA pad vdd iovdd iovss iovdd_uq0 c2p_en c2p sg13cmos5l_DCNDiode_0/guard
@@ -677,49 +1600,54 @@ Xsg13cmos5l_DCNDiode_0 vss vss sg13cmos5l_DCNDiode_0/guard vss sg13cmos5l_DCNDio
 .ends
 
 .subckt sg13cmos5l_padframe SDO SDI CSB SCK clk vddd gpio[0] gpio[1] gpio[2] gpio[3]
-+ gpio[4] gpio[5] gpio[6] gpio[7] s1_an[1] s2_an[0] s3_an[0] s5_an[1] s5_an[2] s6_an[1]
-+ s7_an[0] s9_an[1] s9_an[2] gpio[8] gpio[9] gpio[10] gpio[11] analog[1] s10_an[0]
-+ s11_an[0] s13_an[1] s14_an[0] s14_an[1] s15_an[0] s16_an[0] s17_an[1] s18_an[0]
-+ s18_an[1] SDO_out SDO_ena SDI_in CSB_in SCK_in clk_in gpio_0_in gpio_0_out gpio_0_oe
-+ gpio_1_in gpio_1_out gpio_1_oe gpio_2_in gpio_2_out gpio_2_oe gpio_3_in gpio_3_out
-+ gpio_3_oe gpio_4_in gpio_4_out gpio_4_oe gpio_5_in gpio_5_out gpio_5_oe gpio_6_in
-+ gpio_6_out gpio_6_oe gpio_7_in gpio_7_out gpio_7_oe gpio_8_in gpio_8_out gpio_8_oe
-+ gpio_9_in gpio_9_out gpio_9_oe gpio_10_in gpio_10_out gpio_10_oe gpio_11_in gpio_11_out
-+ gpio_11_oe analog_0_esd analog_1_esd analog_2_esd analog_3_esd s1_an_0_esd s1_an_1_esd
-+ s2_an_0_esd s2_an_1_esd s3_an_0_esd s3_an_1_esd s4_an_0_esd s5_an_0_esd s5_an_1_esd
-+ s5_an_2_esd s6_an_0_esd s6_an_1_esd s7_an_0_esd s7_an_1_esd s8_an_0_esd s9_an_0_esd
-+ s9_an_1_esd s9_an_2_esd s10_an_0_esd s10_an_1_esd s10_an_2_esd s11_an_0_esd s12_an_0_esd
-+ s12_an_1_esd s13_an_0_esd s13_an_1_esd s14_an_0_esd s14_an_1_esd s14_an_2_esd s15_an_0_esd
-+ s16_an_0_esd s16_an_1_esd s17_an_0_esd s17_an_1_esd s18_an_0_esd s18_an_1_esd mask_rev[0]
-+ mask_rev[1] mask_rev[2] mask_rev[3] mask_rev[4] mask_rev[5] mask_rev[6] mask_rev[7]
-+ mask_rev[8] mask_rev[9] mask_rev[10] mask_rev[11] mask_rev[12] mask_rev[13] mask_rev[14]
-+ mask_rev[15] mask_rev[16] mask_rev[17] mask_rev[18] mask_rev[19] mask_rev[20] mask_rev[21]
-+ mask_rev[22] mask_rev[23] mask_rev[24] mask_rev[25] mask_rev[26] mask_rev[27] mask_rev[28]
-+ mask_rev[29] mask_rev[30] mask_rev[31] vdd3v3 vdd1v2 vss3v3 s1_an[0] s2_an[1] s17_an[0]
-+ s16_an[1] s3_an[1] s4_an[0] s5_an[0] s14_an[2] s6_an[0] s13_an[0] s12_an[1] s7_an[1]
-+ s12_an[0] s8_an[0] s9_an[0] s10_an[2] s10_an[1] analog[0] analog[2] analog[3]
++ gpio[4] gpio[5] gpio[6] gpio[7] s1_an[1] s2_an[0] s3_an[0] s5_an[1] s5_an[2] s6_an[0]
++ s6_an[1] s7_an[0] s7_an[1] s9_an[1] s9_an[2] gpio[8] gpio[9] gpio[10] gpio[11] analog[1]
++ s10_an[0] s11_an[0] s13_an[0] s13_an[1] s14_an[0] s14_an[1] s15_an[0] s16_an[0]
++ s17_an[0] s17_an[1] s18_an[0] s18_an[1] SDO_out SDO_ena SDI_in CSB_in SCK_in clk_in
++ gpio_0_in gpio_0_out gpio_0_oe gpio_1_in gpio_1_out gpio_1_oe gpio_2_in gpio_2_out
++ gpio_2_oe gpio_3_in gpio_3_out gpio_3_oe gpio_4_in gpio_4_out gpio_4_oe gpio_5_in
++ gpio_5_out gpio_5_oe gpio_6_in gpio_6_out gpio_6_oe gpio_7_in gpio_7_out gpio_7_oe
++ gpio_8_in gpio_8_out gpio_8_oe gpio_9_in gpio_9_out gpio_9_oe gpio_10_in gpio_10_out
++ gpio_10_oe gpio_11_in gpio_11_out gpio_11_oe analog_0_esd analog_1_esd analog_2_esd
++ analog_3_esd s1_an_0_esd s1_an_1_esd s2_an_0_esd s2_an_1_esd s3_an_0_esd s3_an_1_esd
++ s4_an_0_esd s5_an_0_esd s5_an_1_esd s5_an_2_esd s6_an_0 s6_an_1 s7_an_0_vref s7_an_0_outp
++ s7_an_0_outn s7_an_0_vcm s7_an_0_en_3v3 s7_an_0_en_3v3_b s7_an_0_iref s7_an_1_vinp
++ s7_an_1_vinn s7_an_1_vref s7_an_1_iref s7_an_1_en_3v3_b s7_an_1_en_3v3 s8_an_0_esd
++ s10_an_0_esd s10_an_1_esd s10_an_2_esd s11_an_0_esd s12_an_0_esd s12_an_1_esd s13_an_0
++ s13_an_1 s14_an_0_esd s14_an_1_esd s14_an_2_esd s15_an_0_esd s16_an_0_esd s16_an_1_esd
++ s17_an_0 s17_an_1 s18_an_0_esd s18_an_1_esd mask_rev[0] mask_rev[1] mask_rev[2]
++ mask_rev[3] mask_rev[4] mask_rev[5] mask_rev[6] mask_rev[7] mask_rev[8] mask_rev[9]
++ mask_rev[10] mask_rev[11] mask_rev[12] mask_rev[13] mask_rev[14] mask_rev[15] mask_rev[16]
++ mask_rev[17] mask_rev[18] mask_rev[19] mask_rev[20] mask_rev[21] mask_rev[22] mask_rev[23]
++ mask_rev[24] mask_rev[25] mask_rev[26] mask_rev[27] mask_rev[28] mask_rev[29] mask_rev[30]
++ mask_rev[31] vdd3v3 vdd1v2 vss3v3 s1_an[0] s2_an[1] s16_an[1] s3_an[1] s4_an[0]
++ s5_an[0] s14_an[2] s12_an[1] s12_an[0] s8_an[0] s9_an[0] s10_an[2] s10_an[1] analog[0]
++ analog[2] analog[3]
 Xpad_s12_an_1 s12_an[1] s12_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_vss1v2_0 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadVss
 Xpad_gpio_3 gpio[3] gpio_3_in vddd vdd3v3 vss3v3 vdd3v3 gpio_3_oe gpio_3_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
-Xpad_s6_an_1 s6_an[1] s6_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s6_an_1 s6_an[1] s6_an_1 vdd1v2 vdd3v3 vss3v3 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadOut16mA
 Xpad_vdd3v3_0 vddd vdd3v3 vss3v3 vss3v3 sg13cmos5l_IOPadIOVdd
 Xpad_vdd3v3_1 vdd1v2 vdd3v3 vss3v3 vss3v3 sg13cmos5l_IOPadIOVdd
 Xpad_vss1v2_1 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadVss
 Xpad_gpio_4 gpio[4] gpio_4_in vddd vdd3v3 vss3v3 vdd3v3 gpio_4_oe gpio_4_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
 Xpad_s15_an_0 s15_an[0] s15_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s9_an_0 s9_an[0] s9_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s9_an_0 s9_an[0] pad_s9_an_0/padres vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3
++ sg13cmos5l_IOPadAnalog
 Xpad_vss1v2_2 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadVss
 Xpad_gpio_5 gpio[5] gpio_5_in vddd vdd3v3 vss3v3 vdd3v3 gpio_5_oe gpio_5_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
 Xpad_vdd3v3_2 vdd1v2 vdd3v3 vss3v3 vss3v3 sg13cmos5l_IOPadIOVdd
 Xpad_vdd3v3_3 vdd1v2 vdd3v3 vss3v3 vss3v3 sg13cmos5l_IOPadIOVdd
-Xpad_s9_an_1 s9_an[1] s9_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s9_an_1 s9_an[1] pad_s9_an_1/padres vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3
++ sg13cmos5l_IOPadAnalog
 Xpad_vss1v2_3 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadVss
 Xpad_gpio_6 gpio[6] gpio_6_in vddd vdd3v3 vss3v3 vdd3v3 gpio_6_oe gpio_6_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
-Xpad_s9_an_2 s9_an[2] s9_an_2_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s9_an_2 s9_an[2] pad_s9_an_2/padres vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3
++ sg13cmos5l_IOPadAnalog
 Xpad_gpio_7 gpio[7] gpio_7_in vddd vdd3v3 vss3v3 vdd3v3 gpio_7_oe gpio_7_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
 Xpad_vss1v2_4 vddd vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadVss
@@ -752,8 +1680,8 @@ Xpad_s14_an_0 s14_an[0] s14_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 s
 Xpad_s8_an_0 s8_an[0] s8_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_s14_an_1 s14_an[1] s14_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_s14_an_2 s14_an[2] s14_an_2_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s17_an_0 s17_an[0] s17_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s17_an_1 s17_an[1] s17_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s17_an_0 s17_an[0] s17_an_0 vdd1v2 vdd3v3 vss3v3 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadOut16mA
+Xpad_s17_an_1 s17_an[1] s17_an_1 vdd1v2 vdd3v3 vss3v3 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadOut16mA
 Xpad_s1_an_0 s1_an[0] s1_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_s1_an_1 s1_an[1] s1_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_s10_an_0 s10_an[0] s10_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
@@ -766,11 +1694,13 @@ Xpad_s10_an_2 s10_an[2] s10_an_2_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 s
 Xpad_gpio_11 gpio[11] gpio_11_in vdd1v2 vdd3v3 vss3v3 vdd3v3 gpio_11_oe gpio_11_out
 + vdd3v3 vss3v3 sg13cmos5l_IOPadInOut16mA
 Xpad_analog_0 analog[0] analog_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s13_an_0 s13_an[0] s13_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s7_an_0 s7_an[0] s7_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s13_an_0 s13_an[0] s13_an_0 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIn
+Xpad_s7_an_0 s7_an_0_vref s7_an_0_vcm s7_an_0_en_3v3_b s7_an[0] vss3v3 s7_an_0_outp
++ s7_an_0_outn s7_an_0_iref vdd1v2 vss3v3 s7_an_0_en_3v3 vdd3v3 sg13cmos5l_IOPadSingle2Diff
 Xpad_analog_1 analog[1] analog_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s13_an_1 s13_an[1] s13_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
-Xpad_s7_an_1 s7_an[1] s7_an_1_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s13_an_1 s13_an[1] s13_an_1 vdd1v2 vdd3v3 vss3v3 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadOut16mA
+Xpad_s7_an_1 s7_an[1] s7_an_1_vinp s7_an_1_vinn s7_an_1_iref s7_an_1_en_3v3 vdd1v2
++ vss3v3 s7_an_1_en_3v3_b s7_an_1_vref vss3v3 vdd3v3 sg13cmos5l_IOPadDiff2Single
 Xpad_SCK SCK SCK_in vddd vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIn
 Xpad_analog_2 analog[2] analog_2_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_CSB CSB CSB_in vddd vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIn
@@ -793,7 +1723,7 @@ Xpad_vss3v3_4 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIOVss
 Xpad_s12_an_0 s12_an[0] s12_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
 Xpad_gpio_2 gpio[2] gpio_2_in vddd vdd3v3 vss3v3 vdd3v3 gpio_2_oe gpio_2_out vdd3v3
 + vss3v3 sg13cmos5l_IOPadInOut16mA
-Xpad_s6_an_0 s6_an[0] s6_an_0_esd vdd1v2 vdd3v3 vss3v3 vdd3v3 vdd3v3 vss3v3 sg13cmos5l_IOPadAnalog
+Xpad_s6_an_0 s6_an[0] s6_an_0 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIn
 Xpad_vss3v3_5 vdd1v2 vss3v3 vdd3v3 vdd3v3 sg13cmos5l_IOPadIOVss
 .ends
 
