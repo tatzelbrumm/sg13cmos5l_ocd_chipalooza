@@ -508,3 +508,4 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 - Phase 4 images: docs/custom_pads/pad_ring_s7.png, slot7_area.png, zoom_s7_an_1_pins.png (`python3 docs/custom_pads/tools/render_png.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza <box> <png> <width>`).
 - Patch series: worktree from origin/main, `git cherry-pick 5e7d52f b03b3ba`, slot-7 inputs (config.txt, slot7_wrapper.v) as a third commit, `git format-patch origin/main -o docs/custom_pads/patches` (applies cleanly to main e0445b6); worktree removed.
 - chat log sha256 (file as committed): `e3196128aba1b4f586ce810b75f956c321d61b0278fcb571fcc0560e214b15d9`  docs/custom_pads/chatlog/2026-11-05_claude_custom_pad_harness_test.md
+- slot repo harness-test: docs/harness_test.md now points to harness commit 5b016e0 (slot repo commit c420259, pushed; the frozen slot GDS stays 4611357).
