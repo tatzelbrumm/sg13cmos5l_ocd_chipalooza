@@ -7,17 +7,50 @@ template="name=x1"
 V {}
 S {}
 E {}
-P 4 5 0 0 0 -400 200 -400 200 0 0 0 {}
-T {slot7_wrapper} 100.0 -418.0 0 0 0.3 0.3 {hcenter=true}
+P 4 5 0 0 0 -700 200 -700 200 0 0 0 {}
+T {slot7_wrapper} 100.0 -718.0 0 0 0.3 0.3 {hcenter=true}
 L 4 -20 -260 0 -260 {}
 T {vss_1v2} 5 -260.0 0 0 0.25 0.25 {vcenter=true}
 B 5 -22.5 -262.5 -17.5 -257.5 {name=vss_1v2 dir=inout}
-L 4 -20 -320 0 -320 {}
-T {s7_an[0:1]} 5 -320.0 0 0 0.25 0.25 {vcenter=true}
-B 5 -22.5 -322.5 -17.5 -317.5 {name=s7_an[0:1] dir=inout}
-L 4 -20 -340 0 -340 {}
-T {s7_an_0_esd} 5 -340.0 0 0 0.25 0.25 {vcenter=true}
-B 5 -22.5 -342.5 -17.5 -337.5 {name=s7_an_0_esd dir=inout}
+L 4 -20 -480 0 -480 {}
+T {s7_an_0_vref} 5 -480.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -482.5 -17.5 -477.5 {name=s7_an_0_vref dir=inout}
+L 4 -20 -440 0 -440 {}
+T {s7_an_0_outp} 5 -440.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -442.5 -17.5 -437.5 {name=s7_an_0_outp dir=inout}
+L 4 -20 -420 0 -420 {}
+T {s7_an_0_outn} 5 -420.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -422.5 -17.5 -417.5 {name=s7_an_0_outn dir=inout}
+L 4 -20 -460 0 -460 {}
+T {s7_an_0_vcm} 5 -460.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -462.5 -17.5 -457.5 {name=s7_an_0_vcm dir=inout}
+L 4 -20 -360 0 -360 {}
+T {s7_an_0_en_3v3} 5 -360.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -362.5 -17.5 -357.5 {name=s7_an_0_en_3v3 dir=inout}
+L 4 -20 -380 0 -380 {}
+T {s7_an_0_en_3v3_b} 5 -380.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -382.5 -17.5 -377.5 {name=s7_an_0_en_3v3_b dir=inout}
+L 4 -20 -400 0 -400 {}
+T {s7_an_0_iref} 5 -400.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -402.5 -17.5 -397.5 {name=s7_an_0_iref dir=inout}
+L 4 -20 -600 0 -600 {}
+T {s7_an_1_vinp} 5 -600.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -602.5 -17.5 -597.5 {name=s7_an_1_vinp dir=inout}
+L 4 -20 -580 0 -580 {}
+T {s7_an_1_vinn} 5 -580.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -582.5 -17.5 -577.5 {name=s7_an_1_vinn dir=inout}
+L 4 -20 -620 0 -620 {}
+T {s7_an_1_vref} 5 -620.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -622.5 -17.5 -617.5 {name=s7_an_1_vref dir=inout}
+L 4 -20 -560 0 -560 {}
+T {s7_an_1_iref} 5 -560.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -562.5 -17.5 -557.5 {name=s7_an_1_iref dir=inout}
+L 4 -20 -540 0 -540 {}
+T {s7_an_1_en_3v3_b} 5 -540.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -542.5 -17.5 -537.5 {name=s7_an_1_en_3v3_b dir=inout}
+L 4 -20 -520 0 -520 {}
+T {s7_an_1_en_3v3} 5 -520.0 0 0 0.25 0.25 {vcenter=true}
+B 5 -22.5 -522.5 -17.5 -517.5 {name=s7_an_1_en_3v3 dir=inout}
 L 4 -20 -140 0 -140 {}
 T {vbias} 5 -140.0 0 0 0.25 0.25 {vcenter=true}
 B 5 -22.5 -142.5 -17.5 -137.5 {name=vbias dir=inout}

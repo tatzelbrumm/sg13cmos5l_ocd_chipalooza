@@ -21,7 +21,8 @@
  * I/O cell than the default on a dedicated pin, only this file changes.
  *
  * The number of dedicated analog pins is fixed per slot by the padframe
- * and is taken from config.txt (the sN_an[] entries).  This slot has 2.
+ * and is taken from config.txt (the sN_an[] entries).  This slot has 2,
+ * both custom pads (see below).
  *
  * ANALOG PORTS ARE SCALAR "real", ONE PER LINE.  This looks verbose next
  * to a packed bus, and it is the only form that works:
@@ -72,8 +73,26 @@ module slot7_wrapper (
      * The names match the layout and the documented chip pinout,
      * which is also what LVS compares against.
      */
-    inout wire [1:0] s7_an,	// dedicated analog pad(s)
-    inout wire s7_an_0_esd,	// secondary ESD-protected pin
+    /* Custom pads (config.txt):  s7_an[0] = sg13cmos5l_IOPadSingle2Diff
+     * (core signal s7_an_0), s7_an[1] = sg13cmos5l_IOPadDiff2Single
+     * (core signal s7_an_1).  One port per core-side pad pin, named
+     * <core signal>_<pad pin> (scripts/parse_config.py CUSTOM_PADS).
+     * The pads themselves (s7_an[1:0]) are not core ports any more.
+     * Plain wires, for the same reason as the dedicated pads above.
+     */
+    inout wire s7_an_0_vref,	// S2D output common-mode reference
+    inout wire s7_an_0_outp,	// S2D differential output +
+    inout wire s7_an_0_outn,	// S2D differential output -
+    inout wire s7_an_0_vcm,	// S2D output common mode
+    inout wire s7_an_0_en_3v3,	// S2D enable (3.3 V)
+    inout wire s7_an_0_en_3v3_b,	// S2D enable complement (3.3 V)
+    inout wire s7_an_0_iref,	// S2D bias current (sourced)
+    inout wire s7_an_1_vinp,	// D2S differential input +
+    inout wire s7_an_1_vinn,	// D2S differential input -
+    inout wire s7_an_1_vref,	// D2S output reference
+    inout wire s7_an_1_iref,	// D2S bias current (sourced)
+    inout wire s7_an_1_en_3v3_b,	// D2S enable complement (3.3 V)
+    inout wire s7_an_1_en_3v3,	// D2S enable (3.3 V)
     input real ibias0,		// shared current bias 0
     input real ibias1,		// shared current bias 1
     input real vbias,		// shared voltage bias

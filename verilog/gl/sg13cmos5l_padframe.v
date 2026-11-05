@@ -40,8 +40,19 @@ module sg13cmos5l_padframe (
     inout wire s5_an_2_esd,
     output wire s6_an_0
     input wire s6_an_1,
-    inout wire s7_an_0_esd,
-    inout wire s7_an_1_esd,
+    inout wire s7_an_0_vref,
+    inout wire s7_an_0_outp,
+    inout wire s7_an_0_outn,
+    inout wire s7_an_0_vcm,
+    inout wire s7_an_0_en_3v3,
+    inout wire s7_an_0_en_3v3_b,
+    inout wire s7_an_0_iref,
+    inout wire s7_an_1_vinp,
+    inout wire s7_an_1_vinn,
+    inout wire s7_an_1_vref,
+    inout wire s7_an_1_iref,
+    inout wire s7_an_1_en_3v3_b,
+    inout wire s7_an_1_en_3v3,
     inout wire s8_an_0_esd,
     inout wire s9_an_0_esd,
     inout wire s9_an_1_esd,
@@ -105,8 +116,19 @@ module sg13cmos5l_padframe (
     inout wire s5_an_2_esd,
     output wire s6_an_0
     input wire s6_an_1,
-    inout wire s7_an_0_esd,
-    inout wire s7_an_1_esd,
+    inout wire s7_an_0_vref,
+    inout wire s7_an_0_outp,
+    inout wire s7_an_0_outn,
+    inout wire s7_an_0_vcm,
+    inout wire s7_an_0_en_3v3,
+    inout wire s7_an_0_en_3v3_b,
+    inout wire s7_an_0_iref,
+    inout wire s7_an_1_vinp,
+    inout wire s7_an_1_vinn,
+    inout wire s7_an_1_vref,
+    inout wire s7_an_1_iref,
+    inout wire s7_an_1_en_3v3_b,
+    inout wire s7_an_1_en_3v3,
     inout wire s8_an_0_esd,
     inout wire s9_an_0_esd,
     inout wire s9_an_1_esd,
@@ -562,7 +584,7 @@ module sg13cmos5l_padframe (
 	`endif	/* USE_POWER_PINS */
     );
 
-    sg13cmos5l_IOPadAnalog pad_s7_an_0 (
+    sg13cmos5l_IOPadSingle2Diff pad_s7_an_0 (
 	`ifdef USE_POWER_PINS
 	    .iovdd(vdd3v3),
 	    .iovss(vss3v3),
@@ -570,10 +592,16 @@ module sg13cmos5l_padframe (
 	    .vss(vss1v2),
 	`endif	/* USE_POWER_PINS */
 	.pad(s7_an[0]),
-	.padres(s7_an_0_esd)
+	.vref(s7_an_0_vref),
+	.outp(s7_an_0_outp),
+	.outn(s7_an_0_outn),
+	.vcm(s7_an_0_vcm),
+	.en_3v3(s7_an_0_en_3v3),
+	.en_3v3_b(s7_an_0_en_3v3_b),
+	.iref(s7_an_0_iref)
     );
 
-    sg13cmos5l_IOPadAnalog pad_s7_an_1 (
+    sg13cmos5l_IOPadDiff2Single pad_s7_an_1 (
 	`ifdef USE_POWER_PINS
 	    .iovdd(vdd3v3),
 	    .iovss(vss3v3),
@@ -581,7 +609,12 @@ module sg13cmos5l_padframe (
 	    .vss(vss1v2),
 	`endif	/* USE_POWER_PINS */
 	.pad(s7_an[1]),
-	.padres(s7_an_1_esd)
+	.vinp(s7_an_1_vinp),
+	.vinn(s7_an_1_vinn),
+	.vref(s7_an_1_vref),
+	.iref(s7_an_1_iref),
+	.en_3v3_b(s7_an_1_en_3v3_b),
+	.en_3v3(s7_an_1_en_3v3)
     );
 
     sg13cmos5l_IOPadAnalog pad_s8_an_0 (

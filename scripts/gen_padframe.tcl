@@ -21,6 +21,8 @@ units microns
 # Add the I/O library path (see setup.sh)
 addpath sg13cmos5l_io
 addpath paramcells
+# Custom (non-foundry) pad cells (see setup_custom_io.sh)
+addpath custom_io
 
 # Ensure that the padframe layout does not already exist.
 if {[file exists sg13cmos5l_padframe.mag]} {
@@ -200,6 +202,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
     port make
 }
 
+# Label procedures for custom pad cells (label_right_custom, label_left_custom)
+source ../scripts/custom_io.tcl
+
 # Add routed "constant_block" cells.  Given a cell instance name, the
 # constant block is set off to the side under the pad bus.
 
@@ -359,9 +364,9 @@ place_pad_right	 pad_s6_an_1	sg13cmos5l_IOPadOut16mA	 	 pad_31
 place_spacers_right 30
 place_pad_right	 pad_vss1v2_1	sg13cmos5l_IOPadVss 	 pad_32
 place_spacers_right 31
-place_pad_right	 pad_s7_an_0 	sg13cmos5l_IOPadAnalog	 	 pad_33
+place_pad_right	 pad_s7_an_0 	sg13cmos5l_IOPadSingle2Diff	 	 pad_33
 place_spacers_right 32
-place_pad_right	 pad_s7_an_1	sg13cmos5l_IOPadAnalog	 	 pad_34
+place_pad_right	 pad_s7_an_1	sg13cmos5l_IOPadDiff2Single	 	 pad_34
 place_spacers_right 33
 place_pad_right	 pad_s8_an_0	sg13cmos5l_IOPadAnalog	 	 pad_35
 place_spacers_right 34
@@ -627,10 +632,19 @@ label_right_signal pad_s5_an_2  padres    s5_an_2_esd
 label_right_analog pad_s5_an_2  pad s5_an\[2\]
 label_right_signal pad_s6_an_0  p2c    s6_an_0
 label_right_signal pad_s6_an_1  c2p    s6_an_1
-label_right_signal pad_s7_an_0  padres    s7_an_0_esd
-label_right_analog pad_s7_an_0  pad s7_an\[0\]
-label_right_signal pad_s7_an_1  padres    s7_an_1_esd
-label_right_analog pad_s7_an_1  pad s7_an\[1\]
+label_right_custom pad_s7_an_0  vref    s7_an_0_vref
+label_right_custom pad_s7_an_0  outp    s7_an_0_outp
+label_right_custom pad_s7_an_0  outn    s7_an_0_outn
+label_right_custom pad_s7_an_0  vcm    s7_an_0_vcm
+label_right_custom pad_s7_an_0  en_3v3    s7_an_0_en_3v3
+label_right_custom pad_s7_an_0  en_3v3_b    s7_an_0_en_3v3_b
+label_right_custom pad_s7_an_0  iref    s7_an_0_iref
+label_right_custom pad_s7_an_1  vinp    s7_an_1_vinp
+label_right_custom pad_s7_an_1  vinn    s7_an_1_vinn
+label_right_custom pad_s7_an_1  vref    s7_an_1_vref
+label_right_custom pad_s7_an_1  iref    s7_an_1_iref
+label_right_custom pad_s7_an_1  en_3v3_b    s7_an_1_en_3v3_b
+label_right_custom pad_s7_an_1  en_3v3    s7_an_1_en_3v3
 label_right_signal pad_s8_an_0  padres    s8_an_0_esd
 label_right_analog pad_s8_an_0  pad s8_an\[0\]
 label_left_signal pad_s9_an_0  padres    s9_an_0_esd

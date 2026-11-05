@@ -63,6 +63,11 @@
 #	The default value of each user project pad type is an analog
 #	pad sg13cmos5l_IOPadAnalog.
 #
+#	In addition, the custom pad cells listed in CUSTOM_PADS in
+#	scripts/parse_config.py (views in magic/custom_io/) are valid
+#	pad types.  Each core-side pin <pin> of such a cell becomes the
+#	core signal <core signal name>_<pin>.
+#
 #    B. The "core signal name" is an arbitrary name for the core signal
 #	(root name) at each pin.
 #
@@ -153,8 +158,8 @@ s5_an[1]:	sg13cmos5l_IOPadAnalog		s5_an_1
 s5_an[2]:	sg13cmos5l_IOPadAnalog		s5_an_2
 s6_an[0]:	sg13cmos5l_IOPadIn		s6_an_0
 s6_an[1]:	sg13cmos5l_IOPadOut16mA		s6_an_1
-s7_an[0]:	sg13cmos5l_IOPadAnalog		s7_an_0
-s7_an[1]:	sg13cmos5l_IOPadAnalog		s7_an_1
+s7_an[0]:	sg13cmos5l_IOPadSingle2Diff	s7_an_0
+s7_an[1]:	sg13cmos5l_IOPadDiff2Single	s7_an_1
 s8_an[0]:	sg13cmos5l_IOPadAnalog		s8_an_0
 s9_an[0]:	sg13cmos5l_IOPadAnalog		s9_an_0
 s9_an[1]:	sg13cmos5l_IOPadAnalog		s9_an_1

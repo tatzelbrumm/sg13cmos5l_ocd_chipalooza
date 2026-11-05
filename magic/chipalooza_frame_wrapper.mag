@@ -1,7 +1,7 @@
 magic
 tech ihp-sg13cmos5l
 magscale 1 2
-timestamp 1793905114
+timestamp 1793906821
 << checkpaint >>
 rect 53800 53800 382200 602200
 << metal1 >>
@@ -275,22 +275,27 @@ rect 380000 501221 380058 506175
 rect 55942 500528 56000 500529
 rect 55800 500430 56200 500528
 rect 55942 500429 56000 500430
-rect 380000 485570 380058 485571
-rect 379800 485472 380200 485570
-rect 380000 485471 380058 485472
 rect 55942 479825 56000 484779
-rect 380000 479221 380058 484175
+rect 379780 483096 380060 483154
+rect 379780 482988 380060 483046
+rect 379780 482880 380060 482938
 rect 55942 478528 56000 478529
 rect 55800 478430 56200 478528
 rect 55942 478429 56000 478430
-rect 380000 463570 380058 463571
-rect 379800 463472 380200 463570
-rect 380000 463471 380058 463472
+rect 379780 475428 380060 475486
+rect 379780 475320 380060 475378
+rect 379780 475212 380060 475270
 rect 55942 457825 56000 462779
-rect 380000 457221 380058 462175
+rect 379780 462662 380060 462720
+rect 379780 461528 380060 461586
+rect 379780 459290 380060 459348
+rect 379780 457964 380060 458022
+rect 379780 456754 380060 456812
 rect 55942 456528 56000 456529
 rect 55800 456430 56200 456528
 rect 55942 456429 56000 456430
+rect 379780 455534 380060 455592
+rect 379780 453212 380060 453270
 rect 55942 416054 56000 416055
 rect 55800 415956 56200 416054
 rect 55942 415955 56000 415956
@@ -511,112 +516,134 @@ flabel metal3 379800 393946 380200 394044 0 FreeSans 480 0 0 0 s6_an_0
 port 119 nsew
 flabel metal3 379800 415609 380200 416391 0 FreeSans 480 0 0 0 s6_an_1
 port 120 nsew
-flabel metal3 379800 463472 380200 463570 0 FreeSans 480 0 0 0 s7_an_0_esd
+flabel metal3 379780 453212 379940 453270 0 FreeSans 480 0 0 0 s7_an_0_vref
 port 121 nsew
-flabel metal3 379800 485472 380200 485570 0 FreeSans 480 0 0 0 s7_an_1_esd
+flabel metal3 379780 455534 379940 455592 0 FreeSans 480 0 0 0 s7_an_0_outp
 port 122 nsew
-flabel metal3 379800 507472 380200 507570 0 FreeSans 480 0 0 0 s8_an_0_esd
+flabel metal3 379780 456754 379940 456812 0 FreeSans 480 0 0 0 s7_an_0_outn
 port 123 nsew
-flabel metal3 55800 588430 56200 588528 0 FreeSans 480 0 0 0 s10_an_0_esd
+flabel metal3 379780 457964 379940 458022 0 FreeSans 480 0 0 0 s7_an_0_vcm
+port 124 nsew
+flabel metal3 379780 459290 379940 459348 0 FreeSans 480 0 0 0 s7_an_0_en_3v3
+port 125 nsew
+flabel metal3 379780 461528 379940 461586 0 FreeSans 480 0 0 0 s7_an_0_en_3v3_b
+port 126 nsew
+flabel metal3 379780 462662 379940 462720 0 FreeSans 480 0 0 0 s7_an_0_iref
 port 127 nsew
-flabel metal3 55800 566430 56200 566528 0 FreeSans 480 0 0 0 s10_an_1_esd
+flabel metal3 379780 475212 379940 475270 0 FreeSans 480 0 0 0 s7_an_1_vinp
 port 128 nsew
-flabel metal3 55800 544430 56200 544528 0 FreeSans 480 0 0 0 s10_an_2_esd
+flabel metal3 379780 475320 379940 475378 0 FreeSans 480 0 0 0 s7_an_1_vinn
 port 129 nsew
-flabel metal3 55800 500430 56200 500528 0 FreeSans 480 0 0 0 s11_an_0_esd
+flabel metal3 379780 475428 379940 475486 0 FreeSans 480 0 0 0 s7_an_1_vref
 port 130 nsew
-flabel metal3 55800 478430 56200 478528 0 FreeSans 480 0 0 0 s12_an_0_esd
+flabel metal3 379780 482880 379940 482938 0 FreeSans 480 0 0 0 s7_an_1_iref
 port 131 nsew
-flabel metal3 55800 456430 56200 456528 0 FreeSans 480 0 0 0 s12_an_1_esd
+flabel metal3 379780 482988 379940 483046 0 FreeSans 480 0 0 0 s7_an_1_en_3v3_b
 port 132 nsew
-flabel metal3 55800 415956 56200 416054 0 FreeSans 480 0 0 0 s13_an_0
+flabel metal3 379780 483096 379940 483154 0 FreeSans 480 0 0 0 s7_an_1_en_3v3
 port 133 nsew
-flabel metal3 55800 393609 56200 394391 0 FreeSans 480 0 0 0 s13_an_1
+flabel metal3 379800 507472 380200 507570 0 FreeSans 480 0 0 0 s8_an_0_esd
 port 134 nsew
-flabel metal3 55800 368430 56200 368528 0 FreeSans 480 0 0 0 s14_an_0_esd
-port 135 nsew
-flabel metal3 55800 346430 56200 346528 0 FreeSans 480 0 0 0 s14_an_1_esd
-port 136 nsew
-flabel metal3 55800 324430 56200 324528 0 FreeSans 480 0 0 0 s14_an_2_esd
-port 137 nsew
-flabel metal3 55800 280430 56200 280528 0 FreeSans 480 0 0 0 s15_an_0_esd
+flabel metal3 55800 588430 56200 588528 0 FreeSans 480 0 0 0 s10_an_0_esd
 port 138 nsew
-flabel metal3 55800 258430 56200 258528 0 FreeSans 480 0 0 0 s16_an_0_esd
+flabel metal3 55800 566430 56200 566528 0 FreeSans 480 0 0 0 s10_an_1_esd
 port 139 nsew
-flabel metal3 55800 236430 56200 236528 0 FreeSans 480 0 0 0 s16_an_1_esd
+flabel metal3 55800 544430 56200 544528 0 FreeSans 480 0 0 0 s10_an_2_esd
 port 140 nsew
-flabel metal3 55800 195609 56200 196391 0 FreeSans 480 0 0 0 s17_an_0
+flabel metal3 55800 500430 56200 500528 0 FreeSans 480 0 0 0 s11_an_0_esd
 port 141 nsew
-flabel metal3 55800 173609 56200 174391 0 FreeSans 480 0 0 0 s17_an_1
+flabel metal3 55800 478430 56200 478528 0 FreeSans 480 0 0 0 s12_an_0_esd
 port 142 nsew
-flabel metal3 55800 148430 56200 148528 0 FreeSans 480 0 0 0 s18_an_0_esd
+flabel metal3 55800 456430 56200 456528 0 FreeSans 480 0 0 0 s12_an_1_esd
 port 143 nsew
-flabel metal3 55800 126430 56200 126528 0 FreeSans 480 0 0 0 s18_an_1_esd
+flabel metal3 55800 415956 56200 416054 0 FreeSans 480 0 0 0 s13_an_0
 port 144 nsew
-flabel metal2 378670 57010 378758 57410 0 FreeSans 480 90 0 0 mask_rev[0]
+flabel metal3 55800 393609 56200 394391 0 FreeSans 480 0 0 0 s13_an_1
 port 145 nsew
-flabel metal2 378462 57010 378550 57410 0 FreeSans 480 90 0 0 mask_rev[1]
+flabel metal3 55800 368430 56200 368528 0 FreeSans 480 0 0 0 s14_an_0_esd
 port 146 nsew
-flabel metal2 378254 57010 378342 57410 0 FreeSans 480 90 0 0 mask_rev[2]
+flabel metal3 55800 346430 56200 346528 0 FreeSans 480 0 0 0 s14_an_1_esd
 port 147 nsew
-flabel metal2 378046 57010 378134 57410 0 FreeSans 480 90 0 0 mask_rev[3]
+flabel metal3 55800 324430 56200 324528 0 FreeSans 480 0 0 0 s14_an_2_esd
 port 148 nsew
-flabel metal2 377838 57010 377926 57410 0 FreeSans 480 90 0 0 mask_rev[4]
+flabel metal3 55800 280430 56200 280528 0 FreeSans 480 0 0 0 s15_an_0_esd
 port 149 nsew
-flabel metal2 377630 57010 377718 57410 0 FreeSans 480 90 0 0 mask_rev[5]
+flabel metal3 55800 258430 56200 258528 0 FreeSans 480 0 0 0 s16_an_0_esd
 port 150 nsew
-flabel metal2 377422 57010 377510 57410 0 FreeSans 480 90 0 0 mask_rev[6]
+flabel metal3 55800 236430 56200 236528 0 FreeSans 480 0 0 0 s16_an_1_esd
 port 151 nsew
-flabel metal2 377214 57010 377302 57410 0 FreeSans 480 90 0 0 mask_rev[7]
+flabel metal3 55800 195609 56200 196391 0 FreeSans 480 0 0 0 s17_an_0
 port 152 nsew
-flabel metal2 377006 57010 377094 57410 0 FreeSans 480 90 0 0 mask_rev[8]
+flabel metal3 55800 173609 56200 174391 0 FreeSans 480 0 0 0 s17_an_1
 port 153 nsew
-flabel metal2 376798 57010 376886 57410 0 FreeSans 480 90 0 0 mask_rev[9]
+flabel metal3 55800 148430 56200 148528 0 FreeSans 480 0 0 0 s18_an_0_esd
 port 154 nsew
-flabel metal2 376590 57010 376678 57410 0 FreeSans 480 90 0 0 mask_rev[10]
+flabel metal3 55800 126430 56200 126528 0 FreeSans 480 0 0 0 s18_an_1_esd
 port 155 nsew
-flabel metal2 376382 57010 376470 57410 0 FreeSans 480 90 0 0 mask_rev[11]
+flabel metal2 378670 57010 378758 57410 0 FreeSans 480 90 0 0 mask_rev[0]
 port 156 nsew
-flabel metal2 376174 57010 376262 57410 0 FreeSans 480 90 0 0 mask_rev[12]
+flabel metal2 378462 57010 378550 57410 0 FreeSans 480 90 0 0 mask_rev[1]
 port 157 nsew
-flabel metal2 375724 57010 375812 57410 0 FreeSans 480 90 0 0 mask_rev[13]
+flabel metal2 378254 57010 378342 57410 0 FreeSans 480 90 0 0 mask_rev[2]
 port 158 nsew
-flabel metal2 375516 57010 375604 57410 0 FreeSans 480 90 0 0 mask_rev[14]
+flabel metal2 378046 57010 378134 57410 0 FreeSans 480 90 0 0 mask_rev[3]
 port 159 nsew
-flabel metal2 375308 57010 375396 57410 0 FreeSans 480 90 0 0 mask_rev[15]
+flabel metal2 377838 57010 377926 57410 0 FreeSans 480 90 0 0 mask_rev[4]
 port 160 nsew
-flabel metal2 375100 57010 375188 57410 0 FreeSans 480 90 0 0 mask_rev[16]
+flabel metal2 377630 57010 377718 57410 0 FreeSans 480 90 0 0 mask_rev[5]
 port 161 nsew
-flabel metal2 374892 57010 374980 57410 0 FreeSans 480 90 0 0 mask_rev[17]
+flabel metal2 377422 57010 377510 57410 0 FreeSans 480 90 0 0 mask_rev[6]
 port 162 nsew
-flabel metal2 374684 57010 374772 57410 0 FreeSans 480 90 0 0 mask_rev[18]
+flabel metal2 377214 57010 377302 57410 0 FreeSans 480 90 0 0 mask_rev[7]
 port 163 nsew
-flabel metal2 374476 57010 374564 57410 0 FreeSans 480 90 0 0 mask_rev[19]
+flabel metal2 377006 57010 377094 57410 0 FreeSans 480 90 0 0 mask_rev[8]
 port 164 nsew
-flabel metal2 374268 57010 374356 57410 0 FreeSans 480 90 0 0 mask_rev[20]
+flabel metal2 376798 57010 376886 57410 0 FreeSans 480 90 0 0 mask_rev[9]
 port 165 nsew
-flabel metal2 374060 57010 374148 57410 0 FreeSans 480 90 0 0 mask_rev[21]
+flabel metal2 376590 57010 376678 57410 0 FreeSans 480 90 0 0 mask_rev[10]
 port 166 nsew
-flabel metal2 373852 57010 373940 57410 0 FreeSans 480 90 0 0 mask_rev[22]
+flabel metal2 376382 57010 376470 57410 0 FreeSans 480 90 0 0 mask_rev[11]
 port 167 nsew
-flabel metal2 373644 57010 373732 57410 0 FreeSans 480 90 0 0 mask_rev[23]
+flabel metal2 376174 57010 376262 57410 0 FreeSans 480 90 0 0 mask_rev[12]
 port 168 nsew
-flabel metal2 373436 57010 373524 57410 0 FreeSans 480 90 0 0 mask_rev[24]
+flabel metal2 375724 57010 375812 57410 0 FreeSans 480 90 0 0 mask_rev[13]
 port 169 nsew
-flabel metal2 373228 57010 373316 57410 0 FreeSans 480 90 0 0 mask_rev[25]
+flabel metal2 375516 57010 375604 57410 0 FreeSans 480 90 0 0 mask_rev[14]
 port 170 nsew
-flabel metal2 373020 57010 373108 57410 0 FreeSans 480 90 0 0 mask_rev[26]
+flabel metal2 375308 57010 375396 57410 0 FreeSans 480 90 0 0 mask_rev[15]
 port 171 nsew
-flabel metal2 372812 57010 372900 57410 0 FreeSans 480 90 0 0 mask_rev[27]
+flabel metal2 375100 57010 375188 57410 0 FreeSans 480 90 0 0 mask_rev[16]
 port 172 nsew
-flabel metal2 372604 57010 372692 57410 0 FreeSans 480 90 0 0 mask_rev[28]
+flabel metal2 374892 57010 374980 57410 0 FreeSans 480 90 0 0 mask_rev[17]
 port 173 nsew
-flabel metal2 372396 57010 372484 57410 0 FreeSans 480 90 0 0 mask_rev[29]
+flabel metal2 374684 57010 374772 57410 0 FreeSans 480 90 0 0 mask_rev[18]
 port 174 nsew
-flabel metal2 372188 57010 372276 57410 0 FreeSans 480 90 0 0 mask_rev[30]
+flabel metal2 374476 57010 374564 57410 0 FreeSans 480 90 0 0 mask_rev[19]
 port 175 nsew
-flabel metal2 371980 57010 372068 57410 0 FreeSans 480 90 0 0 mask_rev[31]
+flabel metal2 374268 57010 374356 57410 0 FreeSans 480 90 0 0 mask_rev[20]
 port 176 nsew
+flabel metal2 374060 57010 374148 57410 0 FreeSans 480 90 0 0 mask_rev[21]
+port 177 nsew
+flabel metal2 373852 57010 373940 57410 0 FreeSans 480 90 0 0 mask_rev[22]
+port 178 nsew
+flabel metal2 373644 57010 373732 57410 0 FreeSans 480 90 0 0 mask_rev[23]
+port 179 nsew
+flabel metal2 373436 57010 373524 57410 0 FreeSans 480 90 0 0 mask_rev[24]
+port 180 nsew
+flabel metal2 373228 57010 373316 57410 0 FreeSans 480 90 0 0 mask_rev[25]
+port 181 nsew
+flabel metal2 373020 57010 373108 57410 0 FreeSans 480 90 0 0 mask_rev[26]
+port 182 nsew
+flabel metal2 372812 57010 372900 57410 0 FreeSans 480 90 0 0 mask_rev[27]
+port 183 nsew
+flabel metal2 372604 57010 372692 57410 0 FreeSans 480 90 0 0 mask_rev[28]
+port 184 nsew
+flabel metal2 372396 57010 372484 57410 0 FreeSans 480 90 0 0 mask_rev[29]
+port 185 nsew
+flabel metal2 372188 57010 372276 57410 0 FreeSans 480 90 0 0 mask_rev[30]
+port 186 nsew
+flabel metal2 371980 57010 372068 57410 0 FreeSans 480 90 0 0 mask_rev[31]
+port 187 nsew
 flabel metal5 167600 55800 180400 56600 0 FreeSans 6400 0 0 0 vddd
 port 6 nsew
 flabel metal5 189600 55800 202400 56600 0 FreeSans 6400 0 0 0 vddd
