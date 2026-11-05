@@ -16,3 +16,7 @@ export was stopped, see note above. The user can export the visible conversation
 **Note (2026-11-05, end of Phases 1-3 and during Phase 4):** the export was not attempted again (the stop from
 Phase 0 stands; it is not worked around). The gap above covers the whole session. The run log
 (`docs/custom_pads/RUNLOG.md`) records every command, and the commit messages record each phase.
+
+**Note (2026-11-05, end of Phase 4):** unchanged: no conversation text in this file (stop recorded above, not
+worked around). The user's mid-session messages concerned GitHub access, the SRAM macro, scope (focus on slot 7,
+not the full chip) and cost; their effect on the work is recorded in RUNLOG.md and FINDINGS.md.

@@ -487,3 +487,24 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 - logs: `logs/62_make_gds-prefill.out`, `logs/62_make_gds-prefill.err`
 - changed (57): netlist/layout/sg13cmos5l_padframe.spice (7 min 7 s). (58): validate/comp_sg13cmos5l_padframe.out. Result "Top level cell failed pin matching" (as in main's committed comp file); devices 500/499, nets 313/310; the mismatches are 2 x sg13cmos5l_ocd_Split200 present only in the verilog and the RC clamp nets of the supply pads (not slot 7). All 15 slot-7 pins (s7_an[0], s7_an[1] and the 13 core pins) match. Both custom pads: devices and nets match (S2D 37 nets; D2S 76 devices, 36 nets), "Netlists match with 7 symmetries with property errors"; property errors are only "mm_ok" (xschem parameter, 234 times); pin mismatch only iovss/vss (layout "sub" vs schematic iovss + separate vss): the known, accepted vss issue.
 - changed (62): gds/sg13cmos5l_ocd_chipalooza.gds.gz (14.2 MB, gitignored), 5 min 9 s.
+
+### 65 make_drc
+- start 2026-11-05T19:56:38Z, end 2026-11-05T20:12:17Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `make drc`
+- exit status: 0
+- logs: `logs/65_make_drc.out`, `logs/65_make_drc.err`
+- 65 `make drc` (full chip, pre-fill, deck flags of validate/run_klayout_drc.sh: deep, thr=16, conn_drc, wedge): rules finished after 813.66 s ("completed in 813.66 seconds"), then klayout was KILLED for lack of memory while the 1.42 GB report was written (the memory peak also coincided with my first attempt to parse the report). The script still printed "Done!" and the make target exited 0. The truncated report was deleted (unreadable XML). Not repeated: per the user, the full-chip check gives little insight for the slot-7 task; instead the same deck runs on a clip of the pre-fill GDS around slot 7 and its pads (68).
+- 67: parsing the truncated report failed ("XML parser error: no element found"); log kept.
+
+### 68 drc_s7_prefill_clip
+- start 2026-11-05T20:13:33Z, end 2026-11-05T20:14:17Z
+- cwd: `/home/user/sg13cmos5l_ocd_chipalooza`
+- command: `klayout -b -zz -r /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc -rd input=/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc_s7/s7_prefill_clip.gds -rd report=/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc_s7/s7_prefill_clip.lyrdb -rd feol=True -rd beol=True -rd run_mode=deep -rd thr=4 -rd topcell=s7_prefill_clip`
+- exit status: 0
+- logs: `logs/68_drc_s7_prefill_clip.out`, `logs/68_drc_s7_prefill_clip.err`
+- 68 (cwd harness): KLayout clip of the pre-fill GDS x 1374.95..2196.1, y 2165.05..2483.05 um (python, scratchpad), then `klayout -b -zz -r /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc -rd input=<clip> -rd report=<clip>.lyrdb -rd feol=True -rd beol=True -rd run_mode=deep -rd thr=4 -rd topcell=s7_prefill_clip`, 38.8 s, exit 0. 69: 228793 items, almost all clip artifacts (Seal.l 226520 from the cut seal ring, via/contact width at the cut edge). 70: `lyrdb_interior.py` with the box 1377..2170 x 2167..2481: 134 items entirely inside, all Seal.l on padframe top-level paint (artifact, see FINDINGS) or recommended Pad.fR_* at the bond pads; none inside slot 7.
+- `make fill`, `make gds-final` not run (user: the full-chip steps give little insight for the slot-7 integration test).
+- Phase 4 images: docs/custom_pads/pad_ring_s7.png, slot7_area.png, zoom_s7_an_1_pins.png (`python3 docs/custom_pads/tools/render_png.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza <box> <png> <width>`).
+- Patch series: worktree from origin/main, `git cherry-pick 5e7d52f b03b3ba`, slot-7 inputs (config.txt, slot7_wrapper.v) as a third commit, `git format-patch origin/main -o docs/custom_pads/patches` (applies cleanly to main e0445b6); worktree removed.
+- chat log sha256 (file as committed): `e3196128aba1b4f586ce810b75f956c321d61b0278fcb571fcc0560e214b15d9`  docs/custom_pads/chatlog/2026-11-05_claude_custom_pad_harness_test.md

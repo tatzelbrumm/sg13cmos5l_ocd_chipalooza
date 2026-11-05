@@ -1,0 +1,21 @@
+items entirely inside (1377,2167;2170,2481): 134 in 5 rules
+  Seal.l           86  6.10. Seal.l : No structures outside sealring boundary allowed
+      at (1900.05,2266.1;1900.25,2266.3)
+      at (1900.05,2277.71;1900.25,2277.91)
+      at (1900.05,2283.81;1900.25,2284.01)
+      at (1900.05,2289.86;1900.25,2290.06)
+  Pad.fR_M2        41  6.9. Pad.fR_M2 : Min. recommended M2 exit length is 7.0 um
+      at (2091.2,2220.62;2093.1,2222.63)
+      at (2091.2,2200.15;2093.1,2202.15)
+      at (2091.2,2175.77;2093.1,2181.68)
+      at (2091.2,2173.2;2093.1,2174.51)
+  Pad.fR_TM1        3  6.9. Pad.fR_TM1 : Min. recommended TM1 exit length is 7.0 um
+      at (2091.2,2393.2;2093.1,2459)
+      at (2091.2,2173.2;2093.1,2239)
+      at (2091.2,2283.2;2093.1,2349)
+  Pad.fR_M3         2  6.9. Pad.fR_M3 : Min. recommended M3 exit length is 7.0 um
+      at (2075.1,2377.1;2077,2442.9)
+      at (2075.1,2267.1;2077,2332.9)
+  Pad.fR_M4         2  6.9. Pad.fR_M4 : Min. recommended M4 exit length is 7.0 um
+      at (2075.1,2377.1;2077,2442.9)
+      at (2075.1,2267.1;2077,2332.9)

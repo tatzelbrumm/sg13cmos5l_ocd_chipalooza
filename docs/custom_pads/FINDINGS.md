@@ -18,7 +18,9 @@ slot GDS commit 4611357). Steps, times, exit codes: `RUNLOG.md`; logs: `logs/`. 
    slots and foundry pads: `make config` output identical outside slot 7; padframe/wrapper `.mag` identical except port
    index renumbering; 17 slot wrapper GDS identical in shapes and texts. DRC/LVS: see below.
 4. **Slot 7 in the flow (Q4):** `make projects SLOTS=7`, `projects-gds`, `user-id` exit 0, slot_7 placed at
-   1379.95/2170.05 = wrapper position; `make gds-prefill` exit 0 (5 min); `make drc`: DRCRESULT.
+   1379.95/2170.05 = wrapper position; `make gds-prefill` exit 0 (5 min); full-chip `make drc` ran all rules (814 s) but
+   klayout was killed for memory writing the 1.4 GB report (script still exit 0); not repeated (low value for this
+   task). Same deck on a pre-fill clip of slot 7 + pads: nothing inside slot 7; see below.
    Pads in the ring and slot in the wrapper: `pad_ring_s7.png`, `slot7_area.png`, `zoom_s7_an_1_pins.png`.
    Net by net, all 13 pad core pins reach their slot net and nothing else (table below).
 
@@ -125,7 +127,34 @@ No net reported FAILED. Labels allowed besides the pin and strap: the documented
 
 ## First distinct DRC / LVS messages
 
-DRCLVS
+DRC (PDK KLayout deck, feol+beol, deep):
+1. `Pad.fR_M2/M3/M4/TM1/M1: Min. recommended Mx exit length is 7.0 um` (recommended rule; every pad's bond pad edge;
+   padframe clip 116 vs 101 baseline, +15 from the custom pads' M2 fingers; pre-fill clip 41+3+2+2 interior items)
+2. `Seal.l: No structures outside sealring boundary allowed` (86, pre-fill clip only: artifact of the cut seal ring;
+   all on padframe top-level paint incl. main's vss1v2 strips; absent in the padframe clip)
+3. clip-edge artifacts only (`CntB.h1`, `Cnt.c`, `V1.a/c`, `V3.a/c`, `V2.a/c`, `TV1.*`, `M1.a`, `M2.a`, `M4.a`, `TM1.a`,
+   `pSD.c1`, `Gat.a`): none entirely inside the clip interior (`logs/70_drc_s7_prefill_interior.out`)
+4. slot_7.gds alone: 0 violations (333 rules).
+
+LVS (`make lvs-padframe`, magic + netgen; `validate/comp_sg13cmos5l_padframe.out`), first distinct messages (1-10 are all inside foundry I/O cells, same classes as on main):
+1. `Cell sg13cmos5l_DCPDiode (0) disconnected node: guard`
+2. `anode |anode_2 **Mismatch**`
+3. `Cell sg13cmos5l_Clamp_P20N0D (0) disconnected node: iovss`
+4. `sg13_hv_pmos (40->10) |sg13_hv_pmos (2->1) **Mismatch**`
+5. `Number of devices: 11 **Mismatch** |Number of devices: 2 **Mismatch**`
+6. `Number of nets: 12 **Mismatch** |Number of nets: 3 **Mismatch**`
+7. `Net: pad_uq5 |(no matching net)`
+8. `Instance: sg13_hv_pmos:1 |(no matching instance)`
+9. `Netlists do not match.`
+10. `Cell sg13cmos5l_DCNDiode (0) disconnected node: guard`
+
+Custom pads: devices and nets match (S2D 37 nets; D2S 76 devices, 36 nets), `Netlists match with 7 symmetries with
+property errors` (only `mm_ok`, 234x); pin mismatch only `sub`/`iovss` + `vss` (the known vss issue). Top level:
+`Final result: Top level cell failed pin matching` as on main; all 15 slot 7 pins match; the remaining mismatches are
+2 x `sg13cmos5l_ocd_Split200` (netlist only) and supply-pad RC clamp nets.
+
+Cost of the heavy steps here (4 cores, 15 GB): padframe extraction 7 min, gds-prefill 5 min, padframe-clip DRC
+3.5 min, full-chip DRC 14 min of rules then out of memory; everything else seconds.
 
 ## What blocks a real tape-out
 

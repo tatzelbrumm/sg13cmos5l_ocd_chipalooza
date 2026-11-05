@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/tools/lyrdb_region.py", line 7, in <module>
+    r = rdb.ReportDatabase(); r.load(sys.argv[1])
+                              ~~~~~~^^^^^^^^^^^^^
+RuntimeError: XML parser error: no element found in line 119448495, column 16 in ReportDatabase.load

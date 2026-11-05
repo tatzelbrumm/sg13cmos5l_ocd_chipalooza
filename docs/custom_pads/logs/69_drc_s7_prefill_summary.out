@@ -1,0 +1,25 @@
+/tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/drc_s7/s7_prefill_clip.lyrdb: 228793 violations in 24 rules
+  Seal.l                                   226520
+  CntB.h1                                  696
+  Cnt.c                                    351
+  V1.a                                     224
+  V1.c                                     224
+  Cnt.g2                                   207
+  V3.a                                     144
+  V3.c                                     144
+  Pad.fR_M2                                50
+  M2.a                                     33
+  TV1.c                                    32
+  TV1.d                                    32
+  V2.a                                     30
+  V2.c                                     30
+  pSD.c1                                   18
+  Pad.fR_M3                                12
+  Pad.fR_M4                                12
+  Pad.fR_TM1                               12
+  M1.a                                     10
+  Pad.fR_M1                                4
+  Gat.a                                    2
+  M4.a                                     2
+  TV1.a                                    2
+  TM1.a                                    2
