@@ -439,3 +439,27 @@ cd validate && ./run_klayout_drc.sh
 2026-11-05 19:57:53 +0000: Memory Usage (850664K) : Starting 5.9 GatPoly:filler
 2026-11-05 19:57:54 +0000: Memory Usage (874216K) : Tiling mode is enabled for GatPoly:filler table.
 2026-11-05 19:57:54 +0000: Memory Usage (874216K) : Executing rule GFil.d
+2026-11-05 19:59:20 +0000: Memory Usage (870116K) : Executing rule GFil.e
+2026-11-05 19:59:20 +0000: Memory Usage (874724K) : Executing rule GFil.i
+2026-11-05 19:59:20 +0000: Memory Usage (874724K) : deep mode is enabled after GatPoly:filler table.
+2026-11-05 19:59:20 +0000: Memory Usage (874724K) : Starting 5.10 pSD table
+2026-11-05 19:59:20 +0000: Memory Usage (874724K) : Executing rule pSD.c1
+2026-11-05 19:59:24 +0000: Memory Usage (932964K) : Starting 5.14. Cont table
+2026-11-05 19:59:24 +0000: Memory Usage (932964K) : Executing rule Cnt.a
+2026-11-05 19:59:45 +0000: Memory Usage (1471972K) : Executing rule Cnt.b
+2026-11-05 19:59:49 +0000: Memory Usage (1491940K) : Executing rule Cnt.c
+2026-11-05 20:00:02 +0000: Memory Usage (1415660K) : Executing rule Cnt.c.digibnd
+2026-11-05 20:00:06 +0000: Memory Usage (1420268K) : Executing rule Cnt.c.SRAM
+2026-11-05 20:00:06 +0000: Memory Usage (1420268K) : Executing rule Cnt.d
+2026-11-05 20:00:09 +0000: Memory Usage (1420268K) : Executing rule Cnt.e
+2026-11-05 20:00:10 +0000: Memory Usage (1420268K) : Executing rule Cnt.g1
+2026-11-05 20:00:16 +0000: Memory Usage (1443936K) : Executing rule Cnt.g2
+2026-11-05 20:00:26 +0000: Memory Usage (1535712K) : Starting 5.15. ContBar table
+2026-11-05 20:00:26 +0000: Memory Usage (1535712K) : Executing rule CntB.b1
+2026-11-05 20:00:27 +0000: Memory Usage (1535712K) : Executing rule CntB.h1
+2026-11-05 20:00:27 +0000: Memory Usage (1535712K) : Starting 7.2 Latch-up table
+2026-11-05 20:00:27 +0000: Memory Usage (1535712K) : Executing rule LU.b
+2026-11-05 20:00:33 +0000: Memory Usage (1535712K) : Starting 5.16. Metal1 table
+2026-11-05 20:00:33 +0000: Memory Usage (1535712K) : Executing rule M1.a
+2026-11-05 20:00:35 +0000: Memory Usage (1535712K) : Executing rule M1.b
+2026-11-05 20:00:42 +0000: Memory Usage (1550944K) : Executing rule M1.e
