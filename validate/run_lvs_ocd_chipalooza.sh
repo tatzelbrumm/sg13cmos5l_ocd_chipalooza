@@ -17,6 +17,8 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
 
 # Issues in foundry I/O netlist require custom version.
 readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
+# Custom (non-foundry) I/O pad cells (magic/custom_io/)
+readnet spice ../netlist/schematic/custom_io.spice \$circuit2
 # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
 
 # housekeeping_top must be read before the user project since it is a

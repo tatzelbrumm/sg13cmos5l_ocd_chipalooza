@@ -85,6 +85,10 @@ clean-config:				## move config.txt-generated files to archive/
 padframe:				## generate magic/sg13cmos5l_padframe.mag
 	./scripts/run_gen_padframe.sh
 
+.PHONY: frame-custom-io
+frame-custom-io:			## drop stale pad-edge copies from chipalooza_frame (custom pads)
+	./scripts/run_update_frame_custom_io.sh
+
 .PHONY: user-id
 user-id:				## set the project ID in layout and verilog
 	./scripts/set_user_id.py

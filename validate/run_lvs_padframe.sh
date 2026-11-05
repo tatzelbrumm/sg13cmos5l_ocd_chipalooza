@@ -21,6 +21,8 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
 # the use of global "sub!")
 # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
 readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
+# Custom (non-foundry) I/O pad cells (magic/custom_io/)
+readnet spice ../netlist/schematic/custom_io.spice \$circuit2
 
 # Read verilog submodules
 readnet verilog ../verilog/gl/netlists_lvs.v \$circuit2

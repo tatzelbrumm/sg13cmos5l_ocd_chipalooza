@@ -89,6 +89,46 @@ with open(config_file, 'r') as ifile:
             padlist[slot_index, pin_index] = [pad_type, signal_name]
 
 #-----------------------------------------------------------------
+# Custom (non-foundry) pad cells.  One entry per cell:  the cell name
+# and its core-side signal pins, in order along the pad's core edge.
+# Each pin becomes one core signal "<signal_name>_<pin>" (one wrapper
+# port per pad pin;  nothing is merged).  The ring-side pin "pad" and
+# the rails (iovdd, iovss, vdd, vss) are connected like an analog pad's.
+# The cells live in magic/custom_io/ (scripts/setup_custom_io.sh);  the
+# pin lists are checked against the ports of the .mag views below.
+#-----------------------------------------------------------------
+
+CUSTOM_PADS = {
+    'sg13cmos5l_IOPadDiff2Single':
+        ['vinp', 'vinn', 'vref', 'iref', 'en_3v3_b', 'en_3v3'],
+    'sg13cmos5l_IOPadSingle2Diff':
+        ['vref', 'outp', 'outn', 'vcm', 'en_3v3', 'en_3v3_b', 'iref'],
+}
+CUSTOM_RING_PINS = {'pad', 'iovdd', 'iovss', 'vdd', 'vss'}
+
+def custom_pins_from_mag(cellname):
+    # Port names of the magic view, minus the ring-side pins
+    magfile = os.path.join(project_path, 'magic', 'custom_io', cellname + '.mag')
+    ports = set()
+    with open(magfile, 'r') as ifile:
+        last = None
+        for line in ifile.read().splitlines():
+            if line.startswith('rlabel') or line.startswith('flabel'):
+                last = line.split()[-1]
+            elif line.startswith('port ') and last:
+                ports.add(last)
+    return ports - CUSTOM_RING_PINS
+
+for pad_idx in padlist.keys():
+    pad_type = padlist[pad_idx][0]
+    if pad_type in CUSTOM_PADS:
+        magpins = custom_pins_from_mag(pad_type)
+        if magpins != set(CUSTOM_PADS[pad_type]):
+            print('Error:  CUSTOM_PADS entry for ' + pad_type + ' does not match the ports of')
+            print('        magic/custom_io/' + pad_type + '.mag: ' + ' '.join(sorted(magpins)))
+            sys.exit(1)
+
+#-----------------------------------------------------------------
 # Prepare the chipalooza_frame_wrapper.v netlist
 #-----------------------------------------------------------------
 
@@ -141,6 +181,12 @@ with open(wrapper_in_file, 'r') as ifile:
                     newline = spaces + 'input  ' + signal_name + '_one,'
                     wrapper_lines.append(newline)
                     newline = spaces + 'input  ' + signal_name + '_zero,'
+                elif pad_type in CUSTOM_PADS:
+                    # Custom pad:  one inout per core-side pad pin
+                    pins = CUSTOM_PADS[pad_type]
+                    for pin in pins[:-1]:
+                        wrapper_lines.append(spaces + 'inout  ' + signal_name + '_' + pin + ',')
+                    newline = spaces + 'inout  ' + signal_name + '_' + pins[-1] + ','
                 else:
                     print('Error:  Bad pad type ' + pad_type)
                     newline = line
@@ -203,6 +249,11 @@ with open(padframe_in_file, 'r') as ifile:
                     newline = spaces + '.c2p_en(' + signal_name + '_ena),'
                     padframe_lines.append(newline)
                     newline = spaces + '.p2c(' + signal_name + '_in)'
+                elif pad_type in CUSTOM_PADS:
+                    pins = CUSTOM_PADS[pad_type]
+                    for pin in pins[:-1]:
+                        padframe_lines.append(spaces + '.' + pin + '(' + signal_name + '_' + pin + '),')
+                    newline = spaces + '.' + pins[-1] + '(' + signal_name + '_' + pins[-1] + ')'
                 else:
                     print('Bad pad type ' + pad_type)
                     newline = line
@@ -238,6 +289,11 @@ with open(padframe_in_file, 'r') as ifile:
                     newline = spaces + 'output wire ' + signal_name + '_one,'
                     padframe_lines.append(newline)
                     newline = spaces + 'output wire ' + signal_name + '_zero,'
+                elif pad_type in CUSTOM_PADS:
+                    pins = CUSTOM_PADS[pad_type]
+                    for pin in pins[:-1]:
+                        padframe_lines.append(spaces + 'inout wire ' + signal_name + '_' + pin + ',')
+                    newline = spaces + 'inout wire ' + signal_name + '_' + pins[-1] + ','
                 else:
                     print('Bad pad type ' + pad_type)
                     newline = line
@@ -343,6 +399,18 @@ with open(tcl_in_file, 'r') as ifile:
                     newline = spaces + 'label_' + side + '_signal pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  c2p_en ' + signal_name + '_ena'
                     tcl_lines.append(newline)
                     newline = spaces + 'label_' + side + '_signal pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  p2c    ' + signal_name + '_in'
+
+                elif pad_type in CUSTOM_PADS:
+                    # One Via2 + Metal3 strap + port per core-side pad pin
+                    # (procs in scripts/custom_io.tcl)
+                    pins = CUSTOM_PADS[pad_type]
+                    for pin in pins[:-1]:
+                        tcl_lines.append(spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pin + '    ' + signal_name + '_' + pin)
+                    newline = spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pins[-1] + '    ' + signal_name + '_' + pins[-1]
+
+                else:
+                    print('Error:  Bad pad type ' + pad_type)
+                    newline = line
 
             tcl_lines.append(newline)
 
