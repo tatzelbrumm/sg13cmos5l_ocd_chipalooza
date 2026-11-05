@@ -76,7 +76,7 @@ project_id: 20260908
 # Project	URL
 #--------------------------------------------------------------------------------------
 s1_source:	https://github.com/rcyaon/bidir-level-shifter
-s2_source:	https://github.com/robertsaabwoo/ttsky-analog-equalizer
+s2_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot2_backup
 s3_source:	https://github.com/htfab/hsxo-cpz2
 s4_source:	https://github.com/phdridha12/sg13cmos5l_Wind_Comp
 s5_source:	https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
