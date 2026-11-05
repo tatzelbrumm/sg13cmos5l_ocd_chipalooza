@@ -1,0 +1,600 @@
+./scripts/run_gen_user_wrappers.sh
+Generating slot wrappers
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: cell <chipalooza_frame> from file chipalooza_frame.mag is not writeable
+Cell chipalooza_frame read from current working directory
+Cell analog_pswitch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_NN8LKN read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sw_lvl_shift> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sw_lvl_shift.mag is not writeable
+Cell sw_lvl_shift read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Y6ZD6N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_Y6Z86N> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y6Z86N.mag is not writeable
+Cell via_Y6Z86N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_QP3U7V> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_QP3U7V.mag is not writeable
+Cell via_QP3U7V read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_XRP95E> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_XRP95E.mag is not writeable
+Cell sg13_hv_pmos_XRP95E read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_2TUKLB> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_2TUKLB.mag is not writeable
+Cell sg13_hv_pmos_2TUKLB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_HSMMZS> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_HSMMZS.mag is not writeable
+Cell sg13_hv_nmos_HSMMZS read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_CJ33WB> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_CJ33WB.mag is not writeable
+Cell sg13_hv_nmos_CJ33WB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13cmos5l_inv_4> from file sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag is not writeable
+Cell sg13cmos5l_inv_4 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_decap_4> from file sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag is not writeable
+Cell sg13cmos5l_decap_4 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_antennanp> from file sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag is not writeable
+Cell sg13cmos5l_antennanp read from path sg13cmos5l_stdcell
+Warning: cell <sg13_hv_pmos_HVFXC8> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_HVFXC8.mag is not writeable
+Cell sg13_hv_pmos_HVFXC8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <analog_switch_small> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/analog_switch_small.mag is not writeable
+Cell analog_switch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <sg13_hv_nmos_U4HMWB> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_U4HMWB.mag is not writeable
+Cell sg13_hv_nmos_U4HMWB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <central_column> from file central_column.mag is not writeable
+Cell central_column read from current working directory
+Warning: cell <RM_IHPSG13_1P_1024x8_c2_bm_bist> from file ./sg13cmos5l_sram/RM_IHPSG13_1P_1024x8_c2_bm_bist.mag is not writeable
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_1024x8_c2_bm_bist geometry by factor of 2
+Warning: cell <sg13cmos5l_ocd_ip__biasgen2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_ocd_ip__biasgen2.mag is not writeable
+Cell sg13cmos5l_ocd_ip__biasgen2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <via_Y6HC2N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HC2N.mag is not writeable
+Cell via_Y6HC2N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_pstack> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_pstack.mag is not writeable
+Cell bias_pstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <via_Y6HG9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HG9Q.mag is not writeable
+Cell via_Y6HG9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HE6N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HE6N.mag is not writeable
+Cell via_Y6HE6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6H4DQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6H4DQ.mag is not writeable
+Cell via_Y6H4DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_KGSGVN> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_KGSGVN.mag is not writeable
+Cell sg13_hv_pmos_KGSGVN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_nstack> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_nstack.mag is not writeable
+Cell bias_nstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_nmos_2RYP69> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_2RYP69.mag is not writeable
+Cell sg13_hv_nmos_2RYP69 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_generator_fe_v2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_generator_fe_v2.mag is not writeable
+Cell bias_generator_fe_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <rhigh_GJN3VD> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/rhigh_GJN3VD.mag is not writeable
+Cell rhigh_GJN3VD read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <level_shift> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/level_shift.mag is not writeable
+Cell level_shift read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_pmos_ZPCZKC> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_ZPCZKC.mag is not writeable
+Cell sg13_hv_pmos_ZPCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_QBGVHE> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_QBGVHE.mag is not writeable
+Cell sg13_hv_nmos_QBGVHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_QHASHE> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_QHASHE.mag is not writeable
+Cell sg13_hv_nmos_QHASHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_DNCZKC> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_DNCZKC.mag is not writeable
+Cell sg13_hv_pmos_DNCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZS5N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZS5N.mag is not writeable
+Cell via_Y6ZS5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6Z2DQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6Z2DQ.mag is not writeable
+Cell via_Y6Z2DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HW5N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HW5N.mag is not writeable
+Cell via_Y6HW5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_amp_large> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_amp_large.mag is not writeable
+Cell bias_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_nmos_666RAL> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_666RAL.mag is not writeable
+Cell sg13_hv_nmos_666RAL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_7A8CUW> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_7A8CUW.mag is not writeable
+Cell sg13_hv_pmos_7A8CUW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_XVVFQX> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_XVVFQX.mag is not writeable
+Cell sg13_hv_nmos_XVVFQX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZY8N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZY8N.mag is not writeable
+Cell via_Y6ZY8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Z29PWH> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z29PWH.mag is not writeable
+Cell via_Z29PWH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Z29FXH> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z29FXH.mag is not writeable
+Cell via_Z29FXH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Z2RFBL> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z2RFBL.mag is not writeable
+Cell via_Z2RFBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZU9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZU9Q.mag is not writeable
+Cell via_Y6ZU9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y2RFW5> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y2RFW5.mag is not writeable
+Cell via_Y2RFW5 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13cmos5l_nor2_1> from file sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag is not writeable
+Cell sg13cmos5l_nor2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nand2_1> from file sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag is not writeable
+Cell sg13cmos5l_nand2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_inv_2> from file sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag is not writeable
+Cell sg13cmos5l_inv_2 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_fill_2> from file sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag is not writeable
+Cell sg13cmos5l_fill_2 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_2 geometry by factor of 2
+Warning: cell <rhigh_AFSZTU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/rhigh_AFSZTU.mag is not writeable
+Cell rhigh_AFSZTU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_UPRECB> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_UPRECB.mag is not writeable
+Cell capacitor_UPRECB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_pset> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_pset.mag is not writeable
+Cell bias_pset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <via_Y6ZX9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZX9Q.mag is not writeable
+Cell via_Y6ZX9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bias_pset2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_pset2.mag is not writeable
+Cell bias_pset2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <bias_nset> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_nset.mag is not writeable
+Cell bias_nset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <bias_generator_ben250nm> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_generator_ben250nm.mag is not writeable
+Cell bias_generator_ben250nm read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <bias_generator_ben1um> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_generator_ben1um.mag is not writeable
+Cell bias_generator_ben1um read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <bias_generator_be0p_v2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bias_generator_be0p_v2.mag is not writeable
+Cell bias_generator_be0p_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <sg13cmos5l_ocd_ip__por> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_ocd_ip__por.mag is not writeable
+Cell sg13cmos5l_ocd_ip__por read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <sg13cmos5l_buf_16> from file sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag is not writeable
+Cell sg13cmos5l_buf_16 read from path sg13cmos5l_stdcell
+Warning: cell <rhigh_MGZFWD> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/rhigh_MGZFWD.mag is not writeable
+Cell rhigh_MGZFWD read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Scaled magic input cell rhigh_MGZFWD geometry by factor of 2
+Warning: cell <por_stepdown> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/por_stepdown.mag is not writeable
+Cell por_stepdown read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Warning: cell <sg13_lv_pmos_JRRYKH> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_JRRYKH.mag is not writeable
+Cell sg13_lv_pmos_JRRYKH read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_pmos_4AKZGL> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_4AKZGL.mag is not writeable
+Cell sg13_lv_pmos_4AKZGL read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_VHRE9V> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_VHRE9V.mag is not writeable
+Cell sg13_lv_nmos_VHRE9V read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_5X2BDS> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_5X2BDS.mag is not writeable
+Cell sg13_lv_nmos_5X2BDS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <por_amp> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/por_amp.mag is not writeable
+Cell por_amp read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Warning: cell <sg13_lv_pmos_X27YSC> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_X27YSC.mag is not writeable
+Cell sg13_lv_pmos_X27YSC read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_AGXAPYY> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_AGXAPYY.mag is not writeable
+Cell sg13_lv_nmos_AGXAPYY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_AGXAPYX> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_AGXAPYX.mag is not writeable
+Cell sg13_lv_nmos_AGXAPYX read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <por_1v2_schmitt_inv> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/por_1v2_schmitt_inv.mag is not writeable
+Cell por_1v2_schmitt_inv read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Warning: cell <sg13_lv_pmos_RWAJH3> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_RWAJH3.mag is not writeable
+Cell sg13_lv_pmos_RWAJH3 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_pmos_KPMAU6> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_KPMAU6.mag is not writeable
+Cell sg13_lv_pmos_KPMAU6 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_pmos_KE4EUN> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_pmos_KE4EUN.mag is not writeable
+Cell sg13_lv_pmos_KE4EUN read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_LT8DKY> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_LT8DKY.mag is not writeable
+Cell sg13_lv_nmos_LT8DKY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13_lv_nmos_GT3QPP> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/sg13_lv_nmos_GT3QPP.mag is not writeable
+Cell sg13_lv_nmos_GT3QPP read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <dantenna_WMFCS7> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/dantenna_WMFCS7.mag is not writeable
+Cell dantenna_WMFCS7 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <cap_cmomf_T2STT2> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/cap_cmomf_T2STT2.mag is not writeable
+Cell cap_cmomf_T2STT2 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <cap_cmomf_MKAUQG> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/cap_cmomf_MKAUQG.mag is not writeable
+Cell cap_cmomf_MKAUQG read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <cap_cmomf_7YMNSS> from file ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives/cap_cmomf_7YMNSS.mag is not writeable
+Cell cap_cmomf_7YMNSS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Warning: cell <sg13cmos5l_ocd_ip__bandgap_v3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_ocd_ip__bandgap_v3.mag is not writeable
+Cell sg13cmos5l_ocd_ip__bandgap_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <se_folded_cascode_np_ab> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/se_folded_cascode_np_ab.mag is not writeable
+Cell se_folded_cascode_np_ab read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_pmos_QWE845> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_QWE845.mag is not writeable
+Cell sg13_hv_pmos_QWE845 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_2G82VR> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_2G82VR.mag is not writeable
+Cell sg13_hv_nmos_2G82VR read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NED9LU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NED9LU.mag is not writeable
+Cell sg13_hv_pmos_NED9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NQD9LU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NQD9LU.mag is not writeable
+Cell sg13_hv_pmos_NQD9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BENXUZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BENXUZ.mag is not writeable
+Cell sg13_hv_nmos_BENXUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BEHQUZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BEHQUZ.mag is not writeable
+Cell sg13_hv_nmos_BEHQUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NQUDLU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NQUDLU.mag is not writeable
+Cell sg13_hv_pmos_NQUDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_V3Q6DG> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_V3Q6DG.mag is not writeable
+Cell sg13_hv_pmos_V3Q6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BEZCVZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BEZCVZ.mag is not writeable
+Cell sg13_hv_nmos_BEZCVZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_T2KQE3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_T2KQE3.mag is not writeable
+Cell sg13_hv_nmos_T2KQE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_XAS6UC> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_XAS6UC.mag is not writeable
+Cell sg13_hv_nmos_XAS6UC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_TAZSE3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_TAZSE3.mag is not writeable
+Cell sg13_hv_nmos_TAZSE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_DFT6DG> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_DFT6DG.mag is not writeable
+Cell sg13_hv_pmos_DFT6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_ZK4LW2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_ZK4LW2.mag is not writeable
+Cell sg13_hv_pmos_ZK4LW2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZJCQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZJCQ.mag is not writeable
+Cell via_Y6ZJCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZA6N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZA6N.mag is not writeable
+Cell via_Y6ZA6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HNCQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HNCQ.mag is not writeable
+Cell via_Y6HNCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6H8HQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6H8HQ.mag is not writeable
+Cell via_Y6H8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_MLH6U9> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_MLH6U9.mag is not writeable
+Cell sg13_hv_pmos_MLH6U9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_FJG4RK> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_FJG4RK.mag is not writeable
+Cell sg13_hv_pmos_FJG4RK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_QMKJVU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_QMKJVU.mag is not writeable
+Cell sg13_hv_nmos_QMKJVU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_W9X9FK> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_W9X9FK.mag is not writeable
+Cell capacitor_W9X9FK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bandgap_unbuffered_v2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bandgap_unbuffered_v2.mag is not writeable
+Cell bandgap_unbuffered_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <bg_trim> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bg_trim.mag is not writeable
+Cell bg_trim read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_nmos_2UD3QN> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_2UD3QN.mag is not writeable
+Cell sg13_hv_nmos_2UD3QN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZQZM> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZQZM.mag is not writeable
+Cell via_Y6ZQZM read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <rppd_Y8MW75> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/rppd_Y8MW75.mag is not writeable
+Cell rppd_Y8MW75 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <bg_res> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/bg_res.mag is not writeable
+Cell bg_res read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <rhigh_SUDY2Y> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/rhigh_SUDY2Y.mag is not writeable
+Cell rhigh_SUDY2Y read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <pnpMPA_9DZCCL> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/pnpMPA_9DZCCL.mag is not writeable
+Cell pnpMPA_9DZCCL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_WYN5QB> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_WYN5QB.mag is not writeable
+Cell sg13_hv_pmos_WYN5QB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BEVMZW> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BEVMZW.mag is not writeable
+Cell sg13_hv_nmos_BEVMZW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NWA9LU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NWA9LU.mag is not writeable
+Cell sg13_hv_pmos_NWA9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <se_folded_cascode_p> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/se_folded_cascode_p.mag is not writeable
+Cell se_folded_cascode_p read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_pmos_H5F6DG> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_H5F6DG.mag is not writeable
+Cell sg13_hv_pmos_H5F6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BE9VUZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BE9VUZ.mag is not writeable
+Cell sg13_hv_nmos_BE9VUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BEMUUZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BEMUUZ.mag is not writeable
+Cell sg13_hv_nmos_BEMUUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_TGUME3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_TGUME3.mag is not writeable
+Cell sg13_hv_nmos_TGUME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_HLS6DG> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_HLS6DG.mag is not writeable
+Cell sg13_hv_pmos_HLS6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_TYJME3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_TYJME3.mag is not writeable
+Cell sg13_hv_nmos_TYJME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_XAAXMC> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_XAAXMC.mag is not writeable
+Cell sg13_hv_nmos_XAAXMC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_nmos_BEDTUZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_BEDTUZ.mag is not writeable
+Cell sg13_hv_nmos_BEDTUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NNMDLU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NNMDLU.mag is not writeable
+Cell sg13_hv_pmos_NNMDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_NWNELU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_NWNELU.mag is not writeable
+Cell sg13_hv_pmos_NWNELU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_N8UDLU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_N8UDLU.mag is not writeable
+Cell sg13_hv_pmos_N8UDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_ZKTCY2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_ZKTCY2.mag is not writeable
+Cell sg13_hv_pmos_ZKTCY2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6Z5DQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6Z5DQ.mag is not writeable
+Cell via_Y6Z5DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZXGQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZXGQ.mag is not writeable
+Cell via_Y6ZXGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZLGQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZLGQ.mag is not writeable
+Cell via_Y6ZLGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HY9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HY9Q.mag is not writeable
+Cell via_Y6HY9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HQ9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HQ9Q.mag is not writeable
+Cell via_Y6HQ9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HEAQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HEAQ.mag is not writeable
+Cell via_Y6HEAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_P4YBHP> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_P4YBHP.mag is not writeable
+Cell capacitor_P4YBHP read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_C4E5CZ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_C4E5CZ.mag is not writeable
+Cell capacitor_C4E5CZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_77YAAU> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_77YAAU.mag is not writeable
+Cell capacitor_77YAAU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_4HNWC9> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_4HNWC9.mag is not writeable
+Cell capacitor_4HNWC9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_UEBLR3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_UEBLR3.mag is not writeable
+Cell capacitor_UEBLR3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HEDQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HEDQ.mag is not writeable
+Cell via_Y6HEDQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13cmos5l_ocd_ip__classab_buffer> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_ocd_ip__classab_buffer.mag is not writeable
+Cell sg13cmos5l_ocd_ip__classab_buffer read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13cmos5l_ocd_ip__voltgen_v3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_ocd_ip__voltgen_v3.mag is not writeable
+Cell sg13cmos5l_ocd_ip__voltgen_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_fill_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <rhigh_NFPZ4T> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/rhigh_NFPZ4T.mag is not writeable
+Cell rhigh_NFPZ4T read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_QH8WBX> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_QH8WBX.mag is not writeable
+Cell sg13_hv_pmos_QH8WBX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <xgate> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/xgate.mag is not writeable
+Cell xgate read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_nmos_MRZNPN> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_MRZNPN.mag is not writeable
+Cell sg13_hv_nmos_MRZNPN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_XLVYT6> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_XLVYT6.mag is not writeable
+Cell sg13_hv_pmos_XLVYT6 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZG8N> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZG8N.mag is not writeable
+Cell via_Y6ZG8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <n_amp_large> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/n_amp_large.mag is not writeable
+Cell n_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13cmos5l_nand3_1> from file sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag is not writeable
+Cell sg13cmos5l_nand3_1 read from path sg13cmos5l_stdcell
+Warning: cell <via_Z29VKL> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z29VKL.mag is not writeable
+Cell via_Z29VKL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Z2RJBL> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z2RJBL.mag is not writeable
+Cell via_Z2RJBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Z2RF8J> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Z2RF8J.mag is not writeable
+Cell via_Z2RF8J read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZP9Q> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZP9Q.mag is not writeable
+Cell via_Y6ZP9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZJGQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZJGQ.mag is not writeable
+Cell via_Y6ZJGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6ZD6N_x2> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6ZD6N_x2.mag is not writeable
+Cell via_Y6ZD6N_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6Z8HQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6Z8HQ.mag is not writeable
+Cell via_Y6Z8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6HKGQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6HKGQ.mag is not writeable
+Cell via_Y6HKGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <via_Y6H5GQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/via_Y6H5GQ.mag is not writeable
+Cell via_Y6H5GQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <hv_inv_1> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/hv_inv_1.mag is not writeable
+Cell hv_inv_1 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning: cell <sg13_hv_nmos_83DLAQ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_nmos_83DLAQ.mag is not writeable
+Cell sg13_hv_nmos_83DLAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <sg13_hv_pmos_CVGX38> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/sg13_hv_pmos_CVGX38.mag is not writeable
+Cell sg13_hv_pmos_CVGX38 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_KK7B53> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_KK7B53.mag is not writeable
+Cell capacitor_KK7B53 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <cap_cmomf_H6HXXJ> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/cap_cmomf_H6HXXJ.mag is not writeable
+Cell cap_cmomf_H6HXXJ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <capacitor_BCZJG3> from file ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells/capacitor_BCZJG3.mag is not writeable
+Cell capacitor_BCZJG3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning: cell <housekeeping_top> from file housekeeping_top.mag is not writeable
+Cell housekeeping_top read from current working directory
+housekeeping_top: 10000 rects
+housekeeping_top: 20000 rects
+housekeeping_top: 30000 rects
+housekeeping_top: 40000 rects
+housekeeping_top: 50000 rects
+housekeeping_top: 60000 rects
+housekeeping_top: 70000 rects
+housekeeping_top: 80000 rects
+housekeeping_top: 90000 rects
+housekeeping_top: 100000 rects
+housekeeping_top: 110000 rects
+housekeeping_top: 120000 rects
+housekeeping_top: 130000 rects
+housekeeping_top: 140000 rects
+housekeeping_top: 150000 rects
+housekeeping_top: 160000 rects
+housekeeping_top: 170000 rects
+housekeeping_top: 180000 rects
+housekeeping_top: 190000 rects
+housekeeping_top: 200000 rects
+housekeeping_top: 210000 rects
+housekeeping_top: 220000 rects
+housekeeping_top: 230000 rects
+housekeeping_top: 240000 rects
+housekeeping_top: 250000 rects
+housekeeping_top: 260000 rects
+housekeeping_top: 270000 rects
+housekeeping_top: 280000 rects
+housekeeping_top: 290000 rects
+housekeeping_top: 300000 rects
+housekeeping_top: 310000 rects
+housekeeping_top: 320000 rects
+housekeeping_top: 330000 rects
+housekeeping_top: 340000 rects
+Warning: cell <sg13cmos5l_buf_4> from file sg13cmos5l_stdcell/sg13cmos5l_buf_4.mag is not writeable
+Cell sg13cmos5l_buf_4 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_buf_2> from file sg13cmos5l_stdcell/sg13cmos5l_buf_2.mag is not writeable
+Cell sg13cmos5l_buf_2 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_buf_8> from file sg13cmos5l_stdcell/sg13cmos5l_buf_8.mag is not writeable
+Cell sg13cmos5l_buf_8 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_mux2_1> from file sg13cmos5l_stdcell/sg13cmos5l_mux2_1.mag is not writeable
+Cell sg13cmos5l_mux2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_dlygate4sd3_1> from file sg13cmos5l_stdcell/sg13cmos5l_dlygate4sd3_1.mag is not writeable
+Cell sg13cmos5l_dlygate4sd3_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_decap_8> from file sg13cmos5l_stdcell/sg13cmos5l_decap_8.mag is not writeable
+Cell sg13cmos5l_decap_8 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_fill_1> from file sg13cmos5l_stdcell/sg13cmos5l_fill_1.mag is not writeable
+Cell sg13cmos5l_fill_1 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_1 geometry by factor of 2
+Warning: cell <sg13cmos5l_buf_1> from file sg13cmos5l_stdcell/sg13cmos5l_buf_1.mag is not writeable
+Cell sg13cmos5l_buf_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_inv_1> from file sg13cmos5l_stdcell/sg13cmos5l_inv_1.mag is not writeable
+Cell sg13cmos5l_inv_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_dfrbpq_1> from file sg13cmos5l_stdcell/sg13cmos5l_dfrbpq_1.mag is not writeable
+Cell sg13cmos5l_dfrbpq_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nor2b_1> from file sg13cmos5l_stdcell/sg13cmos5l_nor2b_1.mag is not writeable
+Cell sg13cmos5l_nor2b_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_o21ai_1> from file sg13cmos5l_stdcell/sg13cmos5l_o21ai_1.mag is not writeable
+Cell sg13cmos5l_o21ai_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_a21oi_1> from file sg13cmos5l_stdcell/sg13cmos5l_a21oi_1.mag is not writeable
+Cell sg13cmos5l_a21oi_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nor3_1> from file sg13cmos5l_stdcell/sg13cmos5l_nor3_1.mag is not writeable
+Cell sg13cmos5l_nor3_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_and2_1> from file sg13cmos5l_stdcell/sg13cmos5l_and2_1.mag is not writeable
+Cell sg13cmos5l_and2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nand2b_1> from file sg13cmos5l_stdcell/sg13cmos5l_nand2b_1.mag is not writeable
+Cell sg13cmos5l_nand2b_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_a21o_1> from file sg13cmos5l_stdcell/sg13cmos5l_a21o_1.mag is not writeable
+Cell sg13cmos5l_a21o_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_or2_1> from file sg13cmos5l_stdcell/sg13cmos5l_or2_1.mag is not writeable
+Cell sg13cmos5l_or2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_a22oi_1> from file sg13cmos5l_stdcell/sg13cmos5l_a22oi_1.mag is not writeable
+Cell sg13cmos5l_a22oi_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_a221oi_1> from file sg13cmos5l_stdcell/sg13cmos5l_a221oi_1.mag is not writeable
+Cell sg13cmos5l_a221oi_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nand4_1> from file sg13cmos5l_stdcell/sg13cmos5l_nand4_1.mag is not writeable
+Cell sg13cmos5l_nand4_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nor4_1> from file sg13cmos5l_stdcell/sg13cmos5l_nor4_1.mag is not writeable
+Cell sg13cmos5l_nor4_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_or4_1> from file sg13cmos5l_stdcell/sg13cmos5l_or4_1.mag is not writeable
+Cell sg13cmos5l_or4_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_or3_1> from file sg13cmos5l_stdcell/sg13cmos5l_or3_1.mag is not writeable
+Cell sg13cmos5l_or3_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_xnor2_1> from file sg13cmos5l_stdcell/sg13cmos5l_xnor2_1.mag is not writeable
+Cell sg13cmos5l_xnor2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_nand3b_1> from file sg13cmos5l_stdcell/sg13cmos5l_nand3b_1.mag is not writeable
+Cell sg13cmos5l_nand3b_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_and3_1> from file sg13cmos5l_stdcell/sg13cmos5l_and3_1.mag is not writeable
+Cell sg13cmos5l_and3_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_xor2_1> from file sg13cmos5l_stdcell/sg13cmos5l_xor2_1.mag is not writeable
+Cell sg13cmos5l_xor2_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_and4_1> from file sg13cmos5l_stdcell/sg13cmos5l_and4_1.mag is not writeable
+Cell sg13cmos5l_and4_1 read from path sg13cmos5l_stdcell
+Warning: cell <project_control_area> from file project_control_area.mag is not writeable
+Cell project_control_area read from current working directory
+Warning: cell <user_project_control> from file user_project_control.mag is not writeable
+Cell user_project_control read from current working directory
+Warning: cell <sg13cmos5l_dlhrq_1> from file sg13cmos5l_stdcell/sg13cmos5l_dlhrq_1.mag is not writeable
+Cell sg13cmos5l_dlhrq_1 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_lgcp_1> from file sg13cmos5l_stdcell/sg13cmos5l_lgcp_1.mag is not writeable
+Cell sg13cmos5l_lgcp_1 read from path sg13cmos5l_stdcell
+Warning: cell <power_stage2> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/power_stage2.mag is not writeable
+Cell power_stage2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <via_Z29SAL> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Z29SAL.mag is not writeable
+Cell via_Z29SAL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_Y6ZQ5N> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y6ZQ5N.mag is not writeable
+Cell via_Y6ZQ5N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_NZW5ZC> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_NZW5ZC.mag is not writeable
+Cell via_NZW5ZC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_B4YQGJ> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_B4YQGJ.mag is not writeable
+Cell via_B4YQGJ read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_AWBR46> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_AWBR46.mag is not writeable
+Cell via_AWBR46 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_4K6DRW> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_4K6DRW.mag is not writeable
+Cell via_4K6DRW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_ZN7EJW> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_ZN7EJW.mag is not writeable
+Cell sg13_hv_pmos_ZN7EJW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <gate_drive_large> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/gate_drive_large.mag is not writeable
+Cell gate_drive_large read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Warning: cell <via_Y6Z2DQ_x2> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y6Z2DQ_x2.mag is not writeable
+Cell via_Y6Z2DQ_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_Y6H96N> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y6H96N.mag is not writeable
+Cell via_Y6H96N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_Y2RFX7> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y2RFX7.mag is not writeable
+Cell via_Y2RFX7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_Y2RFW7> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Y2RFW7.mag is not writeable
+Cell via_Y2RFW7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_RQMCRC> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_RQMCRC.mag is not writeable
+Cell sg13_hv_pmos_RQMCRC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_FG6ZZW> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_FG6ZZW.mag is not writeable
+Cell sg13_hv_pmos_FG6ZZW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_XAVYYR> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_XAVYYR.mag is not writeable
+Cell sg13_hv_nmos_XAVYYR read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_3JX36Y> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_3JX36Y.mag is not writeable
+Cell sg13_hv_nmos_3JX36Y read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <power_stage1v2> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/power_stage1v2.mag is not writeable
+Cell power_stage1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Warning: cell <via_Z3LBH9> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Z3LBH9.mag is not writeable
+Cell via_Z3LBH9 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_QLR8H8> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_QLR8H8.mag is not writeable
+Cell via_QLR8H8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_lv_pmos_5MXUJM> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_lv_pmos_5MXUJM.mag is not writeable
+Cell sg13_lv_pmos_5MXUJM read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <gate_drive_1v2> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/gate_drive_1v2.mag is not writeable
+Cell gate_drive_1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_1 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <sg13cmos5l_inv_16> from file sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag is not writeable
+Cell sg13cmos5l_inv_16 read from path sg13cmos5l_stdcell
+Warning: cell <sg13cmos5l_inv_8> from file sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag is not writeable
+Cell sg13cmos5l_inv_8 read from path sg13cmos5l_stdcell
+Warning: cell <center_column_route> from file center_column_route.mag is not writeable
+Cell center_column_route read from current working directory
+Warning: cell <analog_switch_array> from file analog_switch_array.mag is not writeable
+Cell analog_switch_array read from current working directory
+Warning: cell <analog_switch_med> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/analog_switch_med.mag is not writeable
+Cell analog_switch_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning: cell <via_Z9R6XL> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_Z9R6XL.mag is not writeable
+Cell via_Z9R6XL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <via_QZBZRE> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/via_QZBZRE.mag is not writeable
+Cell via_QZBZRE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_pmos_3CJ4LL> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_3CJ4LL.mag is not writeable
+Cell sg13_hv_pmos_3CJ4LL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_9DTRBE> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_9DTRBE.mag is not writeable
+Cell sg13_hv_nmos_9DTRBE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <gate_drive_med> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/gate_drive_med.mag is not writeable
+Cell gate_drive_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Warning: cell <sg13_hv_pmos_G9ZGU3> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_pmos_G9ZGU3.mag is not writeable
+Cell sg13_hv_pmos_G9ZGU3 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <sg13_hv_nmos_VCL2HP> from file ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells/sg13_hv_nmos_VCL2HP.mag is not writeable
+Cell sg13_hv_nmos_VCL2HP read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning: cell <chipalooza_frame_wrapper> from file chipalooza_frame_wrapper.mag is not writeable
+Cell chipalooza_frame_wrapper read from current working directory
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: sw_lvl_shift, RM_IHPSG13_1P_1024x8_c2_bm_bist, bias_generator_fe_v2, via_Y6Z2DQ, por_stepdown, por_amp, via_Y6HE6N, level_shift, se_folded_cascode_p, se_folded_cascode_np_ab, sg13cmos5l_ocd_ip__classab_buffer, sg13cmos5l_nand3_1, sg13cmos5l_nor2_1, sg13cmos5l_nand2_1, sg13cmos5l_buf_16, sg13cmos5l_buf_2, sg13cmos5l_nor2b_1, sg13cmos5l_o21ai_1, sg13cmos5l_a21oi_1, sg13cmos5l_a21o_1, sg13cmos5l_or2_1, sg13cmos5l_a22oi_1, sg13cmos5l_a221oi_1, sg13cmos5l_nor4_1, sg13cmos5l_or3_1, sg13cmos5l_xnor2_1, sg13cmos5l_nand3b_1, sg13cmos5l_and3_1, sg13cmos5l_and4_1, sg13cmos5l_nand2b_1, sg13cmos5l_xor2_1, sg13cmos5l_nand4_1, sg13cmos5l_nor3_1, sg13cmos5l_and2_1, sg13cmos5l_or4_1, sg13cmos5l_mux2_1, sg13cmos5l_dfrbpq_1, sg13cmos5l_buf_1, sg13cmos5l_decap_8, sg13cmos5l_fill_2, sg13cmos5l_fill_1, sg13cmos5l_dlygate4sd3_1, sg13cmos5l_buf_4, sg13cmos5l_buf_8, sg13cmos5l_dlhrq_1, sg13cmos5l_lgcp_1, gate_drive_large, sg13cmos5l_inv_1, sg13cmos5l_inv_2, sg13cmos5l_inv_16, sg13cmos5l_inv_8, analog_pswitch_small, analog_switch_small, sg13cmos5l_antennanp, sg13cmos5l_decap_4, sg13cmos5l_inv_4, analog_switch_med, gate_drive_med, chipalooza_frame_wrapper.
+File for cell __SELECT__: [hit return to abort save] File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+File for cell __SELECT__: [hit return to abort save] Magic error: writing out-of-date timestamp for __SELECT__.
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell
+Creating new cell

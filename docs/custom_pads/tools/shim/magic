@@ -1,0 +1,21 @@
+#!/bin/bash
+# PATH shim for magic 8.3.685 (the version installed in the cloud test environment).
+#
+# Problem: in this magic build, "locking disable" makes every cell that is read
+# from disk afterwards read-only ("read-only" is printed, cellname writeable
+# returns 0).  Every harness script runs "locking disable" first, so e.g.
+# run_gen_user_wrappers.sh cannot delete the slot wrapper instances from
+# chipalooza_frame and writes 18 empty wrappers, and gen_padframe.tcl cannot
+# post-process chipalooza_frame_wrapper (obstructions, via erase).
+#
+# Workaround: turn "locking disable" into a no-op by redefining the Tcl command
+# before the script on stdin runs.  File locking stays enabled, which is harmless
+# for these single-process batch runs.  Nothing in the harness is changed.
+# Use:  export PATH=/home/user/sg13cmos5l_ocd_chipalooza/docs/custom_pads/tools/shim:$PATH
+REAL=/usr/local/bin/magic
+case " $* " in *" --version "*|*" -version "*) exec "$REAL" "$@" ;; esac
+{
+  echo 'rename locking _shim_orig_locking'
+  echo 'proc locking {args} { if {$args eq "disable"} { return } ; return [uplevel 1 _shim_orig_locking $args] }'
+  cat
+} | "$REAL" "$@"

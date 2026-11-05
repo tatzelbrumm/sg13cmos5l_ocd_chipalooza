@@ -1,0 +1,2 @@
+/home/user/sg13cmos5l_ocd_chipalooza/magic/slot6_wrapper.mag: port 119 has two names: s6_an_0_esd, s6_an_0
+make: *** [Makefile:98: symbols] Error 1

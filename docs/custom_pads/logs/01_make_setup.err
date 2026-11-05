@@ -1,0 +1,15 @@
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Cell sg13cmos5l_Gallery couldn't be read
+No such file or directory
+No label found with index 2.
+Error:  sg13cmos5l_IOPadIOVss port numbering failed.
+Couldn't find label minus
+Couldn't find label plus
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Cell CoreSite couldn't be read
+No such file or directory
+Cannot open /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds.gds, /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds.strm or /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds to read GDS-II stream input.
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist couldn't be read
+No such file or directory
+Cannot open input file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x8_c2_bm_bist.lef (No such file or directory).
+Error:  Can't read netlist file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_1024x8_c2_bm_bist.cdl
