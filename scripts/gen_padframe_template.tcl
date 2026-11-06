@@ -18,8 +18,10 @@ crashbackups stop
 locking disable
 units microns
 
-# Add the I/O library path (see setup.sh)
+# Add the I/O library path (see setup.sh), and the path to any custom
+# pads supplied by the slot designers (see setup_custom.sh)
 addpath sg13cmos5l_io
+addpath custom_io
 addpath paramcells
 # Custom (non-foundry) pad cells (see setup_custom_io.sh)
 addpath custom_io

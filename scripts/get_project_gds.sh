@@ -369,6 +369,7 @@ fi
     echo "# be done in conjunction with the noduplicates option, otherwise"
     echo "# name collision can still occur when reading the cells."
     echo "gds readonly true"
+    echo "gds drccheck off"
     echo "gds noduplicates true"
     echo ""
     for n in "${placed[@]}"; do

@@ -49,6 +49,7 @@ locking disable
 # Prepare for library import
 gds readonly true
 gds rescale false
+gds drccheck false
 cd sg13cmos5l_io
 gds read ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/gds/sg13cmos5l_io.gds
 load sg13cmos5l_Gallery
@@ -76,6 +77,7 @@ locking disable
 # Prepare for library import
 gds readonly true
 gds rescale false
+gds drccheck false
 cd sg13cmos5l_stdcell
 gds read ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
 load CoreSite
@@ -103,6 +105,7 @@ locking disable
 # Prepare for library import
 gds readonly true
 gds rescale false
+gds drccheck false
 cd sg13cmos5l_sram
 source ${PDK_ROOT}/${PDK}/libs.tech/magic/read_sram_gds.tcl
 gds read ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds

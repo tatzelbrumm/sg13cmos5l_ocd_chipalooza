@@ -67,6 +67,10 @@ check:					## report out-of-date derived views
 setup:					## import PDK cell views into magic/ libraries
 	./scripts/setup.sh
 
+.PHONY: setup-custom
+setup-custom:				## import custom pad views from slot projects into magic/custom_io
+	./scripts/setup_custom.sh
+
 # ---------------------------------------------------------------------
 # Configuration and generated views  (README 4-7)
 #
@@ -264,6 +268,41 @@ gds-final:				## assemble the post-fill final GDS  (14)
 	cd magic && ../scripts/run_gen_filled_final_gds.sh
 
 # ---------------------------------------------------------------------
+# Putting it all together
+#
+# Hint:  Do each step manually unless you know everything is in working
+# condition and will go smoothly.
+#
+# "make all" does the full custom build.  In the case where no non-default
+# pads are declared in config.txt, "make all-default" suffices, avoiding
+# the regeneration of the padframe and user wrapper layouts.
+# 
+
+.PHONY: all all-default
+all:
+	make setup
+	make projects
+	make setup-custom
+	make clean-config
+	make config
+	make padframe
+	make gds-slots
+	make user-id
+	make projects-gds
+	make gds-prefill
+	make fill
+	make gds-final
+	make drc-final
+
+all-default:
+	make setup
+	make projects
+	make user-id
+	make projects-gds
+	make gds-prefill
+	make fill
+	make gds-final
+	make drc-final
 
 .PHONY: clean
 clean: sim-clean			## remove simulation and LVS build products

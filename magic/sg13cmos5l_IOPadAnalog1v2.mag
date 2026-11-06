@@ -1,0 +1,13 @@
+NOTE:
+--------------------------------------
+This repository is a working area for development of custom pads for
+IHP SG13CMOS5L.
+
+Specifically, the first Chipalooza challenge identified the issue
+that some designs have 1.2V I/O signals, and for the purposes of a
+test chip, these signals need to be brought out to a padframe.  The
+existing analog pad has ESD diodes connected to the IOVDD 3.3V
+supply which then does not protect those signals from voltages
+high enough to destroy the circuit.  So a new analog pad needs to be
+designed which connects ESD p-side diodes to the VDD (1.2V) bus for
+both primary and secondary lines.
