@@ -586,3 +586,17 @@ enables, output currents to analog_bus0 / analog_bus1; design repo `claude/c5-sl
   IOVDD_OUT (power switch) + cores / xgates / tp_en_ctrl; vdd_1v2 -> DVDD_OUT + tp_en_ctrl; vss_1v2 -> control block
   ground; the 13 pad pins as in 64_netcheck_clip; unused pins carry no platform label and no short.
 - Not run: `make drc` (full chip; see 65 above), chip-level LVS.
+
+## Slot-7 test platform, stage B (branch claude/c5-testplatform-test, 2026-11-06T19:03Z..19:08Z)
+
+Slot 7 = delivery `claude/c5-testplatform` c0726799dcf90d068d7ffaf6ab0e6565e1941db3 (stage A + stage B: bias tree with
+OA / BG / ibias0 reference, bias-voltage mux onto analog_bus2, ibias1 onto analog_bus3). Stage-A state of this fork:
+branch `claude/slot7-stage-a` (9981b94). Logs: `logs/c5_testplatform_b/`. Environment as in the stage-A section.
+
+- (manual) config.txt `s7_version:	claude/c5-testplatform	c0726799dcf90d068d7ffaf6ab0e6565e1941db3`
+- 19:03:40Z `make projects-clean SLOTS=7`, `make projects SLOTS=7`, 19:03:41Z `make projects-gds SLOTS=7`, 19:03:53Z
+  `make gds-prefill` (3 min 30 s): all exit 0; dependencies/slot_7 = c0726799.
+- flattened XOR, slot_7 of the pre-fill GDS vs the delivered slot_7.gds, 32 layers: no difference (`b6_xor_prefill_slot7.log`)
+- `python3 docs/custom_pads/tools/netcheck_slot7_platform.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1100 2160 2100 2445 --stage b`:
+  exit 0, "RESULT all 49 used pins and 14 unused pins OK" (`b6_netcheck_prefill_stage_b.out`). New option `--stage b`:
+  dig_in[4..12] -> tp_en_ctrl_b en0_1v2 .. en8_1v2, ibias0 / ibias1 -> xgate in, analog_bus2 / 3 -> xgate out.
