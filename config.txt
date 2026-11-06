@@ -86,7 +86,7 @@ s3_source:	https://github.com/htfab/hsxo-cpz2
 s4_source:	https://github.com/phdridha12/sg13cmos5l_Wind_Comp
 s5_source:	https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
 s6_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__pll_rosc
-s7_source:	https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single
+s7_source:	https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
 s8_source:	https://github.com/adankvitschal/sg13g2_mh_ip__cmos_vref
 s9_source:	https://github.com/orpheus016/sg13cmos5l_spma_ip__instramp
 s10_source:	https://github.com/lhrodovalho/sg13cmos5l_rodovalho_ip__lpopamp
@@ -108,7 +108,7 @@ s3_version:	-		-
 s4_version:	-		-
 s5_version:	-		-
 s6_version:	-		-
-s7_version:	harness-test	4611357166b7368be4fbf8e176b1e82b8a9a85d0
+s7_version:	main		c5d50034d83d075ad8f719f4982167d4d3f15ba1
 s8_version:	-		-
 s9_version:	-		-
 s10_version:	-		-
