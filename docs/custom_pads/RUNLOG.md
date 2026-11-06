@@ -535,3 +535,8 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 - Recommendation given to the user: a separate delivery repository with only a main branch (slot_7.gds + pad deliverables); alternatively shallow submodules in get_projects.sh (Tim's decision, affects all slots).
 - chat log continued; sha256 `2111cc395a74affea0d589ee01260723c7a53f1d4de8b098946de51df7f8ea05`.
 - 2026-11-06T01:48Z: task file for the delivery-repository session written: slot repo, branch harness-test, docs/launch/slot7_delivery_repo_TASK.md (commit cf88683); the delivery repository name is a placeholder (DELIVERY_REPO) for the user to fill in.
+
+## Slot 7 source redirected to the delivery repository (2026-11-06T11:11Z, on the user's request)
+- Cause of a user's local fetch error ("upload-pack: not our ref 40ba9b0" in dependencies/slot_7): custom-pad-test took slot 7 from the design repository, delivery-test from tatzelbrumm/sg13cmos5l_cm_slot7, and a local clone has one submodule remote.
+- `git merge --ff-only origin/delivery-test` on custom-pad-test (fast-forward; only .gitmodules, config.txt s7_source / s7_version and the dependencies/slot_7 gitlink change): s7_source = https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7, s7_version = main 40ba9b030d0c3e321438600fea5ae0a13439799a. final/gds/slot_7.gds there is byte-identical to the one used before (design repo harness-test 4611357, sha256 5624ae45efb7761f...), so every result above stands. Earlier commits and links that name 4611357 remain valid as history.
+- Local clones: after pulling, `git submodule sync dependencies/slot_7` and `git submodule update --init dependencies/slot_7`.

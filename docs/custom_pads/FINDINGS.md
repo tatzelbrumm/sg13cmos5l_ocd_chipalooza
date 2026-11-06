@@ -4,6 +4,9 @@ Harness `tatzelbrumm/sg13cmos5l_ocd_chipalooza` branch `custom-pad-test` (from `
 `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single` branch `harness-test` (from `toplevel` 91a7da8,
 slot GDS commit 4611357). Steps, times, exit codes: `RUNLOG.md`; logs: `logs/`. 2026-11-05.
 
+**Update (2026-11-06):** slot 7 now comes from the delivery repository `tatzelbrumm/sg13cmos5l_cm_slot7` (`main`
+40ba9b0; same `slot_7.gds` bytes as before, plus the pad deliverables); see RUNLOG, last section.
+
 ## Answers
 
 1. **Import (Q1):** works. `scripts/setup_custom_io.sh` renames all sub-cells per pad (`cm_d2s_`, `cm_s2d_`) in a
