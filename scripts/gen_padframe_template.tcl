@@ -21,6 +21,8 @@ units microns
 # Add the I/O library path (see setup.sh)
 addpath sg13cmos5l_io
 addpath paramcells
+# Custom (non-foundry) pad cells (see setup_custom_io.sh)
+addpath custom_io
 
 # Ensure that the padframe layout does not already exist.
 if {[file exists sg13cmos5l_padframe.mag]} {
@@ -199,6 +201,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
     label $pin_text FreeSans 0.3 0 0 0 c m2
     port make
 }
+
+# Label procedures for custom pad cells (label_right_custom, label_left_custom)
+source ../scripts/custom_io.tcl
 
 # Add routed "constant_block" cells.  Given a cell instance name, the
 # constant block is set off to the side under the pad bus.
