@@ -39,4 +39,8 @@ addpath sg13cmos5l_stdcell
 addpath sg13cmos5l_io
 addpath sg13cmos5l_sram
 
+# Custom pads supplied by the slot designers (see setup_custom.sh)
+
+addpath custom_io
+
 # All local references should already be resolved.
