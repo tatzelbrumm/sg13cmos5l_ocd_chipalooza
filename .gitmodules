@@ -10,4 +10,4 @@
 [submodule "dependencies/slot_7"]
 	path = dependencies/slot_7
 	url = https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
-	branch = main
+	branch = claude/c5-testplatform

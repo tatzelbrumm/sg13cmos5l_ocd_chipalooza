@@ -553,3 +553,36 @@ Phase 1 result: trap a, the geometry outside x 0..80 um (layers 31/0 and 14/0) i
 2. 2026-11-05 ~23:18Z: after the user asked explicitly for a verbatim log ("with your inner workings elided"), the same kind of export was tried once more and went through. Since then the chat log holds the visible conversation; the gap from (1) is filled.
 3. Throughout: an environment rule forbids model identifiers in files pushed to a repository. The task file asked for the model name in the chat log's file name; `claude` is used instead, with a note at the top of the chat log.
 4. By design of the task file and of the environment, the exported log contains only user messages, the assistant's visible text and one line per tool call; the assistant's reasoning, system and harness text and tool outputs are left out. The export filter is described in the chat log's notes.
+
+## Slot-7 test platform (branch claude/c5-testplatform-test, 2026-11-06, cloud session)
+
+Task: design repo `harness-test:docs/launch/slot7_testplatform_TASK.md`. Branch `claude/c5-testplatform-test` from
+`custom-pad-test` 45831b8. Slot 7 = delivery repo `tatzelbrumm/sg13cmos5l_cm_slot7` branch `claude/c5-testplatform`
+f2c850111a33775bc1839ca1890e85c04c785c1c (the test platform for the two bias references: OA and BG cores, fail-safe
+enables, output currents to analog_bus0 / analog_bus1; design repo `claude/c5-slot7-testplatform`, records in its
+`docs/slot7_testplatform/`). Logs: `logs/c5_testplatform/`. Environment: `export PDK_ROOT=/foss/pdks PDK=ihp-sg13cmos5l`,
+`export PATH=$PWD/docs/custom_pads/tools/shim:$PATH` (magic 8.3.685).
+
+- 14:21:45Z `git submodule update --init dependencies/sg13cmos5l_ocd_ip__analog_switches dependencies/sg13cmos5l_ocd_ip__biasgen dependencies/sg13cmos5l_ocd_ip__por`: exit 0 (read-only clones; nothing pushed to RTimothyEdwards/*), `p4_01_submodules.log`
+- 14:21:48Z `make setup`: exit 0, `p4_02_make_setup.log`
+- 14:22:17Z `./scripts/setup_custom_io.sh`: exit 0, `p4_03_setup_custom_io.log` (rewrote magic/custom_io/*.mag with new
+  timestamps only, 106 files +-428 lines; restored with `git checkout -- magic/custom_io` after the flow)
+- (manual) config.txt: `s7_version:	claude/c5-testplatform	f2c850111a33775bc1839ca1890e85c04c785c1c`
+- 14:27:10Z `make projects-clean SLOTS=7`: exit 0 (`p4_make_projects-clean_SLOTS_7.log`)
+- 14:27:10Z `make projects SLOTS=7`: exit 0; dependencies/slot_7 = f2c8501 (`heads/claude/c5-testplatform`), .gitmodules branch = claude/c5-testplatform (`p4_make_projects_SLOTS_7.log`)
+- 14:27:12Z `make projects-gds SLOTS=7`: exit 0; slot_7 placed at 1379.95 2170.05; scripts/user_projects.tcl unchanged (`p4_make_projects-gds_SLOTS_7.log`)
+- 14:27:30Z `make gds-prefill`: exit 0, 3 min 36 s, gds/sg13cmos5l_ocd_chipalooza.gds.gz 14.3 MB (gitignored) (`p4_make_gds-prefill.log`).
+  The harness prefixes the slot's sub-cells once more (`W2_slot7_xgate`, `W2_slot7_oa_core_pd`, `W2_slot7_bg_core_pd`, `W2_slot7_tp_en_ctrl`).
+- 14:31Z flattened XOR, cell slot_7 of the pre-fill GDS vs dependencies/slot_7/final/gds/slot_7.gds, 32 layers: no difference (`p4_xor_prefill_slot7.log`)
+- 14:33:19Z `python3 docs/custom_pads/tools/netcheck_slot7_platform.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1100 2160 2100 2445`:
+  exit 0, "RESULT all 36 used pins and 27 unused pins OK" (`p4_netcheck_prefill.out`). New tool, adapted from
+  netcheck_slot7.py to the left-edge nets: + TopVia1 / TopMetal1, labels judged only inside slot 7's box (the harness
+  reuses dig_in[k], `out` ... on its side), one documented exception: the frame's Metal2 vss1v2 strip at the slot's right
+  edge is a separate piece of vss_1v2 inside the clip (as in every slot_7.gds so far). Earlier runs of the tool while
+  adapting it (clip 1340..2100 x 2160..2475: slot 8's vdd_1v2 in the clip; 1100..2100 x 2160..2445 before the
+  inside-the-slot rule: name collisions with the control block) are described in the design repo's RUNLOG.
+  Results per net: dig_in[3:0] -> harness proj_dig_in[k] buffer + tp_en_ctrl en<k>_1v2; enable -> proj_ena + tp_en_ctrl;
+  dig_out[11:0] -> proj_dig_out[k] + rb<k> / lo<k>; analog_bus0 / 1 -> harness bus switch + xgate out; vdd_3v3 ->
+  IOVDD_OUT (power switch) + cores / xgates / tp_en_ctrl; vdd_1v2 -> DVDD_OUT + tp_en_ctrl; vss_1v2 -> control block
+  ground; the 13 pad pins as in 64_netcheck_clip; unused pins carry no platform label and no short.
+- Not run: `make drc` (full chip; see 65 above), chip-level LVS.

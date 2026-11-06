@@ -1,0 +1,302 @@
+gds/sg13cmos5l_IOPadDiff2Single.uniq.gds: top sg13cmos5l_IOPadDiff2Single, 59 sub-cells renamed with prefix cm_d2s_
+gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds: top sg13cmos5l_IOPadSingle2Diff, 43 sub-cells renamed with prefix cm_s2d_
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "cm_d2s_pmosHV_w20_l1_ng2".
+Reading "cm_d2s_tub_p20x1_c2".
+Reading "cm_d2s_pmosHV_w5_l6".
+Reading "cm_d2s_pmosHV_w6_l4".
+Reading "cm_d2s_pmosHV_w1_l4".
+Reading "cm_d2s_pmosHV_w15_l3".
+Reading "cm_d2s_pmosHV_w6p66_l0p6".
+Reading "cm_d2s_pmosHV_w1_l0p45".
+Reading "cm_d2s_pmosHV_w2_l6".
+Reading "cm_d2s_nmosHV_7".
+Reading "cm_d2s_nmosHV_6".
+Reading "cm_d2s_nmosHV_5".
+Reading "cm_d2s_nmosHV_4".
+Reading "cm_d2s_rhigh".
+Reading "cm_d2s_pmosHV".
+Reading "cm_d2s_nmosHV_3".
+Reading "cm_d2s_nmosHV_2".
+Reading "cm_d2s_nmosHV_1".
+Reading "cm_d2s_nmosHV".
+Reading "cm_d2s_dpantenna".
+Reading "cm_d2s_dantenna".
+Reading "cm_d2s_rppd".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "cm_d2s_d2s_inputs_c2".
+Reading "cm_d2s_d2s_tails_c2".
+Reading "cm_d2s_d2s_loads_c2".
+Reading "cm_d2s_d2s_casc_p_c2".
+Reading "cm_d2s_bias_tree_p_f2".
+Reading "cm_d2s_d2s_ab_p_f2".
+Reading "cm_d2s_sinks_6x6_f2".
+Reading "cm_d2s_d2s_casc_n_f2".
+Reading "cm_d2s_d2s_rhigh_f2".
+Reading "cm_d2s_d2s_tgsw_f2".
+Reading "cm_d2s_bias_tree_n_f2".
+Reading "cm_d2s_d2s_ab_n_f2".
+Reading "cm_d2s_d2s_sp2k_f2".
+Reading "cm_d2s_pwr_f2".
+Reading "cm_d2s_edge_stubs".
+Reading "cm_d2s_nw_isolator".
+Reading "cm_d2s_guard_tie".
+Reading "cm_d2s_cm_rings".
+Reading "cm_d2s_DCPDiode".
+Reading "cm_d2s_DCNDiode".
+Reading "cm_d2s_Clamp_N_M1_wiring_1".
+Reading "cm_d2s_Clamp_N_M1_wiring".
+Reading "cm_d2s_Clamp_N_M1".
+Reading "cm_d2s_Clamp_P_M1_wiring".
+Reading "cm_d2s_Clamp_P_M1".
+Reading "cm_d2s_TopLayersTo4".
+Reading "cm_d2s_Metal3ViasUp".
+Reading "cm_d2s_contacts".
+Reading "cm_d2s_d2s_cma".
+Reading "cm_d2s_d2s_cmb".
+Reading "cm_d2s_m2_comb_n".
+Reading "cm_d2s_m2_comb_p".
+Reading "cm_d2s_m2_junction".
+Reading "cm_d2s_replica_lines".
+Reading "cm_d2s_gate_feeds".
+Reading "cm_d2s_d2s_block".
+Reading "cm_d2s_pad_wiring_f2".
+Reading "sg13cmos5l_IOPadDiff2Single".
+Writing 'cm_d2s_TopLayersTo4'
+Writing 'cm_d2s_d2s_ab_n_f2'
+Writing 'cm_d2s_edge_stubs'
+Writing 'cm_d2s_pmosHV_w1_l4'
+Writing 'cm_d2s_pmosHV_w20_l1_ng2'
+Writing 'cm_d2s_bias_tree_n_f2'
+Writing 'cm_d2s_nmosHV_1'
+Writing 'cm_d2s_gate_feeds'
+Writing 'cm_d2s_d2s_cma'
+Writing 'cm_d2s_dpantenna'
+Writing 'cm_d2s_nmosHV_2'
+Writing 'cm_d2s_pmosHV_w15_l3'
+Writing 'cm_d2s_d2s_cmb'
+Writing 'cm_d2s_cm_rings'
+Writing 'cm_d2s_nmosHV_3'
+Writing 'cm_d2s_nmosHV_4'
+Writing 'cm_d2s_nmosHV_5'
+Writing 'cm_d2s_replica_lines'
+Writing 'cm_d2s_Clamp_P_M1'
+Writing 'cm_d2s_nmosHV_6'
+Writing 'cm_d2s_rhigh'
+Writing 'cm_d2s_nmosHV_7'
+Writing 'cm_d2s_pad_wiring_f2'
+Writing 'cm_d2s_m2_junction'
+Writing 'cm_d2s_nmosHV'
+Writing 'cm_d2s_d2s_inputs_c2'
+Writing 'cm_d2s_d2s_casc_p_c2'
+Writing 'cm_d2s_pmosHV_w1_l0p45'
+Writing 'cm_d2s_Clamp_N_M1_wiring'
+Writing 'cm_d2s_dantenna'
+Writing 'cm_d2s_pmosHV_w2_l6'
+Writing 'cm_d2s_pmosHV_w5_l6'
+Writing 'cm_d2s_pmosHV_w6p66_l0p6'
+Writing 'sg13cmos5l_IOPadDiff2Single'
+Writing 'cm_d2s_Clamp_N_M1'
+Writing 'cm_d2s_tub_p20x1_c2'
+Writing 'cm_d2s_DCNDiode'
+Writing 'cm_d2s_sinks_6x6_f2'
+Writing 'cm_d2s_d2s_casc_n_f2'
+Writing 'cm_d2s_pwr_f2'
+Writing 'cm_d2s_pmosHV'
+Writing 'cm_d2s_d2s_ab_p_f2'
+Writing 'cm_d2s_contacts'
+Writing 'cm_d2s_Metal3ViasUp'
+Writing 'cm_d2s_d2s_tgsw_f2'
+Writing 'cm_d2s_bias_tree_p_f2'
+Writing 'cm_d2s_m2_comb_n'
+Writing 'cm_d2s_d2s_loads_c2'
+Writing 'cm_d2s_d2s_tails_c2'
+Writing 'cm_d2s_pmosHV_w6_l4'
+Writing 'cm_d2s_m2_comb_p'
+Writing 'cm_d2s_Clamp_N_M1_wiring_1'
+Writing 'cm_d2s_guard_tie'
+Writing 'cm_d2s_d2s_sp2k_f2'
+Writing 'cm_d2s_d2s_rhigh_f2'
+Writing 'cm_d2s_rppd'
+Writing 'cm_d2s_nw_isolator'
+Writing 'cm_d2s_Clamp_P_M1_wiring'
+Writing 'cm_d2s_d2s_block'
+Writing 'cm_d2s_DCPDiode'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "cm_s2d_pmosHV_w20_l1_ng2".
+Reading "cm_s2d_pmosHV_w1_l4_1".
+Reading "cm_s2d_nmosHV_2".
+Reading "cm_s2d_nmosHV_3".
+Reading "cm_s2d_nmosHV_4".
+Reading "cm_s2d_nmosHV_5".
+Reading "cm_s2d_nmosHV_6".
+Reading "cm_s2d_rhigh".
+Reading "cm_s2d_nmosHV_7".
+Reading "cm_s2d_nmosHV".
+Reading "cm_s2d_nmosHV_1".
+Reading "cm_s2d_pmosHV_w1_l0p45".
+Reading "cm_s2d_pmosHV_w2_l6".
+Reading "cm_s2d_pmosHV_w2_l0p45_ng2".
+Reading "cm_s2d_pmosHV_w15_l3".
+Reading "cm_s2d_pmosHV_w6_l4".
+Reading "cm_s2d_pmosHV_w5_l6".
+Reading "cm_s2d_tub_p20x1_c3".
+Reading "cm_s2d_s2d_loads_f".
+Reading "cm_s2d_s2d_casc_p_f".
+Reading "cm_s2d_s2d_casc_n_f".
+Reading "cm_s2d_s2d_tails_hi_f".
+Reading "cm_s2d_s2d_tails_lo_f".
+Reading "cm_s2d_s2d_cload_c3".
+Reading "cm_s2d_s2d_rhigh_c3".
+Reading "cm_s2d_bias_tree_noab_n_c3".
+Reading "cm_s2d_sinks_6x6_s2d_c3_core".
+Reading "cm_s2d_s2d_sinks_cmfb_c3_core".
+Reading "cm_s2d_bias_tree_noab_p_c3".
+Reading "cm_s2d_s2d_pd_p_c3".
+Reading "cm_s2d_s2d_inputs_c3".
+Reading "cm_s2d_pwr_f".
+Reading "cm_s2d_s2d_block".
+Reading "cm_s2d_edge_stubs".
+Reading "cm_s2d_edge_stubs_low".
+Reading "cm_s2d_DCNDiode".
+Reading "cm_s2d_DCPDiode".
+Reading "cm_s2d_Clamp_N_M1".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "cm_s2d_Clamp_P_M1".
+Reading "cm_s2d_rppd".
+Reading "cm_s2d_rppd_1".
+Reading "cm_s2d_esd_wiring".
+Reading "cm_s2d_iovdd_rail_tie".
+Reading "sg13cmos5l_IOPadSingle2Diff".
+Writing 'cm_s2d_s2d_tails_lo_f'
+Writing 'cm_s2d_pmosHV_w1_l4_1'
+Writing 'cm_s2d_pmosHV_w20_l1_ng2'
+Writing 'cm_s2d_s2d_inputs_c3'
+Writing 'cm_s2d_s2d_rhigh_c3'
+Writing 'sg13cmos5l_IOPadSingle2Diff'
+Writing 'cm_s2d_s2d_casc_n_f'
+Writing 'cm_s2d_DCPDiode'
+Writing 'cm_s2d_nmosHV'
+Writing 'cm_s2d_esd_wiring'
+Writing 'cm_s2d_rppd'
+Writing 'cm_s2d_bias_tree_noab_n_c3'
+Writing 'cm_s2d_nmosHV_1'
+Writing 'cm_s2d_nmosHV_2'
+Writing 'cm_s2d_pmosHV_w1_l0p45'
+Writing 'cm_s2d_nmosHV_3'
+Writing 'cm_s2d_nmosHV_4'
+Writing 'cm_s2d_nmosHV_5'
+Writing 'cm_s2d_nmosHV_6'
+Writing 'cm_s2d_s2d_loads_f'
+Writing 'cm_s2d_nmosHV_7'
+Writing 'cm_s2d_pmosHV_w2_l6'
+Writing 'cm_s2d_pmosHV_w5_l6'
+Writing 'cm_s2d_edge_stubs'
+Writing 'cm_s2d_pmosHV_w15_l3'
+Writing 'cm_s2d_tub_p20x1_c3'
+Writing 'cm_s2d_Clamp_P_M1'
+Writing 'cm_s2d_s2d_pd_p_c3'
+Writing 'cm_s2d_iovdd_rail_tie'
+Writing 'cm_s2d_DCNDiode'
+Writing 'cm_s2d_pmosHV_w6_l4'
+Writing 'cm_s2d_sinks_6x6_s2d_c3_core'
+Writing 'cm_s2d_rppd_1'
+Writing 'cm_s2d_pmosHV_w2_l0p45_ng2'
+Writing 'cm_s2d_s2d_sinks_cmfb_c3_core'
+Writing 'cm_s2d_bias_tree_noab_p_c3'
+Writing 'cm_s2d_s2d_cload_c3'
+Writing 'cm_s2d_pwr_f'
+Writing 'cm_s2d_s2d_tails_hi_f'
+Writing 'cm_s2d_rhigh'
+Writing 'cm_s2d_Clamp_N_M1'
+Writing 'cm_s2d_s2d_block'
+Writing 'cm_s2d_edge_stubs_low'
+Writing 'cm_s2d_s2d_casc_p_f'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+Done!
+
+real	0m1.892s
+user	0m1.637s
+sys	0m0.216s

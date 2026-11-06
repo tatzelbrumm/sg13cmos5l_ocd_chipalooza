@@ -1,0 +1,623 @@
+./scripts/setup.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_io
+Reading "sg13cmos5l_Corner".
+Reading "sg13cmos5l_Filler1000".
+Reading "sg13cmos5l_Filler10000".
+Reading "sg13cmos5l_Filler200".
+Reading "sg13cmos5l_Filler2000".
+Reading "sg13cmos5l_Filler400".
+Reading "sg13cmos5l_Filler4000".
+Reading "sg13cmos5l_DCNDiode".
+Reading "sg13cmos5l_Clamp_P20N0D".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "sg13cmos5l_DCPDiode".
+Reading "sg13cmos5l_SecondaryProtection".
+Reading "sg13cmos5l_Clamp_N20N0D".
+Reading "sg13cmos5l_IOPadAnalog".
+Reading "sg13cmos5l_RCClampResistor".
+Reading "sg13cmos5l_RCClampInverter".
+Reading "sg13cmos5l_Clamp_N43N43D4R".
+Reading "sg13cmos5l_IOPadIOVdd".
+Reading "sg13cmos5l_IOPadIOVss".
+Reading "M2_M1_OS_789120990530".
+Reading "M2_M1_OS_789120990531".
+Reading "sg13g2_SecondaryProtection".
+Reading "sg13cmos5l_LevelDown".
+Reading "sg13cmos5l_IOPadIn".
+Reading "sg13cmos5l_Clamp_P8N8D".
+Reading "sg13cmos5l_io_nand2_x1".
+Reading "sg13cmos5l_io_inv_x1".
+Reading "sg13cmos5l_io_tie".
+Reading "sg13cmos5l_io_nor2_x1".
+Reading "sg13cmos5l_LevelUp".
+Reading "sg13cmos5l_GateDecode".
+Reading "sg13cmos5l_Clamp_N8N8D".
+Reading "sg13cmos5l_IOPadInOut16mA".
+Reading "sg13cmos5l_Clamp_P15N15D".
+Reading "sg13cmos5l_Clamp_N15N15D".
+Reading "sg13cmos5l_IOPadInOut30mA".
+Reading "sg13cmos5l_Clamp_P2N2D".
+Reading "sg13cmos5l_Clamp_N2N2D".
+Reading "sg13cmos5l_IOPadInOut4mA".
+Reading "sg13cmos5l_LevelUpInv".
+Reading "sg13cmos5l_GateLevelUpInv".
+Reading "sg13cmos5l_IOPadOut16mA".
+Reading "sg13cmos5l_IOPadOut30mA".
+Reading "sg13cmos5l_IOPadOut4mA".
+Reading "sg13cmos5l_IOPadTriOut16mA".
+Reading "sg13cmos5l_IOPadTriOut30mA".
+Reading "sg13cmos5l_IOPadTriOut4mA".
+Reading "sg13cmos5l_IOPadVdd".
+Reading "sg13cmos5l_IOPadVss".
+Cell sg13cmos5l_Gallery couldn't be read
+No such file or directory
+Creating new cell
+Reading LEF data from file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef.
+This action cannot be undone.
+LEF read: Processed 3056 lines.
+Annotating port orders from /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice
+Annotating cell sg13cmos5l_DCNDiode
+Cell sg13cmos5l_DCNDiode port order was modified.
+Annotating cell sg13cmos5l_DCPDiode
+Cell sg13cmos5l_DCPDiode port order was modified.
+Annotating cell sg13cmos5l_IOPadIOVss
+No label found with index 2.
+Error:  sg13cmos5l_IOPadIOVss port numbering failed.
+Cell sg13cmos5l_IOPadIOVss port order was modified.
+Annotating cell sg13cmos5l_Clamp_N43N43D4R
+Cell sg13cmos5l_Clamp_N43N43D4R port order was modified.
+Annotating cell sg13cmos5l_RCClampResistor
+Cell sg13cmos5l_RCClampResistor port order was modified.
+Annotating cell sg13cmos5l_RCClampInverter
+Cell sg13cmos5l_RCClampInverter port order was modified.
+Annotating cell sg13cmos5l_IOPadVdd
+Cell sg13cmos5l_IOPadVdd port order was modified.
+Annotating cell sg13cmos5l_IOPadIOVdd
+Cell sg13cmos5l_IOPadIOVdd port order was modified.
+Annotating cell sg13cmos5l_IOPadVss
+Cell sg13cmos5l_IOPadVss port order was modified.
+Annotating cell sg13cmos5l_Filler2000
+Cell sg13cmos5l_Filler2000 port order was modified.
+Annotating cell sg13cmos5l_io_inv_x1
+Cell sg13cmos5l_io_inv_x1 port order was modified.
+Annotating cell sg13cmos5l_LevelUp
+Cell sg13cmos5l_LevelUp port order was modified.
+Annotating cell sg13cmos5l_io_nor2_x1
+Cell sg13cmos5l_io_nor2_x1 port order was modified.
+Annotating cell sg13cmos5l_io_tie
+Cell sg13cmos5l_io_tie port order was modified.
+Annotating cell sg13cmos5l_io_nand2_x1
+Cell sg13cmos5l_io_nand2_x1 port order was modified.
+Annotating cell sg13cmos5l_GateDecode
+Cell sg13cmos5l_GateDecode port order was modified.
+Annotating cell sg13cmos5l_Clamp_N2N2D
+Cell sg13cmos5l_Clamp_N2N2D port order was modified.
+Annotating cell sg13cmos5l_Clamp_P2N2D
+Cell sg13cmos5l_Clamp_P2N2D port order was modified.
+Annotating cell sg13cmos5l_SecondaryProtection
+Couldn't find label minus
+Couldn't find label plus
+Cell sg13cmos5l_SecondaryProtection port order was modified.
+Annotating cell sg13cmos5l_LevelDown
+Cell sg13cmos5l_LevelDown port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut4mA
+Cell sg13cmos5l_IOPadInOut4mA port order was modified.
+Annotating cell sg13cmos5l_Clamp_P15N15D
+Cell sg13cmos5l_Clamp_P15N15D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N15N15D
+Cell sg13cmos5l_Clamp_N15N15D port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut30mA
+Cell sg13cmos5l_IOPadInOut30mA port order was modified.
+Annotating cell sg13cmos5l_LevelUpInv
+Cell sg13cmos5l_LevelUpInv port order was modified.
+Annotating cell sg13cmos5l_GateLevelUpInv
+Cell sg13cmos5l_GateLevelUpInv port order was modified.
+Annotating cell sg13cmos5l_IOPadOut4mA
+Cell sg13cmos5l_IOPadOut4mA port order was modified.
+Annotating cell sg13cmos5l_IOPadOut30mA
+Cell sg13cmos5l_IOPadOut30mA port order was modified.
+Annotating cell sg13cmos5l_IOPadIn
+Cell sg13cmos5l_IOPadIn port order was modified.
+Annotating cell sg13cmos5l_Clamp_P8N8D
+Cell sg13cmos5l_Clamp_P8N8D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N8N8D
+Cell sg13cmos5l_Clamp_N8N8D port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut16mA
+Cell sg13cmos5l_IOPadInOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadOut16mA
+Cell sg13cmos5l_IOPadOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut4mA
+Cell sg13cmos5l_IOPadTriOut4mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut16mA
+Cell sg13cmos5l_IOPadTriOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut30mA
+Cell sg13cmos5l_IOPadTriOut30mA port order was modified.
+Annotating cell sg13cmos5l_Corner
+Cell sg13cmos5l_Corner port order was modified.
+Annotating cell sg13cmos5l_Filler4000
+Cell sg13cmos5l_Filler4000 port order was modified.
+Annotating cell sg13cmos5l_Filler1000
+Cell sg13cmos5l_Filler1000 port order was modified.
+Annotating cell sg13cmos5l_Filler200
+Cell sg13cmos5l_Filler200 port order was modified.
+Annotating cell sg13cmos5l_Filler400
+Cell sg13cmos5l_Filler400 port order was modified.
+Annotating cell sg13cmos5l_Filler10000
+Cell sg13cmos5l_Filler10000 port order was modified.
+Annotating cell sg13cmos5l_Clamp_P20N0D
+Cell sg13cmos5l_Clamp_P20N0D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N20N0D
+Cell sg13cmos5l_Clamp_N20N0D port order was modified.
+Annotating cell sg13cmos5l_IOPadAnalog
+Cell sg13cmos5l_IOPadAnalog port order was modified.
+Writing 'sg13cmos5l_IOPadAnalog'
+Writing 'sg13cmos5l_Clamp_P8N8D'
+Writing 'sg13cmos5l_Corner'
+Writing 'sg13cmos5l_IOPadTriOut30mA'
+Writing 'sg13cmos5l_IOPadInOut30mA'
+Writing 'sg13cmos5l_Clamp_N43N43D4R'
+Writing 'sg13cmos5l_IOPadTriOut16mA'
+Writing 'sg13cmos5l_IOPadInOut16mA'
+Writing 'sg13cmos5l_io_tie'
+Writing 'sg13cmos5l_IOPadIn'
+Writing 'sg13cmos5l_IOPadVss'
+Writing 'sg13cmos5l_IOPadVdd'
+Writing 'sg13cmos5l_io_inv_x1'
+Writing 'sg13cmos5l_Clamp_P2N2D'
+Writing 'sg13cmos5l_SecondaryProtection'
+Writing 'sg13cmos5l_cornerSite'
+Writing 'sg13cmos5l_IOPadOut30mA'
+Writing 'sg13cmos5l_Clamp_P20N0D'
+Writing 'sg13cmos5l_IOPadOut16mA'
+Writing 'sg13cmos5l_LevelUp'
+Writing 'sg13cmos5l_DCNDiode'
+Writing 'sg13cmos5l_IOPadTriOut4mA'
+Writing 'sg13cmos5l_Filler1000'
+Writing 'sg13cmos5l_LevelUpInv'
+Writing 'sg13cmos5l_Filler4000'
+Writing 'sg13cmos5l_Gallery'
+Writing 'sg13cmos5l_Filler400'
+Writing 'sg13cmos5l_IOPadOut4mA'
+Writing 'sg13cmos5l_RCClampResistor'
+Writing 'sg13cmos5l_Filler200'
+Writing 'sg13cmos5l_GateLevelUpInv'
+Writing 'sg13cmos5l_Filler10000'
+Writing 'sg13cmos5l_Clamp_P15N15D'
+Writing 'sg13cmos5l_Clamp_N8N8D'
+Writing 'sg13cmos5l_io_nor2_x1'
+Writing 'sg13cmos5l_IOPadInOut4mA'
+Writing 'sg13cmos5l_GateDecode'
+Writing 'sg13cmos5l_Filler2000'
+Writing 'sg13cmos5l_Clamp_N15N15D'
+Writing 'sg13cmos5l_DCPDiode'
+Writing 'sg13cmos5l_ioSite'
+Writing 'sg13cmos5l_Clamp_N2N2D'
+Writing 'sg13cmos5l_io_nand2_x1'
+Writing 'sg13cmos5l_RCClampInverter'
+Writing 'sg13cmos5l_LevelDown'
+Writing 'sg13g2_SecondaryProtection'
+Writing 'M2_M1_OS_789120990530'
+Writing 'sg13cmos5l_Clamp_N20N0D'
+Writing 'sg13cmos5l_IOPadIOVss'
+Writing 'sg13cmos5l_IOPadIOVdd'
+Writing 'M2_M1_OS_789120990531'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_stdcell
+Reading "sg13cmos5l_a21o_1".
+Reading "sg13cmos5l_a21o_2".
+Reading "sg13cmos5l_a21oi_1".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "sg13cmos5l_a21oi_2".
+Reading "sg13cmos5l_a221oi_1".
+Reading "sg13cmos5l_a22oi_1".
+Reading "sg13cmos5l_and2_1".
+Reading "sg13cmos5l_and2_2".
+Reading "sg13cmos5l_and3_1".
+Reading "sg13cmos5l_and3_2".
+Reading "sg13cmos5l_and4_1".
+Reading "sg13cmos5l_and4_2".
+Reading "sg13cmos5l_antennanp".
+Reading "sg13cmos5l_buf_1".
+Reading "sg13cmos5l_buf_16".
+Reading "sg13cmos5l_buf_2".
+Reading "sg13cmos5l_buf_4".
+Reading "sg13cmos5l_buf_8".
+Reading "sg13cmos5l_decap_4".
+Reading "sg13cmos5l_decap_8".
+Reading "sg13cmos5l_dfrbp_1".
+Reading "sg13cmos5l_dfrbp_2".
+Reading "sg13cmos5l_dfrbpq_1".
+Reading "sg13cmos5l_dfrbpq_2".
+Reading "sg13cmos5l_dlhq_1".
+Reading "sg13cmos5l_dlhr_1".
+Reading "sg13cmos5l_dlhrq_1".
+Reading "sg13cmos5l_dllr_1".
+Reading "sg13cmos5l_dllrq_1".
+Reading "sg13cmos5l_dlygate4sd1_1".
+Reading "sg13cmos5l_dlygate4sd2_1".
+Reading "sg13cmos5l_dlygate4sd3_1".
+Reading "sg13cmos5l_ebufn_2".
+Reading "sg13cmos5l_ebufn_4".
+Reading "sg13cmos5l_ebufn_8".
+Reading "sg13cmos5l_einvn_2".
+Reading "sg13cmos5l_einvn_4".
+Reading "sg13cmos5l_einvn_8".
+Reading "sg13cmos5l_fill_1".
+Reading "sg13cmos5l_fill_2".
+Reading "sg13cmos5l_fill_4".
+Reading "sg13cmos5l_fill_8".
+Reading "sg13cmos5l_inv_1".
+Reading "sg13cmos5l_inv_16".
+Reading "sg13cmos5l_inv_2".
+Reading "sg13cmos5l_inv_4".
+Reading "sg13cmos5l_inv_8".
+Reading "sg13cmos5l_lgcp_1".
+Reading "sg13cmos5l_mux2_1".
+Reading "sg13cmos5l_mux2_2".
+Reading "sg13cmos5l_mux4_1".
+Reading "sg13cmos5l_nand2_1".
+Reading "sg13cmos5l_nand2_2".
+Reading "sg13cmos5l_nand2b_1".
+Reading "sg13cmos5l_nand2b_2".
+Reading "sg13cmos5l_nand3_1".
+Reading "sg13cmos5l_nand3b_1".
+Reading "sg13cmos5l_nand4_1".
+Reading "sg13cmos5l_nor2_1".
+Reading "sg13cmos5l_nor2_2".
+Reading "sg13cmos5l_nor2b_1".
+Reading "sg13cmos5l_nor2b_2".
+Reading "sg13cmos5l_nor3_1".
+Reading "sg13cmos5l_nor3_2".
+Reading "sg13cmos5l_nor4_1".
+Reading "sg13cmos5l_nor4_2".
+Reading "sg13cmos5l_o21ai_1".
+Reading "sg13cmos5l_or2_1".
+Reading "sg13cmos5l_or2_2".
+Reading "sg13cmos5l_or3_1".
+Reading "sg13cmos5l_or3_2".
+Reading "sg13cmos5l_or4_1".
+Reading "sg13cmos5l_or4_2".
+Reading "sg13cmos5l_sdfbbp_1".
+Reading "sg13cmos5l_sdfrbp_1".
+Reading "sg13cmos5l_sdfrbp_2".
+Reading "sg13cmos5l_sdfrbpq_1".
+Reading "sg13cmos5l_sdfrbpq_2".
+Reading "sg13cmos5l_sighold".
+Reading "sg13cmos5l_slgcp_1".
+Reading "sg13cmos5l_tiehi".
+Reading "sg13cmos5l_tielo".
+Reading "sg13cmos5l_xnor2_1".
+Reading "sg13cmos5l_xor2_1".
+Cell CoreSite couldn't be read
+No such file or directory
+Creating new cell
+Reading LEF data from file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef.
+This action cannot be undone.
+LEF read, Line 6473 (Message): Unknown keyword "ANTENNAMAXCUTCAR" in LEF file; ignoring.
+LEF read: Processed 7927 lines.
+Annotating port orders from /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+Annotating cell sg13cmos5l_a21o_1
+Cell sg13cmos5l_a21o_1 port order was modified.
+Annotating cell sg13cmos5l_a21o_2
+Cell sg13cmos5l_a21o_2 port order was modified.
+Annotating cell sg13cmos5l_a21oi_1
+Cell sg13cmos5l_a21oi_1 port order was modified.
+Annotating cell sg13cmos5l_a21oi_2
+Cell sg13cmos5l_a21oi_2 port order was modified.
+Annotating cell sg13cmos5l_a221oi_1
+Cell sg13cmos5l_a221oi_1 port order was modified.
+Annotating cell sg13cmos5l_and2_1
+Cell sg13cmos5l_and2_1 port order was modified.
+Annotating cell sg13cmos5l_and2_2
+Cell sg13cmos5l_and2_2 port order was modified.
+Annotating cell sg13cmos5l_and3_1
+Cell sg13cmos5l_and3_1 port order was modified.
+Annotating cell sg13cmos5l_and3_2
+Cell sg13cmos5l_and3_2 port order was modified.
+Annotating cell sg13cmos5l_and4_1
+Cell sg13cmos5l_and4_1 port order was modified.
+Annotating cell sg13cmos5l_and4_2
+Cell sg13cmos5l_and4_2 port order was modified.
+Annotating cell sg13cmos5l_antennanp
+Cell sg13cmos5l_antennanp port order was modified.
+Annotating cell sg13cmos5l_buf_1
+Cell sg13cmos5l_buf_1 port order was modified.
+Annotating cell sg13cmos5l_buf_16
+Cell sg13cmos5l_buf_16 port order was modified.
+Annotating cell sg13cmos5l_buf_2
+Cell sg13cmos5l_buf_2 port order was modified.
+Annotating cell sg13cmos5l_buf_4
+Cell sg13cmos5l_buf_4 port order was modified.
+Annotating cell sg13cmos5l_buf_8
+Cell sg13cmos5l_buf_8 port order was modified.
+Annotating cell sg13cmos5l_decap_4
+Cell sg13cmos5l_decap_4 port order was modified.
+Annotating cell sg13cmos5l_decap_8
+Cell sg13cmos5l_decap_8 port order was modified.
+Annotating cell sg13cmos5l_dfrbp_1
+Cell sg13cmos5l_dfrbp_1 port order was modified.
+Annotating cell sg13cmos5l_dfrbp_2
+Cell sg13cmos5l_dfrbp_2 port order was modified.
+Annotating cell sg13cmos5l_dlhq_1
+Cell sg13cmos5l_dlhq_1 port order was modified.
+Annotating cell sg13cmos5l_dlhr_1
+Cell sg13cmos5l_dlhr_1 port order was modified.
+Annotating cell sg13cmos5l_dlhrq_1
+Cell sg13cmos5l_dlhrq_1 port order was modified.
+Annotating cell sg13cmos5l_dllr_1
+Cell sg13cmos5l_dllr_1 port order was modified.
+Annotating cell sg13cmos5l_dllrq_1
+Cell sg13cmos5l_dllrq_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd1_1
+Cell sg13cmos5l_dlygate4sd1_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd2_1
+Cell sg13cmos5l_dlygate4sd2_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd3_1
+Cell sg13cmos5l_dlygate4sd3_1 port order was modified.
+Annotating cell sg13cmos5l_ebufn_2
+Cell sg13cmos5l_ebufn_2 port order was modified.
+Annotating cell sg13cmos5l_ebufn_4
+Cell sg13cmos5l_ebufn_4 port order was modified.
+Annotating cell sg13cmos5l_ebufn_8
+Cell sg13cmos5l_ebufn_8 port order was modified.
+Annotating cell sg13cmos5l_einvn_2
+Cell sg13cmos5l_einvn_2 port order was modified.
+Annotating cell sg13cmos5l_einvn_4
+Cell sg13cmos5l_einvn_4 port order was modified.
+Annotating cell sg13cmos5l_einvn_8
+Cell sg13cmos5l_einvn_8 port order was modified.
+Annotating cell sg13cmos5l_inv_1
+Cell sg13cmos5l_inv_1 port order was modified.
+Annotating cell sg13cmos5l_inv_16
+Cell sg13cmos5l_inv_16 port order was modified.
+Annotating cell sg13cmos5l_inv_2
+Cell sg13cmos5l_inv_2 port order was modified.
+Annotating cell sg13cmos5l_inv_4
+Cell sg13cmos5l_inv_4 port order was modified.
+Annotating cell sg13cmos5l_inv_8
+Cell sg13cmos5l_inv_8 port order was modified.
+Annotating cell sg13cmos5l_lgcp_1
+Cell sg13cmos5l_lgcp_1 port order was modified.
+Annotating cell sg13cmos5l_mux2_1
+Cell sg13cmos5l_mux2_1 port order was modified.
+Annotating cell sg13cmos5l_mux2_2
+Cell sg13cmos5l_mux2_2 port order was modified.
+Annotating cell sg13cmos5l_mux4_1
+Cell sg13cmos5l_mux4_1 port order was modified.
+Annotating cell sg13cmos5l_nand2_1
+Cell sg13cmos5l_nand2_1 port order was modified.
+Annotating cell sg13cmos5l_nand2_2
+Cell sg13cmos5l_nand2_2 port order was modified.
+Annotating cell sg13cmos5l_nand2b_1
+Cell sg13cmos5l_nand2b_1 port order was modified.
+Annotating cell sg13cmos5l_nand2b_2
+Cell sg13cmos5l_nand2b_2 port order was modified.
+Annotating cell sg13cmos5l_nand3_1
+Cell sg13cmos5l_nand3_1 port order was modified.
+Annotating cell sg13cmos5l_nand3b_1
+Cell sg13cmos5l_nand3b_1 port order was modified.
+Annotating cell sg13cmos5l_nand4_1
+Cell sg13cmos5l_nand4_1 port order was modified.
+Annotating cell sg13cmos5l_nor2_1
+Cell sg13cmos5l_nor2_1 port order was modified.
+Annotating cell sg13cmos5l_nor2_2
+Cell sg13cmos5l_nor2_2 port order was modified.
+Annotating cell sg13cmos5l_nor2b_1
+Cell sg13cmos5l_nor2b_1 port order was modified.
+Annotating cell sg13cmos5l_nor2b_2
+Cell sg13cmos5l_nor2b_2 port order was modified.
+Annotating cell sg13cmos5l_nor3_1
+Cell sg13cmos5l_nor3_1 port order was modified.
+Annotating cell sg13cmos5l_nor3_2
+Cell sg13cmos5l_nor3_2 port order was modified.
+Annotating cell sg13cmos5l_nor4_1
+Cell sg13cmos5l_nor4_1 port order was modified.
+Annotating cell sg13cmos5l_nor4_2
+Cell sg13cmos5l_nor4_2 port order was modified.
+Annotating cell sg13cmos5l_o21ai_1
+Cell sg13cmos5l_o21ai_1 port order was modified.
+Annotating cell sg13cmos5l_or2_1
+Cell sg13cmos5l_or2_1 port order was modified.
+Annotating cell sg13cmos5l_or2_2
+Cell sg13cmos5l_or2_2 port order was modified.
+Annotating cell sg13cmos5l_or3_1
+Cell sg13cmos5l_or3_1 port order was modified.
+Annotating cell sg13cmos5l_or3_2
+Cell sg13cmos5l_or3_2 port order was modified.
+Annotating cell sg13cmos5l_or4_1
+Cell sg13cmos5l_or4_1 port order was modified.
+Annotating cell sg13cmos5l_or4_2
+Cell sg13cmos5l_or4_2 port order was modified.
+Annotating cell sg13cmos5l_sdfbbp_1
+Cell sg13cmos5l_sdfbbp_1 port order was modified.
+Annotating cell sg13cmos5l_sighold
+Cell sg13cmos5l_sighold port order was modified.
+Annotating cell sg13cmos5l_slgcp_1
+Cell sg13cmos5l_slgcp_1 port order was modified.
+Annotating cell sg13cmos5l_tiehi
+Cell sg13cmos5l_tiehi port order was modified.
+Annotating cell sg13cmos5l_tielo
+Cell sg13cmos5l_tielo port order was modified.
+Annotating cell sg13cmos5l_xnor2_1
+Cell sg13cmos5l_xnor2_1 port order was modified.
+Annotating cell sg13cmos5l_xor2_1
+Cell sg13cmos5l_xor2_1 port order was modified.
+Annotating cell sg13cmos5l_a22oi_1
+Cell sg13cmos5l_a22oi_1 port order was modified.
+Annotating cell sg13cmos5l_sdfrbpq_1
+Cell sg13cmos5l_sdfrbpq_1 port order was modified.
+Annotating cell sg13cmos5l_sdfrbpq_2
+Cell sg13cmos5l_sdfrbpq_2 port order was modified.
+Annotating cell sg13cmos5l_sdfrbp_2
+Cell sg13cmos5l_sdfrbp_2 port order was modified.
+Annotating cell sg13cmos5l_sdfrbp_1
+Cell sg13cmos5l_sdfrbp_1 port order was modified.
+Annotating cell sg13cmos5l_dfrbpq_2
+Cell sg13cmos5l_dfrbpq_2 port order was modified.
+Annotating cell sg13cmos5l_dfrbpq_1
+Cell sg13cmos5l_dfrbpq_1 port order was modified.
+Annotating cell sg13cmos5l_fill_1
+Cell sg13cmos5l_fill_1 port order was modified.
+Annotating cell sg13cmos5l_fill_2
+Cell sg13cmos5l_fill_2 port order was modified.
+Annotating cell sg13cmos5l_fill_4
+Cell sg13cmos5l_fill_4 port order was modified.
+Annotating cell sg13cmos5l_fill_8
+Cell sg13cmos5l_fill_8 port order was modified.
+Writing 'sg13cmos5l_ebufn_4'
+Writing 'sg13cmos5l_or3_1'
+Writing 'sg13cmos5l_nand2_1'
+Writing 'sg13cmos5l_or3_2'
+Writing 'sg13cmos5l_inv_1'
+Writing 'sg13cmos5l_dlygate4sd2_1'
+Writing 'sg13cmos5l_nand2_2'
+Writing 'sg13cmos5l_inv_2'
+Writing 'sg13cmos5l_lgcp_1'
+Writing 'sg13cmos5l_dllrq_1'
+Writing 'sg13cmos5l_xnor2_1'
+Writing 'sg13cmos5l_inv_4'
+Writing 'sg13cmos5l_ebufn_8'
+Writing 'sg13cmos5l_dlhq_1'
+Writing 'sg13cmos5l_sdfrbpq_1'
+Writing 'sg13cmos5l_nand2b_1'
+Writing 'sg13cmos5l_dfrbp_1'
+Writing 'sg13cmos5l_sdfrbpq_2'
+Writing 'sg13cmos5l_dfrbp_2'
+Writing 'sg13cmos5l_a22oi_1'
+Writing 'sg13cmos5l_nand2b_2'
+Writing 'sg13cmos5l_inv_8'
+Writing 'sg13cmos5l_mux4_1'
+Writing 'sg13cmos5l_o21ai_1'
+Writing 'sg13cmos5l_buf_1'
+Writing 'sg13cmos5l_nor3_1'
+Writing 'sg13cmos5l_dlhrq_1'
+Writing 'sg13cmos5l_buf_2'
+Writing 'sg13cmos5l_a21o_1'
+Writing 'sg13cmos5l_nor3_2'
+Writing 'sg13cmos5l_and4_1'
+Writing 'sg13cmos5l_a21o_2'
+Writing 'sg13cmos5l_mux2_1'
+Writing 'sg13cmos5l_and4_2'
+Writing 'sg13cmos5l_mux2_2'
+Writing 'sg13cmos5l_buf_4'
+Writing 'sg13cmos5l_einvn_2'
+Writing 'sg13cmos5l_nor2b_1'
+Writing 'sg13cmos5l_and2_1'
+Writing 'sg13cmos5l_nor2b_2'
+Writing 'sg13cmos5l_einvn_4'
+Writing 'sg13cmos5l_and2_2'
+Writing 'CoreSite'
+Writing 'sg13cmos5l_or4_1'
+Writing 'sg13cmos5l_buf_8'
+Writing 'sg13cmos5l_nand3_1'
+Writing 'sg13cmos5l_or4_2'
+Writing 'sg13cmos5l_dlygate4sd3_1'
+Writing 'sg13cmos5l_tiehi'
+Writing 'sg13cmos5l_dfrbpq_1'
+Writing 'sg13cmos5l_a21oi_1'
+Writing 'sg13cmos5l_slgcp_1'
+Writing 'sg13cmos5l_einvn_8'
+Writing 'sg13cmos5l_nand3b_1'
+Writing 'sg13cmos5l_fill_1'
+Writing 'sg13cmos5l_dfrbpq_2'
+Writing 'sg13cmos5l_buf_16'
+Writing 'sg13cmos5l_a21oi_2'
+Writing 'sg13cmos5l_or2_1'
+Writing 'sg13cmos5l_tielo'
+Writing 'sg13cmos5l_fill_2'
+Writing 'sg13cmos5l_or2_2'
+Writing 'sg13cmos5l_dlygate4sd1_1'
+Writing 'sg13cmos5l_dlhr_1'
+Writing 'sg13cmos5l_fill_4'
+Writing 'sg13cmos5l_a221oi_1'
+Writing 'sg13cmos5l_fill_8'
+Writing 'sg13cmos5l_xor2_1'
+Writing 'sg13cmos5l_sighold'
+Writing 'sg13cmos5l_sdfbbp_1'
+Writing 'sg13cmos5l_nor4_1'
+Writing 'sg13cmos5l_antennanp'
+Writing 'sg13cmos5l_nor4_2'
+Writing 'sg13cmos5l_nor2_1'
+Writing 'sg13cmos5l_sdfrbp_1'
+Writing 'sg13cmos5l_nor2_2'
+Writing 'sg13cmos5l_decap_4'
+Writing 'sg13cmos5l_and3_1'
+Writing 'sg13cmos5l_sdfrbp_2'
+Writing 'sg13cmos5l_and3_2'
+Writing 'sg13cmos5l_nand4_1'
+Writing 'sg13cmos5l_ebufn_2'
+Writing 'sg13cmos5l_inv_16'
+Writing 'sg13cmos5l_dllr_1'
+Writing 'sg13cmos5l_decap_8'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cannot open /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds.gds, /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds.strm or /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds to read GDS-II stream input.
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist couldn't be read
+No such file or directory
+Creating new cell
+Cannot open input file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x8_c2_bm_bist.lef (No such file or directory).
+Error:  Can't read netlist file /foss/pdks/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_1024x8_c2_bm_bist.cdl
+Writing 'RM_IHPSG13_1P_1024x8_c2_bm_bist'
+Done!
+
+real	0m28.920s
+user	0m27.630s
+sys	0m0.899s

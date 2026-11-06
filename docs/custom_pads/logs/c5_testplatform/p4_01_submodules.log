@@ -1,0 +1,9 @@
+Submodule 'dependencies/sg13cmos5l_ocd_ip__analog_switches' (https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__analog_switches) registered for path 'dependencies/sg13cmos5l_ocd_ip__analog_switches'
+Submodule 'dependencies/sg13cmos5l_ocd_ip__biasgen' (https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__biasgen) registered for path 'dependencies/sg13cmos5l_ocd_ip__biasgen'
+Submodule 'dependencies/sg13cmos5l_ocd_ip__por' (https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__por) registered for path 'dependencies/sg13cmos5l_ocd_ip__por'
+Cloning into '/home/user/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__analog_switches'...
+Cloning into '/home/user/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__biasgen'...
+Cloning into '/home/user/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__por'...
+Submodule path 'dependencies/sg13cmos5l_ocd_ip__analog_switches': checked out 'd210467cf74b58de74cd48b3f676cd10194e8d33'
+Submodule path 'dependencies/sg13cmos5l_ocd_ip__biasgen': checked out '0dbfff6c06732c5a0d9802bbdfa274ff7bc6fcfc'
+Submodule path 'dependencies/sg13cmos5l_ocd_ip__por': checked out 'c56195e14e5f56f5b9e335a9a800906bf3fb47a6'
