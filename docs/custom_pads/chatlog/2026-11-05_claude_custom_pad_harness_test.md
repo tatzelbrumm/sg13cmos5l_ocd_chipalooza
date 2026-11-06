@@ -1726,3 +1726,122 @@ to
 
 *[Bash]*
 
+
+
+---
+
+**Note (2026-11-06T01:47Z, written by the assistant): continuation, appended on the user's request.** Same source and
+filter; covers the survey of what Tim's harness needs from a slot repository.
+
+*[Bash]*
+
+*[Bash]*
+
+*[SendUserFile]*
+
+**Assistant:**
+
+The logs are updated and the verbaTim file is attached above; everything is pushed to `custom-pad-test`.
+
+- **verbaTim file:** `docs/custom_pads/chatlog/2026-11-06_verbaTim_pad_delivery_via_slot_repo.md`. It runs verbatim from your "ok I was able to view the harness…" message, which includes Tim's statement, to my "Shall I do both, and is `final/pads/` the place you want the pad deliverables?". A short header says what it is and where it comes from. It opens without login, so you can forward the link:
+  https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/custom-pad-test/docs/custom_pads/chatlog/2026-11-06_verbaTim_pad_delivery_via_slot_repo.md
+- **Full chat log:** the conversation since the last export is appended under a dated note, with the same filter as before. It runs up to this request; this reply isn't in it.
+- **Run log:** `RUNLOG.md` has a new section, "After the run", covering:
+  - your local check (clone, `make setup` including the SRAM import, magic `-d X11` instead of `-d XR`, `gds-prefill` viewed in KLayout);
+  - the shim fix;
+  - Tim's answer and the plan I proposed, marked as not started yet;
+  - SHA-256 checksums of both files.
+
+Still open from my last question: should I do both parts (`final/pads/` on a slot-repo branch, and the harness rework to read pads from `dependencies/slot_7`), and is `final/pads/` the right place?
+
+**User:**
+
+I think I need to take a look at where the main branch is in sg13cmos5l_cm_ip__single2diff2single, rename that to master or such, and then build a main branch that contains _only_ what Tim needs as input, pretty much from scratch.
+
+**Assistant:**
+
+Before recommending anything, I'm checking where `main` stands in the slot repo and what the harness actually reads from a slot repo:
+
+*[Bash]*
+
+**User** (sent while the assistant was working):
+
+My turn for now.
+
+**Assistant:**
+
+Understood, I'll leave the slot repo to you. Here's what I'd checked so far, as input for your rebuild:
+
+- **Where `main` is now:** `60f270a` "CLAUDE.md : salvaged updated version". `toplevel` is 179 commits ahead of it, `main` has 1 commit that `toplevel` lacks (that `60f270a`), and the two share a merge base. Everything the pads and slot need is on `toplevel` and `harness-test`, not on `main`.
+- **What the harness reads from a slot repo today:** exactly one file, `slot_<N>.gds` (or `.gds.gz`, never both), with top cell `slot_<N>`. It looks first in `final/gds/`, then `gds/`, and as a fallback anywhere in the repo, with a note. No netlist, schematic or `submission.yaml` is read by `get_projects.sh` or `get_project_gds.sh`.
+- **What Tim's build would additionally need with custom pads:** per the plan in the verbaTim file, the pad GDS, their LVS netlists, and a manifest naming the cells, at a fixed path like `final/pads/`. That path would be part of the harness rework.
+- **Branch housekeeping:** to keep the old `main` under another name, push it to the new name first (e.g. `git push origin origin/main:refs/heads/master`). Before replacing `main`, change the default branch in GitHub's settings, because a branch that is still the default can't be deleted or force-pushed. The harness's `s7_version: - -` follows whatever the default branch is at clone time.
+
+I'm not touching the slot repo or the harness until you say so. When you want the harness rework, tell me the final path layout on your new `main`.
+
+**User:**
+
+but do continue your surey.
+
+**Assistant:**
+
+Continuing the survey, read-only: first what the harness's top-level extraction and LVS need from a slot.
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[mcp__claude-code-remote__add_repo]*
+
+*[mcp__claude-code-remote__add_repo]*
+
+**Assistant:**
+
+Both repos are public, so a tree listing is enough. I'll clone without file contents (`--filter=blob:none --no-checkout`) and only list the paths:
+
+*[Bash]*
+
+**Assistant:**
+
+Slot 2 (the layout Tim calls "valid") is a full template repo whose top cell is literally `slot_2`. Checking its `submission.yaml` and README for the convention:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Survey results, all read-only; nothing in your slot repo was touched:
+
+**1. What Tim's harness takes from a slot repo**
+- A file `slot_<N>.gds` (or `.gds.gz`, never both) with top cell `slot_<N>`, looked for in `final/gds/`, then `gds/`, then anywhere.
+- Nothing else. The chip-level extraction marks every slot as a black box (`LEFview true`), so LVS checks only the slot pins against `slot<N>_wrapper_lvs.v`, which the harness generates itself. Your slot's netlist, schematics and `submission.yaml` are never read.
+
+**2. Tim's working example, slot 2** (`Belal-Elshinnawey/sg13cmos5l_slot2_backup`, default branch `main`):
+- The ordinary Chipalooza template with `TOP = slot_2` in the Makefile, delivering `final/gds/slot_2.gds` and `final/lef/slot_2.lef`.
+- `submission.yaml` is left at the template defaults, which confirms the harness doesn't use it.
+- The other repo I looked at, slot 3 (`htfab/hsxo-cpz2`), holds only xschem schematics so far. The remaining slot repos are outside this session's GitHub access, so I didn't check them.
+
+**3. Custom pads have no precedent in the harness.** Every other slot uses foundry pads. So where the pad GDS and netlists go in your repo, and in what form, is still to be agreed with Tim. `final/pads/` is my proposal, not an existing convention. What the harness side minimally needs per pad:
+- the GDS, top cell named as in `config.txt`;
+- an LVS netlist with a matching `.subckt`, because the pads *are* extracted at transistor level as part of the padframe, unlike the slot itself.
+
+**4. Clone size: the catch in a "main from scratch".** `get_projects.sh` runs a plain `git submodule add`, which clones the whole repository, every branch and all its history. Here that's 160 MB in `.git/modules/dependencies/slot_7`. A slim new `main` does *not* make Tim's clone smaller while the old branches (`toplevel`, `master`/old `main`, `sudel_buecher`, …) stay in the same repo. Two ways out:
+- **A separate delivery repo** containing only `main` with what Tim needs; `s7_source` in `config.txt` then points there. Small, clean, and your messy repo stays as it is.
+- **Same repo, shallow submodule** (`git submodule add --depth 1`, or `shallow = true` in `.gitmodules`). That would be a change to Tim's `get_projects.sh` and affect all 18 slots, so it's his decision.
+
+My recommendation would be the separate delivery repo, but it's your call.
+
+**User:**
+
+update the logs and chatlog with the survey,
+then help prepare another Claude cloud code project that assembles the separate delivery repo
+
+**Assistant:**
+
+First the records. I'm checking that the previous export is still a prefix of the current transcript, so I only append what's new:
+
+*[Bash]*
+
