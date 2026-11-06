@@ -1,0 +1,527 @@
+./scripts/run_gen_padframe.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_Corner read from path sg13cmos5l_io
+sg13cmos5l_Corner: 10000 rects
+sg13cmos5l_Corner: 20000 rects
+sg13cmos5l_Corner: 30000 rects
+sg13cmos5l_Corner: 40000 rects
+sg13cmos5l_Corner: 50000 rects
+sg13cmos5l_Corner: 60000 rects
+sg13cmos5l_Corner: 70000 rects
+sg13cmos5l_Corner: 80000 rects
+sg13cmos5l_Corner: 90000 rects
+sg13cmos5l_Corner: 100000 rects
+sg13cmos5l_Corner: 110000 rects
+sg13cmos5l_Corner: 120000 rects
+sg13cmos5l_Corner: 130000 rects
+sg13cmos5l_Corner: 140000 rects
+sg13cmos5l_Corner: 150000 rects
+sg13cmos5l_Corner: 160000 rects
+sg13cmos5l_Corner: 170000 rects
+sg13cmos5l_Corner: 180000 rects
+sg13cmos5l_Corner: 190000 rects
+sg13cmos5l_Corner: 200000 rects
+sg13cmos5l_Corner: 210000 rects
+sg13cmos5l_Corner: 220000 rects
+sg13cmos5l_Corner: 230000 rects
+sg13cmos5l_Corner: 240000 rects
+sg13cmos5l_Corner: 250000 rects
+sg13cmos5l_Corner: 260000 rects
+sg13cmos5l_Corner: 270000 rects
+sg13cmos5l_Corner: 280000 rects
+sg13cmos5l_Corner: 290000 rects
+sg13cmos5l_Corner: 300000 rects
+sg13cmos5l_Corner: 310000 rects
+sg13cmos5l_Corner: 320000 rects
+sg13cmos5l_Corner: 330000 rects
+sg13cmos5l_Corner: 340000 rects
+sg13cmos5l_Corner: 350000 rects
+sg13cmos5l_Corner: 360000 rects
+sg13cmos5l_Corner: 370000 rects
+sg13cmos5l_Corner: 380000 rects
+sg13cmos5l_Corner: 390000 rects
+sg13cmos5l_Corner: 400000 rects
+sg13cmos5l_Corner: 410000 rects
+sg13cmos5l_Corner: 420000 rects
+sg13cmos5l_Corner: 430000 rects
+sg13cmos5l_Corner: 440000 rects
+sg13cmos5l_Corner: 450000 rects
+sg13cmos5l_Corner: 460000 rects
+sg13cmos5l_Corner: 470000 rects
+sg13cmos5l_Corner: 480000 rects
+sg13cmos5l_Corner: 490000 rects
+sg13cmos5l_Corner: 500000 rects
+sg13cmos5l_Corner: 510000 rects
+sg13cmos5l_Corner: 520000 rects
+sg13cmos5l_Corner: 530000 rects
+Cell sg13cmos5l_IOPadTriOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadTriOut16mA: 10000 rects
+sg13cmos5l_IOPadTriOut16mA: 20000 rects
+sg13cmos5l_IOPadTriOut16mA: 30000 rects
+sg13cmos5l_IOPadTriOut16mA: 40000 rects
+sg13cmos5l_IOPadTriOut16mA: 50000 rects
+sg13cmos5l_IOPadTriOut16mA: 60000 rects
+sg13cmos5l_IOPadTriOut16mA: 70000 rects
+sg13cmos5l_IOPadTriOut16mA: 80000 rects
+sg13cmos5l_IOPadTriOut16mA: 90000 rects
+sg13cmos5l_IOPadTriOut16mA: 100000 rects
+sg13cmos5l_IOPadTriOut16mA: 110000 rects
+sg13cmos5l_IOPadTriOut16mA: 120000 rects
+sg13cmos5l_IOPadTriOut16mA: 130000 rects
+Cell sg13cmos5l_Clamp_P8N8D read from path sg13cmos5l_io
+Cell bondpad_LX3CBX read from path paramcells
+Scaled magic input cell bondpad_LX3CBX geometry by factor of 2
+Cell sg13cmos5l_Filler4000 read from path sg13cmos5l_io
+sg13cmos5l_Filler4000: 10000 rects
+sg13cmos5l_Filler4000: 20000 rects
+sg13cmos5l_Filler4000: 30000 rects
+sg13cmos5l_Filler4000: 40000 rects
+sg13cmos5l_Filler4000: 50000 rects
+Cell sg13cmos5l_Filler2000 read from path sg13cmos5l_io
+sg13cmos5l_Filler2000: 10000 rects
+sg13cmos5l_Filler2000: 20000 rects
+Cell sg13cmos5l_IOPadIn read from path sg13cmos5l_io
+sg13cmos5l_IOPadIn: 10000 rects
+sg13cmos5l_IOPadIn: 20000 rects
+sg13cmos5l_IOPadIn: 30000 rects
+sg13cmos5l_IOPadIn: 40000 rects
+sg13cmos5l_IOPadIn: 50000 rects
+sg13cmos5l_IOPadIn: 60000 rects
+sg13cmos5l_IOPadIn: 70000 rects
+sg13cmos5l_IOPadIn: 80000 rects
+sg13cmos5l_IOPadIn: 90000 rects
+sg13cmos5l_IOPadIn: 100000 rects
+sg13cmos5l_IOPadIn: 110000 rects
+sg13cmos5l_IOPadIn: 120000 rects
+sg13cmos5l_IOPadIn: 130000 rects
+sg13cmos5l_IOPadIn: 140000 rects
+sg13cmos5l_IOPadIn: 150000 rects
+sg13cmos5l_IOPadIn: 160000 rects
+sg13cmos5l_IOPadIn: 170000 rects
+sg13cmos5l_IOPadIn: 180000 rects
+sg13cmos5l_IOPadIn: 190000 rects
+sg13cmos5l_IOPadIn: 200000 rects
+sg13cmos5l_IOPadIn: 210000 rects
+sg13cmos5l_IOPadIn: 220000 rects
+sg13cmos5l_IOPadIn: 230000 rects
+sg13cmos5l_IOPadIn: 240000 rects
+Cell sg13cmos5l_IOPadVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadVdd: 10000 rects
+sg13cmos5l_IOPadVdd: 20000 rects
+sg13cmos5l_IOPadVdd: 30000 rects
+sg13cmos5l_IOPadVdd: 40000 rects
+sg13cmos5l_IOPadVdd: 50000 rects
+sg13cmos5l_IOPadVdd: 60000 rects
+Cell sg13cmos5l_Clamp_N43N43D4R read from path sg13cmos5l_io
+sg13cmos5l_Clamp_N43N43D4R: 10000 rects
+sg13cmos5l_Clamp_N43N43D4R: 20000 rects
+Cell sg13cmos5l_IOPadInOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadInOut16mA: 10000 rects
+sg13cmos5l_IOPadInOut16mA: 20000 rects
+sg13cmos5l_IOPadInOut16mA: 30000 rects
+sg13cmos5l_IOPadInOut16mA: 40000 rects
+sg13cmos5l_IOPadInOut16mA: 50000 rects
+sg13cmos5l_IOPadInOut16mA: 60000 rects
+sg13cmos5l_IOPadInOut16mA: 70000 rects
+sg13cmos5l_IOPadInOut16mA: 80000 rects
+sg13cmos5l_IOPadInOut16mA: 90000 rects
+sg13cmos5l_IOPadInOut16mA: 100000 rects
+sg13cmos5l_IOPadInOut16mA: 110000 rects
+sg13cmos5l_IOPadInOut16mA: 120000 rects
+sg13cmos5l_IOPadInOut16mA: 130000 rects
+Cell sg13cmos5l_Clamp_N8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadIOVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVdd: 10000 rects
+sg13cmos5l_IOPadIOVdd: 20000 rects
+sg13cmos5l_IOPadIOVdd: 30000 rects
+sg13cmos5l_IOPadIOVdd: 40000 rects
+sg13cmos5l_IOPadIOVdd: 50000 rects
+sg13cmos5l_IOPadIOVdd: 60000 rects
+Cell sg13cmos5l_ocd_Split2000 read from current working directory
+sg13cmos5l_ocd_Split2000: 10000 rects
+sg13cmos5l_ocd_Split2000: 20000 rects
+Cell sg13cmos5l_IOPadAnalog read from path sg13cmos5l_io
+sg13cmos5l_IOPadAnalog: 10000 rects
+sg13cmos5l_IOPadAnalog: 20000 rects
+sg13cmos5l_IOPadAnalog: 30000 rects
+sg13cmos5l_IOPadAnalog: 40000 rects
+sg13cmos5l_IOPadAnalog: 50000 rects
+sg13cmos5l_IOPadAnalog: 60000 rects
+sg13cmos5l_IOPadAnalog: 70000 rects
+sg13cmos5l_IOPadAnalog: 80000 rects
+sg13cmos5l_IOPadAnalog: 90000 rects
+sg13cmos5l_IOPadAnalog: 100000 rects
+sg13cmos5l_IOPadAnalog: 110000 rects
+sg13cmos5l_IOPadAnalog: 120000 rects
+sg13cmos5l_IOPadAnalog: 130000 rects
+Cell sg13cmos5l_SecondaryProtection read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_P20N0D read from path sg13cmos5l_io
+sg13cmos5l_Clamp_P20N0D: 10000 rects
+Cell sg13cmos5l_IOPadIOVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVss: 10000 rects
+sg13cmos5l_IOPadIOVss: 20000 rects
+sg13cmos5l_IOPadIOVss: 30000 rects
+sg13cmos5l_IOPadIOVss: 40000 rects
+sg13cmos5l_IOPadIOVss: 50000 rects
+sg13cmos5l_IOPadIOVss: 60000 rects
+sg13cmos5l_IOPadIOVss: 70000 rects
+sg13cmos5l_IOPadIOVss: 80000 rects
+sg13cmos5l_IOPadIOVss: 90000 rects
+sg13cmos5l_IOPadIOVss: 100000 rects
+sg13cmos5l_IOPadIOVss: 110000 rects
+sg13cmos5l_IOPadIOVss: 120000 rects
+sg13cmos5l_IOPadIOVss: 130000 rects
+sg13cmos5l_IOPadIOVss: 140000 rects
+sg13cmos5l_IOPadIOVss: 150000 rects
+sg13cmos5l_IOPadIOVss: 160000 rects
+sg13cmos5l_IOPadIOVss: 170000 rects
+sg13cmos5l_IOPadIOVss: 180000 rects
+sg13cmos5l_IOPadIOVss: 190000 rects
+sg13cmos5l_IOPadIOVss: 200000 rects
+sg13cmos5l_IOPadIOVss: 210000 rects
+sg13cmos5l_IOPadIOVss: 220000 rects
+sg13cmos5l_IOPadIOVss: 230000 rects
+sg13cmos5l_IOPadIOVss: 240000 rects
+sg13cmos5l_IOPadIOVss: 250000 rects
+sg13cmos5l_IOPadIOVss: 260000 rects
+sg13cmos5l_IOPadIOVss: 270000 rects
+sg13cmos5l_IOPadIOVss: 280000 rects
+Cell sg13cmos5l_IOPadVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadVss: 10000 rects
+sg13cmos5l_IOPadVss: 20000 rects
+sg13cmos5l_IOPadVss: 30000 rects
+sg13cmos5l_IOPadVss: 40000 rects
+sg13cmos5l_IOPadVss: 50000 rects
+sg13cmos5l_IOPadVss: 60000 rects
+sg13cmos5l_IOPadVss: 70000 rects
+sg13cmos5l_IOPadVss: 80000 rects
+sg13cmos5l_IOPadVss: 90000 rects
+sg13cmos5l_IOPadVss: 100000 rects
+sg13cmos5l_IOPadVss: 110000 rects
+sg13cmos5l_IOPadVss: 120000 rects
+sg13cmos5l_IOPadVss: 130000 rects
+sg13cmos5l_IOPadVss: 140000 rects
+sg13cmos5l_IOPadVss: 150000 rects
+sg13cmos5l_IOPadVss: 160000 rects
+sg13cmos5l_IOPadVss: 170000 rects
+sg13cmos5l_IOPadVss: 180000 rects
+sg13cmos5l_IOPadVss: 190000 rects
+sg13cmos5l_IOPadVss: 200000 rects
+sg13cmos5l_IOPadVss: 210000 rects
+sg13cmos5l_IOPadVss: 220000 rects
+sg13cmos5l_IOPadVss: 230000 rects
+sg13cmos5l_IOPadVss: 240000 rects
+sg13cmos5l_IOPadVss: 250000 rects
+Cell sg13cmos5l_IOPadOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadOut16mA: 10000 rects
+sg13cmos5l_IOPadOut16mA: 20000 rects
+sg13cmos5l_IOPadOut16mA: 30000 rects
+sg13cmos5l_IOPadOut16mA: 40000 rects
+sg13cmos5l_IOPadOut16mA: 50000 rects
+sg13cmos5l_IOPadOut16mA: 60000 rects
+sg13cmos5l_IOPadOut16mA: 70000 rects
+sg13cmos5l_IOPadOut16mA: 80000 rects
+sg13cmos5l_IOPadOut16mA: 90000 rects
+sg13cmos5l_IOPadOut16mA: 100000 rects
+sg13cmos5l_IOPadOut16mA: 110000 rects
+sg13cmos5l_IOPadOut16mA: 120000 rects
+sg13cmos5l_IOPadOut16mA: 130000 rects
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+Cell cio_s7_0_DCNDiode read from path custom_io
+Scaled magic input cell cio_s7_0_DCNDiode geometry by factor of 2
+Cell cio_s7_0_Clamp_N_M1 read from path custom_io
+Cell cio_s7_0_iovdd_rail_tie read from path custom_io
+Cell cio_s7_0_rppd read from path custom_io
+Scaled magic input cell cio_s7_0_rppd geometry by factor of 2
+Cell cio_s7_0_esd_wiring read from path custom_io
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+Cell cio_s7_1_Clamp_N_M1 read from path custom_io
+Cell cio_s7_1_nw_isolator read from path custom_io
+Cell cio_s7_1_DCPDiode read from path custom_io
+Scaled magic input cell cio_s7_1_DCPDiode geometry by factor of 2
+cio_s7_1_DCPDiode: 10000 rects
+Cell cio_s7_1_Metal3ViasUp read from path custom_io
+Cell cio_s7_1_Clamp_P_M1_wiring read from path custom_io
+Cell cio_s7_1_cm_rings read from path custom_io
+Cell cio_s7_1_d2s_cma read from path custom_io
+Scaled magic input cell cio_s7_1_d2s_cma geometry by factor of 2
+Cell cio_s7_1_Clamp_N_M1_wiring_1 read from path custom_io
+Cell cio_s7_1_d2s_cmb read from path custom_io
+Scaled magic input cell cio_s7_1_d2s_cmb geometry by factor of 2
+Cell sg13cmos5l_Clamp_N20N0D read from path sg13cmos5l_io
+Cell sg13cmos5l_DCNDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCNDiode geometry by factor of 2
+Cell sg13cmos5l_LevelDown read from path sg13cmos5l_io
+Cell sg13g2_SecondaryProtection read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990531 read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990530 read from path sg13cmos5l_io
+Cell sg13cmos5l_DCPDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCPDiode geometry by factor of 2
+Cell sg13cmos5l_GateDecode read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUp read from path sg13cmos5l_io
+Cell sg13cmos5l_io_tie read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nor2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nand2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_inv_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_RCClampResistor read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_RCClampResistor geometry by factor of 2
+Cell sg13cmos5l_RCClampInverter read from path sg13cmos5l_io
+sg13cmos5l_RCClampInverter: 10000 rects
+Cell sg13cmos5l_GateLevelUpInv read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUpInv read from path sg13cmos5l_io
+Cell cio_s7_0_rppd_1 read from path custom_io
+Scaled magic input cell cio_s7_0_rppd_1 geometry by factor of 2
+Cell cio_s7_0_DCPDiode read from path custom_io
+Scaled magic input cell cio_s7_0_DCPDiode geometry by factor of 2
+Cell cio_s7_0_Clamp_P_M1 read from path custom_io
+Cell cio_s7_0_edge_stubs_low read from path custom_io
+Scaled magic input cell cio_s7_0_edge_stubs_low geometry by factor of 2
+Cell cio_s7_0_edge_stubs read from path custom_io
+Cell cio_s7_0_s2d_block read from path custom_io
+Cell cio_s7_0_sinks_6x6_s2d_c3_core read from path custom_io
+Cell cio_s7_0_nmosHV read from path custom_io
+Scaled magic input cell cio_s7_0_nmosHV geometry by factor of 2
+Cell cio_s7_0_nmosHV_1 read from path custom_io
+Cell cio_s7_0_s2d_tails_lo_f read from path custom_io
+Cell cio_s7_0_pmosHV_w5_l6 read from path custom_io
+Cell cio_s7_0_s2d_tails_hi_f read from path custom_io
+Cell cio_s7_0_s2d_sinks_cmfb_c3_core read from path custom_io
+Cell cio_s7_0_s2d_rhigh_c3 read from path custom_io
+Cell cio_s7_0_rhigh read from path custom_io
+Cell cio_s7_0_s2d_pd_p_c3 read from path custom_io
+Cell cio_s7_0_pmosHV_w2_l0p45_ng2 read from path custom_io
+Cell cio_s7_0_s2d_loads_f read from path custom_io
+Cell cio_s7_0_pmosHV_w6_l4 read from path custom_io
+Cell cio_s7_0_pmosHV_w1_l4_1 read from path custom_io
+Scaled magic input cell cio_s7_0_pmosHV_w1_l4_1 geometry by factor of 2
+Cell cio_s7_0_s2d_inputs_c3 read from path custom_io
+Cell cio_s7_0_tub_p20x1_c3 read from path custom_io
+Cell cio_s7_0_pmosHV_w20_l1_ng2 read from path custom_io
+Cell cio_s7_0_s2d_cload_c3 read from path custom_io
+Cell cio_s7_0_nmosHV_6 read from path custom_io
+Cell cio_s7_0_nmosHV_5 read from path custom_io
+Cell cio_s7_0_s2d_casc_p_f read from path custom_io
+Cell cio_s7_0_pmosHV_w15_l3 read from path custom_io
+Cell cio_s7_0_s2d_casc_n_f read from path custom_io
+Cell cio_s7_0_nmosHV_4 read from path custom_io
+Scaled magic input cell cio_s7_0_nmosHV_4 geometry by factor of 2
+Cell cio_s7_0_nmosHV_3 read from path custom_io
+Cell cio_s7_0_nmosHV_2 read from path custom_io
+Scaled magic input cell cio_s7_0_nmosHV_2 geometry by factor of 2
+Cell cio_s7_0_pwr_f read from path custom_io
+Cell cio_s7_0_bias_tree_noab_p_c3 read from path custom_io
+Cell cio_s7_0_pmosHV_w2_l6 read from path custom_io
+Scaled magic input cell cio_s7_0_pmosHV_w2_l6 geometry by factor of 2
+Cell cio_s7_0_pmosHV_w1_l0p45 read from path custom_io
+Cell cio_s7_0_bias_tree_noab_n_c3 read from path custom_io
+Cell cio_s7_0_nmosHV_7 read from path custom_io
+Scaled magic input cell cio_s7_0_nmosHV_7 geometry by factor of 2
+Cell cio_s7_1_TopLayersTo4 read from path custom_io
+Scaled magic input cell cio_s7_1_TopLayersTo4 geometry by factor of 2
+Cell cio_s7_1_replica_lines read from path custom_io
+Cell cio_s7_1_pad_wiring_f2 read from path custom_io
+Cell cio_s7_1_m2_junction read from path custom_io
+Cell cio_s7_1_m2_comb_p read from path custom_io
+Cell cio_s7_1_m2_comb_n read from path custom_io
+Cell cio_s7_1_guard_tie read from path custom_io
+Scaled magic input cell cio_s7_1_guard_tie geometry by factor of 2
+Cell cio_s7_1_gate_feeds read from path custom_io
+Cell cio_s7_1_edge_stubs read from path custom_io
+Cell cio_s7_1_DCNDiode read from path custom_io
+Scaled magic input cell cio_s7_1_DCNDiode geometry by factor of 2
+cio_s7_1_DCNDiode: 10000 rects
+Cell cio_s7_1_d2s_block read from path custom_io
+Cell cio_s7_1_sinks_6x6_f2 read from path custom_io
+Cell cio_s7_1_nmosHV_7 read from path custom_io
+Scaled magic input cell cio_s7_1_nmosHV_7 geometry by factor of 2
+Cell cio_s7_1_nmosHV_3 read from path custom_io
+Cell cio_s7_1_pwr_f2 read from path custom_io
+Cell cio_s7_1_d2s_tgsw_f2 read from path custom_io
+Cell cio_s7_1_pmosHV read from path custom_io
+Cell cio_s7_1_nmosHV_1 read from path custom_io
+Cell cio_s7_1_d2s_tails_c2 read from path custom_io
+Cell cio_s7_1_pmosHV_w5_l6 read from path custom_io
+Cell cio_s7_1_d2s_sp2k_f2 read from path custom_io
+Cell cio_s7_1_rppd read from path custom_io
+Cell cio_s7_1_dpantenna read from path custom_io
+Scaled magic input cell cio_s7_1_dpantenna geometry by factor of 2
+Cell cio_s7_1_dantenna read from path custom_io
+Scaled magic input cell cio_s7_1_dantenna geometry by factor of 2
+Cell cio_s7_1_d2s_rhigh_f2 read from path custom_io
+Cell cio_s7_1_rhigh read from path custom_io
+Cell cio_s7_1_d2s_loads_c2 read from path custom_io
+Cell cio_s7_1_pmosHV_w6_l4 read from path custom_io
+Cell cio_s7_1_pmosHV_w1_l4 read from path custom_io
+Scaled magic input cell cio_s7_1_pmosHV_w1_l4 geometry by factor of 2
+Cell cio_s7_1_d2s_inputs_c2 read from path custom_io
+Cell cio_s7_1_tub_p20x1_c2 read from path custom_io
+Cell cio_s7_1_pmosHV_w20_l1_ng2 read from path custom_io
+Cell cio_s7_1_d2s_casc_p_c2 read from path custom_io
+Cell cio_s7_1_pmosHV_w15_l3 read from path custom_io
+Cell cio_s7_1_d2s_casc_n_f2 read from path custom_io
+Cell cio_s7_1_nmosHV_6 read from path custom_io
+Scaled magic input cell cio_s7_1_nmosHV_6 geometry by factor of 2
+Cell cio_s7_1_nmosHV_5 read from path custom_io
+Cell cio_s7_1_nmosHV_4 read from path custom_io
+Scaled magic input cell cio_s7_1_nmosHV_4 geometry by factor of 2
+Cell cio_s7_1_d2s_ab_p_f2 read from path custom_io
+Cell cio_s7_1_pmosHV_w6p66_l0p6 read from path custom_io
+Cell cio_s7_1_pmosHV_w1_l0p45 read from path custom_io
+Cell cio_s7_1_d2s_ab_n_f2 read from path custom_io
+Cell cio_s7_1_nmosHV read from path custom_io
+Cell cio_s7_1_bias_tree_p_f2 read from path custom_io
+Cell cio_s7_1_pmosHV_w2_l6 read from path custom_io
+Scaled magic input cell cio_s7_1_pmosHV_w2_l6 geometry by factor of 2
+Cell cio_s7_1_bias_tree_n_f2 read from path custom_io
+Cell cio_s7_1_nmosHV_2 read from path custom_io
+Scaled magic input cell cio_s7_1_nmosHV_2 geometry by factor of 2
+Cell cio_s7_1_contacts read from path custom_io
+Scaled magic input cell cio_s7_1_contacts geometry by factor of 2
+Cell cio_s7_1_Clamp_P_M1 read from path custom_io
+cio_s7_1_Clamp_P_M1: 10000 rects
+Cell cio_s7_1_Clamp_N_M1_wiring read from path custom_io
+Cell copyright_block read from current working directory
+Cell user_id_textblock read from current working directory
+Scaled magic input cell user_id_textblock geometry by factor of 2
+Cell caravel_logo read from current working directory
+Scaled magic input cell caravel_logo geometry by factor of 2
+Cell caravel_motto read from current working directory
+Scaled magic input cell caravel_motto geometry by factor of 2
+Cell open_source read from current working directory
+Scaled magic input cell open_source geometry by factor of 2
+Cell user_id_routing read from current working directory
+Cell font_76 read from path alpha
+Scaled magic input cell font_76 geometry by factor of 24
+Cell font_75 read from path alpha
+Scaled magic input cell font_75 geometry by factor of 24
+Cell font_74 read from path alpha
+Scaled magic input cell font_74 geometry by factor of 24
+Cell font_73 read from path alpha
+Scaled magic input cell font_73 geometry by factor of 24
+Cell font_72 read from path alpha
+Scaled magic input cell font_72 geometry by factor of 24
+Cell font_70 read from path alpha
+Scaled magic input cell font_70 geometry by factor of 24
+Cell font_69 read from path alpha
+Scaled magic input cell font_69 geometry by factor of 24
+Cell font_68 read from path alpha
+Scaled magic input cell font_68 geometry by factor of 24
+Cell font_67 read from path alpha
+Scaled magic input cell font_67 geometry by factor of 24
+Cell font_65 read from path alpha
+Scaled magic input cell font_65 geometry by factor of 24
+Cell font_63 read from path alpha
+Scaled magic input cell font_63 geometry by factor of 24
+Cell font_62 read from path alpha
+Scaled magic input cell font_62 geometry by factor of 24
+Cell font_61 read from path alpha
+Scaled magic input cell font_61 geometry by factor of 24
+Cell font_56 read from path alpha
+Scaled magic input cell font_56 geometry by factor of 24
+Cell font_53 read from path alpha
+Scaled magic input cell font_53 geometry by factor of 24
+Cell font_50 read from path alpha
+Scaled magic input cell font_50 geometry by factor of 24
+Cell font_49 read from path alpha
+Scaled magic input cell font_49 geometry by factor of 24
+Cell font_48 read from path alpha
+Scaled magic input cell font_48 geometry by factor of 24
+Cell font_47 read from path alpha
+Scaled magic input cell font_47 geometry by factor of 24
+Cell font_44 read from path alpha
+Scaled magic input cell font_44 geometry by factor of 24
+Cell font_43 read from path alpha
+Scaled magic input cell font_43 geometry by factor of 24
+Cell font_36 read from path alpha
+Scaled magic input cell font_36 geometry by factor of 24
+Cell font_35 read from path alpha
+Scaled magic input cell font_35 geometry by factor of 24
+Cell font_33 read from path alpha
+Scaled magic input cell font_33 geometry by factor of 24
+Cell font_32 read from path alpha
+Scaled magic input cell font_32 geometry by factor of 24
+Cell font_31 read from path alpha
+Scaled magic input cell font_31 geometry by factor of 24
+Cell font_30 read from path alpha
+Scaled magic input cell font_30 geometry by factor of 24
+Cell font_29 read from path alpha
+Scaled magic input cell font_29 geometry by factor of 24
+Cell font_28 read from path alpha
+Scaled magic input cell font_28 geometry by factor of 24
+Cell font_7A read from path alpha
+Scaled magic input cell font_7A geometry by factor of 24
+Cell font_6F read from path alpha
+Scaled magic input cell font_6F geometry by factor of 24
+Cell font_6E read from path alpha
+Scaled magic input cell font_6E geometry by factor of 24
+Cell font_6D read from path alpha
+Scaled magic input cell font_6D geometry by factor of 24
+Cell font_6C read from path alpha
+Scaled magic input cell font_6C geometry by factor of 24
+Cell font_4F read from path alpha
+Scaled magic input cell font_4F geometry by factor of 24
+Cell font_4E read from path alpha
+Scaled magic input cell font_4E geometry by factor of 24
+Cell font_4D read from path alpha
+Scaled magic input cell font_4D geometry by factor of 24
+Cell font_4C read from path alpha
+Scaled magic input cell font_4C geometry by factor of 24
+Cell font_4B read from path alpha
+Scaled magic input cell font_4B geometry by factor of 24
+Cell font_2E read from path alpha
+Scaled magic input cell font_2E geometry by factor of 24
+Cell font_2C read from path alpha
+Scaled magic input cell font_2C geometry by factor of 24
+Cell via_Y6HHCQ read from path paramcells
+Cell via_Y6HR5N read from path paramcells
+Cell user_id_programming read from current working directory
+Cell user_id_vias read from current working directory
+Cell sg13cmos5l_tielo read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_tiehi read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_decap_4 read from path sg13cmos5l_stdcell
+Cell via_Z2R7LJ read from path paramcells
+Cell via_CGDS3A read from path paramcells
+Cell alpha_2 read from path hexdigits
+Scaled magic input cell alpha_2 geometry by factor of 72
+Cell alpha_0 read from path hexdigits
+Scaled magic input cell alpha_0 geometry by factor of 2
+Cell alpha_6 read from path hexdigits
+Scaled magic input cell alpha_6 geometry by factor of 72
+Cell alpha_3 read from path hexdigits
+Scaled magic input cell alpha_3 geometry by factor of 72
+Cell font_22 read from path alpha
+Scaled magic input cell font_22 geometry by factor of 24
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: user_id_programming, sg13cmos5l_tielo, sg13cmos5l_tiehi, sg13cmos5l_decap_4, alpha_2, alpha_6, alpha_3.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Cell chipalooza_frame_wrapper read from current working directory
+Adjusting size of label "vss1v2" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss3v3" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss3v3" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss1v2" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss1v2" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss3v3" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss1v2" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss1v2" in cell chipalooza_frame_wrapper.
+Adjusting size of label "vss3v3" in cell chipalooza_frame_wrapper.
+Magic error: writing out-of-date timestamp for chipalooza_frame_wrapper.
+Done!

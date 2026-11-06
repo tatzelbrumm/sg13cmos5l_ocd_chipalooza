@@ -1,0 +1,124 @@
+=== slot 7: 2 custom pad(s), 13 core nets: s7_an_0_vref s7_an_0_outp s7_an_0_outn s7_an_0_vcm s7_an_0_en_3v3 s7_an_0_en_3v3_b s7_an_0_iref s7_an_1_vinp s7_an_1_vinn s7_an_1_vref s7_an_1_iref s7_an_1_en_3v3_b s7_an_1_en_3v3
+
+File verilog/rtl/chipalooza_frame.v
+  (a) module port list
+    FIND these lines:
+      |    inout  [1:0] s7_an,  inout s7_an_0_esd, inout s7_an_1_esd,
+    REPLACE them with:
+      |    inout  s7_an_0_vref,
+      |    inout  s7_an_0_outp,
+      |    inout  s7_an_0_outn,
+      |    inout  s7_an_0_vcm,
+      |    inout  s7_an_0_en_3v3,
+      |    inout  s7_an_0_en_3v3_b,
+      |    inout  s7_an_0_iref,
+      |    inout  s7_an_1_vinp,
+      |    inout  s7_an_1_vinn,
+      |    inout  s7_an_1_vref,
+      |    inout  s7_an_1_iref,
+      |    inout  s7_an_1_en_3v3_b,
+      |    inout  s7_an_1_en_3v3,
+
+  (b) instance slot7_wrapper slot7 (...): connections (the _esd lines present there)
+    FIND these lines:
+      |	.s7_an(s7_an),
+      |	.s7_an_0_esd(s7_an_0_esd),
+    REPLACE them with:
+      |	.s7_an_0_vref(s7_an_0_vref),
+      |	.s7_an_0_outp(s7_an_0_outp),
+      |	.s7_an_0_outn(s7_an_0_outn),
+      |	.s7_an_0_vcm(s7_an_0_vcm),
+      |	.s7_an_0_en_3v3(s7_an_0_en_3v3),
+      |	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
+      |	.s7_an_0_iref(s7_an_0_iref),
+      |	.s7_an_1_vinp(s7_an_1_vinp),
+      |	.s7_an_1_vinn(s7_an_1_vinn),
+      |	.s7_an_1_vref(s7_an_1_vref),
+      |	.s7_an_1_iref(s7_an_1_iref),
+      |	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
+      |	.s7_an_1_en_3v3(s7_an_1_en_3v3),
+
+File verilog/gl/sg13cmos5l_ocd_chipalooza.v   (the chip pins s7_an stay)
+  (a) wire declarations
+    FIND these lines:
+      |    wire s7_an_0_esd;
+      |    wire s7_an_1_esd;
+    REPLACE them with:
+      |    wire s7_an_0_vref;
+      |    wire s7_an_0_outp;
+      |    wire s7_an_0_outn;
+      |    wire s7_an_0_vcm;
+      |    wire s7_an_0_en_3v3;
+      |    wire s7_an_0_en_3v3_b;
+      |    wire s7_an_0_iref;
+      |    wire s7_an_1_vinp;
+      |    wire s7_an_1_vinn;
+      |    wire s7_an_1_vref;
+      |    wire s7_an_1_iref;
+      |    wire s7_an_1_en_3v3_b;
+      |    wire s7_an_1_en_3v3;
+
+  (b) BOTH instances, padframe (...) and harness_core (...): the _esd connections
+    FIND these lines:
+      |	.s7_an_0_esd(s7_an_0_esd),
+      |	.s7_an_1_esd(s7_an_1_esd),
+    REPLACE them with:
+      |	.s7_an_0_vref(s7_an_0_vref),
+      |	.s7_an_0_outp(s7_an_0_outp),
+      |	.s7_an_0_outn(s7_an_0_outn),
+      |	.s7_an_0_vcm(s7_an_0_vcm),
+      |	.s7_an_0_en_3v3(s7_an_0_en_3v3),
+      |	.s7_an_0_en_3v3_b(s7_an_0_en_3v3_b),
+      |	.s7_an_0_iref(s7_an_0_iref),
+      |	.s7_an_1_vinp(s7_an_1_vinp),
+      |	.s7_an_1_vinn(s7_an_1_vinn),
+      |	.s7_an_1_vref(s7_an_1_vref),
+      |	.s7_an_1_iref(s7_an_1_iref),
+      |	.s7_an_1_en_3v3_b(s7_an_1_en_3v3_b),
+      |	.s7_an_1_en_3v3(s7_an_1_en_3v3),
+
+  (c) instance harness_core (...): the pad connections
+    FIND these lines:
+      |	.s7_an_0(s7_an[0]),
+      |	.s7_an_1(s7_an[1]),
+    DELETE them.
+
+File verilog/rtl/digital_tb.v
+  instance chipalooza_frame harness_core (...)
+    FIND these lines:
+      |	    .s7_an(),
+    REPLACE them with:
+      |	    .s7_an_0_vref(),
+      |	    .s7_an_0_outp(),
+      |	    .s7_an_0_outn(),
+      |	    .s7_an_0_vcm(),
+      |	    .s7_an_0_en_3v3(),
+      |	    .s7_an_0_en_3v3_b(),
+      |	    .s7_an_0_iref(),
+      |	    .s7_an_1_vinp(),
+      |	    .s7_an_1_vinn(),
+      |	    .s7_an_1_vref(),
+      |	    .s7_an_1_iref(),
+      |	    .s7_an_1_en_3v3_b(),
+      |	    .s7_an_1_en_3v3(),
+
+File verilog/rtl/slot7_wrapper.v
+  module port list (keep the comment lines around it)
+    FIND these lines:
+      |    inout wire [1:0] s7_an,	// dedicated analog pad(s)
+      |    inout wire s7_an_0_esd,	// secondary ESD-protected pin
+    REPLACE them with:
+      |    inout wire s7_an_0_vref,
+      |    inout wire s7_an_0_outp,
+      |    inout wire s7_an_0_outn,
+      |    inout wire s7_an_0_vcm,
+      |    inout wire s7_an_0_en_3v3,
+      |    inout wire s7_an_0_en_3v3_b,
+      |    inout wire s7_an_0_iref,
+      |    inout wire s7_an_1_vinp,
+      |    inout wire s7_an_1_vinn,
+      |    inout wire s7_an_1_vref,
+      |    inout wire s7_an_1_iref,
+      |    inout wire s7_an_1_en_3v3_b,
+      |    inout wire s7_an_1_en_3v3,
+

@@ -1,0 +1,44 @@
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_decap_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_antennanp" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The discovered version will be used.
+"RM_IHPSG13_1P_1024x8_c2_bm_bist" has a zero timestamp; it should be written out
+    to establish a correct timestamp.
+Warning:  Parent cell lists instance of "sg13cmos5l_nor2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_nand2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_fill_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_buf_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_nand3_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The discovered version will be used.
+Duplicate cell in gate_drive_1v2:  Instance of cell sg13cmos5l_antennanp is from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell but cell was previously read from sg13cmos5l_stdcell.
+New path does not exist and will be ignored.
+Duplicate cell in gate_drive_1v2:  Instance of cell sg13cmos5l_decap_4 is from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell but cell was previously read from sg13cmos5l_stdcell.
+New path does not exist and will be ignored.
+Duplicate cell in gate_drive_1v2:  Instance of cell sg13cmos5l_inv_1 is from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell but cell was previously read from sg13cmos5l_stdcell.
+New path does not exist and will be ignored.
+Duplicate cell in gate_drive_1v2:  Instance of cell sg13cmos5l_inv_2 is from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell but cell was previously read from sg13cmos5l_stdcell.
+New path does not exist and will be ignored.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_8" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The discovered version will be used.
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1

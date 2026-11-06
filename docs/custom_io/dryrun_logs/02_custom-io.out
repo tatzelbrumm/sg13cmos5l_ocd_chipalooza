@@ -1,0 +1,297 @@
+./scripts/setup_custom_io.py
+/home/user/c6test/magic/custom_io/gds/sg13cmos5l_IOPadSingle2Diff.uniq.gds: top sg13cmos5l_IOPadSingle2Diff, 43 sub-cells renamed with prefix cio_s7_0_
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "cio_s7_0_pmosHV_w20_l1_ng2".
+Reading "cio_s7_0_pmosHV_w1_l4_1".
+Reading "cio_s7_0_nmosHV_2".
+Reading "cio_s7_0_nmosHV_3".
+Reading "cio_s7_0_nmosHV_4".
+Reading "cio_s7_0_nmosHV_5".
+Reading "cio_s7_0_nmosHV_6".
+Reading "cio_s7_0_rhigh".
+Reading "cio_s7_0_nmosHV_7".
+Reading "cio_s7_0_nmosHV".
+Reading "cio_s7_0_nmosHV_1".
+Reading "cio_s7_0_pmosHV_w1_l0p45".
+Reading "cio_s7_0_pmosHV_w2_l6".
+Reading "cio_s7_0_pmosHV_w2_l0p45_ng2".
+Reading "cio_s7_0_pmosHV_w15_l3".
+Reading "cio_s7_0_pmosHV_w6_l4".
+Reading "cio_s7_0_pmosHV_w5_l6".
+Reading "cio_s7_0_tub_p20x1_c3".
+Reading "cio_s7_0_s2d_loads_f".
+Reading "cio_s7_0_s2d_casc_p_f".
+Reading "cio_s7_0_s2d_casc_n_f".
+Reading "cio_s7_0_s2d_tails_hi_f".
+Reading "cio_s7_0_s2d_tails_lo_f".
+Reading "cio_s7_0_s2d_cload_c3".
+Reading "cio_s7_0_s2d_rhigh_c3".
+Reading "cio_s7_0_bias_tree_noab_n_c3".
+Reading "cio_s7_0_sinks_6x6_s2d_c3_core".
+Reading "cio_s7_0_s2d_sinks_cmfb_c3_core".
+Reading "cio_s7_0_bias_tree_noab_p_c3".
+Reading "cio_s7_0_s2d_pd_p_c3".
+Reading "cio_s7_0_s2d_inputs_c3".
+Reading "cio_s7_0_pwr_f".
+Reading "cio_s7_0_s2d_block".
+Reading "cio_s7_0_edge_stubs".
+Reading "cio_s7_0_edge_stubs_low".
+Reading "cio_s7_0_DCNDiode".
+Reading "cio_s7_0_DCPDiode".
+Reading "cio_s7_0_Clamp_N_M1".
+Reading "cio_s7_0_Clamp_P_M1".
+Reading "cio_s7_0_rppd".
+Reading "cio_s7_0_rppd_1".
+Reading "cio_s7_0_esd_wiring".
+Reading "cio_s7_0_iovdd_rail_tie".
+Reading "sg13cmos5l_IOPadSingle2Diff".
+Writing 'cio_s7_0_pmosHV_w6_l4'
+Writing 'cio_s7_0_DCNDiode'
+Writing 'cio_s7_0_s2d_pd_p_c3'
+Writing 'sg13cmos5l_IOPadSingle2Diff'
+Writing 'cio_s7_0_bias_tree_noab_n_c3'
+Writing 'cio_s7_0_Clamp_N_M1'
+Writing 'cio_s7_0_s2d_cload_c3'
+Writing 'cio_s7_0_nmosHV'
+Writing 'cio_s7_0_pwr_f'
+Writing 'cio_s7_0_iovdd_rail_tie'
+Writing 'cio_s7_0_rhigh'
+Writing 'cio_s7_0_rppd'
+Writing 'cio_s7_0_s2d_casc_p_f'
+Writing 'cio_s7_0_esd_wiring'
+Writing 'cio_s7_0_s2d_inputs_c3'
+Writing 'cio_s7_0_s2d_rhigh_c3'
+Writing 'cio_s7_0_s2d_casc_n_f'
+Writing 'cio_s7_0_DCPDiode'
+Writing 'cio_s7_0_sinks_6x6_s2d_c3_core'
+Writing 'cio_s7_0_s2d_tails_hi_f'
+Writing 'cio_s7_0_nmosHV_1'
+Writing 'cio_s7_0_edge_stubs_low'
+Writing 'cio_s7_0_nmosHV_2'
+Writing 'cio_s7_0_s2d_tails_lo_f'
+Writing 'cio_s7_0_nmosHV_3'
+Writing 'cio_s7_0_pmosHV_w1_l4_1'
+Writing 'cio_s7_0_nmosHV_4'
+Writing 'cio_s7_0_nmosHV_5'
+Writing 'cio_s7_0_edge_stubs'
+Writing 'cio_s7_0_nmosHV_6'
+Writing 'cio_s7_0_nmosHV_7'
+Writing 'cio_s7_0_pmosHV_w2_l0p45_ng2'
+Writing 'cio_s7_0_pmosHV_w2_l6'
+Writing 'cio_s7_0_s2d_loads_f'
+Writing 'cio_s7_0_pmosHV_w5_l6'
+Writing 'cio_s7_0_s2d_block'
+Writing 'cio_s7_0_bias_tree_noab_p_c3'
+Writing 'cio_s7_0_Clamp_P_M1'
+Writing 'cio_s7_0_pmosHV_w15_l3'
+Writing 'cio_s7_0_tub_p20x1_c3'
+Writing 'cio_s7_0_pmosHV_w1_l0p45'
+Writing 'cio_s7_0_rppd_1'
+Writing 'cio_s7_0_pmosHV_w20_l1_ng2'
+Writing 'cio_s7_0_s2d_sinks_cmfb_c3_core'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+/home/user/c6test/magic/custom_io/gds/sg13cmos5l_IOPadDiff2Single.uniq.gds: top sg13cmos5l_IOPadDiff2Single, 59 sub-cells renamed with prefix cio_s7_1_
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "cio_s7_1_pmosHV_w20_l1_ng2".
+Reading "cio_s7_1_tub_p20x1_c2".
+Reading "cio_s7_1_pmosHV_w5_l6".
+Reading "cio_s7_1_pmosHV_w6_l4".
+Reading "cio_s7_1_pmosHV_w1_l4".
+Reading "cio_s7_1_pmosHV_w15_l3".
+Reading "cio_s7_1_pmosHV_w6p66_l0p6".
+Reading "cio_s7_1_pmosHV_w1_l0p45".
+Reading "cio_s7_1_pmosHV_w2_l6".
+Reading "cio_s7_1_nmosHV_7".
+Reading "cio_s7_1_nmosHV_6".
+Reading "cio_s7_1_nmosHV_5".
+Reading "cio_s7_1_nmosHV_4".
+Reading "cio_s7_1_rhigh".
+Reading "cio_s7_1_pmosHV".
+Reading "cio_s7_1_nmosHV_3".
+Reading "cio_s7_1_nmosHV_2".
+Reading "cio_s7_1_nmosHV_1".
+Reading "cio_s7_1_nmosHV".
+Reading "cio_s7_1_dpantenna".
+Reading "cio_s7_1_dantenna".
+Reading "cio_s7_1_rppd".
+Reading "cio_s7_1_d2s_inputs_c2".
+Reading "cio_s7_1_d2s_tails_c2".
+Reading "cio_s7_1_d2s_loads_c2".
+Reading "cio_s7_1_d2s_casc_p_c2".
+Reading "cio_s7_1_bias_tree_p_f2".
+Reading "cio_s7_1_d2s_ab_p_f2".
+Reading "cio_s7_1_sinks_6x6_f2".
+Reading "cio_s7_1_d2s_casc_n_f2".
+Reading "cio_s7_1_d2s_rhigh_f2".
+Reading "cio_s7_1_d2s_tgsw_f2".
+Reading "cio_s7_1_bias_tree_n_f2".
+Reading "cio_s7_1_d2s_ab_n_f2".
+Reading "cio_s7_1_d2s_sp2k_f2".
+Reading "cio_s7_1_pwr_f2".
+Reading "cio_s7_1_edge_stubs".
+Reading "cio_s7_1_nw_isolator".
+Reading "cio_s7_1_guard_tie".
+Reading "cio_s7_1_cm_rings".
+Reading "cio_s7_1_DCPDiode".
+Reading "cio_s7_1_DCNDiode".
+Reading "cio_s7_1_Clamp_N_M1_wiring_1".
+Reading "cio_s7_1_Clamp_N_M1_wiring".
+Reading "cio_s7_1_Clamp_N_M1".
+Reading "cio_s7_1_Clamp_P_M1_wiring".
+Reading "cio_s7_1_Clamp_P_M1".
+Reading "cio_s7_1_TopLayersTo4".
+Reading "cio_s7_1_Metal3ViasUp".
+Reading "cio_s7_1_contacts".
+Reading "cio_s7_1_d2s_cma".
+Reading "cio_s7_1_d2s_cmb".
+Reading "cio_s7_1_m2_comb_n".
+Reading "cio_s7_1_m2_comb_p".
+Reading "cio_s7_1_m2_junction".
+Reading "cio_s7_1_replica_lines".
+Reading "cio_s7_1_gate_feeds".
+Reading "cio_s7_1_d2s_block".
+Reading "cio_s7_1_pad_wiring_f2".
+Reading "sg13cmos5l_IOPadDiff2Single".
+Writing 'cio_s7_1_d2s_casc_n_f2'
+Writing 'cio_s7_1_rppd'
+Writing 'cio_s7_1_d2s_sp2k_f2'
+Writing 'cio_s7_1_tub_p20x1_c2'
+Writing 'cio_s7_1_Clamp_N_M1'
+Writing 'cio_s7_1_pmosHV_w1_l0p45'
+Writing 'cio_s7_1_nw_isolator'
+Writing 'cio_s7_1_bias_tree_p_f2'
+Writing 'cio_s7_1_sinks_6x6_f2'
+Writing 'cio_s7_1_DCPDiode'
+Writing 'cio_s7_1_d2s_ab_n_f2'
+Writing 'cio_s7_1_Metal3ViasUp'
+Writing 'cio_s7_1_d2s_loads_c2'
+Writing 'cio_s7_1_d2s_tails_c2'
+Writing 'cio_s7_1_nmosHV_1'
+Writing 'cio_s7_1_rhigh'
+Writing 'cio_s7_1_pmosHV_w6_l4'
+Writing 'cio_s7_1_Clamp_P_M1_wiring'
+Writing 'cio_s7_1_cm_rings'
+Writing 'cio_s7_1_nmosHV_2'
+Writing 'cio_s7_1_nmosHV_3'
+Writing 'cio_s7_1_d2s_cma'
+Writing 'cio_s7_1_nmosHV_4'
+Writing 'cio_s7_1_Clamp_N_M1_wiring_1'
+Writing 'cio_s7_1_d2s_cmb'
+Writing 'cio_s7_1_d2s_rhigh_f2'
+Writing 'cio_s7_1_nmosHV_5'
+Writing 'cio_s7_1_pmosHV_w20_l1_ng2'
+Writing 'cio_s7_1_nmosHV_6'
+Writing 'cio_s7_1_bias_tree_n_f2'
+Writing 'cio_s7_1_nmosHV_7'
+Writing 'cio_s7_1_nmosHV'
+Writing 'cio_s7_1_m2_junction'
+Writing 'cio_s7_1_pmosHV_w15_l3'
+Writing 'cio_s7_1_TopLayersTo4'
+Writing 'sg13cmos5l_IOPadDiff2Single'
+Writing 'cio_s7_1_pmosHV_w1_l4'
+Writing 'cio_s7_1_replica_lines'
+Writing 'cio_s7_1_edge_stubs'
+Writing 'cio_s7_1_dantenna'
+Writing 'cio_s7_1_gate_feeds'
+Writing 'cio_s7_1_m2_comb_n'
+Writing 'cio_s7_1_pad_wiring_f2'
+Writing 'cio_s7_1_m2_comb_p'
+Writing 'cio_s7_1_d2s_inputs_c2'
+Writing 'cio_s7_1_guard_tie'
+Writing 'cio_s7_1_Clamp_P_M1'
+Writing 'cio_s7_1_Clamp_N_M1_wiring'
+Writing 'cio_s7_1_DCNDiode'
+Writing 'cio_s7_1_d2s_casc_p_c2'
+Writing 'cio_s7_1_pmosHV_w6p66_l0p6'
+Writing 'cio_s7_1_pwr_f2'
+Writing 'cio_s7_1_pmosHV'
+Writing 'cio_s7_1_d2s_block'
+Writing 'cio_s7_1_contacts'
+Writing 'cio_s7_1_d2s_ab_p_f2'
+Writing 'cio_s7_1_d2s_tgsw_f2'
+Writing 'cio_s7_1_pmosHV_w2_l6'
+Writing 'cio_s7_1_dpantenna'
+Writing 'cio_s7_1_pmosHV_w5_l6'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+Imported 2 custom pad cell(s):  sg13cmos5l_IOPadSingle2Diff, sg13cmos5l_IOPadDiff2Single
