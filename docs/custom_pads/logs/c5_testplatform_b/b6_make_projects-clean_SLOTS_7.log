@@ -1,0 +1,7 @@
+./scripts/get_projects.sh --clean  7
+slot_7: removing
+
+Removed 1 project submodule(s).  The recorded commits in
+config.txt are left alone --- they are the freeze record, and a
+re-run of get_projects.sh restores exactly what was removed.
+Commit .gitmodules and the removed paths when you are ready.

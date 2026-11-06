@@ -6,7 +6,7 @@ This one checks the harness side of the slot: the pins of slot_7 that the test p
 dig_out[11:0], analog_bus0, analog_bus1 and the four gated supplies), plus the 13 pad pins as before.
 
 Usage:
-  netcheck_slot7_platform.py <gds> <topcell> <x0> <y0> <x1> <y1> [<slot_gds> <slot_x> <slot_y>]
+  netcheck_slot7_platform.py <gds> <topcell> <x0> <y0> <x1> <y1> [<slot_gds> <slot_x> <slot_y>] [--stage b]
 
 Extracts metal connectivity (Metal1..Metal4, TopMetal1 with Via1..Via3, TopVia1; labels on the text and pin purposes
 of Metal1..TopMetal1) of <topcell> clipped to the box (um), optionally with a slot GDS placed at (slot_x, slot_y).
@@ -43,8 +43,17 @@ PADS = ['s7_an_0_vref', 's7_an_0_outp', 's7_an_0_outn', 's7_an_0_vcm', 's7_an_0_
 MERGED = [{'s7_an_0_outp', 's7_an_1_vinp'}, {'s7_an_0_outn', 's7_an_1_vinn'}]
 UNUSED = ([f'dig_in[{k}]' for k in range(4, 24)] + ['clk', 'reset', 'ibias0', 'ibias1', 'vbias',
                                                     'analog_bus2', 'analog_bus3'])
-PLATFORM_LABELS = set().union(*EXPECT.values()) | {'en_3v3', 'en_3v3_b', 'iout', 'in', 'ena', 'ena_b'} | \
-    {f'en{k}{s}' for k in range(4) for s in ('', '_b')}
+# Stage B (2026-11-06, `--stage b`): dig_in[4..12] -> tp_en_ctrl_b inputs en0_1v2 .. en8_1v2; ibias0 / ibias1 -> xgate `in`;
+# analog_bus2 / analog_bus3 -> xgate `out` (the tree's bias-voltage mux and the ibias1 path).
+if '--stage' in sys.argv and sys.argv[sys.argv.index('--stage') + 1] == 'b':
+    i = sys.argv.index('--stage')
+    del sys.argv[i:i + 2]
+    EXPECT.update({f'dig_in[{k}]': {f'en{k - 4}_1v2'} for k in range(4, 13)})
+    EXPECT.update({'ibias0': {'in'}, 'ibias1': {'in'}, 'analog_bus2': {'out'}, 'analog_bus3': {'out'}})
+    UNUSED = [u for u in UNUSED if u not in EXPECT]
+PLATFORM_LABELS = set().union(*EXPECT.values()) | {'en_3v3', 'en_3v3_b', 'iout', 'in', 'out', 'ena', 'ena_b', 'iref',
+                                                   'vbp', 'vbn', 'vbpc', 'vbnc'} | \
+    {f'en{k}{s}' for k in range(9) for s in ('', '_b')} | {f'en{k}_1v2' for k in range(9)}
 
 SLOT_BOX = db.DBox(1379.95, 2170.05, 1379.95 + 537.15, 2170.05 + 273.0)
 
