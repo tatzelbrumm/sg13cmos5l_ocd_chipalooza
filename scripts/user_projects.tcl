@@ -21,6 +21,7 @@ units microns
 # be done in conjunction with the noduplicates option, otherwise
 # name collision can still occur when reading the cells.
 gds readonly true
+gds drccheck off
 gds noduplicates true
 
 gds read ../dependencies/slot_7/final/gds/slot_7.gds

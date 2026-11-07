@@ -1,0 +1,8 @@
+./scripts/get_projects.sh 7
+slot_7: cloning https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
+Cloning into '/home/user/sg13cmos5l_ocd_chipalooza/dependencies/slot_7'...
+    at 5c3b9fcbb3d3d78e7f2ded4c10700d4873adbc2f (frozen)
+
+1 slot(s) changed.  Review and commit:
+    git status
+    git commit config.txt .gitmodules dependencies

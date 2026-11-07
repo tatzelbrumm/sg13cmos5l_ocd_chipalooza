@@ -1,0 +1,2053 @@
+./scripts/run_gen_prefill_gds.sh
+Generating (temporary) GDS for sg13cmos5l_ocd_chipalooza
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell chipalooza_frame read from current working directory
+Cell analog_pswitch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_NN8LKN read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sw_lvl_shift read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Y6ZD6N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6Z86N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QP3U7V read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_XRP95E read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_2TUKLB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_HSMMZS read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_CJ33WB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The discovered version will be used.
+Cell sg13cmos5l_inv_4 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_decap_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The discovered version will be used.
+Cell sg13cmos5l_decap_4 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_antennanp" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The discovered version will be used.
+Cell sg13cmos5l_antennanp read from path sg13cmos5l_stdcell
+Cell sg13_hv_pmos_HVFXC8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell analog_switch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13_hv_nmos_U4HMWB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell central_column read from current working directory
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_1024x8_c2_bm_bist geometry by factor of 2
+"RM_IHPSG13_1P_1024x8_c2_bm_bist" has a zero timestamp; it should be written out
+    to establish a correct timestamp.
+Cell sg13cmos5l_ocd_ip__biasgen2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6HC2N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6HG9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HE6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H4DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_KGSGVN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_nstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_2RYP69 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_generator_fe_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell rhigh_GJN3VD read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell level_shift read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_ZPCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QBGVHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QHASHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_DNCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZS5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z2DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HW5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_666RAL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_7A8CUW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XVVFQX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZY8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z29PWH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z29FXH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RFBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZU9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y2RFW5 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Warning:  Parent cell lists instance of "sg13cmos5l_nor2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The discovered version will be used.
+Cell sg13cmos5l_nor2_1 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_nand2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The discovered version will be used.
+Cell sg13cmos5l_nand2_1 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The discovered version will be used.
+Cell sg13cmos5l_inv_2 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_fill_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The discovered version will be used.
+Cell sg13cmos5l_fill_2 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_2 geometry by factor of 2
+Cell rhigh_AFSZTU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_UPRECB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6ZX9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pset2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell bias_nset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell bias_generator_ben250nm read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bias_generator_ben1um read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bias_generator_be0p_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13cmos5l_ocd_ip__por read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning:  Parent cell lists instance of "sg13cmos5l_buf_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The discovered version will be used.
+Cell sg13cmos5l_buf_16 read from path sg13cmos5l_stdcell
+Cell rhigh_MGZFWD read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Scaled magic input cell rhigh_MGZFWD geometry by factor of 2
+Cell por_stepdown read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_JRRYKH read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_4AKZGL read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_VHRE9V read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_5X2BDS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell por_amp read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_X27YSC read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_AGXAPYY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_AGXAPYX read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell por_1v2_schmitt_inv read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_RWAJH3 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_KPMAU6 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_KE4EUN read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_LT8DKY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_GT3QPP read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell dantenna_WMFCS7 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_T2STT2 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_MKAUQG read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_7YMNSS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell slot18_wrapper read from current working directory
+Cell sg13cmos5l_ocd_ip__bandgap_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell se_folded_cascode_np_ab read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_QWE845 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_2G82VR read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NED9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NQD9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BENXUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEHQUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NQUDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_V3Q6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEZCVZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_T2KQE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XAS6UC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TAZSE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_DFT6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_ZK4LW2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZJCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZA6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HNCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_MLH6U9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_FJG4RK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QMKJVU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_W9X9FK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bandgap_unbuffered_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bg_trim read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_2UD3QN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZQZM read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell rppd_Y8MW75 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bg_res read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell rhigh_SUDY2Y read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell pnpMPA_9DZCCL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_WYN5QB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEVMZW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NWA9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell se_folded_cascode_p read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_H5F6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BE9VUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEMUUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TGUME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_HLS6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TYJME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XAAXMC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEDTUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NNMDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NWNELU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_N8UDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_ZKTCY2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z5DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZXGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZLGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HY9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HQ9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HEAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_P4YBHP read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_C4E5CZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_77YAAU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_4HNWC9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_UEBLR3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HEDQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13cmos5l_ocd_ip__classab_buffer read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13cmos5l_ocd_ip__voltgen_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_fill_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell rhigh_NFPZ4T read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_QH8WBX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell xgate read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_MRZNPN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_XLVYT6 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZG8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell n_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Warning:  Parent cell lists instance of "sg13cmos5l_nand3_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The discovered version will be used.
+Cell sg13cmos5l_nand3_1 read from path sg13cmos5l_stdcell
+Cell via_Z29VKL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RJBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RF8J read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZP9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZJGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZD6N_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HKGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H5GQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell hv_inv_1 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_83DLAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_CVGX38 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_KK7B53 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell cap_cmomf_H6HXXJ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_BCZJG3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell slot1_wrapper read from current working directory
+Cell housekeeping_top read from current working directory
+housekeeping_top: 10000 rects
+housekeeping_top: 20000 rects
+housekeeping_top: 30000 rects
+housekeeping_top: 40000 rects
+housekeeping_top: 50000 rects
+housekeeping_top: 60000 rects
+housekeeping_top: 70000 rects
+housekeeping_top: 80000 rects
+housekeeping_top: 90000 rects
+housekeeping_top: 100000 rects
+housekeeping_top: 110000 rects
+housekeeping_top: 120000 rects
+housekeeping_top: 130000 rects
+housekeeping_top: 140000 rects
+housekeeping_top: 150000 rects
+housekeeping_top: 160000 rects
+housekeeping_top: 170000 rects
+housekeeping_top: 180000 rects
+housekeeping_top: 190000 rects
+housekeeping_top: 200000 rects
+housekeeping_top: 210000 rects
+housekeeping_top: 220000 rects
+housekeeping_top: 230000 rects
+housekeeping_top: 240000 rects
+housekeeping_top: 250000 rects
+housekeeping_top: 260000 rects
+housekeeping_top: 270000 rects
+housekeeping_top: 280000 rects
+housekeeping_top: 290000 rects
+housekeeping_top: 300000 rects
+housekeeping_top: 310000 rects
+housekeeping_top: 320000 rects
+housekeeping_top: 330000 rects
+housekeeping_top: 340000 rects
+Cell sg13cmos5l_buf_4 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_buf_2 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_buf_8 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_mux2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_dlygate4sd3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_decap_8 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_fill_1 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_1 geometry by factor of 2
+Cell sg13cmos5l_buf_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_inv_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_dfrbpq_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor2b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_o21ai_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a21oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand2b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a21o_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a22oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a221oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_xnor2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand3b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_xor2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and4_1 read from path sg13cmos5l_stdcell
+Cell project_control_area read from current working directory
+Cell user_project_control read from current working directory
+Cell sg13cmos5l_dlhrq_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_lgcp_1 read from path sg13cmos5l_stdcell
+Cell power_stage2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell via_Z29SAL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6ZQ5N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_NZW5ZC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_B4YQGJ read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_AWBR46 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_4K6DRW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_ZN7EJW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_large read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Y6Z2DQ_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6H96N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y2RFX7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y2RFW7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_RQMCRC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_FG6ZZW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_XAVYYR read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_3JX36Y read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell power_stage1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Z3LBH9 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QLR8H8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_lv_pmos_5MXUJM read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_1 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The discovered version will be used.
+Cell sg13cmos5l_inv_16 read from path sg13cmos5l_stdcell
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_8" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The discovered version will be used.
+Cell sg13cmos5l_inv_8 read from path sg13cmos5l_stdcell
+Cell slot17_wrapper read from current working directory
+Cell slot2_wrapper read from current working directory
+Cell center_column_route read from current working directory
+Cell slot16_wrapper read from current working directory
+Cell slot3_wrapper read from current working directory
+Cell slot15_wrapper read from current working directory
+Cell slot4_wrapper read from current working directory
+Cell slot14_wrapper read from current working directory
+Cell slot5_wrapper read from current working directory
+Cell slot13_wrapper read from current working directory
+Cell slot6_wrapper read from current working directory
+Cell slot12_wrapper read from current working directory
+Cell slot7_wrapper read from current working directory
+Cell slot11_wrapper read from current working directory
+Cell slot8_wrapper read from current working directory
+Cell slot10_wrapper read from current working directory
+Cell slot9_wrapper read from current working directory
+Cell analog_switch_array read from current working directory
+Cell analog_switch_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell via_Z9R6XL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QZBZRE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_3CJ4LL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_9DTRBE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell sg13_hv_pmos_G9ZGU3 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_VCL2HP read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell chipalooza_frame_wrapper read from current working directory
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: sw_lvl_shift, RM_IHPSG13_1P_1024x8_c2_bm_bist, bias_generator_fe_v2, via_Y6Z2DQ, por_stepdown, por_amp, slot18_wrapper, via_Y6HE6N, level_shift, se_folded_cascode_p, se_folded_cascode_np_ab, sg13cmos5l_ocd_ip__classab_buffer, slot1_wrapper, sg13cmos5l_nand3_1, sg13cmos5l_nor2_1, sg13cmos5l_nand2_1, sg13cmos5l_buf_16, sg13cmos5l_buf_2, sg13cmos5l_nor2b_1, sg13cmos5l_o21ai_1, sg13cmos5l_a21oi_1, sg13cmos5l_a21o_1, sg13cmos5l_or2_1, sg13cmos5l_a22oi_1, sg13cmos5l_a221oi_1, sg13cmos5l_nor4_1, sg13cmos5l_or3_1, sg13cmos5l_xnor2_1, sg13cmos5l_nand3b_1, sg13cmos5l_and3_1, sg13cmos5l_and4_1, sg13cmos5l_nand2b_1, sg13cmos5l_xor2_1, sg13cmos5l_nand4_1, sg13cmos5l_nor3_1, sg13cmos5l_and2_1, sg13cmos5l_or4_1, sg13cmos5l_mux2_1, sg13cmos5l_dfrbpq_1, sg13cmos5l_buf_1, sg13cmos5l_decap_8, sg13cmos5l_fill_2, sg13cmos5l_fill_1, sg13cmos5l_dlygate4sd3_1, sg13cmos5l_buf_4, sg13cmos5l_buf_8, sg13cmos5l_dlhrq_1, sg13cmos5l_lgcp_1, gate_drive_large, sg13cmos5l_inv_1, sg13cmos5l_inv_2, sg13cmos5l_inv_16, sg13cmos5l_inv_8, slot17_wrapper, slot2_wrapper, slot16_wrapper, slot3_wrapper, slot15_wrapper, slot4_wrapper, slot14_wrapper, slot5_wrapper, slot13_wrapper, slot6_wrapper, slot12_wrapper, slot7_wrapper, slot11_wrapper, slot8_wrapper, slot10_wrapper, slot9_wrapper, analog_pswitch_small, analog_switch_small, sg13cmos5l_antennanp, sg13cmos5l_decap_4, sg13cmos5l_inv_4, analog_switch_med, gate_drive_med, chipalooza_frame_wrapper.
+   Generating output for cell via_Y6ZD6N
+   Generating output for cell via_Y6Z86N
+   Generating output for cell via_QP3U7V
+   Generating output for cell sg13_hv_pmos_XRP95E
+   Generating output for cell sg13_hv_pmos_2TUKLB
+   Generating output for cell sg13_hv_nmos_HSMMZS
+   Generating output for cell sg13_hv_nmos_CJ33WB
+   Generating output for cell sw_lvl_shift
+   Copying output for cell sg13cmos5l_antennanp from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_decap_4 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_4 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell via_NN8LKN
+   Generating output for cell sg13_hv_pmos_HVFXC8
+   Generating output for cell analog_pswitch_small
+   Generating output for cell sg13_hv_nmos_U4HMWB
+   Generating output for cell analog_switch_small
+   Generating output for cell RM_IHPSG13_1P_1024x8_c2_bm_bist
+   Generating output for cell slot18_wrapper
+   Generating output for cell central_column
+   Generating output for cell via_Y6Z2DQ
+   Generating output for cell via_Y6HE6N
+   Generating output for cell sg13_hv_pmos_ZPCZKC
+   Generating output for cell sg13_hv_nmos_QBGVHE
+   Generating output for cell sg13_hv_nmos_QHASHE
+   Generating output for cell sg13_hv_pmos_DNCZKC
+   Generating output for cell via_Y6ZS5N
+   Generating output for cell via_Y6HW5N
+   Generating output for cell via_Y6HC2N
+   Generating output for cell level_shift
+   Copying output for cell sg13cmos5l_nor2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_fill_2 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_2 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell rhigh_GJN3VD
+   Generating output for cell via_Y6HG9Q
+   Generating output for cell via_Y6H4DQ
+   Generating output for cell sg13_hv_pmos_KGSGVN
+   Generating output for cell bias_pstack
+   Generating output for cell sg13_hv_nmos_2RYP69
+   Generating output for cell bias_nstack
+   Generating output for cell sg13_hv_nmos_666RAL
+   Generating output for cell sg13_hv_pmos_7A8CUW
+   Generating output for cell sg13_hv_nmos_XVVFQX
+   Generating output for cell via_Y6ZY8N
+   Generating output for cell bias_amp_large
+   Generating output for cell via_Z29PWH
+   Generating output for cell via_Z29FXH
+   Generating output for cell via_Z2RFBL
+   Generating output for cell via_Y6ZU9Q
+   Generating output for cell via_Y2RFW5
+   Generating output for cell rhigh_AFSZTU
+   Generating output for cell capacitor_UPRECB
+   Generating output for cell via_Y6ZX9Q
+   Generating output for cell bias_pset
+   Generating output for cell bias_pset2
+   Generating output for cell bias_nset
+   Generating output for cell bias_generator_fe_v2
+   Generating output for cell bias_generator_ben250nm
+   Generating output for cell bias_generator_ben1um
+   Generating output for cell bias_generator_be0p_v2
+   Generating output for cell sg13cmos5l_ocd_ip__biasgen2
+   Generating output for cell sg13_lv_pmos_JRRYKH
+   Generating output for cell sg13_lv_pmos_4AKZGL
+   Generating output for cell sg13_lv_nmos_VHRE9V
+   Generating output for cell sg13_lv_nmos_5X2BDS
+   Generating output for cell por_stepdown
+   Generating output for cell sg13_lv_pmos_X27YSC
+   Generating output for cell sg13_lv_nmos_AGXAPYY
+   Generating output for cell sg13_lv_nmos_AGXAPYX
+   Generating output for cell por_amp
+   Copying output for cell sg13cmos5l_buf_16 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell rhigh_MGZFWD
+   Generating output for cell sg13_lv_pmos_RWAJH3
+   Generating output for cell sg13_lv_pmos_KPMAU6
+   Generating output for cell sg13_lv_pmos_KE4EUN
+   Generating output for cell sg13_lv_nmos_LT8DKY
+   Generating output for cell sg13_lv_nmos_GT3QPP
+   Generating output for cell por_1v2_schmitt_inv
+   Generating output for cell dantenna_WMFCS7
+   Generating output for cell cap_cmomf_T2STT2
+   Generating output for cell cap_cmomf_MKAUQG
+   Generating output for cell cap_cmomf_7YMNSS
+   Generating output for cell sg13cmos5l_ocd_ip__por
+   Generating output for cell sg13_hv_pmos_QWE845
+   Generating output for cell sg13_hv_nmos_2G82VR
+   Generating output for cell sg13_hv_pmos_NED9LU
+   Generating output for cell sg13_hv_pmos_NQD9LU
+   Generating output for cell sg13_hv_nmos_BENXUZ
+   Generating output for cell sg13_hv_nmos_BEHQUZ
+   Generating output for cell sg13_hv_pmos_NQUDLU
+   Generating output for cell sg13_hv_pmos_V3Q6DG
+   Generating output for cell sg13_hv_nmos_BEZCVZ
+   Generating output for cell sg13_hv_nmos_T2KQE3
+   Generating output for cell sg13_hv_nmos_XAS6UC
+   Generating output for cell sg13_hv_nmos_TAZSE3
+   Generating output for cell sg13_hv_pmos_DFT6DG
+   Generating output for cell sg13_hv_pmos_ZK4LW2
+   Generating output for cell via_Y6ZJCQ
+   Generating output for cell via_Y6ZA6N
+   Generating output for cell via_Y6HNCQ
+   Generating output for cell via_Y6H8HQ
+   Generating output for cell sg13_hv_pmos_MLH6U9
+   Generating output for cell sg13_hv_pmos_FJG4RK
+   Generating output for cell sg13_hv_nmos_QMKJVU
+   Generating output for cell capacitor_W9X9FK
+   Generating output for cell se_folded_cascode_np_ab
+   Generating output for cell sg13cmos5l_ocd_ip__classab_buffer
+   Generating output for cell slot1_wrapper
+   Generating output for cell sg13_hv_pmos_H5F6DG
+   Generating output for cell sg13_hv_nmos_BE9VUZ
+   Generating output for cell sg13_hv_nmos_BEMUUZ
+   Generating output for cell sg13_hv_nmos_TGUME3
+   Generating output for cell sg13_hv_pmos_HLS6DG
+   Generating output for cell sg13_hv_nmos_TYJME3
+   Generating output for cell sg13_hv_nmos_XAAXMC
+   Generating output for cell sg13_hv_nmos_BEDTUZ
+   Generating output for cell sg13_hv_pmos_NNMDLU
+   Generating output for cell sg13_hv_pmos_NWNELU
+   Generating output for cell sg13_hv_pmos_N8UDLU
+   Generating output for cell sg13_hv_pmos_ZKTCY2
+   Generating output for cell via_Y6Z5DQ
+   Generating output for cell se_folded_cascode_p
+   Generating output for cell sg13_hv_nmos_2UD3QN
+   Generating output for cell via_Y6ZQZM
+   Generating output for cell rppd_Y8MW75
+   Generating output for cell bg_trim
+   Generating output for cell rhigh_SUDY2Y
+   Generating output for cell bg_res
+   Generating output for cell pnpMPA_9DZCCL
+   Generating output for cell sg13_hv_pmos_WYN5QB
+   Generating output for cell sg13_hv_nmos_BEVMZW
+   Generating output for cell sg13_hv_pmos_NWA9LU
+   Generating output for cell via_Y6ZXGQ
+   Generating output for cell via_Y6ZLGQ
+   Generating output for cell via_Y6HY9Q
+   Generating output for cell via_Y6HQ9Q
+   Generating output for cell via_Y6HEAQ
+   Generating output for cell capacitor_P4YBHP
+   Generating output for cell capacitor_C4E5CZ
+   Generating output for cell capacitor_77YAAU
+   Generating output for cell capacitor_4HNWC9
+   Generating output for cell capacitor_UEBLR3
+   Generating output for cell bandgap_unbuffered_v2
+   Generating output for cell via_Y6HEDQ
+   Generating output for cell sg13cmos5l_ocd_ip__bandgap_v3
+   Copying output for cell sg13cmos5l_nand3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell rhigh_NFPZ4T
+   Generating output for cell sg13_hv_pmos_QH8WBX
+   Generating output for cell sg13_hv_nmos_MRZNPN
+   Generating output for cell sg13_hv_pmos_XLVYT6
+   Generating output for cell via_Y6ZG8N
+   Generating output for cell xgate
+   Generating output for cell n_amp_large
+   Generating output for cell via_Z29VKL
+   Generating output for cell via_Z2RJBL
+   Generating output for cell via_Z2RF8J
+   Generating output for cell via_Y6ZP9Q
+   Generating output for cell via_Y6ZJGQ
+   Generating output for cell via_Y6ZD6N_x2
+   Generating output for cell via_Y6Z8HQ
+   Generating output for cell via_Y6HKGQ
+   Generating output for cell via_Y6H5GQ
+   Generating output for cell sg13_hv_nmos_83DLAQ
+   Generating output for cell sg13_hv_pmos_CVGX38
+   Generating output for cell hv_inv_1
+   Generating output for cell capacitor_KK7B53
+   Generating output for cell cap_cmomf_H6HXXJ
+   Generating output for cell capacitor_BCZJG3
+   Generating output for cell sg13cmos5l_ocd_ip__voltgen_v3
+   Copying output for cell sg13cmos5l_buf_2 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor2b_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_o21ai_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a21oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a21o_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_or2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a22oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_a221oi_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_or3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_xnor2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand3b_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_and3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_and4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand2b_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_xor2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nand4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_nor3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_and2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_or4_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_mux2_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_dfrbpq_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_buf_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_decap_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_fill_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_dlygate4sd3_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_buf_4 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_buf_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell housekeeping_top
+   Copying output for cell sg13cmos5l_dlhrq_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_lgcp_1 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell user_project_control
+   Generating output for cell via_Y6Z2DQ_x2
+   Generating output for cell via_Y6H96N
+   Generating output for cell via_Y2RFX7
+   Generating output for cell via_Y2RFW7
+   Generating output for cell sg13_hv_pmos_RQMCRC
+   Generating output for cell sg13_hv_pmos_FG6ZZW
+   Generating output for cell sg13_hv_nmos_XAVYYR
+   Generating output for cell sg13_hv_nmos_3JX36Y
+   Generating output for cell gate_drive_large
+   Generating output for cell via_Z29SAL
+   Generating output for cell via_Y6ZQ5N
+   Generating output for cell via_NZW5ZC
+   Generating output for cell via_B4YQGJ
+   Generating output for cell via_AWBR46
+   Generating output for cell via_4K6DRW
+   Generating output for cell sg13_hv_pmos_ZN7EJW
+   Generating output for cell power_stage2
+   Generating output for cell via_Z3LBH9
+   Generating output for cell via_QLR8H8
+   Generating output for cell sg13_lv_pmos_5MXUJM
+   Copying output for cell sg13cmos5l_inv_16 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Copying output for cell sg13cmos5l_inv_8 from $PDKPATH/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds
+   Generating output for cell gate_drive_1v2
+   Generating output for cell power_stage1v2
+   Generating output for cell project_control_area
+   Generating output for cell slot17_wrapper
+   Generating output for cell slot2_wrapper
+   Generating output for cell center_column_route
+   Generating output for cell slot16_wrapper
+   Generating output for cell slot3_wrapper
+   Generating output for cell slot15_wrapper
+   Generating output for cell slot4_wrapper
+   Generating output for cell slot14_wrapper
+   Generating output for cell slot5_wrapper
+   Generating output for cell slot13_wrapper
+   Generating output for cell slot6_wrapper
+   Generating output for cell slot12_wrapper
+   Generating output for cell slot7_wrapper
+   Generating output for cell slot11_wrapper
+   Generating output for cell slot8_wrapper
+   Generating output for cell slot10_wrapper
+   Generating output for cell slot9_wrapper
+   Generating output for cell chipalooza_frame_wrapper
+   Generating output for cell sg13_hv_pmos_G9ZGU3
+   Generating output for cell sg13_hv_nmos_VCL2HP
+   Generating output for cell gate_drive_med
+   Generating output for cell via_Z9R6XL
+   Generating output for cell via_QZBZRE
+   Generating output for cell sg13_hv_pmos_3CJ4LL
+   Generating output for cell sg13_hv_nmos_9DTRBE
+   Generating output for cell analog_switch_med
+   Generating output for cell analog_switch_array
+   Generating output for cell chipalooza_frame
+96 problems occurred.  See feedback entries.
+Cell sealring_complete read from path sealring
+Scaled magic input cell sealring_complete geometry by factor of 2
+Cell sealring_side_leftright read from path sealring
+Scaled magic input cell sealring_side_leftright geometry by factor of 2
+Cell sealring_side_topbottom read from path sealring
+Scaled magic input cell sealring_side_topbottom geometry by factor of 2
+Cell sealring_corner read from path sealring
+   Generating output for cell sealring_side_leftright
+   Generating output for cell sealring_side_topbottom
+   Generating output for cell sealring_corner
+   Generating output for cell sealring_complete
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: chipalooza_frame
+Reading "via_Y6ZD6N".
+Reading "via_Y6Z86N".
+Reading "via_QP3U7V".
+Reading "sg13_hv_pmos_XRP95E".
+Reading "sg13_hv_pmos_2TUKLB".
+Reading "sg13_hv_nmos_HSMMZS".
+Reading "sg13_hv_nmos_CJ33WB".
+Reading "sw_lvl_shift".
+Reading "sg13cmos5l_antennanp".
+Reading "sg13cmos5l_decap_4".
+Reading "sg13cmos5l_inv_4".
+Reading "via_NN8LKN".
+Reading "sg13_hv_pmos_HVFXC8".
+Reading "analog_pswitch_small".
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Reading "sg13_hv_nmos_U4HMWB".
+Reading "analog_switch_small".
+Reading "RM_IHPSG13_1P_1024x8_c2_bm_bist".
+Reading "slot18_wrapper".
+Reading "central_column".
+Reading "via_Y6Z2DQ".
+Reading "via_Y6HE6N".
+Reading "sg13_hv_pmos_ZPCZKC".
+Reading "sg13_hv_nmos_QBGVHE".
+Reading "sg13_hv_nmos_QHASHE".
+Reading "sg13_hv_pmos_DNCZKC".
+Reading "via_Y6ZS5N".
+Reading "via_Y6HW5N".
+Reading "via_Y6HC2N".
+Reading "level_shift".
+Reading "sg13cmos5l_nor2_1".
+Reading "sg13cmos5l_nand2_1".
+Reading "sg13cmos5l_fill_2".
+Reading "sg13cmos5l_inv_2".
+Reading "rhigh_GJN3VD".
+Reading "via_Y6HG9Q".
+Reading "via_Y6H4DQ".
+Reading "sg13_hv_pmos_KGSGVN".
+Reading "bias_pstack".
+Reading "sg13_hv_nmos_2RYP69".
+Reading "bias_nstack".
+Reading "sg13_hv_nmos_666RAL".
+Reading "sg13_hv_pmos_7A8CUW".
+Reading "sg13_hv_nmos_XVVFQX".
+Reading "via_Y6ZY8N".
+Reading "bias_amp_large".
+Reading "via_Z29PWH".
+Reading "via_Z29FXH".
+Reading "via_Z2RFBL".
+Reading "via_Y6ZU9Q".
+Reading "via_Y2RFW5".
+Reading "rhigh_AFSZTU".
+Reading "capacitor_UPRECB".
+Reading "via_Y6ZX9Q".
+Reading "bias_pset".
+Reading "bias_pset2".
+Reading "bias_nset".
+Reading "bias_generator_fe_v2".
+Reading "bias_generator_ben250nm".
+Reading "bias_generator_ben1um".
+Reading "bias_generator_be0p_v2".
+Reading "sg13cmos5l_ocd_ip__biasgen2".
+Reading "sg13_lv_pmos_JRRYKH".
+Reading "sg13_lv_pmos_4AKZGL".
+Reading "sg13_lv_nmos_VHRE9V".
+Reading "sg13_lv_nmos_5X2BDS".
+Reading "por_stepdown".
+Reading "sg13_lv_pmos_X27YSC".
+Reading "sg13_lv_nmos_AGXAPYY".
+Reading "sg13_lv_nmos_AGXAPYX".
+Reading "por_amp".
+Reading "sg13cmos5l_buf_16".
+Reading "rhigh_MGZFWD".
+Reading "sg13_lv_pmos_RWAJH3".
+Reading "sg13_lv_pmos_KPMAU6".
+Reading "sg13_lv_pmos_KE4EUN".
+Reading "sg13_lv_nmos_LT8DKY".
+Reading "sg13_lv_nmos_GT3QPP".
+Reading "por_1v2_schmitt_inv".
+Reading "dantenna_WMFCS7".
+Reading "cap_cmomf_T2STT2".
+Reading "cap_cmomf_MKAUQG".
+Reading "cap_cmomf_7YMNSS".
+Reading "sg13cmos5l_ocd_ip__por".
+Reading "sg13_hv_pmos_QWE845".
+Reading "sg13_hv_nmos_2G82VR".
+Reading "sg13_hv_pmos_NED9LU".
+Reading "sg13_hv_pmos_NQD9LU".
+Reading "sg13_hv_nmos_BENXUZ".
+Reading "sg13_hv_nmos_BEHQUZ".
+Reading "sg13_hv_pmos_NQUDLU".
+Reading "sg13_hv_pmos_V3Q6DG".
+Reading "sg13_hv_nmos_BEZCVZ".
+Reading "sg13_hv_nmos_T2KQE3".
+Reading "sg13_hv_nmos_XAS6UC".
+Reading "sg13_hv_nmos_TAZSE3".
+Reading "sg13_hv_pmos_DFT6DG".
+Reading "sg13_hv_pmos_ZK4LW2".
+Reading "via_Y6ZJCQ".
+Reading "via_Y6ZA6N".
+Reading "via_Y6HNCQ".
+Reading "via_Y6H8HQ".
+Reading "sg13_hv_pmos_MLH6U9".
+Reading "sg13_hv_pmos_FJG4RK".
+Reading "sg13_hv_nmos_QMKJVU".
+Reading "capacitor_W9X9FK".
+Reading "se_folded_cascode_np_ab".
+Reading "sg13cmos5l_ocd_ip__classab_buffer".
+Reading "slot1_wrapper".
+Reading "sg13_hv_pmos_H5F6DG".
+Reading "sg13_hv_nmos_BE9VUZ".
+Reading "sg13_hv_nmos_BEMUUZ".
+Reading "sg13_hv_nmos_TGUME3".
+Reading "sg13_hv_pmos_HLS6DG".
+Reading "sg13_hv_nmos_TYJME3".
+Reading "sg13_hv_nmos_XAAXMC".
+Reading "sg13_hv_nmos_BEDTUZ".
+Reading "sg13_hv_pmos_NNMDLU".
+Reading "sg13_hv_pmos_NWNELU".
+Reading "sg13_hv_pmos_N8UDLU".
+Reading "sg13_hv_pmos_ZKTCY2".
+Reading "via_Y6Z5DQ".
+Reading "se_folded_cascode_p".
+Reading "sg13_hv_nmos_2UD3QN".
+Reading "via_Y6ZQZM".
+Reading "rppd_Y8MW75".
+Reading "bg_trim".
+Reading "rhigh_SUDY2Y".
+Reading "bg_res".
+Reading "pnpMPA_9DZCCL".
+Reading "sg13_hv_pmos_WYN5QB".
+Reading "sg13_hv_nmos_BEVMZW".
+Reading "sg13_hv_pmos_NWA9LU".
+Reading "via_Y6ZXGQ".
+Reading "via_Y6ZLGQ".
+Reading "via_Y6HY9Q".
+Reading "via_Y6HQ9Q".
+Reading "via_Y6HEAQ".
+Reading "capacitor_P4YBHP".
+Reading "capacitor_C4E5CZ".
+Reading "capacitor_77YAAU".
+Reading "capacitor_4HNWC9".
+Reading "capacitor_UEBLR3".
+Reading "bandgap_unbuffered_v2".
+Reading "via_Y6HEDQ".
+Reading "sg13cmos5l_ocd_ip__bandgap_v3".
+Reading "sg13cmos5l_nand3_1".
+Reading "rhigh_NFPZ4T".
+Reading "sg13_hv_pmos_QH8WBX".
+Reading "sg13_hv_nmos_MRZNPN".
+Reading "sg13_hv_pmos_XLVYT6".
+Reading "via_Y6ZG8N".
+Reading "xgate".
+Reading "n_amp_large".
+Reading "via_Z29VKL".
+Reading "via_Z2RJBL".
+Reading "via_Z2RF8J".
+Reading "via_Y6ZP9Q".
+Reading "via_Y6ZJGQ".
+Reading "via_Y6ZD6N_x2".
+Reading "via_Y6Z8HQ".
+Reading "via_Y6HKGQ".
+Reading "via_Y6H5GQ".
+Reading "sg13_hv_nmos_83DLAQ".
+Reading "sg13_hv_pmos_CVGX38".
+Reading "hv_inv_1".
+Reading "capacitor_KK7B53".
+Reading "cap_cmomf_H6HXXJ".
+Reading "capacitor_BCZJG3".
+Reading "sg13cmos5l_ocd_ip__voltgen_v3".
+Reading "sg13cmos5l_buf_2".
+Reading "sg13cmos5l_nor2b_1".
+Reading "sg13cmos5l_o21ai_1".
+Reading "sg13cmos5l_a21oi_1".
+Reading "sg13cmos5l_a21o_1".
+Reading "sg13cmos5l_or2_1".
+Reading "sg13cmos5l_a22oi_1".
+Reading "sg13cmos5l_a221oi_1".
+Reading "sg13cmos5l_nor4_1".
+Reading "sg13cmos5l_or3_1".
+Reading "sg13cmos5l_xnor2_1".
+Reading "sg13cmos5l_nand3b_1".
+Reading "sg13cmos5l_and3_1".
+Reading "sg13cmos5l_and4_1".
+Reading "sg13cmos5l_nand2b_1".
+Reading "sg13cmos5l_xor2_1".
+Reading "sg13cmos5l_nand4_1".
+Reading "sg13cmos5l_nor3_1".
+Reading "sg13cmos5l_and2_1".
+Reading "sg13cmos5l_or4_1".
+Reading "sg13cmos5l_mux2_1".
+Reading "sg13cmos5l_dfrbpq_1".
+Reading "sg13cmos5l_buf_1".
+Reading "sg13cmos5l_decap_8".
+Reading "sg13cmos5l_fill_1".
+Reading "sg13cmos5l_dlygate4sd3_1".
+Reading "sg13cmos5l_buf_4".
+Reading "sg13cmos5l_buf_8".
+Reading "sg13cmos5l_inv_1".
+Reading "housekeeping_top".
+    5000 uses
+    10000 uses
+Reading "sg13cmos5l_dlhrq_1".
+Reading "sg13cmos5l_lgcp_1".
+Reading "user_project_control".
+Reading "via_Y6Z2DQ_x2".
+Reading "via_Y6H96N".
+Reading "via_Y2RFX7".
+Reading "via_Y2RFW7".
+Reading "sg13_hv_pmos_RQMCRC".
+Reading "sg13_hv_pmos_FG6ZZW".
+Reading "sg13_hv_nmos_XAVYYR".
+Reading "sg13_hv_nmos_3JX36Y".
+Reading "gate_drive_large".
+Reading "via_Z29SAL".
+Reading "via_Y6ZQ5N".
+Reading "via_NZW5ZC".
+Reading "via_B4YQGJ".
+Reading "via_AWBR46".
+Reading "via_4K6DRW".
+Reading "sg13_hv_pmos_ZN7EJW".
+Reading "power_stage2".
+Reading "via_Z3LBH9".
+Reading "via_QLR8H8".
+Reading "sg13_lv_pmos_5MXUJM".
+Reading "sg13cmos5l_inv_16".
+Reading "sg13cmos5l_inv_8".
+Reading "gate_drive_1v2".
+Reading "power_stage1v2".
+Reading "project_control_area".
+Reading "slot17_wrapper".
+Reading "slot2_wrapper".
+Reading "center_column_route".
+Reading "slot16_wrapper".
+Reading "slot3_wrapper".
+Reading "slot15_wrapper".
+Reading "slot4_wrapper".
+Reading "slot14_wrapper".
+Reading "slot5_wrapper".
+Reading "slot13_wrapper".
+Reading "slot6_wrapper".
+Reading "slot12_wrapper".
+Reading "slot7_wrapper".
+Reading "slot11_wrapper".
+Reading "slot8_wrapper".
+Reading "slot10_wrapper".
+Reading "slot9_wrapper".
+Reading "chipalooza_frame_wrapper".
+Reading "sg13_hv_pmos_G9ZGU3".
+Reading "sg13_hv_nmos_VCL2HP".
+Reading "gate_drive_med".
+Reading "via_Z9R6XL".
+Reading "via_QZBZRE".
+Reading "sg13_hv_pmos_3CJ4LL".
+Reading "sg13_hv_nmos_9DTRBE".
+Reading "analog_switch_med".
+Reading "analog_switch_array".
+Reading "chipalooza_frame".
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: sealring_complete
+Reading "sealring_side_leftright".
+Reading "sealring_side_topbottom".
+Reading "sealring_corner".
+Reading "sealring_complete".
+Cell sg13cmos5l_ocd_chipalooza read from current working directory
+Scaled magic input cell sg13cmos5l_ocd_chipalooza geometry by factor of 2
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: chipalooza_frame.
+Cell sg13cmos5l_padframe read from current working directory
+Cell user_id_textblock read from current working directory
+Scaled magic input cell user_id_textblock geometry by factor of 2
+Cell alpha_2 read from path hexdigits
+Scaled magic input cell alpha_2 geometry by factor of 72
+Cell alpha_0 read from path hexdigits
+Scaled magic input cell alpha_0 geometry by factor of 2
+Cell alpha_6 read from path hexdigits
+Scaled magic input cell alpha_6 geometry by factor of 72
+Cell alpha_9 read from path hexdigits
+Scaled magic input cell alpha_9 geometry by factor of 72
+Cell alpha_8 read from path hexdigits
+Scaled magic input cell alpha_8 geometry by factor of 72
+Cell sg13cmos5l_ocd_Split2000 read from current working directory
+sg13cmos5l_ocd_Split2000: 10000 rects
+sg13cmos5l_ocd_Split2000: 20000 rects
+Cell sg13cmos5l_Filler4000 read from path sg13cmos5l_io
+sg13cmos5l_Filler4000: 10000 rects
+sg13cmos5l_Filler4000: 20000 rects
+sg13cmos5l_Filler4000: 30000 rects
+sg13cmos5l_Filler4000: 40000 rects
+sg13cmos5l_Filler4000: 50000 rects
+Cell sg13cmos5l_Filler2000 read from path sg13cmos5l_io
+sg13cmos5l_Filler2000: 10000 rects
+sg13cmos5l_Filler2000: 20000 rects
+Cell user_id_routing read from current working directory
+Cell via_Z2R7LJ read from path paramcells
+Cell via_Y6HR5N read from path paramcells
+Cell via_Y6HHCQ read from path paramcells
+Cell via_CGDS3A read from path paramcells
+Cell user_id_programming read from current working directory
+Cell user_id_vias read from current working directory
+Cell sg13cmos5l_tielo read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_tiehi read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_IOPadIOVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVss: 10000 rects
+sg13cmos5l_IOPadIOVss: 20000 rects
+sg13cmos5l_IOPadIOVss: 30000 rects
+sg13cmos5l_IOPadIOVss: 40000 rects
+sg13cmos5l_IOPadIOVss: 50000 rects
+sg13cmos5l_IOPadIOVss: 60000 rects
+sg13cmos5l_IOPadIOVss: 70000 rects
+sg13cmos5l_IOPadIOVss: 80000 rects
+sg13cmos5l_IOPadIOVss: 90000 rects
+sg13cmos5l_IOPadIOVss: 100000 rects
+sg13cmos5l_IOPadIOVss: 110000 rects
+sg13cmos5l_IOPadIOVss: 120000 rects
+sg13cmos5l_IOPadIOVss: 130000 rects
+sg13cmos5l_IOPadIOVss: 140000 rects
+sg13cmos5l_IOPadIOVss: 150000 rects
+sg13cmos5l_IOPadIOVss: 160000 rects
+sg13cmos5l_IOPadIOVss: 170000 rects
+sg13cmos5l_IOPadIOVss: 180000 rects
+sg13cmos5l_IOPadIOVss: 190000 rects
+sg13cmos5l_IOPadIOVss: 200000 rects
+sg13cmos5l_IOPadIOVss: 210000 rects
+sg13cmos5l_IOPadIOVss: 220000 rects
+sg13cmos5l_IOPadIOVss: 230000 rects
+sg13cmos5l_IOPadIOVss: 240000 rects
+sg13cmos5l_IOPadIOVss: 250000 rects
+sg13cmos5l_IOPadIOVss: 260000 rects
+sg13cmos5l_IOPadIOVss: 270000 rects
+sg13cmos5l_IOPadIOVss: 280000 rects
+Cell sg13cmos5l_DCPDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCPDiode geometry by factor of 2
+Cell sg13cmos5l_DCNDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCNDiode geometry by factor of 2
+Cell sg13cmos5l_IOPadVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadVss: 10000 rects
+sg13cmos5l_IOPadVss: 20000 rects
+sg13cmos5l_IOPadVss: 30000 rects
+sg13cmos5l_IOPadVss: 40000 rects
+sg13cmos5l_IOPadVss: 50000 rects
+sg13cmos5l_IOPadVss: 60000 rects
+sg13cmos5l_IOPadVss: 70000 rects
+sg13cmos5l_IOPadVss: 80000 rects
+sg13cmos5l_IOPadVss: 90000 rects
+sg13cmos5l_IOPadVss: 100000 rects
+sg13cmos5l_IOPadVss: 110000 rects
+sg13cmos5l_IOPadVss: 120000 rects
+sg13cmos5l_IOPadVss: 130000 rects
+sg13cmos5l_IOPadVss: 140000 rects
+sg13cmos5l_IOPadVss: 150000 rects
+sg13cmos5l_IOPadVss: 160000 rects
+sg13cmos5l_IOPadVss: 170000 rects
+sg13cmos5l_IOPadVss: 180000 rects
+sg13cmos5l_IOPadVss: 190000 rects
+sg13cmos5l_IOPadVss: 200000 rects
+sg13cmos5l_IOPadVss: 210000 rects
+sg13cmos5l_IOPadVss: 220000 rects
+sg13cmos5l_IOPadVss: 230000 rects
+sg13cmos5l_IOPadVss: 240000 rects
+sg13cmos5l_IOPadVss: 250000 rects
+Cell sg13cmos5l_IOPadVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadVdd: 10000 rects
+sg13cmos5l_IOPadVdd: 20000 rects
+sg13cmos5l_IOPadVdd: 30000 rects
+sg13cmos5l_IOPadVdd: 40000 rects
+sg13cmos5l_IOPadVdd: 50000 rects
+sg13cmos5l_IOPadVdd: 60000 rects
+Cell sg13cmos5l_RCClampResistor read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_RCClampResistor geometry by factor of 2
+Cell sg13cmos5l_RCClampInverter read from path sg13cmos5l_io
+sg13cmos5l_RCClampInverter: 10000 rects
+Cell sg13cmos5l_Clamp_N43N43D4R read from path sg13cmos5l_io
+sg13cmos5l_Clamp_N43N43D4R: 10000 rects
+sg13cmos5l_Clamp_N43N43D4R: 20000 rects
+Cell sg13cmos5l_IOPadIOVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVdd: 10000 rects
+sg13cmos5l_IOPadIOVdd: 20000 rects
+sg13cmos5l_IOPadIOVdd: 30000 rects
+sg13cmos5l_IOPadIOVdd: 40000 rects
+sg13cmos5l_IOPadIOVdd: 50000 rects
+sg13cmos5l_IOPadIOVdd: 60000 rects
+Cell sg13cmos5l_IOPadTriOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadTriOut16mA: 10000 rects
+sg13cmos5l_IOPadTriOut16mA: 20000 rects
+sg13cmos5l_IOPadTriOut16mA: 30000 rects
+sg13cmos5l_IOPadTriOut16mA: 40000 rects
+sg13cmos5l_IOPadTriOut16mA: 50000 rects
+sg13cmos5l_IOPadTriOut16mA: 60000 rects
+sg13cmos5l_IOPadTriOut16mA: 70000 rects
+sg13cmos5l_IOPadTriOut16mA: 80000 rects
+sg13cmos5l_IOPadTriOut16mA: 90000 rects
+sg13cmos5l_IOPadTriOut16mA: 100000 rects
+sg13cmos5l_IOPadTriOut16mA: 110000 rects
+sg13cmos5l_IOPadTriOut16mA: 120000 rects
+sg13cmos5l_IOPadTriOut16mA: 130000 rects
+Cell sg13cmos5l_GateDecode read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUp read from path sg13cmos5l_io
+Cell sg13cmos5l_io_tie read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nor2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nand2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_inv_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_P8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_N8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadIn read from path sg13cmos5l_io
+sg13cmos5l_IOPadIn: 10000 rects
+sg13cmos5l_IOPadIn: 20000 rects
+sg13cmos5l_IOPadIn: 30000 rects
+sg13cmos5l_IOPadIn: 40000 rects
+sg13cmos5l_IOPadIn: 50000 rects
+sg13cmos5l_IOPadIn: 60000 rects
+sg13cmos5l_IOPadIn: 70000 rects
+sg13cmos5l_IOPadIn: 80000 rects
+sg13cmos5l_IOPadIn: 90000 rects
+sg13cmos5l_IOPadIn: 100000 rects
+sg13cmos5l_IOPadIn: 110000 rects
+sg13cmos5l_IOPadIn: 120000 rects
+sg13cmos5l_IOPadIn: 130000 rects
+sg13cmos5l_IOPadIn: 140000 rects
+sg13cmos5l_IOPadIn: 150000 rects
+sg13cmos5l_IOPadIn: 160000 rects
+sg13cmos5l_IOPadIn: 170000 rects
+sg13cmos5l_IOPadIn: 180000 rects
+sg13cmos5l_IOPadIn: 190000 rects
+sg13cmos5l_IOPadIn: 200000 rects
+sg13cmos5l_IOPadIn: 210000 rects
+sg13cmos5l_IOPadIn: 220000 rects
+sg13cmos5l_IOPadIn: 230000 rects
+sg13cmos5l_IOPadIn: 240000 rects
+Cell sg13cmos5l_LevelDown read from path sg13cmos5l_io
+Cell sg13g2_SecondaryProtection read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990531 read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990530 read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadAnalog read from path sg13cmos5l_io
+sg13cmos5l_IOPadAnalog: 10000 rects
+sg13cmos5l_IOPadAnalog: 20000 rects
+sg13cmos5l_IOPadAnalog: 30000 rects
+sg13cmos5l_IOPadAnalog: 40000 rects
+sg13cmos5l_IOPadAnalog: 50000 rects
+sg13cmos5l_IOPadAnalog: 60000 rects
+sg13cmos5l_IOPadAnalog: 70000 rects
+sg13cmos5l_IOPadAnalog: 80000 rects
+sg13cmos5l_IOPadAnalog: 90000 rects
+sg13cmos5l_IOPadAnalog: 100000 rects
+sg13cmos5l_IOPadAnalog: 110000 rects
+sg13cmos5l_IOPadAnalog: 120000 rects
+sg13cmos5l_IOPadAnalog: 130000 rects
+Cell sg13cmos5l_SecondaryProtection read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_P20N0D read from path sg13cmos5l_io
+sg13cmos5l_Clamp_P20N0D: 10000 rects
+Cell sg13cmos5l_Clamp_N20N0D read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadOut16mA: 10000 rects
+sg13cmos5l_IOPadOut16mA: 20000 rects
+sg13cmos5l_IOPadOut16mA: 30000 rects
+sg13cmos5l_IOPadOut16mA: 40000 rects
+sg13cmos5l_IOPadOut16mA: 50000 rects
+sg13cmos5l_IOPadOut16mA: 60000 rects
+sg13cmos5l_IOPadOut16mA: 70000 rects
+sg13cmos5l_IOPadOut16mA: 80000 rects
+sg13cmos5l_IOPadOut16mA: 90000 rects
+sg13cmos5l_IOPadOut16mA: 100000 rects
+sg13cmos5l_IOPadOut16mA: 110000 rects
+sg13cmos5l_IOPadOut16mA: 120000 rects
+sg13cmos5l_IOPadOut16mA: 130000 rects
+Cell sg13cmos5l_GateLevelUpInv read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUpInv read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+Cell cm_d2s_TopLayersTo4 read from path custom_io
+Scaled magic input cell cm_d2s_TopLayersTo4 geometry by factor of 2
+Cell cm_d2s_replica_lines read from path custom_io
+Cell cm_d2s_pad_wiring_f2 read from path custom_io
+Cell cm_d2s_nw_isolator read from path custom_io
+Cell cm_d2s_Metal3ViasUp read from path custom_io
+Cell cm_d2s_m2_junction read from path custom_io
+Cell cm_d2s_m2_comb_p read from path custom_io
+Cell cm_d2s_m2_comb_n read from path custom_io
+Cell cm_d2s_guard_tie read from path custom_io
+Scaled magic input cell cm_d2s_guard_tie geometry by factor of 2
+Cell cm_d2s_gate_feeds read from path custom_io
+Cell cm_d2s_edge_stubs read from path custom_io
+Cell cm_d2s_DCPDiode read from path custom_io
+Scaled magic input cell cm_d2s_DCPDiode geometry by factor of 2
+cm_d2s_DCPDiode: 10000 rects
+Cell cm_d2s_DCNDiode read from path custom_io
+Scaled magic input cell cm_d2s_DCNDiode geometry by factor of 2
+cm_d2s_DCNDiode: 10000 rects
+Cell cm_d2s_d2s_cmb read from path custom_io
+Scaled magic input cell cm_d2s_d2s_cmb geometry by factor of 2
+Cell cm_d2s_d2s_cma read from path custom_io
+Scaled magic input cell cm_d2s_d2s_cma geometry by factor of 2
+Cell cm_d2s_d2s_block read from path custom_io
+Cell cm_d2s_sinks_6x6_f2 read from path custom_io
+Cell cm_d2s_nmosHV_7 read from path custom_io
+Scaled magic input cell cm_d2s_nmosHV_7 geometry by factor of 2
+Cell cm_d2s_nmosHV_3 read from path custom_io
+Cell cm_d2s_pwr_f2 read from path custom_io
+Cell cm_d2s_d2s_tgsw_f2 read from path custom_io
+Cell cm_d2s_pmosHV read from path custom_io
+Cell cm_d2s_nmosHV_1 read from path custom_io
+Cell cm_d2s_d2s_tails_c2 read from path custom_io
+Cell cm_d2s_pmosHV_w5_l6 read from path custom_io
+Cell cm_d2s_d2s_sp2k_f2 read from path custom_io
+Cell cm_d2s_rppd read from path custom_io
+Cell cm_d2s_dpantenna read from path custom_io
+Scaled magic input cell cm_d2s_dpantenna geometry by factor of 2
+Cell cm_d2s_dantenna read from path custom_io
+Scaled magic input cell cm_d2s_dantenna geometry by factor of 2
+Cell cm_d2s_d2s_rhigh_f2 read from path custom_io
+Cell cm_d2s_rhigh read from path custom_io
+Cell cm_d2s_d2s_loads_c2 read from path custom_io
+Cell cm_d2s_pmosHV_w6_l4 read from path custom_io
+Cell cm_d2s_pmosHV_w1_l4 read from path custom_io
+Scaled magic input cell cm_d2s_pmosHV_w1_l4 geometry by factor of 2
+Cell cm_d2s_d2s_inputs_c2 read from path custom_io
+Cell cm_d2s_tub_p20x1_c2 read from path custom_io
+Cell cm_d2s_pmosHV_w20_l1_ng2 read from path custom_io
+Cell cm_d2s_d2s_casc_p_c2 read from path custom_io
+Cell cm_d2s_pmosHV_w15_l3 read from path custom_io
+Cell cm_d2s_d2s_casc_n_f2 read from path custom_io
+Cell cm_d2s_nmosHV_6 read from path custom_io
+Scaled magic input cell cm_d2s_nmosHV_6 geometry by factor of 2
+Cell cm_d2s_nmosHV_5 read from path custom_io
+Cell cm_d2s_nmosHV_4 read from path custom_io
+Scaled magic input cell cm_d2s_nmosHV_4 geometry by factor of 2
+Cell cm_d2s_d2s_ab_p_f2 read from path custom_io
+Cell cm_d2s_pmosHV_w6p66_l0p6 read from path custom_io
+Cell cm_d2s_pmosHV_w1_l0p45 read from path custom_io
+Cell cm_d2s_d2s_ab_n_f2 read from path custom_io
+Cell cm_d2s_nmosHV read from path custom_io
+Cell cm_d2s_bias_tree_p_f2 read from path custom_io
+Cell cm_d2s_pmosHV_w2_l6 read from path custom_io
+Scaled magic input cell cm_d2s_pmosHV_w2_l6 geometry by factor of 2
+Cell cm_d2s_bias_tree_n_f2 read from path custom_io
+Cell cm_d2s_nmosHV_2 read from path custom_io
+Scaled magic input cell cm_d2s_nmosHV_2 geometry by factor of 2
+Cell cm_d2s_contacts read from path custom_io
+Scaled magic input cell cm_d2s_contacts geometry by factor of 2
+Cell cm_d2s_cm_rings read from path custom_io
+Cell cm_d2s_Clamp_P_M1_wiring read from path custom_io
+Cell cm_d2s_Clamp_P_M1 read from path custom_io
+cm_d2s_Clamp_P_M1: 10000 rects
+Cell cm_d2s_Clamp_N_M1_wiring_1 read from path custom_io
+Cell cm_d2s_Clamp_N_M1_wiring read from path custom_io
+Cell cm_d2s_Clamp_N_M1 read from path custom_io
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+Cell cm_s2d_s2d_block read from path custom_io
+Cell cm_s2d_sinks_6x6_s2d_c3_core read from path custom_io
+Cell cm_s2d_nmosHV read from path custom_io
+Scaled magic input cell cm_s2d_nmosHV geometry by factor of 2
+Cell cm_s2d_nmosHV_1 read from path custom_io
+Cell cm_s2d_s2d_tails_lo_f read from path custom_io
+Cell cm_s2d_pmosHV_w5_l6 read from path custom_io
+Cell cm_s2d_s2d_tails_hi_f read from path custom_io
+Cell cm_s2d_s2d_sinks_cmfb_c3_core read from path custom_io
+Cell cm_s2d_s2d_rhigh_c3 read from path custom_io
+Cell cm_s2d_rhigh read from path custom_io
+Cell cm_s2d_s2d_pd_p_c3 read from path custom_io
+Cell cm_s2d_pmosHV_w2_l0p45_ng2 read from path custom_io
+Cell cm_s2d_s2d_loads_f read from path custom_io
+Cell cm_s2d_pmosHV_w6_l4 read from path custom_io
+Cell cm_s2d_pmosHV_w1_l4_1 read from path custom_io
+Scaled magic input cell cm_s2d_pmosHV_w1_l4_1 geometry by factor of 2
+Cell cm_s2d_s2d_inputs_c3 read from path custom_io
+Cell cm_s2d_tub_p20x1_c3 read from path custom_io
+Cell cm_s2d_pmosHV_w20_l1_ng2 read from path custom_io
+Cell cm_s2d_s2d_cload_c3 read from path custom_io
+Cell cm_s2d_nmosHV_6 read from path custom_io
+Cell cm_s2d_nmosHV_5 read from path custom_io
+Cell cm_s2d_s2d_casc_p_f read from path custom_io
+Cell cm_s2d_pmosHV_w15_l3 read from path custom_io
+Cell cm_s2d_s2d_casc_n_f read from path custom_io
+Cell cm_s2d_nmosHV_4 read from path custom_io
+Scaled magic input cell cm_s2d_nmosHV_4 geometry by factor of 2
+Cell cm_s2d_nmosHV_3 read from path custom_io
+Cell cm_s2d_nmosHV_2 read from path custom_io
+Scaled magic input cell cm_s2d_nmosHV_2 geometry by factor of 2
+Cell cm_s2d_pwr_f read from path custom_io
+Cell cm_s2d_bias_tree_noab_p_c3 read from path custom_io
+Cell cm_s2d_pmosHV_w2_l6 read from path custom_io
+Scaled magic input cell cm_s2d_pmosHV_w2_l6 geometry by factor of 2
+Cell cm_s2d_pmosHV_w1_l0p45 read from path custom_io
+Cell cm_s2d_bias_tree_noab_n_c3 read from path custom_io
+Cell cm_s2d_nmosHV_7 read from path custom_io
+Scaled magic input cell cm_s2d_nmosHV_7 geometry by factor of 2
+Cell cm_s2d_rppd_1 read from path custom_io
+Scaled magic input cell cm_s2d_rppd_1 geometry by factor of 2
+Cell cm_s2d_rppd read from path custom_io
+Scaled magic input cell cm_s2d_rppd geometry by factor of 2
+Cell cm_s2d_iovdd_rail_tie read from path custom_io
+Cell cm_s2d_esd_wiring read from path custom_io
+Cell cm_s2d_edge_stubs_low read from path custom_io
+Scaled magic input cell cm_s2d_edge_stubs_low geometry by factor of 2
+Cell cm_s2d_edge_stubs read from path custom_io
+Cell cm_s2d_DCPDiode read from path custom_io
+Scaled magic input cell cm_s2d_DCPDiode geometry by factor of 2
+Cell cm_s2d_DCNDiode read from path custom_io
+Scaled magic input cell cm_s2d_DCNDiode geometry by factor of 2
+Cell cm_s2d_Clamp_P_M1 read from path custom_io
+Cell cm_s2d_Clamp_N_M1 read from path custom_io
+Cell sg13cmos5l_IOPadInOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadInOut16mA: 10000 rects
+sg13cmos5l_IOPadInOut16mA: 20000 rects
+sg13cmos5l_IOPadInOut16mA: 30000 rects
+sg13cmos5l_IOPadInOut16mA: 40000 rects
+sg13cmos5l_IOPadInOut16mA: 50000 rects
+sg13cmos5l_IOPadInOut16mA: 60000 rects
+sg13cmos5l_IOPadInOut16mA: 70000 rects
+sg13cmos5l_IOPadInOut16mA: 80000 rects
+sg13cmos5l_IOPadInOut16mA: 90000 rects
+sg13cmos5l_IOPadInOut16mA: 100000 rects
+sg13cmos5l_IOPadInOut16mA: 110000 rects
+sg13cmos5l_IOPadInOut16mA: 120000 rects
+sg13cmos5l_IOPadInOut16mA: 130000 rects
+Cell sg13cmos5l_Corner read from path sg13cmos5l_io
+sg13cmos5l_Corner: 10000 rects
+sg13cmos5l_Corner: 20000 rects
+sg13cmos5l_Corner: 30000 rects
+sg13cmos5l_Corner: 40000 rects
+sg13cmos5l_Corner: 50000 rects
+sg13cmos5l_Corner: 60000 rects
+sg13cmos5l_Corner: 70000 rects
+sg13cmos5l_Corner: 80000 rects
+sg13cmos5l_Corner: 90000 rects
+sg13cmos5l_Corner: 100000 rects
+sg13cmos5l_Corner: 110000 rects
+sg13cmos5l_Corner: 120000 rects
+sg13cmos5l_Corner: 130000 rects
+sg13cmos5l_Corner: 140000 rects
+sg13cmos5l_Corner: 150000 rects
+sg13cmos5l_Corner: 160000 rects
+sg13cmos5l_Corner: 170000 rects
+sg13cmos5l_Corner: 180000 rects
+sg13cmos5l_Corner: 190000 rects
+sg13cmos5l_Corner: 200000 rects
+sg13cmos5l_Corner: 210000 rects
+sg13cmos5l_Corner: 220000 rects
+sg13cmos5l_Corner: 230000 rects
+sg13cmos5l_Corner: 240000 rects
+sg13cmos5l_Corner: 250000 rects
+sg13cmos5l_Corner: 260000 rects
+sg13cmos5l_Corner: 270000 rects
+sg13cmos5l_Corner: 280000 rects
+sg13cmos5l_Corner: 290000 rects
+sg13cmos5l_Corner: 300000 rects
+sg13cmos5l_Corner: 310000 rects
+sg13cmos5l_Corner: 320000 rects
+sg13cmos5l_Corner: 330000 rects
+sg13cmos5l_Corner: 340000 rects
+sg13cmos5l_Corner: 350000 rects
+sg13cmos5l_Corner: 360000 rects
+sg13cmos5l_Corner: 370000 rects
+sg13cmos5l_Corner: 380000 rects
+sg13cmos5l_Corner: 390000 rects
+sg13cmos5l_Corner: 400000 rects
+sg13cmos5l_Corner: 410000 rects
+sg13cmos5l_Corner: 420000 rects
+sg13cmos5l_Corner: 430000 rects
+sg13cmos5l_Corner: 440000 rects
+sg13cmos5l_Corner: 450000 rects
+sg13cmos5l_Corner: 460000 rects
+sg13cmos5l_Corner: 470000 rects
+sg13cmos5l_Corner: 480000 rects
+sg13cmos5l_Corner: 490000 rects
+sg13cmos5l_Corner: 500000 rects
+sg13cmos5l_Corner: 510000 rects
+sg13cmos5l_Corner: 520000 rects
+sg13cmos5l_Corner: 530000 rects
+Cell bondpad_LX3CBX read from path paramcells
+Scaled magic input cell bondpad_LX3CBX geometry by factor of 2
+Cell open_source read from current working directory
+Scaled magic input cell open_source geometry by factor of 2
+Cell copyright_block read from current working directory
+Cell font_76 read from path alpha
+Scaled magic input cell font_76 geometry by factor of 24
+Cell font_75 read from path alpha
+Scaled magic input cell font_75 geometry by factor of 24
+Cell font_74 read from path alpha
+Scaled magic input cell font_74 geometry by factor of 24
+Cell font_73 read from path alpha
+Scaled magic input cell font_73 geometry by factor of 24
+Cell font_72 read from path alpha
+Scaled magic input cell font_72 geometry by factor of 24
+Cell font_70 read from path alpha
+Scaled magic input cell font_70 geometry by factor of 24
+Cell font_69 read from path alpha
+Scaled magic input cell font_69 geometry by factor of 24
+Cell font_68 read from path alpha
+Scaled magic input cell font_68 geometry by factor of 24
+Cell font_67 read from path alpha
+Scaled magic input cell font_67 geometry by factor of 24
+Cell font_65 read from path alpha
+Scaled magic input cell font_65 geometry by factor of 24
+Cell font_63 read from path alpha
+Scaled magic input cell font_63 geometry by factor of 24
+Cell font_62 read from path alpha
+Scaled magic input cell font_62 geometry by factor of 24
+Cell font_61 read from path alpha
+Scaled magic input cell font_61 geometry by factor of 24
+Cell font_56 read from path alpha
+Scaled magic input cell font_56 geometry by factor of 24
+Cell font_53 read from path alpha
+Scaled magic input cell font_53 geometry by factor of 24
+Cell font_50 read from path alpha
+Scaled magic input cell font_50 geometry by factor of 24
+Cell font_49 read from path alpha
+Scaled magic input cell font_49 geometry by factor of 24
+Cell font_48 read from path alpha
+Scaled magic input cell font_48 geometry by factor of 24
+Cell font_47 read from path alpha
+Scaled magic input cell font_47 geometry by factor of 24
+Cell font_44 read from path alpha
+Scaled magic input cell font_44 geometry by factor of 24
+Cell font_43 read from path alpha
+Scaled magic input cell font_43 geometry by factor of 24
+Cell font_36 read from path alpha
+Scaled magic input cell font_36 geometry by factor of 24
+Cell font_35 read from path alpha
+Scaled magic input cell font_35 geometry by factor of 24
+Cell font_33 read from path alpha
+Scaled magic input cell font_33 geometry by factor of 24
+Cell font_32 read from path alpha
+Scaled magic input cell font_32 geometry by factor of 24
+Cell font_31 read from path alpha
+Scaled magic input cell font_31 geometry by factor of 24
+Cell font_30 read from path alpha
+Scaled magic input cell font_30 geometry by factor of 24
+Cell font_29 read from path alpha
+Scaled magic input cell font_29 geometry by factor of 24
+Cell font_28 read from path alpha
+Scaled magic input cell font_28 geometry by factor of 24
+Cell font_7A read from path alpha
+Scaled magic input cell font_7A geometry by factor of 24
+Cell font_6F read from path alpha
+Scaled magic input cell font_6F geometry by factor of 24
+Cell font_6E read from path alpha
+Scaled magic input cell font_6E geometry by factor of 24
+Cell font_6D read from path alpha
+Scaled magic input cell font_6D geometry by factor of 24
+Cell font_6C read from path alpha
+Scaled magic input cell font_6C geometry by factor of 24
+Cell font_4F read from path alpha
+Scaled magic input cell font_4F geometry by factor of 24
+Cell font_4E read from path alpha
+Scaled magic input cell font_4E geometry by factor of 24
+Cell font_4D read from path alpha
+Scaled magic input cell font_4D geometry by factor of 24
+Cell font_4C read from path alpha
+Scaled magic input cell font_4C geometry by factor of 24
+Cell font_4B read from path alpha
+Scaled magic input cell font_4B geometry by factor of 24
+Cell font_2E read from path alpha
+Scaled magic input cell font_2E geometry by factor of 24
+Cell font_2C read from path alpha
+Scaled magic input cell font_2C geometry by factor of 24
+Cell caravel_motto read from current working directory
+Scaled magic input cell caravel_motto geometry by factor of 2
+Cell font_22 read from path alpha
+Scaled magic input cell font_22 geometry by factor of 24
+Cell caravel_logo read from current working directory
+Scaled magic input cell caravel_logo geometry by factor of 2
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: sg13cmos5l_padframe, alpha_2, alpha_6, alpha_9, alpha_8, sg13cmos5l_Filler4000, sg13cmos5l_Filler2000, sg13cmos5l_decap_4, user_id_programming, sg13cmos5l_tielo, sg13cmos5l_tiehi, sg13cmos5l_IOPadIOVss, sg13cmos5l_IOPadVss, sg13cmos5l_IOPadVdd, sg13cmos5l_IOPadIOVdd, sg13cmos5l_IOPadTriOut16mA, sg13cmos5l_IOPadIn, sg13cmos5l_IOPadAnalog, sg13cmos5l_IOPadOut16mA, sg13cmos5l_IOPadInOut16mA, sg13cmos5l_Corner.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "slot7_tree_pmos_r05l6".
+Reading "slot7_tree_pmos_u1l6".
+Reading "slot7_tree_pmos_tgp_w1l045".
+Reading "slot7_tree_pmos_bpc_w1l4".
+Reading "slot7_tree_nmos_nmosHV_w2_l0p45_ng2".
+Reading "slot7_tree_nmos_nmosHV_w1_l8".
+Reading "slot7_tree_nmos_nmosHV_w1p2_l6".
+Reading "slot7_ptap1_1".
+Reading "slot7_ntap1_2".
+Reading "slot7_pmosHV_7_1".
+Reading "slot7_pmosHV_13_1".
+Reading "slot7_pmosHV_w0p3_l1".
+Reading "slot7_pmosHV_14".
+Reading "slot7_nmosHV_5_1".
+Reading "slot7_nmosHV_9_1".
+Reading "slot7_nmosHV_w2_l1_1".
+Reading "slot7_nmosHV_7_1".
+Reading "slot7_nmosHV_11".
+Reading "slot7_nmosHV_10".
+Reading "slot7_rhigh_1".
+Reading "slot7_pnpMPA".
+Reading "slot7_pmosHV_7".
+Reading "slot7_pmosHV_13".
+Reading "slot7_pmosHV_w0p3_l8".
+Reading "slot7_pmosHV_9".
+Reading "slot7_nmosHV_8".
+Reading "slot7_nmosHV_5".
+Reading "slot7_nmosHV_9".
+Reading "slot7_nmosHV_w2_l1".
+Reading "slot7_nmosHV_7".
+Reading "slot7_pmosHV_12".
+Reading "slot7_pmosHV_11".
+Reading "slot7_pmosHV_10".
+Reading "slot7_ptap1".
+Reading "slot7_nmosHV_3".
+Reading "slot7_nmosHV_2".
+Reading "slot7_nmosHV_1".
+Reading "slot7_nmosHV".
+Reading "slot7_ntap1_1".
+Reading "slot7_ntap1".
+Reading "slot7_pmosHV_1".
+Reading "slot7_pmosHV".
+Reading "slot7_tree_pmos".
+Reading "slot7_tree_nmos".
+Reading "slot7_tpb_row_n".
+Reading "slot7_tpb_row_p2".
+Reading "slot7_tpb_row_p1".
+Reading "slot7_tpb_row_p0".
+Reading "slot7_sg13_hv_nmos_MRZNPN".
+Reading "slot7_sg13_hv_pmos_XLVYT6".
+Reading "slot7_via_Y6ZG8N".
+Reading "slot7_bg_svpg".
+Reading "slot7_bg_ms1".
+Reading "slot7_bg_pmir_pcas_c".
+Reading "slot7_bg_n4".
+Reading "slot7_bg_res_c".
+Reading "slot7_bg_pnp_c".
+Reading "slot7_oa_svpg".
+Reading "slot7_oa_ms1".
+Reading "slot7_oa_pmir_c".
+Reading "slot7_oa_mcs_c".
+Reading "slot7_oa_n10".
+Reading "slot7_oa_pcas_c".
+Reading "slot7_tp_row_n".
+Reading "slot7_tp_row_pr".
+Reading "slot7_tp_row_pb".
+Reading "slot7_tp_row_pa".
+Reading "slot7_bias_tree_noab_pd".
+Reading "slot7_tp_en_ctrl_b".
+Reading "slot7_xgate".
+Reading "slot7_bg_core_pd".
+Reading "slot7_oa_core_pd".
+Reading "slot7_tp_en_ctrl".
+Reading "slot_7".
+   Generating output for cell slot_7
+Reading "slot7_tree_pmos_r05l6".
+Reading "slot7_tree_pmos_u1l6".
+Reading "slot7_tree_pmos_tgp_w1l045".
+Reading "slot7_tree_pmos_bpc_w1l4".
+Reading "slot7_tree_nmos_nmosHV_w2_l0p45_ng2".
+Reading "slot7_tree_nmos_nmosHV_w1_l8".
+Reading "slot7_tree_nmos_nmosHV_w1p2_l6".
+Reading "slot7_ptap1_1".
+Reading "slot7_ntap1_2".
+Reading "slot7_pmosHV_7_1".
+Reading "slot7_pmosHV_13_1".
+Reading "slot7_pmosHV_w0p3_l1".
+Reading "slot7_pmosHV_14".
+Reading "slot7_nmosHV_5_1".
+Reading "slot7_nmosHV_9_1".
+Reading "slot7_nmosHV_w2_l1_1".
+Reading "slot7_nmosHV_7_1".
+Reading "slot7_nmosHV_11".
+Reading "slot7_nmosHV_10".
+Reading "slot7_rhigh_1".
+Reading "slot7_pnpMPA".
+Reading "slot7_pmosHV_7".
+Reading "slot7_pmosHV_13".
+Reading "slot7_pmosHV_w0p3_l8".
+Reading "slot7_pmosHV_9".
+Reading "slot7_nmosHV_8".
+Reading "slot7_nmosHV_5".
+Reading "slot7_nmosHV_9".
+Reading "slot7_nmosHV_w2_l1".
+Reading "slot7_nmosHV_7".
+Reading "slot7_pmosHV_12".
+Reading "slot7_pmosHV_11".
+Reading "slot7_pmosHV_10".
+Reading "slot7_ptap1".
+Reading "slot7_nmosHV_3".
+Reading "slot7_nmosHV_2".
+Reading "slot7_nmosHV_1".
+Reading "slot7_nmosHV".
+Reading "slot7_ntap1_1".
+Reading "slot7_ntap1".
+Reading "slot7_pmosHV_1".
+Reading "slot7_pmosHV".
+Reading "slot7_tree_pmos".
+Reading "slot7_tree_nmos".
+Reading "slot7_tpb_row_n".
+Reading "slot7_tpb_row_p2".
+Reading "slot7_tpb_row_p1".
+Reading "slot7_tpb_row_p0".
+Reading "slot7_sg13_hv_nmos_MRZNPN".
+Reading "slot7_sg13_hv_pmos_XLVYT6".
+Reading "slot7_via_Y6ZG8N".
+Reading "slot7_bg_svpg".
+Reading "slot7_bg_ms1".
+Reading "slot7_bg_pmir_pcas_c".
+Reading "slot7_bg_n4".
+Reading "slot7_bg_res_c".
+Reading "slot7_bg_pnp_c".
+Reading "slot7_oa_svpg".
+Reading "slot7_oa_ms1".
+Reading "slot7_oa_pmir_c".
+Reading "slot7_oa_mcs_c".
+Reading "slot7_oa_n10".
+Reading "slot7_oa_pcas_c".
+Reading "slot7_tp_row_n".
+Reading "slot7_tp_row_pr".
+Reading "slot7_tp_row_pb".
+Reading "slot7_tp_row_pa".
+Reading "slot7_bias_tree_noab_pd".
+Reading "slot7_tp_en_ctrl_b".
+Reading "slot7_xgate".
+Reading "slot7_bg_core_pd".
+Reading "slot7_oa_core_pd".
+Reading "slot7_tp_en_ctrl".
+Reading "slot_7".
+   Generating output for cell sg13cmos5l_Filler4000
+   Generating output for cell sg13cmos5l_Filler2000
+   Generating output for cell sg13cmos5l_decap_4
+   Generating output for cell sg13cmos5l_tielo
+   Generating output for cell sg13cmos5l_tiehi
+   Generating output for cell user_id_vias
+   Generating output for cell user_id_programming
+   Generating output for cell via_Z2R7LJ
+   Generating output for cell via_Y6HR5N
+   Generating output for cell via_Y6HHCQ
+   Generating output for cell via_CGDS3A
+   Generating output for cell user_id_routing
+   Generating output for cell sg13cmos5l_DCPDiode
+   Generating output for cell sg13cmos5l_DCNDiode
+   Generating output for cell sg13cmos5l_IOPadIOVss
+   Generating output for cell sg13cmos5l_IOPadVss
+   Generating output for cell sg13cmos5l_RCClampResistor
+   Generating output for cell sg13cmos5l_RCClampInverter
+   Generating output for cell sg13cmos5l_Clamp_N43N43D4R
+   Generating output for cell sg13cmos5l_IOPadVdd
+   Generating output for cell sg13cmos5l_IOPadIOVdd
+   Generating output for cell sg13cmos5l_LevelUp
+   Generating output for cell sg13cmos5l_io_tie
+   Generating output for cell sg13cmos5l_io_nor2_x1
+   Generating output for cell sg13cmos5l_io_nand2_x1
+   Generating output for cell sg13cmos5l_io_inv_x1
+   Generating output for cell sg13cmos5l_GateDecode
+   Generating output for cell sg13cmos5l_Clamp_P8N8D
+   Generating output for cell sg13cmos5l_Clamp_N8N8D
+   Generating output for cell sg13cmos5l_IOPadTriOut16mA
+   Generating output for cell sg13g2_SecondaryProtection
+   Generating output for cell M2_M1_OS_789120990531
+   Generating output for cell M2_M1_OS_789120990530
+   Generating output for cell sg13cmos5l_LevelDown
+   Generating output for cell sg13cmos5l_IOPadIn
+   Generating output for cell sg13cmos5l_SecondaryProtection
+   Generating output for cell sg13cmos5l_Clamp_P20N0D
+   Generating output for cell sg13cmos5l_Clamp_N20N0D
+   Generating output for cell sg13cmos5l_IOPadAnalog
+   Generating output for cell sg13cmos5l_LevelUpInv
+   Generating output for cell sg13cmos5l_GateLevelUpInv
+   Generating output for cell sg13cmos5l_IOPadOut16mA
+   Generating output for cell sg13cmos5l_IOPadInOut16mA
+   Generating output for cell sg13cmos5l_Corner
+   Generating output for cell alpha_2
+   Generating output for cell alpha_6
+   Generating output for cell alpha_9
+   Generating output for cell alpha_8
+   Generating output for cell alpha_0
+   Generating output for cell user_id_textblock
+   Generating output for cell sg13cmos5l_ocd_Split2000
+   Generating output for cell cm_d2s_TopLayersTo4
+   Generating output for cell cm_d2s_replica_lines
+   Generating output for cell cm_d2s_pad_wiring_f2
+   Generating output for cell cm_d2s_nw_isolator
+   Generating output for cell cm_d2s_Metal3ViasUp
+   Generating output for cell cm_d2s_m2_junction
+   Generating output for cell cm_d2s_m2_comb_p
+   Generating output for cell cm_d2s_m2_comb_n
+   Generating output for cell cm_d2s_guard_tie
+   Generating output for cell cm_d2s_gate_feeds
+   Generating output for cell cm_d2s_edge_stubs
+   Generating output for cell cm_d2s_DCPDiode
+   Generating output for cell cm_d2s_DCNDiode
+   Generating output for cell cm_d2s_d2s_cmb
+   Generating output for cell cm_d2s_d2s_cma
+   Generating output for cell cm_d2s_nmosHV_7
+   Generating output for cell cm_d2s_nmosHV_3
+   Generating output for cell cm_d2s_sinks_6x6_f2
+   Generating output for cell cm_d2s_pwr_f2
+   Generating output for cell cm_d2s_pmosHV
+   Generating output for cell cm_d2s_nmosHV_1
+   Generating output for cell cm_d2s_d2s_tgsw_f2
+   Generating output for cell cm_d2s_pmosHV_w5_l6
+   Generating output for cell cm_d2s_d2s_tails_c2
+   Generating output for cell cm_d2s_rppd
+   Generating output for cell cm_d2s_dpantenna
+   Generating output for cell cm_d2s_dantenna
+   Generating output for cell cm_d2s_d2s_sp2k_f2
+   Generating output for cell cm_d2s_rhigh
+   Generating output for cell cm_d2s_d2s_rhigh_f2
+   Generating output for cell cm_d2s_pmosHV_w6_l4
+   Generating output for cell cm_d2s_pmosHV_w1_l4
+   Generating output for cell cm_d2s_d2s_loads_c2
+   Generating output for cell cm_d2s_pmosHV_w20_l1_ng2
+   Generating output for cell cm_d2s_tub_p20x1_c2
+   Generating output for cell cm_d2s_d2s_inputs_c2
+   Generating output for cell cm_d2s_pmosHV_w15_l3
+   Generating output for cell cm_d2s_d2s_casc_p_c2
+   Generating output for cell cm_d2s_nmosHV_6
+   Generating output for cell cm_d2s_nmosHV_5
+   Generating output for cell cm_d2s_nmosHV_4
+   Generating output for cell cm_d2s_d2s_casc_n_f2
+   Generating output for cell cm_d2s_pmosHV_w6p66_l0p6
+   Generating output for cell cm_d2s_pmosHV_w1_l0p45
+   Generating output for cell cm_d2s_d2s_ab_p_f2
+   Generating output for cell cm_d2s_nmosHV
+   Generating output for cell cm_d2s_d2s_ab_n_f2
+   Generating output for cell cm_d2s_pmosHV_w2_l6
+   Generating output for cell cm_d2s_bias_tree_p_f2
+   Generating output for cell cm_d2s_nmosHV_2
+   Generating output for cell cm_d2s_bias_tree_n_f2
+   Generating output for cell cm_d2s_d2s_block
+   Generating output for cell cm_d2s_contacts
+   Generating output for cell cm_d2s_cm_rings
+   Generating output for cell cm_d2s_Clamp_P_M1_wiring
+   Generating output for cell cm_d2s_Clamp_P_M1
+   Generating output for cell cm_d2s_Clamp_N_M1_wiring_1
+   Generating output for cell cm_d2s_Clamp_N_M1_wiring
+   Generating output for cell cm_d2s_Clamp_N_M1
+   Generating output for cell sg13cmos5l_IOPadDiff2Single
+   Generating output for cell cm_s2d_nmosHV
+   Generating output for cell cm_s2d_nmosHV_1
+   Generating output for cell cm_s2d_sinks_6x6_s2d_c3_core
+   Generating output for cell cm_s2d_pmosHV_w5_l6
+   Generating output for cell cm_s2d_s2d_tails_lo_f
+   Generating output for cell cm_s2d_s2d_tails_hi_f
+   Generating output for cell cm_s2d_s2d_sinks_cmfb_c3_core
+   Generating output for cell cm_s2d_rhigh
+   Generating output for cell cm_s2d_s2d_rhigh_c3
+   Generating output for cell cm_s2d_pmosHV_w2_l0p45_ng2
+   Generating output for cell cm_s2d_s2d_pd_p_c3
+   Generating output for cell cm_s2d_pmosHV_w6_l4
+   Generating output for cell cm_s2d_pmosHV_w1_l4_1
+   Generating output for cell cm_s2d_s2d_loads_f
+   Generating output for cell cm_s2d_pmosHV_w20_l1_ng2
+   Generating output for cell cm_s2d_tub_p20x1_c3
+   Generating output for cell cm_s2d_s2d_inputs_c3
+   Generating output for cell cm_s2d_nmosHV_6
+   Generating output for cell cm_s2d_nmosHV_5
+   Generating output for cell cm_s2d_s2d_cload_c3
+   Generating output for cell cm_s2d_pmosHV_w15_l3
+   Generating output for cell cm_s2d_s2d_casc_p_f
+   Generating output for cell cm_s2d_nmosHV_4
+   Generating output for cell cm_s2d_nmosHV_3
+   Generating output for cell cm_s2d_nmosHV_2
+   Generating output for cell cm_s2d_s2d_casc_n_f
+   Generating output for cell cm_s2d_pwr_f
+   Generating output for cell cm_s2d_pmosHV_w2_l6
+   Generating output for cell cm_s2d_pmosHV_w1_l0p45
+   Generating output for cell cm_s2d_bias_tree_noab_p_c3
+   Generating output for cell cm_s2d_nmosHV_7
+   Generating output for cell cm_s2d_bias_tree_noab_n_c3
+   Generating output for cell cm_s2d_s2d_block
+   Generating output for cell cm_s2d_rppd_1
+   Generating output for cell cm_s2d_rppd
+   Generating output for cell cm_s2d_iovdd_rail_tie
+   Generating output for cell cm_s2d_esd_wiring
+   Generating output for cell cm_s2d_edge_stubs_low
+   Generating output for cell cm_s2d_edge_stubs
+   Generating output for cell cm_s2d_DCPDiode
+   Generating output for cell cm_s2d_DCNDiode
+   Generating output for cell cm_s2d_Clamp_P_M1
+   Generating output for cell cm_s2d_Clamp_N_M1
+   Generating output for cell sg13cmos5l_IOPadSingle2Diff
+   Generating output for cell bondpad_LX3CBX
+   Generating output for cell open_source
+   Generating output for cell font_76
+   Generating output for cell font_75
+   Generating output for cell font_74
+   Generating output for cell font_73
+   Generating output for cell font_72
+   Generating output for cell font_70
+   Generating output for cell font_69
+   Generating output for cell font_68
+   Generating output for cell font_67
+   Generating output for cell font_65
+   Generating output for cell font_63
+   Generating output for cell font_62
+   Generating output for cell font_61
+   Generating output for cell font_56
+   Generating output for cell font_53
+   Generating output for cell font_50
+   Generating output for cell font_49
+   Generating output for cell font_48
+   Generating output for cell font_47
+   Generating output for cell font_44
+   Generating output for cell font_43
+   Generating output for cell font_36
+   Generating output for cell font_35
+   Generating output for cell font_33
+   Generating output for cell font_32
+   Generating output for cell font_31
+   Generating output for cell font_30
+   Generating output for cell font_29
+   Generating output for cell font_28
+   Generating output for cell font_7A
+   Generating output for cell font_6F
+   Generating output for cell font_6E
+   Generating output for cell font_6D
+   Generating output for cell font_6C
+   Generating output for cell font_4F
+   Generating output for cell font_4E
+   Generating output for cell font_4D
+   Generating output for cell font_4C
+   Generating output for cell font_4B
+   Generating output for cell font_2E
+   Generating output for cell font_2C
+   Generating output for cell copyright_block
+   Generating output for cell font_22
+   Generating output for cell caravel_motto
+   Generating output for cell caravel_logo
+   Generating output for cell sg13cmos5l_padframe
+   Generating output for cell sg13_hv_pmos_HVFXC8
+   Generating output for cell via_NN8LKN
+   Generating output for cell sg13cmos5l_inv_4
+   Generating output for cell sg13cmos5l_antennanp
+   Generating output for cell sg13_hv_nmos_CJ33WB
+   Generating output for cell sg13_hv_nmos_HSMMZS
+   Generating output for cell sg13_hv_pmos_2TUKLB
+   Generating output for cell sg13_hv_pmos_XRP95E
+   Generating output for cell via_QP3U7V
+   Generating output for cell via_Y6Z86N
+   Generating output for cell via_Y6ZD6N
+   Generating output for cell sw_lvl_shift
+   Generating output for cell analog_pswitch_small
+   Generating output for cell sg13_hv_nmos_U4HMWB
+   Generating output for cell analog_switch_small
+   Generating output for cell sg13_hv_nmos_2RYP69
+   Generating output for cell via_Y6H4DQ
+   Generating output for cell via_Y6HG9Q
+   Generating output for cell via_Y6HE6N
+   Generating output for cell bias_nset
+   Generating output for cell bias_nstack
+   Generating output for cell sg13_hv_pmos_KGSGVN
+   Generating output for cell bias_pset2
+   Generating output for cell via_Y6ZX9Q
+   Generating output for cell bias_pset
+   Generating output for cell bias_pstack
+   Generating output for cell capacitor_UPRECB
+   Generating output for cell rhigh_AFSZTU
+   Generating output for cell via_Y2RFW5
+   Generating output for cell via_Y6HC2N
+   Generating output for cell via_Y6ZU9Q
+   Generating output for cell via_Y6ZY8N
+   Generating output for cell via_Z2RFBL
+   Generating output for cell via_Z29FXH
+   Generating output for cell via_Z29PWH
+   Generating output for cell sg13_hv_nmos_666RAL
+   Generating output for cell sg13_hv_pmos_7A8CUW
+   Generating output for cell sg13_hv_nmos_XVVFQX
+   Generating output for cell bias_amp_large
+   Generating output for cell rhigh_GJN3VD
+   Generating output for cell sg13cmos5l_inv_2
+   Generating output for cell sg13cmos5l_fill_2
+   Generating output for cell sg13cmos5l_nand2_1
+   Generating output for cell sg13cmos5l_nor2_1
+   Generating output for cell via_Y6Z2DQ
+   Generating output for cell sg13_hv_nmos_QBGVHE
+   Generating output for cell sg13_hv_pmos_DNCZKC
+   Generating output for cell sg13_hv_pmos_ZPCZKC
+   Generating output for cell via_Y6HW5N
+   Generating output for cell via_Y6ZS5N
+   Generating output for cell sg13_hv_nmos_QHASHE
+   Generating output for cell level_shift
+   Generating output for cell bias_generator_fe_v2
+   Generating output for cell bias_generator_ben250nm
+   Generating output for cell bias_generator_ben1um
+   Generating output for cell bias_generator_be0p_v2
+   Generating output for cell sg13cmos5l_ocd_ip__biasgen2
+   Generating output for cell cap_cmomf_7YMNSS
+   Generating output for cell cap_cmomf_MKAUQG
+   Generating output for cell cap_cmomf_T2STT2
+   Generating output for cell dantenna_WMFCS7
+   Generating output for cell sg13_lv_nmos_GT3QPP
+   Generating output for cell sg13_lv_nmos_LT8DKY
+   Generating output for cell sg13_lv_pmos_KE4EUN
+   Generating output for cell sg13_lv_pmos_KPMAU6
+   Generating output for cell sg13_lv_pmos_RWAJH3
+   Generating output for cell por_1v2_schmitt_inv
+   Generating output for cell rhigh_MGZFWD
+   Generating output for cell sg13cmos5l_buf_16
+   Generating output for cell sg13_lv_nmos_AGXAPYX
+   Generating output for cell sg13_lv_nmos_AGXAPYY
+   Generating output for cell sg13_lv_pmos_X27YSC
+   Generating output for cell por_amp
+   Generating output for cell sg13_lv_nmos_5X2BDS
+   Generating output for cell sg13_lv_nmos_VHRE9V
+   Generating output for cell sg13_lv_pmos_4AKZGL
+   Generating output for cell sg13_lv_pmos_JRRYKH
+   Generating output for cell por_stepdown
+   Generating output for cell sg13cmos5l_ocd_ip__por
+   Generating output for cell capacitor_UEBLR3
+   Generating output for cell capacitor_4HNWC9
+   Generating output for cell capacitor_77YAAU
+   Generating output for cell capacitor_C4E5CZ
+   Generating output for cell capacitor_P4YBHP
+   Generating output for cell via_Y6HEAQ
+   Generating output for cell via_Y6HQ9Q
+   Generating output for cell via_Y6HY9Q
+   Generating output for cell via_Y6ZLGQ
+   Generating output for cell via_Y6ZXGQ
+   Generating output for cell sg13_hv_pmos_NWA9LU
+   Generating output for cell sg13_hv_nmos_BEVMZW
+   Generating output for cell sg13_hv_pmos_WYN5QB
+   Generating output for cell pnpMPA_9DZCCL
+   Generating output for cell rhigh_SUDY2Y
+   Generating output for cell bg_res
+   Generating output for cell rppd_Y8MW75
+   Generating output for cell via_Y6ZQZM
+   Generating output for cell sg13_hv_nmos_2UD3QN
+   Generating output for cell bg_trim
+   Generating output for cell via_Y6Z5DQ
+   Generating output for cell via_Y6ZA6N
+   Generating output for cell sg13_hv_pmos_ZKTCY2
+   Generating output for cell sg13_hv_pmos_N8UDLU
+   Generating output for cell sg13_hv_pmos_NWNELU
+   Generating output for cell sg13_hv_pmos_NNMDLU
+   Generating output for cell sg13_hv_nmos_BEDTUZ
+   Generating output for cell sg13_hv_nmos_XAAXMC
+   Generating output for cell sg13_hv_nmos_TYJME3
+   Generating output for cell sg13_hv_pmos_HLS6DG
+   Generating output for cell sg13_hv_pmos_H5F6DG
+   Generating output for cell sg13_hv_pmos_NQUDLU
+   Generating output for cell sg13_hv_nmos_TGUME3
+   Generating output for cell sg13_hv_nmos_BEMUUZ
+   Generating output for cell sg13_hv_nmos_BE9VUZ
+   Generating output for cell se_folded_cascode_p
+   Generating output for cell bandgap_unbuffered_v2
+   Generating output for cell via_Y6HEDQ
+   Generating output for cell capacitor_W9X9FK
+   Generating output for cell sg13_hv_nmos_BEHQUZ
+   Generating output for cell sg13_hv_nmos_BEZCVZ
+   Generating output for cell sg13_hv_nmos_QMKJVU
+   Generating output for cell sg13_hv_nmos_T2KQE3
+   Generating output for cell sg13_hv_pmos_FJG4RK
+   Generating output for cell sg13_hv_pmos_MLH6U9
+   Generating output for cell via_Y6H8HQ
+   Generating output for cell via_Y6HNCQ
+   Generating output for cell via_Y6ZJCQ
+   Generating output for cell sg13_hv_pmos_ZK4LW2
+   Generating output for cell sg13_hv_pmos_DFT6DG
+   Generating output for cell sg13_hv_nmos_TAZSE3
+   Generating output for cell sg13_hv_nmos_XAS6UC
+   Generating output for cell sg13_hv_pmos_V3Q6DG
+   Generating output for cell sg13_hv_nmos_BENXUZ
+   Generating output for cell sg13_hv_pmos_NQD9LU
+   Generating output for cell sg13_hv_pmos_NED9LU
+   Generating output for cell sg13_hv_nmos_2G82VR
+   Generating output for cell sg13_hv_pmos_QWE845
+   Generating output for cell se_folded_cascode_np_ab
+   Generating output for cell sg13cmos5l_ocd_ip__bandgap_v3
+   Generating output for cell capacitor_BCZJG3
+   Generating output for cell cap_cmomf_H6HXXJ
+   Generating output for cell capacitor_KK7B53
+   Generating output for cell sg13_hv_pmos_CVGX38
+   Generating output for cell sg13_hv_nmos_83DLAQ
+   Generating output for cell hv_inv_1
+   Generating output for cell via_Y6H5GQ
+   Generating output for cell via_Y6HKGQ
+   Generating output for cell via_Y6Z8HQ
+   Generating output for cell via_Y6ZD6N_x2
+   Generating output for cell via_Y6ZJGQ
+   Generating output for cell via_Y6ZP9Q
+   Generating output for cell via_Z2RF8J
+   Generating output for cell via_Z2RJBL
+   Generating output for cell via_Z29VKL
+   Generating output for cell via_Y6ZG8N
+   Generating output for cell sg13_hv_pmos_XLVYT6
+   Generating output for cell sg13_hv_nmos_MRZNPN
+   Generating output for cell xgate
+   Generating output for cell n_amp_large
+   Generating output for cell sg13_hv_pmos_QH8WBX
+   Generating output for cell rhigh_NFPZ4T
+   Generating output for cell sg13cmos5l_nand3_1
+   Generating output for cell sg13cmos5l_ocd_ip__voltgen_v3
+   Generating output for cell sg13cmos5l_inv_1
+   Generating output for cell sg13cmos5l_buf_8
+   Generating output for cell sg13cmos5l_buf_4
+   Generating output for cell sg13cmos5l_dlygate4sd3_1
+   Generating output for cell sg13cmos5l_fill_1
+   Generating output for cell sg13cmos5l_decap_8
+   Generating output for cell sg13cmos5l_buf_1
+   Generating output for cell sg13cmos5l_dfrbpq_1
+   Generating output for cell sg13cmos5l_mux2_1
+   Generating output for cell sg13cmos5l_or4_1
+   Generating output for cell sg13cmos5l_and2_1
+   Generating output for cell sg13cmos5l_nor3_1
+   Generating output for cell sg13cmos5l_nand4_1
+   Generating output for cell sg13cmos5l_xor2_1
+   Generating output for cell sg13cmos5l_nand2b_1
+   Generating output for cell sg13cmos5l_and4_1
+   Generating output for cell sg13cmos5l_and3_1
+   Generating output for cell sg13cmos5l_nand3b_1
+   Generating output for cell sg13cmos5l_xnor2_1
+   Generating output for cell sg13cmos5l_or3_1
+   Generating output for cell sg13cmos5l_nor4_1
+   Generating output for cell sg13cmos5l_a221oi_1
+   Generating output for cell sg13cmos5l_a22oi_1
+   Generating output for cell sg13cmos5l_or2_1
+   Generating output for cell sg13cmos5l_a21o_1
+   Generating output for cell sg13cmos5l_a21oi_1
+   Generating output for cell sg13cmos5l_o21ai_1
+   Generating output for cell sg13cmos5l_nor2b_1
+   Generating output for cell sg13cmos5l_buf_2
+   Generating output for cell housekeeping_top
+   Generating output for cell sg13_hv_nmos_9DTRBE
+   Generating output for cell sg13_hv_pmos_3CJ4LL
+   Generating output for cell via_4K6DRW
+   Generating output for cell via_AWBR46
+   Generating output for cell via_QZBZRE
+   Generating output for cell via_Y6ZQ5N
+   Generating output for cell via_Z9R6XL
+   Generating output for cell via_Z29SAL
+   Generating output for cell sg13_hv_nmos_VCL2HP
+   Generating output for cell sg13_hv_pmos_G9ZGU3
+   Generating output for cell via_Y2RFW7
+   Generating output for cell via_Y2RFX7
+   Generating output for cell via_Y6H96N
+   Generating output for cell via_Y6Z2DQ_x2
+   Generating output for cell gate_drive_med
+   Generating output for cell analog_switch_med
+   Generating output for cell analog_switch_array
+   Generating output for cell chipalooza_frame_wrapper
+   Generating output for cell center_column_route
+   Generating output for cell central_column
+   Generating output for cell sg13cmos5l_lgcp_1
+   Generating output for cell sg13cmos5l_dlhrq_1
+   Generating output for cell user_project_control
+   Generating output for cell sg13_hv_pmos_ZN7EJW
+   Generating output for cell via_B4YQGJ
+   Generating output for cell via_NZW5ZC
+   Generating output for cell sg13_hv_nmos_3JX36Y
+   Generating output for cell sg13_hv_nmos_XAVYYR
+   Generating output for cell sg13_hv_pmos_FG6ZZW
+   Generating output for cell sg13_hv_pmos_RQMCRC
+   Generating output for cell gate_drive_large
+   Generating output for cell power_stage2
+   Generating output for cell sg13cmos5l_inv_8
+   Generating output for cell sg13cmos5l_inv_16
+   Generating output for cell gate_drive_1v2
+   Generating output for cell sg13_lv_pmos_5MXUJM
+   Generating output for cell via_QLR8H8
+   Generating output for cell via_Z3LBH9
+   Generating output for cell power_stage1v2
+   Generating output for cell project_control_area
+   Generating output for cell slot9_wrapper
+   Generating output for cell slot10_wrapper
+   Generating output for cell slot8_wrapper
+   Generating output for cell slot11_wrapper
+   Generating output for cell slot7_wrapper
+   Generating output for cell slot12_wrapper
+   Generating output for cell slot6_wrapper
+   Generating output for cell slot13_wrapper
+   Generating output for cell slot5_wrapper
+   Generating output for cell slot14_wrapper
+   Generating output for cell slot4_wrapper
+   Generating output for cell slot15_wrapper
+   Generating output for cell slot3_wrapper
+   Generating output for cell slot16_wrapper
+   Generating output for cell slot2_wrapper
+   Generating output for cell slot17_wrapper
+   Generating output for cell slot1_wrapper
+   Generating output for cell sg13cmos5l_ocd_ip__classab_buffer
+   Generating output for cell slot18_wrapper
+   Generating output for cell RM_IHPSG13_1P_1024x8_c2_bm_bist
+   Generating output for cell chipalooza_frame
+   Generating output for cell sealring_corner
+   Generating output for cell sealring_side_leftright
+   Generating output for cell sealring_side_topbottom
+   Generating output for cell sealring_complete
+   Generating output for cell sg13cmos5l_ocd_chipalooza
+Done!

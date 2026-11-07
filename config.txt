@@ -108,7 +108,7 @@ s3_version:	-		-
 s4_version:	-		-
 s5_version:	-		-
 s6_version:	-		-
-s7_version:	claude/c5-testplatform	c0726799dcf90d068d7ffaf6ab0e6565e1941db3
+s7_version:	claude/c5-testplatform	5c3b9fcbb3d3d78e7f2ded4c10700d4873adbc2f
 s8_version:	-		-
 s9_version:	-		-
 s10_version:	-		-

@@ -600,3 +600,24 @@ branch `claude/slot7-stage-a` (9981b94). Logs: `logs/c5_testplatform_b/`. Enviro
 - `python3 docs/custom_pads/tools/netcheck_slot7_platform.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1100 2160 2100 2445 --stage b`:
   exit 0, "RESULT all 49 used pins and 14 unused pins OK" (`b6_netcheck_prefill_stage_b.out`). New option `--stage b`:
   dig_in[4..12] -> tp_en_ctrl_b en0_1v2 .. en8_1v2, ibias0 / ibias1 -> xgate in, analog_bus2 / 3 -> xgate out.
+
+## Slot-7 test platform, stage B with the matched bias tree (branch claude/c5-testplatform-test, 2026-11-07T13:34Z..13:38Z)
+
+Branch fast-forwarded to `custom-pad-test` 750e249 (which contains the stage-B commit c40c99b and Tim's main update).
+Slot 7 = delivery `claude/c5-testplatform` 5c3b9fcbb3d3d78e7f2ded4c10700d4873adbc2f: stage B with the bias tree
+`bias_tree_noab_pd` laid out matched (design `claude/c5-tree-layout` 380d0e58; same netlist and ports; slot_7.gds sha256
+b08f8bfd60a07fe19303aeccf0759e0fbcd3d997a5e672796aa39ce9a25ebd5f). Logs: `logs/c5_testplatform_tree/`. Environment as in
+the stage-A section (`PDK_ROOT=/foss/pdks PDK=ihp-sg13cmos5l`, shim magic on PATH); no `setup_custom_io.sh` run, so
+`magic/custom_io` is untouched.
+
+- (manual) config.txt `s7_version:	claude/c5-testplatform	5c3b9fcbb3d3d78e7f2ded4c10700d4873adbc2f`
+- 13:34:21Z `make projects-clean SLOTS=7`, `make projects SLOTS=7`, 13:34:23Z `make projects-gds SLOTS=7`, 13:34:35Z
+  `make gds-prefill` (about 3 min): all exit 0; dependencies/slot_7 = 5c3b9fc (`heads/claude/c5-testplatform`).
+  `make projects-gds` now writes `gds drccheck off` into `scripts/user_projects.tcl` (from `scripts/get_project_gds.sh`
+  of Tim's e7d72da, merged from main); committed as generated.
+- 13:38Z `python3 docs/custom_pads/tools/xor_slot7.py gds/sg13cmos5l_ocd_chipalooza.gds.gz dependencies/slot_7/final/gds/slot_7.gds`:
+  exit 0, 49 layer/datatype pairs (drawing, pin and text), "XOR area > 0 on layers: none" (`t7_xor_prefill_slot7.log`).
+  New tool (the earlier XORs used an uncommitted script). Negative test: against the previous delivery's slot_7.gds
+  (c0726799, naive tree) it reports 20 differing layers and exit 1.
+- 13:38:04Z `python3 docs/custom_pads/tools/netcheck_slot7_platform.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1100 2160 2100 2445 --stage b`:
+  exit 0, "RESULT all 49 used pins and 14 unused pins OK" (`t7_netcheck_prefill_stage_b.out`).
