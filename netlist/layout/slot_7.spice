@@ -1,0 +1,628 @@
+* NGSPICE file created from slot_7.ext - technology: ihp-sg13cmos5l
+
+.subckt pnpMPA a_n200_n200# a_n750_n602# w_n540_n392#
+X0 a_n750_n602# w_n540_n392# a_n200_n200# pnpMPA a=4p p=8u
+.ends
+
+.subckt bg_pnp_c ea e2 vss
+XpnpMPA_0[0|0] e2 vss vss pnpMPA
+XpnpMPA_0[1|0] e2 vss vss pnpMPA
+XpnpMPA_0[2|0] e2 vss vss pnpMPA
+XpnpMPA_0[0|1] e2 vss vss pnpMPA
+XpnpMPA_0[1|1] ea vss vss pnpMPA
+XpnpMPA_0[2|1] e2 vss vss pnpMPA
+XpnpMPA_0[0|2] e2 vss vss pnpMPA
+XpnpMPA_0[1|2] e2 vss vss pnpMPA
+XpnpMPA_0[2|2] e2 vss vss pnpMPA
+.ends
+
+.subckt pmosHV$13 a_68_n36# w_n124_n124# a_2568_0# a_0_0#
+X0 a_2568_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.17p pd=1.68u as=0.17p ps=1.68u w=0.5u l=12.5u
+.ends
+
+.subckt bg_ms1 vdd ks en_3v3_b w_n124_n124#
+XpmosHV$13_0[0] en_3v3_b w_n124_n124# m1_0_14# vdd pmosHV$13
+XpmosHV$13_0[1] en_3v3_b w_n124_n124# m1_0_14# m1_150_2590# pmosHV$13
+XpmosHV$13_0[2] en_3v3_b w_n124_n124# m1_300_14# m1_150_2590# pmosHV$13
+XpmosHV$13_0[3] en_3v3_b w_n124_n124# m1_300_14# m1_450_2590# pmosHV$13
+XpmosHV$13_0[4] en_3v3_b w_n124_n124# m1_600_14# m1_450_2590# pmosHV$13
+XpmosHV$13_0[5] en_3v3_b w_n124_n124# m1_600_14# m1_750_2590# pmosHV$13
+XpmosHV$13_0[6] en_3v3_b w_n124_n124# m1_900_14# m1_750_2590# pmosHV$13
+XpmosHV$13_0[7] en_3v3_b w_n124_n124# m1_900_14# ks pmosHV$13
+.ends
+
+.subckt pmosHV_w0p3_l1 a_268_0# a_68_n36# w_n124_n124# a_0_0#
+X0 a_268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=1u
+.ends
+
+.subckt pmosHV$14 a_268_0# a_68_n36# w_n124_n124# a_0_0#
+X0 a_268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=3.4p pd=20.68u as=3.4p ps=20.68u w=10u l=1u
+.ends
+
+.subckt bg_pmir_pcas_c vpg vpc g iout vdd w_n332_n124#
+XpmosHV_w0p3_l1_11 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_12 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_13 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_0 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_14 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_1 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_15 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_2 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV$14_0[0] vdd vpg w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_0[1] vdd vpg w_n332_n124# m1_n324_n124# pmosHV$14
+XpmosHV$14_0[2] vdd vpg w_n332_n124# vpg pmosHV$14
+XpmosHV$14_0[3] vdd vpg w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV_w0p3_l1_3 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_4 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV$14_1[0] m1_n242_n124# vpc w_n332_n124# iout pmosHV$14
+XpmosHV$14_1[1] m1_n324_n124# vpc w_n332_n124# g pmosHV$14
+XpmosHV$14_1[2] vpg vpc w_n332_n124# vpc pmosHV$14
+XpmosHV$14_1[3] m1_n242_n124# vpc w_n332_n124# iout pmosHV$14
+XpmosHV$14_2[0] vpc vpc w_n332_n124# vpg pmosHV$14
+XpmosHV$14_2[1] iout vpc w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_2[2] iout vpc w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_2[3] g vpc w_n332_n124# m1_n324_n124# pmosHV$14
+XpmosHV_w0p3_l1_5 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_6 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV$14_3[0] vpg vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_3[1] m1_n242_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_3[2] m1_n242_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_3[3] m1_n324_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV_w0p3_l1_7 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV_w0p3_l1_8 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV$14_4[0] vdd vpg w_n332_n124# m1_n324_n124# pmosHV$14
+XpmosHV$14_4[1] vdd vpg w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_4[2] vdd vpg w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_4[3] vdd vpg w_n332_n124# vpg pmosHV$14
+XpmosHV$14_5[0] m1_n324_n124# vpc w_n332_n124# g pmosHV$14
+XpmosHV$14_5[1] m1_n242_n124# vpc w_n332_n124# iout pmosHV$14
+XpmosHV$14_5[2] m1_n242_n124# vpc w_n332_n124# iout pmosHV$14
+XpmosHV$14_5[3] vpg vpc w_n332_n124# vpc pmosHV$14
+XpmosHV_w0p3_l1_9 vdd vpg w_n332_n124# vdd pmosHV_w0p3_l1
+XpmosHV$14_6[0] iout vpc w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_6[1] vpc vpc w_n332_n124# vpg pmosHV$14
+XpmosHV$14_6[2] g vpc w_n332_n124# m1_n324_n124# pmosHV$14
+XpmosHV$14_6[3] iout vpc w_n332_n124# m1_n242_n124# pmosHV$14
+XpmosHV$14_7[0] m1_n242_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_7[1] vpg vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_7[2] m1_n324_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV$14_7[3] m1_n242_n124# vpg w_n332_n124# vdd pmosHV$14
+XpmosHV_w0p3_l1_10 vdd vpc w_n332_n124# vdd pmosHV_w0p3_l1
+.ends
+
+.subckt nmosHV$9 a_68_n36# sub a_468_0# a_0_0#
+X0 a_468_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.17p pd=1.68u as=0.17p ps=1.68u w=0.5u l=2u
+.ends
+
+.subckt nmosHV_w2_l1 a_268_0# a_68_n36# sub a_0_0#
+X0 a_268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=1u
+.ends
+
+.subckt nmosHV$7 a_268_0# a_68_n36# sub a_0_0#
+X0 a_268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=3.4p pd=20.68u as=3.4p ps=20.68u w=10u l=1u
+.ends
+
+.subckt nmosHV$11 a_68_n36# sub a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=4u
+.ends
+
+.subckt nmosHV$5 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt nmosHV$10 a_68_n36# sub a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=3.4p pd=20.68u as=3.4p ps=20.68u w=10u l=4u
+.ends
+
+.subckt bg_n4 vpc ea eb en_3v3_b ks g vss
+XnmosHV$9_0 ks vss vpc vss nmosHV$9
+XnmosHV_w2_l1_0 g g vss g nmosHV_w2_l1
+XnmosHV$7_0 ks g vss vss nmosHV$7
+XnmosHV$11_0 g vss g g nmosHV$11
+XnmosHV$11_1 g vss g g nmosHV$11
+XnmosHV$11_2 g vss g g nmosHV$11
+XnmosHV$5_0 en_3v3_b vss ks vss nmosHV$5
+XnmosHV$11_3 g vss g g nmosHV$11
+XnmosHV$11_4 g vss g g nmosHV$11
+XnmosHV$11_5 g vss g g nmosHV$11
+XnmosHV$11_6 g vss g g nmosHV$11
+XnmosHV$11_7 g vss g g nmosHV$11
+XnmosHV$10_0 g vss ea g nmosHV$10
+XnmosHV$10_1 g vss eb vpc nmosHV$10
+XnmosHV$10_2 g vss vpc eb nmosHV$10
+XnmosHV$10_3 g vss g ea nmosHV$10
+.ends
+
+.subckt rhigh$1 sub a_0_1988# a_0_n86#
+X0 a_0_1988# a_0_n86# sub rhigh l=9.94u w=0.5u
+.ends
+
+.subckt bg_res_c e2 ea eb vss sub
+Xrhigh$1_40 sub vss vss rhigh$1
+Xrhigh$1_30 sub m1_1381_2106# m1_837_n364# rhigh$1
+Xrhigh$1_31 sub m1_973_2106# m1_1245_n176# rhigh$1
+Xrhigh$1_20 sub m1_2333_2294# m1_2741_n364# rhigh$1
+Xrhigh$1_33 sub m1_973_2106# m1_701_n270# rhigh$1
+Xrhigh$1_32 sub m1_1109_2200# m1_565_n176# rhigh$1
+Xrhigh$1_22 sub m1_2197_2200# m1_2469_n176# rhigh$1
+Xrhigh$1_21 sub m1_2061_2106# m1_2605_n270# rhigh$1
+Xrhigh$1_11 sub m1_3965_2106# m1_3421_n270# rhigh$1
+Xrhigh$1_10 sub m1_4101_2200# m1_3693_n176# rhigh$1
+Xrhigh$1_34 sub m1_293_2200# m1_837_n364# rhigh$1
+Xrhigh$1_23 sub m1_2333_2294# m1_1789_n176# rhigh$1
+Xrhigh$1_12 sub m1_3557_2106# m1_3829_n364# rhigh$1
+Xrhigh$1_35 sub m1_429_2294# m1_701_n270# rhigh$1
+Xrhigh$1_24 sub m1_2197_2200# m1_1925_n364# rhigh$1
+Xrhigh$1_13 sub m1_3149_2294# m1_3693_n176# rhigh$1
+Xrhigh$1_0 sub vss vss rhigh$1
+Xrhigh$1_36 sub vss m1_565_n176# rhigh$1
+Xrhigh$1_25 sub m1_2061_2106# m1_1517_n270# rhigh$1
+Xrhigh$1_14 sub m1_3557_2106# m1_3285_n176# rhigh$1
+Xrhigh$1_1 sub eb m1_5053_n176# rhigh$1
+Xrhigh$1_37 sub m1_429_2294# m1_157_n270# rhigh$1
+Xrhigh$1_26 sub m1_1653_2200# m1_1925_n364# rhigh$1
+Xrhigh$1_15 sub m1_2877_2106# m1_3421_n270# rhigh$1
+Xrhigh$1_2 sub ea m1_4645_n364# rhigh$1
+Xrhigh$1_38 sub m1_293_2200# vss rhigh$1
+Xrhigh$1_27 sub m1_1381_2106# m1_1789_n176# rhigh$1
+Xrhigh$1_16 sub m1_3013_2200# m1_3285_n176# rhigh$1
+Xrhigh$1_3 sub m1_4781_2106# m1_5053_n176# rhigh$1
+Xrhigh$1_39 sub e2 m1_157_n270# rhigh$1
+Xrhigh$1_28 sub m1_1653_2200# m1_1245_n176# rhigh$1
+Xrhigh$1_17 sub m1_3149_2294# m1_2741_n364# rhigh$1
+Xrhigh$1_4 sub eb m1_4373_n176# rhigh$1
+Xrhigh$1_29 sub m1_1109_2200# m1_1517_n270# rhigh$1
+Xrhigh$1_18 sub m1_3013_2200# m1_2469_n176# rhigh$1
+Xrhigh$1_5 sub m1_4781_2106# m1_4509_n270# rhigh$1
+Xrhigh$1_19 sub m1_2877_2106# m1_2605_n270# rhigh$1
+Xrhigh$1_6 sub m1_4101_2200# m1_4645_n364# rhigh$1
+Xrhigh$1_8 sub m1_3965_2106# m1_4373_n176# rhigh$1
+Xrhigh$1_7 sub m1_4237_2294# m1_4509_n270# rhigh$1
+Xrhigh$1_9 sub m1_4237_2294# m1_3829_n364# rhigh$1
+.ends
+
+.subckt pmosHV$7 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt bg_svpg en_3v3 vdd vpg w_n124_n124#
+XpmosHV$7_0 en_3v3 w_n124_n124# vpg vdd pmosHV$7
+.ends
+
+.subckt bg_core_pd iout en_3v3 en_3v3_b vdd vss
+Xbg_pnp_c_0 bg_n4_0/ea bg_res_c_0/e2 vss bg_pnp_c
+Xbg_ms1_0 vdd bg_n4_0/ks en_3v3_b vdd bg_ms1
+Xbg_pmir_pcas_c_0 bg_svpg_0/vpg bg_n4_0/vpc bg_n4_0/g iout vdd vdd bg_pmir_pcas_c
+Xbg_n4_0 bg_n4_0/vpc bg_n4_0/ea bg_n4_0/eb en_3v3_b bg_n4_0/ks bg_n4_0/g vss bg_n4
+Xbg_res_c_0 bg_res_c_0/e2 bg_n4_0/ea bg_n4_0/eb vss vss bg_res_c
+Xbg_svpg_0 en_3v3 vdd bg_svpg_0/vpg vdd bg_svpg
+.ends
+
+.subckt prb_nmosHV_7 a_68_n36# a_2468_0# sub a_0_0#
+X0 a_2468_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=4.08p pd=24.68u as=4.08p ps=24.68u w=12u l=12u
+.ends
+
+.subckt prb_nmosHV_3_1 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt rb_cload vcm vref en_3v3_b vssh
+Xprb_nmosHV_7_0 vref vssh vssh vssh prb_nmosHV_7
+Xprb_nmosHV_7_1 vcm vssh vssh vssh prb_nmosHV_7
+Xprb_nmosHV_3_1_0 en_3v3_b vssh vref vssh prb_nmosHV_3_1
+Xprb_nmosHV_3_1_1 en_3v3_b vssh vssh vcm prb_nmosHV_3_1
+.ends
+
+.subckt rb_pmosHV_w1_l0p45 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt rb_pmosHV_w2_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt rb_pmosHV_w5_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.7p pd=10.68u as=1.7p ps=10.68u w=5u l=6u
+.ends
+
+.subckt rb_tree_p vbnc vbp vddh en_3v3_b iref ni
+Xrb_pmosHV_w1_l0p45_0 en_3v3_b vddh ni iref rb_pmosHV_w1_l0p45
+Xrb_pmosHV_w2_l6_0 vbp vddh vbp vddh rb_pmosHV_w2_l6
+Xrb_pmosHV_w2_l6_1 vbp vddh vbnc vddh rb_pmosHV_w2_l6
+Xrb_pmosHV_w5_l6_0 vbp vddh vddh vddh rb_pmosHV_w5_l6
+.ends
+
+.subckt prb_nmosHV_4 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.816p pd=5.48u as=0.816p ps=5.48u w=2.4u l=6u
+.ends
+
+.subckt prb_nmosHV_2_1 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=6u
+.ends
+
+.subckt prb_nmosHV_1_1 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt rb_tree_n ni gh vref vbp xp iref en_3v3 en_3v3_b vssh
+Xprb_nmosHV_4_0 ni vssh vssh vssh prb_nmosHV_4
+Xprb_nmosHV_4_1 ni vssh vssh gh prb_nmosHV_4
+Xprb_nmosHV_4_2 ni vssh vssh vbp prb_nmosHV_4
+Xprb_nmosHV_2_1_0 ni vssh vssh ni prb_nmosHV_2_1
+Xprb_nmosHV_4_3 ni vssh vssh gh prb_nmosHV_4
+Xprb_nmosHV_2_1_1 ni vssh vssh xp prb_nmosHV_2_1
+Xprb_nmosHV_1_1_1 ni vssh vssh vref prb_nmosHV_1_1
+Xprb_nmosHV_1_1_0 ni vssh vssh vssh prb_nmosHV_1_1
+Xprb_nmosHV_3_1_0 en_3v3_b vssh vssh ni prb_nmosHV_3_1
+Xprb_nmosHV_3_1_1 en_3v3 vssh ni iref prb_nmosHV_3_1
+.ends
+
+.subckt rb_tails ts bt vbp vddh
+Xrb_pmosHV_w5_l6_0 vbp vddh vddh vddh rb_pmosHV_w5_l6
+Xrb_pmosHV_w5_l6_2 vbp vddh ts vddh rb_pmosHV_w5_l6
+Xrb_pmosHV_w5_l6_1 vbp vddh bt vddh rb_pmosHV_w5_l6
+Xrb_pmosHV_w5_l6_3 vbp vddh vddh vddh rb_pmosHV_w5_l6
+.ends
+
+.subckt rb_pmosHV_w1_l4 a_68_n36# w_n124_n124# a_0_0# a_868_0#
+X0 a_868_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=4u
+.ends
+
+.subckt rb_avg_l w_n344_n1060# a_n120_n868#
+Xrb_pmosHV_w1_l4_0 a_n120_n868# w_n344_n1060# w_n344_n1060# w_n344_n1060# rb_pmosHV_w1_l4
+Xrb_pmosHV_w1_l4_1 a_n120_n868# w_n344_n1060# w_n344_n1060# a_n120_n868# rb_pmosHV_w1_l4
+Xrb_pmosHV_w1_l4_2 a_n120_n868# w_n344_n1060# w_n344_n1060# a_n120_n868# rb_pmosHV_w1_l4
+Xrb_pmosHV_w1_l4_3 a_n120_n868# w_n344_n1060# w_n344_n1060# w_n344_n1060# rb_pmosHV_w1_l4
+.ends
+
+.subckt rb_avg_u w_n344_n1060# a_n120_n868#
+Xrb_pmosHV_w1_l4_0 a_n120_n868# w_n344_n1060# w_n344_n1060# w_n344_n1060# rb_pmosHV_w1_l4
+Xrb_pmosHV_w1_l4_1 a_n120_n868# w_n344_n1060# w_n344_n1060# a_n120_n868# rb_pmosHV_w1_l4
+Xrb_pmosHV_w1_l4_2 a_n120_n868# w_n344_n1060# w_n344_n1060# w_n344_n1060# rb_pmosHV_w1_l4
+.ends
+
+.subckt rb_avg m gh xp
+Xrb_avg_l_0 m xp rb_avg_l
+Xrb_avg_u_0 gh m rb_avg_u
+.ends
+
+.subckt prb_nmosHV_6 a_68_n36# sub a_0_0# a_1668_0#
+X0 a_1668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=8u
+.ends
+
+.subckt prb_nmosHV_4_1 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=3u
+.ends
+
+.subckt prb_nmosHV_5 a_68_n36# a_668_0# sub a_0_0#
+X0 a_668_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=5.1p pd=30.68u as=5.1p ps=30.68u w=15u l=3u
+.ends
+
+.subckt rb_casc vddh vref vbnc vssh xp
+Xprb_nmosHV_6_0 vbnc vssh vbnc vssh prb_nmosHV_6
+Xprb_nmosHV_4_1_0 vbnc vssh vssh vssh prb_nmosHV_4_1
+Xprb_nmosHV_4_1_1 vbnc vssh vssh vssh prb_nmosHV_4_1
+Xprb_nmosHV_5_1 vbnc vddh vssh vref prb_nmosHV_5
+Xprb_nmosHV_5_0 vbnc vddh vssh vref prb_nmosHV_5
+Xprb_nmosHV_4_1_2 vbnc vssh vssh vssh prb_nmosHV_4_1
+Xprb_nmosHV_5_2 vbnc vssh vssh vssh prb_nmosHV_5
+Xprb_nmosHV_4_1_3 vbnc vssh vssh vssh prb_nmosHV_4_1
+Xprb_nmosHV_5_3 vbnc vssh vssh vssh prb_nmosHV_5
+Xprb_nmosHV_5_4 vbnc vssh vssh vssh prb_nmosHV_5
+Xprb_nmosHV_5_5 vbnc xp vssh vddh prb_nmosHV_5
+Xprb_nmosHV_5_6 vbnc vref vssh vddh prb_nmosHV_5
+Xprb_nmosHV_5_7 vbnc vref vssh vddh prb_nmosHV_5
+.ends
+
+.subckt prb_nmosHV_1 a_718_0# a_68_n36# sub a_0_0#
+X0 a_718_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=2.7812p pd=17.04u as=2.7812p ps=17.04u w=8.18u l=3.25u
+.ends
+
+.subckt prb_capm vcm vssh
+Xprb_nmosHV_1_0 vssh vcm vssh vssh prb_nmosHV_1
+Xprb_nmosHV_1_1 vssh vcm vssh vssh prb_nmosHV_1
+.ends
+
+.subckt rb_mirror vcm bd vssh
+Xprb_nmosHV_2_1_0 bd vssh vssh vcm prb_nmosHV_2_1
+Xprb_nmosHV_2_1_1 bd vssh vssh bd prb_nmosHV_2_1
+Xprb_nmosHV_1_1_1 bd vssh vssh vssh prb_nmosHV_1_1
+Xprb_nmosHV_1_1_0 bd vssh vssh vssh prb_nmosHV_1_1
+.ends
+
+.subckt prb_nmosHV_3 a_68_n36# sub a_2600_0# a_0_0#
+X0 a_2600_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=6.5416p pd=39.16u as=6.5416p ps=39.16u w=19.24u l=12.66u
+.ends
+
+.subckt prb_capv vcm vssh
+Xprb_nmosHV_3_0 vcm vssh vssh vssh prb_nmosHV_3
+Xprb_nmosHV_3_1 vcm vssh vssh vssh prb_nmosHV_3
+.ends
+
+.subckt rb_pmosHV_w20_l1_ng2 a_268_0# a_68_n36# a_344_n36# w_n124_n124# a_544_0# a_0_0#
+X0 a_544_0# a_344_n36# a_268_0# w_n124_n124# sg13_hv_pmos ad=3.4p pd=20.68u as=1.9p ps=10.38u w=10u l=1u
+X1 a_268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.9p pd=10.38u as=3.4p ps=20.68u w=10u l=1u
+.ends
+
+.subckt rb_tub_p20x1 a_68_2000# m1_195_n124# w_n124_n270#
+Xrb_pmosHV_w20_l1_ng2_0 m1_195_n124# a_68_2000# a_68_2000# w_n124_n270# w_n124_n270#
++ w_n124_n270# rb_pmosHV_w20_l1_ng2
+.ends
+
+.subckt rb_tubs gh ts bd m bt vcm vddh
+Xrb_tub_p20x1_0 vddh vddh vddh rb_tub_p20x1
+Xrb_tub_p20x1_1 vcm vcm bt rb_tub_p20x1
+Xrb_tub_p20x1_2 m bd bt rb_tub_p20x1
+Xrb_tub_p20x1_3 gh gh ts rb_tub_p20x1
+Xrb_tub_p20x1_4 vddh vddh vddh rb_tub_p20x1
+.ends
+
+.subckt prb_nmosHV_2 a_2548_0# a_68_n36# sub a_0_0#
+X0 a_2548_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.986p pd=6.48u as=0.986p ps=6.48u w=2.9u l=12.4u
+.ends
+
+.subckt prb_capt vcm vssh
+Xprb_nmosHV_2_0 vssh vcm vssh vssh prb_nmosHV_2
+.ends
+
+.subckt prb_nmosHV a_68_n36# sub a_3448_0# a_0_0#
+X0 a_3448_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=11.594p pd=68.88u as=11.594p ps=68.88u w=34.1u l=16.9u
+.ends
+
+.subckt prb_capr vref vssh
+Xprb_nmosHV_0 vref vssh vssh vssh prb_nmosHV
+Xprb_nmosHV_1 vref vssh vssh vssh prb_nmosHV
+.ends
+
+.subckt pad_ref_rb vref vcm en_3v3 en_3v3_b iref vssh vddh
+Xrb_cload_0 vcm vref en_3v3_b vssh rb_cload
+Xrb_tree_p_0 rb_casc_0/vbnc rb_tails_0/vbp vddh en_3v3_b iref rb_tree_p_0/ni rb_tree_p
+Xrb_tree_n_0 rb_tree_p_0/ni rb_avg_0/gh vref rb_tails_0/vbp rb_avg_0/xp iref en_3v3
++ en_3v3_b vssh rb_tree_n
+Xrb_tails_0 rb_tubs_0/ts rb_tubs_0/bt rb_tails_0/vbp vddh rb_tails
+Xrb_avg_0 rb_avg_0/m rb_avg_0/gh rb_avg_0/xp rb_avg
+Xrb_casc_0 vddh vref rb_casc_0/vbnc vssh rb_avg_0/xp rb_casc
+Xprb_capm_0 vcm vssh prb_capm
+Xrb_mirror_0 vcm rb_tubs_0/bd vssh rb_mirror
+Xprb_capv_0 vcm vssh prb_capv
+Xrb_tubs_0 rb_avg_0/gh rb_tubs_0/ts rb_tubs_0/bd rb_avg_0/m rb_tubs_0/bt vcm vddh
++ rb_tubs
+Xprb_capt_0 vcm vssh prb_capt
+Xprb_capr_0 vref vssh prb_capr
+.ends
+
+.subckt bdp_nmosHV_w1_l0p45 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt bdp_pmosHV_w1_l0p45 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt bdp_inv_hv m1_180_346# w_n124_510# a_68_382# bdp_pmosHV_w1_l0p45_0/sub
+Xbdp_nmosHV_w1_l0p45_0 a_68_382# bdp_pmosHV_w1_l0p45_0/sub m1_180_346# bdp_pmosHV_w1_l0p45_0/sub
++ bdp_nmosHV_w1_l0p45
+Xbdp_pmosHV_w1_l0p45_0 a_68_382# w_n124_510# m1_180_346# w_n124_510# bdp_pmosHV_w1_l0p45
+.ends
+
+.subckt bdp_pmosHV_w2_l0p45_ng2 a_68_n36# a_234_n36# w_n124_n124# a_158_0# a_324_0#
++ a_0_0#
+X0 a_324_0# a_234_n36# a_158_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X1 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt bdp_nmosHV_w2_l0p45_ng2 a_68_n36# a_234_n36# sub a_324_0# a_0_0#
+X0 a_324_0# a_234_n36# a_158_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.45u
+X1 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt bdp_nand2_hv w_n145_510# m1_14_346# bdp_pmosHV_w2_l0p45_ng2_0/sub a_68_382#
++ a_234_382#
+Xbdp_pmosHV_w2_l0p45_ng2_0 a_68_382# a_234_382# w_n145_510# m1_14_346# w_n145_510#
++ w_n145_510# bdp_pmosHV_w2_l0p45_ng2
+Xbdp_nmosHV_w2_l0p45_ng2_0 a_68_382# a_234_382# bdp_pmosHV_w2_l0p45_ng2_0/sub bdp_pmosHV_w2_l0p45_ng2_0/sub
++ m1_14_346# bdp_nmosHV_w2_l0p45_ng2
+.ends
+
+.subckt bdp_tg_hv m1_14_346# a_68_510# w_n149_510# bdp_pmosHV_w1_l0p45_0/sub m1_180_346#
++ a_68_382#
+Xbdp_nmosHV_w1_l0p45_0 a_68_382# bdp_pmosHV_w1_l0p45_0/sub m1_180_346# m1_14_346#
++ bdp_nmosHV_w1_l0p45
+Xbdp_pmosHV_w1_l0p45_0 a_68_510# w_n149_510# m1_180_346# m1_14_346# bdp_pmosHV_w1_l0p45
+.ends
+
+.subckt efs_pmosHV_w1_l0p45 a_68_n36# w_n124_n124# a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt efs_nmosHV_w1_l0p45 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.45u
+.ends
+
+.subckt efs_inv_hv m1_180_346# w_n124_510# a_68_382# efs_pmosHV_w1_l0p45_0/sub
+Xefs_pmosHV_w1_l0p45_0 a_68_382# w_n124_510# m1_180_346# w_n124_510# efs_pmosHV_w1_l0p45
+Xefs_nmosHV_w1_l0p45_0 a_68_382# efs_pmosHV_w1_l0p45_0/sub m1_180_346# efs_pmosHV_w1_l0p45_0/sub
++ efs_nmosHV_w1_l0p45
+.ends
+
+.subckt efs_pmosHV_w0p3_l20 a_4068_0# a_68_n36# w_n124_n124# a_0_0#
+X0 a_4068_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=20u
+.ends
+
+.subckt efs_xn1 w_n149_510# efs_nmosHV_w1_l0p45_0/sub a_68_382# m1_175_826#
+Xefs_nmosHV_w1_l0p45_0 a_68_382# efs_nmosHV_w1_l0p45_0/sub m1_175_826# efs_nmosHV_w1_l0p45_0/sub
++ efs_nmosHV_w1_l0p45
+.ends
+
+.subckt efs_pmosHV_w0p3_l5 a_1068_0# a_68_n36# w_n124_n124# a_0_0#
+X0 a_1068_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=0.102p pd=1.28u as=0.102p ps=1.28u w=0.3u l=5u
+.ends
+
+.subckt efs_ls_core efs_pmosHV_w0p3_l5_0/sub w_0_510# a_228_1108# m1_920_522# m1_1200_394#
+Xefs_inv_hv_0 m1_1200_394# w_0_510# m1_920_522# efs_pmosHV_w0p3_l5_0/sub efs_inv_hv
+Xefs_inv_hv_1 m1_920_522# w_0_510# m1_640_522# efs_pmosHV_w0p3_l5_0/sub efs_inv_hv
+Xefs_pmosHV_w0p3_l20_0 m1_1228_5120# a_228_1108# w_0_510# m1_360_522# efs_pmosHV_w0p3_l20
+Xefs_inv_hv_2 m1_640_522# w_0_510# m1_360_522# efs_pmosHV_w0p3_l5_0/sub efs_inv_hv
+Xefs_pmosHV_w0p3_l20_1 m1_1228_5120# a_228_1108# w_0_510# m1_1118_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_2 m1_1008_5120# a_228_1108# w_0_510# m1_1118_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_3 m1_1008_5120# a_228_1108# w_0_510# m1_898_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_4 m1_788_5120# a_228_1108# w_0_510# m1_898_1044# efs_pmosHV_w0p3_l20
+Xefs_xn1_0 w_0_510# efs_pmosHV_w0p3_l5_0/sub a_228_1108# m1_360_522# efs_xn1
+Xefs_pmosHV_w0p3_l20_5 m1_788_5120# a_228_1108# w_0_510# m1_678_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_6 m1_568_5120# a_228_1108# w_0_510# m1_678_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_7 m1_568_5120# a_228_1108# w_0_510# m1_458_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_8 m1_348_5120# a_228_1108# w_0_510# m1_458_1044# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l20_9 m1_348_5120# a_228_1108# w_0_510# w_0_510# efs_pmosHV_w0p3_l20
+Xefs_pmosHV_w0p3_l5_0 w_0_510# m1_640_522# w_0_510# m1_360_522# efs_pmosHV_w0p3_l5
+.ends
+
+.subckt s7_ctrl outp outn bus0 vinp bus1 vinn vcm_rb vcm_pad vref_rb vref_pad en en_b
++ d0 d1 d2 d3 d4 d5 enable vddh vss
+Xbdp_inv_hv_0 a_9546_6580# vddh a_9420_6730# vss bdp_inv_hv
+Xbdp_nand2_hv_1 vddh a_9420_6730# vss en m1_9269_5440# bdp_nand2_hv
+Xbdp_inv_hv_1 a_8398_6580# vddh a_8272_6730# vss bdp_inv_hv
+Xbdp_nand2_hv_2 vddh a_8272_6730# vss en m1_1906_5674# bdp_nand2_hv
+Xbdp_inv_hv_2 a_7250_6580# vddh a_7124_6730# vss bdp_inv_hv
+Xbdp_nand2_hv_3 vddh a_7124_6730# vss en m1_4322_5908# bdp_nand2_hv
+Xbdp_inv_hv_3 a_6102_6580# vddh a_5976_6730# vss bdp_inv_hv
+Xbdp_nand2_hv_4 vddh a_5976_6730# vss en m1_3718_5830# bdp_nand2_hv
+Xbdp_nand2_hv_5 vddh a_4828_6730# vss en m1_3114_5596# bdp_nand2_hv
+Xbdp_inv_hv_4 a_4954_6580# vddh a_4828_6730# vss bdp_inv_hv
+Xbdp_nand2_hv_6 vddh m1_4036_6742# vss m1_2510_6142# m1_1620_6742# bdp_nand2_hv
+Xbdp_inv_hv_5 m1_4322_5908# vddh m1_4036_6742# vss bdp_inv_hv
+Xbdp_nand2_hv_7 vddh m1_3432_6742# vss m1_1620_6742# m1_1302_5830# bdp_nand2_hv
+Xbdp_inv_hv_6 m1_3718_5830# vddh m1_3432_6742# vss bdp_inv_hv
+Xbdp_nand2_hv_8 vddh m1_2828_6742# vss m1_1620_6742# m1_804_5596# bdp_nand2_hv
+Xbdp_inv_hv_7 m1_3114_5596# vddh m1_2828_6742# vss bdp_inv_hv
+Xbdp_inv_hv_8 m1_2510_6142# vddh m1_2224_6742# vss bdp_inv_hv
+Xbdp_nand2_hv_9 vddh m1_2224_6742# vss m1_2095_6064# m1_698_5752# bdp_nand2_hv
+Xbdp_inv_hv_9 m1_1906_5674# vddh m1_1620_6742# vss bdp_inv_hv
+Xbdp_nand2_hv_10 vddh m1_1620_6742# vss m1_1491_5986# m1_698_5752# bdp_nand2_hv
+Xbdp_tg_hv_0 vref_rb a_9420_6730# vddh vss vref_pad a_9546_6580# bdp_tg_hv
+Xbdp_nand2_hv_11 vddh m1_804_5596# vss m1_887_5674# m1_698_5752# bdp_nand2_hv
+Xbdp_tg_hv_1 vcm_rb a_9420_6730# vddh vss vcm_pad a_9546_6580# bdp_tg_hv
+Xbdp_nand2_hv_12 vddh m1_412_6742# vss m1_283_5440# m1_449_5518# bdp_nand2_hv
+Xbdp_tg_hv_2 bus1 a_8272_6730# vddh vss vinn a_8398_6580# bdp_tg_hv
+Xbdp_tg_hv_3 bus0 a_8272_6730# vddh vss vinp a_8398_6580# bdp_tg_hv
+Xefs_ls_core_0 vss vddh enable en_b en efs_ls_core
+Xbdp_tg_hv_4 outn a_7124_6730# vddh vss bus1 a_7250_6580# bdp_tg_hv
+Xbdp_tg_hv_5 outp a_7124_6730# vddh vss bus0 a_7250_6580# bdp_tg_hv
+Xefs_ls_core_1 vss vddh d5 efs_ls_core_1/m1_920_522# m1_10251_5518# efs_ls_core
+Xbdp_tg_hv_6 outn a_5976_6730# vddh vss vinp a_6102_6580# bdp_tg_hv
+Xefs_ls_core_2 vss vddh d4 m1_449_5518# efs_ls_core_2/m1_1200_394# efs_ls_core
+Xbdp_tg_hv_7 outp a_5976_6730# vddh vss vinn a_6102_6580# bdp_tg_hv
+Xefs_ls_core_3 vss vddh d3 efs_ls_core_3/m1_920_522# m1_283_5440# efs_ls_core
+Xbdp_tg_hv_8 outn a_4828_6730# vddh vss vinn a_4954_6580# bdp_tg_hv
+Xbdp_tg_hv_9 outp a_4828_6730# vddh vss vinp a_4954_6580# bdp_tg_hv
+Xefs_ls_core_4 vss vddh d2 efs_ls_core_4/m1_920_522# m1_1491_5986# efs_ls_core
+Xefs_ls_core_5 vss vddh d1 efs_ls_core_5/m1_920_522# m1_2095_6064# efs_ls_core
+Xefs_ls_core_6 vss vddh d0 efs_ls_core_6/m1_920_522# m1_887_5674# efs_ls_core
+Xbdp_inv_hv_10 m1_1302_5830# vddh m1_804_5596# vss bdp_inv_hv
+Xbdp_inv_hv_11 m1_698_5752# vddh m1_412_6742# vss bdp_inv_hv
+Xbdp_nand2_hv_0 vddh m1_9269_5440# vss m1_10251_5518# m1_698_5752# bdp_nand2_hv
+.ends
+
+.subckt dop_nmosHV_w0p5_l0p45 a_68_n36# sub a_158_0# a_0_0#
+X0 a_158_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.17p pd=1.68u as=0.17p ps=1.68u w=0.5u l=0.45u
+.ends
+
+.subckt s7_doutpd d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 vss_1v2 vss_3v3 vdd_1v2
+Xdop_nmosHV_w0p5_l0p45_10 vdd_1v2 vss_3v3 d1 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_11 vdd_1v2 vss_3v3 d0 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_0 vdd_1v2 vss_3v3 d11 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_1 vdd_1v2 vss_3v3 d10 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_2 vdd_1v2 vss_3v3 d9 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_3 vdd_1v2 vss_3v3 d8 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_4 vdd_1v2 vss_3v3 d7 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_6 vdd_1v2 vss_3v3 d5 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_5 vdd_1v2 vss_3v3 d6 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_7 vdd_1v2 vss_3v3 d4 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_8 vdd_1v2 vss_3v3 d3 vss_1v2 dop_nmosHV_w0p5_l0p45
+Xdop_nmosHV_w0p5_l0p45_9 vdd_1v2 vss_3v3 d2 vss_1v2 dop_nmosHV_w0p5_l0p45
+.ends
+
+.subckt bdp_pmosHV_w5_l6 a_68_n36# w_n124_n124# a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# w_n124_n124# sg13_hv_pmos ad=1.7p pd=10.68u as=1.7p ps=10.68u w=5u l=6u
+.ends
+
+.subckt bdp_mirror_p m1_5983_228# m1_2833_228# w_0_0# m1_1783_228# m1_4933_228# a_224_294#
+Xbdp_pmosHV_w5_l6_0 a_224_294# w_0_0# w_0_0# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_1 a_224_294# w_0_0# m1_5983_228# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_2 a_224_294# w_0_0# m1_4933_228# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_3 a_224_294# w_0_0# a_224_294# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_4 a_224_294# w_0_0# m1_2833_228# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_5 a_224_294# w_0_0# m1_1783_228# w_0_0# bdp_pmosHV_w5_l6
+Xbdp_pmosHV_w5_l6_6 a_224_294# w_0_0# w_0_0# w_0_0# bdp_pmosHV_w5_l6
+.ends
+
+.subckt bdp_nmosHV_1 a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=2.04p pd=12.68u as=2.04p ps=12.68u w=6u l=6u
+.ends
+
+.subckt bdp_nmosHV a_68_n36# sub a_1268_0# a_0_0#
+X0 a_1268_0# a_68_n36# a_0_0# sub sg13_hv_nmos ad=0.68p pd=4.68u as=0.68p ps=4.68u w=2u l=6u
+.ends
+
+.subckt bdp_mirror_n bdp_nmosHV_1/sub a_n158_68# m1_2039_1290#
+Xbdp_nmosHV_1_0 a_n158_68# bdp_nmosHV_1/sub bdp_nmosHV_1/sub m1_2039_1290# bdp_nmosHV_1
+Xbdp_nmosHV_1_1 a_n158_68# bdp_nmosHV_1/sub bdp_nmosHV_1/sub a_n158_68# bdp_nmosHV_1
+Xbdp_nmosHV_0 a_n158_68# bdp_nmosHV_1/sub bdp_nmosHV_1/sub bdp_nmosHV_1/sub bdp_nmosHV
+Xbdp_nmosHV_1 a_n158_68# bdp_nmosHV_1/sub bdp_nmosHV_1/sub bdp_nmosHV_1/sub bdp_nmosHV
+.ends
+
+.subckt bdp_slice m1_n21_n94# m1_259_403# m1_783_826# m1_617_826# sub bdp_tg_hv_0/w_n149_510#
+Xbdp_inv_hv_0 a_526_360# bdp_tg_hv_0/w_n149_510# a_400_510# sub bdp_inv_hv
+Xbdp_tg_hv_0 m1_617_826# a_400_510# bdp_tg_hv_0/w_n149_510# sub m1_783_826# a_526_360#
++ bdp_tg_hv
+Xbdp_nand2_hv_0 bdp_tg_hv_0/w_n149_510# a_400_510# sub m1_n21_n94# m1_259_403# bdp_nand2_hv
+.ends
+
+.subckt bdp_svpd a_68_510# w_n149_510# m1_175_826#
+Xbdp_pmosHV_w1_l0p45_0 a_68_510# w_n149_510# m1_175_826# w_n149_510# bdp_pmosHV_w1_l0p45
+.ends
+
+.subckt bdp_tdn m1_n25_n94# w_n149_510# bdp_nmosHV_w1_l0p45_0/sub a_68_382# m1_175_826#
+Xbdp_nmosHV_w1_l0p45_0 a_68_382# bdp_nmosHV_w1_l0p45_0/sub m1_175_826# bdp_nmosHV_w1_l0p45_0/sub
++ bdp_nmosHV_w1_l0p45
+.ends
+
+.subckt bias_dist_pd en_in0 en_in1 en_in2 en_in3 en_3v3_b en_out0 en_out1 en_out2
++ en_out3 iin0 iin1 iin2 iin3 iout0 iout1 iout2 iout3 en_3v3 vssh vddh
+Xbdp_mirror_p_0 m2_10159_1044# m2_7009_1044# vddh m2_5959_1044# m2_9109_1044# m2_8005_1044#
++ bdp_mirror_p
+Xbdp_mirror_n_0 vssh m1_1029_1328# m2_8005_1044# bdp_mirror_n
+Xbdp_slice_0 en_3v3 en_out1 iout1 m2_7009_1044# vssh vddh bdp_slice
+Xbdp_svpd_0 en_3v3 vddh m2_8005_1044# bdp_svpd
+Xbdp_slice_1 en_3v3 en_out0 iout0 m2_5959_1044# vssh vddh bdp_slice
+Xbdp_slice_2 en_3v3 en_out2 iout2 m2_9109_1044# vssh vddh bdp_slice
+Xbdp_slice_3 en_3v3 en_in3 m1_1029_1328# iin3 vssh vddh bdp_slice
+Xbdp_slice_4 en_3v3 en_in2 m1_1029_1328# iin2 vssh vddh bdp_slice
+Xbdp_slice_5 en_3v3 en_in1 m1_1029_1328# iin1 vssh vddh bdp_slice
+Xbdp_slice_6 en_3v3 en_in0 m1_1029_1328# iin0 vssh vddh bdp_slice
+Xbdp_slice_7 en_3v3 en_out3 iout3 m2_10159_1044# vssh vddh bdp_slice
+Xbdp_tdn_0 en_3v3 vddh vssh en_3v3_b m1_1029_1328# bdp_tdn
+.ends
+
+.subckt slot_7 vss_1v2 vdd_1v2 vss_3v3 vdd_3v3 s7_an_0_outp s7_an_0_outn s7_an_0_vcm
++ s7_an_0_iref s7_an_1_vinp s7_an_1_vinn s7_an_1_iref s7_an_1_en_3v3_b s7_an_1_en_3v3
++ vbias dig_in[23] dig_in[22] dig_in[21] dig_in[20] dig_in[19] dig_in[18] dig_in[17]
++ dig_in[16] dig_in[15] dig_in[14] dig_in[13] dig_in[12] dig_in[11] dig_in[10] dig_in[9]
++ dig_in[8] dig_in[7] dig_in[6] dig_in[5] dig_in[4] dig_in[3] dig_in[2] dig_in[1]
++ dig_in[0] dig_out[11] dig_out[10] dig_out[9] dig_out[8] dig_out[7] dig_out[6] dig_out[5]
++ dig_out[4] dig_out[3] dig_out[2] dig_out[1] dig_out[0] ibias0 ibias1 analog_bus3
++ analog_bus1 analog_bus0 enable clk reset vss_1v2_uq0
+Xbg_core_pd_0 bg_core_pd_0/iout s7_an_1_en_3v3 s7_an_1_en_3v3_b vdd_3v3 vss_3v3 bg_core_pd
+Xpad_ref_rb_0 s7_ctrl_0/vref_rb s7_ctrl_0/vcm_rb s7_an_1_en_3v3 s7_an_1_en_3v3_b pad_ref_rb_0/iref
++ vss_3v3 vdd_3v3 pad_ref_rb
+Xs7_ctrl_0 s7_an_0_outp s7_an_0_outn analog_bus0 s7_an_1_vinp analog_bus1 s7_an_1_vinn
++ s7_ctrl_0/vcm_rb s7_an_0_vcm s7_ctrl_0/vref_rb analog_bus3 s7_an_1_en_3v3 s7_an_1_en_3v3_b
++ dig_in[0] dig_in[1] dig_in[2] dig_in[3] dig_in[4] dig_in[5] enable vdd_3v3 vss_3v3
++ s7_ctrl
+Xs7_doutpd_0 dig_out[0] dig_out[1] dig_out[2] dig_out[3] dig_out[4] dig_out[5] dig_out[6]
++ dig_out[7] dig_out[8] dig_out[9] dig_out[10] dig_out[11] vss_1v2 vss_3v3 vdd_1v2
++ s7_doutpd
+Xbias_dist_pd_0 vdd_3v3 vss_3v3 vss_3v3 vss_3v3 s7_an_1_en_3v3_b vdd_3v3 vdd_3v3 vdd_3v3
++ vss_3v3 bg_core_pd_0/iout vss_3v3 vss_3v3 vss_3v3 pad_ref_rb_0/iref s7_an_0_iref
++ s7_an_1_iref bias_dist_pd_0/iout3 s7_an_1_en_3v3 vss_3v3 vdd_3v3 bias_dist_pd
+.ends
+
