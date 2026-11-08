@@ -65,3 +65,11 @@ make lvs-padframe
 Expected: `RESULT all 13 pins OK` (the `--merged` groups are slot 7 v2's own ties, see its `docs/FOR_TIM.md`); in
 `validate/comp_sg13cmos5l_padframe.out` both custom pads "Netlists match", all slot-7 pins matched (the top's
 "failed pin matching" is the known mismatch outside slot 7).
+
+Optional, slot 7 alone (magic + netgen, the harness's tools):
+```
+bash docs/slot7_v2_test/lvs_slot7.sh
+```
+Expected: every sub-block "Netlists match uniquely"; the top-level "failed pin matching" is naming only (joined-net
+ports of the slot's CDL, unused harness pins). The script renames the slot's GDS cell `pnpMPA` (named like the device
+it holds) to `pnpMPA_cell`; without that, netgen stops with "Class pnpMPA is instanced inside of itself".
