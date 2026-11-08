@@ -97,19 +97,19 @@ s18_source:	https://bitbucket.org/chrisgj198/sg13cmos5l_chipalooza2_lc_vco
 #--------------------------------------------------------------------------------------
 # Project	Branch		Commit
 #--------------------------------------------------------------------------------------
-s1_version:	-		-
-s2_version:	-		-
-s3_version:	-		-
-s4_version:	-		-
-s5_version:	-		-
-s6_version:	-		-
-s7_version:	main		454da6a251dbee7d2b2110ce3aac2ef2de998a65
-s8_version:	-		-
-s9_version:	-		-
-s10_version:	-		-
-s11_version:	-		-
-s12_version:	-		-
-s13_version:	-		-
+s1_version:	-		6a68ce8384b4c432459347a5ad36d70c9d2e0a96
+s2_version:	-		6f9a29b46749338431ba45ac1794189d4c06b816
+s3_version:	-		805e1b382dd430a1abf1307a2cbd30f95a90e915
+s4_version:	-		cc56d3b54f69e932616aa522ed4dbef7a7728ba9
+s5_version:	-		4c6faf0c776467c0341596f2b775a3bcb45cf2ed
+s6_version:	-		82e1da9dd59a1d98238a05f0200f61afb78802e0
+s7_version:	main		158afc5afab0056bd6d216a4db3833e34a364949
+s8_version:	-		7f30fe3f95ba777187ec1671a20f367ec63515f7
+s9_version:	-		67b5a070026cb51d6ced53b414ebb6074f0b83f1
+s10_version:	-		6dfc862c88913b9597a818cdafd5d8e577e364ef
+s11_version:	-		a70f9b64bc38e29b5137f52d2f713483de2753e2
+s12_version:	-		59a574ac0808b69962d6b65e2acffee00b825095
+s13_version:	-		d931be01f1977a3b32c2ee4d5e820aeaeaf6abd8
 s14_version:	-		-
 s15_version:	-		-
 s16_version:	-		-

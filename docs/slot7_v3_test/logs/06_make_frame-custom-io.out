@@ -1,0 +1,53 @@
+./scripts/run_update_frame_custom_io.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_padframe read from current working directory
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+sg13cmos5l_IOPadSingle2Diff: 20000 rects
+sg13cmos5l_IOPadSingle2Diff: 30000 rects
+sg13cmos5l_IOPadSingle2Diff: 40000 rects
+sg13cmos5l_IOPadSingle2Diff: 50000 rects
+sg13cmos5l_IOPadSingle2Diff: 60000 rects
+sg13cmos5l_IOPadSingle2Diff: 70000 rects
+sg13cmos5l_IOPadSingle2Diff: 80000 rects
+sg13cmos5l_IOPadSingle2Diff: 90000 rects
+sg13cmos5l_IOPadSingle2Diff: 100000 rects
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+sg13cmos5l_IOPadDiff2Single: 10000 rects
+sg13cmos5l_IOPadDiff2Single: 20000 rects
+sg13cmos5l_IOPadDiff2Single: 30000 rects
+sg13cmos5l_IOPadDiff2Single: 40000 rects
+sg13cmos5l_IOPadDiff2Single: 50000 rects
+sg13cmos5l_IOPadDiff2Single: 60000 rects
+sg13cmos5l_IOPadDiff2Single: 70000 rects
+sg13cmos5l_IOPadDiff2Single: 80000 rects
+sg13cmos5l_IOPadDiff2Single: 90000 rects
+sg13cmos5l_IOPadDiff2Single: 100000 rects
+sg13cmos5l_IOPadDiff2Single: 110000 rects
+sg13cmos5l_IOPadDiff2Single: 120000 rects
+Cell chipalooza_frame read from current working directory
+Cell project_control_area read from current working directory
+Cell central_column read from current working directory
+FRAME band pad_s7_an_1 1898.8 2370 1901.0 2450 before: {} {} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_3 project_control_area} {slot8_wrapper_0 slot8_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+FRAME band pad_s7_an_1 after: {} {} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_3 project_control_area} {slot8_wrapper_0 slot8_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+FRAME band pad_s7_an_0 1898.8 2260 1901.0 2340 before: {} {} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+FRAME band pad_s7_an_0 after: {} {} {{chipalooza_frame_wrapper_0 chipalooza_frame_wrapper} {project_control_area_5 project_control_area} {slot7_wrapper_0 slot7_wrapper}}
+Done!

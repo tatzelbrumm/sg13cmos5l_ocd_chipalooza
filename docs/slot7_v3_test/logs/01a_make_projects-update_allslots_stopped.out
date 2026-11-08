@@ -1,0 +1,28 @@
+./scripts/get_projects.sh --update 
+slot_1: cloning https://github.com/rcyaon/bidir-level-shifter
+    at 6a68ce8384b4, recorded in config.txt
+slot_2: cloning https://github.com/Belal-Elshinnawey/sg13cmos5l_slot2_backup
+    at 6f9a29b46749, recorded in config.txt
+slot_3: cloning https://github.com/Belal-Elshinnawey/sg13cmos5l_slot3_backup
+    at 805e1b382dd4, recorded in config.txt
+slot_4: cloning https://github.com/phdridha12/sg13cmos5l_Wind_Comp
+    at cc56d3b54f69, recorded in config.txt
+slot_5: cloning https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
+    at 4c6faf0c7764, recorded in config.txt
+slot_6: cloning https://github.com/vyges/sg13cmos5l_vyges_ip__pll_rosc
+    at 82e1da9dd59a, recorded in config.txt
+slot_7: moving to 158afc5afab0056bd6d216a4db3833e34a364949
+    at 158afc5afab0056bd6d216a4db3833e34a364949 (frozen)
+slot_8: cloning https://github.com/adankvitschal/sg13g2_mh_ip__cmos_vref
+    at 7f30fe3f95ba, recorded in config.txt
+slot_9: cloning https://github.com/orpheus016/sg13cmos5l_spma_ip__instramp
+    at 67b5a070026c, recorded in config.txt
+slot_10: cloning https://github.com/lhrodovalho/sg13cmos5l_rodovalho_ip__lpopamp
+    at 6dfc862c8891, recorded in config.txt
+slot_11: cloning https://github.com/vyges/sg13cmos5l_vyges_ip__ldo_capless
+    at a70f9b64bc38, recorded in config.txt
+slot_12: cloning https://github.com/Belal-Elshinnawey/sg13cmos5l_slot12_backup
+    at 59a574ac0808, recorded in config.txt
+slot_13: cloning https://github.com/bhagwat-rahul/sg13cmos5l_rahulbhagwat_ip_pll_fractional_n_charge_pump_ring_osc
+    at d931be01f197, recorded in config.txt
+slot_14: cloning https://github.com/Intubun/chipalooza_lvds_pll

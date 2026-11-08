@@ -1,0 +1,69 @@
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_4.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_decap_4" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_decap_4.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_antennanp" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_antennanp.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_nor2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nor2_1.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_nand2_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand2_1.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_2.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_fill_2" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_fill_2.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_buf_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_buf_16.mag.
+The discovered version will be used.
+Cell slot18_wrapper couldn't be read
+Cell slot18_wrapper is unavailable.  It could not be expanded.
+Warning:  Parent cell lists instance of "sg13cmos5l_nand3_1" at bad file path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_nand3_1.mag.
+The discovered version will be used.
+Cell slot1_wrapper couldn't be read
+Cell slot1_wrapper is unavailable.  It could not be expanded.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_16" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_16.mag.
+The discovered version will be used.
+Warning:  Parent cell lists instance of "sg13cmos5l_inv_8" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
+The discovered version will be used.
+Cell slot17_wrapper couldn't be read
+Cell slot17_wrapper is unavailable.  It could not be expanded.
+Cell slot2_wrapper couldn't be read
+Cell slot2_wrapper is unavailable.  It could not be expanded.
+Cell slot16_wrapper couldn't be read
+Cell slot16_wrapper is unavailable.  It could not be expanded.
+Cell slot3_wrapper couldn't be read
+Cell slot3_wrapper is unavailable.  It could not be expanded.
+Cell slot15_wrapper couldn't be read
+Cell slot15_wrapper is unavailable.  It could not be expanded.
+Cell slot4_wrapper couldn't be read
+Cell slot4_wrapper is unavailable.  It could not be expanded.
+Cell slot14_wrapper couldn't be read
+Cell slot14_wrapper is unavailable.  It could not be expanded.
+Cell slot5_wrapper couldn't be read
+Cell slot5_wrapper is unavailable.  It could not be expanded.
+Cell slot13_wrapper couldn't be read
+Cell slot13_wrapper is unavailable.  It could not be expanded.
+Cell slot6_wrapper couldn't be read
+Cell slot6_wrapper is unavailable.  It could not be expanded.
+Cell slot12_wrapper couldn't be read
+Cell slot12_wrapper is unavailable.  It could not be expanded.
+Cell slot7_wrapper couldn't be read
+Cell slot7_wrapper is unavailable.  It could not be expanded.
+Cell slot11_wrapper couldn't be read
+Cell slot11_wrapper is unavailable.  It could not be expanded.
+Cell slot8_wrapper couldn't be read
+Cell slot8_wrapper is unavailable.  It could not be expanded.
+Cell slot10_wrapper couldn't be read
+Cell slot10_wrapper is unavailable.  It could not be expanded.
+Cell slot9_wrapper couldn't be read
+Cell slot9_wrapper is unavailable.  It could not be expanded.
