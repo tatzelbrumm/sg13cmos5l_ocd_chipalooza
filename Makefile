@@ -294,6 +294,7 @@ all:
 	make clean-config
 	make config
 	make padframe
+	make frame-custom-io
 	make wrappers
 	make gds-slots
 	make user-id

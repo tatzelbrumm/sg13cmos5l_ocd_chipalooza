@@ -1,0 +1,554 @@
+From e839258f889a11e03aeac265e53b41291c2a5292 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 8 Nov 2026 19:00:50 +0000
+Subject: [PATCH 1/4] custom pads: parse_config.py support, label procs, frame
+ clean-up
+
+For pad types in config.txt that scripts/setup_custom.sh imports from a
+slot submodule.  Without this, parse_config.py prints 'Bad pad type' and
+exits 0:  no core signals for the slot, unsubstituted PAD_<s>_<p>_SIGNALS
+in verilog/gl/sg13cmos5l_padframe.v, and the previous slot's last label
+line repeated in scripts/gen_padframe.tcl.
+
+- scripts/parse_config.py:  CUSTOM_PADS (cell -> core-side pins, in order
+  along the pad's core edge) from the slot's pads/pads.txt, checked
+  against the ports of magic/custom_io/<cell>.mag;  used in the four
+  places that switch on the pad type.  Each pin becomes one core signal
+  <signal name>_<pin>.
+- scripts/custom_io_manifest.py (new):  reads the manifests.
+- scripts/custom_io.tcl (new):  label_right_custom / label_left_custom:
+  Via2 on the pad's M2 pin stub, 0.29 um Metal3 strap into the core,
+  port label;  sourced by gen_padframe_template.tcl.
+- scripts/run_update_frame_custom_io.sh (new), make frame-custom-io:
+  erases the hand-made pad-edge copies of the replaced foundry pads in
+  chipalooza_frame.mag (else the slot wrapper keeps the old pins too, as
+  slot 6 does now);  run after make padframe, before make wrappers.
+- scripts/custom_io_verilog.py (new):  prints the hand edits of the
+  chip-core Verilog for slots whose pads are all custom.
+
+Tested with slot 7 (tatzelbrumm/sg13cmos5l_cm_slot7 main 454da6a):  fork
+tatzelbrumm/sg13cmos5l_ocd_chipalooza, branch claude/slot7-v2-harness-test.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
+---
+ Makefile                              |   4 +
+ scripts/custom_io.tcl                 |  81 ++++++++++++++++++++
+ scripts/custom_io_manifest.py         | 102 ++++++++++++++++++++++++++
+ scripts/custom_io_verilog.py          |  86 ++++++++++++++++++++++
+ scripts/gen_padframe_template.tcl     |   3 +
+ scripts/parse_config.py               |  48 ++++++++++++
+ scripts/run_update_frame_custom_io.sh |  95 ++++++++++++++++++++++++
+ 7 files changed, 419 insertions(+)
+ create mode 100644 scripts/custom_io.tcl
+ create mode 100755 scripts/custom_io_manifest.py
+ create mode 100755 scripts/custom_io_verilog.py
+ create mode 100755 scripts/run_update_frame_custom_io.sh
+
+diff --git a/Makefile b/Makefile
+index 2cb719a..85f4aa1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -67,6 +67,10 @@ check:					## report out-of-date derived views
+ setup:					## import PDK cell views into magic/ libraries
+ 	./scripts/setup.sh
+ 
++.PHONY: frame-custom-io
++frame-custom-io:			## drop stale pad-edge copies from chipalooza_frame (custom pads)
++	./scripts/run_update_frame_custom_io.sh
++
+ .PHONY: setup-custom
+ setup-custom:				## import custom pad views from slot projects into magic/custom_io
+ 	./scripts/setup_custom.sh
+diff --git a/scripts/custom_io.tcl b/scripts/custom_io.tcl
+new file mode 100644
+index 0000000..e75c625
+--- /dev/null
++++ b/scripts/custom_io.tcl
+@@ -0,0 +1,81 @@
++#----------------------------------------------------------------
++# custom_io.tcl --
++#
++# Label procedures for custom (non-foundry) I/O pad cells, the
++# counterpart of label_right_analog / label_left_analog in
++# gen_padframe_template.tcl.  Sourced by gen_padframe.tcl (only used
++# if config.txt names a custom pad type) and by
++# run_update_frame_custom_io.sh.  Units:  microns.
++#
++# A custom pad brings each core-side signal out on Metal2 at the
++# core edge of the pad (0.29 um wide stubs, pitch down to 0.54 um).
++# Per pin, label_<side>_custom paints, in the cell being edited:
++#
++#   - a Via2 (0.2 x 0.2) on the pad's own M2 stub, 0.05 um inside the
++#     pad's core edge (M2 enclosure >= 0.04 at the sides),
++#   - a Metal3 strap 0.29 um wide from 0.3 um inside the pad edge
++#     to 1.1 um outside it (into the core = the slot area), like the
++#     1.1 um strip of label_right_analog,
++#   - a label with port on the part of the strap outside the pad.
++#
++# At 0.54 um pitch the straps are 0.25 um apart (Metal3 min. 0.21).
++# The via and the strap inside the pad touch nothing of the pad but
++# its pin stub (pad Metal3 ends 2 um from the core edge).
++#----------------------------------------------------------------
++
++# Return the strap geometry {via m3 label} as three boxes {llx lly urx ury}
++# for pin "pin_name" of pad instance "pad_name".  side is "right" (pad
++# rotated 270, core edge = west edge) or "left" (pad rotated 90, core
++# edge = east edge).
++proc custom_io_rects {side pad_name pin_name} {
++    set ibox [instance list abutment $pad_name]
++    goto ${pad_name}/${pin_name}
++    set lbox [box values]
++    set yc [expr {([lindex $lbox 1] + [lindex $lbox 3]) / 2.0}]
++    # Everything is placed on the 10 nm grid:  the padframe session runs
++    # on a 10 nm internal grid and rounds finer coordinates, and the
++    # chipalooza_frame copy (run_update_frame_custom_io.sh) must be
++    # identical.  The 0.29 um strap and the 0.2 um via start at the 10 nm
++    # position at or just below (pin center - half width):  at most 5 nm
++    # off the pin (M2 enclosure of the via >= 0.04 along the edge, 0.05
++    # at the pad edge).
++    set yc [expr {round($yc * 200.0) / 200.0}]
++    set y0 [expr {floor(($yc - 0.145) * 100.0 + 1e-6) / 100.0}]
++    set y1 [expr {$y0 + 0.29}]
++    set v0 [expr {floor(($yc - 0.1) * 100.0 + 1e-6) / 100.0}]
++    set v1 [expr {$v0 + 0.2}]
++    if {$side == "right"} {
++	set xe [lindex $ibox 0]
++	set via [list [expr {$xe + 0.05}] $v0 [expr {$xe + 0.25}] $v1]
++	set m3  [list [expr {$xe - 1.1}] $y0 [expr {$xe + 0.3}] $y1]
++	set lab [list [expr {$xe - 1.1}] $y0 [expr {$xe - 0.3}] $y1]
++    } else {
++	set xe [lindex $ibox 2]
++	set via [list [expr {$xe - 0.25}] $v0 [expr {$xe - 0.05}] $v1]
++	set m3  [list [expr {$xe - 0.3}] $y0 [expr {$xe + 1.1}] $y1]
++	set lab [list [expr {$xe + 0.3}] $y0 [expr {$xe + 1.1}] $y1]
++    }
++    return [list $via $m3 $lab]
++}
++
++proc custom_io_paint {rects pin_text {with_via 1}} {
++    lassign $rects via m3 lab
++    if {$with_via} {
++	box values {*}$via
++	paint via2
++    }
++    box values {*}$m3
++    paint m3
++    box values {*}$lab
++    label $pin_text FreeSans 0.3 0 0 0 c m3
++    port make
++}
++
++# Label a custom pad core pin on the right / left side (padframe).
++proc label_right_custom {pad_name pin_name pin_text} {
++    custom_io_paint [custom_io_rects right $pad_name $pin_name] $pin_text 1
++}
++
++proc label_left_custom {pad_name pin_name pin_text} {
++    custom_io_paint [custom_io_rects left $pad_name $pin_name] $pin_text 1
++}
+diff --git a/scripts/custom_io_manifest.py b/scripts/custom_io_manifest.py
+new file mode 100755
+index 0000000..8ded52c
+--- /dev/null
++++ b/scripts/custom_io_manifest.py
+@@ -0,0 +1,102 @@
++#!/usr/bin/env python3
++#---------------------------------------------------------------
++# custom_io_manifest.py ---
++#
++# Find the custom (non-foundry) pad cells named in config.txt and
++# their descriptions in the slot repositories.
++#
++# A slot whose config.txt entries name a pad type that is not one of
++# the foundry pad types must deliver that pad in its own repository
++# (the submodule dependencies/slot_<N>), on its default branch:
++#
++#	pads/pads.txt			manifest, one line per pad cell:
++#					  <cell>  <config.txt pad>  <core-side pins...>
++#					(core-side pins in order along the
++#					pad's core edge;  '#' starts a comment)
++#	pads/<cell>/<cell>.gds		layout, top cell <cell>
++#	pads/<cell>/<cell>.spice	LVS netlist, .subckt <cell>
++#
++# Nothing of the pad is stored in the harness.  Used by
++# scripts/setup_custom_io.py and scripts/parse_config.py.
++#---------------------------------------------------------------
++
++import os
++import re
++import sys
++
++FOUNDRY_PADS = {
++    'sg13cmos5l_IOPadIn',
++    'sg13cmos5l_IOPadOut4mA', 'sg13cmos5l_IOPadOut16mA', 'sg13cmos5l_IOPadOut30mA',
++    'sg13cmos5l_IOPadTriOut4mA', 'sg13cmos5l_IOPadTriOut16mA', 'sg13cmos5l_IOPadTriOut30mA',
++    'sg13cmos5l_IOPadInOut4mA', 'sg13cmos5l_IOPadInOut16mA', 'sg13cmos5l_IOPadInOut30mA',
++    'sg13cmos5l_IOPadAnalog',
++}
++
++# Ring-side pins of a custom pad:  connected like an analog pad's, not
++# core signals.
++RING_PINS = {'pad', 'iovdd', 'iovss', 'vdd', 'vss'}
++
++IDXREX = re.compile(r'^s([0-9]+)_an\[([0-9]+)\]:[ \t]+([^ \t]+)[ \t]+([^ \t]+)$')
++
++
++def read_config(project_path):
++    """{(slot, pin): (pad_type, signal_name)} from config.txt, as parse_config.py reads it."""
++    padlist = {}
++    with open(os.path.join(project_path, 'config.txt')) as ifile:
++        for line in ifile.read().splitlines():
++            m = IDXREX.match(line)
++            if m:
++                padlist[m.group(1), m.group(2)] = [m.group(3), m.group(4)]
++    return padlist
++
++
++def custom_pads(project_path, padlist=None):
++    """{cell: {'slot': N, 'pins': [...], 'dir': <path of pads/<cell>>, 'index': k}}
++    for every non-foundry pad type in config.txt.  Exits with an error
++    message if a slot does not deliver a pad its config.txt entry names."""
++    if padlist is None:
++        padlist = read_config(project_path)
++    found = {}
++    for (slot, pin), (pad_type, signal) in sorted(padlist.items()):
++        if pad_type in FOUNDRY_PADS or pad_type in found:
++            continue
++        padsdir = os.path.join(project_path, 'dependencies', 'slot_' + slot, 'pads')
++        manifest = os.path.join(padsdir, 'pads.txt')
++        if not os.path.isfile(manifest):
++            sys.exit(f'Error:  s{slot}_an[{pin}] is "{pad_type}", which is not a foundry pad type, and\n'
++                     f'        {os.path.relpath(manifest, project_path)} does not exist.\n'
++                     f'        Run "make projects SLOTS={slot}" first, or check the pad type.')
++        entries = []
++        with open(manifest) as ifile:
++            for line in ifile:
++                line = line.split('#', 1)[0].split()
++                if line:
++                    entries.append(line)
++        names = [e[0] for e in entries]
++        if pad_type not in names:
++            sys.exit(f'Error:  pad type "{pad_type}" (s{slot}_an[{pin}]) is not listed in\n'
++                     f'        {os.path.relpath(manifest, project_path)}')
++        k = names.index(pad_type)
++        entry = entries[k]
++        celldir = os.path.join(padsdir, pad_type)
++        for ext in ('gds', 'spice'):
++            f = os.path.join(celldir, pad_type + '.' + ext)
++            if not os.path.isfile(f):
++                sys.exit(f'Error:  {os.path.relpath(f, project_path)} is missing')
++        found[pad_type] = {'slot': slot, 'pins': entry[2:], 'dir': celldir, 'index': k}
++    return found
++
++
++def mag_core_pins(project_path, cell):
++    """Port names of magic/custom_io/<cell>.mag minus the ring-side pins."""
++    magfile = os.path.join(project_path, 'magic', 'custom_io', cell + '.mag')
++    if not os.path.isfile(magfile):
++        sys.exit(f'Error:  magic/custom_io/{cell}.mag does not exist.  Run "make setup-custom" first.')
++    ports, last = set(), None
++    with open(magfile) as ifile:
++        for line in ifile.read().splitlines():
++            if line.startswith('rlabel') or line.startswith('flabel'):
++                last = line.split()[-1]
++            elif line.startswith('port ') and last:
++                ports.add(last)
++    return ports - RING_PINS
+diff --git a/scripts/custom_io_verilog.py b/scripts/custom_io_verilog.py
+new file mode 100755
+index 0000000..c4b2952
+--- /dev/null
++++ b/scripts/custom_io_verilog.py
+@@ -0,0 +1,86 @@
++#!/usr/bin/env python3
++#---------------------------------------------------------------
++# custom_io_verilog.py --- print the hand edits of the chip-core
++# Verilog for slots that use custom pad cells.
++#
++# The chip-core views verilog/rtl/chipalooza_frame.v,
++# verilog/gl/sg13cmos5l_ocd_chipalooza.v, verilog/rtl/digital_tb.v and
++# verilog/rtl/slot<N>_wrapper.v are written by hand (parse_config.py
++# does not generate them).  For a slot whose pads in config.txt are all
++# custom pads, this script prints, file by file, the exact lines to
++# find and the lines to put in their place, derived from config.txt and
++# the slot's pads/pads.txt.  It changes nothing.
++#
++# Usage (repository top level):  ./scripts/custom_io_verilog.py
++#---------------------------------------------------------------
++
++import os
++import sys
++from collections import defaultdict
++
++script_path = os.path.dirname(os.path.realpath(__file__))
++project_path = os.path.dirname(script_path)
++sys.path.insert(0, script_path)
++from custom_io_manifest import read_config, custom_pads, FOUNDRY_PADS
++
++padlist = read_config(project_path)
++pads = custom_pads(project_path, padlist)
++byslot = defaultdict(dict)
++for (slot, pin), (ptype, sig) in padlist.items():
++    byslot[slot][int(pin)] = (ptype, sig)
++
++def block(title, find, replace):
++    print(f'  {title}')
++    print('    FIND these lines:')
++    for l in find:
++        print('      |' + l)
++    print('    REPLACE them with:' if replace else '    DELETE them.')
++    for l in replace:
++        print('      |' + l)
++    print()
++
++any_slot = False
++for slot in sorted(byslot, key=int):
++    entries = byslot[slot]
++    kinds = {ptype in pads for ptype, _ in entries.values()}
++    if kinds == {False}:
++        continue
++    if kinds != {True}:
++        print(f'slot {slot}: mixes foundry and custom pads;  edit its Verilog by hand.\n')
++        continue
++    any_slot = True
++    n = len(entries)
++    nets = []
++    for pin in sorted(entries):
++        ptype, sig = entries[pin]
++        nets += [f'{sig}_{p}' for p in pads[ptype]['pins']]
++    esd = [f's{slot}_an_{i}_esd' for i in range(n)]
++    vec = f'[{n - 1}:0]'
++    print(f'=== slot {slot}: {n} custom pad(s), {len(nets)} core nets: {" ".join(nets)}\n')
++
++    print('File verilog/rtl/chipalooza_frame.v')
++    block('(a) module port list',
++          [f'    inout  {vec} s{slot}_an,  ' + ', '.join(f'inout {e}' for e in esd) + ','],
++          [f'    inout  {x},' for x in nets])
++    block(f'(b) instance slot{slot}_wrapper slot{slot} (...): connections (the _esd lines present there)',
++          [f'\t.s{slot}_an(s{slot}_an),', f'\t.s{slot}_an_0_esd(s{slot}_an_0_esd),'],
++          [f'\t.{x}({x}),' for x in nets])
++
++    print('File verilog/gl/sg13cmos5l_ocd_chipalooza.v   (the chip pins s%s_an stay)' % slot)
++    block('(a) wire declarations', [f'    wire {e};' for e in esd], [f'    wire {x};' for x in nets])
++    block('(b) BOTH instances, padframe (...) and harness_core (...): the _esd connections',
++          [f'\t.{e}({e}),' for e in esd], [f'\t.{x}({x}),' for x in nets])
++    block('(c) instance harness_core (...): the pad connections',
++          [f'\t.s{slot}_an_{i}(s{slot}_an[{i}]),' for i in range(n)], [])
++
++    print('File verilog/rtl/digital_tb.v')
++    block('instance chipalooza_frame harness_core (...)', [f'\t    .s{slot}_an(),'], [f'\t    .{x}(),' for x in nets])
++
++    print(f'File verilog/rtl/slot{slot}_wrapper.v')
++    block('module port list (keep the comment lines around it)',
++          [f'    inout wire {vec} s{slot}_an,\t// dedicated analog pad(s)',
++           f'    inout wire s{slot}_an_0_esd,\t// secondary ESD-protected pin'],
++          [f'    inout wire {x},' for x in nets])
++
++if not any_slot:
++    print('No slot uses only custom pads;  nothing to edit.')
+diff --git a/scripts/gen_padframe_template.tcl b/scripts/gen_padframe_template.tcl
+index a001049..5c94e27 100755
+--- a/scripts/gen_padframe_template.tcl
++++ b/scripts/gen_padframe_template.tcl
+@@ -202,6 +202,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
+     port make
+ }
+ 
++# Label procedures for custom pad cells (label_right_custom, label_left_custom)
++source ../scripts/custom_io.tcl
++
+ # Add routed "constant_block" cells.  Given a cell instance name, the
+ # constant block is set off to the side under the pad bus.
+ 
+diff --git a/scripts/parse_config.py b/scripts/parse_config.py
+index 3008df4..83bb9b2 100755
+--- a/scripts/parse_config.py
++++ b/scripts/parse_config.py
+@@ -88,6 +88,26 @@ with open(config_file, 'r') as ifile:
+             signal_name = imatch.group(4)
+             padlist[slot_index, pin_index] = [pad_type, signal_name]
+ 
++#-----------------------------------------------------------------
++# Custom (non-foundry) pad cells.  Each one is delivered by its slot's
++# repository (dependencies/slot_<N>/pads/, see custom_io_manifest.py)
++# and imported by "make setup-custom" into magic/custom_io/.  CUSTOM_PADS
++# maps each cell to its core-side pins, in order along the core edge;
++# each pin becomes one core signal "<signal_name>_<pin>".  The pin list
++# of the slot's manifest must match the ports of the imported cell.
++#-----------------------------------------------------------------
++
++from custom_io_manifest import custom_pads, mag_core_pins
++
++CUSTOM_PADS = {}
++for cell, info in custom_pads(project_path, padlist).items():
++    magpins = mag_core_pins(project_path, cell)
++    if magpins != set(info['pins']):
++        print('Error:  the manifest pins of ' + cell + ' (slot ' + info['slot'] + ') do not match the ports of')
++        print('        magic/custom_io/' + cell + '.mag: ' + ' '.join(sorted(magpins)))
++        sys.exit(1)
++    CUSTOM_PADS[cell] = info['pins']
++
+ #-----------------------------------------------------------------
+ # Prepare the chipalooza_frame_wrapper.v netlist
+ #-----------------------------------------------------------------
+@@ -141,6 +161,12 @@ with open(wrapper_in_file, 'r') as ifile:
+                     newline = spaces + 'input  ' + signal_name + '_one,'
+                     wrapper_lines.append(newline)
+                     newline = spaces + 'input  ' + signal_name + '_zero,'
++                elif pad_type in CUSTOM_PADS:
++                    # Custom pad:  one inout per core-side pad pin
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        wrapper_lines.append(spaces + 'inout  ' + signal_name + '_' + pin + ',')
++                    newline = spaces + 'inout  ' + signal_name + '_' + pins[-1] + ','
+                 else:
+                     print('Error:  Bad pad type ' + pad_type)
+                     newline = line
+@@ -203,6 +229,11 @@ with open(padframe_in_file, 'r') as ifile:
+                     newline = spaces + '.c2p_en(' + signal_name + '_ena),'
+                     padframe_lines.append(newline)
+                     newline = spaces + '.p2c(' + signal_name + '_in)'
++                elif pad_type in CUSTOM_PADS:
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        padframe_lines.append(spaces + '.' + pin + '(' + signal_name + '_' + pin + '),')
++                    newline = spaces + '.' + pins[-1] + '(' + signal_name + '_' + pins[-1] + ')'
+                 else:
+                     print('Bad pad type ' + pad_type)
+                     newline = line
+@@ -238,6 +269,11 @@ with open(padframe_in_file, 'r') as ifile:
+                     newline = spaces + 'output wire ' + signal_name + '_one,'
+                     padframe_lines.append(newline)
+                     newline = spaces + 'output wire ' + signal_name + '_zero,'
++                elif pad_type in CUSTOM_PADS:
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        padframe_lines.append(spaces + 'inout wire ' + signal_name + '_' + pin + ',')
++                    newline = spaces + 'inout wire ' + signal_name + '_' + pins[-1] + ','
+                 else:
+                     print('Bad pad type ' + pad_type)
+                     newline = line
+@@ -344,6 +380,18 @@ with open(tcl_in_file, 'r') as ifile:
+                     tcl_lines.append(newline)
+                     newline = spaces + 'label_' + side + '_signal pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  p2c    ' + signal_name + '_in'
+ 
++                elif pad_type in CUSTOM_PADS:
++                    # One Via2 + Metal3 strap + port per core-side pad pin
++                    # (procs in scripts/custom_io.tcl)
++                    pins = CUSTOM_PADS[pad_type]
++                    for pin in pins[:-1]:
++                        tcl_lines.append(spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pin + '    ' + signal_name + '_' + pin)
++                    newline = spaces + 'label_' + side + '_custom pad_s' + pad_slot_idx + '_an_' + pad_pin_idx + '  ' + pins[-1] + '    ' + signal_name + '_' + pins[-1]
++
++                else:
++                    print('Error:  Bad pad type ' + pad_type)
++                    newline = line
++
+             tcl_lines.append(newline)
+ 
+         elif 'CONSTANT_BLOCKS' in line:
+diff --git a/scripts/run_update_frame_custom_io.sh b/scripts/run_update_frame_custom_io.sh
+new file mode 100755
+index 0000000..cecd43b
+--- /dev/null
++++ b/scripts/run_update_frame_custom_io.sh
+@@ -0,0 +1,95 @@
++#!/bin/bash
++#
++# run_update_frame_custom_io.sh --- remove the stale hand-made copies of
++# the default pads' core-side strips from chipalooza_frame where a custom
++# pad has replaced the default pad.
++#
++# Why:  run_gen_user_wrappers.sh carves the slot wrappers out of
++# chipalooza_frame, taking both its flat paint and the paint of the
++# expanded subcell chipalooza_frame_wrapper_0 (the cell generated by
++# "make padframe", placed in chipalooza_frame at +1 internal unit in y).
++# chipalooza_frame.mag also holds hand-made FLAT copies of the pad-edge
++# strips of the default analog pads (s<N>_an[x], s<N>_an_x_esd).  When a
++# pad becomes a custom pad, these stale copies would stay in the slot
++# wrapper next to the new pins (as happens in main for slot 6, whose
++# wrapper has both its analog and its digital labels).
++#
++# What:  for every pad named in a "label_<side>_custom <pad> <pin> <text>"
++# line of the generated scripts/gen_padframe.tcl (from make config), this
++# script erases, in chipalooza_frame only (not in its subcells), the
++# Metal2/Metal3 paint and the labels in the core-edge band of that pad
++# (1.2 um outside to 1.0 um inside the pad's core edge, over the pad's
++# full length).  The new pins then come only from chipalooza_frame_wrapper.
++# chipalooza_frame and sg13cmos5l_padframe share one origin in the chip top
++# level, so padframe coordinates are used as they are.  Only bands of
++# custom pads are touched;  if there are none, nothing is written.
++#
++# Run from the top level directory, after "make padframe" and before
++# "make wrappers".
++
++export PDK_ROOT=${PDK_ROOT:-/home/tim/gits}
++export PDK=${PDK:-ihp-sg13cmos5l}
++
++if ! grep -q '^[ \t]*label_\(right\|left\)_custom ' scripts/gen_padframe.tcl; then
++    echo "No custom pads in scripts/gen_padframe.tcl;  chipalooza_frame unchanged."
++    exit 0
++fi
++
++cd magic
++
++magic -dnull -noconsole -rcfile ${PDK_ROOT}/${PDK}/libs.tech/magic/${PDK}.magicrc << EOF
++drc off
++crashbackups stop
++locking disable
++source ../scripts/layout_setup.tcl
++addpath paramcells
++units microns
++
++# Collect the custom pad pins from the generated padframe script
++set pins {}
++set fh [open ../scripts/gen_padframe.tcl r]
++foreach line [split [read \$fh] "\n"] {
++    if {[regexp {^\s*label_(right|left)_custom\s+(\S+)\s+(\S+)\s+(\S+)} \$line -> side pad pin text]} {
++	lappend pins [list \$side \$pad \$pin \$text]
++    }
++}
++close \$fh
++
++# Pad bands from the padframe
++load sg13cmos5l_padframe
++select top cell
++array set bands {}
++foreach p \$pins {
++    lassign \$p side pad pin text
++    # (as in gen_padframe.tcl:  select the instance, then ask for its abutment box)
++    select cell \$pad
++    set ibox [instance list abutment]
++    if {\$side == "right"} {
++	set xe [lindex \$ibox 0]
++	set bands(\$pad) [list [expr {\$xe - 1.2}] [lindex \$ibox 1] [expr {\$xe + 1.0}] [lindex \$ibox 3]]
++    } else {
++	set xe [lindex \$ibox 2]
++	set bands(\$pad) [list [expr {\$xe - 1.0}] [lindex \$ibox 1] [expr {\$xe + 1.2}] [lindex \$ibox 3]]
++    }
++}
++
++# Edit chipalooza_frame
++load chipalooza_frame
++select top cell
++foreach pad [array names bands] {
++    box values {*}\$bands(\$pad)
++    select area
++    puts "FRAME band \$pad \$bands(\$pad) before: [what -list]"
++    select clear
++    erase m2,m3
++    erase labels
++    select area
++    puts "FRAME band \$pad after: [what -list]"
++    select clear
++}
++save chipalooza_frame
++quit -noprompt
++EOF
++
++echo "Done!"
++exit 0
+-- 
+2.43.0
+

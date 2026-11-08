@@ -1,0 +1,50 @@
+From 9a372af22b307e6ba7c5f181d66e0351bde269c2 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 8 Nov 2026 19:34:42 +0000
+Subject: [PATCH 2/4] LVS: read the custom pad netlists from the slot
+ submodules
+
+validate/run_lvs_padframe.sh and validate/run_lvs_ocd_chipalooza.sh read
+dependencies/slot_*/pads/*/*.spice.  With this, make lvs-padframe matches
+both custom pads of slot 7 (76 devices each) and all slot-7 pins.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
+---
+ validate/run_lvs_ocd_chipalooza.sh | 4 ++++
+ validate/run_lvs_padframe.sh       | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/validate/run_lvs_ocd_chipalooza.sh b/validate/run_lvs_ocd_chipalooza.sh
+index eb9448d..b468652 100755
+--- a/validate/run_lvs_ocd_chipalooza.sh
++++ b/validate/run_lvs_ocd_chipalooza.sh
+@@ -17,6 +17,10 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
+ 
+ # Issues in foundry I/O netlist require custom version.
+ readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
++# Custom pad cells from the slot submodules (scripts/setup_custom.sh imports their layout)
++foreach f [lsort [glob -nocomplain ../dependencies/slot_*/pads/*/*.spice]] {
++    readnet spice \$f \$circuit2
++}
+ # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
+ 
+ # housekeeping_top must be read before the user project since it is a
+diff --git a/validate/run_lvs_padframe.sh b/validate/run_lvs_padframe.sh
+index 88ce79b..251c611 100755
+--- a/validate/run_lvs_padframe.sh
++++ b/validate/run_lvs_padframe.sh
+@@ -21,6 +21,10 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
+ # the use of global "sub!")
+ # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
+ readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
++# Custom pad cells from the slot submodules (scripts/setup_custom.sh imports their layout)
++foreach f [lsort [glob -nocomplain ../dependencies/slot_*/pads/*/*.spice]] {
++    readnet spice \$f \$circuit2
++}
+ 
+ # Read verilog submodules
+ readnet verilog ../verilog/gl/netlists_lvs.v \$circuit2
+-- 
+2.43.0
+
