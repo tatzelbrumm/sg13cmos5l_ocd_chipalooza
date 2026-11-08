@@ -1,7 +1,7 @@
 magic
 tech ihp-sg13cmos5l
 magscale 1 2
-timestamp 1790608370
+timestamp 1794164161
 << checkpaint >>
 rect -2000 -2000 109430 56600
 << obsm1 >>
@@ -80,6 +80,8 @@ rect 0 400 400 54200
 rect 107030 400 107430 54200
 rect 0 0 107430 400
 << labels >>
+flabel metal3 107010 15432 107170 20386 0 FreeSans 480 90 0 0 s4_an[0]
+port 24 nsew
 flabel metal3 0 18843 400 19243 0 FreeSans 1600 180 0 0 vbias
 port 116 nsew
 flabel metal3 0 17694 400 17738 0 FreeSans 352 180 0 0 dig_in[23]
@@ -182,8 +184,6 @@ flabel metal3 0 17782 400 17826 0 FreeSans 352 180 0 0 reset
 port 164 nsew
 flabel metal3 107030 21683 107430 21781 0 FreeSans 480 0 0 0 s4_an_0_esd
 port 115 nsew
-flabel metal3 107010 15432 107170 20386 0 FreeSans 480 90 0 0 s4_an[0]
-port 24 nsew
 flabel metal2 106630 35327 107030 47211 0 FreeSans 6400 270 0 0 vss_1v2
 port 25 nsew
 << properties >>

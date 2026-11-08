@@ -20,7 +20,7 @@
 // a parameter
 
 module user_id_programming #(
-    parameter USER_PROJECT_ID = 32'h20260330
+    parameter USER_PROJECT_ID = 32'h20260908
 ) (
 `ifdef USE_POWER_PINS
     inout VDD,
@@ -82,15 +82,15 @@ module user_id_programming #(
     assign mask_rev[14] = user_proj_id_low[14];  /* 0 */
     assign mask_rev[13] = user_proj_id_low[13];  /* 0 */
     assign mask_rev[12] = user_proj_id_low[12];  /* 0 */
-    assign mask_rev[11] = user_proj_id_low[11];  /* 0 */
+    assign mask_rev[11] = user_proj_id_high[11]; /* 1 */
     assign mask_rev[10] = user_proj_id_low[10];  /* 0 */
-    assign mask_rev[9] = user_proj_id_high[9];   /* 1 */
+    assign mask_rev[9] = user_proj_id_low[9];    /* 0 */
     assign mask_rev[8] = user_proj_id_high[8];   /* 1 */
     assign mask_rev[7] = user_proj_id_low[7];    /* 0 */
     assign mask_rev[6] = user_proj_id_low[6];    /* 0 */
-    assign mask_rev[5] = user_proj_id_high[5];   /* 1 */
-    assign mask_rev[4] = user_proj_id_high[4];   /* 1 */
-    assign mask_rev[3] = user_proj_id_low[3];    /* 0 */
+    assign mask_rev[5] = user_proj_id_low[5];    /* 0 */
+    assign mask_rev[4] = user_proj_id_low[4];    /* 0 */
+    assign mask_rev[3] = user_proj_id_high[3];   /* 1 */
     assign mask_rev[2] = user_proj_id_low[2];    /* 0 */
     assign mask_rev[1] = user_proj_id_low[1];    /* 0 */
     assign mask_rev[0] = user_proj_id_low[0];    /* 0 */

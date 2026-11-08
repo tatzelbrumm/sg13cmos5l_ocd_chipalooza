@@ -18,8 +18,10 @@ crashbackups stop
 locking disable
 units microns
 
-# Add the I/O library path (see setup.sh)
+# Add the I/O library path (see setup.sh), and the path to any custom
+# pads supplied by the slot designers (see setup_custom.sh)
 addpath sg13cmos5l_io
+addpath custom_io
 addpath paramcells
 
 # Ensure that the padframe layout does not already exist.
@@ -200,6 +202,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
     port make
 }
 
+# Label procedures for custom pad cells (label_right_custom, label_left_custom)
+source ../scripts/custom_io.tcl
+
 # Add routed "constant_block" cells.  Given a cell instance name, the
 # constant block is set off to the side under the pad bus.
 
@@ -353,15 +358,15 @@ place_pad_right	 pad_s5_an_1	sg13cmos5l_IOPadAnalog	 	 pad_28
 place_spacers_right 27
 place_pad_right	 pad_s5_an_2	sg13cmos5l_IOPadAnalog	 	 pad_29
 place_spacers_right 28
-place_pad_right	 pad_s6_an_0	sg13cmos5l_IOPadAnalog	 	 pad_30
+place_pad_right	 pad_s6_an_0	sg13cmos5l_IOPadIn	 	 pad_30
 place_spacers_right 29
-place_pad_right	 pad_s6_an_1	sg13cmos5l_IOPadAnalog	 	 pad_31
+place_pad_right	 pad_s6_an_1	sg13cmos5l_IOPadOut16mA	 	 pad_31
 place_spacers_right 30
 place_pad_right	 pad_vss1v2_1	sg13cmos5l_IOPadVss 	 pad_32
 place_spacers_right 31
-place_pad_right	 pad_s7_an_0 	sg13cmos5l_IOPadAnalog	 	 pad_33
+place_pad_right	 pad_s7_an_0 	sg13cmos5l_IOPadSingle2Diff	 	 pad_33
 place_spacers_right 32
-place_pad_right	 pad_s7_an_1	sg13cmos5l_IOPadAnalog	 	 pad_34
+place_pad_right	 pad_s7_an_1	sg13cmos5l_IOPadDiff2Single	 	 pad_34
 place_spacers_right 33
 place_pad_right	 pad_s8_an_0	sg13cmos5l_IOPadAnalog	 	 pad_35
 place_spacers_right 34
@@ -389,9 +394,9 @@ place_pad_left	 pad_s18_an_1	sg13cmos5l_IOPadAnalog	 	 pad_76
 place_spacers_left 72
 place_pad_left	 pad_s18_an_0	sg13cmos5l_IOPadAnalog	 	 pad_75
 place_spacers_left 71
-place_pad_left	 pad_s17_an_1	sg13cmos5l_IOPadAnalog	 	 pad_74
+place_pad_left	 pad_s17_an_1	sg13cmos5l_IOPadOut16mA	 	 pad_74
 place_spacers_left 70
-place_pad_left	 pad_s17_an_0	sg13cmos5l_IOPadAnalog	 	 pad_73
+place_pad_left	 pad_s17_an_0	sg13cmos5l_IOPadOut16mA	 	 pad_73
 place_spacers_left 69
 place_pad_left	 pad_vss1v2_3	sg13cmos5l_IOPadVss	 pad_72
 place_spacers_left 68
@@ -409,9 +414,9 @@ place_pad_left	 pad_s14_an_1	sg13cmos5l_IOPadAnalog	 	 pad_66
 place_spacers_left 62
 place_pad_left	 pad_s14_an_0	sg13cmos5l_IOPadAnalog	 	 pad_65
 place_spacers_left 61
-place_pad_left	 pad_s13_an_1	sg13cmos5l_IOPadAnalog	 	 pad_64
+place_pad_left	 pad_s13_an_1	sg13cmos5l_IOPadOut16mA	 	 pad_64
 place_spacers_left 60
-place_pad_left	 pad_s13_an_0	sg13cmos5l_IOPadAnalog	 	 pad_63
+place_pad_left	 pad_s13_an_0	sg13cmos5l_IOPadIn	 	 pad_63
 place_spacers_left 59
 place_pad_left	 pad_vss3v3_4	sg13cmos5l_IOPadIOVss	 pad_62
 place_spacers_left 58
@@ -625,22 +630,29 @@ label_right_signal pad_s5_an_1  padres    s5_an_1_esd
 label_right_analog pad_s5_an_1  pad s5_an\[1\]
 label_right_signal pad_s5_an_2  padres    s5_an_2_esd
 label_right_analog pad_s5_an_2  pad s5_an\[2\]
-label_right_signal pad_s6_an_0  padres    s6_an_0_esd
-label_right_analog pad_s6_an_0  pad s6_an\[0\]
-label_right_signal pad_s6_an_1  padres    s6_an_1_esd
-label_right_analog pad_s6_an_1  pad s6_an\[1\]
-label_right_signal pad_s7_an_0  padres    s7_an_0_esd
-label_right_analog pad_s7_an_0  pad s7_an\[0\]
-label_right_signal pad_s7_an_1  padres    s7_an_1_esd
-label_right_analog pad_s7_an_1  pad s7_an\[1\]
+label_right_signal pad_s6_an_0  p2c    s6_an_0
+label_right_signal pad_s6_an_1  c2p    s6_an_1
+label_right_custom pad_s7_an_0  vref    s7_an_0_vref
+label_right_custom pad_s7_an_0  outp    s7_an_0_outp
+label_right_custom pad_s7_an_0  outn    s7_an_0_outn
+label_right_custom pad_s7_an_0  vcm    s7_an_0_vcm
+label_right_custom pad_s7_an_0  en_3v3    s7_an_0_en_3v3
+label_right_custom pad_s7_an_0  en_3v3_b    s7_an_0_en_3v3_b
+label_right_custom pad_s7_an_0  iref    s7_an_0_iref
+label_right_custom pad_s7_an_1  vinp    s7_an_1_vinp
+label_right_custom pad_s7_an_1  vinn    s7_an_1_vinn
+label_right_custom pad_s7_an_1  vref    s7_an_1_vref
+label_right_custom pad_s7_an_1  iref    s7_an_1_iref
+label_right_custom pad_s7_an_1  en_3v3_b    s7_an_1_en_3v3_b
+label_right_custom pad_s7_an_1  en_3v3    s7_an_1_en_3v3
 label_right_signal pad_s8_an_0  padres    s8_an_0_esd
 label_right_analog pad_s8_an_0  pad s8_an\[0\]
-label_right_signal pad_s9_an_0  padres    s9_an_0_esd
-label_right_analog pad_s9_an_0  pad s9_an\[0\]
-label_right_signal pad_s9_an_1  padres    s9_an_1_esd
-label_right_analog pad_s9_an_1  pad s9_an\[1\]
-label_right_signal pad_s9_an_2  padres    s9_an_2_esd
-label_right_analog pad_s9_an_2  pad s9_an\[2\]
+label_left_signal pad_s9_an_0  padres    s9_an_0_esd
+label_left_analog pad_s9_an_0  pad s9_an\[0\]
+label_left_signal pad_s9_an_1  padres    s9_an_1_esd
+label_left_analog pad_s9_an_1  pad s9_an\[1\]
+label_left_signal pad_s9_an_2  padres    s9_an_2_esd
+label_left_analog pad_s9_an_2  pad s9_an\[2\]
 label_left_signal pad_s10_an_0  padres    s10_an_0_esd
 label_left_analog pad_s10_an_0  pad s10_an\[0\]
 label_left_signal pad_s10_an_1  padres    s10_an_1_esd
@@ -653,10 +665,8 @@ label_left_signal pad_s12_an_0  padres    s12_an_0_esd
 label_left_analog pad_s12_an_0  pad s12_an\[0\]
 label_left_signal pad_s12_an_1  padres    s12_an_1_esd
 label_left_analog pad_s12_an_1  pad s12_an\[1\]
-label_left_signal pad_s13_an_0  padres    s13_an_0_esd
-label_left_analog pad_s13_an_0  pad s13_an\[0\]
-label_left_signal pad_s13_an_1  padres    s13_an_1_esd
-label_left_analog pad_s13_an_1  pad s13_an\[1\]
+label_left_signal pad_s13_an_0  p2c    s13_an_0
+label_left_signal pad_s13_an_1  c2p    s13_an_1
 label_left_signal pad_s14_an_0  padres    s14_an_0_esd
 label_left_analog pad_s14_an_0  pad s14_an\[0\]
 label_left_signal pad_s14_an_1  padres    s14_an_1_esd
@@ -669,10 +679,8 @@ label_left_signal pad_s16_an_0  padres    s16_an_0_esd
 label_left_analog pad_s16_an_0  pad s16_an\[0\]
 label_left_signal pad_s16_an_1  padres    s16_an_1_esd
 label_left_analog pad_s16_an_1  pad s16_an\[1\]
-label_left_signal pad_s17_an_0  padres    s17_an_0_esd
-label_left_analog pad_s17_an_0  pad s17_an\[0\]
-label_left_signal pad_s17_an_1  padres    s17_an_1_esd
-label_left_analog pad_s17_an_1  pad s17_an\[1\]
+label_left_signal pad_s17_an_0  c2p    s17_an_0
+label_left_signal pad_s17_an_1  c2p    s17_an_1
 label_left_signal pad_s18_an_0  padres    s18_an_0_esd
 label_left_analog pad_s18_an_0  pad s18_an\[0\]
 label_left_signal pad_s18_an_1  padres    s18_an_1_esd
