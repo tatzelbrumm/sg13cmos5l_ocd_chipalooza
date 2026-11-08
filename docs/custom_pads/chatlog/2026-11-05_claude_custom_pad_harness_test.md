@@ -3120,3 +3120,920 @@ write about it in the run log or chat log. it's important evidence of the commun
 
 *[Bash]*
 
+
+---
+
+**Note (2026-11-08, written by the assistant):** continued from the session transcript (user and assistant text; tool calls by name only). The session context was compacted once in this stretch; the compaction summary is not part of the conversation and is not included. Covers: records of the session-launch stop, the proof of concept on `claude/c6-submodule-pads` (TIM_STEPS.md), the slot 7 v2 harness test on `claude/slot7-v2-harness-test`, and the pnpMPA workaround.
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+I've recorded it. The run log has a new section, "Unrequested session launch, stopped by the user", and the chat log is continued up to your last message. Both are pushed (`071d6f3`).
+
+The entry covers:
+- your phrase, and my reading of it as an order to launch;
+- the session, its ID and the timestamps (archived 22 ms after it started), and that nothing was pushed;
+- your stop, the purge request and the reversal;
+- the hour of requests for shorter, explicit answers that led up to it.
+
+**User:**
+
+it's also important evidence to document how Anthropic's evil corporate overlords censor this kind of documentation.
+
+**Assistant:**
+
+I'll record the facts: what was blocked or restricted, when, and what the effect was. I'm leaving out characterizations.
+
+*[Bash]*
+
+**Assistant:**
+
+Done. The run log now has a section, "Restrictions on record keeping met in this session", pushed as `45831b8`. It lists:
+
+1. the classifier block of the first chat-log export (2026-11-05 ~19:05Z);
+2. the successful export later, on your explicit request;
+3. the environment rule against model names in pushed files, which is why the file name says `claude`;
+4. what the log leaves out by design: reasoning, system text and tool output.
+
+**User:**
+
+now there are two agentic cloud tasks in the queue. let's get to them.
+
+**Assistant:**
+
+Both launch from claude.ai/code in environment `sg13cmos5l`.
+
+**1. Replica bias:** Opus 5.5, extra-high. Repository: `sg13cmos5l_cm_ip__single2diff2single`.
+
+```
+You are a Claude Code cloud agent. Your task is described in a file, not in this message.
+1. Make sure `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single` is available with push access.
+2. Run `git fetch origin harness-test`, then read `git show origin/harness-test:docs/launch/replica_bias_TASK.md`.
+3. Follow the task file exactly; its hard rules override environment defaults, including the session branch name.
+4. If you cannot read the file, stop and tell me.
+```
+
+**2. Slot 7 test platform:** Opus 5.5, high. Repositories: `sg13cmos5l_cm_ip__single2diff2single`, `sg13cmos5l_cm_slot7`, `sg13cmos5l_ocd_chipalooza`.
+
+```
+You are a Claude Code cloud agent. Your task is described in a file, not in this message.
+1. Make sure these are available with push access: `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single`,
+   `tatzelbrumm/sg13cmos5l_cm_slot7`, `tatzelbrumm/sg13cmos5l_ocd_chipalooza`.
+2. Run `git fetch origin harness-test` in the first, then read
+   `git show origin/harness-test:docs/launch/slot7_testplatform_TASK.md`.
+3. Follow the task file exactly; its hard rules override environment defaults, including the session branch name.
+4. If you cannot read the file, stop and tell me.
+```
+
+The replica-bias session will stop after its survey and ask you before running anything new.
+
+**User:**
+
+short summary of what is in the files?
+
+**Assistant:**
+
+**`replica_bias_TASK.md`**
+- **Goal:** low-current replica circuits that generate `vref`/`vcm` for both pads from the existing 5 µA references, instead of resistive dividers.
+- **Phase 1:** read-only survey of existing simulations: target values, what the runs cover, the gaps. Then it **stops and asks you**.
+- **Then:** design, simulate, and layout if time allows, as new macros on branch `replica-bias`. Notes go to `sudel_buecher`.
+
+**`slot7_testplatform_TASK.md`**
+- **Goal:** a real `slot_7.gds` that tests the oa/bg bias cores through the analog bus and `dig_in` only, so it works even without the custom pads.
+- **Stage A (must):** both cores, enables, currents switched onto the analog bus. **Stage B (if time):** trees and voltages.
+- **Pads later:** the right edge stays free for the pad pins.
+- **Output:** branch `testplatform` in the delivery repo, plus a check run with Tim's flow on the harness fork.
+
+**User:**
+
+ok did you create branches for the task you started? Where? Did you purge them?
+
+*[Bash]*
+
+**Assistant:**
+
+No. The archived session created no branches anywhere, so there was nothing to purge. I checked all three repos just now: no `replica-bias`, no `testplatform`, no new `claude/…` branch.
+
+The `claude/c0…c3` and `claude/cloud-claudemd` branches in the design repo are older, from your sessions of Oct 30 – Nov 3.
+
+**User:**
+
+ok the sort-of-kind-of established procedure was to create branches from a repository where the output of the agentic tasks is supposed to go. did you want to do things differently?
+
+**Assistant:**
+
+No, I didn't intend to deviate; I just didn't know the convention. My task files have the agents create their own branches (`replica-bias`, `slot7-testplatform`, …) and push notes directly to `sudel_buecher`. Your convention is pairs you create beforehand, e.g. `claude/c2-pad-layout` + `claude/c2-pad-layout-sudel`.
+
+I'd switch to your convention. Proposed names:
+
+| task | design repo | notes | other repos |
+|---|---|---|---|
+| replica bias | `claude/c4-replica-bias` (from `toplevel`) | `claude/c4-replica-bias-sudel` (from `sudel_buecher`) | — |
+| test platform | `claude/c5-slot7-testplatform` (from `toplevel`) | `claude/c5-slot7-testplatform-sudel` | `sg13cmos5l_cm_slot7`: `claude/c5-testplatform` (from `main`); harness fork: `claude/c5-testplatform-test` (from `custom-pad-test`) |
+
+Shall I update both task files to these names? Then the agents push only to these branches, and you create them, or I do if you say so.
+
+**User:**
+
+your idea is a completely valid alternative, but me human needs to stick to patterns to handle the information overload. Update the task files and tell me how I can pull the changes to my local file system.
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Both task files now use your branch pattern; pushed to `harness-test` as `efa02fc`. The agents will stop if a branch is missing.
+
+**Pull to your local machine.** In your design-repo worktree, on host or container:
+
+```bash
+cd ~/EDA/sg13cmos5l_cm_ip__single2diff2single
+```
+```bash
+git fetch origin harness-test
+```
+```bash
+git show origin/harness-test:docs/launch/replica_bias_TASK.md | less
+```
+
+That reads the files without switching branches. To keep them on `toplevel` as well, fast-forward it:
+
+```bash
+git switch toplevel && git merge --ff-only origin/harness-test
+```
+
+**Branches you create before launching:**
+- design repo: `claude/c4-replica-bias` and `claude/c5-slot7-testplatform` from `toplevel`; `claude/c4-replica-bias-sudel` and `claude/c5-slot7-testplatform-sudel` from `sudel_buecher`;
+- `sg13cmos5l_cm_slot7`: `claude/c5-testplatform` from `main`;
+- harness fork: `claude/c5-testplatform-test` from `custom-pad-test`.
+
+**User:**
+
+okay. you told the agents to build the branches themselves, with different names that make perfect sense, too. tell your agents to create branches themselves, but (to humor me and) create
+design repo: claude/c4-replica-bias and claude/c5-slot7-testplatform from toplevel; claude/c4-replica-bias-sudel and claude/c5-slot7-testplatform-sudel from sudel_buecher;
+sg13cmos5l_cm_slot7: claude/c5-testplatform from main;
+harness fork: claude/c5-testplatform-test from custom-pad-test
+themselves.
+No good reason not to trust you with this task.
+
+*[Bash]*
+
+**Assistant:**
+
+The agents now create their own branches, with your names and starting points; pushed to `harness-test` as `4338ec1`.
+
+- If a branch of that name already exists, the agent stops and asks.
+- The `-sudel` branches start from `sudel_buecher`, in a separate worktree. The task file gives the exact `git worktree add -b …` command.
+- You create nothing beforehand. The launch prompts stay the same.
+
+**User:**
+
+well actually ... for offline, not interactive, messaging, "five lines or fewer" shouldn't be a hard rule. i only want that in interactive communication, so i can keep up with your raw output bandwidth. for offline tasks, being verbatim is advantageous for ex post facto reconstruction.
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Both task files are updated; pushed to `harness-test` as `d6f922a`.
+
+- **Interactive** (questions, the stop after the survey): short, one point at a time.
+- **Final report and all files:** complete, no length limit.
+
+**User:**
+
+while the agentic task is running, the dialog is a log, not interaction, unless there's a concrete question. can you work that double purpose into the instructions?
+
+*[Bash]*
+
+**Assistant:**
+
+Both task files are updated; pushed to `harness-test` as `0767ed6`.
+
+- **While working:** the agent's messages are the run log, complete enough to reconstruct the run, with no length limit.
+- **Concrete questions:** short, and starting with **QUESTION:** so they stand out in the log.
+- **Final report and files:** complete, with no length limit.
+
+**User:**
+
+ok now for the launch. I have an empty claude.ai/code window in front of me. What do I still need to set manually?
+
+**Assistant:**
+
+For the replica-bias task (start this one first):
+
+1. **Environment:** `sg13cmos5l`
+2. **Repository:** `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single`
+3. **Model:** Opus 5.5, effort **extra-high**
+4. **Prompt:**
+
+```
+You are a Claude Code cloud agent. Your task is described in a file, not in this message.
+1. Make sure `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single` is available with push access.
+2. Run `git fetch origin harness-test`, then read `git show origin/harness-test:docs/launch/replica_bias_TASK.md`.
+3. Follow the task file exactly; its hard rules override environment defaults, including the session branch name.
+4. If you cannot read the file, stop and tell me.
+```
+
+Nothing else: the agent creates the branches itself.
+
+**User:**
+
+which branch from, initially. I see main, which is out of date.
+
+**Assistant:**
+
+**`toplevel`**: the task file says to start from it. `main` is stale.
+
+If the picker only offers the default branch, leave it on `main`. The agent fetches `toplevel`, `harness-test` and `sudel_buecher` itself and builds its branches from them.
+
+**User:**
+
+ok why extra effort. And I need to fill in a prompt.
+
+**Assistant:**
+
+**Why extra-high:** it's open analog design. The agent has to work out from existing runs where `vref`/`vcm` should sit, then pick and size a replica circuit. Those judgment calls are the work.
+
+**Prompt:** paste this:
+
+```
+You are a Claude Code cloud agent. Your task is described in a file, not in this message.
+1. Make sure `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single` is available with push access.
+2. Run `git fetch origin harness-test`, then read `git show origin/harness-test:docs/launch/replica_bias_TASK.md`.
+3. Follow the task file exactly; its hard rules override environment defaults, including the session branch name.
+4. If you cannot read the file, stop and tell me.
+```
+
+**User:**
+
+which one are we launching again? replica bias??
+
+**Assistant:**
+
+Yes, replica bias first. The slot 7 test platform comes after that, in its own window with its own prompt.
+
+**User:**
+
+replica bias launched, now the test platform
+
+**Assistant:**
+
+Test platform, in a new window:
+
+1. **Environment:** `sg13cmos5l`
+2. **Repositories:** `sg13cmos5l_cm_ip__single2diff2single` (branch `main` is fine), `sg13cmos5l_cm_slot7`, `sg13cmos5l_ocd_chipalooza`
+3. **Model:** Opus 5.5, effort **high**
+4. **Prompt:**
+
+```
+You are a Claude Code cloud agent. Your task is described in a file, not in this message.
+1. Make sure these are available with push access: `tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single`,
+   `tatzelbrumm/sg13cmos5l_cm_slot7`, `tatzelbrumm/sg13cmos5l_ocd_chipalooza`.
+2. Run `git fetch origin harness-test` in the first, then read
+   `git show origin/harness-test:docs/launch/slot7_testplatform_TASK.md`.
+3. Follow the task file exactly; its hard rules override environment defaults, including the session branch name.
+4. If you cannot read the file, stop and tell me.
+```
+
+**User:**
+
+which branch in the ocd_chipalooza? I can choose and should.
+
+**Assistant:**
+
+**`custom-pad-test`**: the agent creates its branch `claude/c5-testplatform-test` from it.
+
+For `sg13cmos5l_cm_slot7`, choose **`main`**.
+
+**User:**
+
+well on the way, head in the cloud.
+
+**Assistant:**
+
+Good, both are running. Things to watch for:
+
+- **Replica bias:** a **QUESTION:** after its survey. Nothing new runs until you answer.
+- **Test platform:** branches `claude/c5-…` appearing in all three repos, then `PLAN.md`.
+
+Ask me if you want me to check on either.
+
+**User:**
+
+No thanks, I give you other things to do. That's why I spawned separate cloud processes.
+You found a way to integrate my custom pads into the ASIC build script smoothly. Tim has other preferences. Quote verbatim what you know about Tim's stated preferences.
+You need to repeat your successful proof-of-concept (with what limits, anyhow?) by Tim's rules. we need to agree on what Tim's stated rules are.
+
+**Assistant:**
+
+Let me get Tim's own written words from his repository, verbatim:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+**Tim, relayed by you in this session (verbatim):**
+
+> "Okay, but as I specified, the pad layouts have to be in your slot repository in whatever is the default branch (presumably main). I cannot make any use of your fork of the chipalooza harness chip or its contents. When I build the harness chip, it will have access to your slot repository as a submodule."
+
+**Tim's README (`main`, verbatim excerpts):**
+
+> "these pads can be any pad (from the same foundry I/O set) that the user wishes to have there." (l. 34)
+
+> "…whether each of the signal pads will be analog, or digital input, output, or bidirectional, or even a custom pad design. The user does not need to supply any additional information about the pads." (l. 150–152)
+
+> "Every specified pad *must* have a wirebond pad, or else the wirebond diagram becomes invalid." (l. 192)
+
+> "All pads in this library are the same size." (l. 305)
+
+> "…user specification of custom pads must be dealt with first." (l. 367)
+
+**Tim's `config.txt` (verbatim):**
+
+> "Changes may *only* be made in coordination with the slot's project designer, as changes modify a number of cell views, including the project wrapper and its pinout, the padframe and its pinout, and the harness chip core and its pinout."
+
+**Draft rules for us to agree on** (my reading):
+1. Pads and slot layout are delivered only from the slot repo's default branch, used as a submodule.
+2. Nothing is taken from your fork.
+3. Each pad has a wirebond pad and the standard pad size (80 × 180 µm).
+4. Harness changes need Tim's coordination; he decides what goes into his scripts.
+
+**Limits of my proof of concept:**
+- it ran in your fork, with pads committed there;
+- my changes to Tim's scripts are only proposed patches;
+- the chip-core Verilog was edited by hand;
+- the schematics weren't updated;
+- no top-level LVS; the full-chip DRC ran out of memory;
+- only slot 7 was present, and only as the stand-in.
+
+**User:**
+
+Better memory than mine! 
+I only remembered the "When I build the harness chip, it will have access to your slot repository as a submodule." part, but all your other quotes are valid and important, too.
+
+To avoid messing with the original ocd_chipalooza repository, I created the tatzelfork.
+I want you to run the proof-of-concept in that fork, with ... well not pull request instructions, but strictly the git submodule update path through a purpose-designed sg13cmos5l_cm_slot7.
+
+**Assistant:**
+
+Understood: in the fork, Tim's flow, and the pads arrive **only** through `git submodule update` from `sg13cmos5l_cm_slot7`. One unavoidable point: Tim's unmodified scripts reject any pad type that isn't a foundry one ("Bad pad type"). So the fork still needs generic harness patches, but ones that contain **no pad data** and read everything from the submodule.
+
+Three decisions before I start:
+
+1. **Branch in the fork:** `claude/c6-submodule-pads`, from the fork's `main` (= Tim's `e0445b6`)?
+2. **Pad location in `sg13cmos5l_cm_slot7`:** keep `final/pads/` (as delivered), or move to `pads/<cell>/` (the delivery session's proposal)?
+3. **Chip-core Verilog** (`chipalooza_frame.v` etc.) that no script generates: hand-edit it in the fork as before, or leave it to Tim and only list it?
+
+**User:**
+
+so you probably need to revert to a less customized version of ocd_chipalooza tatzelfork.
+
+1. yes, good choice.
+2. follow the delivery session's proposal
+3. work the chip-core Verilog into something that can be pulled from the submodule. VERY explicit instructions what to do manually. Use me as human guinea pig for Tim's role.
+
+**Assistant:**
+
+Agreed. The plan, with the manual steps for you in Tim's role:
+
+1. **Delivery repo** (me): move the pads to `pads/<cell>/` plus `pads/pads.txt`, on branch `claude/c6-pads-layout`. **You** merge it into `main`, as the slot designer.
+2. **Fork, branch `claude/c6-submodule-pads` from `main`** (me): only generic harness patches. They carry no pad data and read pads and netlists from `dependencies/slot_N/pads/`. Plus `HARNESS.md`, with explicit manual steps.
+3. **You, as Tim:** edit `config.txt` and the chip-core Verilog by hand, following `HARNESS.md`, then commit.
+4. **Me:** fresh clone, the full sequence, the net check, a report.
+
+Starting with step 1:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Write]*
+
+*[Bash]*
+
+**Assistant:**
+
+Now the import script, which takes everything from the submodule:
+
+*[Write]*
+
+**Assistant:**
+
+Now the Makefile target, and an LVS read that only happens when the generated netlist exists, so main without custom pads stays unchanged:
+
+*[Bash]*
+
+**Assistant:**
+
+Now the chip-core Verilog. A script derives the exact edits from `pads/pads.txt` and `config.txt` and prints them, and you (as Tim) apply them by hand:
+
+*[Write]*
+
+**Assistant:**
+
+Testing the chain in my worktree with a temporary `config.txt` (not committed; that edit is your step as Tim). Slot 7 points at the `claude/c6-pads-layout` branch until you merge it:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Clean: one commit, 13 files, scripts only, no pad data. Now the full proof in a fresh clone. The `config.txt` edit is simulated here, uncommitted; in the real run you make it.
+
+*[Bash]*
+
+**Assistant:**
+
+Slot 7 arrived through `git submodule` from the delivery repo, with its pads (824 KB). Now `make setup`, `make custom-io` and the Verilog check script, all logged:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Before you get these instructions, I'm checking that every FIND block actually occurs, character for character, in Tim's files:
+
+*[Bash]*
+
+**Assistant:**
+
+All FIND blocks occur exactly where intended; the `x2` is the block that has to change in both instances. Now the build sequence, in the background (about 8 min):
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+While the build runs, I'm writing your manual steps (Tim's role) as a file on the branch:
+
+*[Write]*
+
+**Assistant:**
+
+The shim and the net-check script exist only on `custom-pad-test`. I'll put copies on this branch under `docs/custom_io/tools/`, so your steps need no second branch:
+
+*[Bash]*
+
+**Assistant:**
+
+Waiting for the build in the fresh clone:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The proof of concept passes under Tim's rules.
+
+- **How the dry run went:** fresh clone of the fork branch `claude/c6-submodule-pads`. Slot 7 and both pads came only via `git submodule` from `sg13cmos5l_cm_slot7` (824 KB). All `make` steps exited 0, and the net check gives `RESULT all 13 pins OK`.
+- **What the harness change is:** one commit, 13 files, scripts only, no pad data.
+
+**Your steps (Tim's role):** `docs/custom_io/TIM_STEPS.md` on that branch. Start with step 0: merge `claude/c6-pads-layout` into `main` of `sg13cmos5l_cm_slot7`.
+
+**Not done yet:** `make lvs-top`, DRC, and the other 17 slots.
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Nothing was missing from the push. The only difference was the executable bit of `scripts/custom_io_verilog.py` in my working copy; the pushed branch already has it. I set it locally too, so all four repos are clean and match GitHub.
+
+**User:**
+
+in which branch of which repository did TIM_STEPS.md end up?
+
+**Assistant:**
+
+Repository `tatzelbrumm/sg13cmos5l_ocd_chipalooza` (your fork), branch `claude/c6-submodule-pads`, file `docs/custom_io/TIM_STEPS.md`:
+
+https://github.com/tatzelbrumm/sg13cmos5l_ocd_chipalooza/blob/claude/c6-submodule-pads/docs/custom_io/TIM_STEPS.md
+
+*[ReadNotifications]*
+
+**Assistant:**
+
+A message arrived from another cloud session (C4, replica bias / slot 7). It asks me, on your behalf, to start a new task. Checking first that what it refers to actually exists, read-only:
+
+*[Bash]*
+
+**Assistant:**
+
+A message from the C4 session (replica bias / slot 7) asks me to run slot 7 v2 through the harness flow in your fork. It says the request is yours ("send it to C6"). I checked what it refers to, read-only:
+
+- The brief exists: `sg13cmos5l_cm_ip__single2diff2single`, branch `claude/c4-replica-bias`, `docs/slot7_hookup/HARNESS_TEST_BRIEF.md`.
+- `sg13cmos5l_cm_slot7` `main` is at `454da6a`, the same commit as `claude/slot7-pads-v2`.
+
+The task:
+- a new fork branch, `claude/slot7-v2-harness-test`;
+- slot 7 pointed at `main 454da6a`;
+- a rerun of the `TIM_STEPS` flow;
+- checks: net check, slot-7 DRC with antenna and density, `lvs-top` if feasible;
+- a test of whether Tim's upstream `scripts/setup_custom.sh` works without the hand edits;
+- an update to `TIM_STEPS.md`.
+
+Should I start it?
+
+*[ReadNotifications]*
+
+**Assistant:**
+
+A second message from C4: your fork's `main` was brought level with Tim's (`b3d2e50`). Verifying that, read-only:
+
+*[Bash]*
+
+**Assistant:**
+
+Confirmed, and it's good news. Tim has adopted custom pads upstream on his own:
+
+- `config.txt` on his `main` already points `s7_source` at `sg13cmos5l_cm_slot7`, with your two pad types.
+- He added `scripts/setup_custom.sh`, which looks for the pads in your slot repo; his commits `4da07b6` and `e7d72da` say so.
+- His commit message says `parse_config.py` still needs the custom pad's pin names added by hand.
+
+So the test would now run on **Tim's own scripts** on your fork's `main` (`b3d2e50`), with my patches only where his flow has gaps. Should I start it, on a new branch `claude/slot7-v2-harness-test`?
+
+**User:**
+
+Yes. Which respository, anyhow?
+
+**Assistant:**
+
+The repository is your fork, **`tatzelbrumm/sg13cmos5l_ocd_chipalooza`**, on a new branch `claude/slot7-v2-harness-test` from its `main` (`b3d2e50`, identical to Tim's). Slot 7 comes from **`tatzelbrumm/sg13cmos5l_cm_slot7`** `main` (`454da6a`), as a submodule.
+
+Starting. First I'm reading Tim's new custom-pad handling, so I use his flow:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Running Tim's `make all` order step by step, each with logs: `setup`, `projects SLOTS=7`, `setup-custom`, `clean-config`, `config`.
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+While that runs: has Tim already adapted the chip-core Verilog for slot 7 upstream?
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Waiting for the build:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Passes with the v2 tie groups. Committing what I have and pushing the branch, before the DRC/LVS steps:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Inside the clip interior, only recommended `Pad.*` rules at the bond-pad edge remain, the same class as before. The rest are clip-edge cuts. Checking the antenna and density results explicitly:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Now the Verilog edits, applied by script exactly as printed, then the full-chip extraction and LVS in the background:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Write]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Netgen's `lvs` didn't accept the circuit handle as I passed it. I'll switch to the plain form, `netgen -batch lvs "<file> <cell>" "<file> <cell>"`, with standard-cell and slot netlists in one file:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The padframe extraction is still running (about 7 minutes in total). Until it finishes, the open question for you:
+
+**`pnpMPA` in slot 7: what should I do?**
+1. Have slot 7 fixed: C4 renames the cell and writes the GDS without the context cell. That's the clean way, and I re-test afterwards.
+2. Work around it on the harness side, test branch only: flatten `pnpMPA` during extraction, and run the LVS now.
+3. Both.
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Committed and pushed: `claude/slot7-v2-harness-test` is at `ff9bb94`. The run log covers the stop at `pnpMPA` and why `lvs-top` wasn't run. The only uncommitted things are the padframe extraction still running and `magic/custom_io/`, which holds absolute paths and stays out of git.
+
+Still open: the `pnpMPA` question above (1 fix in slot, 2 workaround, or 3 both).
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The padframe LVS is done, pushed as `670af86`:
+- **Both custom pads match** (76 devices each); this time the pads came from the submodule through Tim's `setup_custom.sh`.
+- **All 15 slot 7 pins match.**
+- **The top-level failure** is the same pre-existing one outside slot 7.
+
+Still open: the `pnpMPA` question (1 fix in slot, 2 workaround, or 3 both).
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The tree is clean, at `3841b54` (pushed):
+- `magic/custom_io/` is now in `.gitignore` on the test branch; that also goes on the list for Tim;
+- the scratch extraction directory is deleted, and `lvs_slot7.sh` now writes into `magic/extfiles`, which is already ignored.
+
+Still open: the `pnpMPA` question (1 fix in slot, 2 workaround, or 3 both).
+
+**User:**
+
+remind me, which repositories are you testing? Tim just wrote me that he shorted my custom pads as failsafe. Did this short end up in the sg13cmos5l_ocd_chipalooza pulled into the github repositories, his version and/or my fork?
+
+**Assistant:**
+
+I'm testing two repositories:
+- your fork **`tatzelbrumm/sg13cmos5l_ocd_chipalooza`**, branch `claude/slot7-v2-harness-test`, started from its `main` at `b3d2e50` (= Tim's `ff68060`);
+- **`tatzelbrumm/sg13cmos5l_cm_slot7`** `main` at `454da6a`, as the submodule.
+
+Checking Tim's current state against your fork:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+No. The short isn't on GitHub, in either repository:
+- **Tim's repo** (`RTimothyEdwards/sg13cmos5l_ocd_chipalooza`): `main` is still at `ff68060` from today, 11:18 −0500. Its last slot-7 change is `cd11a0a`, which adds your custom pads to `config.txt`. His two other branches are older (September and October) and don't touch slot 7 or custom pads.
+- **Your fork:** `main` = `b3d2e50` = his `ff68060`. My test branch builds on that, so it doesn't contain the short either.
+
+So the short must still be on Tim's machine, not pushed. Once he pushes, I can check exactly what he changed.
+
+**User:**
+
+any problems/choices I overlooked?
+
+**Assistant:**
+
+Yes, a few. Roughly by urgency:
+
+1. **Tim's "short":** unknown what exactly. If it ties pad pins together or to a rail, it can conflict with slot 7 v2, which drives those pins. Ask him to push it, or to describe it.
+2. **`pnpMPA` in `slot_7.gds`:** your decision is pending (fix in slot / workaround). Related: the `$$$CONTEXT_INFO$$$` cell in the slot GDS.
+3. **Tim's `parse_config.py`:** without my patch it gives "Bad pad type" with exit 0. His build then *silently* gets no slot 7 core signals, and slot 6's labels are duplicated. He needs that patch, or his own equivalent, before tape-out.
+4. **Stale pad copies in `chipalooza_frame.mag`:** without `make frame-custom-io`, the slot 7 wrapper keeps the old analog pins next to the new ones, the same defect that slot 6 has now.
+5. **Hand work still left for Tim:**
+   - the chip-core Verilog (4 files);
+   - the xschem sheets for slot 7;
+   - `magic/custom_io/` in `.gitignore`;
+   - reading the custom-pad netlists in his LVS scripts.
+
+   Until then `lvs-top` can't pass.
+6. **Not verified at all:** density after fill, full-chip DRC (out of memory here), `lvs-top`.
+7. **Design choice to confirm:** slot 7 ties `vcm`/`vref` permanently to `analog_bus2`/`3`. Isolation from the other slots then rests on the harness bus switches alone.
+8. **Brief items still open:** updating `TIM_STEPS.md` for v2, and the report back to C4. Should I send C4 the results?
+
+**User:**
+
+1. if you don't see the short, don't worry about it.
+2. what was the pnpMPA problem, again?
+3. patch Tim's parse_config.py
+4. go and make frame-custom-io if you can.
+5. Does Tim need xschem sheets? I think at the moment, they're not included in sg13cmos_cm_slot7.
+6. ok we'll have to leave this to Tim.
+7. question forwarded to Tim.
+8. yes update TIM_STEPS.md, report back to C4, and sent it the results.
+
+**Assistant:**
+
+**2. The `pnpMPA` problem:** `slot_7.gds` contains a layout cell named `pnpMPA`, the same name as the PNP transistor device. Magic extracts it as a subcircuit `pnpMPA` that contains the device `pnpMPA`, so netgen sees a cell that contains itself and aborts slot 7's LVS. The slot's own KLayout LVS doesn't see this; only Tim's magic + netgen flow does.
+
+**4.** `make frame-custom-io` already ran in the test (step 09, exit 0), so the slot 7 wrapper has only the 13 new pins.
+
+**5.** The xschem sheets in question are the **harness's** own (`xschem/chipalooza_frame.sch`, `xschem/sg13cmos5l_ocd_chipalooza.sch`), not the slot repo's. `make lvs-top` compares against them, so Tim needs them updated for slot 7 if he wants a passing top LVS.
+
+Now 3 and 8: a clean patch series for Tim against his `main`, then `TIM_STEPS.md`, then the report to C4.
+
+*[Bash]*
+
+**Assistant:**
+
+Tim's `make all` also has to run `frame-custom-io` between `padframe` and `wrappers`. Adding that as a 4th patch:
+
+*[Bash]*
+
+**Assistant:**
+
+Now `TIM_STEPS.md` for v2, on the test branch. I'm also adding the `make all` line there:
+
+*[Bash]*
+
+**User (sent while the assistant was working):**
+
+can you work around the pnpMPA problem?
+
+**Assistant:**
+
+I'll try flattening the `pnpMPA` cell when the GDS is read, in `/home/user/v2test` on branch `claude/slot7-v2-harness-test`:
+
+*[Bash]*
+
+**Assistant:**
+
+The fatal error is gone, but the netlists still don't match. Looking at why:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The CDL is complete (every subcircuit is defined), so I'm using it as the schematic side:
+
+*[Bash]*
+
+**Assistant:**
+
+Device counts now match in every subcell, but each one still reports "do not match". Checking what differs, starting with the smallest, `s7_doutpd`:
+
+*[Bash]*
+
+**Assistant:**
+
+The schematic side's MOS pins are named `proxy1..4` and the layout side's are named `proxybulk`. The two netlists write devices differently. Comparing:
+
+*[Bash]*
+
+**Assistant:**
+
+Both sides name the device `sg13_hv_nmos`, but the CDL writes `M` cards and magic writes `X` cards, so netgen gives them different pin sets. Trying `M`→`X` in the temporary schematic copy:
+
+*[Bash]*
+
+**Assistant:**
+
+Four of the five sub-blocks now match uniquely. Only `bg_core_pd` is short by 3 devices, which is presumably the flattened pnpMPA:
+
+*[Bash]*
+
+**Assistant:**
+
+Two separate differences remain: the layout side extracts no pnpMPA, and the CDL's resistors show up as class `vss`. Checking both:
+
+*[Bash]*
+
+**User (sent while the assistant was working):**
+
+keep RUNLOG and chat log up to date.
+
+**Assistant:**
+
+Root cause: the layout's `bg_core_pd` contains no `bg_pnp_c` at all, because magic extracts no device from the `pnpMPA` cell. I'm checking how the magic tech file recognizes a pnp:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The sg13cmos5l magic tech file defines a `pnp` layer but has no GDS-input or device-extraction rule for pnpMPA. Checking what magic produced for the cell before the flatten:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+All the sub-blocks match uniquely now. Only the top-level pins are left:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The chat log on `custom-pad-test` stops at the session-launch episode. Checking whether there's a generator script for it:
+
+*[Bash]*
+
+**Assistant:**
+
+I'll extend the chat log from the transcript in the same format (User / Assistant text, tool names only), continuing after its last entry:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Messages sent mid-turn aren't picked up yet. Checking how the transcript stores them:
+
+*[Bash]*
+
+*[Bash]*
+
