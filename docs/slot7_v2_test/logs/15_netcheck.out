@@ -1,0 +1,15 @@
+gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza clip (1901.1,2271.1)-(2096.1,2471.1)
+  s7_an_0_vref       OK  net labels: ['s7_an_0_vref', 'vref']
+  s7_an_0_outp       FAIL  net labels: ['outp', 's7_an_0_outp', 'vfbp', 'voutp']  MISSING: ['s7_an_1_vinp', 'vinp']
+  s7_an_0_outn       FAIL  net labels: ['outn', 's7_an_0_outn', 'vfbn', 'voutn']  MISSING: ['s7_an_1_vinn', 'vinn']
+  s7_an_0_vcm        FAIL  net labels: ['s7_an_0_vcm', 's7_an_1_vref', 'vcm', 'vref']  FOREIGN: ['s7_an_1_vref', 'vref']
+  s7_an_0_en_3v3     FAIL  net labels: ['en_3v3', 's7_an_0_en_3v3', 's7_an_1_en_3v3']  FOREIGN: ['s7_an_1_en_3v3']
+  s7_an_0_en_3v3_b   FAIL  net labels: ['en_3v3_b', 's7_an_0_en_3v3_b', 's7_an_1_en_3v3_b']  FOREIGN: ['s7_an_1_en_3v3_b']
+  s7_an_0_iref       OK  net labels: ['iref', 's7_an_0_iref']
+  s7_an_1_vinp       FAIL  net labels: ['s7_an_1_vinp', 'vinp']  MISSING: ['outp', 's7_an_0_outp', 'vfbp', 'voutp']
+  s7_an_1_vinn       FAIL  net labels: ['s7_an_1_vinn', 'vinn']  MISSING: ['outn', 's7_an_0_outn', 'vfbn', 'voutn']
+  s7_an_1_vref       FAIL  net labels: ['s7_an_0_vcm', 's7_an_1_vref', 'vcm', 'vref']  FOREIGN: ['s7_an_0_vcm', 'vcm']
+  s7_an_1_iref       OK  net labels: ['iref', 's7_an_1_iref']
+  s7_an_1_en_3v3_b   FAIL  net labels: ['en_3v3_b', 's7_an_0_en_3v3_b', 's7_an_1_en_3v3_b']  FOREIGN: ['s7_an_0_en_3v3_b']
+  s7_an_1_en_3v3     FAIL  net labels: ['en_3v3', 's7_an_0_en_3v3', 's7_an_1_en_3v3']  FOREIGN: ['s7_an_0_en_3v3']
+RESULT FAILURES

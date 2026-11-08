@@ -1,0 +1,41 @@
+#!/bin/bash
+# PATH shim for magic 8.3.685 (the version installed in the cloud test environment).
+#
+# Problem: in this magic build, "locking disable" makes every cell that is read
+# from disk afterwards read-only ("read-only" is printed, cellname writeable
+# returns 0).  Every harness script runs "locking disable" first, so e.g.
+# run_gen_user_wrappers.sh cannot delete the slot wrapper instances from
+# chipalooza_frame and writes 18 empty wrappers, and gen_padframe.tcl cannot
+# post-process chipalooza_frame_wrapper (obstructions, via erase).
+#
+# Workaround: turn "locking disable" into a no-op by redefining the Tcl command
+# before the script on stdin runs.  File locking stays enabled, which is harmless
+# for these single-process batch runs.  Nothing in the harness is changed.
+#
+# Only for the batch scripts (magic reading its commands from stdin).  An
+# interactive session (stdin is a terminal) and "magic --version" go straight
+# to the real magic.
+# Use:  export PATH=<repo>/docs/custom_pads/tools/shim:$PATH
+#
+# The real magic is the next "magic" on PATH after this directory.
+SELF_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+REAL=
+IFS=: read -r -a dirs <<< "$PATH"
+for d in "${dirs[@]}"; do
+    [ -z "$d" ] && continue
+    [ "$(cd "$d" 2>/dev/null && pwd)" = "$SELF_DIR" ] && continue
+    if [ -x "$d/magic" ]; then REAL="$d/magic"; break; fi
+done
+if [ -z "$REAL" ]; then
+    echo "magic shim: no other magic found on PATH" >&2
+    exit 127
+fi
+case " $* " in *" --version "*|*" -version "*) exec "$REAL" "$@" ;; esac
+if [ -t 0 ]; then
+    exec "$REAL" "$@"
+fi
+{
+  echo 'rename locking _shim_orig_locking'
+  echo 'proc locking {args} { if {$args eq "disable"} { return } ; return [uplevel 1 _shim_orig_locking $args] }'
+  cat
+} | "$REAL" "$@"
