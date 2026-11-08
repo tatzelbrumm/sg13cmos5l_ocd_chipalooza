@@ -150,3 +150,18 @@ shim `docs/slot7_v2_test/shim/magic` (locking bug), PDK sparse checkout without 
 - make lvs-top NOT run: validate/run_lvs_ocd_chipalooza.sh reads the xschem top netlist netlist/schematic/sg13cmos5l_ocd_chipalooza.spice last, and the xschem sheets still carry the old slot-7 pins (not script-generated; hand edits in xschem needed first), so slot 7 would mismatch by construction; it is also the heaviest run (full-chip extraction).
 - validate/run_lvs_padframe.sh, validate/run_lvs_ocd_chipalooza.sh: + readnet of dependencies/slot_*/pads/*/*.spice (Tim's LVS scripts do not read custom pad netlists yet). Padframe extraction + LVS (21, 22) running.
 - 24: LVS of slot 7 with magic + netgen (docs/slot7_v2_test/lvs_slot7.sh): extraction ok; netgen: "Fatal: Class "pnpMPA" is instanced inside of itself!" -- slot_7.gds has a layout cell named pnpMPA, the same name as the PNP device, so magic writes .subckt pnpMPA containing device pnpMPA. A problem in the slot for Tim's magic/netgen flow (the slot's own KLayout LVS passes). Also: slot_7.gds contains KLayout's $$$CONTEXT_INFO$$$ cell (extra top cell; magic: "Unknown layer/datatype in boundary, layer=0 type=0"). Stopped here and asked the user (brief: ask before working around a failure in the slot).
+
+### 21 make_extract-padframe
+- start 2026-11-08T19:05:19Z, end 2026-11-08T19:10:19Z
+- cwd: `/home/user/v2test`
+- command: `make extract-padframe`
+- exit status: 0
+- logs: `logs/21_make_extract-padframe.out`, `logs/21_make_extract-padframe.err`
+
+### 22 make_lvs-padframe
+- start 2026-11-08T19:10:19Z, end 2026-11-08T19:10:20Z
+- cwd: `/home/user/v2test`
+- command: `make lvs-padframe`
+- exit status: 0
+- logs: `logs/22_make_lvs-padframe.out`, `logs/22_make_lvs-padframe.err`
+- 21/22: padframe extraction + LVS with Tim's flatten-view pads (setup_custom.sh) and the pads' netlists from the submodule: both custom pads match (S2D 76 devices / 37 nets, D2S 76 / 36, 'Netlists match with 7 symmetries with property errors', mm_ok only); all 15 slot-7 top pins match (s7_an[0..1] + 13 core nets); top 'Final result: Top level cell failed pin matching' with devices 500/499, nets 308/305: the same pre-existing mismatches outside slot 7 as on main (Split200 cells, supply-pad clamp nets).
