@@ -67,6 +67,10 @@ check:					## report out-of-date derived views
 setup:					## import PDK cell views into magic/ libraries
 	./scripts/setup.sh
 
+.PHONY: frame-custom-io
+frame-custom-io:			## drop stale pad-edge copies from chipalooza_frame (custom pads)
+	./scripts/run_update_frame_custom_io.sh
+
 .PHONY: setup-custom
 setup-custom:				## import custom pad views from slot projects into magic/custom_io
 	./scripts/setup_custom.sh

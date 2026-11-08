@@ -202,6 +202,9 @@ proc label_top_analog {pad_name pin_name pin_text} {
     port make
 }
 
+# Label procedures for custom pad cells (label_right_custom, label_left_custom)
+source ../scripts/custom_io.tcl
+
 # Add routed "constant_block" cells.  Given a cell instance name, the
 # constant block is set off to the side under the pad bus.
 
