@@ -121,6 +121,14 @@ projects:				## clone the user projects named in config.txt
 projects-status:			## report each slot against config.txt
 	@./scripts/get_projects.sh --status $(SLOTS)
 
+# Updated slots are left on a detached HEAD at the pinned commit.  To put
+# a slot back on its branch (when the pinned commit is the branch tip):
+#
+#	git -C dependencies/slot_<N> checkout -B main origin/main
+#
+# "-B" resets the local branch, which is needed after a repository swap
+# (the local "main" is still the old repository's), but it also drops
+# any local commits on that branch, so check "git log" in the slot first.
 projects-update:			## move projects onto the versions in config.txt
 	./scripts/get_projects.sh --update $(SLOTS)
 
@@ -282,6 +290,7 @@ all:
 	make clean-config
 	make config
 	make padframe
+	make wrappers
 	make gds-slots
 	make user-id
 	make projects-gds

@@ -25,12 +25,14 @@ for {set i 1} {\${i} <= 18} {incr i} {
 
 # Create a fake fill pattern cell.  One is instantiated in the project, but there
 # is no .mag file for it (to avoid creating the huge file in addition to the GDS).
-# This is an empty placeholder and is never saved.  (NOTE:  This is needed for the
-# final top level that includes fill; currently unused, so commented out.)
+# This is an empty placeholder and is never saved.
 #
-# load ${PROJECT}_fill_pattern -silent
-# property FIXED_BBOX 0 0 1 1
-# property LEFview true
+# (NOTE:  This is needed for the final top level that includes fill; otherwise it
+# is unused and can be commented out.)
+#
+load sg13cmos5l_ocd_chipalooza_fill_pattern -silent
+property FIXED_BBOX 0 0 1 1
+property LEFview true
 
 # Now read the project top level and extract it.
 load $PROJECT -dereference

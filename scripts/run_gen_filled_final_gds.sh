@@ -12,7 +12,7 @@
 # top level cell name and GDS file name will be set to its value.  If
 # not, then the default top level name is "sg13cmos5l_ocd_chipalooza_final".
 # When submitting for an IHP shuttle run, the project name will be dictated
-# by the IHP submission process (e.g., PROJECT=IHP__MPC9763).
+# by the IHP submission process (e.g., PROJECT=IHP__MPC9639).
 
 echo ${PROJECT:=sg13cmos5l_ocd_chipalooza_final} > /dev/null
 

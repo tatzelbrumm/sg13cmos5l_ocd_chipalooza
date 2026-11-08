@@ -77,16 +77,16 @@ project_id: 20260908
 #--------------------------------------------------------------------------------------
 s1_source:	https://github.com/rcyaon/bidir-level-shifter
 s2_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot2_backup
-s3_source:	https://github.com/htfab/hsxo-cpz2
+s3_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot3_backup
 s4_source:	https://github.com/phdridha12/sg13cmos5l_Wind_Comp
 s5_source:	https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
 s6_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__pll_rosc
-s7_source:	https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2single
+s7_source:	https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
 s8_source:	https://github.com/adankvitschal/sg13g2_mh_ip__cmos_vref
 s9_source:	https://github.com/orpheus016/sg13cmos5l_spma_ip__instramp
 s10_source:	https://github.com/lhrodovalho/sg13cmos5l_rodovalho_ip__lpopamp
 s11_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__ldo_capless
-s12_source:	https://github.com/RFICExplorer/sg13cmos5l_chipalooza_analog_project
+s12_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot12_backup
 s13_source:	https://github.com/bhagwat-rahul/sg13cmos5l_rahulbhagwat_ip_pll_fractional_n_charge_pump_ring_osc
 s14_source:	https://github.com/Intubun/chipalooza_lvds_pll
 s15_source:	https://github.com/srout/sg13cmos5l_srout_ip__tinyBGR
@@ -120,8 +120,8 @@ s18_version:	-		-
 # Project	Author
 #--------------------------------------------------------------------------------------
 slot_1:		Araujo
-slot_2:		Saab
-slot_3:		Hubai
+slot_2:		El-Shinnawey/Rodovalho
+slot_3:		El-Shinnawey
 slot_4:		Ridha
 slot_5:		Sotehi
 slot_6:		Mysore
@@ -130,7 +130,7 @@ slot_8:		Kvitschal
 slot_9:		Malik et al.
 slot_10:	Rodovalho
 slot_11:	Mysore
-slot_12:	Mahmoud
+slot_12:	El-Shinnawey
 slot_13:	Bhagwat
 slot_14:	Schnackenberg
 slot_15:	Rout
@@ -153,8 +153,8 @@ s5_an[1]:	sg13cmos5l_IOPadAnalog		s5_an_1
 s5_an[2]:	sg13cmos5l_IOPadAnalog		s5_an_2
 s6_an[0]:	sg13cmos5l_IOPadIn		s6_an_0
 s6_an[1]:	sg13cmos5l_IOPadOut16mA		s6_an_1
-s7_an[0]:	sg13cmos5l_IOPadAnalog		s7_an_0
-s7_an[1]:	sg13cmos5l_IOPadAnalog		s7_an_1
+s7_an[0]:	sg13cmos5l_IOPadSingle2Diff	s7_an_0
+s7_an[1]:	sg13cmos5l_IOPadDiff2Single	s7_an_1
 s8_an[0]:	sg13cmos5l_IOPadAnalog		s8_an_0
 s9_an[0]:	sg13cmos5l_IOPadAnalog		s9_an_0
 s9_an[1]:	sg13cmos5l_IOPadAnalog		s9_an_1
