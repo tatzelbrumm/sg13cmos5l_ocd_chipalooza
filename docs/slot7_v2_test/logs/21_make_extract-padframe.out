@@ -1,0 +1,614 @@
+cd magic && ./run_extract_padframe.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell sg13cmos5l_padframe read from current working directory
+Cell copyright_block read from current working directory
+Cell font_76 read from path alpha
+Scaled magic input cell font_76 geometry by factor of 24
+Cell font_75 read from path alpha
+Scaled magic input cell font_75 geometry by factor of 24
+Cell font_74 read from path alpha
+Scaled magic input cell font_74 geometry by factor of 24
+Cell font_73 read from path alpha
+Scaled magic input cell font_73 geometry by factor of 24
+Cell font_72 read from path alpha
+Scaled magic input cell font_72 geometry by factor of 24
+Cell font_70 read from path alpha
+Scaled magic input cell font_70 geometry by factor of 24
+Cell font_69 read from path alpha
+Scaled magic input cell font_69 geometry by factor of 24
+Cell font_68 read from path alpha
+Scaled magic input cell font_68 geometry by factor of 24
+Cell font_67 read from path alpha
+Scaled magic input cell font_67 geometry by factor of 24
+Cell font_65 read from path alpha
+Scaled magic input cell font_65 geometry by factor of 24
+Cell font_63 read from path alpha
+Scaled magic input cell font_63 geometry by factor of 24
+Cell font_62 read from path alpha
+Scaled magic input cell font_62 geometry by factor of 24
+Cell font_61 read from path alpha
+Scaled magic input cell font_61 geometry by factor of 24
+Cell font_56 read from path alpha
+Scaled magic input cell font_56 geometry by factor of 24
+Cell font_53 read from path alpha
+Scaled magic input cell font_53 geometry by factor of 24
+Cell font_50 read from path alpha
+Scaled magic input cell font_50 geometry by factor of 24
+Cell font_49 read from path alpha
+Scaled magic input cell font_49 geometry by factor of 24
+Cell font_48 read from path alpha
+Scaled magic input cell font_48 geometry by factor of 24
+Cell font_47 read from path alpha
+Scaled magic input cell font_47 geometry by factor of 24
+Cell font_44 read from path alpha
+Scaled magic input cell font_44 geometry by factor of 24
+Cell font_43 read from path alpha
+Scaled magic input cell font_43 geometry by factor of 24
+Cell font_36 read from path alpha
+Scaled magic input cell font_36 geometry by factor of 24
+Cell font_35 read from path alpha
+Scaled magic input cell font_35 geometry by factor of 24
+Cell font_33 read from path alpha
+Scaled magic input cell font_33 geometry by factor of 24
+Cell font_32 read from path alpha
+Scaled magic input cell font_32 geometry by factor of 24
+Cell font_31 read from path alpha
+Scaled magic input cell font_31 geometry by factor of 24
+Cell font_30 read from path alpha
+Scaled magic input cell font_30 geometry by factor of 24
+Cell font_29 read from path alpha
+Scaled magic input cell font_29 geometry by factor of 24
+Cell font_28 read from path alpha
+Scaled magic input cell font_28 geometry by factor of 24
+Cell font_7A read from path alpha
+Scaled magic input cell font_7A geometry by factor of 24
+Cell font_6F read from path alpha
+Scaled magic input cell font_6F geometry by factor of 24
+Cell font_6E read from path alpha
+Scaled magic input cell font_6E geometry by factor of 24
+Cell font_6D read from path alpha
+Scaled magic input cell font_6D geometry by factor of 24
+Cell font_6C read from path alpha
+Scaled magic input cell font_6C geometry by factor of 24
+Cell font_4F read from path alpha
+Scaled magic input cell font_4F geometry by factor of 24
+Cell font_4E read from path alpha
+Scaled magic input cell font_4E geometry by factor of 24
+Cell font_4D read from path alpha
+Scaled magic input cell font_4D geometry by factor of 24
+Cell font_4C read from path alpha
+Scaled magic input cell font_4C geometry by factor of 24
+Cell font_4B read from path alpha
+Scaled magic input cell font_4B geometry by factor of 24
+Cell font_2E read from path alpha
+Scaled magic input cell font_2E geometry by factor of 24
+Cell font_2C read from path alpha
+Scaled magic input cell font_2C geometry by factor of 24
+Cell sg13cmos5l_Corner read from path sg13cmos5l_io
+sg13cmos5l_Corner: 10000 rects
+sg13cmos5l_Corner: 20000 rects
+sg13cmos5l_Corner: 30000 rects
+sg13cmos5l_Corner: 40000 rects
+sg13cmos5l_Corner: 50000 rects
+sg13cmos5l_Corner: 60000 rects
+sg13cmos5l_Corner: 70000 rects
+sg13cmos5l_Corner: 80000 rects
+sg13cmos5l_Corner: 90000 rects
+sg13cmos5l_Corner: 100000 rects
+sg13cmos5l_Corner: 110000 rects
+sg13cmos5l_Corner: 120000 rects
+sg13cmos5l_Corner: 130000 rects
+sg13cmos5l_Corner: 140000 rects
+sg13cmos5l_Corner: 150000 rects
+sg13cmos5l_Corner: 160000 rects
+sg13cmos5l_Corner: 170000 rects
+sg13cmos5l_Corner: 180000 rects
+sg13cmos5l_Corner: 190000 rects
+sg13cmos5l_Corner: 200000 rects
+sg13cmos5l_Corner: 210000 rects
+sg13cmos5l_Corner: 220000 rects
+sg13cmos5l_Corner: 230000 rects
+sg13cmos5l_Corner: 240000 rects
+sg13cmos5l_Corner: 250000 rects
+sg13cmos5l_Corner: 260000 rects
+sg13cmos5l_Corner: 270000 rects
+sg13cmos5l_Corner: 280000 rects
+sg13cmos5l_Corner: 290000 rects
+sg13cmos5l_Corner: 300000 rects
+sg13cmos5l_Corner: 310000 rects
+sg13cmos5l_Corner: 320000 rects
+sg13cmos5l_Corner: 330000 rects
+sg13cmos5l_Corner: 340000 rects
+sg13cmos5l_Corner: 350000 rects
+sg13cmos5l_Corner: 360000 rects
+sg13cmos5l_Corner: 370000 rects
+sg13cmos5l_Corner: 380000 rects
+sg13cmos5l_Corner: 390000 rects
+sg13cmos5l_Corner: 400000 rects
+sg13cmos5l_Corner: 410000 rects
+sg13cmos5l_Corner: 420000 rects
+sg13cmos5l_Corner: 430000 rects
+sg13cmos5l_Corner: 440000 rects
+sg13cmos5l_Corner: 450000 rects
+sg13cmos5l_Corner: 460000 rects
+sg13cmos5l_Corner: 470000 rects
+sg13cmos5l_Corner: 480000 rects
+sg13cmos5l_Corner: 490000 rects
+sg13cmos5l_Corner: 500000 rects
+sg13cmos5l_Corner: 510000 rects
+sg13cmos5l_Corner: 520000 rects
+sg13cmos5l_Corner: 530000 rects
+Cell bondpad_LX3CBX read from path paramcells
+Scaled magic input cell bondpad_LX3CBX geometry by factor of 2
+Cell sg13cmos5l_IOPadTriOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadTriOut16mA: 10000 rects
+sg13cmos5l_IOPadTriOut16mA: 20000 rects
+sg13cmos5l_IOPadTriOut16mA: 30000 rects
+sg13cmos5l_IOPadTriOut16mA: 40000 rects
+sg13cmos5l_IOPadTriOut16mA: 50000 rects
+sg13cmos5l_IOPadTriOut16mA: 60000 rects
+sg13cmos5l_IOPadTriOut16mA: 70000 rects
+sg13cmos5l_IOPadTriOut16mA: 80000 rects
+sg13cmos5l_IOPadTriOut16mA: 90000 rects
+sg13cmos5l_IOPadTriOut16mA: 100000 rects
+sg13cmos5l_IOPadTriOut16mA: 110000 rects
+sg13cmos5l_IOPadTriOut16mA: 120000 rects
+sg13cmos5l_IOPadTriOut16mA: 130000 rects
+Cell sg13cmos5l_GateDecode read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUp read from path sg13cmos5l_io
+Cell sg13cmos5l_io_tie read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nor2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_nand2_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_io_inv_x1 read from path sg13cmos5l_io
+Cell sg13cmos5l_DCPDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCPDiode geometry by factor of 2
+Cell sg13cmos5l_DCNDiode read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_DCNDiode geometry by factor of 2
+Cell sg13cmos5l_Clamp_P8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_N8N8D read from path sg13cmos5l_io
+Cell sg13cmos5l_Filler4000 read from path sg13cmos5l_io
+sg13cmos5l_Filler4000: 10000 rects
+sg13cmos5l_Filler4000: 20000 rects
+sg13cmos5l_Filler4000: 30000 rects
+sg13cmos5l_Filler4000: 40000 rects
+sg13cmos5l_Filler4000: 50000 rects
+Cell sg13cmos5l_IOPadIn read from path sg13cmos5l_io
+sg13cmos5l_IOPadIn: 10000 rects
+sg13cmos5l_IOPadIn: 20000 rects
+sg13cmos5l_IOPadIn: 30000 rects
+sg13cmos5l_IOPadIn: 40000 rects
+sg13cmos5l_IOPadIn: 50000 rects
+sg13cmos5l_IOPadIn: 60000 rects
+sg13cmos5l_IOPadIn: 70000 rects
+sg13cmos5l_IOPadIn: 80000 rects
+sg13cmos5l_IOPadIn: 90000 rects
+sg13cmos5l_IOPadIn: 100000 rects
+sg13cmos5l_IOPadIn: 110000 rects
+sg13cmos5l_IOPadIn: 120000 rects
+sg13cmos5l_IOPadIn: 130000 rects
+sg13cmos5l_IOPadIn: 140000 rects
+sg13cmos5l_IOPadIn: 150000 rects
+sg13cmos5l_IOPadIn: 160000 rects
+sg13cmos5l_IOPadIn: 170000 rects
+sg13cmos5l_IOPadIn: 180000 rects
+sg13cmos5l_IOPadIn: 190000 rects
+sg13cmos5l_IOPadIn: 200000 rects
+sg13cmos5l_IOPadIn: 210000 rects
+sg13cmos5l_IOPadIn: 220000 rects
+sg13cmos5l_IOPadIn: 230000 rects
+sg13cmos5l_IOPadIn: 240000 rects
+Cell sg13cmos5l_LevelDown read from path sg13cmos5l_io
+Cell sg13g2_SecondaryProtection read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990531 read from path sg13cmos5l_io
+Cell M2_M1_OS_789120990530 read from path sg13cmos5l_io
+Cell sg13cmos5l_Filler2000 read from path sg13cmos5l_io
+sg13cmos5l_Filler2000: 10000 rects
+sg13cmos5l_Filler2000: 20000 rects
+Cell sg13cmos5l_IOPadVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadVdd: 10000 rects
+sg13cmos5l_IOPadVdd: 20000 rects
+sg13cmos5l_IOPadVdd: 30000 rects
+sg13cmos5l_IOPadVdd: 40000 rects
+sg13cmos5l_IOPadVdd: 50000 rects
+sg13cmos5l_IOPadVdd: 60000 rects
+Cell sg13cmos5l_RCClampResistor read from path sg13cmos5l_io
+Scaled magic input cell sg13cmos5l_RCClampResistor geometry by factor of 2
+Cell sg13cmos5l_RCClampInverter read from path sg13cmos5l_io
+sg13cmos5l_RCClampInverter: 10000 rects
+Cell sg13cmos5l_Clamp_N43N43D4R read from path sg13cmos5l_io
+sg13cmos5l_Clamp_N43N43D4R: 10000 rects
+sg13cmos5l_Clamp_N43N43D4R: 20000 rects
+Cell sg13cmos5l_IOPadInOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadInOut16mA: 10000 rects
+sg13cmos5l_IOPadInOut16mA: 20000 rects
+sg13cmos5l_IOPadInOut16mA: 30000 rects
+sg13cmos5l_IOPadInOut16mA: 40000 rects
+sg13cmos5l_IOPadInOut16mA: 50000 rects
+sg13cmos5l_IOPadInOut16mA: 60000 rects
+sg13cmos5l_IOPadInOut16mA: 70000 rects
+sg13cmos5l_IOPadInOut16mA: 80000 rects
+sg13cmos5l_IOPadInOut16mA: 90000 rects
+sg13cmos5l_IOPadInOut16mA: 100000 rects
+sg13cmos5l_IOPadInOut16mA: 110000 rects
+sg13cmos5l_IOPadInOut16mA: 120000 rects
+sg13cmos5l_IOPadInOut16mA: 130000 rects
+Cell user_id_routing read from current working directory
+Cell via_Z2R7LJ read from path paramcells
+Cell via_Y6HR5N read from path paramcells
+Cell via_Y6HHCQ read from path paramcells
+Cell via_CGDS3A read from path paramcells
+Cell user_id_programming read from current working directory
+Cell user_id_vias read from current working directory
+Cell sg13cmos5l_tielo read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_tiehi read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_decap_4 read from path sg13cmos5l_stdcell
+Cell user_id_textblock read from current working directory
+Scaled magic input cell user_id_textblock geometry by factor of 2
+Cell alpha_2 read from path hexdigits
+Scaled magic input cell alpha_2 geometry by factor of 72
+Cell alpha_0 read from path hexdigits
+Scaled magic input cell alpha_0 geometry by factor of 2
+Cell alpha_6 read from path hexdigits
+Scaled magic input cell alpha_6 geometry by factor of 72
+Cell alpha_9 read from path hexdigits
+Scaled magic input cell alpha_9 geometry by factor of 72
+Cell alpha_8 read from path hexdigits
+Scaled magic input cell alpha_8 geometry by factor of 72
+Cell sg13cmos5l_IOPadVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadVss: 10000 rects
+sg13cmos5l_IOPadVss: 20000 rects
+sg13cmos5l_IOPadVss: 30000 rects
+sg13cmos5l_IOPadVss: 40000 rects
+sg13cmos5l_IOPadVss: 50000 rects
+sg13cmos5l_IOPadVss: 60000 rects
+sg13cmos5l_IOPadVss: 70000 rects
+sg13cmos5l_IOPadVss: 80000 rects
+sg13cmos5l_IOPadVss: 90000 rects
+sg13cmos5l_IOPadVss: 100000 rects
+sg13cmos5l_IOPadVss: 110000 rects
+sg13cmos5l_IOPadVss: 120000 rects
+sg13cmos5l_IOPadVss: 130000 rects
+sg13cmos5l_IOPadVss: 140000 rects
+sg13cmos5l_IOPadVss: 150000 rects
+sg13cmos5l_IOPadVss: 160000 rects
+sg13cmos5l_IOPadVss: 170000 rects
+sg13cmos5l_IOPadVss: 180000 rects
+sg13cmos5l_IOPadVss: 190000 rects
+sg13cmos5l_IOPadVss: 200000 rects
+sg13cmos5l_IOPadVss: 210000 rects
+sg13cmos5l_IOPadVss: 220000 rects
+sg13cmos5l_IOPadVss: 230000 rects
+sg13cmos5l_IOPadVss: 240000 rects
+sg13cmos5l_IOPadVss: 250000 rects
+Cell sg13cmos5l_ocd_Split2000 read from current working directory
+sg13cmos5l_ocd_Split2000: 10000 rects
+sg13cmos5l_ocd_Split2000: 20000 rects
+Cell sg13cmos5l_IOPadIOVdd read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVdd: 10000 rects
+sg13cmos5l_IOPadIOVdd: 20000 rects
+sg13cmos5l_IOPadIOVdd: 30000 rects
+sg13cmos5l_IOPadIOVdd: 40000 rects
+sg13cmos5l_IOPadIOVdd: 50000 rects
+sg13cmos5l_IOPadIOVdd: 60000 rects
+Cell sg13cmos5l_IOPadAnalog read from path sg13cmos5l_io
+sg13cmos5l_IOPadAnalog: 10000 rects
+sg13cmos5l_IOPadAnalog: 20000 rects
+sg13cmos5l_IOPadAnalog: 30000 rects
+sg13cmos5l_IOPadAnalog: 40000 rects
+sg13cmos5l_IOPadAnalog: 50000 rects
+sg13cmos5l_IOPadAnalog: 60000 rects
+sg13cmos5l_IOPadAnalog: 70000 rects
+sg13cmos5l_IOPadAnalog: 80000 rects
+sg13cmos5l_IOPadAnalog: 90000 rects
+sg13cmos5l_IOPadAnalog: 100000 rects
+sg13cmos5l_IOPadAnalog: 110000 rects
+sg13cmos5l_IOPadAnalog: 120000 rects
+sg13cmos5l_IOPadAnalog: 130000 rects
+Cell sg13cmos5l_SecondaryProtection read from path sg13cmos5l_io
+Cell sg13cmos5l_Clamp_P20N0D read from path sg13cmos5l_io
+sg13cmos5l_Clamp_P20N0D: 10000 rects
+Cell sg13cmos5l_Clamp_N20N0D read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadOut16mA read from path sg13cmos5l_io
+sg13cmos5l_IOPadOut16mA: 10000 rects
+sg13cmos5l_IOPadOut16mA: 20000 rects
+sg13cmos5l_IOPadOut16mA: 30000 rects
+sg13cmos5l_IOPadOut16mA: 40000 rects
+sg13cmos5l_IOPadOut16mA: 50000 rects
+sg13cmos5l_IOPadOut16mA: 60000 rects
+sg13cmos5l_IOPadOut16mA: 70000 rects
+sg13cmos5l_IOPadOut16mA: 80000 rects
+sg13cmos5l_IOPadOut16mA: 90000 rects
+sg13cmos5l_IOPadOut16mA: 100000 rects
+sg13cmos5l_IOPadOut16mA: 110000 rects
+sg13cmos5l_IOPadOut16mA: 120000 rects
+sg13cmos5l_IOPadOut16mA: 130000 rects
+Cell sg13cmos5l_GateLevelUpInv read from path sg13cmos5l_io
+Cell sg13cmos5l_LevelUpInv read from path sg13cmos5l_io
+Cell sg13cmos5l_IOPadIOVss read from path sg13cmos5l_io
+sg13cmos5l_IOPadIOVss: 10000 rects
+sg13cmos5l_IOPadIOVss: 20000 rects
+sg13cmos5l_IOPadIOVss: 30000 rects
+sg13cmos5l_IOPadIOVss: 40000 rects
+sg13cmos5l_IOPadIOVss: 50000 rects
+sg13cmos5l_IOPadIOVss: 60000 rects
+sg13cmos5l_IOPadIOVss: 70000 rects
+sg13cmos5l_IOPadIOVss: 80000 rects
+sg13cmos5l_IOPadIOVss: 90000 rects
+sg13cmos5l_IOPadIOVss: 100000 rects
+sg13cmos5l_IOPadIOVss: 110000 rects
+sg13cmos5l_IOPadIOVss: 120000 rects
+sg13cmos5l_IOPadIOVss: 130000 rects
+sg13cmos5l_IOPadIOVss: 140000 rects
+sg13cmos5l_IOPadIOVss: 150000 rects
+sg13cmos5l_IOPadIOVss: 160000 rects
+sg13cmos5l_IOPadIOVss: 170000 rects
+sg13cmos5l_IOPadIOVss: 180000 rects
+sg13cmos5l_IOPadIOVss: 190000 rects
+sg13cmos5l_IOPadIOVss: 200000 rects
+sg13cmos5l_IOPadIOVss: 210000 rects
+sg13cmos5l_IOPadIOVss: 220000 rects
+sg13cmos5l_IOPadIOVss: 230000 rects
+sg13cmos5l_IOPadIOVss: 240000 rects
+sg13cmos5l_IOPadIOVss: 250000 rects
+sg13cmos5l_IOPadIOVss: 260000 rects
+sg13cmos5l_IOPadIOVss: 270000 rects
+sg13cmos5l_IOPadIOVss: 280000 rects
+Cell sg13cmos5l_IOPadSingle2Diff read from path custom_io
+sg13cmos5l_IOPadSingle2Diff: 10000 rects
+sg13cmos5l_IOPadSingle2Diff: 20000 rects
+sg13cmos5l_IOPadSingle2Diff: 30000 rects
+sg13cmos5l_IOPadSingle2Diff: 40000 rects
+sg13cmos5l_IOPadSingle2Diff: 50000 rects
+sg13cmos5l_IOPadSingle2Diff: 60000 rects
+sg13cmos5l_IOPadSingle2Diff: 70000 rects
+sg13cmos5l_IOPadSingle2Diff: 80000 rects
+sg13cmos5l_IOPadSingle2Diff: 90000 rects
+sg13cmos5l_IOPadSingle2Diff: 100000 rects
+Cell sg13cmos5l_IOPadDiff2Single read from path custom_io
+sg13cmos5l_IOPadDiff2Single: 10000 rects
+sg13cmos5l_IOPadDiff2Single: 20000 rects
+sg13cmos5l_IOPadDiff2Single: 30000 rects
+sg13cmos5l_IOPadDiff2Single: 40000 rects
+sg13cmos5l_IOPadDiff2Single: 50000 rects
+sg13cmos5l_IOPadDiff2Single: 60000 rects
+sg13cmos5l_IOPadDiff2Single: 70000 rects
+sg13cmos5l_IOPadDiff2Single: 80000 rects
+sg13cmos5l_IOPadDiff2Single: 90000 rects
+sg13cmos5l_IOPadDiff2Single: 100000 rects
+sg13cmos5l_IOPadDiff2Single: 110000 rects
+sg13cmos5l_IOPadDiff2Single: 120000 rects
+Cell caravel_logo read from current working directory
+Scaled magic input cell caravel_logo geometry by factor of 2
+Cell caravel_motto read from current working directory
+Scaled magic input cell caravel_motto geometry by factor of 2
+Cell font_22 read from path alpha
+Scaled magic input cell font_22 geometry by factor of 24
+Cell open_source read from current working directory
+Scaled magic input cell open_source geometry by factor of 2
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: sg13cmos5l_Corner, sg13cmos5l_IOPadTriOut16mA, sg13cmos5l_Filler4000, sg13cmos5l_IOPadIn, sg13cmos5l_Filler2000, sg13cmos5l_IOPadVdd, sg13cmos5l_IOPadInOut16mA, user_id_programming, sg13cmos5l_tielo, sg13cmos5l_tiehi, sg13cmos5l_decap_4, alpha_2, alpha_6, alpha_9, alpha_8, sg13cmos5l_IOPadVss, sg13cmos5l_IOPadIOVdd, sg13cmos5l_IOPadAnalog, sg13cmos5l_IOPadOut16mA, sg13cmos5l_IOPadIOVss.
+Extracting sg13cmos5l_Corner into extfiles/sg13cmos5l_Corner.ext:
+Processing sg13cmos5l_Corner
+Extracting font_76 into extfiles/font_76.ext:
+Processing font_76
+Extracting font_75 into extfiles/font_75.ext:
+Processing font_75
+Extracting font_74 into extfiles/font_74.ext:
+Processing font_74
+Extracting font_73 into extfiles/font_73.ext:
+Processing font_73
+Extracting font_72 into extfiles/font_72.ext:
+Processing font_72
+Extracting font_70 into extfiles/font_70.ext:
+Processing font_70
+Extracting font_69 into extfiles/font_69.ext:
+Processing font_69
+Extracting font_68 into extfiles/font_68.ext:
+Processing font_68
+Extracting font_67 into extfiles/font_67.ext:
+Processing font_67
+Extracting font_65 into extfiles/font_65.ext:
+Processing font_65
+Extracting font_63 into extfiles/font_63.ext:
+Processing font_63
+Extracting font_62 into extfiles/font_62.ext:
+Processing font_62
+Extracting font_61 into extfiles/font_61.ext:
+Processing font_61
+Extracting font_56 into extfiles/font_56.ext:
+Processing font_56
+Extracting font_53 into extfiles/font_53.ext:
+Processing font_53
+Extracting font_50 into extfiles/font_50.ext:
+Processing font_50
+Extracting font_49 into extfiles/font_49.ext:
+Processing font_49
+Extracting font_48 into extfiles/font_48.ext:
+Processing font_48
+Extracting font_47 into extfiles/font_47.ext:
+Processing font_47
+Extracting font_44 into extfiles/font_44.ext:
+Processing font_44
+Extracting font_43 into extfiles/font_43.ext:
+Processing font_43
+Extracting font_36 into extfiles/font_36.ext:
+Processing font_36
+Extracting font_35 into extfiles/font_35.ext:
+Processing font_35
+Extracting font_33 into extfiles/font_33.ext:
+Processing font_33
+Extracting font_32 into extfiles/font_32.ext:
+Processing font_32
+Extracting font_31 into extfiles/font_31.ext:
+Processing font_31
+Extracting font_30 into extfiles/font_30.ext:
+Processing font_30
+Extracting font_29 into extfiles/font_29.ext:
+Processing font_29
+Extracting font_28 into extfiles/font_28.ext:
+Processing font_28
+Extracting font_7A into extfiles/font_7A.ext:
+Processing font_7A
+Extracting font_6F into extfiles/font_6F.ext:
+Processing font_6F
+Extracting font_6E into extfiles/font_6E.ext:
+Processing font_6E
+Extracting font_6D into extfiles/font_6D.ext:
+Processing font_6D
+Extracting font_6C into extfiles/font_6C.ext:
+Processing font_6C
+Extracting font_4F into extfiles/font_4F.ext:
+Processing font_4F
+Extracting font_4E into extfiles/font_4E.ext:
+Processing font_4E
+Extracting font_4D into extfiles/font_4D.ext:
+Processing font_4D
+Extracting font_4C into extfiles/font_4C.ext:
+Processing font_4C
+Extracting font_4B into extfiles/font_4B.ext:
+Processing font_4B
+Extracting font_2E into extfiles/font_2E.ext:
+Processing font_2E
+Extracting font_2C into extfiles/font_2C.ext:
+Processing font_2C
+Extracting copyright_block into extfiles/copyright_block.ext:
+Processing copyright_block
+Extracting sg13cmos5l_LevelUp into extfiles/sg13cmos5l_LevelUp.ext:
+Processing sg13cmos5l_LevelUp
+Extracting sg13cmos5l_io_tie into extfiles/sg13cmos5l_io_tie.ext:
+Processing sg13cmos5l_io_tie
+Extracting sg13cmos5l_io_nor2_x1 into extfiles/sg13cmos5l_io_nor2_x1.ext:
+Processing sg13cmos5l_io_nor2_x1
+Extracting sg13cmos5l_io_nand2_x1 into extfiles/sg13cmos5l_io_nand2_x1.ext:
+Processing sg13cmos5l_io_nand2_x1
+Extracting sg13cmos5l_io_inv_x1 into extfiles/sg13cmos5l_io_inv_x1.ext:
+Processing sg13cmos5l_io_inv_x1
+Extracting sg13cmos5l_GateDecode into extfiles/sg13cmos5l_GateDecode.ext:
+Processing sg13cmos5l_GateDecode
+Extracting sg13cmos5l_DCPDiode into extfiles/sg13cmos5l_DCPDiode.ext:
+Processing sg13cmos5l_DCPDiode
+Extracting sg13cmos5l_DCNDiode into extfiles/sg13cmos5l_DCNDiode.ext:
+Processing sg13cmos5l_DCNDiode
+Extracting sg13cmos5l_Clamp_P8N8D into extfiles/sg13cmos5l_Clamp_P8N8D.ext:
+Processing sg13cmos5l_Clamp_P8N8D
+Extracting sg13cmos5l_Clamp_N8N8D into extfiles/sg13cmos5l_Clamp_N8N8D.ext:
+Processing sg13cmos5l_Clamp_N8N8D
+Extracting sg13cmos5l_IOPadTriOut16mA into extfiles/sg13cmos5l_IOPadTriOut16mA.ext:
+Processing sg13cmos5l_IOPadTriOut16mA
+Extracting sg13cmos5l_Filler4000 into extfiles/sg13cmos5l_Filler4000.ext:
+Processing sg13cmos5l_Filler4000
+Extracting bondpad_LX3CBX into extfiles/bondpad_LX3CBX.ext:
+Processing bondpad_LX3CBX
+Extracting sg13g2_SecondaryProtection into extfiles/sg13g2_SecondaryProtection.ext:
+Processing sg13g2_SecondaryProtection
+Extracting M2_M1_OS_789120990531 into extfiles/M2_M1_OS_789120990531.ext:
+Processing M2_M1_OS_789120990531
+Extracting M2_M1_OS_789120990530 into extfiles/M2_M1_OS_789120990530.ext:
+Processing M2_M1_OS_789120990530
+Extracting sg13cmos5l_LevelDown into extfiles/sg13cmos5l_LevelDown.ext:
+Processing sg13cmos5l_LevelDown
+sg13cmos5l_LevelDown: 1 warning
+Extracting sg13cmos5l_IOPadIn into extfiles/sg13cmos5l_IOPadIn.ext:
+Processing sg13cmos5l_IOPadIn
+Extracting sg13cmos5l_Filler2000 into extfiles/sg13cmos5l_Filler2000.ext:
+Processing sg13cmos5l_Filler2000
+Extracting sg13cmos5l_RCClampResistor into extfiles/sg13cmos5l_RCClampResistor.ext:
+Processing sg13cmos5l_RCClampResistor
+Extracting sg13cmos5l_RCClampInverter into extfiles/sg13cmos5l_RCClampInverter.ext:
+Processing sg13cmos5l_RCClampInverter
+sg13cmos5l_RCClampInverter: 14 warnings
+Extracting sg13cmos5l_Clamp_N43N43D4R into extfiles/sg13cmos5l_Clamp_N43N43D4R.ext:
+Processing sg13cmos5l_Clamp_N43N43D4R
+Extracting sg13cmos5l_IOPadVdd into extfiles/sg13cmos5l_IOPadVdd.ext:
+Processing sg13cmos5l_IOPadVdd
+Extracting sg13cmos5l_IOPadInOut16mA into extfiles/sg13cmos5l_IOPadInOut16mA.ext:
+Processing sg13cmos5l_IOPadInOut16mA
+Extracting alpha_2 into extfiles/alpha_2.ext:
+Processing alpha_2
+Extracting alpha_6 into extfiles/alpha_6.ext:
+Processing alpha_6
+Extracting alpha_9 into extfiles/alpha_9.ext:
+Processing alpha_9
+Extracting alpha_8 into extfiles/alpha_8.ext:
+Processing alpha_8
+Extracting alpha_0 into extfiles/alpha_0.ext:
+Processing alpha_0
+Extracting user_id_textblock into extfiles/user_id_textblock.ext:
+Processing user_id_textblock
+Extracting sg13cmos5l_IOPadVss into extfiles/sg13cmos5l_IOPadVss.ext:
+Processing sg13cmos5l_IOPadVss
+Extracting sg13cmos5l_ocd_Split2000 into extfiles/sg13cmos5l_ocd_Split2000.ext:
+Processing sg13cmos5l_ocd_Split2000
+Extracting sg13cmos5l_IOPadIOVdd into extfiles/sg13cmos5l_IOPadIOVdd.ext:
+Processing sg13cmos5l_IOPadIOVdd
+Extracting sg13cmos5l_SecondaryProtection into extfiles/sg13cmos5l_SecondaryProtection.ext:
+Processing sg13cmos5l_SecondaryProtection
+Extracting sg13cmos5l_Clamp_P20N0D into extfiles/sg13cmos5l_Clamp_P20N0D.ext:
+Processing sg13cmos5l_Clamp_P20N0D
+Extracting sg13cmos5l_Clamp_N20N0D into extfiles/sg13cmos5l_Clamp_N20N0D.ext:
+Processing sg13cmos5l_Clamp_N20N0D
+Extracting sg13cmos5l_IOPadAnalog into extfiles/sg13cmos5l_IOPadAnalog.ext:
+Processing sg13cmos5l_IOPadAnalog
+Extracting sg13cmos5l_LevelUpInv into extfiles/sg13cmos5l_LevelUpInv.ext:
+Processing sg13cmos5l_LevelUpInv
+Extracting sg13cmos5l_GateLevelUpInv into extfiles/sg13cmos5l_GateLevelUpInv.ext:
+Processing sg13cmos5l_GateLevelUpInv
+Extracting sg13cmos5l_IOPadOut16mA into extfiles/sg13cmos5l_IOPadOut16mA.ext:
+Processing sg13cmos5l_IOPadOut16mA
+Extracting sg13cmos5l_IOPadIOVss into extfiles/sg13cmos5l_IOPadIOVss.ext:
+Processing sg13cmos5l_IOPadIOVss
+Extracting sg13cmos5l_IOPadSingle2Diff into extfiles/sg13cmos5l_IOPadSingle2Diff.ext:
+Processing sg13cmos5l_IOPadSingle2Diff
+sg13cmos5l_IOPadSingle2Diff: 37 warnings
+Extracting sg13cmos5l_IOPadDiff2Single into extfiles/sg13cmos5l_IOPadDiff2Single.ext:
+Processing sg13cmos5l_IOPadDiff2Single
+sg13cmos5l_IOPadDiff2Single: 35 warnings
+Extracting caravel_logo into extfiles/caravel_logo.ext:
+Processing caravel_logo
+Extracting font_22 into extfiles/font_22.ext:
+Processing font_22
+Extracting caravel_motto into extfiles/caravel_motto.ext:
+Processing caravel_motto
+Extracting open_source into extfiles/open_source.ext:
+Processing open_source
+Extracting sg13cmos5l_tielo into extfiles/sg13cmos5l_tielo.ext:
+Processing sg13cmos5l_tielo
+Extracting sg13cmos5l_tiehi into extfiles/sg13cmos5l_tiehi.ext:
+Processing sg13cmos5l_tiehi
+Extracting sg13cmos5l_decap_4 into extfiles/sg13cmos5l_decap_4.ext:
+Processing sg13cmos5l_decap_4
+sg13cmos5l_decap_4: 2 warnings
+Extracting user_id_vias into extfiles/user_id_vias.ext:
+Processing user_id_vias
+Extracting user_id_programming into extfiles/user_id_programming.ext:
+Processing user_id_programming
+Extracting via_Z2R7LJ into extfiles/via_Z2R7LJ.ext:
+Processing via_Z2R7LJ
+Extracting via_Y6HR5N into extfiles/via_Y6HR5N.ext:
+Processing via_Y6HR5N
+Extracting via_Y6HHCQ into extfiles/via_Y6HHCQ.ext:
+Processing via_Y6HHCQ
+Extracting via_CGDS3A into extfiles/via_CGDS3A.ext:
+Processing via_CGDS3A
+Extracting user_id_routing into extfiles/user_id_routing.ext:
+Processing user_id_routing
+Extracting sg13cmos5l_padframe into extfiles/sg13cmos5l_padframe.ext:
+Processing sg13cmos5l_padframe

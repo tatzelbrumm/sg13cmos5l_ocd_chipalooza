@@ -113,3 +113,40 @@ shim `docs/slot7_v2_test/shim/magic` (locking bug), PDK sparse checkout without 
 - changed (06-14): all exit 0; 0 "Bad pad type". Regenerated: scripts/gen_padframe.tcl (13 label_right_custom lines for slot 7), verilog/gl/{sg13cmos5l_padframe,chipalooza_frame_wrapper}.v, magic/{sg13cmos5l_padframe,chipalooza_frame_wrapper,padframe_pins}.mag, magic/chipalooza_frame.mag (stale s7 analog copies erased), magic/slot*_wrapper.mag, gds/slot*_wrapper.gds, user-id files, scripts/user_projects.tcl, gds/sg13cmos5l_ocd_chipalooza.gds.gz (gitignored).
 - 15: netcheck with the stand-in expectations (outp->vinp tie): "RESULT FAILURES" -- expected, slot 7 v2 is a real circuit with other ties.
 - 16: `python3 docs/slot7_v2_test/netcheck_slot7.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1901.1 2271.1 2096.1 2471.1 --merged s7_an_0_vcm,s7_an_1_vref --merged s7_an_0_en_3v3,s7_an_1_en_3v3 --merged s7_an_0_en_3v3_b,s7_an_1_en_3v3_b` -> RESULT all 13 pins OK. Tie groups from the slot's own docs/FOR_TIM.md (one vcm for S2D vcm and D2S vref; one enable pair for both pads; S2D->D2S through switches, so outp/vinp are separate metal nets). netcheck_slot7.py got a --merged option for this (copy in docs/slot7_v2_test/).
+- 17 (cwd harness): KLayout clip of the pre-fill GDS x 1375..2100, y 2165..2475 um (slot 7 + both pads + 5 um margin) to the scratchpad, then the PDK run_drc.py with --antenna (density on, the default).
+
+### 17 drc_s7_antenna_density
+- start 2026-11-08T19:01:06Z, end 2026-11-08T19:03:11Z
+- cwd: `/home/user/v2test`
+- command: `python3 /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py --path=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v2drc/s7_clip.gds --topcell=s7_clip --run_dir=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v2drc/run --antenna --mp=4`
+- exit status: 1
+- logs: `logs/17_drc_s7_antenna_density.out`, `logs/17_drc_s7_antenna_density.err`
+- 17/18: DRC of the slot-7 area (clip x 1375..2100, y 2165..2475 um of the pre-fill GDS, PDK run_drc.py --antenna, density on, --mp=4, 113 s): 2912 items in all; antenna: 0 (all Ant.* rules ran); density: AFil.g, GFil.g, M1.j, M2.j, M3.j, M4.j, TM1.c one marker each over the whole clip -- expected before fill (make fill not run; the slot repo's own DRC used --no_density); entirely >= 2 um inside the clip: 69 items, all recommended Pad.* rules at the bond pads (Pad.fR_M2 45, Pad.fR_M3 7, Pad.fR_M4 7, Pad.d1R 7, Pad.fR_TM1 3); everything else lies on the clip edge (cut shapes). Summary: logs/18_drc_summary.out.
+- (manual) top-level LVS preparation: (a) SRAM views for this PDK checkout (sparse checkout lacks them): scratch overlay PDK_ROOT with libs.ref/sg13cmos5l_sram/{gds,lef,cdl,verilog} taken read-only by `git -C /foss/pdks/IHP-Open-PDK show HEAD:ihp-sg13g2/libs.ref/sg13g2_sram/...` (the cmos5l directory is a symlink to it upstream), everything else symlinked to /foss/pdks/ihp-sg13cmos5l; (b) chip-core Verilog: the edits printed by scripts/custom_io_verilog.py applied (TIM_STEPS step 5; done here by script on the test branch, a human does them by hand).
+
+### 19 make_setup_with_sram
+- start 2026-11-08T19:04:16Z, end 2026-11-08T19:04:44Z
+- cwd: `/home/user/v2test`
+- command: `make setup`
+- exit status: 0
+- logs: `logs/19_make_setup_with_sram.out`, `logs/19_make_setup_with_sram.err`
+
+### 23 lvs_slot7
+- start 2026-11-08T19:05:34Z, end 2026-11-08T19:05:36Z
+- cwd: `/home/user/v2test`
+- command: `docs/slot7_v2_test/lvs_slot7.sh`
+- exit status: 0
+- logs: `logs/23_lvs_slot7.out`, `logs/23_lvs_slot7.err`
+- 23: first try of docs/slot7_v2_test/lvs_slot7.sh: magic extraction ok (port shorts reported = the slot's intended ties: analog_bus2=s7_an_0_vcm=s7_an_1_vref, analog_bus3=s7_an_0_vref, both en_3v3 and both en_3v3_b); netgen stopped ('wrong # args ... readnet', my Tcl handle use). Script changed to netgen -batch lvs with file names; re-run as 24.
+
+### 24 lvs_slot7
+- start 2026-11-08T19:06:11Z, end 2026-11-08T19:06:13Z
+- cwd: `/home/user/v2test`
+- command: `docs/slot7_v2_test/lvs_slot7.sh`
+- exit status: 0
+- logs: `logs/24_lvs_slot7.out`, `logs/24_lvs_slot7.err`
+- 19: `make setup` with PDK_ROOT = the SRAM overlay: SRAM imported (magic/sg13cmos5l_sram/RM_IHPSG13_1P_1024x8_c2_bm_bist.mag).
+- 20: scripts/custom_io_verilog.py output (logs/20_verilog_edits.txt) applied to verilog/rtl/chipalooza_frame.v, verilog/gl/sg13cmos5l_ocd_chipalooza.v, verilog/rtl/digital_tb.v, verilog/rtl/slot7_wrapper.v (every FIND block replaced the expected number of times).
+- make lvs-top NOT run: validate/run_lvs_ocd_chipalooza.sh reads the xschem top netlist netlist/schematic/sg13cmos5l_ocd_chipalooza.spice last, and the xschem sheets still carry the old slot-7 pins (not script-generated; hand edits in xschem needed first), so slot 7 would mismatch by construction; it is also the heaviest run (full-chip extraction).
+- validate/run_lvs_padframe.sh, validate/run_lvs_ocd_chipalooza.sh: + readnet of dependencies/slot_*/pads/*/*.spice (Tim's LVS scripts do not read custom pad netlists yet). Padframe extraction + LVS (21, 22) running.
+- 24: LVS of slot 7 with magic + netgen (docs/slot7_v2_test/lvs_slot7.sh): extraction ok; netgen: "Fatal: Class "pnpMPA" is instanced inside of itself!" -- slot_7.gds has a layout cell named pnpMPA, the same name as the PNP device, so magic writes .subckt pnpMPA containing device pnpMPA. A problem in the slot for Tim's magic/netgen flow (the slot's own KLayout LVS passes). Also: slot_7.gds contains KLayout's $$$CONTEXT_INFO$$$ cell (extra top cell; magic: "Unknown layer/datatype in boundary, layer=0 type=0"). Stopped here and asked the user (brief: ask before working around a failure in the slot).

@@ -21,6 +21,10 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
 # the use of global "sub!")
 # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
 readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
+# Custom pad cells from the slot submodules (scripts/setup_custom.sh imports their layout)
+foreach f [lsort [glob -nocomplain ../dependencies/slot_*/pads/*/*.spice]] {
+    readnet spice \$f \$circuit2
+}
 
 # Read verilog submodules
 readnet verilog ../verilog/gl/netlists_lvs.v \$circuit2

@@ -1,0 +1,325 @@
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "efs_nmosHV_w1_l0p45".
+Reading "efs_pmosHV_w1_l0p45".
+Reading "rb_pmosHV_w1_l4".
+Reading "rb_pmosHV_w20_l1_ng2".
+Reading "bdp_nmosHV_w1_l0p45".
+Reading "bdp_pmosHV_w1_l0p45".
+Reading "bdp_nmosHV_w2_l0p45_ng2".
+Reading "bdp_pmosHV_w2_l0p45_ng2".
+Reading "efs_pmosHV_w0p3_l5".
+Reading "efs_pmosHV_w0p3_l20".
+Reading "efs_xn1".
+Reading "efs_inv_hv".
+Reading "prb_nmosHV_3".
+Reading "prb_nmosHV_2".
+Reading "prb_nmosHV_1".
+Reading "prb_nmosHV".
+Reading "rb_avg_l".
+Reading "rb_avg_u".
+Reading "rb_tub_p20x1".
+Reading "rb_pmosHV_w1_l0p45".
+Reading "rb_pmosHV_w5_l6".
+Reading "rb_pmosHV_w2_l6".
+Reading "prb_nmosHV_7".
+Reading "prb_nmosHV_6".
+Reading "prb_nmosHV_5".
+Reading "prb_nmosHV_4_1".
+Reading "prb_nmosHV_3_1".
+Reading "prb_nmosHV_2_1".
+Reading "prb_nmosHV_1_1".
+Reading "prb_nmosHV_4".
+Reading "bdp_pmosHV_w5_l6".
+Reading "bdp_nmosHV_1".
+Reading "bdp_nmosHV".
+Reading "bdp_tg_hv".
+Reading "bdp_inv_hv".
+Reading "bdp_nand2_hv".
+Reading "pmosHV$7".
+Reading "pmosHV$13".
+Reading "pmosHV_w0p3_l1".
+Reading "pmosHV$14".
+Reading "nmosHV$5".
+Reading "nmosHV$9".
+Reading "nmosHV_w2_l1".
+Reading "nmosHV$7".
+Reading "nmosHV$11".
+Reading "nmosHV$10".
+Reading "rhigh$1".
+Reading "pnpMPA".
+Reading "dop_nmosHV_w0p5_l0p45".
+Reading "efs_ls_core".
+Reading "prb_frame_f".
+Reading "prb_capv".
+Reading "prb_capt".
+Reading "prb_capm".
+Reading "prb_capr".
+Reading "rb_avg".
+Reading "rb_tubs".
+Reading "rb_tails".
+Reading "rb_tree_p".
+Reading "rb_cload".
+Reading "rb_mirror".
+Reading "rb_casc".
+Reading "rb_tree_n".
+Reading "bdp_fill6".
+Reading "bdp_fill5".
+Reading "bdp_fill4".
+Reading "bdp_fill3".
+Reading "bdp_fill2".
+Reading "bdp_fill1".
+Reading "bdp_fill0".
+Reading "bdp_mirror_p".
+Reading "bdp_mirror_n".
+Reading "bdp_svpd".
+Reading "bdp_tdn".
+Reading "bdp_slice".
+Reading "bg_svpg".
+Reading "bg_ms1".
+Reading "bg_pmir_pcas_c".
+Reading "bg_n4".
+Reading "bg_res_c".
+Reading "bg_pnp_c".
+Reading "s7_doutpd".
+Reading "s7_ctrl".
+Reading "pad_ref_rb".
+Reading "bias_dist_pd".
+Reading "bg_core_pd".
+Reading "slot_7".
+Extracting dop_nmosHV_w0p5_l0p45 into extfiles_slot7/dop_nmosHV_w0p5_l0p45.ext:
+Processing dop_nmosHV_w0p5_l0p45
+Extracting s7_doutpd into extfiles_slot7/s7_doutpd.ext:
+Processing s7_doutpd
+Extracting bdp_nmosHV_w2_l0p45_ng2 into extfiles_slot7/bdp_nmosHV_w2_l0p45_ng2.ext:
+Processing bdp_nmosHV_w2_l0p45_ng2
+Extracting bdp_pmosHV_w2_l0p45_ng2 into extfiles_slot7/bdp_pmosHV_w2_l0p45_ng2.ext:
+Processing bdp_pmosHV_w2_l0p45_ng2
+Extracting bdp_nand2_hv into extfiles_slot7/bdp_nand2_hv.ext:
+Processing bdp_nand2_hv
+Extracting bdp_nmosHV_w1_l0p45 into extfiles_slot7/bdp_nmosHV_w1_l0p45.ext:
+Processing bdp_nmosHV_w1_l0p45
+Extracting bdp_pmosHV_w1_l0p45 into extfiles_slot7/bdp_pmosHV_w1_l0p45.ext:
+Processing bdp_pmosHV_w1_l0p45
+Extracting bdp_tg_hv into extfiles_slot7/bdp_tg_hv.ext:
+Processing bdp_tg_hv
+Extracting bdp_inv_hv into extfiles_slot7/bdp_inv_hv.ext:
+Processing bdp_inv_hv
+Extracting efs_pmosHV_w0p3_l5 into extfiles_slot7/efs_pmosHV_w0p3_l5.ext:
+Processing efs_pmosHV_w0p3_l5
+Extracting efs_pmosHV_w0p3_l20 into extfiles_slot7/efs_pmosHV_w0p3_l20.ext:
+Processing efs_pmosHV_w0p3_l20
+Extracting efs_nmosHV_w1_l0p45 into extfiles_slot7/efs_nmosHV_w1_l0p45.ext:
+Processing efs_nmosHV_w1_l0p45
+Extracting efs_xn1 into extfiles_slot7/efs_xn1.ext:
+Processing efs_xn1
+Extracting efs_pmosHV_w1_l0p45 into extfiles_slot7/efs_pmosHV_w1_l0p45.ext:
+Processing efs_pmosHV_w1_l0p45
+Extracting efs_inv_hv into extfiles_slot7/efs_inv_hv.ext:
+Processing efs_inv_hv
+Extracting efs_ls_core into extfiles_slot7/efs_ls_core.ext:
+Processing efs_ls_core
+Extracting s7_ctrl into extfiles_slot7/s7_ctrl.ext:
+Processing s7_ctrl
+Extracting prb_nmosHV_3_1 into extfiles_slot7/prb_nmosHV_3_1.ext:
+Processing prb_nmosHV_3_1
+Extracting prb_nmosHV_7 into extfiles_slot7/prb_nmosHV_7.ext:
+Processing prb_nmosHV_7
+Extracting rb_cload into extfiles_slot7/rb_cload.ext:
+Processing rb_cload
+Extracting prb_nmosHV_3 into extfiles_slot7/prb_nmosHV_3.ext:
+Processing prb_nmosHV_3
+Extracting prb_capv into extfiles_slot7/prb_capv.ext:
+Processing prb_capv
+Extracting prb_nmosHV_2 into extfiles_slot7/prb_nmosHV_2.ext:
+Processing prb_nmosHV_2
+Extracting prb_capt into extfiles_slot7/prb_capt.ext:
+Processing prb_capt
+Extracting prb_nmosHV_1 into extfiles_slot7/prb_nmosHV_1.ext:
+Processing prb_nmosHV_1
+Extracting prb_capm into extfiles_slot7/prb_capm.ext:
+Processing prb_capm
+Extracting prb_nmosHV_1_1 into extfiles_slot7/prb_nmosHV_1_1.ext:
+Processing prb_nmosHV_1_1
+Extracting prb_nmosHV_2_1 into extfiles_slot7/prb_nmosHV_2_1.ext:
+Processing prb_nmosHV_2_1
+Extracting rb_mirror into extfiles_slot7/rb_mirror.ext:
+Processing rb_mirror
+Extracting rb_pmosHV_w1_l4 into extfiles_slot7/rb_pmosHV_w1_l4.ext:
+Processing rb_pmosHV_w1_l4
+Extracting rb_avg_l into extfiles_slot7/rb_avg_l.ext:
+Processing rb_avg_l
+Extracting rb_avg_u into extfiles_slot7/rb_avg_u.ext:
+Processing rb_avg_u
+Extracting rb_avg into extfiles_slot7/rb_avg.ext:
+Processing rb_avg
+Extracting rb_pmosHV_w20_l1_ng2 into extfiles_slot7/rb_pmosHV_w20_l1_ng2.ext:
+Processing rb_pmosHV_w20_l1_ng2
+Extracting rb_tub_p20x1 into extfiles_slot7/rb_tub_p20x1.ext:
+Processing rb_tub_p20x1
+Extracting rb_tubs into extfiles_slot7/rb_tubs.ext:
+Processing rb_tubs
+Extracting rb_pmosHV_w1_l0p45 into extfiles_slot7/rb_pmosHV_w1_l0p45.ext:
+Processing rb_pmosHV_w1_l0p45
+Extracting rb_pmosHV_w2_l6 into extfiles_slot7/rb_pmosHV_w2_l6.ext:
+Processing rb_pmosHV_w2_l6
+Extracting rb_pmosHV_w5_l6 into extfiles_slot7/rb_pmosHV_w5_l6.ext:
+Processing rb_pmosHV_w5_l6
+Extracting rb_tree_p into extfiles_slot7/rb_tree_p.ext:
+Processing rb_tree_p
+Extracting rb_tails into extfiles_slot7/rb_tails.ext:
+Processing rb_tails
+Extracting prb_nmosHV_4 into extfiles_slot7/prb_nmosHV_4.ext:
+Processing prb_nmosHV_4
+Extracting rb_tree_n into extfiles_slot7/rb_tree_n.ext:
+Processing rb_tree_n
+Extracting prb_nmosHV_6 into extfiles_slot7/prb_nmosHV_6.ext:
+Processing prb_nmosHV_6
+Extracting prb_nmosHV_4_1 into extfiles_slot7/prb_nmosHV_4_1.ext:
+Processing prb_nmosHV_4_1
+Extracting prb_nmosHV_5 into extfiles_slot7/prb_nmosHV_5.ext:
+Processing prb_nmosHV_5
+Extracting rb_casc into extfiles_slot7/rb_casc.ext:
+Processing rb_casc
+Extracting prb_nmosHV into extfiles_slot7/prb_nmosHV.ext:
+Processing prb_nmosHV
+Extracting prb_capr into extfiles_slot7/prb_capr.ext:
+Processing prb_capr
+Extracting prb_frame_f into extfiles_slot7/prb_frame_f.ext:
+Processing prb_frame_f
+Extracting pad_ref_rb into extfiles_slot7/pad_ref_rb.ext:
+Processing pad_ref_rb
+Extracting bdp_fill6 into extfiles_slot7/bdp_fill6.ext:
+Processing bdp_fill6
+Extracting bdp_fill5 into extfiles_slot7/bdp_fill5.ext:
+Processing bdp_fill5
+Extracting bdp_fill4 into extfiles_slot7/bdp_fill4.ext:
+Processing bdp_fill4
+Extracting bdp_fill3 into extfiles_slot7/bdp_fill3.ext:
+Processing bdp_fill3
+Extracting bdp_fill2 into extfiles_slot7/bdp_fill2.ext:
+Processing bdp_fill2
+Extracting bdp_fill1 into extfiles_slot7/bdp_fill1.ext:
+Processing bdp_fill1
+Extracting bdp_fill0 into extfiles_slot7/bdp_fill0.ext:
+Processing bdp_fill0
+Extracting bdp_pmosHV_w5_l6 into extfiles_slot7/bdp_pmosHV_w5_l6.ext:
+Processing bdp_pmosHV_w5_l6
+Extracting bdp_mirror_p into extfiles_slot7/bdp_mirror_p.ext:
+Processing bdp_mirror_p
+Extracting bdp_nmosHV_1 into extfiles_slot7/bdp_nmosHV_1.ext:
+Processing bdp_nmosHV_1
+Extracting bdp_nmosHV into extfiles_slot7/bdp_nmosHV.ext:
+Processing bdp_nmosHV
+Extracting bdp_mirror_n into extfiles_slot7/bdp_mirror_n.ext:
+Processing bdp_mirror_n
+Extracting bdp_svpd into extfiles_slot7/bdp_svpd.ext:
+Processing bdp_svpd
+Extracting bdp_tdn into extfiles_slot7/bdp_tdn.ext:
+Processing bdp_tdn
+Extracting bdp_slice into extfiles_slot7/bdp_slice.ext:
+Processing bdp_slice
+Extracting bias_dist_pd into extfiles_slot7/bias_dist_pd.ext:
+Processing bias_dist_pd
+Extracting nmosHV$5 into extfiles_slot7/nmosHV$5.ext:
+Processing nmosHV$5
+Extracting nmosHV$9 into extfiles_slot7/nmosHV$9.ext:
+Processing nmosHV$9
+Extracting nmosHV$7 into extfiles_slot7/nmosHV$7.ext:
+Processing nmosHV$7
+Extracting nmosHV_w2_l1 into extfiles_slot7/nmosHV_w2_l1.ext:
+Processing nmosHV_w2_l1
+Extracting nmosHV$11 into extfiles_slot7/nmosHV$11.ext:
+Processing nmosHV$11
+Extracting nmosHV$10 into extfiles_slot7/nmosHV$10.ext:
+Processing nmosHV$10
+Extracting bg_n4 into extfiles_slot7/bg_n4.ext:
+Processing bg_n4
+Extracting pmosHV$13 into extfiles_slot7/pmosHV$13.ext:
+Processing pmosHV$13
+Extracting bg_ms1 into extfiles_slot7/bg_ms1.ext:
+Processing bg_ms1
+Extracting pnpMPA into extfiles_slot7/pnpMPA.ext:
+Processing pnpMPA
+Extracting bg_pnp_c into extfiles_slot7/bg_pnp_c.ext:
+Processing bg_pnp_c
+Extracting rhigh$1 into extfiles_slot7/rhigh$1.ext:
+Processing rhigh$1
+Extracting bg_res_c into extfiles_slot7/bg_res_c.ext:
+Processing bg_res_c
+Extracting pmosHV_w0p3_l1 into extfiles_slot7/pmosHV_w0p3_l1.ext:
+Processing pmosHV_w0p3_l1
+Extracting pmosHV$14 into extfiles_slot7/pmosHV$14.ext:
+Processing pmosHV$14
+Extracting bg_pmir_pcas_c into extfiles_slot7/bg_pmir_pcas_c.ext:
+Processing bg_pmir_pcas_c
+Extracting pmosHV$7 into extfiles_slot7/pmosHV$7.ext:
+Processing pmosHV$7
+Extracting bg_svpg into extfiles_slot7/bg_svpg.ext:
+Processing bg_svpg
+Extracting bg_core_pd into extfiles_slot7/bg_core_pd.ext:
+Processing bg_core_pd
+Extracting slot_7 into extfiles_slot7/slot_7.ext:
+Processing slot_7
+exttospice finished.
+Netgen 1.5.324 compiled on Fri Oct 30 17:15:29 UTC 2026
+Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+Call to undefined subcircuit sg13_lv_nmos
+Creating placeholder cell definition.
+Call to undefined subcircuit sg13_lv_pmos
+Creating placeholder cell definition.
+Call to undefined subcircuit dantenna
+Creating placeholder cell definition.
+Call to undefined subcircuit dpantenna
+Creating placeholder cell definition.
+Call to undefined subcircuit ls_up_fs
+Creating placeholder cell definition.
+Call to undefined subcircuit nand2_hv
+Creating placeholder cell definition.
+Call to undefined subcircuit inv_hv
+Creating placeholder cell definition.
+Call to undefined subcircuit tg_hv
+Creating placeholder cell definition.
+Call to undefined subcircuit sg13_hv_nmos
+Creating placeholder cell definition.
+Call to undefined subcircuit bg_core_pd
+Creating placeholder cell definition.
+Call to undefined subcircuit bias_dist_pd
+Creating placeholder cell definition.
+Call to undefined subcircuit pad_ref_rb
+Creating placeholder cell definition.
+Reading netlist file 0 for 0 slot_7
+wrong # args: should be "netgen::readnet ?format? file ?filenum?"
+    while executing
+"netgen::readnet $file1"
+    (procedure "lvs" line 58)
+    invoked from within
+"lvs "$circuit1 slot_7" "$circuit2 slot_7" /foss/pdks/ihp-sg13cmos5l/libs.tech/netgen/ihp-sg13cmos5l_setup.tcl comp_slot_7.out"
+    (file "netgen_slot7.tcl" line 4)
+    invoked from within
+"source netgen_slot7.tcl"
+    ("eval" body line 1)
+    invoked from within
+"eval $argv"

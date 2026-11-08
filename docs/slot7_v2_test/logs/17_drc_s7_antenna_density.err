@@ -1,0 +1,8 @@
+08-Nov-2026 19:01:15 | INFO    | KLayout version detected: 0.30.12
+08-Nov-2026 19:01:15 | INFO    | Using DRC JSON file: /foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+08-Nov-2026 19:03:11 | ERROR   | ==================================================================================
+08-Nov-2026 19:03:11 | ERROR   | KLayout DRC Check Failed: Violations were detected in the layout.
+08-Nov-2026 19:03:11 | ERROR   | ==================================================================================
+08-Nov-2026 19:03:11 | ERROR   | Violated rules are : {'Pad.fR_M4', 'V3.c', 'Cnt.c.digibnd', 'V1.a', 'M4.j', 'CntB.h1', 'TV1.a', 'Pad.fR_M3', 'TM1.a', 'NW.c', 'Pad.aR', 'M2.j', 'AFil.g', 'M4.c', 'V2.c', 'V2.a', 'Act.c', 'pSD.c', 'M3.j', 'pSD.c1', 'TV1.c', 'V1.c', 'M2.a', 'TGO.c', 'pSD.k', 'M2.d', 'Pad.fR_M1', 'M2.c', 'TGO.a', 'Pas.a', 'M4.a', 'pSD.a', 'Cnt.c.Digi', 'Cnt.g2', 'pSD.i1', 'M1.a', 'TGO.e', 'Pad.fR_M2', 'TV1.d', 'M3.a', 'NW.e1', 'TGO.b', 'M3.c', 'Pad.d1R', 'Cnt.c', 'Pad.fR_TM1', 'M1.c1', 'NW.c1', 'M1.j', 'V3.c1', 'GFil.g', 'NW.e', 'pSD.i', 'M3.c1', 'V3.a', 'TM1.c'}
+
+08-Nov-2026 19:03:11 | INFO    | Total DRC Run time: 124.90 seconds (including execution, analysis, and reporting)

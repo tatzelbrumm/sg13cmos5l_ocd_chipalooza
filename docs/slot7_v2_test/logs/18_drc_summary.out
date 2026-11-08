@@ -1,0 +1,7 @@
+all items: 2912 ; entirely >=2 um inside the clip: 69
+  Pad.fR_M2           45  x 2075.1..2093.1  6.9. Pad.fR_M2 : Min. recommended M2 exit length is 7.0 um
+  Pad.fR_M3            7  x 2075.1..2083.9  6.9. Pad.fR_M3 : Min. recommended M3 exit length is 7.0 um
+  Pad.fR_M4            7  x 2075.1..2083.9  6.9. Pad.fR_M4 : Min. recommended M4 exit length is 7.0 um
+  Pad.d1R              7  x 2073.1..2083.0  Min. recommended Pad to Activ (inside chip area) space = 11.20
+  Pad.fR_TM1           3  x 2091.2..2093.1  6.9. Pad.fR_TM1 : Min. recommended TM1 exit length is 7.0 um
+clip-edge only (rule: count): {'AFil.g': 1, 'GFil.g': 1, 'M1.j': 1, 'M2.j': 1, 'M3.j': 1, 'M4.j': 1, 'TM1.c': 1, 'CntB.h1': 760, 'pSD.c1': 18, 'Cnt.c': 10, 'Cnt.c.digibnd': 2, 'Cnt.g2': 223, 'TM1.a': 2, 'M1.a': 10, 'Pad.fR_M1': 3, 'Pas.a': 1, 'M2.a': 4, 'M3.a': 6, 'M4.a': 2, 'TV1.a': 94, 'TV1.c': 94, 'TV1.d': 100, 'V1.a': 209, 'V1.c': 209, 'V2.a': 33, 'V2.c': 33, 'V3.a': 8, 'V3.c': 147, 'NW.c': 48, 'NW.c1': 33, 'NW.e': 39, 'NW.e1': 12, 'Act.c': 10, 'TGO.a': 21, 'TGO.b': 4, 'TGO.c': 10, 'TGO.e': 1, 'pSD.a': 2, 'pSD.c': 27, 'pSD.i': 10, 'pSD.i1': 10, 'pSD.k': 1, 'M1.c1': 9, 'M2.c': 209, 'M2.d': 2, 'M3.c': 114, 'M3.c1': 4, 'M4.c': 147, 'V3.c1': 139, 'Pad.aR': 1, 'Cnt.c.Digi': 2}

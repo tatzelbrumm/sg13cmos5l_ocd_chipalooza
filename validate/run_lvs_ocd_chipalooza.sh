@@ -17,6 +17,10 @@ set circuit2 [readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_stdcell/spice
 
 # Issues in foundry I/O netlist require custom version.
 readnet spice ../netlist/schematic/sg13cmos5l_io.spice \$circuit2
+# Custom pad cells from the slot submodules (scripts/setup_custom.sh imports their layout)
+foreach f [lsort [glob -nocomplain ../dependencies/slot_*/pads/*/*.spice]] {
+    readnet spice \$f \$circuit2
+}
 # readnet spice ${PDK_ROOT}/${PDK}/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice \$circuit2
 
 # housekeeping_top must be read before the user project since it is a

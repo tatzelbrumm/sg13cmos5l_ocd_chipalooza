@@ -1,0 +1,1109 @@
+./scripts/setup.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_io
+Reading "sg13cmos5l_Corner".
+Reading "sg13cmos5l_Filler1000".
+Reading "sg13cmos5l_Filler10000".
+Reading "sg13cmos5l_Filler200".
+Reading "sg13cmos5l_Filler2000".
+Reading "sg13cmos5l_Filler400".
+Reading "sg13cmos5l_Filler4000".
+Reading "sg13cmos5l_DCNDiode".
+Reading "sg13cmos5l_Clamp_P20N0D".
+Reading "sg13cmos5l_DCPDiode".
+Reading "sg13cmos5l_SecondaryProtection".
+Reading "sg13cmos5l_Clamp_N20N0D".
+Reading "sg13cmos5l_IOPadAnalog".
+Reading "sg13cmos5l_RCClampResistor".
+Reading "sg13cmos5l_RCClampInverter".
+Reading "sg13cmos5l_Clamp_N43N43D4R".
+Reading "sg13cmos5l_IOPadIOVdd".
+Reading "sg13cmos5l_IOPadIOVss".
+Reading "M2_M1_OS_789120990530".
+Reading "M2_M1_OS_789120990531".
+Reading "sg13g2_SecondaryProtection".
+Reading "sg13cmos5l_LevelDown".
+Reading "sg13cmos5l_IOPadIn".
+Reading "sg13cmos5l_Clamp_P8N8D".
+Reading "sg13cmos5l_io_nand2_x1".
+Reading "sg13cmos5l_io_inv_x1".
+Reading "sg13cmos5l_io_tie".
+Reading "sg13cmos5l_io_nor2_x1".
+Reading "sg13cmos5l_LevelUp".
+Reading "sg13cmos5l_GateDecode".
+Reading "sg13cmos5l_Clamp_N8N8D".
+Reading "sg13cmos5l_IOPadInOut16mA".
+Reading "sg13cmos5l_Clamp_P15N15D".
+Reading "sg13cmos5l_Clamp_N15N15D".
+Reading "sg13cmos5l_IOPadInOut30mA".
+Reading "sg13cmos5l_Clamp_P2N2D".
+Reading "sg13cmos5l_Clamp_N2N2D".
+Reading "sg13cmos5l_IOPadInOut4mA".
+Reading "sg13cmos5l_LevelUpInv".
+Reading "sg13cmos5l_GateLevelUpInv".
+Reading "sg13cmos5l_IOPadOut16mA".
+Reading "sg13cmos5l_IOPadOut30mA".
+Reading "sg13cmos5l_IOPadOut4mA".
+Reading "sg13cmos5l_IOPadTriOut16mA".
+Reading "sg13cmos5l_IOPadTriOut30mA".
+Reading "sg13cmos5l_IOPadTriOut4mA".
+Reading "sg13cmos5l_IOPadVdd".
+Reading "sg13cmos5l_IOPadVss".
+Cell sg13cmos5l_Gallery read from current working directory
+Scaled magic input cell sg13cmos5l_Gallery geometry by factor of 2
+Reading LEF data from file /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef.
+This action cannot be undone.
+LEF read: Processed 3056 lines.
+Annotating port orders from /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice
+Annotating cell sg13cmos5l_DCNDiode
+Cell sg13cmos5l_DCNDiode port order was modified.
+Annotating cell sg13cmos5l_DCPDiode
+Cell sg13cmos5l_DCPDiode port order was modified.
+Annotating cell sg13cmos5l_IOPadIOVss
+Cell sg13cmos5l_IOPadIOVss port order was modified.
+Annotating cell sg13cmos5l_Clamp_N43N43D4R
+Cell sg13cmos5l_Clamp_N43N43D4R port order was modified.
+Annotating cell sg13cmos5l_RCClampResistor
+Cell sg13cmos5l_RCClampResistor port order was modified.
+Annotating cell sg13cmos5l_RCClampInverter
+Cell sg13cmos5l_RCClampInverter port order was modified.
+Annotating cell sg13cmos5l_IOPadVdd
+Cell sg13cmos5l_IOPadVdd port order was modified.
+Annotating cell sg13cmos5l_IOPadIOVdd
+Cell sg13cmos5l_IOPadIOVdd port order was modified.
+Annotating cell sg13cmos5l_IOPadVss
+Cell sg13cmos5l_IOPadVss port order was modified.
+Annotating cell sg13cmos5l_Filler2000
+Cell sg13cmos5l_Filler2000 port order was modified.
+Annotating cell sg13cmos5l_io_inv_x1
+Cell sg13cmos5l_io_inv_x1 port order was modified.
+Annotating cell sg13cmos5l_LevelUp
+Cell sg13cmos5l_LevelUp port order was modified.
+Annotating cell sg13cmos5l_io_nor2_x1
+Cell sg13cmos5l_io_nor2_x1 port order was modified.
+Annotating cell sg13cmos5l_io_tie
+Cell sg13cmos5l_io_tie port order was modified.
+Annotating cell sg13cmos5l_io_nand2_x1
+Cell sg13cmos5l_io_nand2_x1 port order was modified.
+Annotating cell sg13cmos5l_GateDecode
+Cell sg13cmos5l_GateDecode port order was modified.
+Annotating cell sg13cmos5l_Clamp_N2N2D
+Cell sg13cmos5l_Clamp_N2N2D port order was modified.
+Annotating cell sg13cmos5l_Clamp_P2N2D
+Cell sg13cmos5l_Clamp_P2N2D port order was modified.
+Annotating cell sg13cmos5l_SecondaryProtection
+Cell sg13cmos5l_SecondaryProtection port order was modified.
+Annotating cell sg13cmos5l_LevelDown
+Cell sg13cmos5l_LevelDown port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut4mA
+Cell sg13cmos5l_IOPadInOut4mA port order was modified.
+Annotating cell sg13cmos5l_Clamp_P15N15D
+Cell sg13cmos5l_Clamp_P15N15D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N15N15D
+Cell sg13cmos5l_Clamp_N15N15D port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut30mA
+Cell sg13cmos5l_IOPadInOut30mA port order was modified.
+Annotating cell sg13cmos5l_LevelUpInv
+Cell sg13cmos5l_LevelUpInv port order was modified.
+Annotating cell sg13cmos5l_GateLevelUpInv
+Cell sg13cmos5l_GateLevelUpInv port order was modified.
+Annotating cell sg13cmos5l_IOPadOut4mA
+Cell sg13cmos5l_IOPadOut4mA port order was modified.
+Annotating cell sg13cmos5l_IOPadOut30mA
+Cell sg13cmos5l_IOPadOut30mA port order was modified.
+Annotating cell sg13cmos5l_IOPadIn
+Cell sg13cmos5l_IOPadIn port order was modified.
+Annotating cell sg13cmos5l_Clamp_P8N8D
+Cell sg13cmos5l_Clamp_P8N8D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N8N8D
+Cell sg13cmos5l_Clamp_N8N8D port order was modified.
+Annotating cell sg13cmos5l_IOPadInOut16mA
+Cell sg13cmos5l_IOPadInOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadOut16mA
+Cell sg13cmos5l_IOPadOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut4mA
+Cell sg13cmos5l_IOPadTriOut4mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut16mA
+Cell sg13cmos5l_IOPadTriOut16mA port order was modified.
+Annotating cell sg13cmos5l_IOPadTriOut30mA
+Cell sg13cmos5l_IOPadTriOut30mA port order was modified.
+Annotating cell sg13cmos5l_Corner
+Cell sg13cmos5l_Corner port order was modified.
+Annotating cell sg13cmos5l_Filler4000
+Cell sg13cmos5l_Filler4000 port order was modified.
+Annotating cell sg13cmos5l_Filler1000
+Cell sg13cmos5l_Filler1000 port order was modified.
+Annotating cell sg13cmos5l_Filler200
+Cell sg13cmos5l_Filler200 port order was modified.
+Annotating cell sg13cmos5l_Filler400
+Cell sg13cmos5l_Filler400 port order was modified.
+Annotating cell sg13cmos5l_Filler10000
+Cell sg13cmos5l_Filler10000 port order was modified.
+Annotating cell sg13cmos5l_Clamp_P20N0D
+Cell sg13cmos5l_Clamp_P20N0D port order was modified.
+Annotating cell sg13cmos5l_Clamp_N20N0D
+Cell sg13cmos5l_Clamp_N20N0D port order was modified.
+Annotating cell sg13cmos5l_IOPadAnalog
+Cell sg13cmos5l_IOPadAnalog port order was modified.
+Writing 'sg13cmos5l_IOPadAnalog'
+Writing 'sg13cmos5l_Clamp_P8N8D'
+Writing 'sg13cmos5l_Corner'
+Writing 'sg13cmos5l_IOPadTriOut30mA'
+Writing 'sg13cmos5l_IOPadInOut30mA'
+Writing 'sg13cmos5l_Clamp_N43N43D4R'
+Writing 'sg13cmos5l_IOPadTriOut16mA'
+Writing 'sg13cmos5l_IOPadInOut16mA'
+Writing 'sg13cmos5l_io_tie'
+Writing 'sg13cmos5l_IOPadIn'
+Writing 'sg13cmos5l_IOPadVss'
+Writing 'sg13cmos5l_IOPadVdd'
+Writing 'sg13cmos5l_io_inv_x1'
+Writing 'sg13cmos5l_Clamp_P2N2D'
+Writing 'sg13cmos5l_SecondaryProtection'
+Writing 'sg13cmos5l_cornerSite'
+Writing 'sg13cmos5l_IOPadOut30mA'
+Writing 'sg13cmos5l_Clamp_P20N0D'
+Writing 'sg13cmos5l_IOPadOut16mA'
+Writing 'sg13cmos5l_LevelUp'
+Writing 'sg13cmos5l_DCNDiode'
+Writing 'sg13cmos5l_IOPadTriOut4mA'
+Writing 'sg13cmos5l_Filler1000'
+Writing 'sg13cmos5l_LevelUpInv'
+Writing 'sg13cmos5l_Filler4000'
+Writing 'sg13cmos5l_Gallery'
+Writing 'sg13cmos5l_Filler400'
+Writing 'sg13cmos5l_IOPadOut4mA'
+Writing 'sg13cmos5l_RCClampResistor'
+Writing 'sg13cmos5l_Filler200'
+Writing 'sg13cmos5l_GateLevelUpInv'
+Writing 'sg13cmos5l_Filler10000'
+Writing 'sg13cmos5l_Clamp_P15N15D'
+Writing 'sg13cmos5l_Clamp_N8N8D'
+Writing 'sg13cmos5l_io_nor2_x1'
+Writing 'sg13cmos5l_IOPadInOut4mA'
+Writing 'sg13cmos5l_GateDecode'
+Writing 'sg13cmos5l_Filler2000'
+Writing 'sg13cmos5l_Clamp_N15N15D'
+Writing 'sg13cmos5l_DCPDiode'
+Writing 'sg13cmos5l_ioSite'
+Writing 'sg13cmos5l_Clamp_N2N2D'
+Writing 'sg13cmos5l_io_nand2_x1'
+Writing 'sg13cmos5l_RCClampInverter'
+Writing 'sg13cmos5l_LevelDown'
+Writing 'sg13g2_SecondaryProtection'
+Writing 'M2_M1_OS_789120990530'
+Writing 'sg13cmos5l_Clamp_N20N0D'
+Writing 'sg13cmos5l_IOPadIOVss'
+Writing 'sg13cmos5l_IOPadIOVdd'
+Writing 'M2_M1_OS_789120990531'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_stdcell
+Reading "sg13cmos5l_a21o_1".
+Reading "sg13cmos5l_a21o_2".
+Reading "sg13cmos5l_a21oi_1".
+Reading "sg13cmos5l_a21oi_2".
+Reading "sg13cmos5l_a221oi_1".
+Reading "sg13cmos5l_a22oi_1".
+Reading "sg13cmos5l_and2_1".
+Reading "sg13cmos5l_and2_2".
+Reading "sg13cmos5l_and3_1".
+Reading "sg13cmos5l_and3_2".
+Reading "sg13cmos5l_and4_1".
+Reading "sg13cmos5l_and4_2".
+Reading "sg13cmos5l_antennanp".
+Reading "sg13cmos5l_buf_1".
+Reading "sg13cmos5l_buf_16".
+Reading "sg13cmos5l_buf_2".
+Reading "sg13cmos5l_buf_4".
+Reading "sg13cmos5l_buf_8".
+Reading "sg13cmos5l_decap_4".
+Reading "sg13cmos5l_decap_8".
+Reading "sg13cmos5l_dfrbp_1".
+Reading "sg13cmos5l_dfrbp_2".
+Reading "sg13cmos5l_dfrbpq_1".
+Reading "sg13cmos5l_dfrbpq_2".
+Reading "sg13cmos5l_dlhq_1".
+Reading "sg13cmos5l_dlhr_1".
+Reading "sg13cmos5l_dlhrq_1".
+Reading "sg13cmos5l_dllr_1".
+Reading "sg13cmos5l_dllrq_1".
+Reading "sg13cmos5l_dlygate4sd1_1".
+Reading "sg13cmos5l_dlygate4sd2_1".
+Reading "sg13cmos5l_dlygate4sd3_1".
+Reading "sg13cmos5l_ebufn_2".
+Reading "sg13cmos5l_ebufn_4".
+Reading "sg13cmos5l_ebufn_8".
+Reading "sg13cmos5l_einvn_2".
+Reading "sg13cmos5l_einvn_4".
+Reading "sg13cmos5l_einvn_8".
+Reading "sg13cmos5l_fill_1".
+Reading "sg13cmos5l_fill_2".
+Reading "sg13cmos5l_fill_4".
+Reading "sg13cmos5l_fill_8".
+Reading "sg13cmos5l_inv_1".
+Reading "sg13cmos5l_inv_16".
+Reading "sg13cmos5l_inv_2".
+Reading "sg13cmos5l_inv_4".
+Reading "sg13cmos5l_inv_8".
+Reading "sg13cmos5l_lgcp_1".
+Reading "sg13cmos5l_mux2_1".
+Reading "sg13cmos5l_mux2_2".
+Reading "sg13cmos5l_mux4_1".
+Reading "sg13cmos5l_nand2_1".
+Reading "sg13cmos5l_nand2_2".
+Reading "sg13cmos5l_nand2b_1".
+Reading "sg13cmos5l_nand2b_2".
+Reading "sg13cmos5l_nand3_1".
+Reading "sg13cmos5l_nand3b_1".
+Reading "sg13cmos5l_nand4_1".
+Reading "sg13cmos5l_nor2_1".
+Reading "sg13cmos5l_nor2_2".
+Reading "sg13cmos5l_nor2b_1".
+Reading "sg13cmos5l_nor2b_2".
+Reading "sg13cmos5l_nor3_1".
+Reading "sg13cmos5l_nor3_2".
+Reading "sg13cmos5l_nor4_1".
+Reading "sg13cmos5l_nor4_2".
+Reading "sg13cmos5l_o21ai_1".
+Reading "sg13cmos5l_or2_1".
+Reading "sg13cmos5l_or2_2".
+Reading "sg13cmos5l_or3_1".
+Reading "sg13cmos5l_or3_2".
+Reading "sg13cmos5l_or4_1".
+Reading "sg13cmos5l_or4_2".
+Reading "sg13cmos5l_sdfbbp_1".
+Reading "sg13cmos5l_sdfrbp_1".
+Reading "sg13cmos5l_sdfrbp_2".
+Reading "sg13cmos5l_sdfrbpq_1".
+Reading "sg13cmos5l_sdfrbpq_2".
+Reading "sg13cmos5l_sighold".
+Reading "sg13cmos5l_slgcp_1".
+Reading "sg13cmos5l_tiehi".
+Reading "sg13cmos5l_tielo".
+Reading "sg13cmos5l_xnor2_1".
+Reading "sg13cmos5l_xor2_1".
+Cell CoreSite read from current working directory
+Scaled magic input cell CoreSite geometry by factor of 2
+Reading LEF data from file /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef.
+This action cannot be undone.
+LEF read, Line 6473 (Message): Unknown keyword "ANTENNAMAXCUTCAR" in LEF file; ignoring.
+LEF read: Processed 7927 lines.
+Annotating port orders from /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+Annotating cell sg13cmos5l_a21o_1
+Cell sg13cmos5l_a21o_1 port order was modified.
+Annotating cell sg13cmos5l_a21o_2
+Cell sg13cmos5l_a21o_2 port order was modified.
+Annotating cell sg13cmos5l_a21oi_1
+Cell sg13cmos5l_a21oi_1 port order was modified.
+Annotating cell sg13cmos5l_a21oi_2
+Cell sg13cmos5l_a21oi_2 port order was modified.
+Annotating cell sg13cmos5l_a221oi_1
+Cell sg13cmos5l_a221oi_1 port order was modified.
+Annotating cell sg13cmos5l_and2_1
+Cell sg13cmos5l_and2_1 port order was modified.
+Annotating cell sg13cmos5l_and2_2
+Cell sg13cmos5l_and2_2 port order was modified.
+Annotating cell sg13cmos5l_and3_1
+Cell sg13cmos5l_and3_1 port order was modified.
+Annotating cell sg13cmos5l_and3_2
+Cell sg13cmos5l_and3_2 port order was modified.
+Annotating cell sg13cmos5l_and4_1
+Cell sg13cmos5l_and4_1 port order was modified.
+Annotating cell sg13cmos5l_and4_2
+Cell sg13cmos5l_and4_2 port order was modified.
+Annotating cell sg13cmos5l_antennanp
+Cell sg13cmos5l_antennanp port order was modified.
+Annotating cell sg13cmos5l_buf_1
+Cell sg13cmos5l_buf_1 port order was modified.
+Annotating cell sg13cmos5l_buf_16
+Cell sg13cmos5l_buf_16 port order was modified.
+Annotating cell sg13cmos5l_buf_2
+Cell sg13cmos5l_buf_2 port order was modified.
+Annotating cell sg13cmos5l_buf_4
+Cell sg13cmos5l_buf_4 port order was modified.
+Annotating cell sg13cmos5l_buf_8
+Cell sg13cmos5l_buf_8 port order was modified.
+Annotating cell sg13cmos5l_decap_4
+Cell sg13cmos5l_decap_4 port order was modified.
+Annotating cell sg13cmos5l_decap_8
+Cell sg13cmos5l_decap_8 port order was modified.
+Annotating cell sg13cmos5l_dfrbp_1
+Cell sg13cmos5l_dfrbp_1 port order was modified.
+Annotating cell sg13cmos5l_dfrbp_2
+Cell sg13cmos5l_dfrbp_2 port order was modified.
+Annotating cell sg13cmos5l_dlhq_1
+Cell sg13cmos5l_dlhq_1 port order was modified.
+Annotating cell sg13cmos5l_dlhr_1
+Cell sg13cmos5l_dlhr_1 port order was modified.
+Annotating cell sg13cmos5l_dlhrq_1
+Cell sg13cmos5l_dlhrq_1 port order was modified.
+Annotating cell sg13cmos5l_dllr_1
+Cell sg13cmos5l_dllr_1 port order was modified.
+Annotating cell sg13cmos5l_dllrq_1
+Cell sg13cmos5l_dllrq_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd1_1
+Cell sg13cmos5l_dlygate4sd1_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd2_1
+Cell sg13cmos5l_dlygate4sd2_1 port order was modified.
+Annotating cell sg13cmos5l_dlygate4sd3_1
+Cell sg13cmos5l_dlygate4sd3_1 port order was modified.
+Annotating cell sg13cmos5l_ebufn_2
+Cell sg13cmos5l_ebufn_2 port order was modified.
+Annotating cell sg13cmos5l_ebufn_4
+Cell sg13cmos5l_ebufn_4 port order was modified.
+Annotating cell sg13cmos5l_ebufn_8
+Cell sg13cmos5l_ebufn_8 port order was modified.
+Annotating cell sg13cmos5l_einvn_2
+Cell sg13cmos5l_einvn_2 port order was modified.
+Annotating cell sg13cmos5l_einvn_4
+Cell sg13cmos5l_einvn_4 port order was modified.
+Annotating cell sg13cmos5l_einvn_8
+Cell sg13cmos5l_einvn_8 port order was modified.
+Annotating cell sg13cmos5l_inv_1
+Cell sg13cmos5l_inv_1 port order was modified.
+Annotating cell sg13cmos5l_inv_16
+Cell sg13cmos5l_inv_16 port order was modified.
+Annotating cell sg13cmos5l_inv_2
+Cell sg13cmos5l_inv_2 port order was modified.
+Annotating cell sg13cmos5l_inv_4
+Cell sg13cmos5l_inv_4 port order was modified.
+Annotating cell sg13cmos5l_inv_8
+Cell sg13cmos5l_inv_8 port order was modified.
+Annotating cell sg13cmos5l_lgcp_1
+Cell sg13cmos5l_lgcp_1 port order was modified.
+Annotating cell sg13cmos5l_mux2_1
+Cell sg13cmos5l_mux2_1 port order was modified.
+Annotating cell sg13cmos5l_mux2_2
+Cell sg13cmos5l_mux2_2 port order was modified.
+Annotating cell sg13cmos5l_mux4_1
+Cell sg13cmos5l_mux4_1 port order was modified.
+Annotating cell sg13cmos5l_nand2_1
+Cell sg13cmos5l_nand2_1 port order was modified.
+Annotating cell sg13cmos5l_nand2_2
+Cell sg13cmos5l_nand2_2 port order was modified.
+Annotating cell sg13cmos5l_nand2b_1
+Cell sg13cmos5l_nand2b_1 port order was modified.
+Annotating cell sg13cmos5l_nand2b_2
+Cell sg13cmos5l_nand2b_2 port order was modified.
+Annotating cell sg13cmos5l_nand3_1
+Cell sg13cmos5l_nand3_1 port order was modified.
+Annotating cell sg13cmos5l_nand3b_1
+Cell sg13cmos5l_nand3b_1 port order was modified.
+Annotating cell sg13cmos5l_nand4_1
+Cell sg13cmos5l_nand4_1 port order was modified.
+Annotating cell sg13cmos5l_nor2_1
+Cell sg13cmos5l_nor2_1 port order was modified.
+Annotating cell sg13cmos5l_nor2_2
+Cell sg13cmos5l_nor2_2 port order was modified.
+Annotating cell sg13cmos5l_nor2b_1
+Cell sg13cmos5l_nor2b_1 port order was modified.
+Annotating cell sg13cmos5l_nor2b_2
+Cell sg13cmos5l_nor2b_2 port order was modified.
+Annotating cell sg13cmos5l_nor3_1
+Cell sg13cmos5l_nor3_1 port order was modified.
+Annotating cell sg13cmos5l_nor3_2
+Cell sg13cmos5l_nor3_2 port order was modified.
+Annotating cell sg13cmos5l_nor4_1
+Cell sg13cmos5l_nor4_1 port order was modified.
+Annotating cell sg13cmos5l_nor4_2
+Cell sg13cmos5l_nor4_2 port order was modified.
+Annotating cell sg13cmos5l_o21ai_1
+Cell sg13cmos5l_o21ai_1 port order was modified.
+Annotating cell sg13cmos5l_or2_1
+Cell sg13cmos5l_or2_1 port order was modified.
+Annotating cell sg13cmos5l_or2_2
+Cell sg13cmos5l_or2_2 port order was modified.
+Annotating cell sg13cmos5l_or3_1
+Cell sg13cmos5l_or3_1 port order was modified.
+Annotating cell sg13cmos5l_or3_2
+Cell sg13cmos5l_or3_2 port order was modified.
+Annotating cell sg13cmos5l_or4_1
+Cell sg13cmos5l_or4_1 port order was modified.
+Annotating cell sg13cmos5l_or4_2
+Cell sg13cmos5l_or4_2 port order was modified.
+Annotating cell sg13cmos5l_sdfbbp_1
+Cell sg13cmos5l_sdfbbp_1 port order was modified.
+Annotating cell sg13cmos5l_sighold
+Cell sg13cmos5l_sighold port order was modified.
+Annotating cell sg13cmos5l_slgcp_1
+Cell sg13cmos5l_slgcp_1 port order was modified.
+Annotating cell sg13cmos5l_tiehi
+Cell sg13cmos5l_tiehi port order was modified.
+Annotating cell sg13cmos5l_tielo
+Cell sg13cmos5l_tielo port order was modified.
+Annotating cell sg13cmos5l_xnor2_1
+Cell sg13cmos5l_xnor2_1 port order was modified.
+Annotating cell sg13cmos5l_xor2_1
+Cell sg13cmos5l_xor2_1 port order was modified.
+Annotating cell sg13cmos5l_a22oi_1
+Cell sg13cmos5l_a22oi_1 port order was modified.
+Annotating cell sg13cmos5l_sdfrbpq_1
+Cell sg13cmos5l_sdfrbpq_1 port order was modified.
+Annotating cell sg13cmos5l_sdfrbpq_2
+Cell sg13cmos5l_sdfrbpq_2 port order was modified.
+Annotating cell sg13cmos5l_sdfrbp_2
+Cell sg13cmos5l_sdfrbp_2 port order was modified.
+Annotating cell sg13cmos5l_sdfrbp_1
+Cell sg13cmos5l_sdfrbp_1 port order was modified.
+Annotating cell sg13cmos5l_dfrbpq_2
+Cell sg13cmos5l_dfrbpq_2 port order was modified.
+Annotating cell sg13cmos5l_dfrbpq_1
+Cell sg13cmos5l_dfrbpq_1 port order was modified.
+Annotating cell sg13cmos5l_fill_1
+Cell sg13cmos5l_fill_1 port order was modified.
+Annotating cell sg13cmos5l_fill_2
+Cell sg13cmos5l_fill_2 port order was modified.
+Annotating cell sg13cmos5l_fill_4
+Cell sg13cmos5l_fill_4 port order was modified.
+Annotating cell sg13cmos5l_fill_8
+Cell sg13cmos5l_fill_8 port order was modified.
+Writing 'sg13cmos5l_ebufn_4'
+Writing 'sg13cmos5l_or3_1'
+Writing 'sg13cmos5l_nand2_1'
+Writing 'sg13cmos5l_or3_2'
+Writing 'sg13cmos5l_inv_1'
+Writing 'sg13cmos5l_dlygate4sd2_1'
+Writing 'sg13cmos5l_nand2_2'
+Writing 'sg13cmos5l_inv_2'
+Writing 'sg13cmos5l_lgcp_1'
+Writing 'sg13cmos5l_dllrq_1'
+Writing 'sg13cmos5l_xnor2_1'
+Writing 'sg13cmos5l_inv_4'
+Writing 'sg13cmos5l_ebufn_8'
+Writing 'sg13cmos5l_dlhq_1'
+Writing 'sg13cmos5l_sdfrbpq_1'
+Writing 'sg13cmos5l_nand2b_1'
+Writing 'sg13cmos5l_dfrbp_1'
+Writing 'sg13cmos5l_sdfrbpq_2'
+Writing 'sg13cmos5l_dfrbp_2'
+Writing 'sg13cmos5l_a22oi_1'
+Writing 'sg13cmos5l_nand2b_2'
+Writing 'sg13cmos5l_inv_8'
+Writing 'sg13cmos5l_mux4_1'
+Writing 'sg13cmos5l_o21ai_1'
+Writing 'sg13cmos5l_buf_1'
+Writing 'sg13cmos5l_nor3_1'
+Writing 'sg13cmos5l_dlhrq_1'
+Writing 'sg13cmos5l_buf_2'
+Writing 'sg13cmos5l_a21o_1'
+Writing 'sg13cmos5l_nor3_2'
+Writing 'sg13cmos5l_and4_1'
+Writing 'sg13cmos5l_a21o_2'
+Writing 'sg13cmos5l_mux2_1'
+Writing 'sg13cmos5l_and4_2'
+Writing 'sg13cmos5l_mux2_2'
+Writing 'sg13cmos5l_buf_4'
+Writing 'sg13cmos5l_einvn_2'
+Writing 'sg13cmos5l_nor2b_1'
+Writing 'sg13cmos5l_and2_1'
+Writing 'sg13cmos5l_nor2b_2'
+Writing 'sg13cmos5l_einvn_4'
+Writing 'sg13cmos5l_and2_2'
+Writing 'CoreSite'
+Writing 'sg13cmos5l_or4_1'
+Writing 'sg13cmos5l_buf_8'
+Writing 'sg13cmos5l_nand3_1'
+Writing 'sg13cmos5l_or4_2'
+Writing 'sg13cmos5l_dlygate4sd3_1'
+Writing 'sg13cmos5l_tiehi'
+Writing 'sg13cmos5l_dfrbpq_1'
+Writing 'sg13cmos5l_a21oi_1'
+Writing 'sg13cmos5l_slgcp_1'
+Writing 'sg13cmos5l_einvn_8'
+Writing 'sg13cmos5l_nand3b_1'
+Writing 'sg13cmos5l_fill_1'
+Writing 'sg13cmos5l_dfrbpq_2'
+Writing 'sg13cmos5l_buf_16'
+Writing 'sg13cmos5l_a21oi_2'
+Writing 'sg13cmos5l_or2_1'
+Writing 'sg13cmos5l_tielo'
+Writing 'sg13cmos5l_fill_2'
+Writing 'sg13cmos5l_or2_2'
+Writing 'sg13cmos5l_dlygate4sd1_1'
+Writing 'sg13cmos5l_dlhr_1'
+Writing 'sg13cmos5l_fill_4'
+Writing 'sg13cmos5l_a221oi_1'
+Writing 'sg13cmos5l_fill_8'
+Writing 'sg13cmos5l_xor2_1'
+Writing 'sg13cmos5l_sighold'
+Writing 'sg13cmos5l_sdfbbp_1'
+Writing 'sg13cmos5l_nor4_1'
+Writing 'sg13cmos5l_antennanp'
+Writing 'sg13cmos5l_nor4_2'
+Writing 'sg13cmos5l_nor2_1'
+Writing 'sg13cmos5l_sdfrbp_1'
+Writing 'sg13cmos5l_nor2_2'
+Writing 'sg13cmos5l_decap_4'
+Writing 'sg13cmos5l_and3_1'
+Writing 'sg13cmos5l_sdfrbp_2'
+Writing 'sg13cmos5l_and3_2'
+Writing 'sg13cmos5l_nand4_1'
+Writing 'sg13cmos5l_ebufn_2'
+Writing 'sg13cmos5l_inv_16'
+Writing 'sg13cmos5l_dllr_1'
+Writing 'sg13cmos5l_decap_8'
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "VIA_M1_GatPoly_db_0x0283451d".
+Saving contents of cell VIA_M1_GatPoly_db_0x0283451d
+Reading "VIA_M1_Activ_db_0x02835b9b".
+Saving contents of cell VIA_M1_Activ_db_0x02835b9b
+Reading "RM_IHPSG13_1P_BITKIT_CELL_SUB".
+Saving contents of cell RM_IHPSG13_1P_BITKIT_CELL_SUB
+Reading "lvsres_db_0x02834b9a".
+Saving contents of cell lvsres_db_0x02834b9a
+Reading "lvsres_db_0x0283509a".
+Saving contents of cell lvsres_db_0x0283509a
+Reading "RM_IHPSG13_1P_BITKIT_CELL".
+Reading "RM_IHPSG13_1P_BITKIT_CELL_2x1".
+Reading "RM_IHPSG13_1P_BITKIT_TAP".
+Reading "VIA_M3_M2_db_0x0400ab9c".
+Reading "lvsres_db_0x0400b71a".
+Saving contents of cell lvsres_db_0x0400b71a
+Reading "RSC_IHPSG13_NAND2X2".
+Saving contents of cell RSC_IHPSG13_NAND2X2
+Reading "RSC_IHPSG13_NOR3X2".
+Saving contents of cell RSC_IHPSG13_NOR3X2
+Reading "RSC_IHPSG13_LHPQX2".
+Saving contents of cell RSC_IHPSG13_LHPQX2
+Reading "VIA_M3_M2_db_0x0400d921".
+Reading "RSC_IHPSG13_NAND3X2".
+Saving contents of cell RSC_IHPSG13_NAND3X2
+Reading "RSC_IHPSG13_FILL2".
+Saving contents of cell RSC_IHPSG13_FILL2
+Reading "VIA_M4_M3_db_0x0283a69b".
+Reading "VIA_M3_M2_db_0x0400d39e".
+Reading "RSC_IHPSG13_FILL1".
+Saving contents of cell RSC_IHPSG13_FILL1
+Reading "RSC_IHPSG13_FILLCAP8".
+Saving contents of cell RSC_IHPSG13_FILLCAP8
+Reading "RSC_IHPSG13_INVX2".
+Saving contents of cell RSC_IHPSG13_INVX2
+Reading "RSC_IHPSG13_CINVX2".
+Saving contents of cell RSC_IHPSG13_CINVX2
+Reading "VIA_M2_M1_db_0x0283059f".
+Saving contents of cell VIA_M2_M1_db_0x0283059f
+Reading "VIA_M3_M2_db_0x0283059e".
+Reading "RSC_IHPSG13_FILLCAP4".
+Saving contents of cell RSC_IHPSG13_FILLCAP4
+Reading "RSC_IHPSG13_INVX4".
+Saving contents of cell RSC_IHPSG13_INVX4
+Reading "VIA_M2_M1_db_0x0283beab".
+Saving contents of cell VIA_M2_M1_db_0x0283beab
+Reading "VIA_M2_M1_db_0x0283be9b".
+Saving contents of cell VIA_M2_M1_db_0x0283be9b
+Reading "lvsres_db_0x04007e9a".
+Saving contents of cell lvsres_db_0x04007e9a
+Reading "VIA_M3_M2_db_0x0400ab9b".
+Reading "VIA_M3_M2_db_0x0400d91e".
+Reading "VIA_M3_M2_db_0x0283a69f".
+Reading "VIA_M4_M3_db_0x0283a69e".
+Reading "VIA_M3_M2_db_0x0283a69d".
+Reading "VIA_M2_M1_db_0x028305a5".
+Saving contents of cell VIA_M2_M1_db_0x028305a5
+Reading "VIA_M3_M2_db_0x028305a4".
+Reading "VIA_M2_M1_db_0x028305a3".
+Saving contents of cell VIA_M2_M1_db_0x028305a3
+Reading "VIA_M2_M1_db_0x028305a2".
+Saving contents of cell VIA_M2_M1_db_0x028305a2
+Reading "VIA_M3_M2_db_0x028305a1".
+Reading "VIA_M3_M2_db_0x028305a0".
+Reading "VIA_M2_M1_db_0x0283059c".
+Saving contents of cell VIA_M2_M1_db_0x0283059c
+Reading "VIA_M2_M1_db_0x0283059b".
+Saving contents of cell VIA_M2_M1_db_0x0283059b
+Reading "RSC_IHPSG13_DFPQD_MSAFFX2N_half".
+Saving contents of cell RSC_IHPSG13_DFPQD_MSAFFX2N_half
+Reading "VIA_M4_M3_db_0x0283361c".
+Reading "RM_IHPSG13_1P_BITKIT_CELL_CORNER".
+Saving contents of cell RM_IHPSG13_1P_BITKIT_CELL_CORNER
+Reading "RM_IHPSG13_1P_BITKIT_EDGE_LR".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_EDGE_TB".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_TAP".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_SRAM".
+Reading "VIA_M3_M2_db_0x043aeda0".
+Reading "VIA_M3_M2_db_0x0283bea2".
+Reading "VIA_M2_M1_db_0x0283bea0".
+Saving contents of cell VIA_M2_M1_db_0x0283bea0
+Reading "RSC_IHPSG13_CNAND2X2".
+Saving contents of cell RSC_IHPSG13_CNAND2X2
+Reading "RSC_IHPSG13_CBUFX8".
+Saving contents of cell RSC_IHPSG13_CBUFX8
+Reading "RSC_IHPSG13_OA12X1".
+Saving contents of cell RSC_IHPSG13_OA12X1
+Reading "RSC_IHPSG13_TIEL".
+Saving contents of cell RSC_IHPSG13_TIEL
+Reading "RSC_IHPSG13_DFNQX2".
+Saving contents of cell RSC_IHPSG13_DFNQX2
+Reading "RSC_IHPSG13_XOR2X2".
+Saving contents of cell RSC_IHPSG13_XOR2X2
+Reading "RSC_IHPSG13_CINVX4".
+Saving contents of cell RSC_IHPSG13_CINVX4
+Reading "RSC_IHPSG13_CGATEPX4".
+Saving contents of cell RSC_IHPSG13_CGATEPX4
+Reading "RSC_IHPSG13_MX2X2".
+Saving contents of cell RSC_IHPSG13_MX2X2
+Reading "RSC_IHPSG13_CDLYX2".
+Saving contents of cell RSC_IHPSG13_CDLYX2
+Reading "VIA_M2_M1_db_0x02838425".
+Saving contents of cell VIA_M2_M1_db_0x02838425
+Reading "VIA_M2_M1_db_0x02838424".
+Saving contents of cell VIA_M2_M1_db_0x02838424
+Reading "RSC_IHPSG13_CINVX8".
+Saving contents of cell RSC_IHPSG13_CINVX8
+Reading "VIA_M3_M2_db_0x0283959d".
+Reading "VIA_M3_M2_db_0x02839d23".
+Reading "RSC_IHPSG13_CBUFX2".
+Saving contents of cell RSC_IHPSG13_CBUFX2
+Reading "RSC_IHPSG13_AND2X2".
+Saving contents of cell RSC_IHPSG13_AND2X2
+Reading "RSC_IHPSG13_DFNQMX2IX1".
+Saving contents of cell RSC_IHPSG13_DFNQMX2IX1
+Reading "VIA_M2_M1_db_0x0283bea5".
+Saving contents of cell VIA_M2_M1_db_0x0283bea5
+Reading "RSC_IHPSG13_WLDRVX4".
+Saving contents of cell RSC_IHPSG13_WLDRVX4
+Reading "VIA_M2_M1_db_0x043aeda3".
+Saving contents of cell VIA_M2_M1_db_0x043aeda3
+Reading "VIA_M2_M1_db_0x043aed9b".
+Saving contents of cell VIA_M2_M1_db_0x043aed9b
+Reading "RSC_IHPSG13_CBUFX4".
+Saving contents of cell RSC_IHPSG13_CBUFX4
+Reading "RSC_IHPSG13_CDLYX1_DUMMY".
+Saving contents of cell RSC_IHPSG13_CDLYX1_DUMMY
+Reading "RSC_IHPSG13_CDLYX1".
+Saving contents of cell RSC_IHPSG13_CDLYX1
+Reading "RSC_IHPSG13_MX2IX1".
+Saving contents of cell RSC_IHPSG13_MX2IX1
+Reading "VIA_M3_M2_db_0x0283701f".
+Reading "VIA_M4_M3_db_0x02837622".
+Reading "VIA_M3_M2_db_0x02838420".
+Reading "RM_IHPSG13_1P_ROWREG0".
+Reading "RM_IHPSG13_1P_DEC00".
+Reading "RM_IHPSG13_1P_DEC04".
+Reading "RM_IHPSG13_1P_DEC_LE_l1empty".
+Reading "RM_IHPSG13_1P_DEC01".
+Reading "RM_IHPSG13_1P_DEC_LE_l2wire".
+Reading "RM_IHPSG13_1P_DEC_LE_l0wire".
+Reading "RM_IHPSG13_1P_DEC03".
+Reading "RM_IHPSG13_1P_DEC_LE_l2empty".
+Reading "RM_IHPSG13_1P_DEC02".
+Reading "RM_IHPSG13_1P_DEC_LE_tap".
+Reading "RM_IHPSG13_1P_DEC_LE_l1wire".
+Reading "RM_IHPSG13_1P_ROWDEC0".
+Reading "VIA_M3_M2_db_0x02839d1d".
+Reading "VIA_M3_M2_db_0x02839d1b".
+Reading "RSC_IHPSG13_TIEH".
+Saving contents of cell RSC_IHPSG13_TIEH
+Reading "RM_IHPSG13_1P_BLDRV".
+Reading "RSC_IHPSG13_CINVX4_WN".
+Saving contents of cell RSC_IHPSG13_CINVX4_WN
+Reading "RSC_IHPSG13_NOR2X2".
+Saving contents of cell RSC_IHPSG13_NOR2X2
+Reading "lvsres_db_0x0283151a".
+Saving contents of cell lvsres_db_0x0283151a
+Reading "RSC_IHPSG13_DFPQD_MSAFFX2N".
+Saving contents of cell RSC_IHPSG13_DFPQD_MSAFFX2N
+Reading "VIA_M3_M2_db_0x0283beb1".
+Reading "VIA_M3_M2_db_0x0283beb0".
+Reading "VIA_M3_M2_db_0x0283beaf".
+Reading "VIA_M3_M2_db_0x0283beae".
+Reading "VIA_M3_M2_db_0x0283beac".
+Reading "VIA_M2_M1_db_0x0283beaa".
+Saving contents of cell VIA_M2_M1_db_0x0283beaa
+Reading "VIA_M4_M3_db_0x0283bea9".
+Reading "VIA_M3_M2_db_0x0283bea8".
+Reading "VIA_M2_M1_db_0x0283bea7".
+Saving contents of cell VIA_M2_M1_db_0x0283bea7
+Reading "VIA_M2_M1_db_0x0283bea4".
+Saving contents of cell VIA_M2_M1_db_0x0283bea4
+Reading "VIA_M2_M1_db_0x0283bea3".
+Saving contents of cell VIA_M2_M1_db_0x0283bea3
+Reading "VIA_M3_M2_db_0x0283bea1".
+Reading "VIA_M3_M2_db_0x0283be9f".
+Reading "VIA_M3_M2_db_0x0283be9e".
+Reading "VIA_M2_M1_db_0x0283be9d".
+Saving contents of cell VIA_M2_M1_db_0x0283be9d
+Reading "RM_IHPSG13_1P_BITKIT_16x2_CORNER".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_corner".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_POWER_ramtap".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_TAP_LR".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_tap_lr".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_POWER_ramblk".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR".
+Reading "RM_IHPSG13_1P_COLUMN_256".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_edge_lr".
+Reading "RM_IHPSG13_1P_MATRIX_256x16".
+Reading "RM_IHPSG13_1P_DLY_4".
+Reading "RM_IHPSG13_1P_WLDRV16X4_tap".
+Reading "RM_IHPSG13_1P_WLDRV16X4".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL1".
+Reading "RM_IHPSG13_1P_COLDRV13X4".
+Reading "RM_IHPSG13_1P_DLY_2".
+Reading "RM_IHPSG13_1P_DLY_MUX".
+Reading "RM_IHPSG13_1P_COLDEC2".
+Reading "RM_IHPSG13_1P_CTRL".
+Reading "RM_IHPSG13_1P_ROWREG8".
+Reading "RM_IHPSG13_1P_ROWDEC8".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL4C2".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL1C2".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL4".
+Reading "RM_IHPSG13_1P_COLCTRL2".
+Reading "RM_IHPSG13_1P_COLCTRL2_end".
+Reading "RM_IHPSG13_1P_1024x8_c2_bm_bist".
+Reading LEF data from file /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x8_c2_bm_bist.lef.
+This action cannot be undone.
+LEF read, Line 960 (Message): Unknown keyword "ANTENNAMAXCUTCAR" in LEF file; ignoring.
+LEF read: Processed 1548 lines.
+Annotating port orders from /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/cdl/RM_IHPSG13_1P_1024x8_c2_bm_bist.cdl
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_CORNER in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_CORNER in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_EDGE_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_EDGE_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_CELL in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_SRAM in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_EDGE_TB in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_EDGE_TB in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_CBUFX4
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13X4 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_WLDRVX4
+Cell RM_IHPSG13_1024x8_c2_1P_WLDRV16X4 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_FILLCAP8
+Annotating cell RSC_IHPSG13_LHPQX2
+Annotating cell RSC_IHPSG13_NAND2X2
+Annotating cell RSC_IHPSG13_CINVX4
+Annotating cell RSC_IHPSG13_CINVX2
+Annotating cell RSC_IHPSG13_INVX2
+Annotating cell RSC_IHPSG13_NAND3X2
+Annotating cell RSC_IHPSG13_NOR3X2
+Annotating cell RSC_IHPSG13_FILLCAP4
+Cell RSC_IHPSG13_MET2RES in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DEC04 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC4 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_CINVX8
+Annotating cell RSC_IHPSG13_DFNQMX2IX1
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG4 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_CDLYX1
+Annotating cell RSC_IHPSG13_CDLYX1_DUMMY
+Annotating cell RSC_IHPSG13_MX2IX1
+Cell RM_IHPSG13_1024x8_c2_1P_DLY_MUX in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_DFNQX2
+Annotating cell RSC_IHPSG13_CNAND2X2
+Annotating cell RSC_IHPSG13_CGATEPX4
+Annotating cell RSC_IHPSG13_CBUFX8
+Annotating cell RSC_IHPSG13_CDLYX2
+Annotating cell RSC_IHPSG13_MX2X2
+Annotating cell RSC_IHPSG13_AND2X2
+Annotating cell RSC_IHPSG13_TIEL
+Annotating cell RSC_IHPSG13_XOR2X2
+Annotating cell RSC_IHPSG13_OA12X1
+Cell RM_IHPSG13_1024x8_c2_1P_CTRL in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDEC2 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_NOR2X2
+Annotating cell RSC_IHPSG13_CINVX4_WN
+Cell RM_IHPSG13_1024x8_c2_1P_BLDRV in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_TIEH
+Cell RSC_IHPSG13_MET3RES in netlist has not been loaded.
+Cell RSC_IHPSG13_DFPQD_MSAFFX2 in netlist has not been loaded.
+Annotating cell RSC_IHPSG13_CBUFX2
+Annotating cell RSC_IHPSG13_INVX4
+Cell RM_IHPSG13_1024x8_c2_1P_COLCTRL2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13_FILL4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13_FILL4C2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDEC4 in netlist has not been loaded.
+Cell RSC_IHPSG13_AND2X4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLCTRL4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDEC3 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLCTRL3 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_CORNER in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_EDGE_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_EDGE_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_CELL in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_SRAM in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_EDGE_TB in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_EDGE_TB in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_TAP in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_TAP in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_TAP_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BITKIT_16x2_TAP_LR in netlist has not been loaded.
+Cell RSC_IHPSG13_CBUFX12 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13X12 in netlist has not been loaded.
+Cell RSC_IHPSG13_WLDRVX12 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_WLDRV16X12 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DEC04 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DEC02 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DEC01 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DEC00 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DEC03 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC9 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG9 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_DLY_MUX in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_CTRL in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDEC5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_BLDRV in netlist has not been loaded.
+Cell RSC_IHPSG13_AND2X6 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLCTRL5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13_FILL4 in netlist has not been loaded.
+Cell RSC_IHPSG13_CBUFX16 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13X16 in netlist has not been loaded.
+Cell RSC_IHPSG13_WLDRVX16 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_WLDRV16X16 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13X4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_WLDRV16X4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDEC4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLCTRL4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDEC3 in netlist has not been loaded.
+Cell RSC_IHPSG13_DFPQD_MSAFFX2P in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLCTRL3 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC6 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG6 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13X16 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_WLDRV16X16 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DEC01 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DEC00 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDEC5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLCTRL5 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13X12 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_WLDRV16X12 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13X8 in netlist has not been loaded.
+Cell RSC_IHPSG13_WLDRVX8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_WLDRV16X8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDEC2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLCTRL2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_COLDRV13_FILL4C2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC7 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG7 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWDEC4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_2P_ROWREG4 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_TAP in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_TAP in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_BITKIT_16x2_TAP_LR in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DEC03 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DEC02 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC9 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG9 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC7 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG7 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLDRV13X8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_WLDRV16X8 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWDEC6 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_ROWREG6 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_COLUMN_pcell_0 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_MATRIX_pcell_1 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DLY_pcell_2 in netlist has not been loaded.
+Cell RM_IHPSG13_1024x8_c2_1P_DLY_pcell_3 in netlist has not been loaded.
+Annotating cell RM_IHPSG13_1P_1024x8_c2_bm_bist
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist port order was modified.
+Writing 'RM_IHPSG13_1P_COLDRV13_FILL4'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR'
+Writing 'VIA_M4_M3_db_0x0283a69e'
+Writing 'VIA_M3_M2_db_0x0283a69f'
+Writing 'RM_IHPSG13_1P_BITKIT_CELL_SUB'
+Writing 'RM_IHPSG13_1P_CTRL'
+Writing 'RSC_IHPSG13_MX2IX1'
+Writing 'RM_IHPSG13_1P_WLDRV16X4_tap'
+Writing 'VIA_M3_M2_db_0x043aeda0'
+Writing 'RSC_IHPSG13_NAND3X2'
+Writing 'VIA_M1_GatPoly_db_0x0283451d'
+Writing 'RSC_IHPSG13_CGATEPX4'
+Writing 'VIA_M3_M2_db_0x0283beb0'
+Writing 'RM_IHPSG13_1P_BLDRV'
+Writing 'RM_IHPSG13_1P_DEC_LE_l1empty'
+Writing 'VIA_M2_M1_db_0x043aeda3'
+Writing 'RSC_IHPSG13_MX2X2'
+Writing 'VIA_M2_M1_db_0x0283bea0'
+Writing 'RSC_IHPSG13_LHPQX2'
+Writing 'VIA_M3_M2_db_0x0283beb1'
+Writing 'VIA_M3_M2_db_0x02839d23'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_TAP'
+Writing 'VIA_M3_M2_db_0x0283bea1'
+Writing 'VIA_M2_M1_db_0x0283bea3'
+Writing 'RSC_IHPSG13_WLDRVX4'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_POWER_ramblk'
+Writing 'VIA_M3_M2_db_0x0283701f'
+Writing 'VIA_M3_M2_db_0x0283bea2'
+Writing 'RSC_IHPSG13_CINVX2'
+Writing 'VIA_M2_M1_db_0x0283bea4'
+Writing 'RSC_IHPSG13_CINVX4_WN'
+Writing 'RM_IHPSG13_1P_DEC_LE_l1wire'
+Writing 'VIA_M2_M1_db_0x0283bea5'
+Writing 'RSC_IHPSG13_CINVX4'
+Writing 'VIA_M3_M2_db_0x0400ab9b'
+Writing 'RM_IHPSG13_1P_MATRIX_256x16'
+Writing 'RM_IHPSG13_1P_DEC_LE_tap'
+Writing 'lvsres_db_0x0283509a'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_LE_con_edge_lr'
+Writing 'RSC_IHPSG13_DFPQD_MSAFFX2N_half'
+Writing 'VIA_M3_M2_db_0x028305a0'
+Writing 'lvsres_db_0x0400b71a'
+Writing 'VIA_M3_M2_db_0x0400ab9c'
+Writing 'VIA_M2_M1_db_0x0283bea7'
+Writing 'VIA_M3_M2_db_0x028305a1'
+Writing 'VIA_M2_M1_db_0x028305a2'
+Writing 'RSC_IHPSG13_FILLCAP4'
+Writing 'RM_IHPSG13_1P_BITKIT_TAP'
+Writing 'RM_IHPSG13_1P_ROWREG0'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_EDGE_TB'
+Writing 'RSC_IHPSG13_FILL1'
+Writing 'VIA_M2_M1_db_0x028305a3'
+Writing 'RSC_IHPSG13_INVX2'
+Writing 'RSC_IHPSG13_FILL2'
+Writing 'VIA_M3_M2_db_0x0283bea8'
+Writing 'RSC_IHPSG13_CINVX8'
+Writing 'RSC_IHPSG13_NOR3X2'
+Writing 'RM_IHPSG13_1P_COLDRV13_FILL1C2'
+Writing 'RM_IHPSG13_1P_WLDRV16X4'
+Writing 'RSC_IHPSG13_CDLYX1'
+Writing 'VIA_M3_M2_db_0x028305a4'
+Writing 'VIA_M2_M1_db_0x028305a5'
+Writing 'lvsres_db_0x0283151a'
+Writing 'RSC_IHPSG13_INVX4'
+Writing 'VIA_M3_M2_db_0x0400d921'
+Writing 'RM_IHPSG13_1P_COLUMN_256'
+Writing 'VIA_M4_M3_db_0x0283bea9'
+Writing 'RSC_IHPSG13_CDLYX2'
+Writing 'RM_IHPSG13_1P_BITKIT_EDGE_LR'
+Writing 'lvsres_db_0x04007e9a'
+Writing 'RSC_IHPSG13_FILLCAP8'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_TAP_LR'
+Writing 'RSC_IHPSG13_CBUFX2'
+Writing 'VIA_M2_M1_db_0x0283beaa'
+Writing 'VIA_M3_M2_db_0x02839d1b'
+Writing 'RSC_IHPSG13_CBUFX4'
+Writing 'RSC_IHPSG13_AND2X2'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_CORNER'
+Writing 'VIA_M2_M1_db_0x0283beab'
+Writing 'VIA_M4_M3_db_0x02837622'
+Writing 'VIA_M2_M1_db_0x043aed9b'
+Writing 'VIA_M3_M2_db_0x02839d1d'
+Writing 'RSC_IHPSG13_DFNQX2'
+Writing 'VIA_M4_M3_db_0x0283361c'
+Writing 'VIA_M1_Activ_db_0x02835b9b'
+Writing 'RM_IHPSG13_1P_ROWREG8'
+Writing 'RM_IHPSG13_1P_BITKIT_CELL_CORNER'
+Writing 'RM_IHPSG13_1P_BITKIT_CELL_2x1'
+Writing 'VIA_M3_M2_db_0x0283beac'
+Writing 'RM_IHPSG13_1P_DEC_LE_l0wire'
+Writing 'RM_IHPSG13_1P_DEC00'
+Writing 'RM_IHPSG13_1P_DEC01'
+Writing 'RM_IHPSG13_1P_COLCTRL2'
+Writing 'RSC_IHPSG13_CBUFX8'
+Writing 'VIA_M3_M2_db_0x0283beae'
+Writing 'RM_IHPSG13_1P_DEC02'
+Writing 'RSC_IHPSG13_CDLYX1_DUMMY'
+Writing 'RSC_IHPSG13_CNAND2X2'
+Writing 'VIA_M2_M1_db_0x0283be9b'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_LE_con_corner'
+Writing 'RSC_IHPSG13_NAND2X2'
+Writing 'RM_IHPSG13_1P_COLDEC2'
+Writing 'VIA_M3_M2_db_0x0283beaf'
+Writing 'RM_IHPSG13_1P_DEC03'
+Writing 'VIA_M2_M1_db_0x0283be9d'
+Writing 'RSC_IHPSG13_TIEH'
+Writing 'RM_IHPSG13_1P_COLCTRL2_end'
+Writing 'RM_IHPSG13_1P_DEC04'
+Writing 'RSC_IHPSG13_OA12X1'
+Writing 'RM_IHPSG13_1P_ROWDEC0'
+Writing 'RM_IHPSG13_1P_DLY_2'
+Writing 'VIA_M3_M2_db_0x0283be9e'
+Writing 'lvsres_db_0x02834b9a'
+Writing 'RSC_IHPSG13_DFNQMX2IX1'
+Writing 'RM_IHPSG13_1P_COLDRV13_FILL4C2'
+Writing 'VIA_M3_M2_db_0x0283be9f'
+Writing 'VIA_M2_M1_db_0x0283059b'
+Writing 'RM_IHPSG13_1P_DLY_4'
+Writing 'RSC_IHPSG13_TIEL'
+Writing 'VIA_M2_M1_db_0x0283059c'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_SRAM'
+Writing 'RM_IHPSG13_1P_DEC_LE_l2empty'
+Writing 'RM_IHPSG13_1P_1024x8_c2_bm_bist'
+Writing 'RSC_IHPSG13_XOR2X2'
+Writing 'RM_IHPSG13_1P_COLDRV13X4'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_POWER_ramtap'
+Writing 'VIA_M3_M2_db_0x02838420'
+Writing 'VIA_M3_M2_db_0x0283059e'
+Writing 'VIA_M2_M1_db_0x0283059f'
+Writing 'RM_IHPSG13_1P_BITKIT_CELL'
+Writing 'VIA_M3_M2_db_0x0400d91e'
+Writing 'RSC_IHPSG13_DFPQD_MSAFFX2N'
+Writing 'VIA_M3_M2_db_0x0283959d'
+Writing 'RM_IHPSG13_1P_ROWDEC8'
+Writing 'RM_IHPSG13_1P_COLDRV13_FILL1'
+Writing 'RSC_IHPSG13_NOR2X2'
+Writing 'VIA_M4_M3_db_0x0283a69b'
+Writing 'RM_IHPSG13_1P_DLY_MUX'
+Writing 'VIA_M2_M1_db_0x02838424'
+Writing 'VIA_M3_M2_db_0x0283a69d'
+Writing 'VIA_M3_M2_db_0x0400d39e'
+Writing 'RM_IHPSG13_1P_DEC_LE_l2wire'
+Writing 'VIA_M2_M1_db_0x02838425'
+Writing 'RM_IHPSG13_1P_BITKIT_16x2_LE_con_tap_lr'
+Done!

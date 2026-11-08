@@ -72,8 +72,19 @@ module slot7_wrapper (
      * The names match the layout and the documented chip pinout,
      * which is also what LVS compares against.
      */
-    inout wire [1:0] s7_an,	// dedicated analog pad(s)
-    inout wire s7_an_0_esd,	// secondary ESD-protected pin
+    inout wire s7_an_0_vref,
+    inout wire s7_an_0_outp,
+    inout wire s7_an_0_outn,
+    inout wire s7_an_0_vcm,
+    inout wire s7_an_0_en_3v3,
+    inout wire s7_an_0_en_3v3_b,
+    inout wire s7_an_0_iref,
+    inout wire s7_an_1_vinp,
+    inout wire s7_an_1_vinn,
+    inout wire s7_an_1_vref,
+    inout wire s7_an_1_iref,
+    inout wire s7_an_1_en_3v3_b,
+    inout wire s7_an_1_en_3v3,
     input real ibias0,		// shared current bias 0
     input real ibias1,		// shared current bias 1
     input real vbias,		// shared voltage bias
