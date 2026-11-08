@@ -7,3 +7,7 @@
 [submodule "dependencies/sg13cmos5l_ocd_ip__por"]
 	path = dependencies/sg13cmos5l_ocd_ip__por
 	url = https://github.com/RTimothyEdwards/sg13cmos5l_ocd_ip__por
+[submodule "dependencies/slot_7"]
+	path = dependencies/slot_7
+	url = https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
+	branch = main

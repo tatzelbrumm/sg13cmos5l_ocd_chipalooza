@@ -103,7 +103,7 @@ s3_version:	-		-
 s4_version:	-		-
 s5_version:	-		-
 s6_version:	-		-
-s7_version:	-		-
+s7_version:	main		454da6a251dbee7d2b2110ce3aac2ef2de998a65
 s8_version:	-		-
 s9_version:	-		-
 s10_version:	-		-
