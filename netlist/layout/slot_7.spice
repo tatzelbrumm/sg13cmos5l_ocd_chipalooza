@@ -1,19 +1,19 @@
 * NGSPICE file created from slot_7.ext - technology: ihp-sg13cmos5l
 
-.subckt pnpMPA a_n200_n200# a_n750_n602# w_n540_n392#
+.subckt pnpMPA_cell a_n200_n200# a_n750_n602# w_n540_n392#
 X0 a_n750_n602# w_n540_n392# a_n200_n200# pnpMPA a=4p p=8u
 .ends
 
 .subckt bg_pnp_c ea e2 vss
-XpnpMPA_0[0|0] e2 vss vss pnpMPA
-XpnpMPA_0[1|0] e2 vss vss pnpMPA
-XpnpMPA_0[2|0] e2 vss vss pnpMPA
-XpnpMPA_0[0|1] e2 vss vss pnpMPA
-XpnpMPA_0[1|1] ea vss vss pnpMPA
-XpnpMPA_0[2|1] e2 vss vss pnpMPA
-XpnpMPA_0[0|2] e2 vss vss pnpMPA
-XpnpMPA_0[1|2] e2 vss vss pnpMPA
-XpnpMPA_0[2|2] e2 vss vss pnpMPA
+XpnpMPA_0[0|0] e2 vss vss pnpMPA_cell
+XpnpMPA_0[1|0] e2 vss vss pnpMPA_cell
+XpnpMPA_0[2|0] e2 vss vss pnpMPA_cell
+XpnpMPA_0[0|1] e2 vss vss pnpMPA_cell
+XpnpMPA_0[1|1] ea vss vss pnpMPA_cell
+XpnpMPA_0[2|1] e2 vss vss pnpMPA_cell
+XpnpMPA_0[0|2] e2 vss vss pnpMPA_cell
+XpnpMPA_0[1|2] e2 vss vss pnpMPA_cell
+XpnpMPA_0[2|2] e2 vss vss pnpMPA_cell
 .ends
 
 .subckt pmosHV$13 a_68_n36# w_n124_n124# a_2568_0# a_0_0#
