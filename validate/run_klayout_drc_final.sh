@@ -14,7 +14,15 @@ echo ${PROJECT:=sg13cmos5l_ocd_chipalooza_final}
 echo ${PDK_ROOT:=/home/tim/gits} > /dev/null
 echo ${PDK:=ihp-sg13cmos5l} > /dev/null
 
-klayout -b -zz -r ${PDK_ROOT}/${PDK}/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc -rd input=../gds/${PROJECT}.gds.gz -rd report=../validate/${PROJECT}.lyrdb -rd feol=True -rd beol=True -rd conn_drc=True -rd wedge=True -rd run_mode=deep -rd thr=16 -rd topcell=${PROJECT}
+## Deprecated:  Use the python script in the PDK instead of running klayout directly
+## from the script.
+## klayout -b -zz -r ${PDK_ROOT}/${PDK}/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc \
+## -rd input=../gds/${PROJECT}.gds.gz -rd report=../validate/${PROJECT}.lyrdb \
+## -rd feol=True -rd beol=True -rd conn_drc=True -rd wedge=True -rd run_mode=deep \
+## -rd thr=16 -rd topcell=${PROJECT}
+
+python3 $PDK_ROOT/$PDK/libs.tech/klayout/tech/drc/run_drc.py \
+	--mp=22 --density_thr=22 --path=../gds/${PROJECT}.gds.gz
 
 echo "Done!"
 exit 0

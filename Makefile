@@ -246,9 +246,12 @@ lvs-padframe:				## netgen: padframe layout vs. verilog
 lvs-top:				## netgen: chip top level  (README 17)
 	cd validate && ./run_lvs_ocd_chipalooza.sh
 
-.PHONY: drc drc-final
+.PHONY: drc drc-precheck drc-final
 drc:					## klayout DRC on the pre-fill GDS
 	cd validate && ./run_klayout_drc.sh
+
+drc-precheck:				## klayout minimal pre-check DRC
+	cd validate && ./run_klayout_drc_precheck.sh
 
 drc-final:				## klayout DRC on the final filled GDS  (README 15)
 	cd validate && ./run_klayout_drc_final.sh
@@ -297,6 +300,7 @@ all:
 	make gds-prefill
 	make fill
 	make gds-final
+	make drc-precheck
 	make drc-final
 
 all-default:
@@ -307,6 +311,7 @@ all-default:
 	make gds-prefill
 	make fill
 	make gds-final
+	make drc-precheck
 	make drc-final
 
 .PHONY: clean

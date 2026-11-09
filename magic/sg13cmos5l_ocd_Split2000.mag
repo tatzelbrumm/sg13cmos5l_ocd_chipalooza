@@ -1,7 +1,7 @@
 magic
 tech ihp-sg13cmos5l
 magscale 1 2
-timestamp 1790630844
+timestamp 1794176719
 << nwell >>
 rect -124 33246 765 33554
 rect 1165 33246 2124 33554
@@ -28980,4 +28980,5 @@ string FIXED_BBOX 0 0 2000 36000
 string LEFclass PAD SPACER
 string LEFsite sg13cmos5l_ioSite
 string LEFsymmetry X Y R90
+string MASKHINTS_PSD 36 12994 1964 28040
 << end >>
