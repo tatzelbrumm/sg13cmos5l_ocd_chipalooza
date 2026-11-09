@@ -1,0 +1,10 @@
+09-Nov-2026 00:19:58 | INFO    | KLayout version detected: 0.30.12
+09-Nov-2026 00:19:58 | INFO    | Using DRC JSON file: /foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+09-Nov-2026 00:19:58 | INFO    | Running IHP-SG13CMOS5L density checks on design /tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3dens/final.gds, topcell: sg13cmos5l_ocd_chipalooza_final
+09-Nov-2026 00:21:27 | INFO    | Completed running Density checks.
+09-Nov-2026 00:21:27 | ERROR   | ==================================================================================
+09-Nov-2026 00:21:27 | ERROR   | KLayout DRC Check Failed: Violations were detected in the layout.
+09-Nov-2026 00:21:27 | ERROR   | ==================================================================================
+09-Nov-2026 00:21:27 | ERROR   | Violated rules are : {'M4.k', 'AFil.g1', 'M3.k', 'M1.k', 'M2.k', 'TM1.d'}
+
+09-Nov-2026 00:21:27 | INFO    | Total DRC Run time: 89.37 seconds (including execution, analysis, and reporting)

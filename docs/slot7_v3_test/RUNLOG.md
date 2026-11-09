@@ -130,3 +130,51 @@ Logged with `docs/slot7_v3_test/run.sh` (stdout/stderr teed to `logs/NN_name.{ou
 - exit status: 1
 - logs: `logs/14_drc_slot7_area.out`, `logs/14_drc_slot7_area.err`
 - 14: DRC of the slot-7 area (same clip and run_drc.py options as v2 entry 17; exit 1 = violations present, as in v2): identical to v2: 2912 items in all, antenna 0, entirely >= 2 um inside the clip the same 69 recommended Pad.* items (Pad.fR_M2 45, Pad.fR_M3 7, Pad.fR_M4 7, Pad.d1R 7, Pad.fR_TM1 3); density: the same pre-fill markers (AFil.g, GFil.g, M1-M4.j, TM1.c). The tughra art adds no DRC item.
+
+### 15 make_fill
+- start 2026-11-09T00:05:15Z, end 2026-11-09T00:07:48Z
+- cwd: `/home/user/v2test`
+- command: `make fill`
+- exit status: 0
+- logs: `logs/15_make_fill.out`, `logs/15_make_fill.err`
+
+### 16 make_gds-final
+- start 2026-11-09T00:07:48Z, end 2026-11-09T00:09:59Z
+- cwd: `/home/user/v2test`
+- command: `make gds-final`
+- exit status: 0
+- logs: `logs/16_make_gds-final.out`, `logs/16_make_gds-final.err`
+
+### 17 make_extract-top
+- start 2026-11-09T00:09:59Z, end 2026-11-09T00:18:27Z
+- cwd: `/home/user/v2test`
+- command: `make extract-top`
+- exit status: 0
+- logs: `logs/17_make_extract-top.out`, `logs/17_make_extract-top.err`
+
+### 18 make_lvs-top
+- start 2026-11-09T00:18:27Z, end 2026-11-09T00:18:53Z
+- cwd: `/home/user/v2test`
+- command: `make lvs-top`
+- exit status: 0
+- logs: `logs/18_make_lvs-top.out`, `logs/18_make_lvs-top.err`
+
+### 19 drc_density_slot7_final
+- start 2026-11-09T00:19:30Z, end 2026-11-09T00:19:36Z
+- cwd: `/home/user/v2test`
+- command: `python3 /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py --path=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3dens/s7_final.gds --topcell=s7_final_clip --run_dir=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3dens/run --density_only --mp=4`
+- exit status: 1
+- logs: `logs/19_drc_density_slot7_final.out`, `logs/19_drc_density_slot7_final.err`
+
+### 20 drc_density_chip_final
+- start 2026-11-09T00:19:58Z, end 2026-11-09T00:21:28Z
+- cwd: `/home/user/v2test`
+- command: `python3 /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py --path=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3dens/final.gds --topcell=sg13cmos5l_ocd_chipalooza_final --run_dir=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3dens/runchip --density_only --mp=4`
+- exit status: 1
+- logs: `logs/20_drc_density_chip_final.out`, `logs/20_drc_density_chip_final.err`
+- 15-18 (PDK_ROOT = SRAM overlay): `make fill` (2.5 min), `make gds-final` (2 min), `make extract-top` (8.5 min, magic: "2175 errors" during extraction), `make lvs-top` (0.5 min): all exit 0. Whole run 14 min, 4 CPUs.
+- Fill vs the tughra art: in the final GDS (slot_7 at 1379.95, 2170.05) the art box x 1465.45..1623.55, y 2311.05..2401.05 um holds 0 filler shapes on ActivFiller, GatPolyFiller, M1-M4 Filler, TM1 Filler (layers n/22), while the rest of slot 7 has 575..6712 per layer: the no-fill markers on datatype 23 work in Tim's magic fill.
+- 19: density-only DRC of the filled slot-7 window (clip x 1379.95..1917.1, y 2170.05..2443.05): only AFil.g (Activ 31.9 % < 35 %, short by 4536 um2; the art box is ~14200 um2 without fill); GatPoly 22.8 %, M1 44.0 %, M2 44.8 %, M3 45.3 %, M4 45.7 %, TM1 41.2 %: pass. AFil.g is a chip-global rule; the slot window is only indicative.
+- 20: density-only DRC of the whole filled chip: the deck takes the area of EdgeSeal.boundary (39/4) as the chip area (558205 um2, the ring itself), so its global percentages are invalid (Activ "578 %"); its six markers (AFil.g1, M1-M4.k, TM1.d, max-density) come from that. Recomputed with the chip extent 2257.8 x 3357.8 um (7.58 mm2) and the deck's own layer areas (M3, M4 checked merged): Activ 42.6 % [35-55], GatPoly 19.0 % [>=15], M1 52.6 %, M2 46.9 %, M3 57.2 % [35-60], M4 60.2 % [35-60] OVER by 0.2 %, TM1 59.0 % [25-70]. M4 is a chip-level fill finding for Tim; slot 7's own M4 density (45.7 %) is below the chip's.
+- 18 lvs-top: "Final result: Netlists do not match". slot7_wrapper matches (pins), both custom pads match ("7 symmetries with property errors", as in lvs-padframe). Mismatching cells are not slot 7's: foundry pads and clamps (IOPadAnalog, IOPadIn, IOPadInOut16mA, IOPadOut16mA, IOPadTriOut16mA, IOPadVss, IOPadIOVss, Clamp_*), harness IPs (bandgap_v3, classab_buffer, por, bg_res, se_folded_cascode_np_ab), sg13cmos5l_padframe, chipalooza_frame, top. In the frame/top sections the schematic side still has the old slot-7 pins (slot7_wrapper/s7_an[1], s7_an_0_esd, ...): the harness xschem sheets are not updated for the custom pads (expected, see v2 RUNLOG).
+- Findings for Tim (none in slot 7): (a) scripts/run_gen_prefill_gds.sh ends with "Done!" / exit 0 even when magic writes a truncated GDS (missing SRAM GDS, entry 11); (b) the KLayout density deck uses the seal-ring boundary's own area as the chip area; (c) chip M4 density 60.2 % after fill; (d) the xschem sheets for slot 7's custom pads.
