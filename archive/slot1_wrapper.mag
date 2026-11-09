@@ -1,7 +1,7 @@
 magic
 tech ihp-sg13cmos5l
 magscale 1 2
-timestamp 1790277761
+timestamp 1794164161
 << checkpaint >>
 rect -2000 -2000 109430 56600
 << obsm1 >>
@@ -69,11 +69,10 @@ rect 0 14614 400 14658
 rect 0 14526 400 14570
 rect 0 14438 400 14482
 << metal5 >>
-rect 0 30224 400 51216
+rect 0 30063 400 51216
 rect 0 22709 400 28709
 rect 0 13273 400 19273
-rect 0 400 400 11359
-rect 0 306 59 400
+rect 0 306 400 11359
 << obsm5 >>
 rect 106630 611 107430 13811
 << comment >>
@@ -82,6 +81,10 @@ rect 0 400 400 54200
 rect 107030 400 107430 54200
 rect 0 0 107430 400
 << labels >>
+flabel metal3 107010 26432 107170 31386 0 FreeSans 480 90 0 0 s1_an[0]
+port 17 nsew
+flabel metal3 107010 48432 107170 53386 0 FreeSans 480 90 0 0 s1_an[1]
+port 18 nsew
 flabel metal3 0 18843 400 19243 0 FreeSans 1600 180 0 0 vbias
 port 110 nsew
 flabel metal3 0 17694 400 17738 0 FreeSans 352 180 0 0 dig_in[23]
@@ -170,11 +173,11 @@ flabel metal3 0 22371 400 22771 0 FreeSans 1600 180 0 0 analog_bus0
 port 152 nsew
 flabel metal5 0 13273 400 19273 0 FreeSans 2400 90 0 0 vss_1v2
 port 153 nsew
-flabel metal5 0 400 400 11359 0 FreeSans 2400 90 0 0 vdd_1v2
+flabel metal5 0 306 400 11359 0 FreeSans 2400 90 0 0 vdd_1v2
 port 154 nsew
 flabel metal5 0 22709 400 28709 0 FreeSans 2400 90 0 0 vss_3v3
 port 155 nsew
-flabel metal5 0 30225 400 51216 0 FreeSans 2400 90 0 0 vdd_3v3
+flabel metal5 0 30063 400 51216 0 FreeSans 2400 90 0 0 vdd_3v3
 port 156 nsew
 flabel metal3 0 17872 400 17916 0 FreeSans 352 180 0 0 enable
 port 157 nsew
@@ -184,10 +187,6 @@ flabel metal3 0 17782 400 17826 0 FreeSans 352 180 0 0 reset
 port 159 nsew
 flabel metal3 107030 32683 107430 32781 0 FreeSans 480 0 0 0 s1_an_0_esd
 port 109 nsew
-flabel metal3 107010 26432 107170 31386 0 FreeSans 480 90 0 0 s1_an[0]
-port 17 nsew
-flabel metal3 107010 48432 107170 53386 0 FreeSans 480 90 0 0 s1_an[1]
-port 18 nsew
 << properties >>
 string FIXED_BBOX 0 0 107430 54600
 << end >>
