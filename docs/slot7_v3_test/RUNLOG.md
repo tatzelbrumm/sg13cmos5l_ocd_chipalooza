@@ -122,3 +122,11 @@ Logged with `docs/slot7_v3_test/run.sh` (stdout/stderr teed to `logs/NN_name.{ou
 - 12b: netcheck: RESULT all 13 pins OK (same --merged groups as v2).
 - 13: slot LVS (docs/slot7_v3_test/lvs_slot7.sh: magic extraction, netgen against the slot's netlist/slot_7_netgen.spice, no rename needed): bg_core_pd, pad_ref_rb, s7_ctrl, s7_doutpd, bias_dist_pd "Netlists match uniquely"; slot_7 "match uniquely with port errors", naming only (comma-joined ports `analog_bus3,s7_an_0_vref` and `s7_an_0_en_3v3,s7_an_1_en_3v3` vs one layout label). Final result "Top level cell failed pin matching" for that reason. No "instanced inside of itself".
 - Images for sharing (user request): docs/slot7_v3_test/images/slot7_v3_pads.{png,svg} from docs/slot7_v3_test/render_slot7.py (region x 1375..2100, y 2165..2475 um of the pre-fill GDS, PDK layer colours; the first PNG showed every layer of the file because show_layout adds them, fixed with clear_layers).
+
+### 14 drc_slot7_area
+- start 2026-11-09T00:02:55Z, end 2026-11-09T00:04:39Z
+- cwd: `/home/user/v2test`
+- command: `python3 /foss/pdks/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py --path=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3drc/s7_clip.gds --topcell=s7_clip --run_dir=/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/v3drc/run --antenna --mp=4`
+- exit status: 1
+- logs: `logs/14_drc_slot7_area.out`, `logs/14_drc_slot7_area.err`
+- 14: DRC of the slot-7 area (same clip and run_drc.py options as v2 entry 17; exit 1 = violations present, as in v2): identical to v2: 2912 items in all, antenna 0, entirely >= 2 um inside the clip the same 69 recommended Pad.* items (Pad.fR_M2 45, Pad.fR_M3 7, Pad.fR_M4 7, Pad.d1R 7, Pad.fR_TM1 3); density: the same pre-fill markers (AFil.g, GFil.g, M1-M4.j, TM1.c). The tughra art adds no DRC item.
