@@ -77,7 +77,7 @@ project_id: 20260908
 #--------------------------------------------------------------------------------------
 s1_source:	https://github.com/rcyaon/bidir-level-shifter
 s2_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot2_backup
-s3_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot3_backup
+s3_source:	https://github.com/htfab/hsxo-cpz2
 s4_source:	https://github.com/phdridha12/sg13cmos5l_Wind_Comp
 s5_source:	https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
 s6_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__pll_rosc
@@ -121,7 +121,7 @@ s18_version:	-		-
 #--------------------------------------------------------------------------------------
 slot_1:		Araujo
 slot_2:		El-Shinnawey/Rodovalho
-slot_3:		El-Shinnawey
+slot_3:		Hubai
 slot_4:		Ridha
 slot_5:		Sotehi
 slot_6:		Mysore
