@@ -1,0 +1,595 @@
+./scripts/run_gen_user_wrappers.sh
+Generating slot wrappers
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell chipalooza_frame read from current working directory
+Cell analog_pswitch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_NN8LKN read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sw_lvl_shift read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Y6ZD6N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6Z86N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QP3U7V read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_XRP95E read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_2TUKLB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_HSMMZS read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_CJ33WB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13cmos5l_inv_4 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_decap_4 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_antennanp read from path sg13cmos5l_stdcell
+Cell sg13_hv_pmos_HVFXC8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell analog_switch_small read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13_hv_nmos_U4HMWB read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell central_column read from current working directory
+Cell RM_IHPSG13_1P_1024x8_c2_bm_bist read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_WLDRV16X4_tap read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_WLDRV16X4 read from path ./sg13cmos5l_sram
+Cell VIA_M4_M3_db_0x0283a69b read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283701f read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0400d921 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0400d39e read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x043aeda0 read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x0283be9b read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283be9b geometry by factor of 2
+Cell VIA_M2_M1_db_0x043aeda3 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x043aeda3 geometry by factor of 2
+Cell VIA_M2_M1_db_0x043aed9b read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x043aed9b geometry by factor of 2
+Cell RSC_IHPSG13_WLDRVX4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_WLDRVX4 geometry by factor of 2
+Cell RSC_IHPSG13_FILL1 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_FILL1 geometry by factor of 2
+Cell RM_IHPSG13_1P_ROWREG8 read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x0283bea5 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283bea5 geometry by factor of 2
+Cell RSC_IHPSG13_FILLCAP8 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_FILLCAP8 geometry by factor of 2
+Cell RSC_IHPSG13_DFNQMX2IX1 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_DFNQMX2IX1 geometry by factor of 2
+Cell RSC_IHPSG13_CINVX8 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CINVX8 geometry by factor of 2
+Cell RSC_IHPSG13_CINVX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CINVX2 geometry by factor of 2
+Cell RM_IHPSG13_1P_ROWREG0 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0400ab9c read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0400ab9b read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x0283beab read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283beab geometry by factor of 2
+Cell RM_IHPSG13_1P_ROWDEC8 read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_FILL2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_FILL2 geometry by factor of 2
+Cell RM_IHPSG13_1P_ROWDEC0 read from path ./sg13cmos5l_sram
+Cell VIA_M4_M3_db_0x0283a69e read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283a69f read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283a69d read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC_LE_tap read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_DEC_LE_tap geometry by factor of 2
+Cell RM_IHPSG13_1P_DEC_LE_l2wire read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC_LE_l2empty read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC_LE_l1wire read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC_LE_l1empty read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC_LE_l0wire read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC04 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0400d91e read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_NOR3X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_NOR3X2 geometry by factor of 2
+Cell RSC_IHPSG13_NAND3X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_NAND3X2 geometry by factor of 2
+Cell RSC_IHPSG13_NAND2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_NAND2X2 geometry by factor of 2
+Cell RSC_IHPSG13_LHPQX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_LHPQX2 geometry by factor of 2
+Cell RSC_IHPSG13_INVX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_INVX2 geometry by factor of 2
+Cell RSC_IHPSG13_FILLCAP4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_FILLCAP4 geometry by factor of 2
+Cell lvsres_db_0x0400b71a read from path ./sg13cmos5l_sram
+Scaled magic input cell lvsres_db_0x0400b71a geometry by factor of 2
+Cell RM_IHPSG13_1P_DEC03 read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_INVX4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_INVX4 geometry by factor of 2
+Cell RM_IHPSG13_1P_DEC02 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC01 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_DEC00 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_MATRIX_256x16 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLUMN_256 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_16x2_TAP read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_TAP geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_SRAM read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_TAP read from path ./sg13cmos5l_sram
+Cell VIA_M1_Activ_db_0x02835b9b read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M1_Activ_db_0x02835b9b geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_CELL_2x1 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_CELL read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_CELL_SUB read from path ./sg13cmos5l_sram
+Cell VIA_M1_GatPoly_db_0x0283451d read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M1_GatPoly_db_0x0283451d geometry by factor of 2
+Cell lvsres_db_0x0283509a read from path ./sg13cmos5l_sram
+Scaled magic input cell lvsres_db_0x0283509a geometry by factor of 2
+Cell lvsres_db_0x02834b9a read from path ./sg13cmos5l_sram
+Scaled magic input cell lvsres_db_0x02834b9a geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_EDGE_TB read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_EDGE_TB geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_TAP_LR read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_TAP_LR geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_POWER_ramtap read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_POWER_ramtap geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_POWER_ramblk read from path ./sg13cmos5l_sram
+Cell VIA_M4_M3_db_0x0283361c read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_tap_lr read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_tap_lr geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_edge_lr read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_edge_lr geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_corner read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_LE_con_corner geometry by factor of 2
+Cell RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_EDGE_LR read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_CELL_CORNER read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_BITKIT_16x2_CORNER read from path ./sg13cmos5l_sram
+Scaled magic input cell RM_IHPSG13_1P_BITKIT_16x2_CORNER geometry by factor of 2
+Cell RM_IHPSG13_1P_DLY_MUX read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x02838424 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x02838424 geometry by factor of 2
+Cell RSC_IHPSG13_MX2IX1 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_MX2IX1 geometry by factor of 2
+Cell RSC_IHPSG13_CDLYX1 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CDLYX1 geometry by factor of 2
+Cell RM_IHPSG13_1P_DLY_4 read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_CDLYX1_DUMMY read from path ./sg13cmos5l_sram
+Cell lvsres_db_0x04007e9a read from path ./sg13cmos5l_sram
+Scaled magic input cell lvsres_db_0x04007e9a geometry by factor of 2
+Cell RM_IHPSG13_1P_DLY_2 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_CTRL read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x02838420 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x02839d23 read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x02838425 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x02838425 geometry by factor of 2
+Cell RSC_IHPSG13_XOR2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_XOR2X2 geometry by factor of 2
+Cell RSC_IHPSG13_TIEL read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_TIEL geometry by factor of 2
+Cell RSC_IHPSG13_OA12X1 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_OA12X1 geometry by factor of 2
+Cell RSC_IHPSG13_MX2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_MX2X2 geometry by factor of 2
+Cell RSC_IHPSG13_DFNQX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_DFNQX2 geometry by factor of 2
+Cell RSC_IHPSG13_CNAND2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CNAND2X2 geometry by factor of 2
+Cell RSC_IHPSG13_CINVX4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CINVX4 geometry by factor of 2
+Cell RSC_IHPSG13_CGATEPX4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CGATEPX4 geometry by factor of 2
+Cell RSC_IHPSG13_CDLYX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CDLYX2 geometry by factor of 2
+Cell RSC_IHPSG13_CBUFX8 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CBUFX8 geometry by factor of 2
+Cell RSC_IHPSG13_AND2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_AND2X2 geometry by factor of 2
+Cell RM_IHPSG13_1P_COLDRV13X4 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x02839d1d read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x02839d1b read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283beac read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283be9f read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_CBUFX4 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CBUFX4 geometry by factor of 2
+Cell RM_IHPSG13_1P_COLDRV13_FILL4C2 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283beaf read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLDRV13_FILL4 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283959d read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLDRV13_FILL1C2 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLDRV13_FILL1 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLDEC2 read from path ./sg13cmos5l_sram
+RM_IHPSG13_1P_COLDEC2: 10000 rects
+Cell VIA_M4_M3_db_0x02837622 read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLCTRL2_end read from path ./sg13cmos5l_sram
+Cell RM_IHPSG13_1P_COLCTRL2 read from path ./sg13cmos5l_sram
+Cell VIA_M4_M3_db_0x0283bea9 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283beb1 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283beb0 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283beae read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283bea8 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283bea2 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283bea1 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283be9e read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x0283beaa read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283beaa geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283bea7 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283bea7 geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283bea4 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283bea4 geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283bea3 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283bea3 geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283bea0 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283bea0 geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283be9d read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283be9d geometry by factor of 2
+Cell RSC_IHPSG13_TIEH read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_TIEH geometry by factor of 2
+Cell RSC_IHPSG13_NOR2X2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_NOR2X2 geometry by factor of 2
+Cell RSC_IHPSG13_DFPQD_MSAFFX2N read from path ./sg13cmos5l_sram
+Cell RSC_IHPSG13_DFPQD_MSAFFX2N_half read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_DFPQD_MSAFFX2N_half geometry by factor of 2
+Cell RSC_IHPSG13_CINVX4_WN read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CINVX4_WN geometry by factor of 2
+Cell RSC_IHPSG13_CBUFX2 read from path ./sg13cmos5l_sram
+Scaled magic input cell RSC_IHPSG13_CBUFX2 geometry by factor of 2
+Cell RM_IHPSG13_1P_BLDRV read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x0283059e read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x028305a4 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x028305a1 read from path ./sg13cmos5l_sram
+Cell VIA_M3_M2_db_0x028305a0 read from path ./sg13cmos5l_sram
+Cell VIA_M2_M1_db_0x0283059f read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283059f geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283059c read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283059c geometry by factor of 2
+Cell VIA_M2_M1_db_0x0283059b read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x0283059b geometry by factor of 2
+Cell VIA_M2_M1_db_0x028305a5 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x028305a5 geometry by factor of 2
+Cell VIA_M2_M1_db_0x028305a3 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x028305a3 geometry by factor of 2
+Cell VIA_M2_M1_db_0x028305a2 read from path ./sg13cmos5l_sram
+Scaled magic input cell VIA_M2_M1_db_0x028305a2 geometry by factor of 2
+Cell lvsres_db_0x0283151a read from path ./sg13cmos5l_sram
+Scaled magic input cell lvsres_db_0x0283151a geometry by factor of 2
+Cell sg13cmos5l_ocd_ip__biasgen2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6HC2N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6HG9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HE6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H4DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_KGSGVN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_nstack read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_2RYP69 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_generator_fe_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell rhigh_GJN3VD read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell level_shift read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_ZPCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QBGVHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QHASHE read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_DNCZKC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZS5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z2DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HW5N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_666RAL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_7A8CUW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XVVFQX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZY8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z29PWH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z29FXH read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RFBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZU9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y2RFW5 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13cmos5l_nor2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_inv_2 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_fill_2 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_2 geometry by factor of 2
+Cell rhigh_AFSZTU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_UPRECB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell via_Y6ZX9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bias_pset2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell bias_nset read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell bias_generator_ben250nm read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bias_generator_ben1um read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bias_generator_be0p_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13cmos5l_ocd_ip__por read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__por/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13cmos5l_buf_16 read from path sg13cmos5l_stdcell
+Cell rhigh_MGZFWD read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Scaled magic input cell rhigh_MGZFWD geometry by factor of 2
+Cell por_stepdown read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_JRRYKH read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_4AKZGL read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_VHRE9V read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_5X2BDS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell por_amp read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_X27YSC read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_AGXAPYY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_AGXAPYX read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell por_1v2_schmitt_inv read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic
+Cell sg13_lv_pmos_RWAJH3 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_KPMAU6 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_pmos_KE4EUN read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_LT8DKY read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13_lv_nmos_GT3QPP read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell dantenna_WMFCS7 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_T2STT2 read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_MKAUQG read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell cap_cmomf_7YMNSS read from path ../dependencies/sg13cmos5l_ocd_ip__por/magic/primitives
+Cell sg13cmos5l_ocd_ip__bandgap_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell se_folded_cascode_np_ab read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_QWE845 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_2G82VR read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NED9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NQD9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BENXUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEHQUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NQUDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_V3Q6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEZCVZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_T2KQE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XAS6UC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TAZSE3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_DFT6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_ZK4LW2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZJCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZA6N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HNCQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_MLH6U9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_FJG4RK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_QMKJVU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_W9X9FK read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bandgap_unbuffered_v2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell bg_trim read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_2UD3QN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZQZM read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell rppd_Y8MW75 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell bg_res read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell rhigh_SUDY2Y read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell pnpMPA_9DZCCL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_WYN5QB read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEVMZW read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NWA9LU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell se_folded_cascode_p read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_pmos_H5F6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BE9VUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEMUUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TGUME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_HLS6DG read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_TYJME3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_XAAXMC read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_nmos_BEDTUZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NNMDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_NWNELU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_N8UDLU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_ZKTCY2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z5DQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZXGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZLGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HY9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HQ9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HEAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_P4YBHP read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_C4E5CZ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_77YAAU read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_4HNWC9 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_UEBLR3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HEDQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13cmos5l_ocd_ip__classab_buffer read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13cmos5l_ocd_ip__voltgen_v3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_fill_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell rhigh_NFPZ4T read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_QH8WBX read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell xgate read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_MRZNPN read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_XLVYT6 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZG8N read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell n_amp_large read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13cmos5l_nand3_1 read from path sg13cmos5l_stdcell
+Cell via_Z29VKL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RJBL read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Z2RF8J read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZP9Q read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZJGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6ZD6N_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6Z8HQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6HKGQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell via_Y6H5GQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell hv_inv_1 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic
+Cell sg13_hv_nmos_83DLAQ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell sg13_hv_pmos_CVGX38 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_KK7B53 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell cap_cmomf_H6HXXJ read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell capacitor_BCZJG3 read from path ../dependencies/sg13cmos5l_ocd_ip__biasgen/magic/paramcells
+Cell housekeeping_top read from current working directory
+housekeeping_top: 10000 rects
+housekeeping_top: 20000 rects
+housekeeping_top: 30000 rects
+housekeeping_top: 40000 rects
+housekeeping_top: 50000 rects
+housekeeping_top: 60000 rects
+housekeeping_top: 70000 rects
+housekeeping_top: 80000 rects
+housekeeping_top: 90000 rects
+housekeeping_top: 100000 rects
+housekeeping_top: 110000 rects
+housekeeping_top: 120000 rects
+housekeeping_top: 130000 rects
+housekeeping_top: 140000 rects
+housekeeping_top: 150000 rects
+housekeeping_top: 160000 rects
+housekeeping_top: 170000 rects
+housekeeping_top: 180000 rects
+housekeeping_top: 190000 rects
+housekeeping_top: 200000 rects
+housekeeping_top: 210000 rects
+housekeeping_top: 220000 rects
+housekeeping_top: 230000 rects
+housekeeping_top: 240000 rects
+housekeeping_top: 250000 rects
+housekeeping_top: 260000 rects
+housekeeping_top: 270000 rects
+housekeeping_top: 280000 rects
+housekeeping_top: 290000 rects
+housekeeping_top: 300000 rects
+housekeeping_top: 310000 rects
+housekeeping_top: 320000 rects
+housekeeping_top: 330000 rects
+housekeeping_top: 340000 rects
+Cell sg13cmos5l_buf_4 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_buf_2 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_buf_8 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_mux2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_dlygate4sd3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_decap_8 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_fill_1 read from path sg13cmos5l_stdcell
+Scaled magic input cell sg13cmos5l_fill_1 geometry by factor of 2
+Cell sg13cmos5l_buf_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_inv_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_dfrbpq_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor2b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_o21ai_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a21oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand2b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a21o_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a22oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_a221oi_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nor4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or4_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_or3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_xnor2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_nand3b_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and3_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_xor2_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_and4_1 read from path sg13cmos5l_stdcell
+Cell project_control_area read from current working directory
+Cell user_project_control read from current working directory
+Cell sg13cmos5l_dlhrq_1 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_lgcp_1 read from path sg13cmos5l_stdcell
+Cell power_stage2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell via_Z29SAL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6ZQ5N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_NZW5ZC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_B4YQGJ read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_AWBR46 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_4K6DRW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_ZN7EJW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_large read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Y6Z2DQ_x2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y6H96N read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y2RFX7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_Y2RFW7 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_RQMCRC read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_FG6ZZW read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_XAVYYR read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_3JX36Y read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell power_stage1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell via_Z3LBH9 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QLR8H8 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_lv_pmos_5MXUJM read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_1v2 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_1 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_2 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell sg13cmos5l_inv_16 read from path sg13cmos5l_stdcell
+Cell sg13cmos5l_inv_8 read from path sg13cmos5l_stdcell
+Cell center_column_route read from current working directory
+Cell analog_switch_array read from current working directory
+Cell analog_switch_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cells sg13cmos5l_antennanp in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_decap_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cells sg13cmos5l_inv_4 in sg13cmos5l_stdcell and ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell have matching git repository commits and can be considered equivalent.
+Cell via_Z9R6XL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell via_QZBZRE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_pmos_3CJ4LL read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_9DTRBE read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell gate_drive_med read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic
+Cell sg13_hv_pmos_G9ZGU3 read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell sg13_hv_nmos_VCL2HP read from path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/paramcells
+Cell chipalooza_frame_wrapper read from current working directory
+Processing timestamp mismatches.
+Timestamp mismatches found in these cells: sw_lvl_shift, RM_IHPSG13_1P_1024x8_c2_bm_bist, sg13cmos5l_ocd_ip__biasgen2, bias_generator_fe_v2, via_Y6Z2DQ, bias_generator_be0p_v2, sg13cmos5l_ocd_ip__por, por_stepdown, por_amp, sg13cmos5l_ocd_ip__bandgap_v3, via_Y6HE6N, level_shift, se_folded_cascode_p, se_folded_cascode_np_ab, sg13cmos5l_ocd_ip__voltgen_v3, sg13cmos5l_nand3_1, sg13cmos5l_nor2_1, sg13cmos5l_nand2_1, sg13cmos5l_buf_16, housekeeping_top, sg13cmos5l_buf_2, sg13cmos5l_nor2b_1, sg13cmos5l_o21ai_1, sg13cmos5l_a21oi_1, sg13cmos5l_a21o_1, sg13cmos5l_or2_1, sg13cmos5l_a22oi_1, sg13cmos5l_a221oi_1, sg13cmos5l_nor4_1, sg13cmos5l_or3_1, sg13cmos5l_xnor2_1, sg13cmos5l_nand3b_1, sg13cmos5l_and3_1, sg13cmos5l_and4_1, sg13cmos5l_nand2b_1, sg13cmos5l_xor2_1, sg13cmos5l_nand4_1, sg13cmos5l_nor3_1, sg13cmos5l_and2_1, sg13cmos5l_or4_1, sg13cmos5l_mux2_1, sg13cmos5l_dfrbpq_1, sg13cmos5l_buf_1, sg13cmos5l_decap_8, sg13cmos5l_fill_2, sg13cmos5l_fill_1, sg13cmos5l_dlygate4sd3_1, sg13cmos5l_buf_4, sg13cmos5l_buf_8, user_project_control, sg13cmos5l_dlhrq_1, sg13cmos5l_lgcp_1, sg13cmos5l_inv_1, sg13cmos5l_inv_2, sg13cmos5l_inv_16, sg13cmos5l_inv_8, analog_pswitch_small, analog_switch_small, analog_switch_array, sg13cmos5l_antennanp, sg13cmos5l_decap_4, sg13cmos5l_inv_4, analog_switch_med, chipalooza_frame_wrapper.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Magic error: writing out-of-date timestamp for __SELECT__.
+Cell slot1_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot1_wrapper.
+Cell slot2_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot2_wrapper.
+Cell slot3_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot3_wrapper.
+Cell slot4_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot4_wrapper.
+Cell slot5_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot5_wrapper.
+Cell slot6_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot6_wrapper.
+Cell slot7_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot7_wrapper.
+Cell slot8_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot8_wrapper.
+Cell slot9_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot9_wrapper.
+Cell slot10_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot10_wrapper.
+Cell slot11_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot11_wrapper.
+Cell slot12_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot12_wrapper.
+Cell slot13_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot13_wrapper.
+Cell slot14_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot14_wrapper.
+Cell slot15_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot15_wrapper.
+Cell slot16_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot16_wrapper.
+Cell slot17_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot17_wrapper.
+Cell slot18_wrapper read from current working directory
+Magic error: writing out-of-date timestamp for slot18_wrapper.

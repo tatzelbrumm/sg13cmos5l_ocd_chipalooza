@@ -1,0 +1,58 @@
+./scripts/run_gen_wrapper_gds.sh
+Generating GDS for Chipalooza slot wrappers
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Cell slot1_wrapper read from current working directory
+   Generating output for cell slot1_wrapper
+Cell slot2_wrapper read from current working directory
+   Generating output for cell slot2_wrapper
+Cell slot3_wrapper read from current working directory
+   Generating output for cell slot3_wrapper
+Cell slot4_wrapper read from current working directory
+   Generating output for cell slot4_wrapper
+Cell slot5_wrapper read from current working directory
+   Generating output for cell slot5_wrapper
+Cell slot6_wrapper read from current working directory
+   Generating output for cell slot6_wrapper
+Cell slot7_wrapper read from current working directory
+   Generating output for cell slot7_wrapper
+Cell slot8_wrapper read from current working directory
+   Generating output for cell slot8_wrapper
+Cell slot9_wrapper read from current working directory
+   Generating output for cell slot9_wrapper
+Cell slot10_wrapper read from current working directory
+   Generating output for cell slot10_wrapper
+Cell slot11_wrapper read from current working directory
+   Generating output for cell slot11_wrapper
+Cell slot12_wrapper read from current working directory
+   Generating output for cell slot12_wrapper
+Cell slot13_wrapper read from current working directory
+   Generating output for cell slot13_wrapper
+Cell slot14_wrapper read from current working directory
+   Generating output for cell slot14_wrapper
+Cell slot15_wrapper read from current working directory
+   Generating output for cell slot15_wrapper
+Cell slot16_wrapper read from current working directory
+   Generating output for cell slot16_wrapper
+Cell slot17_wrapper read from current working directory
+   Generating output for cell slot17_wrapper
+Cell slot18_wrapper read from current working directory
+   Generating output for cell slot18_wrapper
+Done!

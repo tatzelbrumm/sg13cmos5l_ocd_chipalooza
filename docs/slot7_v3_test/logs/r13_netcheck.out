@@ -1,0 +1,15 @@
+gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza clip (1901.1,2271.1)-(2096.1,2471.1)
+  s7_an_0_vref       OK  net labels: ['s7_an_0_vref', 'vref']
+  s7_an_0_outp       OK  net labels: ['outp', 's7_an_0_outp', 'vfbp', 'voutp']
+  s7_an_0_outn       OK  net labels: ['outn', 's7_an_0_outn', 'vfbn', 'voutn']
+  s7_an_0_vcm        OK  net labels: ['s7_an_0_vcm', 's7_an_1_vref', 'vcm', 'vref']
+  s7_an_0_en_3v3     OK  net labels: ['en_3v3', 's7_an_0_en_3v3', 's7_an_1_en_3v3']
+  s7_an_0_en_3v3_b   OK  net labels: ['en_3v3_b', 's7_an_0_en_3v3_b', 's7_an_1_en_3v3_b']
+  s7_an_0_iref       OK  net labels: ['iref', 's7_an_0_iref']
+  s7_an_1_vinp       OK  net labels: ['s7_an_1_vinp', 'vinp']
+  s7_an_1_vinn       OK  net labels: ['s7_an_1_vinn', 'vinn']
+  s7_an_1_vref       OK  net labels: ['s7_an_0_vcm', 's7_an_1_vref', 'vcm', 'vref']
+  s7_an_1_iref       OK  net labels: ['iref', 's7_an_1_iref']
+  s7_an_1_en_3v3_b   OK  net labels: ['en_3v3_b', 's7_an_0_en_3v3_b', 's7_an_1_en_3v3_b']
+  s7_an_1_en_3v3     OK  net labels: ['en_3v3', 's7_an_0_en_3v3', 's7_an_1_en_3v3']
+RESULT all 13 pins OK

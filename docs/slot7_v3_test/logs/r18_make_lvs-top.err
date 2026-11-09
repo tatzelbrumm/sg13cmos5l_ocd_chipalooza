@@ -1,0 +1,62 @@
+Warning:  Cell caravel_logo has no pins
+Warning:  Cell caravel_motto has no pins
+Warning:  Cell copyright_block has no pins
+Warning:  Cell user_id_textblock has no pins
+Warning:  Cell open_source has no pins
+Error:  SPICE subcircuit sg13cmos5l_padframe redefines a verilog module!
+Parameter list mismatch in sg13cmos5l_padframe:1: Not enough parameters in call!
+line number 24 = ' sg13cmos5l_padframe'
+Error:  SPICE subcircuit housekeeping_top redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit slot18_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot17_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot16_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot15_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot14_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot13_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot12_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot11_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot10_wrapper redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit user_project_control redefines a verilog module!
+Error:  SPICE subcircuit slot1_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot2_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot3_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot4_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot5_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot6_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot7_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot8_wrapper redefines a verilog module!
+Error:  SPICE subcircuit slot9_wrapper redefines a verilog module!
+Ignoring line starting with token: .save
+line number 819 = '.save i(vmeas)'
+Ignoring line starting with token: .save
+line number 855 = '.save i(vmeas1)'
+Ignoring line starting with token: .save
+line number 857 = '.save i(vmeas2)'
+Ignoring line starting with token: .save
+line number 1272 = '.save i(vmeas)'
+Ignoring line starting with token: .save
+line number 1274 = '.save i(vmeas1)'
+Ignoring line starting with token: .save
+line number 1276 = '.save i(vmeas2)'
+Ignoring line starting with token: .save
+line number 1278 = '.save i(vmeas3)'
+Ignoring line starting with token: .save
+line number 1280 = '.save i(vmeas4)'
+File ../netlist/schematic/sg13cmos5l_ocd_chipalooza.spice read with 9 warnings.

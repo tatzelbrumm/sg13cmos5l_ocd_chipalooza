@@ -1,0 +1,3378 @@
+cd gds && ../scripts/generate_fill.py sg13cmos5l_ocd_chipalooza.gds.gz -dist
+This script will generate files sg13cmos5l_ocd_chipalooza_fill_pattern_x_y.gds
+Now generating fill patterns.  This may take. . . quite. . . a while.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Started: 11/09/2026 01:19:07
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: sg13cmos5l_ocd_chipalooza
+Reading "OJ_efs_nmosHV_w1_l0p45".
+Moving label "nmosHV" from space to POLY in cell OJ_efs_nmosHV_w1_l0p45.
+Moving label "nmosHV" from space to POLY in cell OJ_efs_nmosHV_w1_l0p45.
+Reading "OJ_efs_pmosHV_w1_l0p45".
+Moving label "pmosHV" from space to POLY in cell OJ_efs_pmosHV_w1_l0p45.
+Moving label "pmos" from space to POLY in cell OJ_efs_pmosHV_w1_l0p45.
+Reading "OJ_rb_pmosHV_w1_l4".
+Moving label "pmosHV" from space to POLY in cell OJ_rb_pmosHV_w1_l4.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w1_l4.
+Reading "OJ_rb_pmosHV_w20_l1_ng2".
+Moving label "pmosHV" from space to POLY in cell OJ_rb_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w20_l1_ng2.
+Reading "OJ_bdp_nmosHV_w1_l0p45".
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_w1_l0p45.
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_w1_l0p45.
+Reading "OJ_bdp_pmosHV_w1_l0p45".
+Moving label "pmosHV" from space to POLY in cell OJ_bdp_pmosHV_w1_l0p45.
+Moving label "pmos" from space to POLY in cell OJ_bdp_pmosHV_w1_l0p45.
+Reading "OJ_bdp_nmosHV_w2_l0p45_ng2".
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_w2_l0p45_ng2.
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_w2_l0p45_ng2.
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_w2_l0p45_ng2.
+Reading "OJ_bdp_pmosHV_w2_l0p45_ng2".
+Moving label "pmosHV" from space to POLY in cell OJ_bdp_pmosHV_w2_l0p45_ng2.
+Moving label "pmos" from space to POLY in cell OJ_bdp_pmosHV_w2_l0p45_ng2.
+Moving label "pmos" from space to POLY in cell OJ_bdp_pmosHV_w2_l0p45_ng2.
+Reading "OJ_efs_pmosHV_w0p3_l5".
+Moving label "pmosHV" from space to POLY in cell OJ_efs_pmosHV_w0p3_l5.
+Moving label "pmos" from space to POLY in cell OJ_efs_pmosHV_w0p3_l5.
+Reading "OJ_efs_pmosHV_w0p3_l20".
+Moving label "pmosHV" from space to POLY in cell OJ_efs_pmosHV_w0p3_l20.
+Moving label "pmos" from space to POLY in cell OJ_efs_pmosHV_w0p3_l20.
+Reading "OJ_efs_xn1".
+Moving label "XN1" from space to THKOX in cell OJ_efs_xn1.
+Reading "OJ_efs_inv_hv".
+Moving label "P" from space to NWELL in cell OJ_efs_inv_hv.
+Moving label "N" from space to THKOX in cell OJ_efs_inv_hv.
+Reading "OJ_prb_nmosHV_3".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_3.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_3.
+Reading "OJ_prb_nmosHV_2".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_2.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_2.
+Reading "OJ_prb_nmosHV_1".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_1.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_1.
+Reading "OJ_prb_nmosHV".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV.
+Reading "OJ_rb_avg_l".
+Moving label "DL0" from space to MET1 in cell OJ_rb_avg_l.
+Moving label "SL1" from space to NWELL in cell OJ_rb_avg_l.
+Moving label "SL2" from space to NWELL in cell OJ_rb_avg_l.
+Moving label "DL1" from space to MET1 in cell OJ_rb_avg_l.
+Reading "OJ_rb_avg_u".
+Moving label "DU0" from space to MET1 in cell OJ_rb_avg_u.
+Moving label "SU" from space to NWELL in cell OJ_rb_avg_u.
+Moving label "DU1" from space to MET1 in cell OJ_rb_avg_u.
+Reading "OJ_rb_tub_p20x1".
+Reading "OJ_rb_pmosHV_w1_l0p45".
+Moving label "pmosHV" from space to POLY in cell OJ_rb_pmosHV_w1_l0p45.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w1_l0p45.
+Reading "OJ_rb_pmosHV_w5_l6".
+Moving label "pmosHV" from space to POLY in cell OJ_rb_pmosHV_w5_l6.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w5_l6.
+Reading "OJ_rb_pmosHV_w2_l6".
+Moving label "pmosHV" from space to POLY in cell OJ_rb_pmosHV_w2_l6.
+Moving label "pmos" from space to POLY in cell OJ_rb_pmosHV_w2_l6.
+Reading "OJ_prb_nmosHV_7".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_7.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_7.
+Reading "OJ_prb_nmosHV_6".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_6.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_6.
+Reading "OJ_prb_nmosHV_5".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_5.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_5.
+Reading "OJ_prb_nmosHV_4_1".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_4_1.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_4_1.
+Reading "OJ_prb_nmosHV_3_1".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_3_1.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_3_1.
+Reading "OJ_prb_nmosHV_2_1".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_2_1.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_2_1.
+Reading "OJ_prb_nmosHV_1_1".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_1_1.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_1_1.
+Reading "OJ_prb_nmosHV_4".
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_4.
+Moving label "nmosHV" from space to POLY in cell OJ_prb_nmosHV_4.
+Reading "OJ_bdp_pmosHV_w5_l6".
+Moving label "pmosHV" from space to POLY in cell OJ_bdp_pmosHV_w5_l6.
+Moving label "pmos" from space to POLY in cell OJ_bdp_pmosHV_w5_l6.
+Reading "OJ_bdp_nmosHV_1".
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_1.
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV_1.
+Reading "OJ_bdp_nmosHV".
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV.
+Moving label "nmosHV" from space to POLY in cell OJ_bdp_nmosHV.
+Reading "OJ_bdp_tg_hv".
+Moving label "TGP" from space to NWELL in cell OJ_bdp_tg_hv.
+Moving label "TGN" from space to THKOX in cell OJ_bdp_tg_hv.
+Reading "OJ_bdp_inv_hv".
+Moving label "P" from space to NWELL in cell OJ_bdp_inv_hv.
+Moving label "N" from space to THKOX in cell OJ_bdp_inv_hv.
+Reading "OJ_bdp_nand2_hv".
+Moving label "PA PB" from space to NWELL in cell OJ_bdp_nand2_hv.
+Moving label "NA NB" from space to THKOX in cell OJ_bdp_nand2_hv.
+Reading "OJ_pmosHV$7".
+Moving label "pmosHV" from space to POLY in cell OJ_pmosHV$7.
+Moving label "pmos" from space to POLY in cell OJ_pmosHV$7.
+Reading "OJ_pmosHV$13".
+Moving label "pmosHV" from space to POLY in cell OJ_pmosHV$13.
+Moving label "pmos" from space to POLY in cell OJ_pmosHV$13.
+Reading "OJ_pmosHV_w0p3_l1".
+Moving label "pmosHV" from space to POLY in cell OJ_pmosHV_w0p3_l1.
+Moving label "pmos" from space to POLY in cell OJ_pmosHV_w0p3_l1.
+Reading "OJ_pmosHV$14".
+Moving label "pmosHV" from space to POLY in cell OJ_pmosHV$14.
+Moving label "pmos" from space to POLY in cell OJ_pmosHV$14.
+Reading "OJ_nmosHV$5".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$5.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$5.
+Reading "OJ_nmosHV$9".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$9.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$9.
+Reading "OJ_nmosHV_w2_l1".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV_w2_l1.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV_w2_l1.
+Reading "OJ_nmosHV$7".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$7.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$7.
+Reading "OJ_nmosHV$11".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$11.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$11.
+Reading "OJ_nmosHV$10".
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$10.
+Moving label "nmosHV" from space to POLY in cell OJ_nmosHV$10.
+Reading "OJ_rhigh$1".
+Moving label "rhigh r=29707.826" from space to PSD in cell OJ_rhigh$1.
+Moving label "rhigh" from space to PSD in cell OJ_rhigh$1.
+Reading "OJ_bgc_pnpMPA".
+Moving label "PLUS" from space to MET1 in cell OJ_bgc_pnpMPA.
+Moving label "MINUS" from space to MET1 in cell OJ_bgc_pnpMPA.
+Moving label "TIE" from space to MET1 in cell OJ_bgc_pnpMPA.
+Reading "OJ_dop_nmosHV_w0p5_l0p45".
+Moving label "nmosHV" from space to POLY in cell OJ_dop_nmosHV_w0p5_l0p45.
+Moving label "nmosHV" from space to POLY in cell OJ_dop_nmosHV_w0p5_l0p45.
+Reading "OJ_efs_ls_core".
+Moving label "PL10" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL9" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL8" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL7" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL6" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL5" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL4" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL3" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL2" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PL1" from space to NWELL in cell OJ_efs_ls_core.
+Moving label "PF" from space to NWELL in cell OJ_efs_ls_core.
+Reading "OJ_prb_frame_f".
+Reading "OJ_prb_capv".
+Moving label "CBM" from space to THKOX in cell OJ_prb_capv.
+Moving label "CBM" from space to THKOX in cell OJ_prb_capv.
+Reading "OJ_prb_capt".
+Moving label "CBM" from space to THKOX in cell OJ_prb_capt.
+Reading "OJ_prb_capm".
+Moving label "CBM" from space to THKOX in cell OJ_prb_capm.
+Moving label "CBM" from space to THKOX in cell OJ_prb_capm.
+Reading "OJ_prb_capr".
+Moving label "CBR" from space to THKOX in cell OJ_prb_capr.
+Moving label "CBR" from space to THKOX in cell OJ_prb_capr.
+Reading "OJ_rb_avg".
+Reading "OJ_rb_tubs".
+Reading "OJ_rb_tails".
+Moving label "D" from space to NWELL in cell OJ_rb_tails.
+Moving label "TR" from space to NWELL in cell OJ_rb_tails.
+Moving label "BT" from space to NWELL in cell OJ_rb_tails.
+Moving label "D" from space to NWELL in cell OJ_rb_tails.
+Reading "OJ_rb_tree_p".
+Moving label "PBNC" from space to NWELL in cell OJ_rb_tree_p.
+Moving label "MDPBN" from space to NWELL in cell OJ_rb_tree_p.
+Moving label "BP" from space to NWELL in cell OJ_rb_tree_p.
+Moving label "TGP" from space to NWELL in cell OJ_rb_tree_p.
+Reading "OJ_rb_cload".
+Moving label "CB" from space to THKOX in cell OJ_rb_cload.
+Moving label "CBR" from space to THKOX in cell OJ_rb_cload.
+Moving label "SPDC" from space to THKOX in cell OJ_rb_cload.
+Moving label "SPDR" from space to THKOX in cell OJ_rb_cload.
+Reading "OJ_rb_mirror".
+Moving label "dummy" from space to THKOX in cell OJ_rb_mirror.
+Moving label "BD" from space to THKOX in cell OJ_rb_mirror.
+Moving label "BM" from space to THKOX in cell OJ_rb_mirror.
+Moving label "dummy" from space to THKOX in cell OJ_rb_mirror.
+Reading "OJ_rb_casc".
+Moving label "dummy" from space to THKOX in cell OJ_rb_casc.
+Moving label "F1" from space to THKOX in cell OJ_rb_casc.
+Moving label "F2" from space to THKOX in cell OJ_rb_casc.
+Moving label "CY" from space to THKOX in cell OJ_rb_casc.
+Moving label "dummy" from space to MET1 in cell OJ_rb_casc.
+Moving label "dummy" from space to THKOX in cell OJ_rb_casc.
+Moving label "dummy" from space to THKOX in cell OJ_rb_casc.
+Moving label "dummy" from space to MET1 in cell OJ_rb_casc.
+Moving label "dummy" from space to MET1 in cell OJ_rb_casc.
+Moving label "F3" from space to THKOX in cell OJ_rb_casc.
+Moving label "F4" from space to THKOX in cell OJ_rb_casc.
+Moving label "dummy" from space to THKOX in cell OJ_rb_casc.
+Moving label "BNC" from space to MET2 in cell OJ_rb_casc.
+Reading "OJ_rb_tree_n".
+Moving label "SH2" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "SF" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "NBP" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "SY" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "NI" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "SH1" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "dummy" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "dummy" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "TGN" from space to THKOX in cell OJ_rb_tree_n.
+Moving label "TDN" from space to THKOX in cell OJ_rb_tree_n.
+Reading "OJ_bdp_fill6".
+Reading "OJ_bdp_fill5".
+Reading "OJ_bdp_fill4".
+Reading "OJ_bdp_fill3".
+Reading "OJ_bdp_fill2".
+Reading "OJ_bdp_fill1".
+Reading "OJ_bdp_fill0".
+Reading "OJ_bdp_mirror_p".
+Moving label "D" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "PO0" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "PO1" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "PD" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "PO2" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "PO3" from space to NWELL in cell OJ_bdp_mirror_p.
+Moving label "D" from space to NWELL in cell OJ_bdp_mirror_p.
+Reading "OJ_bdp_mirror_n".
+Moving label "dummy" from space to THKOX in cell OJ_bdp_mirror_n.
+Moving label "NI" from space to THKOX in cell OJ_bdp_mirror_n.
+Moving label "NM" from space to THKOX in cell OJ_bdp_mirror_n.
+Moving label "dummy" from space to THKOX in cell OJ_bdp_mirror_n.
+Reading "OJ_bdp_svpd".
+Moving label "SVPD" from space to NWELL in cell OJ_bdp_svpd.
+Reading "OJ_bdp_tdn".
+Moving label "TDN" from space to MET2 in cell OJ_bdp_tdn.
+Reading "OJ_bdp_slice".
+Reading "OJ_bg_svpg".
+Moving label "SVPG" from space to NWELL in cell OJ_bg_svpg.
+Reading "OJ_bg_ms1".
+Moving label "MS1_0" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_1" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_2" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_3" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_4" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_5" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_6" from space to NWELL in cell OJ_bg_ms1.
+Moving label "MS1_7" from space to NWELL in cell OJ_bg_ms1.
+Reading "OJ_bg_pmir_pcas_c".
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PB" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PA" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PBC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PAC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PAC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PBC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PA" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PB" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PB" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PA" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PBC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PAC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PAC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PBC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "POC" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PA" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PB" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "PO" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Moving label "dummyn" from space to MET1 in cell OJ_bg_pmir_pcas_c.
+Reading "OJ_bg_n4".
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "NA" from space to THKOX in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "NB" from space to THKOX in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "NB" from space to THKOX in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "NA" from space to THKOX in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "dummy" from space to MET1 in cell OJ_bg_n4.
+Moving label "MS2" from space to THKOX in cell OJ_bg_n4.
+Moving label "MS3" from space to MET2 in cell OJ_bg_n4.
+Moving label "SKS" from space to THKOX in cell OJ_bg_n4.
+Reading "OJ_bg_res_c".
+Reading "OJ_bg_pnp_c".
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q1 (ea)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Moving label "Q2 (e2)" from space to MET1 in cell OJ_bg_pnp_c.
+Reading "OJ_tughra_art".
+Reading "OJ_s7_doutpd".
+Reading "OJ_s7_ctrl".
+Reading "OJ_pad_ref_rb".
+Reading "OJ_bias_dist_pd".
+Reading "OJ_bg_core_pd".
+Reading "slot_7".
+Reading "sg13cmos5l_decap_4".
+Reading "sg13cmos5l_tielo".
+Reading "sg13cmos5l_tiehi".
+Reading "user_id_vias".
+Reading "user_id_programming".
+Reading "via_Z2R7LJ".
+Reading "via_Y6HR5N".
+Reading "via_Y6HHCQ".
+Reading "via_CGDS3A".
+Reading "user_id_routing".
+Reading "alpha_2".
+Reading "alpha_6".
+Reading "alpha_9".
+Reading "alpha_8".
+Reading "alpha_0".
+Reading "user_id_textblock".
+Reading "sg13cmos5l_ocd_Split2000".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_ocd_Split2000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_ocd_Split2000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_ocd_Split2000.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_ocd_Split2000.
+Reading "sg13cmos5l_Filler4000".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_Filler4000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Filler4000.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Filler4000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Filler4000.
+Reading "sg13cmos5l_Filler2000".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Filler2000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Filler2000.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Filler2000.
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_Filler2000.
+Reading "sg13cmos5l_DCPDiode".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_DCPDiode.
+Moving label "dpant" from space to MET1 in cell sg13cmos5l_DCPDiode.
+Moving label "dpant" from space to MET1 in cell sg13cmos5l_DCPDiode.
+Reading "sg13cmos5l_DCNDiode".
+Moving label "dant" from space to MET1 in cell sg13cmos5l_DCNDiode.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_DCNDiode.
+Moving label "dant" from space to MET1 in cell sg13cmos5l_DCNDiode.
+Reading "sg13cmos5l_IOPadIOVss".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadIOVss.
+Reading "sg13cmos5l_IOPadVss".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadVss.
+Reading "sg13cmos5l_RCClampResistor".
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Moving label "rppd r=7.938k" from space to PSD in cell sg13cmos5l_RCClampResistor.
+Reading "sg13cmos5l_RCClampInverter".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_RCClampInverter.
+Reading "sg13cmos5l_Clamp_N43N43D4R".
+Moving label "dant" from space to MET1 in cell sg13cmos5l_Clamp_N43N43D4R.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Clamp_N43N43D4R.
+Reading "sg13cmos5l_IOPadVdd".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadVdd.
+Reading "sg13cmos5l_IOPadIOVdd".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadIOVdd.
+Reading "sg13cmos5l_LevelUp".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_LevelUp.
+Reading "sg13cmos5l_io_tie".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_io_tie.
+Reading "sg13cmos5l_io_nor2_x1".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_io_nor2_x1.
+Reading "sg13cmos5l_io_nand2_x1".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_io_nand2_x1.
+Reading "sg13cmos5l_io_inv_x1".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_io_inv_x1.
+Reading "sg13cmos5l_GateDecode".
+Reading "sg13cmos5l_Clamp_P8N8D".
+Moving label "dpant" from space to MET2 in cell sg13cmos5l_Clamp_P8N8D.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Clamp_P8N8D.
+Reading "sg13cmos5l_Clamp_N8N8D".
+Moving label "dant" from space to MET2 in cell sg13cmos5l_Clamp_N8N8D.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Clamp_N8N8D.
+Reading "sg13cmos5l_IOPadTriOut16mA".
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_IOPadTriOut16mA.
+Reading "sg13g2_SecondaryProtection".
+Moving label "sub!" from space to MET1 in cell sg13g2_SecondaryProtection.
+Moving label "sub!" from space to MET1 in cell sg13g2_SecondaryProtection.
+Moving label "dpant" from space to MET2 in cell sg13g2_SecondaryProtection.
+Moving label "rppd r=793.834" from space to PSD in cell sg13g2_SecondaryProtection.
+Moving label "dant" from space to MET2 in cell sg13g2_SecondaryProtection.
+Reading "M2_M1_OS_789120990531".
+Reading "M2_M1_OS_789120990530".
+Reading "sg13cmos5l_LevelDown".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "nmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "nmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "pmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "nmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Moving label "nmosHV" from space to POLY in cell sg13cmos5l_LevelDown.
+Reading "sg13cmos5l_IOPadIn".
+Moving label "PAD" from space to MET5 in cell sg13cmos5l_IOPadIn.
+Moving label "PAD" from space to MET5 in cell sg13cmos5l_IOPadIn.
+Reading "sg13cmos5l_SecondaryProtection".
+Moving label "dant" from space to MET2 in cell sg13cmos5l_SecondaryProtection.
+Moving label "rppd r=793.834" from space to PSD in cell sg13cmos5l_SecondaryProtection.
+Moving label "dpant" from space to MET2 in cell sg13cmos5l_SecondaryProtection.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_SecondaryProtection.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_SecondaryProtection.
+Reading "sg13cmos5l_Clamp_P20N0D".
+Moving label "rppd" from space to NWELL in cell sg13cmos5l_Clamp_P20N0D.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Clamp_P20N0D.
+Moving label "rppd r=6.768k" from space to NWELL in cell sg13cmos5l_Clamp_P20N0D.
+Reading "sg13cmos5l_Clamp_N20N0D".
+Moving label "rppd" from space to PSD in cell sg13cmos5l_Clamp_N20N0D.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Clamp_N20N0D.
+Moving label "rppd r=1.959k" from space to PSD in cell sg13cmos5l_Clamp_N20N0D.
+Reading "sg13cmos5l_IOPadAnalog".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadAnalog.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_IOPadAnalog.
+Reading "sg13cmos5l_LevelUpInv".
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_LevelUpInv.
+Reading "sg13cmos5l_GateLevelUpInv".
+Reading "sg13cmos5l_IOPadOut16mA".
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_IOPadOut16mA.
+Reading "DW_$$$CONTEXT_INFO$$$".
+Reading "DW_pmosHV_w20_l1_ng2".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w20_l1_ng2.
+Reading "DW_rppd".
+Moving label "rppd r=1991.571" from space to PSD in cell DW_rppd.
+Moving label "rppd" from space to PSD in cell DW_rppd.
+Reading "DW_dantenna".
+Moving label "dant" from space to MET1 in cell DW_dantenna.
+Reading "DW_dpantenna".
+Moving label "dpant" from space to MET1 in cell DW_dpantenna.
+Reading "DW_nmosHV".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV.
+Reading "DW_nmosHV$1".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$1.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$1.
+Reading "DW_nmosHV$2".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$2.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$2.
+Reading "DW_nmosHV$3".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$3.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$3.
+Reading "DW_pmosHV".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV.
+Moving label "pmos" from space to POLY in cell DW_pmosHV.
+Reading "DW_rhigh".
+Moving label "rhigh r=37720.000" from space to PSD in cell DW_rhigh.
+Moving label "rhigh" from space to PSD in cell DW_rhigh.
+Reading "DW_nmosHV$4".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$4.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$4.
+Reading "DW_nmosHV$5".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$5.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$5.
+Reading "DW_nmosHV$6".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$6.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$6.
+Reading "DW_nmosHV$7".
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$7.
+Moving label "nmosHV" from space to POLY in cell DW_nmosHV$7.
+Reading "DW_pmosHV_w2_l6".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w2_l6.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w2_l6.
+Reading "DW_pmosHV_w1_l0p45".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w1_l0p45.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w1_l0p45.
+Reading "DW_pmosHV_w6p66_l0p6".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w6p66_l0p6.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w6p66_l0p6.
+Reading "DW_pmosHV_w15_l3".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w15_l3.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w15_l3.
+Reading "DW_pmosHV_w1_l4".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w1_l4.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w1_l4.
+Reading "DW_pmosHV_w6_l4".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w6_l4.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w6_l4.
+Reading "DW_pmosHV_w5_l6".
+Moving label "pmosHV" from space to POLY in cell DW_pmosHV_w5_l6.
+Moving label "pmos" from space to POLY in cell DW_pmosHV_w5_l6.
+Reading "DW_tub_p20x1_c2".
+Moving label "M" from space to NWELL in cell DW_tub_p20x1_c2.
+Reading "DW_pwr_f2".
+Reading "DW_d2s_sp2k_f2".
+Moving label "rppd 2k" from space to PSD in cell DW_d2s_sp2k_f2.
+Moving label "dant" from space to MET2 in cell DW_d2s_sp2k_f2.
+Moving label "dpant" from space to MET2 in cell DW_d2s_sp2k_f2.
+Reading "DW_d2s_ab_n_f2".
+Moving label "dummy" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "FNL" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "RN2" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "ABN" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "dummy" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "SABN" from space to THKOX in cell DW_d2s_ab_n_f2.
+Moving label "SB" from space to MET2 in cell DW_d2s_ab_n_f2.
+Reading "DW_bias_tree_n_f2".
+Moving label "NBPC" from space to THKOX in cell DW_bias_tree_n_f2.
+Moving label "NBP" from space to THKOX in cell DW_bias_tree_n_f2.
+Moving label "NI" from space to THKOX in cell DW_bias_tree_n_f2.
+Moving label "NABP" from space to THKOX in cell DW_bias_tree_n_f2.
+Moving label "dummy" from space to THKOX in cell DW_bias_tree_n_f2.
+Reading "DW_d2s_tgsw_f2".
+Moving label "TGP" from space to NWELL in cell DW_d2s_tgsw_f2.
+Moving label "TGN" from space to THKOX in cell DW_d2s_tgsw_f2.
+Moving label "TDN" from space to THKOX in cell DW_d2s_tgsw_f2.
+Reading "DW_d2s_rhigh_f2".
+Reading "DW_d2s_casc_n_f2".
+Moving label "dummy" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "CX" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "CY" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "dummy" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "dummy" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "CY" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "CX" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "dummy" from space to THKOX in cell DW_d2s_casc_n_f2.
+Moving label "BNC" from space to MET2 in cell DW_d2s_casc_n_f2.
+Reading "DW_sinks_6x6_f2".
+Moving label "dummy" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "BN" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "dummy" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "dummy" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "BNtwin" from space to MET1 in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SY" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "SX" from space to THKOX in cell DW_sinks_6x6_f2.
+Moving label "dummy" from space to THKOX in cell DW_sinks_6x6_f2.
+Reading "DW_d2s_ab_p_f2".
+Moving label "D" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "FPL" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "RP2" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "ABP" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "D" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "SABP" from space to NWELL in cell DW_d2s_ab_p_f2.
+Moving label "SA" from space to MET2 in cell DW_d2s_ab_p_f2.
+Reading "DW_bias_tree_p_f2".
+Moving label "PBNC" from space to NWELL in cell DW_bias_tree_p_f2.
+Moving label "PBN" from space to NWELL in cell DW_bias_tree_p_f2.
+Moving label "PABN" from space to NWELL in cell DW_bias_tree_p_f2.
+Moving label "D" from space to NWELL in cell DW_bias_tree_p_f2.
+Reading "DW_d2s_casc_p_c2".
+Moving label "PCR" from space to NWELL in cell DW_d2s_casc_p_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_casc_p_c2.
+Moving label "PCL" from space to NWELL in cell DW_d2s_casc_p_c2.
+Moving label "PCL" from space to NWELL in cell DW_d2s_casc_p_c2.
+Moving label "BPC" from space to NWELL in cell DW_d2s_casc_p_c2.
+Moving label "PCR" from space to NWELL in cell DW_d2s_casc_p_c2.
+Reading "DW_d2s_loads_c2".
+Moving label "D" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "R" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "L" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "L" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "R" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "L" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "R" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "R" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "L" from space to NWELL in cell DW_d2s_loads_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_loads_c2.
+Reading "DW_d2s_tails_c2".
+Moving label "D" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "Bb" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "C1a" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "C2a" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "Ab" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "BP" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "Aa" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "C2b" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "C1b" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "Ba" from space to NWELL in cell DW_d2s_tails_c2.
+Moving label "D" from space to NWELL in cell DW_d2s_tails_c2.
+Reading "DW_d2s_inputs_c2".
+Reading "DW_pad_wiring_f2".
+Reading "DW_d2s_block".
+Reading "DW_gate_feeds".
+Reading "DW_replica_lines".
+Reading "DW_m2_junction".
+Reading "DW_m2_comb_p".
+Reading "DW_m2_comb_n".
+Reading "DW_d2s_cmb".
+Reading "DW_d2s_cma".
+Reading "DW_contacts".
+Reading "DW_Metal3ViasUp".
+Reading "DW_TopLayersTo4".
+Reading "DW_Clamp_P_M1".
+Moving label "sub!" from space to MET1 in cell DW_Clamp_P_M1.
+Reading "DW_Clamp_P_M1_wiring".
+Reading "DW_Clamp_N_M1".
+Moving label "sub!" from space to MET1 in cell DW_Clamp_N_M1.
+Reading "DW_Clamp_N_M1_wiring".
+Reading "DW_Clamp_N_M1_wiring$1".
+Reading "DW_DCNDiode".
+Moving label "dant" from space to MET1 in cell DW_DCNDiode.
+Moving label "dant" from space to MET1 in cell DW_DCNDiode.
+Moving label "sub!" from space to MET1 in cell DW_DCNDiode.
+Reading "DW_DCPDiode".
+Moving label "dpant" from space to MET1 in cell DW_DCPDiode.
+Moving label "dpant" from space to MET1 in cell DW_DCPDiode.
+Moving label "sub!" from space to MET1 in cell DW_DCPDiode.
+Reading "DW_cm_rings".
+Reading "DW_guard_tie".
+Reading "DW_nw_isolator".
+Reading "DW_edge_stubs".
+Reading "sg13cmos5l_IOPadDiff2Single".
+Reading "BK_$$$CONTEXT_INFO$$$".
+Reading "BK_pmosHV_w20_l1_ng2".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w20_l1_ng2.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w20_l1_ng2.
+Reading "BK_tub_p20x1_c3".
+Moving label "M" from space to NWELL in cell BK_tub_p20x1_c3.
+Reading "BK_pmosHV_w5_l6".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w5_l6.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w5_l6.
+Reading "BK_pmosHV_w6_l4".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w6_l4.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w6_l4.
+Reading "BK_pmosHV_w15_l3".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w15_l3.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w15_l3.
+Reading "BK_pmosHV_w2_l0p45_ng2".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w2_l0p45_ng2.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w2_l0p45_ng2.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w2_l0p45_ng2.
+Reading "BK_pmosHV_w2_l6".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w2_l6.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w2_l6.
+Reading "BK_pmosHV_w1_l0p45".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w1_l0p45.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w1_l0p45.
+Reading "BK_nmosHV$1".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$1.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$1.
+Reading "BK_nmosHV".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV.
+Reading "BK_nmosHV$7".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$7.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$7.
+Reading "BK_rhigh".
+Moving label "rhigh r=37720.000" from space to PSD in cell BK_rhigh.
+Moving label "rhigh" from space to PSD in cell BK_rhigh.
+Reading "BK_nmosHV$6".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$6.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$6.
+Reading "BK_nmosHV$5".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$5.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$5.
+Reading "BK_nmosHV$4".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$4.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$4.
+Reading "BK_nmosHV$3".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$3.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$3.
+Reading "BK_nmosHV$2".
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$2.
+Moving label "nmosHV" from space to POLY in cell BK_nmosHV$2.
+Reading "BK_pmosHV_w1_l4$1".
+Moving label "pmosHV" from space to POLY in cell BK_pmosHV_w1_l4$1.
+Moving label "pmos" from space to POLY in cell BK_pmosHV_w1_l4$1.
+Reading "BK_pwr_f".
+Reading "BK_s2d_inputs_c3".
+Reading "BK_s2d_pd_p_c3".
+Moving label "TPP  TNP" from space to NWELL in cell BK_s2d_pd_p_c3.
+Reading "BK_bias_tree_noab_p_c3".
+Moving label "PBNC" from space to NWELL in cell BK_bias_tree_noab_p_c3.
+Moving label "PBN" from space to NWELL in cell BK_bias_tree_noab_p_c3.
+Moving label "D" from space to NWELL in cell BK_bias_tree_noab_p_c3.
+Moving label "TGP" from space to NWELL in cell BK_bias_tree_noab_p_c3.
+Reading "BK_s2d_sinks_cmfb_c3_core".
+Moving label "dummy" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SXC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SYC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SYC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SXC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SYC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SXC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SXC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "SYC" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_s2d_sinks_cmfb_c3_core.
+Reading "BK_sinks_6x6_s2d_c3_core".
+Moving label "dummy" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "BN" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "BNtwin" from space to MET1 in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SY" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "SX" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Moving label "dummy" from space to THKOX in cell BK_sinks_6x6_s2d_c3_core.
+Reading "BK_bias_tree_noab_n_c3".
+Moving label "NBPC" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Moving label "NBP" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Moving label "NI" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Moving label "dummy" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Moving label "TGN" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Moving label "TDN" from space to THKOX in cell BK_bias_tree_noab_n_c3.
+Reading "BK_s2d_rhigh_c3".
+Reading "BK_s2d_cload_c3".
+Moving label "CLP" from space to THKOX in cell BK_s2d_cload_c3.
+Moving label "CLN" from space to THKOX in cell BK_s2d_cload_c3.
+Moving label "TPN" from space to THKOX in cell BK_s2d_cload_c3.
+Moving label "TNN" from space to THKOX in cell BK_s2d_cload_c3.
+Reading "BK_s2d_tails_lo_f".
+Moving label "D" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "A2b" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "F1a" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "F2a" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "A1b" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "M1b" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "M2a" from space to NWELL in cell BK_s2d_tails_lo_f.
+Moving label "D" from space to NWELL in cell BK_s2d_tails_lo_f.
+Reading "BK_s2d_tails_hi_f".
+Moving label "BP" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "A1a" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "F2b" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "F1b" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "A2a" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "M1a" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "M2b" from space to NWELL in cell BK_s2d_tails_hi_f.
+Moving label "D" from space to NWELL in cell BK_s2d_tails_hi_f.
+Reading "BK_s2d_casc_n_f".
+Moving label "dummy" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CXC" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CX" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CY" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CYC" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "dummy" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "dummy" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CYC" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CY" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CX" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "CXC" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "dummy" from space to THKOX in cell BK_s2d_casc_n_f.
+Moving label "BNC" from space to MET2 in cell BK_s2d_casc_n_f.
+Reading "BK_s2d_casc_p_f".
+Moving label "X" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "LPC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "LNC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "DC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "X" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "BPC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "LPC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "LNC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "DC" from space to NWELL in cell BK_s2d_casc_p_f.
+Moving label "X" from space to NWELL in cell BK_s2d_casc_p_f.
+Reading "BK_s2d_loads_f".
+Moving label "X" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LP" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LN" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "DD" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "DD" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LN" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LP" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "X" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "X" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LP" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LN" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "DD" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "DD" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LN" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "LP" from space to NWELL in cell BK_s2d_loads_f.
+Moving label "X" from space to NWELL in cell BK_s2d_loads_f.
+Reading "BK_iovdd_rail_tie".
+Moving label "iovdd_rail_tie: removable, delete this instance (C3 2026-11-04)" from space to MET2 in cell BK_iovdd_rail_tie.
+Reading "BK_esd_wiring".
+Reading "BK_rppd$1".
+Moving label "rppd r=6768.458" from space to PSD in cell BK_rppd$1.
+Moving label "rppd" from space to PSD in cell BK_rppd$1.
+Reading "BK_rppd".
+Moving label "rppd r=1958.972" from space to PSD in cell BK_rppd.
+Moving label "rppd" from space to PSD in cell BK_rppd.
+Reading "BK_Clamp_P_M1".
+Moving label "sub!" from space to MET1 in cell BK_Clamp_P_M1.
+Reading "BK_Clamp_N_M1".
+Moving label "sub!" from space to MET1 in cell BK_Clamp_N_M1.
+Reading "BK_DCPDiode".
+Moving label "dpant" from space to MET1 in cell BK_DCPDiode.
+Moving label "dpant" from space to MET1 in cell BK_DCPDiode.
+Moving label "sub!" from space to MET1 in cell BK_DCPDiode.
+Reading "BK_DCNDiode".
+Moving label "dant" from space to MET1 in cell BK_DCNDiode.
+Moving label "dant" from space to MET1 in cell BK_DCNDiode.
+Moving label "sub!" from space to MET1 in cell BK_DCNDiode.
+Reading "BK_edge_stubs_low".
+Reading "BK_edge_stubs".
+Reading "BK_s2d_block".
+Reading "sg13cmos5l_IOPadSingle2Diff".
+Reading "sg13cmos5l_IOPadInOut16mA".
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_IOPadInOut16mA.
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_IOPadInOut16mA.
+Reading "sg13cmos5l_Corner".
+Moving label "sub!" from space to MET3 in cell sg13cmos5l_Corner.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Corner.
+Moving label "sub!" from space to MET1 in cell sg13cmos5l_Corner.
+Moving label "sub!" from space to MET5 in cell sg13cmos5l_Corner.
+Reading "bondpad_LX3CBX".
+Reading "open_source".
+Reading "font_76".
+Reading "font_75".
+Reading "font_74".
+Reading "font_73".
+Reading "font_72".
+Reading "font_70".
+Reading "font_69".
+Reading "font_68".
+Reading "font_67".
+Reading "font_65".
+Reading "font_63".
+Reading "font_62".
+Reading "font_61".
+Reading "font_56".
+Reading "font_53".
+Reading "font_50".
+Reading "font_49".
+Reading "font_48".
+Reading "font_47".
+Reading "font_44".
+Reading "font_43".
+Reading "font_36".
+Reading "font_35".
+Reading "font_33".
+Reading "font_32".
+Reading "font_31".
+Reading "font_30".
+Reading "font_29".
+Reading "font_28".
+Reading "font_7A".
+Reading "font_6F".
+Reading "font_6E".
+Reading "font_6D".
+Reading "font_6C".
+Reading "font_4F".
+Reading "font_4E".
+Reading "font_4D".
+Reading "font_4C".
+Reading "font_4B".
+Reading "font_2E".
+Reading "font_2C".
+Reading "copyright_block".
+Reading "font_22".
+Reading "caravel_motto".
+Reading "caravel_logo".
+Reading "sg13cmos5l_padframe".
+Reading "sg13_hv_pmos_HVFXC8".
+Reading "via_NN8LKN".
+Reading "sg13cmos5l_inv_4".
+Reading "sg13cmos5l_antennanp".
+Moving label "dant" from space to MET1 in cell sg13cmos5l_antennanp.
+Moving label "dpant" from space to MET1 in cell sg13cmos5l_antennanp.
+Reading "sg13_hv_nmos_CJ33WB".
+Reading "sg13_hv_nmos_HSMMZS".
+Reading "sg13_hv_pmos_2TUKLB".
+Reading "sg13_hv_pmos_XRP95E".
+Reading "via_QP3U7V".
+Reading "via_Y6Z86N".
+Reading "via_Y6ZD6N".
+Reading "sw_lvl_shift".
+Reading "analog_pswitch_small".
+Reading "sg13_hv_nmos_U4HMWB".
+Reading "analog_switch_small".
+Reading "sg13_hv_nmos_2RYP69".
+Reading "via_Y6H4DQ".
+Reading "via_Y6HG9Q".
+Reading "via_Y6HE6N".
+Reading "bias_nset".
+Reading "bias_nstack".
+Reading "sg13_hv_pmos_KGSGVN".
+Reading "bias_pset2".
+Reading "via_Y6ZX9Q".
+Reading "bias_pset".
+Reading "bias_pstack".
+Reading "capacitor_UPRECB".
+Reading "rhigh_AFSZTU".
+Reading "via_Y2RFW5".
+Reading "via_Y6HC2N".
+Reading "via_Y6ZU9Q".
+Reading "via_Y6ZY8N".
+Reading "via_Z2RFBL".
+Reading "via_Z29FXH".
+Reading "via_Z29PWH".
+Reading "sg13_hv_nmos_666RAL".
+Reading "sg13_hv_pmos_7A8CUW".
+Reading "sg13_hv_nmos_XVVFQX".
+Reading "bias_amp_large".
+Reading "rhigh_GJN3VD".
+Reading "sg13cmos5l_inv_2".
+Reading "sg13cmos5l_fill_2".
+Reading "sg13cmos5l_nand2_1".
+Reading "sg13cmos5l_nor2_1".
+Reading "via_Y6Z2DQ".
+Reading "sg13_hv_nmos_QBGVHE".
+Reading "sg13_hv_pmos_DNCZKC".
+Reading "sg13_hv_pmos_ZPCZKC".
+Reading "via_Y6HW5N".
+Reading "via_Y6ZS5N".
+Reading "sg13_hv_nmos_QHASHE".
+Reading "level_shift".
+Reading "bias_generator_fe_v2".
+Reading "bias_generator_be0p_v2".
+Reading "bias_generator_ben250nm".
+Reading "bias_generator_ben1um".
+Reading "sg13cmos5l_ocd_ip__biasgen2".
+Reading "cap_cmomf_7YMNSS".
+Reading "cap_cmomf_MKAUQG".
+Reading "cap_cmomf_T2STT2".
+Reading "dantenna_WMFCS7".
+Reading "sg13_lv_nmos_GT3QPP".
+Reading "sg13_lv_nmos_LT8DKY".
+Reading "sg13_lv_pmos_KE4EUN".
+Reading "sg13_lv_pmos_KPMAU6".
+Reading "sg13_lv_pmos_RWAJH3".
+Reading "por_1v2_schmitt_inv".
+Reading "rhigh_MGZFWD".
+Reading "sg13cmos5l_buf_16".
+Reading "sg13_lv_nmos_AGXAPYX".
+Reading "sg13_lv_nmos_AGXAPYY".
+Reading "sg13_lv_pmos_X27YSC".
+Reading "por_amp".
+Reading "sg13_lv_nmos_5X2BDS".
+Reading "sg13_lv_nmos_VHRE9V".
+Reading "sg13_lv_pmos_4AKZGL".
+Reading "sg13_lv_pmos_JRRYKH".
+Reading "por_stepdown".
+Reading "sg13cmos5l_ocd_ip__por".
+Reading "capacitor_BCZJG3".
+Reading "cap_cmomf_H6HXXJ".
+Reading "capacitor_KK7B53".
+Reading "sg13_hv_pmos_CVGX38".
+Reading "sg13_hv_nmos_83DLAQ".
+Reading "hv_inv_1".
+Reading "via_Y6H5GQ".
+Reading "via_Y6HKGQ".
+Reading "via_Y6Z8HQ".
+Reading "via_Y6ZD6N_x2".
+Reading "via_Y6ZJGQ".
+Reading "via_Y6ZLGQ".
+Reading "via_Y6ZP9Q".
+Reading "via_Y6ZQZM".
+Reading "via_Z2RF8J".
+Reading "via_Z2RJBL".
+Reading "via_Z29VKL".
+Reading "via_Y6ZG8N".
+Reading "sg13_hv_pmos_XLVYT6".
+Reading "sg13_hv_nmos_MRZNPN".
+Reading "xgate".
+Reading "via_Y6HY9Q".
+Reading "n_amp_large".
+Reading "sg13_hv_pmos_QH8WBX".
+Reading "rhigh_NFPZ4T".
+Reading "sg13cmos5l_nand3_1".
+Reading "via_Y6Z5DQ".
+Reading "via_Y6ZA6N".
+Reading "sg13_hv_pmos_ZKTCY2".
+Reading "sg13_hv_pmos_N8UDLU".
+Reading "sg13_hv_pmos_NWNELU".
+Reading "sg13_hv_pmos_NNMDLU".
+Reading "sg13_hv_nmos_BEDTUZ".
+Reading "sg13_hv_nmos_XAAXMC".
+Reading "sg13_hv_nmos_TYJME3".
+Reading "sg13_hv_pmos_HLS6DG".
+Reading "sg13_hv_pmos_H5F6DG".
+Reading "sg13_hv_pmos_NQUDLU".
+Reading "sg13_hv_nmos_TGUME3".
+Reading "sg13_hv_nmos_BEMUUZ".
+Reading "sg13_hv_nmos_BE9VUZ".
+Reading "se_folded_cascode_p".
+Reading "sg13cmos5l_ocd_ip__voltgen_v3".
+Moving label "011" from space to DIGITALID in cell sg13cmos5l_ocd_ip__voltgen_v3.
+Moving label "010" from space to DIGITALID in cell sg13cmos5l_ocd_ip__voltgen_v3.
+Moving label "001" from space to DIGITALID in cell sg13cmos5l_ocd_ip__voltgen_v3.
+Reading "capacitor_UEBLR3".
+Reading "capacitor_4HNWC9".
+Reading "capacitor_77YAAU".
+Reading "capacitor_C4E5CZ".
+Reading "capacitor_P4YBHP".
+Reading "via_Y6HEAQ".
+Reading "via_Y6HQ9Q".
+Reading "via_Y6ZXGQ".
+Reading "sg13_hv_pmos_NWA9LU".
+Reading "sg13_hv_nmos_BEVMZW".
+Reading "sg13_hv_pmos_WYN5QB".
+Reading "pnpMPA_9DZCCL".
+Reading "rhigh_SUDY2Y".
+Reading "bg_res".
+Reading "rppd_Y8MW75".
+Reading "sg13_hv_nmos_2UD3QN".
+Reading "bg_trim".
+Reading "bandgap_unbuffered_v2".
+Reading "via_Y6HEDQ".
+Reading "capacitor_W9X9FK".
+Reading "sg13_hv_nmos_BEHQUZ".
+Reading "sg13_hv_nmos_BEZCVZ".
+Reading "sg13_hv_nmos_QMKJVU".
+Reading "sg13_hv_nmos_T2KQE3".
+Reading "sg13_hv_pmos_FJG4RK".
+Reading "sg13_hv_pmos_MLH6U9".
+Reading "via_Y6H8HQ".
+Reading "via_Y6HNCQ".
+Reading "via_Y6ZJCQ".
+Reading "sg13_hv_pmos_ZK4LW2".
+Reading "sg13_hv_pmos_DFT6DG".
+Reading "sg13_hv_nmos_TAZSE3".
+Reading "sg13_hv_nmos_XAS6UC".
+Reading "sg13_hv_pmos_V3Q6DG".
+Reading "sg13_hv_nmos_BENXUZ".
+Reading "sg13_hv_pmos_NQD9LU".
+Reading "sg13_hv_pmos_NED9LU".
+Reading "sg13_hv_nmos_2G82VR".
+Reading "sg13_hv_pmos_QWE845".
+Reading "se_folded_cascode_np_ab".
+Reading "sg13cmos5l_ocd_ip__bandgap_v3".
+Reading "sg13cmos5l_inv_1".
+Reading "sg13cmos5l_buf_8".
+Reading "sg13cmos5l_buf_4".
+Reading "sg13cmos5l_dlygate4sd3_1".
+Reading "sg13cmos5l_fill_1".
+Reading "sg13cmos5l_decap_8".
+Reading "sg13cmos5l_buf_1".
+Reading "sg13cmos5l_dfrbpq_1".
+Reading "sg13cmos5l_mux2_1".
+Reading "sg13cmos5l_or4_1".
+Reading "sg13cmos5l_and2_1".
+Reading "sg13cmos5l_nor3_1".
+Reading "sg13cmos5l_nand4_1".
+Reading "sg13cmos5l_xor2_1".
+Reading "sg13cmos5l_nand2b_1".
+Reading "sg13cmos5l_and4_1".
+Reading "sg13cmos5l_and3_1".
+Reading "sg13cmos5l_nand3b_1".
+Reading "sg13cmos5l_xnor2_1".
+Reading "sg13cmos5l_or3_1".
+Reading "sg13cmos5l_nor4_1".
+Reading "sg13cmos5l_a221oi_1".
+Reading "sg13cmos5l_a22oi_1".
+Reading "sg13cmos5l_or2_1".
+Reading "sg13cmos5l_a21o_1".
+Reading "sg13cmos5l_a21oi_1".
+Reading "sg13cmos5l_o21ai_1".
+Reading "sg13cmos5l_nor2b_1".
+Reading "sg13cmos5l_buf_2".
+Reading "housekeeping_top".
+    5000 uses
+    10000 uses
+Reading "chipalooza_frame_wrapper".
+Reading "sg13_hv_nmos_VCL2HP".
+Reading "sg13_hv_pmos_G9ZGU3".
+Reading "via_Y2RFW7".
+Reading "via_Y2RFX7".
+Reading "via_Y6H96N".
+Reading "via_Y6Z2DQ_x2".
+Reading "gate_drive_med".
+Reading "sg13_hv_nmos_9DTRBE".
+Reading "sg13_hv_pmos_3CJ4LL".
+Reading "via_4K6DRW".
+Reading "via_AWBR46".
+Reading "via_QZBZRE".
+Reading "via_Y6ZQ5N".
+Reading "via_Z9R6XL".
+Reading "via_Z29SAL".
+Reading "analog_switch_med".
+Reading "analog_switch_array".
+Reading "center_column_route".
+Reading "central_column".
+Reading "sg13cmos5l_lgcp_1".
+Reading "sg13cmos5l_dlhrq_1".
+Reading "user_project_control".
+Reading "sg13_hv_nmos_3JX36Y".
+Reading "sg13_hv_nmos_XAVYYR".
+Reading "sg13_hv_pmos_FG6ZZW".
+Reading "sg13_hv_pmos_RQMCRC".
+Reading "gate_drive_large".
+Reading "sg13_hv_pmos_ZN7EJW".
+Reading "via_B4YQGJ".
+Reading "via_NZW5ZC".
+Reading "power_stage2".
+Reading "sg13cmos5l_inv_8".
+Reading "sg13cmos5l_inv_16".
+Reading "gate_drive_1v2".
+Reading "sg13_lv_pmos_5MXUJM".
+Reading "via_QLR8H8".
+Reading "via_Z3LBH9".
+Reading "power_stage1v2".
+Reading "project_control_area".
+Reading "slot9_wrapper".
+Reading "slot10_wrapper".
+Reading "slot8_wrapper".
+Reading "slot11_wrapper".
+Reading "slot7_wrapper".
+Reading "slot12_wrapper".
+Reading "slot6_wrapper".
+Reading "slot13_wrapper".
+Reading "slot5_wrapper".
+Reading "slot14_wrapper".
+Reading "slot4_wrapper".
+Reading "slot15_wrapper".
+Reading "slot3_wrapper".
+Reading "slot16_wrapper".
+Reading "slot2_wrapper".
+Reading "slot17_wrapper".
+Reading "sg13cmos5l_ocd_ip__classab_buffer".
+Reading "slot1_wrapper".
+Reading "slot18_wrapper".
+Reading "RM_IHPSG13_1P_COLCTRL2_end".
+Reading "VIA_M2_M1_db_0x0283be9d".
+Reading "RSC_IHPSG13_FILLCAP4".
+Reading "VIA_M2_M1_db_0x0283beab".
+Reading "VIA_M2_M1_db_0x0283bea5".
+Reading "VIA_M4_M3_db_0x0283bea9".
+Reading "VIA_M3_M2_db_0x0283beb0".
+Reading "VIA_M2_M1_db_0x0283be9b".
+Reading "lvsres_db_0x0283151a".
+Moving label "PLUS" from space to MET3 in cell lvsres_db_0x0283151a.
+Moving label "MINUS" from space to MET3 in cell lvsres_db_0x0283151a.
+Reading "VIA_M2_M1_db_0x0283bea0".
+Reading "RSC_IHPSG13_CBUFX2".
+Reading "VIA_M3_M2_db_0x0283be9f".
+Reading "VIA_M3_M2_db_0x0283beac".
+Reading "VIA_M3_M2_db_0x0283beaf".
+Reading "VIA_M2_M1_db_0x0283bea4".
+Reading "RSC_IHPSG13_INVX2".
+Reading "VIA_M3_M2_db_0x0283beb1".
+Reading "RSC_IHPSG13_TIEH".
+Reading "RSC_IHPSG13_INVX4".
+Reading "VIA_M3_M2_db_0x0283beae".
+Reading "VIA_M3_M2_db_0x0283be9e".
+Reading "VIA_M3_M2_db_0x0283bea2".
+Reading "VIA_M3_M2_db_0x0283bea1".
+Reading "VIA_M2_M1_db_0x0283bea3".
+Reading "VIA_M3_M2_db_0x0283bea8".
+Reading "VIA_M2_M1_db_0x0283bea7".
+Reading "VIA_M2_M1_db_0x0283beaa".
+Reading "RSC_IHPSG13_DFPQD_MSAFFX2N_half".
+Reading "RSC_IHPSG13_DFPQD_MSAFFX2N".
+Reading "RSC_IHPSG13_NOR2X2".
+Reading "RSC_IHPSG13_CINVX4_WN".
+Reading "VIA_M2_M1_db_0x0283059b".
+Reading "VIA_M2_M1_db_0x0283059c".
+Reading "VIA_M3_M2_db_0x028305a0".
+Reading "VIA_M3_M2_db_0x028305a1".
+Reading "VIA_M2_M1_db_0x028305a2".
+Reading "VIA_M2_M1_db_0x028305a3".
+Reading "VIA_M3_M2_db_0x028305a4".
+Reading "VIA_M2_M1_db_0x028305a5".
+Reading "VIA_M3_M2_db_0x0283059e".
+Reading "VIA_M2_M1_db_0x0283059f".
+Reading "RM_IHPSG13_1P_BLDRV".
+Reading "RSC_IHPSG13_DFNQMX2IX1".
+Reading "RSC_IHPSG13_AND2X2".
+Reading "RSC_IHPSG13_CINVX2".
+Reading "RM_IHPSG13_1P_COLCTRL2".
+Reading "VIA_M3_M2_db_0x02839d23".
+Reading "VIA_M3_M2_db_0x0283959d".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL4".
+Reading "RSC_IHPSG13_FILL1".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL1C2".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL4C2".
+Reading "RSC_IHPSG13_FILL2".
+Reading "VIA_M3_M2_db_0x0400d39e".
+Reading "RM_IHPSG13_1P_DEC_LE_l1wire".
+Reading "RM_IHPSG13_1P_DEC_LE_tap".
+Reading "VIA_M3_M2_db_0x0400d91e".
+Reading "VIA_M3_M2_db_0x0400d921".
+Reading "lvsres_db_0x0400b71a".
+Moving label "PLUS" from space to MET2 in cell lvsres_db_0x0400b71a.
+Moving label "MINUS" from space to MET2 in cell lvsres_db_0x0400b71a.
+Reading "RSC_IHPSG13_NAND3X2".
+Reading "RSC_IHPSG13_LHPQX2".
+Reading "RSC_IHPSG13_NOR3X2".
+Reading "RSC_IHPSG13_NAND2X2".
+Reading "RM_IHPSG13_1P_DEC04".
+Reading "RM_IHPSG13_1P_DEC00".
+Reading "RM_IHPSG13_1P_DEC02".
+Reading "RSC_IHPSG13_FILLCAP8".
+Reading "RM_IHPSG13_1P_DEC_LE_l2empty".
+Reading "RM_IHPSG13_1P_DEC03".
+Reading "RM_IHPSG13_1P_DEC_LE_l0wire".
+Reading "RM_IHPSG13_1P_DEC_LE_l2wire".
+Reading "RM_IHPSG13_1P_DEC01".
+Reading "RM_IHPSG13_1P_DEC_LE_l1empty".
+Reading "VIA_M3_M2_db_0x0283a69d".
+Reading "VIA_M4_M3_db_0x0283a69e".
+Reading "VIA_M3_M2_db_0x0283a69f".
+Reading "VIA_M4_M3_db_0x0283a69b".
+Reading "RM_IHPSG13_1P_ROWDEC0".
+Reading "RM_IHPSG13_1P_ROWDEC8".
+Reading "VIA_M3_M2_db_0x0400ab9c".
+Reading "VIA_M3_M2_db_0x0400ab9b".
+Reading "RM_IHPSG13_1P_ROWREG0".
+Reading "RSC_IHPSG13_CINVX8".
+Reading "RM_IHPSG13_1P_ROWREG8".
+Reading "RSC_IHPSG13_CGATEPX4".
+Reading "RSC_IHPSG13_CINVX4".
+Reading "RSC_IHPSG13_CNAND2X2".
+Reading "VIA_M3_M2_db_0x02838420".
+Reading "VIA_M2_M1_db_0x02838424".
+Reading "VIA_M2_M1_db_0x02838425".
+Reading "RSC_IHPSG13_MX2X2".
+Reading "RSC_IHPSG13_DFNQX2".
+Reading "RSC_IHPSG13_TIEL".
+Reading "RSC_IHPSG13_CBUFX8".
+Reading "RSC_IHPSG13_OA12X1".
+Reading "RSC_IHPSG13_CDLYX2".
+Reading "RSC_IHPSG13_XOR2X2".
+Reading "RM_IHPSG13_1P_CTRL".
+Reading "VIA_M4_M3_db_0x02837622".
+Reading "RM_IHPSG13_1P_COLDEC2".
+Reading "RSC_IHPSG13_MX2IX1".
+Reading "RSC_IHPSG13_CDLYX1".
+Reading "RM_IHPSG13_1P_DLY_MUX".
+Reading "lvsres_db_0x04007e9a".
+Moving label "PLUS" from space to MET1 in cell lvsres_db_0x04007e9a.
+Moving label "MINUS" from space to MET1 in cell lvsres_db_0x04007e9a.
+Reading "RSC_IHPSG13_CDLYX1_DUMMY".
+Reading "RM_IHPSG13_1P_DLY_2".
+Reading "VIA_M3_M2_db_0x02839d1b".
+Reading "VIA_M3_M2_db_0x02839d1d".
+Reading "RSC_IHPSG13_CBUFX4".
+Reading "RM_IHPSG13_1P_COLDRV13X4".
+Reading "RM_IHPSG13_1P_COLDRV13_FILL1".
+Reading "VIA_M3_M2_db_0x0283701f".
+Reading "VIA_M2_M1_db_0x043aed9b".
+Reading "VIA_M2_M1_db_0x043aeda3".
+Reading "RSC_IHPSG13_WLDRVX4".
+Reading "VIA_M3_M2_db_0x043aeda0".
+Reading "RM_IHPSG13_1P_WLDRV16X4".
+Reading "RM_IHPSG13_1P_WLDRV16X4_tap".
+Reading "RM_IHPSG13_1P_DLY_4".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_edge_lr".
+Reading "VIA_M1_Activ_db_0x02835b9b".
+Reading "RM_IHPSG13_1P_BITKIT_TAP".
+Reading "lvsres_db_0x0283509a".
+Moving label "PLUS" from space to MET2 in cell lvsres_db_0x0283509a.
+Moving label "MINUS" from space to MET2 in cell lvsres_db_0x0283509a.
+Reading "lvsres_db_0x02834b9a".
+Moving label "PLUS" from space to MET3 in cell lvsres_db_0x02834b9a.
+Moving label "MINUS" from space to MET3 in cell lvsres_db_0x02834b9a.
+Reading "VIA_M1_GatPoly_db_0x0283451d".
+Reading "RM_IHPSG13_1P_BITKIT_CELL_SUB".
+Moving label "nmos" from space to MET2 in cell RM_IHPSG13_1P_BITKIT_CELL_SUB.
+Moving label "nmos" from space to MET2 in cell RM_IHPSG13_1P_BITKIT_CELL_SUB.
+Moving label "pmos" from space to MET1 in cell RM_IHPSG13_1P_BITKIT_CELL_SUB.
+Reading "RM_IHPSG13_1P_BITKIT_CELL".
+Reading "RM_IHPSG13_1P_BITKIT_CELL_2x1".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_SRAM".
+Moving label "VDD!" from space to MET3 in cell RM_IHPSG13_1P_BITKIT_16x2_SRAM.
+Moving label "VSS!" from space to MET3 in cell RM_IHPSG13_1P_BITKIT_16x2_SRAM.
+Reading "RM_IHPSG13_1P_BITKIT_16x2_TAP".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_EDGE_TB".
+Reading "RM_IHPSG13_1P_COLUMN_256".
+Reading "RM_IHPSG13_1P_BITKIT_EDGE_LR".
+Moving label "nmos" from space to MET2 in cell RM_IHPSG13_1P_BITKIT_EDGE_LR.
+Moving label "nmos" from space to MET2 in cell RM_IHPSG13_1P_BITKIT_EDGE_LR.
+Moving label "pmos" from space to NWELL in cell RM_IHPSG13_1P_BITKIT_EDGE_LR.
+Reading "RM_IHPSG13_1P_BITKIT_CELL_CORNER".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR".
+Moving label "VDD!" from space to MET3 in cell RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR.
+Moving label "VSS!" from space to MET3 in cell RM_IHPSG13_1P_BITKIT_16x2_EDGE_LR.
+Reading "VIA_M4_M3_db_0x0283361c".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_POWER_ramblk".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_tap_lr".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_TAP_LR".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_POWER_ramtap".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_LE_con_corner".
+Reading "RM_IHPSG13_1P_BITKIT_16x2_CORNER".
+Reading "RM_IHPSG13_1P_MATRIX_256x16".
+Reading "RM_IHPSG13_1P_1024x8_c2_bm_bist".
+Reading "chipalooza_frame".
+Moving label "dvss" from space to MET5 in cell chipalooza_frame.
+Moving label "avdd" from space to MET5 in cell chipalooza_frame.
+Moving label "dvdd" from space to MET5 in cell chipalooza_frame.
+Moving label "avss" from space to MET5 in cell chipalooza_frame.
+Reading "sealring_corner".
+Reading "sealring_side_leftright".
+Reading "sealring_side_topbottom".
+Reading "sealring_complete".
+Reading "sg13cmos5l_ocd_chipalooza".
+Flattening layout of tile x=0 y=0. . . 
+Flattening layout of tile x=1 y=0. . . 
+Flattening layout of tile x=2 y=0. . . 
+Flattening layout of tile x=0 y=1. . . 
+Flattening layout of tile x=1 y=1. . . 
+Flattening layout of tile x=2 y=1. . . 
+Flattening layout of tile x=0 y=2. . . 
+Flattening layout of tile x=1 y=2. . . 
+Flattening layout of tile x=2 y=2. . . 
+Flattening layout of tile x=0 y=3. . . 
+Flattening layout of tile x=1 y=3. . . 
+Flattening layout of tile x=2 y=3. . . 
+Flattening layout of tile x=0 y=4. . . 
+Flattening layout of tile x=1 y=4. . . 
+Flattening layout of tile x=2 y=4. . . 
+Error message output from magic:
+CIF file read warning: CIF style ihp-sg13cmos5l: units rescaled by factor of 5 / 1
+Error while reading cell "DW_$$$CONTEXT_INFO$$$" (byte position 33485098): Unknown layer/datatype in boundary, layer=0 type=0
+Error while reading cell "slot1_wrapper" (byte position 74872488): Unknown layer/datatype in boundary, layer=67 type=23
+Error while reading cell "slot18_wrapper" (byte position 74884720): Unknown layer/datatype in boundary, layer=67 type=23
+Property name "FIXED_BBOX" is not defined
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_4 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_4: 180000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_4
+2948 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_3 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_3: 1100000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_3
+16492 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_3 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_3: 1030000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_3
+13030 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_2 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_2: 1680000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_2
+16986 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_0 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_0: 1810000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_0
+14172 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_2 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_2: 850000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_2
+19668 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_4 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_4: 80000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_4
+2284 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_1 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_1: 830000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_1
+15348 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_2 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_2: 830000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_2
+14716 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_1 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_1: 840000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_1
+19644 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_3 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 1990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_3: 2000000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_3
+14464 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_4 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_0_4: 120000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_4
+2704 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_1 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_1: 1670000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_1
+17448 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_0 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_2_0: 1140000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_0
+12142 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_dist.tcl" from command line.
+2 Magic internal units = 1 Lambda
+Cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_0 read from current working directory
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 10000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 20000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 30000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 40000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 50000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 60000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 70000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 80000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 90000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1000000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1010000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1020000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1030000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1040000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1050000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1060000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1070000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1080000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1090000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1100000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1110000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1120000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1130000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1140000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1150000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1160000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1170000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1180000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1190000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1200000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1210000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1220000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1230000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1240000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1250000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1260000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1270000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1280000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1290000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1300000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1310000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1320000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1330000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1340000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1350000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1360000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1370000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1380000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1390000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1400000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1410000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1420000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1430000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1440000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1450000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1460000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1470000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1480000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1490000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1500000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1510000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1520000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1530000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1540000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1550000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1560000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1570000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1580000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1590000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1600000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1610000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1620000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1630000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1640000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1650000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1660000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1670000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1680000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1690000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1700000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1710000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1720000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1730000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1740000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1750000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1760000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1770000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1780000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1790000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1800000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1810000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1820000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1830000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1840000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1850000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1860000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1870000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1880000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1890000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1900000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1910000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1920000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1930000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1940000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1950000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1960000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1970000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1980000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 1990000 rects
+sg13cmos5l_ocd_chipalooza_fill_pattern_1_0: 2000000 rects
+CIF output style is now "patternfill(tiled)"
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_0
+12776 problems occurred.  See feedback entries.
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Input style ihp-sg13cmos5l: scaleFactor=1, multiplier=1
+The following types are not handled by extraction and will be treated as non-electrical types:
+    NWELL NWELLPIN SUBS DIGSUB SUBTXT PWELLBLK DIFFMASK DIFFFILL DIFFPIN PSD NSD NSDBLOCK THKOX SBLK EXTBLOCK POLYPIN POLYFILL POLYRES POLYRESPIN MET1TXT MET1PIN MET1RES MET1FILL MET1SLIT MET2TXT MET2PIN MET2RES MET2FILL MET2SLIT MET3TXT MET3PIN MET3RES MET3FILL MET3SLIT MET4TXT MET4PIN MET4RES MET4FILL MET4SLIT MET5TXT MET5PIN MET5RES MET5FILL MET5SLIT GLASS PADPIN BOUND SEALBOUND INDBOUND DIODE RESDEF INDUCTOR INDPIN INDTXT CAPID FILLBLOCK ESDID SRAMID DIGITALID BIPOLARID EDGESEAL HEATRES HEATTRANS IPROBE DPROBE THRUVIA PADID RFMEMS TSVID DEVICE DIFFBLOCK DIFFNORCX POLYBLOCK POLYNORCX MET1BLOCK MET1NORCX MET2BLOCK MET2NORCX MET3BLOCK MET3NORCX MET4BLOCK MET4NORCX MET5BLOCK MET5NORCX LVSTEXT COMMENT NORCX ERROR 
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Loading "/home/user/v2test/gds/generate_fill_final.tcl" from command line.
+2 Magic internal units = 1 Lambda
+CIF output style is now "patternfill(tiled)"
+Writing final GDS
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_0
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_0_0".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_0
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_1_0".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_1
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_0_1".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_1
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_1_1".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_0
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_2_0".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_1
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_2_1".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_2
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_0_2".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_2
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_1_2".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_2
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_2_2".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_3
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_0_3".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_3
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_1_3".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_3
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_2_3".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_0_4
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_0_4".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_1_4
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_1_4".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern_2_4
+Reading "sg13cmos5l_ocd_chipalooza_fill_pattern_2_4".
+   Generating output for cell sg13cmos5l_ocd_chipalooza_fill_pattern
+Ended: 11/09/2026 01:21:35
+Done!

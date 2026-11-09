@@ -1,0 +1,32 @@
+09-Nov-2026 01:23:48 | INFO    | KLayout version detected: 0.30.12
+09-Nov-2026 01:23:48 | WARNING | --precheck_drc is deprecated and will be removed in a future release, use --minimum_drc instead.
+09-Nov-2026 01:23:48 | INFO    | Minimum DRC: running the minimum rule set only (extra, offgrid, angle, antenna and density sanity checks disabled).
+09-Nov-2026 01:23:48 | INFO    | Using DRC JSON file: /foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+Killed
+09-Nov-2026 01:26:34 | ERROR   | gatpolyfiller generated an exception: Command 'klayout -b -r '/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc' -rd threads='22' -rd drc_json_default='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json' -rd drc_json='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json' -rd run_mode='deep' -rd precheck_drc='true' -rd disable_extra_rules='true' -rd no_feol='true' -rd no_beol='true' -rd no_offgrid='true' -rd no_angle='true' -rd density_sanity='false' -rd density='true' -rd no_forbidden='true' -rd no_pin='true' -rd no_recommended='true' -rd topcell='sg13cmos5l_ocd_chipalooza_final' -rd input='/home/user/v2test/gds/sg13cmos5l_ocd_chipalooza_final.gds.gz' -rd report='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.lyrdb' -rd log='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.log' -rd tables="gatpolyfiller"' returned non-zero exit status 137.
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/concurrent/futures/process.py", line 255, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py", line 652, in run_check
+    check_call(run_cmd, shell=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/subprocess.py", line 420, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'klayout -b -r '/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc' -rd threads='22' -rd drc_json_default='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json' -rd drc_json='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json' -rd run_mode='deep' -rd precheck_drc='true' -rd disable_extra_rules='true' -rd no_feol='true' -rd no_beol='true' -rd no_offgrid='true' -rd no_angle='true' -rd density_sanity='false' -rd density='true' -rd no_forbidden='true' -rd no_pin='true' -rd no_recommended='true' -rd topcell='sg13cmos5l_ocd_chipalooza_final' -rd input='/home/user/v2test/gds/sg13cmos5l_ocd_chipalooza_final.gds.gz' -rd report='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.lyrdb' -rd log='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.log' -rd tables="gatpolyfiller"' returned non-zero exit status 137.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user/51975cfd-7f52-5f9c-9274-64e0aeb00894/scratchpad/pdkov2/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/run_drc.py", line 721, in run_parallel_run
+    result_db_files.append(future.result())
+                           ~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/concurrent/futures/_base.py", line 402, in __get_result
+    raise self._exception
+subprocess.CalledProcessError: Command 'klayout -b -r '/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc' -rd threads='22' -rd drc_json_default='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json' -rd drc_json='/foss/pdks/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json' -rd run_mode='deep' -rd precheck_drc='true' -rd disable_extra_rules='true' -rd no_feol='true' -rd no_beol='true' -rd no_offgrid='true' -rd no_angle='true' -rd density_sanity='false' -rd density='true' -rd no_forbidden='true' -rd no_pin='true' -rd no_recommended='true' -rd topcell='sg13cmos5l_ocd_chipalooza_final' -rd input='/home/user/v2test/gds/sg13cmos5l_ocd_chipalooza_final.gds.gz' -rd report='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.lyrdb' -rd log='/home/user/v2test/validate/drc_run_2026_11_09_01_23_47/sg13cmos5l_ocd_chipalooza_final.gds_sg13cmos5l_ocd_chipalooza_final_gatpolyfiller.log' -rd tables="gatpolyfiller"' returned non-zero exit status 137.
+./run_klayout_drc_precheck.sh: line 20:  2090 Killed                  python3 $PDK_ROOT/$PDK/libs.tech/klayout/tech/drc/run_drc.py --precheck_drc --mp=22 --no_offgrid --density_thr=22 --no_angle --disable_extra_rules --no_recommended --path=../gds/${PROJECT}.gds.gz
