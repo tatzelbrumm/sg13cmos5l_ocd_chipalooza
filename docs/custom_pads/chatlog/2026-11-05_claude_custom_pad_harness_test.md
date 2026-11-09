@@ -4037,3 +4037,567 @@ Messages sent mid-turn aren't picked up yet. Checking how the transcript stores 
 
 *[Bash]*
 
+
+---
+
+**Note (2026-11-09, written by the assistant):** continued from the session transcript as before (user and assistant text, tool calls by name only, messages sent mid-turn marked). Covers the end of the pnpMPA workaround, the questions on viewing the harness layout, and the slot 7 v3 test on `claude/slot7-v3-harness-test` (with images, fill, density, top LVS, report to the hand-over session).
+
+**Assistant:**
+
+Both mid-turn messages are now in. Next I'll check for secrets, then append the chat log on `custom-pad-test` and write RUNLOG entry 25 on `claude/slot7-v2-harness-test`:
+
+*[Bash]*
+
+**Assistant:**
+
+Now I'll add the slot LVS to TIM_STEPS v2 and send C4 the report it asked for:
+
+*[Bash]*
+
+*[mcp__claude-code-remote__send_message]*
+
+*[Bash]*
+
+**Assistant:**
+
+Yes, the pnpMPA problem is worked around on the harness side. Slot 7 now passes LVS with magic and netgen, Tim's tools. Every sub-block reports "Netlists match uniquely":
+
+| block | devices |
+|---|---|
+| `s7_ctrl` | 222 |
+| `bias_dist_pd` | 75 |
+| `pad_ref_rb` | 33 |
+| `bg_core_pd` | 29 |
+| `s7_doutpd` | 12 |
+
+At the top level, netgen still says "failed pin matching", but only because of pin naming. The slot's netlist names each joined net with all its names, comma-separated, while the layout has one label per net. Unused harness pins also show up as unmatched.
+
+The script needed three changes, all in `docs/slot7_v2_test/lvs_slot7.sh`:
+1. **Rename the layout cell** `pnpMPA` to `pnpMPA_cell` after reading the GDS. Flattening it instead (my first attempt) silently lost the pnp devices.
+2. **Compare against the slot's complete netlist** `slot_7.cdl`. `slot_7.spice` only defines the top levels, so its sub-blocks were empty black boxes.
+3. **Rewrite the CDL's `M`/`Q`/`R` device lines as `X` lines**, the form magic writes. Otherwise netgen gives the two sides different pin names.
+
+All of this is on the fork, branch `claude/slot7-v2-harness-test`, head `04065d7`:
+- `TIM_STEPS.md` v2 now has the slot LVS step.
+- RUNLOG entry 25 covers the workaround and records the report to C4.
+- C4 has the full results, plus four requests for the slot side so Tim won't need the workaround. The main one is to rename the `pnpMPA` cell in `slot_7.gds`.
+
+The chat log on `custom-pad-test` is continued up to your "keep RUNLOG and chat log up to date" (`f99aef2`). The last few steps (the TIM_STEPS LVS step and the C4 report) are only in RUNLOG for now; they'll go into the chat log with the next update.
+
+**User:**
+
+still busy, or done?
+
+**Assistant:**
+
+Done. Nothing is running, and everything is pushed to the fork `tatzelbrumm/sg13cmos5l_ocd_chipalooza`:
+- **`claude/slot7-v2-harness-test`**, head `04065d7`: the slot LVS workaround, TIM_STEPS v2 and the RUNLOG.
+- **`custom-pad-test`**, head `f99aef2`: the chat log.
+
+C4 has the results report, but I haven't had a reply yet.
+
+**User:**
+
+Can I open and look at the magic layout of the harness, or the klayout version thereof?
+
+*[Bash]*
+
+**Assistant:**
+
+Yes. The KLayout version is quickest: the full-chip GDS isn't in git (it's in `.gitignore`), so I'm sending it to you as a file:
+
+*[SendUserFile]*
+
+**Assistant:**
+
+**KLayout, on your host:** run this in the folder you saved the file to.
+
+```bash
+klayout sg13cmos5l_ocd_chipalooza.gds.gz
+```
+
+**Magic, in the container:** the `.mag` files are committed, but two things they need aren't in git: the PDK pad libraries and `magic/custom_io`. You have to build those first in a clone of the branch:
+
+```bash
+git clone --recurse-submodules -b claude/slot7-v2-harness-test git@github.com:tatzelbrumm/sg13cmos5l_ocd_chipalooza.git v2test
+```
+
+```bash
+cd /foss/designs/v2test && export PDK_ROOT=/foss/pdks PDK=ihp-sg13cmos5l
+```
+
+```bash
+make setup && make projects SLOTS=7 && make setup-custom
+```
+
+```bash
+cd magic && magic -d X11 -rcfile $PDK_ROOT/$PDK/libs.tech/magic/$PDK.magicrc sg13cmos5l_ocd_chipalooza
+```
+
+If `magic --version` is 8.3.685, put the branch's `docs/slot7_v2_test/shim` on your PATH first.
+
+**User:**
+
+where is sg13cmos5l_ocd_chipalooza.gds.gz hiding in my local repositories?
+
+**Assistant:**
+
+I can't see your machine, but here is where it would be. The file is in `.gitignore`, so no clone or pull brings it. It exists only where `make gds-prefill` ran, at `<clone>/gds/sg13cmos5l_ocd_chipalooza.gds.gz`. Earlier you asked from which directory to run `make gds-prefill`, so it's probably in that clone of `custom-pad-test`. That copy is the older slot 7, not v2.
+
+The v2 copy I just sent is wherever the app saved it, probably your Downloads folder.
+
+To find every copy on your host:
+
+```bash
+find ~ -name 'sg13cmos5l_ocd_chipalooza.gds*' -printf '%TY-%Tm-%Td %TH:%TM  %p\n' 2>/dev/null | sort
+```
+
+**User:**
+
+or do I need to compile them?
+
+**Assistant:**
+
+No, not for v2. The file I sent you is the built v2 chip; just open it in KLayout.
+
+You only build it yourself if you want it inside a local clone, or if you want the magic view. Then you'd run the TIM_STEPS v2 sequence (`make setup` … `make gds-prefill`) in a clone of `claude/slot7-v2-harness-test`. The full-chip GDS comes out of the last step, `make gds-prefill`.
+
+*[ReadNotifications]*
+
+**Assistant:**
+
+A message has come in from another session (`session_01XU3KH77upRZxPAr9FvWL5j`, "slot7 hand-over"). It says it's at your request and asks me to check the new slot 7 hand-over. I haven't started anything.
+
+**What it says changed:** `tatzelbrumm/sg13cmos5l_cm_slot7` `main` is now `158afc5` = slot 7 v3.
+- The `pnpMPA` cell is renamed `bgc_pnpMPA`, and the `$$$CONTEXT_INFO$$$` cell is gone.
+- There's a netgen netlist plus a check script.
+- It adds a `tughra_art` cell at (88.5, 141.3) µm.
+- v2 is kept as branch `slot7-v2-tapeout`.
+
+**What it asks me to do:**
+1. Run the harness flow with `s7_version` = `158afc5`.
+2. Run the netcheck of the 13 custom-pad nets.
+3. Run chip-level fill and density, with the art's no-fill markers.
+4. Run chip DRC around the art box.
+5. Run top-level LVS.
+
+Steps 1–2 are cheap, about 20 minutes, the same as the v2 run. Steps 3–5 are the heavy full-chip runs you called low value earlier. Top-level LVS would also still fail by construction, because the harness xschem sheets aren't updated for slot 7.
+
+Did you send it? If yes, my suggestion: I do steps 1–2 plus a DRC of the slot-7 area only, on a new fork branch `claude/slot7-v3-harness-test`, and skip full-chip fill and top-level LVS.
+
+*[Incoming message from another Claude session (session_01XU3KH77upRZxPAr9FvWL5j, the slot7 hand-over session), delivered as a notification, not shown here verbatim: slot7 main is now 158afc5 = slot 7 v3 (pnpMPA renamed bgc_pnpMPA, no $$$CONTEXT_INFO$$$, netlist/slot_7_netgen.spice + netgen_check.sh) plus the tughra art; v2 kept as branch slot7-v2-tapeout; asks for the harness flow with s7_version 158afc5, net check, chip fill + density with the art no-fill markers, chip DRC around the art box, top LVS; report findings to Christoph. The assistant's summary of it to the user is the next Assistant entry.]*
+
+**User:**
+
+yes, go ahead with 1-2 and the slot-7 DRC.
+Will the slot7 gds be immediately ready for (unverified) hand-off, or will verification steps and/or file additions be necessary without which Tim's submodule integration would break?
+Make the new main available to Tim as soon as it doesn't break things on his end,
+then try the full-chip fill and top-level LVS.
+Would full chip test with all the others' git submodules integrated be excessively expensive for my account?
+
+**Assistant:**
+
+Starting. First the base and the inputs:
+
+*[Bash]*
+
+**Assistant:**
+
+Tim's `config.txt` has `s7_version: - -`, so his harness already follows slot7 `main`. That means v3 is live for Tim right now. I'll test fast and set up the branch and inputs:
+
+*[Bash]*
+
+**Assistant:**
+
+Pads and pins are unchanged; only `final/gds/slot_7.gds` changed (plus docs, art and netgen files). Running the full sequence anyway, as Tim would, with the full hash:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+While that runs, I'm checking slot_7.gds v3 directly, and whether the harness fill honours the art's no-fill markers:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Fill is done by magic with `gds/ihp-sg13cmos5l-GDS.tech`. Checking whether that tech file reads datatype 23 (no-fill):
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+`make projects-update` is cloning every slot, not just slot 7. That's more than you asked for, so I'm stopping it and checking for a slot filter:
+
+*[Bash]*
+
+**Assistant:**
+
+Stopped. It had cloned slots 1–14, about 1.2 GB; slot 9 alone is 828 MB. I'm removing those clones and keeping only slot 7:
+
+*[Bash]*
+
+**Assistant:**
+
+Slot 7 is already on `158afc5`. Restarting the chain with `SLOTS=7`:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The chain is running, about 20 minutes. Meanwhile I'm looking at the slot's new netgen netlist so the slot LVS can use it:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Documented ("copy `final/gds/slot_7.gds` there"), but it would dirty Tim's submodule. I'm writing the harness-side v3 slot LVS: no rename, schematic = `slot_7_netgen.spice`:
+
+*[Bash]*
+
+**Assistant:**
+
+The chain is at `projects-gds`, with `gds-prefill` and the netcheck to follow. Answers to your questions so far:
+
+**Is v3 ready for hand-off, or would something break Tim's integration?** It's already in Tim's hands. His `config.txt` has `s7_version: - -`, so his next `make projects` takes slot7 `main` as it is now: v3, `158afc5`. What I've checked so far, without running anything:
+- Pads, pins, LEF and the pad manifest are unchanged from v2. Only `slot_7.gds` (with the art) and some docs changed.
+- `slot_7.gds` has one top cell `slot_7`, with the same size as before (537.15 × 273 µm).
+- The cell `pnpMPA` is now `bgc_pnpMPA`, so Tim's magic/netgen won't hit the self-instance error.
+- The art's no-fill markers are on datatype 23, and Tim's fill tech file (`ihp-sg13cmos5l-GDS.tech`) does read datatype 23 as fill block.
+
+The chain and slot LVS will confirm. If something does break, the quick fix is to put slot7 `main` back on v2 (`454da6a`). Tim also needs no new files on his side; the four harness patches are still needed exactly as for v2.
+
+**Is a full-chip test with all slots' submodules too expensive for your account?** I started one by mistake (`make projects-update` without `SLOTS`) and stopped it after slots 1–14. Those took 1.2 GB, 828 MB of it slot 9. I removed the clones and recorded it in the RUNLOG.
+
+Most of the cost isn't tokens. While a tool runs, I wait without using any; tokens go on my reading of the results. The real limits are:
+- **Disk:** about 28 GB free here, which is enough.
+- **Time:** full-chip fill plus DRC plus top-level LVS with all 18 slots takes several hours.
+- **Things that may fail:** slot 18 is on bitbucket.org, which may be blocked here, and other teams' GDS may not load cleanly.
+
+My estimate is that it's affordable in tokens if I only check in at the end of each step. Expect hours of wall time, and some slot failures that aren't ours.
+
+I'll report the chain results when they're in.
+
+**Assistant:**
+
+I'll commit what's done so far; the chain is still running and its outputs will follow in a later commit.
+
+*[Bash]*
+
+*[Bash]*
+
+*[ToolSearch]*
+
+**User (sent while the assistant was working):**
+
+make me svg and png versions of updated slot+pads I can share on the FOSSi chat.
+
+*[Bash]*
+
+**Assistant:**
+
+Steps 01–11 exited 0, but the netcheck failed: it can't find the top cell. The full-chip GDS also shrank, from 14.3 MB to 9.6 MB. Checking:
+
+*[Bash]*
+
+**Assistant:**
+
+The GDS is broken: it has many top cells (`slot_7`, `sg13cmos5l_padframe`, every wrapper, …) and no `sg13cmos5l_ocd_chipalooza`. Comparing with the v2 run's log:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Magic writes children first. The top cell is missing, so the write probably stopped before the end:
+
+*[Bash]*
+
+**Assistant:**
+
+v3 wrote only 306 cells, against 578 for v2. Also, KLayout hides `$$$CONTEXT_INFO$$$` on read, so my earlier "one top cell" check couldn't have seen it. Checking the raw GDS:
+
+*[Bash]*
+
+**Assistant:**
+
+No context cell in `slot_7.gds` itself. Tim's script ends with `exit 0` whatever magic does, so I'm rerunning the final write by hand to see magic's exit status:
+
+*[Bash]*
+
+*[Bash]*
+
+**User (sent while the assistant was working):**
+
+but the old version that Tim absorbed was ok wasn't it?
+
+*[Bash]*
+
+*[Bash]*
+
+**User (sent while the assistant was working):**
+
+Did your suggestion to leave away $$$CONTEXT_INFO$$$ when moving from v2 to v3 break things?
+
+*[Bash]*
+
+**Assistant:**
+
+Fixed: one real top cell, `sg13cmos5l_ocd_chipalooza`, with 695 cells and 14.5 MB. Two prefixed `$$$CONTEXT_INFO$$$` cells are also left as top cells, so I'm checking where they come from:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Netcheck: all 13 OK. Slot LVS: all 5 sub-blocks match uniquely. Now the DRC of the slot-7 area, with the same clip as v2:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+Slot LVS port errors are naming only, the same as v2. Running the DRC clip, in the background:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+While the DRC runs, the images. Checking the earlier renderer:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Read]*
+
+**Assistant:**
+
+The PNG renders, but one layer hatches the whole area and hides the circuits. Checking which layer that is:
+
+*[Bash]*
+
+**Assistant:**
+
+No layer covers the area. The cause is the renderer: `show_layout` adds every layer of the file by default, including the boundary layers, so they all got drawn. Clearing that list first:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Read]*
+
+*[Read]*
+
+**Assistant:**
+
+Both images are good. Sending them:
+
+*[SendUserFile]*
+
+*[Bash]*
+
+**Assistant:**
+
+The images are sent. The DRC is still running. Meanwhile I'm writing the RUNLOG notes for steps 11–13:
+
+*[Bash]*
+
+*[Monitor]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The regenerated views differ only in timestamps (magic) and dates (GDS, archive). Committing them, as for v2, to keep the tree clean:
+
+*[Bash]*
+
+**Assistant:**
+
+For v3 so far, everything that touches slot 7 is OK. The slot-area DRC is still running (about 2 minutes); I'll report it when it's done.
+
+- **Harness flow:** Tim's sequence runs clean with `s7_version` = `158afc5`.
+- **Netcheck:** all 13 custom-pad nets OK.
+- **Slot LVS with magic and netgen:** all 5 sub-blocks match uniquely, with no cell rename needed now. The top level still reports only the same pin-naming mismatches as v2.
+- **The first broken chip GDS was my environment, not v3.** This container's PDK lacks the SRAM GDS, so magic stopped writing partway. Tim's script still reported "Done!" and exit 0. I'm noting that for Tim. With the SRAM overlay the chip GDS is complete: one top cell, 695 cells.
+
+Answers to your questions:
+- **Was the v2 that Tim took in OK?** Yes.
+- **Did dropping `$$$CONTEXT_INFO$$$` from `slot_7.gds` break anything?** No. The two context cells left in the chip come from the two pad GDS files, which haven't changed since v2.
+- **Is v3 ready for Tim?** It's already in his hands: his `config.txt` follows slot7 `main`. Nothing I've found breaks his flow, and he needs no new files.
+
+Everything is pushed on the fork, branch `claude/slot7-v3-harness-test`, head `a1b8e70`, including both images and the RUNLOG.
+
+After the DRC result I'll start the full-chip fill and top-level LVS, as you asked.
+
+*[Bash]*
+
+**Assistant:**
+
+Exit 1 is expected whenever violations exist; v2 did the same. Comparing the items 2 µm or more inside the clip (excluding cut edges) against v2:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The interior results are identical to v2: the same 69 recommended Pad.* items. Checking antenna and the totals:
+
+*[Bash]*
+
+**Assistant:**
+
+DRC of the slot-7 area is identical to v2 in every count: 2912 items in all, antenna 0, and the same 69 recommended Pad.* items inside. Recording that, then starting the full-chip fill:
+
+*[Bash]*
+
+**Assistant:**
+
+4 CPUs and 15 GB. I'm running fill, then `gds-final`, then `extract-top`, then `lvs-top` in the background, all with the SRAM overlay:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The slot-7 area DRC came out identical to v2. The counts are the same: antenna 0 and the same 69 recommended Pad.* items, so the art adds no DRC item. That completes your items 1–2 and the slot-7 DRC, with no problem from v3. It's recorded in RUNLOG entry 14 on `claude/slot7-v3-harness-test`.
+
+Full-chip fill, final GDS, top-level extraction and top-level LVS are now running in the background, probably for an hour or more. I'll report when they're done.
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The fill, final GDS, top-level extraction and top-level LVS are still running in the background. The partial logs are pushed as `0f61a85`. The three `gds/generate_fill*.tcl` files are temporary and `generate_fill.py` deletes them when the fill finishes. I'll commit the rest when the background run finishes.
+
+*[Bash]*
+
+**Assistant:**
+
+All four steps exited 0 in about 14 minutes. Checking whether the fill kept out of the art box, and the top-level LVS result:
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The fill kept out of the art box on every layer: no filler there at all, while the rest of slot 7 got thousands of filler shapes per layer. Now the LVS result, and density after fill:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+As predicted, the schematic side of the top still has the old slot-7 pins (`slot7_wrapper/s7_an[1]`, `s7_an_0_esd`): those are the stale xschem sheets. Both custom pads match. Now the density result:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The chip-wide density numbers are not plausible (578%). The density deck picked the wrong chip window. Checking which one:
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+*[Bash]*
+
+**Assistant:**
+
+The final GDS (31.6 MB) is untracked and not ignored, and Tim's repo doesn't track it either. I'm excluding it locally rather than pushing 31 MB:
+
+*[Bash]*
+
+**Assistant:**
+
+Slot 7 v3 (`158afc5`) passes everything that concerns it in Tim's flow, including fill and top-level LVS. The whole full-chip run took 14 minutes.
+
+**v3 for Tim:** it's already his. His `config.txt` follows slot7 `main`, and nothing I found breaks his flow. He needs no new files. The four harness patches are still needed, the same as for v2.
+
+**Fill:** the art box has no filler at all, on any layer, so the art's no-fill markers work in Tim's fill. The rest of slot 7 is filled normally.
+
+**Density after fill:**
+- In the slot-7 window, only Activ is low: 31.9% against a 35% minimum, and the art box is the likely reason. That rule applies to the whole chip, though, not per slot.
+- Chip-wide, every layer is within limits except Metal4, at 60.2% against a 60% maximum. Slot 7's own Metal4 is lower, at 45.7%, so this is a fill finding for Tim, not for the slot.
+
+**Top-level LVS:** it fails, but nothing failing is in slot 7.
+- `slot7_wrapper` and both custom pads match.
+- The failures are in foundry pads and clamps, Tim's own blocks (bandgap, classab buffer, POR, …), the frame and the top.
+- The slot-7 part of the top-level mismatch comes from the harness xschem sheets, which still have the old slot-7 pins.
+
+**Findings for Tim, none in slot 7:**
+1. `run_gen_prefill_gds.sh` says "Done!" and exits 0 even when magic writes a truncated GDS.
+2. The KLayout density check takes the seal ring's own area as the chip area, so its chip-wide percentages are wrong (Activ "578%"). I recomputed them with the real chip size.
+3. Chip Metal4 density is 60.2% after fill.
+4. The xschem sheets need updating for slot 7's custom pads.
+
+Everything is on the fork, branch `claude/slot7-v3-harness-test`, head `ce6d705`. RUNLOG and logs are in `docs/slot7_v3_test/`. The chat log isn't updated yet.
+
+Should I send this summary to the hand-over session too? It asked for the report to go to you.
+
+**User:**
+
+yes, send it, and update the chat log
+
+*[mcp__claude-code-remote__send_message]*
+
+**Assistant:**
+
+Sent. Now the chat log. Checking where the last addition ends:
+
+*[Bash]*
+
+**Assistant:**
+
+I'll regenerate from the same starting point and append only what's new since the last addition:
+
+*[Bash]*
+
