@@ -1,0 +1,3 @@
+cd gds && ../scripts/generate_fill.py sg13cmos5l_ocd_chipalooza.gds.gz -dist
+This script will generate files sg13cmos5l_ocd_chipalooza_fill_pattern_x_y.gds
+Now generating fill patterns.  This may take. . . quite. . . a while.
