@@ -1,0 +1,67 @@
+./scripts/setup.sh
+
+Magic 8.3 revision 685 - Compiled on Fri Oct 30 17:15:33 UTC 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=20000]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13cmos5l ...
+2 Magic internal units = 1 Lambda
+Input style sg13cmos5l(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock pbase sealcont difffill sealvia1 sealvia2 sealvia3 sealvia4 seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13cmos5l Device Generator Menu ...
+Using technology "ihp-sg13cmos5l", version 1.0.0
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 5.0
+Library name: sg13cmos5l_io
+Reading "sg13cmos5l_Corner".
+Reading "sg13cmos5l_Filler1000".
+Reading "sg13cmos5l_Filler10000".
+Reading "sg13cmos5l_Filler200".
+Reading "sg13cmos5l_Filler2000".
+Reading "sg13cmos5l_Filler400".
+Reading "sg13cmos5l_Filler4000".
+Reading "sg13cmos5l_DCNDiode".
+Reading "sg13cmos5l_Clamp_P20N0D".
+Reading "sg13cmos5l_DCPDiode".
+Reading "sg13cmos5l_SecondaryProtection".
+Reading "sg13cmos5l_Clamp_N20N0D".
+Reading "sg13cmos5l_IOPadAnalog".
+Reading "sg13cmos5l_RCClampResistor".
+Reading "sg13cmos5l_RCClampInverter".
+Reading "sg13cmos5l_Clamp_N43N43D4R".
+Reading "sg13cmos5l_IOPadIOVdd".
+Reading "sg13cmos5l_IOPadIOVss".
+Reading "M2_M1_OS_789120990530".
+Reading "M2_M1_OS_789120990531".
+Reading "sg13g2_SecondaryProtection".
+Reading "sg13cmos5l_LevelDown".
+Reading "sg13cmos5l_IOPadIn".
+Reading "sg13cmos5l_Clamp_P8N8D".
+Reading "sg13cmos5l_io_nand2_x1".
+Reading "sg13cmos5l_io_inv_x1".
+Reading "sg13cmos5l_io_tie".
+Reading "sg13cmos5l_io_nor2_x1".
+Reading "sg13cmos5l_LevelUp".
+Reading "sg13cmos5l_GateDecode".
+Reading "sg13cmos5l_Clamp_N8N8D".
+Reading "sg13cmos5l_IOPadInOut16mA".
+Reading "sg13cmos5l_Clamp_P15N15D".
+Reading "sg13cmos5l_Clamp_N15N15D".
+Reading "sg13cmos5l_IOPadInOut30mA".
+Reading "sg13cmos5l_Clamp_P2N2D".
+Reading "sg13cmos5l_Clamp_N2N2D".
+Reading "sg13cmos5l_IOPadInOut4mA".
+Reading "sg13cmos5l_LevelUpInv".
+Reading "sg13cmos5l_GateLevelUpInv".
+Reading "sg13cmos5l_IOPadOut16mA".
+Reading "sg13cmos5l_IOPadOut30mA".
+Reading "sg13cmos5l_IOPadOut4mA".
+Reading "sg13cmos5l_IOPadTriOut16mA".
