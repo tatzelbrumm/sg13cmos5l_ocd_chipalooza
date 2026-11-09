@@ -57,7 +57,7 @@ Circuit 1: rhigh                           |Circuit 2: rhigh
 Cell pin lists are equivalent.
 Device classes rhigh and rhigh are equivalent.
 Flattening unmatched subcell bg_pnp_c in circuit bg_core_pd (0)(1 instance)
-Flattening unmatched subcell pnpMPA_cell in circuit bg_core_pd (0)(9 instances)
+Flattening unmatched subcell bgc_pnpMPA in circuit bg_core_pd (0)(9 instances)
 Flattening unmatched subcell bg_ms1 in circuit bg_core_pd (0)(1 instance)
 Flattening unmatched subcell pmosHV$13 in circuit bg_core_pd (0)(8 instances)
 Flattening unmatched subcell bg_pmir_pcas_c in circuit bg_core_pd (0)(1 instance)
@@ -345,6 +345,29 @@ Cell slot_7 (0) disconnected node: ibias1
 Cell slot_7 (0) disconnected node: clk
 Cell slot_7 (0) disconnected node: reset
 Cell slot_7 (0) disconnected node: vss_1v2_uq0
+Cell slot_7 (1) disconnected node: clk
+Cell slot_7 (1) disconnected node: reset
+Cell slot_7 (1) disconnected node: ibias0
+Cell slot_7 (1) disconnected node: ibias1
+Cell slot_7 (1) disconnected node: vbias
+Cell slot_7 (1) disconnected node: dig_in[6]
+Cell slot_7 (1) disconnected node: dig_in[7]
+Cell slot_7 (1) disconnected node: dig_in[8]
+Cell slot_7 (1) disconnected node: dig_in[9]
+Cell slot_7 (1) disconnected node: dig_in[10]
+Cell slot_7 (1) disconnected node: dig_in[11]
+Cell slot_7 (1) disconnected node: dig_in[12]
+Cell slot_7 (1) disconnected node: dig_in[13]
+Cell slot_7 (1) disconnected node: dig_in[14]
+Cell slot_7 (1) disconnected node: dig_in[15]
+Cell slot_7 (1) disconnected node: dig_in[16]
+Cell slot_7 (1) disconnected node: dig_in[17]
+Cell slot_7 (1) disconnected node: dig_in[18]
+Cell slot_7 (1) disconnected node: dig_in[19]
+Cell slot_7 (1) disconnected node: dig_in[20]
+Cell slot_7 (1) disconnected node: dig_in[21]
+Cell slot_7 (1) disconnected node: dig_in[22]
+Cell slot_7 (1) disconnected node: dig_in[23]
 Subcircuit summary:
 Circuit 1: slot_7                          |Circuit 2: slot_7                          
 -------------------------------------------|-------------------------------------------
@@ -396,29 +419,29 @@ vss_3v3                                    |vss_3v3
 vdd_3v3                                    |vdd_3v3                                    
 s7_an_1_en_3v3                             |s7_an_0_en_3v3,s7_an_1_en_3v3 **Mismatch** 
 s7_an_1_en_3v3_b                           |s7_an_0_en_3v3_b,s7_an_1_en_3v3_b **Mismat 
-vbias                                      |(no matching pin)                          
-dig_in[23]                                 |(no matching pin)                          
-dig_in[22]                                 |(no matching pin)                          
-dig_in[21]                                 |(no matching pin)                          
-dig_in[20]                                 |(no matching pin)                          
-dig_in[19]                                 |(no matching pin)                          
-dig_in[18]                                 |(no matching pin)                          
-dig_in[17]                                 |(no matching pin)                          
-dig_in[16]                                 |(no matching pin)                          
-dig_in[15]                                 |(no matching pin)                          
-dig_in[14]                                 |(no matching pin)                          
-dig_in[13]                                 |(no matching pin)                          
-dig_in[12]                                 |(no matching pin)                          
-dig_in[11]                                 |(no matching pin)                          
-dig_in[10]                                 |(no matching pin)                          
-dig_in[9]                                  |(no matching pin)                          
-dig_in[8]                                  |(no matching pin)                          
-dig_in[7]                                  |(no matching pin)                          
-dig_in[6]                                  |(no matching pin)                          
-ibias0                                     |(no matching pin)                          
-ibias1                                     |(no matching pin)                          
-clk                                        |(no matching pin)                          
-reset                                      |(no matching pin)                          
+vbias                                      |vbias                                      
+dig_in[23]                                 |dig_in[23]                                 
+dig_in[22]                                 |dig_in[22]                                 
+dig_in[21]                                 |dig_in[21]                                 
+dig_in[20]                                 |dig_in[20]                                 
+dig_in[19]                                 |dig_in[19]                                 
+dig_in[18]                                 |dig_in[18]                                 
+dig_in[17]                                 |dig_in[17]                                 
+dig_in[16]                                 |dig_in[16]                                 
+dig_in[15]                                 |dig_in[15]                                 
+dig_in[14]                                 |dig_in[14]                                 
+dig_in[13]                                 |dig_in[13]                                 
+dig_in[12]                                 |dig_in[12]                                 
+dig_in[11]                                 |dig_in[11]                                 
+dig_in[10]                                 |dig_in[10]                                 
+dig_in[9]                                  |dig_in[9]                                  
+dig_in[8]                                  |dig_in[8]                                  
+dig_in[7]                                  |dig_in[7]                                  
+dig_in[6]                                  |dig_in[6]                                  
+ibias0                                     |ibias0                                     
+ibias1                                     |ibias1                                     
+clk                                        |clk                                        
+reset                                      |reset                                      
 vss_1v2_uq0                                |(no matching pin)                          
 ---------------------------------------------------------------------------------------
 Cell pin lists for slot_7 and slot_7 altered to match.

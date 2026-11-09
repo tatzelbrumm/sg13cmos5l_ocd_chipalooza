@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/user/v2test/docs/slot7_v2_test/netcheck_slot7.py", line 57, in <module>
+    clip = ly.clip(top.cell_index(), db.DBox(x0, y0, x1, y1))
+                   ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cell_index'

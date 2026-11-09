@@ -1,0 +1,11 @@
+CIF file read warning: CIF style sg13cmos5l(): units rescaled by factor of 5 / 1
+Warning:  Ports "analog_bus3" and "s7_an_0_vref" are electrically shorted.
+Warning:  Ports "analog_bus2" and "s7_an_1_vref" are electrically shorted.
+Warning:  Ports "analog_bus2" and "s7_an_0_vcm" are electrically shorted.
+Warning:  Ports "s7_an_1_en_3v3_b" and "s7_an_0_en_3v3_b" are electrically shorted.
+Warning:  Ports "s7_an_1_en_3v3" and "s7_an_0_en_3v3" are electrically shorted.
+Warning:  Ports "analog_bus3" and "s7_an_0_vref" are electrically shorted.
+Warning:  Ports "analog_bus2" and "s7_an_1_vref" are electrically shorted.
+Warning:  Ports "analog_bus2" and "s7_an_0_vcm" are electrically shorted.
+Warning:  Ports "s7_an_1_en_3v3_b" and "s7_an_0_en_3v3_b" are electrically shorted.
+Warning:  Ports "s7_an_1_en_3v3" and "s7_an_0_en_3v3" are electrically shorted.

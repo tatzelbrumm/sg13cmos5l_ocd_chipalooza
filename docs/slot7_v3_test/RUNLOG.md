@@ -81,3 +81,44 @@ Logged with `docs/slot7_v3_test/run.sh` (stdout/stderr teed to `logs/NN_name.{ou
 - command: `make projects-gds SLOTS=7`
 - exit status: 0
 - logs: `logs/10_make_projects-gds_SLOTS=7.out`, `logs/10_make_projects-gds_SLOTS=7.err`
+
+### 11 make_gds-prefill
+- start 2026-11-08T23:56:19Z, end 2026-11-08T23:56:43Z
+- cwd: `/home/user/v2test`
+- command: `make gds-prefill`
+- exit status: 0
+- logs: `logs/11_make_gds-prefill.out`, `logs/11_make_gds-prefill.err`
+
+### 12 netcheck
+- start 2026-11-08T23:56:43Z, end 2026-11-08T23:56:43Z
+- cwd: `/home/user/v2test`
+- command: `python3 docs/slot7_v2_test/netcheck_slot7.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1901.1 2271.1 2096.1 2471.1 --merged s7_an_0_vcm,s7_an_1_vref --merged s7_an_0_en_3v3,s7_an_1_en_3v3 --merged s7_an_0_en_3v3_b,s7_an_1_en_3v3_b`
+- exit status: 1
+- logs: `logs/12_netcheck.out`, `logs/12_netcheck.err`
+
+### 11b make_gds-prefill_sram_overlay
+- start 2026-11-08T23:58:20Z, end 2026-11-09T00:02:05Z
+- cwd: `/home/user/v2test`
+- command: `make gds-prefill`
+- exit status: 0
+- logs: `logs/11b_make_gds-prefill_sram_overlay.out`, `logs/11b_make_gds-prefill_sram_overlay.err`
+
+### 12b netcheck
+- start 2026-11-09T00:02:21Z, end 2026-11-09T00:02:22Z
+- cwd: `/home/user/v2test`
+- command: `python3 docs/slot7_v2_test/netcheck_slot7.py gds/sg13cmos5l_ocd_chipalooza.gds.gz sg13cmos5l_ocd_chipalooza 1901.1 2271.1 2096.1 2471.1 --merged s7_an_0_vcm,s7_an_1_vref --merged s7_an_0_en_3v3,s7_an_1_en_3v3 --merged s7_an_0_en_3v3_b,s7_an_1_en_3v3_b`
+- exit status: 0
+- logs: `logs/12b_netcheck.out`, `logs/12b_netcheck.err`
+
+### 13 lvs_slot7
+- start 2026-11-09T00:02:22Z, end 2026-11-09T00:02:24Z
+- cwd: `/home/user/v2test`
+- command: `bash docs/slot7_v3_test/lvs_slot7.sh`
+- exit status: 0
+- logs: `logs/13_lvs_slot7.out`, `logs/13_lvs_slot7.err`
+- 01-10: exit 0; `make config` without "Bad pad type"; pads, pins, padframe and wrappers unchanged from v2 (the slot repo diff 454da6a..158afc5 touches only final/gds/slot_7.gds, art/, netlist/ additions and docs).
+- 11 (`make gds-prefill` with PDK_ROOT=/foss/pdks): exit 0 but a BROKEN GDS (9.6 MB, 336 cells, no top cell sg13cmos5l_ocd_chipalooza, many top cells). Cause (rerun with magic's exit status and stderr captured): `Calma output error: Can't find GDS file "$PDKPATH/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds"` then `I/O error in writing compressed file ... may be incompletely written`; magic exits 0 and run_gen_prefill_gds.sh ends with `exit 0` regardless. This container's PDK lacks the SRAM GDS (the v2 run used the SRAM overlay PDK_ROOT, entry 19 of the v2 RUNLOG). Not a slot-7 problem. Finding for Tim: run_gen_prefill_gds.sh reports "Done!" on a truncated GDS.
+- 11b: `make gds-prefill` with PDK_ROOT = the SRAM overlay: 14.5 MB, 695 cells, top sg13cmos5l_ocd_chipalooza (plus two prefixed `$$$CONTEXT_INFO$$$` top cells, which come from the two custom pad GDS files, unchanged since v2; slot_7.gds v3 has none).
+- 12b: netcheck: RESULT all 13 pins OK (same --merged groups as v2).
+- 13: slot LVS (docs/slot7_v3_test/lvs_slot7.sh: magic extraction, netgen against the slot's netlist/slot_7_netgen.spice, no rename needed): bg_core_pd, pad_ref_rb, s7_ctrl, s7_doutpd, bias_dist_pd "Netlists match uniquely"; slot_7 "match uniquely with port errors", naming only (comma-joined ports `analog_bus3,s7_an_0_vref` and `s7_an_0_en_3v3,s7_an_1_en_3v3` vs one layout label). Final result "Top level cell failed pin matching" for that reason. No "instanced inside of itself".
+- Images for sharing (user request): docs/slot7_v3_test/images/slot7_v3_pads.{png,svg} from docs/slot7_v3_test/render_slot7.py (region x 1375..2100, y 2165..2475 um of the pre-fill GDS, PDK layer colours; the first PNG showed every layer of the file because show_layout adds them, fixed with clear_layers).

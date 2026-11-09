@@ -1,19 +1,19 @@
 * NGSPICE file created from slot_7.ext - technology: ihp-sg13cmos5l
 
-.subckt pnpMPA_cell a_n200_n200# a_n750_n602# w_n540_n392#
+.subckt bgc_pnpMPA a_n200_n200# a_n750_n602# w_n540_n392#
 X0 a_n750_n602# w_n540_n392# a_n200_n200# pnpMPA a=4p p=8u
 .ends
 
-.subckt bg_pnp_c ea e2 vss
-XpnpMPA_0[0|0] e2 vss vss pnpMPA_cell
-XpnpMPA_0[1|0] e2 vss vss pnpMPA_cell
-XpnpMPA_0[2|0] e2 vss vss pnpMPA_cell
-XpnpMPA_0[0|1] e2 vss vss pnpMPA_cell
-XpnpMPA_0[1|1] ea vss vss pnpMPA_cell
-XpnpMPA_0[2|1] e2 vss vss pnpMPA_cell
-XpnpMPA_0[0|2] e2 vss vss pnpMPA_cell
-XpnpMPA_0[1|2] e2 vss vss pnpMPA_cell
-XpnpMPA_0[2|2] e2 vss vss pnpMPA_cell
+.subckt bg_pnp_c e2 ea vss
+Xbgc_pnpMPA_0[0|0] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[1|0] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[2|0] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[0|1] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[1|1] ea vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[2|1] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[0|2] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[1|2] e2 vss vss bgc_pnpMPA
+Xbgc_pnpMPA_0[2|2] e2 vss vss bgc_pnpMPA
 .ends
 
 .subckt pmosHV$13 a_68_n36# w_n124_n124# a_2568_0# a_0_0#
@@ -190,7 +190,7 @@ XpmosHV$7_0 en_3v3 w_n124_n124# vpg vdd pmosHV$7
 .ends
 
 .subckt bg_core_pd iout en_3v3 en_3v3_b vdd vss
-Xbg_pnp_c_0 bg_n4_0/ea bg_res_c_0/e2 vss bg_pnp_c
+Xbg_pnp_c_0 bg_res_c_0/e2 bg_n4_0/ea vss bg_pnp_c
 Xbg_ms1_0 vdd bg_n4_0/ks en_3v3_b vdd bg_ms1
 Xbg_pmir_pcas_c_0 bg_svpg_0/vpg bg_n4_0/vpc bg_n4_0/g iout vdd vdd bg_pmir_pcas_c
 Xbg_n4_0 bg_n4_0/vpc bg_n4_0/ea bg_n4_0/eb en_3v3_b bg_n4_0/ks bg_n4_0/g vss bg_n4

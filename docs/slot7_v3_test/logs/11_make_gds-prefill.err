@@ -67,3 +67,19 @@ The discovered version will be used.
 Warning:  Parent cell lists instance of "sg13cmos5l_inv_8" at bad file path ../dependencies/sg13cmos5l_ocd_ip__analog_switches/magic/sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
 The cell exists in the search paths at sg13cmos5l_stdcell/sg13cmos5l_inv_8.mag.
 The discovered version will be used.
+Diagnostic:  Clamp_P_M1 is a forward reference?
+Diagnostic:  Clamp_P_M1_wiring is a forward reference?
+Diagnostic:  Clamp_N_M1 is a forward reference?
+Diagnostic:  Clamp_N_M1_wiring is a forward reference?
+Diagnostic:  Clamp_N_M1_wiring$1 is a forward reference?
+Diagnostic:  DCNDiode is a forward reference?
+Diagnostic:  DCPDiode is a forward reference?
+Diagnostic:  rppd$1 is a forward reference?
+Diagnostic:  rppd is a forward reference?
+Diagnostic:  Clamp_P_M1 is a forward reference?
+Diagnostic:  Clamp_N_M1 is a forward reference?
+Diagnostic:  DCPDiode is a forward reference?
+Diagnostic:  DCNDiode is a forward reference?
+Calma output error:  Can't find GDS file "$PDKPATH/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds" for vendor cell "RM_IHPSG13_1P_1024x8_c2_bm_bist".  It will not be output.
+I/O error in writing compressed file ../gds/sg13cmos5l_ocd_chipalooza.gds.gz.
+File may be incompletely written.
