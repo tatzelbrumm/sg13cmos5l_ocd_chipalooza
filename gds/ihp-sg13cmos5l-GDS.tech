@@ -1019,8 +1019,11 @@ style patternfill variants (),(tiled)
         grow    595
 
  layer	MET4FILL met4fill_coarse
-	or	met4fill_medium
-	or	met4fill_fine
+	## NOTE:  This chip is over-density in metal 4 by about 2%.
+	## Reduce the metal4 density by leaving out the medium and
+	## fine fill.
+	# or	met4fill_medium
+	# or	met4fill_fine
  	calma 	50 22
 
 #---------------------------------------------------

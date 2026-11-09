@@ -1,12 +1,12 @@
 ** sch_path: /home/tim/gits/sg13cmos5l_ocd_chipalooza/xschem/sg13cmos5l_ocd_chipalooza.sch
 .subckt sg13cmos5l_ocd_chipalooza SDO analog[3] analog[2] analog[1] analog[0] gpio[11] gpio[10] gpio[9] gpio[8] gpio[7] gpio[6]
-+ gpio[5] gpio[4] gpio[3] gpio[2] gpio[1] gpio[0] vdd3v3 vss3v3 vdd1v2 vss1v2 vddd SDI SCK clk CSB s18_an[1] s18_an[0] s17_an[1] s17_an[0]
++ gpio[5] gpio[4] gpio[3] gpio[2] gpio[1] gpio[0] vdd3v3 vss3v3 vdd1v2 vddd SDI SCK clk CSB s18_an[1] s18_an[0] s17_an[1] s17_an[0]
 + s16_an[1] s16_an[0] s15_an[0] s14_an[2] s14_an[1] s14_an[0] s13_an[1] s13_an[0] s12_an[1] s12_an[0] s11_an[0] s10_an[2] s10_an[1] s10_an[0]
 + s9_an[2] s9_an[1] s9_an[0] s8_an[0] s7_an[1] s7_an[0] s6_an[1] s6_an[0] s5_an[2] s5_an[1] s5_an[0] s4_an[0] s3_an[1] s3_an[0] s2_an[1]
 + s2_an[0] s1_an[1] s1_an[0]
-*.PININFO SDO:B analog[3:0]:B gpio[11:0]:B vdd3v3:B vss3v3:B vdd1v2:B vss1v2:B vddd:B SDI:I SCK:I clk:I CSB:I s18_an[1:0]:B
-*+ s17_an[1:0]:B s16_an[1:0]:B s15_an[0]:B s14_an[2:0]:B s13_an[1:0]:B s12_an[1:0]:B s11_an[0]:B s10_an[2:0]:B s9_an[2:0]:B s8_an[0]:B
-*+ s7_an[1:0]:B s6_an[1:0]:B s5_an[2:0]:B s4_an[0]:B s3_an[1:0]:B s2_an[1:0]:B s1_an[1:0]:B
+*.PININFO SDO:B analog[3:0]:B gpio[11:0]:B vdd3v3:B vss3v3:B vdd1v2:B vddd:B SDI:I SCK:I clk:I CSB:I s18_an[1:0]:B s17_an[1:0]:B
+*+ s16_an[1:0]:B s15_an[0]:B s14_an[2:0]:B s13_an[1:0]:B s12_an[1:0]:B s11_an[0]:B s10_an[2:0]:B s9_an[2:0]:B s8_an[0]:B s7_an[1:0]:B s6_an[1:0]:B
+*+ s5_an[2:0]:B s4_an[0]:B s3_an[1:0]:B s2_an[1:0]:B s1_an[1:0]:B
 x1 vdd1v2 vss1v2 vdd3v3 vss3v3 vddd gpio[11] gpio[10] gpio[9] gpio[8] gpio[7] gpio[6] gpio[5] gpio[4] gpio[3] gpio[2] gpio[1]
 + gpio[0] analog[3] analog[2] analog[1] analog[0] SDO SDI CSB SCK clk s1_an[1] s1_an[0] s2_an[1] s2_an[0] s3_an[1] s3_an[0] s4_an[0]
 + s5_an[2] s5_an[1] s5_an[0] s6_an[1] s6_an[0] s7_an[1] s7_an[0] s8_an[0] s9_an[2] s9_an[1] s9_an[0] s10_an[2] s10_an[1] s10_an[0] s11_an[0]
@@ -36,6 +36,7 @@ x2 vdd3v3 vss3v3 vdd1v2 vss1v2 vddd gpio_out[11] gpio_out[10] gpio_out[9] gpio_o
 + s3_an[1] s16_an[0] s16_an[1] s3_an_0_esd s16_an_0_esd s16_an_1_esd s2_an[0] s2_an[1] s17_an[0] s17_an[1] s2_an_0_esd s17_an_0_esd
 + s2_an_1_esd s17_an_1_esd s1_an[0] s1_an[1] s18_an[0] s18_an[1] s1_an_0_esd s18_an_0_esd s18_an_1_esd s1_an_1_esd s3_an_1_esd s5_an_2_esd
 + s7_an_1_esd s9_an_2_esd chipalooza_frame
+R1 vss1v2 vss3v3 0 m=1
 .ends
 
 * expanding   symbol:  chipalooza_frame.sym # of pins=71
@@ -1159,6 +1160,39 @@ XM1 outs1 ena vdd vdd sg13_hv_pmos w=1u l=0.5u ng=1 m=1 mm_ok=1
 .ends
 
 
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_inv_4.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_inv_4.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_inv_4.sch
+.subckt sg13cmos5l_inv_4 Y A VDD VSS
+
+*.PININFO A:I Y:O
+XM1 Y A VSS VSS sg13_lv_nmos w=2.96u l=130.00n ng=4 m=1 mm_ok=1
+XM2 Y A VDD VDD sg13_lv_pmos w=4.48u l=130.00n ng=4 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_antennanp.sym # of pins=1
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_antennanp.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_antennanp.sch
+.subckt sg13cmos5l_antennanp A VDD VSS
+
+*.PININFO A:I
+XD1 VSS A dantenna l=0.78u w=0.78u
+XD2 A VDD dpantenna l=1.34u w=1.05u
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_decap_4.sym # of pins=0
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_decap_4.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_decap_4.sch
+.subckt sg13cmos5l_decap_4 VDD VSS
+
+
+XM1 VSS VDD VSS VSS sg13_lv_nmos w=420.00n l=1.000u ng=1 m=1 mm_ok=1
+XM2 VDD VSS VDD VDD sg13_lv_pmos w=1.000u l=1.000u ng=1 m=1 mm_ok=1
+.ends
+
+
 * expanding   symbol:  sw_lvl_shift.sym # of pins=4
 ** sym_path: /home/tim/gits/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/sw_lvl_shift.sym
 ** sch_path: /home/tim/gits/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__analog_switches/xschem/sw_lvl_shift.sch
@@ -1263,6 +1297,19 @@ XM4 vdd1v2 out n1 vss sg13_lv_nmos w=2.8u l=0.26u ng=1 m=1 mm_ok=1
 .ends
 
 
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_buf_16.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_buf_16.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_buf_16.sch
+.subckt sg13cmos5l_buf_16 X A VDD VSS
+
+*.PININFO A:I X:O
+XM1 net1 A VSS VSS sg13_lv_nmos w=4.44u l=130.00n ng=6 m=1 mm_ok=1
+XM2 X net1 VSS VSS sg13_lv_nmos w=11.84u l=130.00n ng=16 m=1 mm_ok=1
+XM3 net1 A VDD VDD sg13_lv_pmos w=6.72u l=130.00n ng=6 m=1 mm_ok=1
+XM4 X net1 VDD VDD sg13_lv_pmos w=17.92u l=130.00n ng=16 m=1 mm_ok=1
+.ends
+
+
 * expanding   symbol:  por_stepdown.sym # of pins=7
 ** sym_path: /home/tim/gits/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__por/xschem/por_stepdown.sym
 ** sch_path: /home/tim/gits/sg13cmos5l_ocd_chipalooza/dependencies/sg13cmos5l_ocd_ip__por/xschem/por_stepdown.sch
@@ -1339,6 +1386,32 @@ XM5 S2_N S1_N vdd vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=2 mm_ok=1
 XM6 S2_N S1_N vss vss sg13_hv_nmos w=1u l=0.5u ng=1 m=2 mm_ok=1
 XM7 out S2_N vdd vdd sg13_hv_pmos w=2u l=0.5u ng=1 m=4 mm_ok=1
 XM8 out S2_N vss vss sg13_hv_nmos w=1u l=0.5u ng=1 m=4 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_inv_2.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_inv_2.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_inv_2.sch
+.subckt sg13cmos5l_inv_2 Y A VDD VSS
+
+*.PININFO Y:O A:I
+XM1 Y A VSS VSS sg13_lv_nmos w=1.48u l=130.00n ng=2 m=1 mm_ok=1
+XM2 Y A VDD VDD sg13_lv_pmos w=2.24u l=130.00n ng=2 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_nand3_1.sym # of pins=4
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_nand3_1.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_nand3_1.sch
+.subckt sg13cmos5l_nand3_1 Y A B C VDD VSS
+
+*.PININFO A:I B:I C:I Y:O
+XM1 Y A net1 VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM2 net1 B net2 VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM3 net2 C VSS VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM4 Y A VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
+XM5 Y B VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
+XM6 Y C VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
 .ends
 
 
@@ -1421,6 +1494,32 @@ XM4 outn inp vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1 mm_ok=1
 XM5 out inn vcom avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1 mm_ok=1
 XM6 vcom ena net1 avss sg13_hv_nmos w=20u l=0.5u ng=20 m=1 mm_ok=1
 XM7 avdd avdd avdd avdd sg13_hv_pmos w=2u l=0.5u ng=2 m=2 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_nand2_1.sym # of pins=3
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_nand2_1.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_nand2_1.sch
+.subckt sg13cmos5l_nand2_1 Y A B VDD VSS
+
+*.PININFO A:I B:I Y:O
+XM1 Y A net1 VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM2 net1 B VSS VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM3 Y A VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
+XM4 Y B VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_nor2_1.sym # of pins=3
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_nor2_1.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_nor2_1.sch
+.subckt sg13cmos5l_nor2_1 Y A B VDD VSS
+
+*.PININFO Y:O B:I A:I
+XM1 Y A VSS VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM2 Y B VSS VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM3 net1 A VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
+XM4 Y B net1 VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
 .ends
 
 
@@ -1507,5 +1606,38 @@ XR14 net2 net1 vss rppd w=1.41u l=3.4u m=1 b=0 mm_ok=1
 XR15 net1 bot vss rppd w=1.41u l=3.4u m=1 b=0 mm_ok=1
 XR16 vss vss vss rppd w=1.41u l=3.4u m=1 b=0 mm_ok=1
 XR17 top top vss rppd w=1.41u l=3.4u m=1 b=0 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_inv_8.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_inv_8.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_inv_8.sch
+.subckt sg13cmos5l_inv_8 Y A VDD VSS
+
+*.PININFO Y:O A:I
+XM1 Y A VSS VSS sg13_lv_nmos w=5.92u l=130.00n ng=8 m=1 mm_ok=1
+XM2 Y A VDD VDD sg13_lv_pmos w=8.96u l=130.00n ng=8 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_inv_16.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_inv_16.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_inv_16.sch
+.subckt sg13cmos5l_inv_16 Y A VDD VSS
+
+*.PININFO Y:O A:I
+XM1 Y A VSS VSS sg13_lv_nmos w=11.84u l=130.00n ng=16 m=1 mm_ok=1
+XM2 Y A VDD VDD sg13_lv_pmos w=17.92u l=130.00n ng=16 m=1 mm_ok=1
+.ends
+
+
+* expanding   symbol:  sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym # of pins=2
+** sym_path: /home/tim/gits/ihp-sg13cmos5l/libs.tech/xschem/sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym
+** sch_path: /home/tim/gits/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/sch/xschem/sg13cmos5l_inv_1.sch
+.subckt sg13cmos5l_inv_1 Y A VDD VSS
+
+*.PININFO Y:O A:I
+XM1 Y A VSS VSS sg13_lv_nmos w=740.00n l=130.00n ng=1 m=1 mm_ok=1
+XM2 Y A VDD VDD sg13_lv_pmos w=1.12u l=130.00n ng=1 m=1 mm_ok=1
 .ends
 

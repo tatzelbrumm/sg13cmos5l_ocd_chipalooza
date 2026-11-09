@@ -1,6 +1,6 @@
 magic
 tech ihp-sg13cmos5l
-timestamp 1788899528
+timestamp 1794179573
 << checkpaint >>
 rect 610 320000 220610 330610
 rect 0 256000 234791 320000
@@ -260,4 +260,6 @@ flabel metal5 1820 74320 11400 80900 0 FreeSans 16000 0 0 0 s18_an[0]
 port 61 nsew
 flabel metal5 1820 63320 11400 69900 0 FreeSans 16000 0 0 0 s18_an[1]
 port 62 nsew
+<< properties >>
+string MASKHINTS_BOUND 0 0 221220 331220
 << end >>

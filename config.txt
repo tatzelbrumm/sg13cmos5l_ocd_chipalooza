@@ -80,12 +80,12 @@ s2_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot2_backup
 s3_source:	https://github.com/htfab/hsxo-cpz2
 s4_source:	https://github.com/phdridha12/sg13cmos5l_Wind_Comp
 s5_source:	https://github.com/YacineSot/sg13cmos5l_yacinesot_ip__diff_opamp_cmfb
-s6_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__pll_rosc
+s6_source:	https://github.com/RTimothyEdwards/sg13cmos5l_vyges_ip__pll_rosc
 s7_source:	https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7
 s8_source:	https://github.com/adankvitschal/sg13g2_mh_ip__cmos_vref
 s9_source:	https://github.com/orpheus016/sg13cmos5l_spma_ip__instramp
-s10_source:	https://github.com/lhrodovalho/sg13cmos5l_rodovalho_ip__lpopamp
-s11_source:	https://github.com/vyges/sg13cmos5l_vyges_ip__ldo_capless
+s10_source:	https://github.com/RTimothyEdwards/sg13cmos5l_rodovalho_ip__lpopamp
+s11_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot11_backup
 s12_source:	https://github.com/Belal-Elshinnawey/sg13cmos5l_slot12_backup
 s13_source:	https://github.com/bhagwat-rahul/sg13cmos5l_rahulbhagwat_ip_pll_fractional_n_charge_pump_ring_osc
 s14_source:	https://github.com/Intubun/chipalooza_lvds_pll
