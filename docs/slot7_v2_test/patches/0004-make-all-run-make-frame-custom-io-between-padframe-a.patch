@@ -1,4 +1,4 @@
-From afd3c6cd715ed7a9ea174a4fa5c6a713e780c7da Mon Sep 17 00:00:00 2001
+From 6f8911e863df2bc369496751a1cf8b06e4060f1e Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Sun, 8 Nov 2026 19:34:54 +0000
 Subject: [PATCH 4/4] make all: run make frame-custom-io between padframe and
@@ -13,10 +13,10 @@ Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
  1 file changed, 1 insertion(+)
 
 diff --git a/Makefile b/Makefile
-index 85f4aa1..9ca15d4 100644
+index a5b7ae8..705102f 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -294,6 +294,7 @@ all:
+@@ -297,6 +297,7 @@ all:
  	make clean-config
  	make config
  	make padframe

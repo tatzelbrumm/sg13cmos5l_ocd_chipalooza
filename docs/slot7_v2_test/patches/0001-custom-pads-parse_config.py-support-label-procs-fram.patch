@@ -1,4 +1,4 @@
-From e839258f889a11e03aeac265e53b41291c2a5292 Mon Sep 17 00:00:00 2001
+From 8dda6d39c42366333d04e2b4a8a65833cd920d25 Mon Sep 17 00:00:00 2001
 From: Claude <noreply@anthropic.com>
 Date: Sun, 8 Nov 2026 19:00:50 +0000
 Subject: [PATCH 1/4] custom pads: parse_config.py support, label procs, frame
@@ -46,7 +46,7 @@ Claude-Session: https://claude.ai/code/session_01XU3KH5LbmFCchnNvtB8nAZ
  create mode 100755 scripts/run_update_frame_custom_io.sh
 
 diff --git a/Makefile b/Makefile
-index 2cb719a..85f4aa1 100644
+index c55058b..a5b7ae8 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -67,6 +67,10 @@ check:					## report out-of-date derived views
