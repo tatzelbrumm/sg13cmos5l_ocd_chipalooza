@@ -478,3 +478,86 @@ In a next step, collect the candidate data that it used (CACE, etc., maybe your 
 
 *[Bash: `cd /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7 && python3 - <<'EOF'`]*
 
+**Assistant:** The slot 7 documentation is on `sudel_buecher` in `sudelbuecher/slots/slot_7/`, and the pushed branch is in sync. It describes what was taped out, which is `158afc5`, the "v3 + tughra art" commit of the slot 7 repo.
+
+**A problem with the tapeout branch:** the slot 7 submodule pin at the tip of `tapeout_nov_2026` points at an older commit, `c072679`, the stage B test platform. Your commit `055993f` moved it there after the tapeout commit `7eeb3cb`, which pins `158afc5`, as `config.txt` does. Checking out the tip and running a submodule update would give you the wrong slot 7. The other 20 pins match `config.txt`. I did not change the branch.
+
+I checked the chip GDS `MPC9639.gds.gz` directly:
+- The `slot_7` cell is geometrically identical to `158afc5` on every layer.
+- Against `c072679` it differs on 34 layers.
+- Both custom pad cells match the supplied GDS.
+- The taped-out slot has the bandgap core only; the `oa_core_pd` core was only in the test platform.
+
+- **Circuits (README):** one section per block (bandgap core, bias distribution, replica bias, the S2D and D2S pads, `s7_ctrl`, `s7_doutpd`), then modes and expected values. All numbers are quoted from the colleague's READMEs, not re-simulated.
+- **Readiness (README):** a table of which blocks were kicked off by which session, how far each got, and what is stale or open. I read the C0 and C1 reports but not the C2–C4 chat logs in full.
+- **Glue logic (`glue_logic.md`):** the logic equations and a 16-row truth table, derived by script from the delivered netlist. It also covers the ten-gate switch matrix, the fail-safe level shifter, the static ties and the `dig_out` pull-downs.
+- **Open issues in the design:**
+  - At ss / −40 °C the manual modes did not converge in DC.
+  - In transient, swap and mon stall at the bandgap start-up node.
+  - The early concept note proposed a different key bit than the netlist implements; I followed the netlist.
+- **Tughra:** an aside at the end, with a picture rendered from the chip data. The chip has no filler over it.
+- **Step 2 (`characterization_candidates.md`):** an inventory of CACE suites, testbenches and scripts per block, and a gap table against your example documents. It is an inventory of candidates, not results.
+  - I did not check that each suite matches the taped-out netlist.
+  - I did not read any result CSV.
+  - There are still no per-block key-spec tables, pin tables or pictures.
+
+`log.md` is the running log, and the chatlog was re-exported (verified verbatim, 15 user messages, no reasoning included). The chatlog stops before this final message, so re-export it if you want that included. Whole-chip DRC for slot 7 and any PEX of the whole slot were not checked.
+
+Which block should I characterize first? My suggested order is the default operating point and modes, then `pad_ref_rb`, then `bg_core_pd`. I'd read the result CSVs for that block and write the numbers into this folder with the source commit.
+
+## Turn 16 — 2026-11-22 15:25
+
+**User:** In a first step, look at the characterizations that already exist. and make something that resembles the data sheets in the slot/documentation_examples. You don't need to get fancy with TeX quite yet. Emphasis the quantities you characterized and on CACE run summaries.
+
+**Assistant:** I'll start by reading what the existing CACE summaries look like, how big they are, and which commit each belongs to.
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/s2d/sg13cmos5l_cm_ip__single2diff2single && V=9052bd35928c6d40344e8e686c9abbe736bfa…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad && rm -rf cacex && mkdir cacex && cd s2d/sg13cmos5l_cm_ip__single2diff2single && V=…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/cacex/V && ls macros/pad_ref_rb/verification/cace/results/pad_ref_rb/ | tr '\n' ' '…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/cacex && for spec in "V macros/bias_bg_pd bias_bg_pd" "V macros/en_ctrl_3v3 en_ctrl…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/cacex && ls T/macros/sg13cmos5l_IOPadSingle2Diff/verification/cace/results/ T/macro…`]*
+
+*[Bash: `mkdir -p /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7/datasheets/tools && cat > /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/sl…`]*
+
+## Turn 17 — 2026-11-22 15:26 (sent mid-turn)
+
+**User:** This pertains ONLY to the slot 7 circuit that actually got taped out.
+
+*[Bash: `cd /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7/datasheets && python3 - <<'EOF'`]*
+
+## Turn 18 — 2026-11-22 15:26 (sent mid-turn)
+
+**User:** DO NOT START ADDITIONAL RUNS FOR NOW.
+
+*[Bash: `sed -n 114,141p pad_ref_rb.md | cut -c1-230; C=$(ls -d /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad)/cacex; wc -c $C/V/macros/pad_r…`]*
+
+*[Bash: `python3 - <<'EOF'`]*
+
+**Assistant:** All four generated sheets have only Pass rows. I'll spot-check how a group renders in one of them.
+
+*[Bash: `grep -n '^### ' sg13cmos5l_IOPadSingle2Diff.md | head -40; awk '/^### ac_params/{f=1} f{print} /^### dc_/{if(f&&c++>0)exit}' sg13cmos5l_IOPadSingle2Di…`]*
+
+**Assistant:** Last sheet: the slot-level data from the committed tier-1 result files (`results.txt`, `modes.txt`), embedded verbatim, since there is no CACE suite for the slot as a whole. Then the index.
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/s2d/sg13cmos5l_cm_ip__single2diff2single && V=9052bd35928c6d40344e8e686c9abbe736bfa…`]*
+
+## Turn 19 — 2026-11-22 15:27 (sent mid-turn)
+
+**User:** Well, the test platforms eventually matter. Document the test platforms you generated and their results.
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/s2d/sg13cmos5l_cm_ip__single2diff2single && P=efb8014101ba0afad1235859016592bf511b2…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/s2d/sg13cmos5l_cm_ip__single2diff2single && P=efb8014101ba0afad1235859016592bf511b2…`]*
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/s2d/sg13cmos5l_cm_ip__single2diff2single && P=efb8014101ba0afad1235859016592bf511b2…`]*
+
+**Assistant:** I have the stage A and stage B records. I'll write the test-platform document, embedding the result tables programmatically from the committed summary files so no numbers are retyped.
+
+*[Bash: `cd /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7 && python3 - <<'EOF'`]*
+
+*[Bash: `python3 - <<'EOF'`]*
+

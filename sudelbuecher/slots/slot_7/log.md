@@ -24,6 +24,12 @@ The verbatim chat log is [`../../chatlog/2026-11-22_sonnet_submodule_urls_slot_d
 | 13 | consistency check on the ss −40 °C claim | `modes.txt` (FAILED lines) against the delivery README ("feed and ext pass") | not a conflict: DC does not converge for the manual modes; the power-up transients give feed 0.24 mV and ext 0.04 mV, and swap / mon stall at the bandgap start-up node (RUNLOG rows 121, 122). Both are stated in glue_logic.md §7 |
 | 14 | index and pin correction | `slots/slot_7.md`, `slots/README.md` | taped-out vs tip gitlink stated; links point at `158afc5`; pin-check line added |
 | 15 | user converted the examples file to `documentation_examples.md`; compared the example documents' headings (`slot_15`, `slot_5`, `slot_2` `sbcs`, biasgen `bandgap_v3.md`) with this README | headings of the shallow clones | the gap table in characterization_candidates.md §3: no per-block spec table, pin tables or pictures yet |
+| 16 | user: first step is the existing characterizations as data sheets resembling the examples, emphasis on characterized quantities and CACE run summaries | extracted `macros/<cell>/verification/cace` and `scripts/cace` from the design repository with `git archive` into the scratchpad; looked at `spec_table.py` and the summary format | the per-group summaries repeat all parameters with *Skip* rows; `datasheets/tools/make_datasheet.py` reproduces the non-skipped rows per group with run counts and swept conditions from the yaml and CSV |
+| 17 | user: "do not start additional runs for now" | none started: nothing in this session simulates; the generator only reads committed files | stated in every sheet |
+| 18 | user: the data sheets pertain only to the circuit that was taped out | selection of cells (pads, `pad_ref_rb`, the shifter) with scope banners; excluded `bias_*`, `OgueyAebischerBias`, test-platform results from the sheets | gaps listed in `datasheets/README.md` (`bg_core_pd`, `bias_dist_pd`, `s7_ctrl`, `s7_doutpd`) |
+| 19 | check: `pad_ref_rb` `mm_params` showed 0 runs | the committed `mm_params.csv` is header only | the generator now says so; the summary's min / typ / max are shown as CACE wrote them |
+| 20 | slot-level sheet | `docs/slot7_hookup/tier1/results.txt`, `modes.txt` copied verbatim | `datasheets/slot_7_system.md` |
+| 21 | user: the test platforms eventually matter; document the test platforms and their results | `docs/slot7_testplatform/{PLAN,SUMMARY}.md`, `macros/slot7_testplatform/testbenches/ngspice/results*/summary.md` at `efb80141`, delivery PROGRESS; tables embedded by script from the summary files | [test_platforms.md](test_platforms.md); found SUMMARY.md stale (says stage B not started) |
 
 ## Findings to hand to the owner
 
@@ -38,4 +44,4 @@ The verbatim chat log is [`../../chatlog/2026-11-22_sonnet_submodule_urls_slot_d
 - No result CSV of any CACE suite was read for numbers; the numbers in README sections 2.3 and 2.5 are quoted from the READMEs and `tier1/results.txt`.
 - The whole-chip DRC of `MPC9639` (`validate/`) was not read for slot 7.
 - C2 / C3 / C4 chat logs were not read in full; their dates and agent letters are from the chatlog index and the macro READMEs.
-- No simulation was run in this session.
+- No simulation was run in this session (explicitly requested: no additional runs).
