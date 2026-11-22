@@ -105,7 +105,7 @@ pull-downs); `proj_ena` on; first route all `dig_in` registers to constant 0 (0x
 
 ## 3. Readiness of the blocks that were kicked off
 
-How each block was started, and how far it got by the tapeout. "Kicked off" means a launch brief or cloud session recorded in the design repository (`docs/launch/`
+How each block was started, and how far it got by the tapeout. ("Pass" in the CACE results quoted below means inside the designer's *working limits*; the design is a proof of concept and had no specification. The observed intervals are in [datasheets/](datasheets/README.md).) "Kicked off" means a launch brief or cloud session recorded in the design repository (`docs/launch/`
 on `harness-test`; the `sudelbuecher/cloud_sessions/` briefs and reports and the chat logs on `sudel_buecher`). Readiness is as the blocks' own reports and READMEs state it;
 where a README is older than a later report, the later one is used and the stale statement is named. "In the slot" = present in the taped-out `slot_7` (section 4).
 

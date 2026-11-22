@@ -30,6 +30,8 @@ The verbatim chat log is [`../../chatlog/2026-11-22_sonnet_submodule_urls_slot_d
 | 19 | check: `pad_ref_rb` `mm_params` showed 0 runs | the committed `mm_params.csv` is header only | the generator now says so; the summary's min / typ / max are shown as CACE wrote them |
 | 20 | slot-level sheet | `docs/slot7_hookup/tier1/results.txt`, `modes.txt` copied verbatim | `datasheets/slot_7_system.md` |
 | 21 | user: the test platforms eventually matter; document the test platforms and their results | `docs/slot7_testplatform/{PLAN,SUMMARY}.md`, `macros/slot7_testplatform/testbenches/ngspice/results*/summary.md` at `efb80141`, delivery PROGRESS; tables embedded by script from the summary files | [test_platforms.md](test_platforms.md); found SUMMARY.md stale (says stage B not started) |
+| 22 | user: no pass/fail criteria were specified (proof of concept); define parameters and min/typ/max ex post where no ranges exist | read-only look at CACE's *typ* (it is the **median** of the group: `Vcm` 1.295 V = median of 30 runs, mean 1.306 V) and at the CSV columns (unit labels such as `f3dB[MHz]` hold SI values) | generator extended: `## Specification (ex post facto, as characterized)` per view with min, typ at typical conditions, median, max, runs, corner of min / max; units inferred by matching the CSV to the summary; CACE limits renamed "designer's working limits" and statuses "vs working limit" |
+| 23 | regenerate the four CACE sheets; consistency edits | `make_datasheet.py` on the committed files (no simulation) | `datasheets/*.md`; index, README and glue_logic wording changed from "pass" to "inside the working limits" |
 
 ## Findings to hand to the owner
 

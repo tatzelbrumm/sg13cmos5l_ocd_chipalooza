@@ -561,3 +561,19 @@ Which block should I characterize first? My suggested order is the default opera
 
 *[Bash: `python3 - <<'EOF'`]*
 
+## Turn 20 — 2026-11-22 15:28 (sent mid-turn)
+
+**User:** The characterization didn't specify pass/fail criteria, because the design is proof-of-concept. But we want to specify parameters and min/typ/max intervals ex post facto, if we haven't defined ranges.
+
+*[Bash: `cd /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad/cacex && python3 -I - <<'EOF'`]*
+
+*[Bash: `cd /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7/datasheets && python3 - <<'EOF'`]*
+
+**Assistant:** Regenerating the four CACE sheets, reading only committed files, and checking the new ex-post section.
+
+*[Bash: `C=$(ls -d /tmp/claude-0/-home-user-sg13cmos5l-ocd-chipalooza/*/scratchpad)/cacex; D=https://github.com/tatzelbrumm/sg13cmos5l_cm_ip__single2diff2singl…`]*
+
+*[Bash: `for f in sg13cmos5l_IOPadSingle2Diff sg13cmos5l_IOPadDiff2Single en_ctrl_3v3_level_shifter; do echo "== $f: rows $(grep -c '^| [a-z_0-9]*_params |' $f…`]*
+
+*[Bash: `cd /home/user/sg13cmos5l_ocd_chipalooza/sudelbuecher/slots/slot_7 && python3 - <<'EOF'`]*
+

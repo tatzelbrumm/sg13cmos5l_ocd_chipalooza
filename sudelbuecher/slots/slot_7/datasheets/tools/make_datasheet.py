@@ -46,6 +46,95 @@ def nruns(csvpath):
     except OSError:
         return None
 
+
+import statistics as _st
+_NUM = re.compile(r"^\s*(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\s*(.*?)\s*$")
+
+def parse_val(txt):
+    m = _NUM.match(txt or "")
+    return (float(m.group(1)), m.group(2)) if m else (None, "")
+
+def fnum(v):
+    if v is None: return "—"
+    return f"{v:.4g}"
+
+def read_csv(path):
+    try:
+        with open(path, newline="") as f:
+            return list(csv.DictReader(f))
+    except OSError:
+        return None
+
+def infer_scale(vals, smin, smax):
+    """Scale k such that vals*k reproduces the summary's min and max (the CSV unit labels are unreliable)."""
+    tol = lambda x: max(0.0006, 0.006 * abs(x))
+    cands = []
+    for k in (1, 1e3, 1e6, 1e9, 1e12, 1e-3, 1e-6, 1e-9, 1e-12, 1e2, 1e-2):
+        if abs(min(vals) * k - smin) <= tol(smin) and abs(max(vals) * k - smax) <= tol(smax):
+            cands.append(k)
+    return cands
+
+def expost_rows(groups, d, defaults):
+    """One row per quantity per group: min / typical-condition value / median / max over the CSV, scaled to the summary's unit."""
+    out = []
+    for g, spec in groups.items():
+        sp = os.path.join(d, f"summary_{g}.md")
+        if not os.path.exists(sp):
+            continue
+        srows = [r for r in read_summary(sp) if "Skip" not in r.get("Status", "")]
+        data = read_csv(os.path.join(d, f"{g}.csv"))
+        condkeys = list((spec.get("conditions") or {}).keys())
+        for r in srows:
+            key = r.get("Result", "")
+            smin, u1 = parse_val(r["Min Value"]); styp, u2 = parse_val(r["Typ Value"]); smax, u3 = parse_val(r["Max Value"])
+            unit = u1 or u3 or u2
+            row = dict(group=g, quantity=r["Parameter"], unit=unit, n=None, note="")
+            if not data:
+                row.update(min=smin, typ=None, med=styp, max=smax, nlabel="Monte Carlo (iterations up to %s)" % (
+                    (spec.get("conditions", {}).get("iterations", {}) or {}).get("maximum", "?")),
+                    atmin="", atmax="", note="CACE summary values (per-run CSV not committed)")
+                out.append(row); continue
+            col = next((c for c in data[0].keys() if c.startswith(key + "[")), None)
+            if col is None or smin is None or smax is None:
+                row.update(min=smin, typ=None, med=styp, max=smax, nlabel=str(len(data)), atmin="", atmax="", note="from CACE summary (column not found)")
+                out.append(row); continue
+            try:
+                vals = [float(x[col]) for x in data]
+            except ValueError:
+                continue
+            ks = infer_scale(vals, smin, smax)
+            if not ks:
+                row.update(min=smin, typ=None, med=styp, max=smax, nlabel=str(len(data)), atmin="", atmax="", note="from CACE summary (unit scale of the CSV not resolved)")
+                out.append(row); continue
+            k = ks[0]
+            if len(ks) > 1: row["note"] = "unit scale inferred, ambiguous near 0"
+            sv = [v * k for v in vals]
+            ccols = [c for c in condkeys if c in data[0]]
+            def cond(x): return ", ".join(f"{c}={x[c]}" for c in ccols)
+            imin = min(range(len(sv)), key=lambda i: sv[i]); imax = max(range(len(sv)), key=lambda i: sv[i])
+            # typical-condition rows
+            typrows = []
+            for i, x in enumerate(data):
+                ok = True
+                for c in ccols:
+                    t = (defaults.get(c) or {}).get("typical")
+                    if t is None: continue
+                    xv = x[c]
+                    try: ok = ok and abs(float(xv) - float(t)) < 1e-9
+                    except ValueError: ok = ok and str(xv) == str(t)
+                if ok: typrows.append(sv[i])
+            row.update(min=sv[imin], max=sv[imax], med=_st.median(sv), typ=(_st.median(typrows) if typrows else None),
+                       nlabel=str(len(data)), atmin=cond(data[imin]), atmax=cond(data[imax]))
+            out.append(row)
+    return out
+
+DISCLAIMER = (
+    "The design is a proof of concept and had **no specification** before it was characterized. The limits and verdicts in the CACE files (section 'CACE run summaries') are the "
+    "designer's *working limits*, in part set from earlier measured bands, so *Pass* means \"inside the designer's working limit\", not \"meets a specification\". "
+    "This section instead states, **ex post facto**, the interval each characterized quantity covered: the minimum and maximum over every run of the group's characterization grid "
+    "(corners, temperature, supply, … as listed), the value at typical conditions (default conditions of the CACE file: tt, 27 °C, 3.3 V, typical resistor / PNP corners) where such a run exists, and the median over the group "
+    "(CACE's own *typ* value). It is a description of what was simulated, **not a guarantee**; Monte Carlo rows are the observed range of the sampled iterations, not ±3σ; no silicon was measured.")
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("yaml"); ap.add_argument("out")
@@ -75,13 +164,23 @@ def main():
         L.append(f"| `{n}` | {c.get('typical','')} | {c.get('unit','')} | {c.get('description','')} |")
     L.append("")
     groups = y.get("parameters") or {}
+    defaults = y.get("default_conditions") or {}
     total = {}
+    L += ["## Specification (ex post facto, as characterized)", "", DISCLAIMER, ""]
+    for label, d in (v.split("=", 1) for v in a.view):
+        rows = expost_rows(groups, d, defaults)
+        L += [f"### View: {label}", "", "| group | quantity | unit | min | typ (typical conditions) | median | max | runs | where min / where max |", "|---|---|---|---:|---:|---:|---:|---|---|"]
+        for r in rows:
+            where = (r["atmin"] + " / " + r["atmax"]) if r["atmin"] or r["atmax"] else r["note"]
+            if r["atmin"] and r["note"]: where += f" ({r['note']})"
+            L.append(f"| {r['group']} | {r['quantity']} | {r['unit']} | {fnum(r['min'])} | {fnum(r['typ'])} | {fnum(r['med'])} | {fnum(r['max'])} | {r['nlabel']} | {where} |")
+        L.append("")
     sections = []
     for label, d in (v.split("=", 1) for v in a.view):
-        S = [f"## CACE run summaries: {label}", "",
+        S = [f"## CACE run summaries (designer's working limits): {label}", "",
              f"Results directory: `verification/cace/results/{os.path.basename(d)}`. "
              "One table per parameter group, as CACE wrote it in `summary_<group>.md` (rows with status *Skip* belong to other groups and are left out): "
-             "limit and measured minimum / typical / maximum over the runs of the group, and CACE's verdict. *Runs* is the number of rows of the group's CSV.", ""]
+             "the designer's working limits, the measured minimum / typical (median) / maximum over the runs of the group, and CACE's status against those limits (*not* a specification check). *Runs* is the number of rows of the group's CSV.", ""]
         counts = {"Pass": 0, "Fail": 0, "other": 0}
         gl = []
         for g, spec in groups.items():
@@ -98,7 +197,7 @@ def main():
             rt = ("n/a (no CSV in the results directory)" if runs is None else
                   f"{runs}" if runs else "0 rows in the committed CSV (header only: the per-run data were not committed; the values below are CACE's own summary)")
             G += [f"*Runs:* {rt}  ", f"*Swept conditions:* {ctext or 'default only'}  ", ""]
-            G += ["| quantity | min limit | min value | typ value | max limit | max value | status |", "|---|---:|---:|---:|---:|---:|---|"]
+            G += ["| quantity | working min limit | min value | typ (median) | working max limit | max value | vs working limit |", "|---|---:|---:|---:|---:|---:|---|"]
             for r in rows:
                 st = r["Status"]
                 key = "Pass" if "Pass" in st else "Fail" if "Fail" in st else "other"
@@ -107,7 +206,7 @@ def main():
             G.append("")
             gl += G
             sections.append((label, g, runs, len(rows)))
-        S += [f"**Verdicts in this view:** {counts['Pass']} pass, {counts['Fail']} fail, {counts['other']} other (rows of all groups).", ""]
+        S += [f"**Rows in this view:** {counts['Pass']} inside the working limits, {counts['Fail']} outside, {counts['other']} other (one row per quantity and group; not run counts).", ""]
         S += gl
         total[label] = counts
         L += S
