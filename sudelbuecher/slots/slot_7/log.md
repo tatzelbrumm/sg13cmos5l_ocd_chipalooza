@@ -10,7 +10,7 @@ The verbatim chat log is [`../../chatlog/2026-11-22_sonnet_submodule_urls_slot_d
 | # | step | how | result |
 |---|---|---|---|
 | 1 | request: document slot 7 as taped out in November, from what the colleague's handover actually put on the tapeout; then collect the characterization data; keep chat log and running logs current | user message | scope: README for the circuits; candidates file for step 2 |
-| 2 | read the examples file | `sudelbuecher/slots/documentation_examples.txt` (the user wrote `.md`; the file is `.txt`) | bandgap docs (biasgen `doc/`, tinyBGR README, slot 2 `sbcs` README) and a class-AB reference (slot 5 repo) as style examples |
+| 2 | read the examples file | `sudelbuecher/slots/documentation_examples.txt` (the user wrote `.md`; at that time the file was `.txt`; converted to `.md` later, row 15) | bandgap docs (biasgen `doc/`, tinyBGR README, slot 2 `sbcs` README) and a class-AB reference (slot 5 repo) as style examples |
 | 3 | which slot 7 commit was taped out | `config.txt` `s7_version`; `git ls-tree` of `dependencies/slot_7` at tapeout commit `7eeb3cb` and at the tip | **taped out: `158afc5`** (v3 + tughra art). The gitlink at the tip (`055993f`, later the same day) is `c072679` (stage B test platform). Only slot 7 differs among the 21 pins |
 | 4 | what is in the delivery repository at `158afc5` | shallow clone of `tatzelbrumm/sg13cmos5l_cm_slot7`, `git archive 158afc5` | README, `docs/{FOR_TIM,slot_7,PROGRESS}.md`, `final/{gds,lef,lib,vh}`, `pads/`, `netlist/`, `art/`, copies of `bg_core_pd` and `oa_core_pd` |
 | 5 | is that what is in the chip | KLayout 0.30: load `gds/MPC9639.gds.gz`; take cell `slot_7`; flatten and merge per layer; XOR against `final/gds/slot_7.gds` of `158afc5` and of `c072679` | `158afc5`: XOR 0 on every layer; `c072679`: differs on 34 layers. Children are the six blocks (`YX_` prefix). Chip origin of `slot_7`: (1379.95, 2170.05) µm |
@@ -23,6 +23,7 @@ The verbatim chat log is [`../../chatlog/2026-11-22_sonnet_submodule_urls_slot_d
 | 12 | user: the glue logic built on short notice is as important | `netlist/slot_7.spice` at `158afc5` (`s7_ctrl`, `s7_doutpd`, `slot_7`), `en_ctrl_3v3` README, `tier1/modes.txt`, `CONCEPT.md`, RUNLOG rows 121–123 | [glue_logic.md](glue_logic.md): equations and truth table derived from the netlist by script (16 rows, asserts on the default and the no-enable case), switch matrix, static ties, `dig_out` pull-downs, verification table |
 | 13 | consistency check on the ss −40 °C claim | `modes.txt` (FAILED lines) against the delivery README ("feed and ext pass") | not a conflict: DC does not converge for the manual modes; the power-up transients give feed 0.24 mV and ext 0.04 mV, and swap / mon stall at the bandgap start-up node (RUNLOG rows 121, 122). Both are stated in glue_logic.md §7 |
 | 14 | index and pin correction | `slots/slot_7.md`, `slots/README.md` | taped-out vs tip gitlink stated; links point at `158afc5`; pin-check line added |
+| 15 | user converted the examples file to `documentation_examples.md`; compared the example documents' headings (`slot_15`, `slot_5`, `slot_2` `sbcs`, biasgen `bandgap_v3.md`) with this README | headings of the shallow clones | the gap table in characterization_candidates.md §3: no per-block spec table, pin tables or pictures yet |
 
 ## Findings to hand to the owner
 

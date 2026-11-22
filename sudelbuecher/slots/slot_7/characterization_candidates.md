@@ -49,7 +49,22 @@ All in the design repository, branch `claude/c4-replica-bias` / `toplevel`:
 | `docs/slot7_testplatform/`, `macros/slot7_testplatform/testbenches/ngspice` | the earlier test platform (stage A / B): PVT runs of the bias cores and the bias tree; not the taped-out circuit |
 | `sudelbuecher/chatlog/`, per-session `ref/` (branch `sudel_buecher`) | the chat logs and run logs where the numbers were produced; the delivery's README points there |
 
-## 3. Suggested next step
+## 3. Gap against the example documentation
+
+[`../documentation_examples.md`](../documentation_examples.md) lists the examples to follow (biasgen `doc/` bandgap, slot 15 tinyBGR README, slot 2 `sbcs` README, slot 5 class-AB README).
+Their common structure: description, **key specifications** (table with limits), architecture, pins, default conditions, schematic, layout, simulation results (pre-layout, post-layout /
+PEX, Monte Carlo mismatch). What [README.md](README.md) has and lacks against it:
+
+| example section | in the slot 7 README | missing |
+|---|---|---|
+| description, architecture | sections 2.1, 2.3 | per-block schematic pictures (the design repository has `schematic/*.svg` for `slot_7`, `s7_ctrl`, `s7_doutpd`) |
+| key specifications | quoted figures in 2.3 and 2.5 | a spec table per block with min / typ / max over PVT: needs the result CSVs of section 1 |
+| pins | section 4.2 (pad pins), glue_logic.md (`s7_ctrl` ports) | pin tables of `bg_core_pd`, `bias_dist_pd`, `pad_ref_rb` (ports are in the macro READMEs) |
+| default conditions | 2.4 (default mode) | the PVT grid of the characterization (tier-1: tt / ss / ff / fs / sf × −40 / 27 / 125 °C × 3.0 / 3.3 / 3.6 V) stated per block |
+| layout | 4.3 (hierarchy, sizes, positions) | per-block layout pictures |
+| simulation results | 2.5, glue_logic.md §7 | post-layout (PEX) and Monte Carlo results per block: they exist for the pads (S2D: 414 / 414 runs, schematic and extracted) and `bg_core_pd` (C1), not for `bias_dist_pd`, `s7_ctrl` |
+
+## 4. Suggested next step
 
 Pick the blocks in this order of value for a datasheet of slot 7: (1) the modes and the default operating point (tier-1 results, needs the
 extracted `158afc5` netlist re-run), (2) `pad_ref_rb` (`vcm`, `vref` over PVT), (3) `bg_core_pd` (start-up, which is also where the open ss / −40 °C swap and
