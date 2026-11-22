@@ -8,10 +8,11 @@
 
 ## Documentation
 
-Not checked (not a GitHub repository).
+- [README.md](https://bitbucket.org/chrisgj198/sg13cmos5l_chipalooza2_lc_vco/src/HEAD/README.md)
+- [xschem/README_cmomq.txt](https://bitbucket.org/chrisgj198/sg13cmos5l_chipalooza2_lc_vco/src/HEAD/xschem/README_cmomq.txt)
 
 ## Notes
 
-Bitbucket repo, documentation not checked.
+Bitbucket repository; read from a shallow clone on 2026-11-22 after allowing `bitbucket.org` in the cloud environment. Only the two files above matched README/doc patterns; no `doc/` folder.
 
 *Links point at the default branch (`HEAD`) and were read from a shallow clone on 2026-11-22; they may move.*
