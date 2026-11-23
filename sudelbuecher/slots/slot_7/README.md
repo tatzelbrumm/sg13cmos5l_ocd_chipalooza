@@ -4,7 +4,7 @@ SPDX-License-Identifier: Apache-2.0
 -->
 # Slot 7: custom S2D / D2S pad pair with a bandgap-referenced replica bias (as taped out, November 2026)
 
-Designer: Maier. Slot 7 turns a single-ended pad signal into a differential pair and back: two custom analog pads, a bandgap, a
+Designer: Christoph Maier. Slot 7 turns a single-ended pad signal into a differential pair and back: two custom analog pads, a bandgap, a
 bias distribution and replica-bias block that give the pads their reference currents and common-mode / reference voltages, and a small
 3.3 V control block with fail-safe enables. Sections 2 and 3 are the electrical documentation and the state of readiness of each block (the glue logic, which is as important as the circuits, has its own page: [glue_logic.md](glue_logic.md));
 the pins, layout hierarchy and verification follow; the tughra art is an aside at the end. Running log of how this page was assembled:

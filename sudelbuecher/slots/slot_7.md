@@ -1,7 +1,7 @@
 # slot_7
 
 - **Slot:** 7
-- **Circuit / designer:** Maier, differential <-> single-ended drivers
+- **Circuit / designer:** Christoph Maier, differential <-> single-ended drivers
 - **Repository:** <https://github.com/tatzelbrumm/sg13cmos5l_cm_slot7>
 - **Taped-out commit** (`config.txt` `s7_version`, and the submodule gitlink at tapeout commit `7eeb3cb`): `158afc5afab0056bd6d216a4db3833e34a364949`
 - **Gitlink at the branch tip** (commit `055993f`, after the tapeout commit): `c0726799dcf90d068d7ffaf6ab0e6565e1941db3`, an older state (stage B test platform); this does **not** match what was taped out. Details: [slot_7/README.md](slot_7/README.md)
